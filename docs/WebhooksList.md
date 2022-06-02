@@ -1,0 +1,15 @@
+
+
+# WebhooksList
+
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**page** | [**ApplicationProfilesListPage**](ApplicationProfilesListPage.md) |  |  [optional] |
+|**embedded** | [**WebhooksListEmbedded**](WebhooksListEmbedded.md) |  |  [optional] |
+|**links** | [**ListLinks**](ListLinks.md) |  |  [optional] |
+
+
+
