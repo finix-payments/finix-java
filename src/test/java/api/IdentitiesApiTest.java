@@ -14,27 +14,29 @@
 package api;
 
 import invoker.ApiException;
-import invoker.Environment;
-import invoker.FinixClient;
-import model.*;
-import org.junit.jupiter.api.*;
+import model.CreateIdentityRequest;
+import model.Error401Unauthorized;
+import model.Error403ForbiddenList;
+import model.Error404NotFoundList;
+import model.Error406NotAcceptable;
+import model.ErrorGeneric;
+import model.IdentitiesList;
+import model.Identity;
+import model.UpdateIdentityRequest;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 /**
  * API tests for IdentitiesApi
  */
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@DisplayName("When Running IdentitiesApi")
 @Disabled
 public class IdentitiesApiTest {
-    private FinixClient finixClient;
+
     private final IdentitiesApi api = new IdentitiesApi();
 
     /**
@@ -45,95 +47,9 @@ public class IdentitiesApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    @BeforeAll
-    void contextLoads() {
-        finixClient= new FinixClient("USsRhsHYZGBPnQw8CByJyEQW","8a14c2f9-d94b-4c72-8f5c-a62908e5b30e", Environment.SANDBOX);
-        //  System.out.println(finixClient == null);
-        assertEquals(true , finixClient!=null);
-
-    }
-    @Test
     public void createAssociatedIdentityTest() throws ApiException {
         String identityId = null;
-
-        CreateIdentityRequest createIdentityRequest = CreateIdentityRequest.builder()
-                .additionalUnderwritingData(CreateIdentityRequestAdditionalUnderwritingData.builder()
-                        .merchantAgreementAccepted(true)
-                        .merchantAgreementIpAddress("42.1.1.113")
-                        .volumeDistributionByBusinessType(CreateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType
-                                .builder()
-                                .otherVolumePercentage(BigDecimal.valueOf(0))
-                                .consumerToConsumerVolumePercentage(BigDecimal.valueOf(0))
-                                .businessToConsumerVolumePercentage(BigDecimal.valueOf(0))
-                                .businessToBusinessVolumePercentage(BigDecimal.valueOf(100))
-                                .personToPersonVolumePercentage(BigDecimal.valueOf(0))
-                                .build())
-                        .averageAchTransferAmount(BigDecimal.valueOf(200000))
-                        .annualAchVolume(BigDecimal.valueOf(200000))
-                        .creditCheckUserAgent( "Mozilla 5.0(Macintosh; IntelMac OS X 10 _14_6)")
-                        .refundPolicy("MERCHANDISE_EXCHANGE_ONLY")
-                        .creditCheckTimestamp("2021-04-28T16:42:55Z")
-                        .creditCheckAllowed(true)
-                        .merchantAgreementTimestamp("2021-04-28T16:42:55Z")
-                        .businessDescription("SB3 vegan cafe")
-                        .averageCardTransferAmount(BigDecimal.valueOf(200000))
-                        .creditCheckIpAddress("42.1.1.113")
-                        .merchantAgreementUserAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6)")
-                        .cardVolumeDistribution(CreateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution.builder()
-                                .cardPresentPercentage(BigDecimal.valueOf(30))
-                                .mailOrderTelephoneOrderPercentage(BigDecimal.valueOf(10))
-                                .ecommercePercentage(BigDecimal.valueOf(60))
-                                .build())
-                        .build())
-                .tags(Map.of("Studio Rating", "4.7"))
-                .entity(CreateIdentityRequestEntity.builder()
-                        .lastName("Sunkhronos")
-                        .maxTransactionAmount(BigDecimal.valueOf(12000000))
-                        .hasAcceptedCreditCardsPreviously(true)
-                        .defaultStatementDescriptor("Petes Coffee")
-                        .personalAddress(CreateIdentityRequestEntityPersonalAddress.builder()
-                                .city("San Mateo")
-                                .country("USA")
-                                .region("CA")
-                                .line2( "Apartment 7")
-                                .line1("741 Douglass St")
-                                .postalCode("94114")
-                                .build())
-                        .incorporationDate(CreateIdentityRequestEntityIncorporationDate.builder()
-                                .year(BigDecimal.valueOf(1978))
-                                .day(BigDecimal.valueOf(27))
-                                .month(BigDecimal.valueOf(6))
-                                .build())
-                        .businessAddress(CreateIdentityRequestEntityBusinessAddress.builder()
-                                .city("San Mateo")
-                                .country("USA")
-                                .region("CA")
-                                .line2( "Apartment 7")
-                                .line1("741 Douglass St")
-                                .postalCode("94114")
-                                .build())
-                        .ownershipType("PRIVATE")
-                        .firstName("dwayne")
-                        .title("CEO")
-                        .businessTaxId("123456789")
-                        .doingBusinessAs("Petes Coffee")
-                        .principalPercentageOwnership(BigDecimal.valueOf(50))
-                        .email("user@example.org")
-                        .mcc("0742")
-                        .phone("1234567890")
-                        .businessName( "Petes Coffee")
-                        .taxId("123456789")
-                        .businessType("INDIVIDUAL_SOLE_PROPRIETORSHIP")
-                        .businessPhone("+1 (408) 756-4497")
-                        .dob(CreateIdentityRequestEntityDob.builder()
-                                .year(BigDecimal.valueOf(1978))
-                                .day(BigDecimal.valueOf(27))
-                                .month(BigDecimal.valueOf(6))
-                                .build())
-                        .url("www.PetesCoffee.com")
-                        .annualCardVolume(BigDecimal.valueOf(12000000))
-                        .build())
-                .build();
+        CreateIdentityRequest createIdentityRequest = null;
         Identity response = api.createAssociatedIdentity(identityId, createIdentityRequest);
         // TODO: test validations
     }
@@ -146,88 +62,9 @@ public class IdentitiesApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    @DisplayName("Create an Identity for a Merchant")
     public void createIdentityTest() throws ApiException {
-        CreateIdentityRequest createIdentityRequest  = CreateIdentityRequest.builder()
-                .additionalUnderwritingData(CreateIdentityRequestAdditionalUnderwritingData.builder()
-                        .merchantAgreementAccepted(true)
-                        .merchantAgreementIpAddress("42.1.1.113")
-                        .volumeDistributionByBusinessType(CreateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType
-                                .builder()
-                                .otherVolumePercentage(BigDecimal.valueOf(0))
-                                .consumerToConsumerVolumePercentage(BigDecimal.valueOf(0))
-                                .businessToConsumerVolumePercentage(BigDecimal.valueOf(0))
-                                .businessToBusinessVolumePercentage(BigDecimal.valueOf(100))
-                                .personToPersonVolumePercentage(BigDecimal.valueOf(0))
-                                .build())
-                        .averageAchTransferAmount(BigDecimal.valueOf(200000))
-                        .annualAchVolume(BigDecimal.valueOf(200000))
-                        .creditCheckUserAgent( "Mozilla 5.0(Macintosh; IntelMac OS X 10 _14_6)")
-                        .refundPolicy("MERCHANDISE_EXCHANGE_ONLY")
-                        .creditCheckTimestamp("2021-04-28T16:42:55Z")
-                        .creditCheckAllowed(true)
-                        .merchantAgreementTimestamp("2021-04-28T16:42:55Z")
-                        .businessDescription("SB3 vegan cafe")
-                        .averageCardTransferAmount(BigDecimal.valueOf(200000))
-                        .creditCheckIpAddress("42.1.1.113")
-                        .merchantAgreementUserAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6)")
-                        .cardVolumeDistribution(CreateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution.builder()
-                                .cardPresentPercentage(BigDecimal.valueOf(30))
-                                .mailOrderTelephoneOrderPercentage(BigDecimal.valueOf(10))
-                                .ecommercePercentage(BigDecimal.valueOf(60))
-                                .build())
-                        .build())
-                .tags(Map.of("Studio Rating", "4.7"))
-                .entity(CreateIdentityRequestEntity.builder()
-                        .lastName("Sunkhronos")
-                        .maxTransactionAmount(BigDecimal.valueOf(12000000))
-                        .hasAcceptedCreditCardsPreviously(true)
-                        .defaultStatementDescriptor("Petes Coffee")
-                        .personalAddress(CreateIdentityRequestEntityPersonalAddress.builder()
-                                .city("San Mateo")
-                                .country("USA")
-                                .region("CA")
-                                .line2( "Apartment 7")
-                                .line1("741 Douglass St")
-                                .postalCode("94114")
-                                .build())
-                        .incorporationDate(CreateIdentityRequestEntityIncorporationDate.builder()
-                                .year(BigDecimal.valueOf(1978))
-                                .day(BigDecimal.valueOf(27))
-                                .month(BigDecimal.valueOf(6))
-                                .build())
-                        .businessAddress(CreateIdentityRequestEntityBusinessAddress.builder()
-                                .city("San Mateo")
-                                .country("USA")
-                                .region("CA")
-                                .line2( "Apartment 7")
-                                .line1("741 Douglass St")
-                                .postalCode("94114")
-                                .build())
-                        .ownershipType("PRIVATE")
-                        .firstName("dwayne")
-                        .title("CEO")
-                        .businessTaxId("123456789")
-                        .doingBusinessAs("Petes Coffee")
-                        .principalPercentageOwnership(BigDecimal.valueOf(50))
-                        .email("user@example.org")
-                        .mcc("0742")
-                        .phone("1234567890")
-                        .businessName( "Petes Coffee")
-                        .taxId("123456789")
-                        .businessType("INDIVIDUAL_SOLE_PROPRIETORSHIP")
-                        .businessPhone("+1 (408) 756-4497")
-                        .dob(CreateIdentityRequestEntityDob.builder()
-                                .year(BigDecimal.valueOf(1978))
-                                .day(BigDecimal.valueOf(27))
-                                .month(BigDecimal.valueOf(6))
-                                .build())
-                        .url("www.PetesCoffee.com")
-                        .annualCardVolume(BigDecimal.valueOf(12000000))
-                        .build())
-                .build();
-        Identity response = finixClient.Identity.create(createIdentityRequest);
-        //System.out.println(response.toString());
+        CreateIdentityRequest createIdentityRequest = null;
+        Identity response = api.create(createIdentityRequest);
         // TODO: test validations
     }
 
@@ -299,7 +136,9 @@ public class IdentitiesApiTest {
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        IdentitiesList response = api.listAssocaiatedIdentities(identityId, limit, offset, pageNumber, pageSize);
+        Boolean sortSorted = null;
+        Boolean sortUnsorted = null;
+        IdentitiesList response = api.listAssocaiatedIdentities(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
         // TODO: test validations
     }
 

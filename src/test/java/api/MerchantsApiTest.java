@@ -113,7 +113,9 @@ public class MerchantsApiTest {
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        MerchantsList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
+        Boolean sortSorted = null;
+        Boolean sortUnsorted = null;
+        MerchantsList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
         // TODO: test validations
     }
 

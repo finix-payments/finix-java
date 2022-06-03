@@ -16,9 +16,10 @@ package api;
 import invoker.ApiException;
 import invoker.Environment;
 import invoker.FinixClient;
-import invoker.FinixList;
 import model.*;
+
 import org.junit.jupiter.api.*;
+
 
 import java.math.BigDecimal;
 import java.util.Map;
@@ -32,6 +33,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DisplayName("When Running TransferApi")
 @Disabled
 public class TransfersApiTest {
+
     private FinixClient finixClient;
     private final TransfersApi api = new TransfersApi();
     private TestInfo testInfo;
@@ -49,7 +51,7 @@ public class TransfersApiTest {
     @DisplayName("Finix Client")
     void contextLoads() {
         finixClient= new FinixClient("USsRhsHYZGBPnQw8CByJyEQW","8a14c2f9-d94b-4c72-8f5c-a62908e5b30e", Environment.SANDBOX);
-      //  System.out.println(finixClient == null);
+        //  System.out.println(finixClient == null);
         assertEquals(true , finixClient!=null);
 
     }
@@ -75,7 +77,7 @@ public class TransfersApiTest {
 	    "amount": 6031,
 	    "processor": "DUMMY_V1"
 	}*/
-      CreateTransferRequest createTransferRequest = CreateTransferRequest.builder()
+        CreateTransferRequest createTransferRequest = CreateTransferRequest.builder()
                 .source("PIe2YvpcjvoVJ6PzoRPBK137")
                 .merchant("MUeDVrf2ahuKc9Eg5TeZugvs")
                 .tags(Map.of("order_number", "21DFASJSAKAS"))
@@ -88,6 +90,26 @@ public class TransfersApiTest {
         //System.out.println(transfer.toJson());
     }
 
+    /**
+     * Refund or Reverse a Transfer
+     *
+     * Reverse a transfer with a &#x60;type&#x60; of **DEBIT**. This creates a new &#x60;Transfer&#x60; resource with a &#x60;type&#x60; of **REVERSAL**
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    @DisplayName("Refund or Reverse a Transfer")
+    public void createTransferReversalTest() throws ApiException {
+        String transferId = "TRacB6Q6GcW6yvFUKawSnMEP";
+        CreateReversalRequest createReversalRequest = CreateReversalRequest.builder()
+                .refundAmount(BigDecimal.valueOf(100))
+                .tags(Map.of("test" , "refund"))
+                .build();
+        Transfer transfer = finixClient.Transfers.createTransferReversal(transferId, createReversalRequest);
+        assertEquals(BigDecimal.valueOf(100),transfer.getAmount(),()->"Should return " + "100" + " but returns " + transfer.getAmount());
+        // System.out.println(transfer.getState());
+        // TODO: test validations
+    }
     @Test
     @DisplayName("Create a Sale")
     public void createSale() throws ApiException{
@@ -112,6 +134,7 @@ public class TransfersApiTest {
         //System.out.println(transfer.getMerchantIdentity());
     }
 
+
     /**
      * Get a Transfer
      *
@@ -125,26 +148,7 @@ public class TransfersApiTest {
         Transfer transfer = finixClient.Transfers.get("TRvtThmhZtk56z6dtCt8hUDR");
         assertEquals("TRvtThmhZtk56z6dtCt8hUDR", transfer.getId(),()-> "Should return "+"TRvtThmhZtk56z6dtCt8hUDR" + " but returns " +transfer.getId());
     }
-    /**
-     * Refund or Reverse a Transfer
-     *
-     * Reverse a transfer with a &#x60;type&#x60; of **DEBIT**. This creates a new &#x60;Transfer&#x60; resource with a &#x60;type&#x60; of **REVERSAL**
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    @DisplayName("Refund or Reverse a Transfer")
-    public void createTransferReversalTest() throws ApiException {
-        String transferId = "TRacB6Q6GcW6yvFUKawSnMEP";
-        CreateReversalRequest createReversalRequest = CreateReversalRequest.builder()
-                .refundAmount(BigDecimal.valueOf(100))
-                .tags(Map.of("test" , "refund"))
-                .build();
-        Transfer transfer = finixClient.Transfers.createTransferReversal(transferId, createReversalRequest);
-        assertEquals(BigDecimal.valueOf(100),transfer.getAmount(),()->"Should return " + "100" + " but returns " + transfer.getAmount());
-       // System.out.println(transfer.getState());
-        // TODO: test validations
-    }
+
 
     /**
      * List Transfers for an Application
@@ -174,7 +178,9 @@ public class TransfersApiTest {
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        TransfersList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
+        Boolean sortSorted = null;
+        Boolean sortUnsorted = null;
+        TransfersList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
         // TODO: test validations
     }
 
@@ -193,7 +199,9 @@ public class TransfersApiTest {
         Integer pageNumber = null;
         Integer pageSize = null;
         Boolean readyToSettle = null;
-        TransfersList response = api.listByMerchantId(merchantId, limit, offset, pageNumber, pageSize, readyToSettle);
+        Boolean sortSorted = null;
+        Boolean sortUnsorted = null;
+        TransfersList response = api.listByMerchantId(merchantId, limit, offset, pageNumber, pageSize, readyToSettle, sortSorted, sortUnsorted);
         // TODO: test validations
     }
 
@@ -211,7 +219,9 @@ public class TransfersApiTest {
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        TransfersList response = api.listByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize);
+        Boolean sortSorted = null;
+        Boolean sortUnsorted = null;
+        TransfersList response = api.listByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
         // TODO: test validations
     }
 
@@ -236,15 +246,16 @@ public class TransfersApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-    //@Test
+   // @Test
     public void listTransferReversalsTest() throws ApiException {
         String transferId = null;
         Integer limit = null;
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        TransfersList response = api.listTransfersReversals(transferId, limit, offset, pageNumber, pageSize);
-        System.out.println(response.toJson());
+        Boolean sortSorted = null;
+        Boolean sortUnsorted = null;
+        TransfersList response = api.listTransfersReversals(transferId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
         // TODO: test validations
     }
 
@@ -268,7 +279,7 @@ public class TransfersApiTest {
         Integer amountLt = null;
         String createdAtGte = null;
         String createdAtLte = null;
-       String idempotencyId = null;
+        String idempotencyId = null;
         String id = null;
         String state = null;
         String readyToSettleAtGte = null;
@@ -290,13 +301,7 @@ public class TransfersApiTest {
         String merchantProcessorId = null;
         String type = null;
         TransfersList transfersList = finixClient.Transfers.list(sort, offset, limit, amount, amountGte, amountGt, amountLte, amountLt, createdAtGte, createdAtLte, idempotencyId, id, state, readyToSettleAtGte, readyToSettleAtLte, statementDescriptor, traceId, updatedAtGte, updatedAtLte, instrumentBin, instrumentAccountLast4, instrumentBrandType, merchantIdentityId, merchantIdentityName, instrumentName, instrumentType, merchantId, merchantMid, instrumentCardLast4, merchantProcessorId, type);
-       // FinixList<Transfer> finixList = finixClient.Transfers.list(sort, offset, limit, amount, amountGte, amountGt, amountLte, amountLt, createdAtGte, createdAtLte, idempotencyId, id, state, readyToSettleAtGte, readyToSettleAtLte, statementDescriptor, traceId, updatedAtGte, updatedAtLte, instrumentBin, instrumentAccountLast4, instrumentBrandType, merchantIdentityId, merchantIdentityName, instrumentName, instrumentType, merchantId, merchantMid, instrumentCardLast4, merchantProcessorId, type);
-       //FinixList<Reversal> reversalFinixList = finixList.Transfer.listNext
-       // System.out.println(finixList.toString());
-        ;
-        //  System.out.println(transfersList.toString());
-        assertEquals(20,transfersList.getPage().getLimit(),()->"Should return " + "20" + " but returns " + transfersList.getPage().getLimit());
-}
+       assertEquals(20,transfersList.getPage().getLimit(),()->"Should return " + "20" + " but returns " + transfersList.getPage().getLimit()); }
 
     /**
      * Update a Transfer

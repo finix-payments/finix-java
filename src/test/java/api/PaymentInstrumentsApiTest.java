@@ -14,36 +14,31 @@
 package api;
 
 import invoker.ApiException;
-import invoker.Environment;
-import invoker.FinixClient;
-import model.*;
-import okhttp3.Request;
-import org.junit.jupiter.api.*;
+import model.CreatePaymentInstrumentRequest;
+import model.Error401Unauthorized;
+import model.Error403ForbiddenList;
+import model.Error404NotFoundList;
+import model.Error406NotAcceptable;
+import model.ErrorGeneric;
 import model.PaymentInstrument;
+import model.PaymentInstrumentUpdatesList;
+import model.PaymentInstrumentsList;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 /**
  * API tests for PaymentInstrumentsApi
  */
 @Disabled
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class PaymentInstrumentsApiTest {
-    private FinixClient finixClient;
+
     private final PaymentInstrumentsApi api = new PaymentInstrumentsApi();
 
-    @Test
-    @BeforeAll
-     void contextLoads() {
-        finixClient= new FinixClient("USsRhsHYZGBPnQw8CByJyEQW","8a14c2f9-d94b-4c72-8f5c-a62908e5b30e", Environment.SANDBOX);
-        //  System.out.println(finixClient == null);
-        assertEquals(true , finixClient!=null);
-
-    }
     /**
      * Create a Payment Instrument
      *
@@ -52,36 +47,9 @@ public class PaymentInstrumentsApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    @DisplayName("Create a Bank Account")
     public void createPaymentInstrumentTest() throws ApiException {
-        /* "account_type": "SAVINGS",
-	    "name": "Alice",
-	    "tags": {
-	        "Bank Account": "Company Account"
-	    },
-	    "country": "USA",
-	    "bank_code": "123123123",
-	    "account_number": "123123123",
-	    "type": "BANK_ACCOUNT",
-	    "identity": "IDpYDM7J9n57q849o9E9yNrG"*/
-        FinixClient finixClient = new FinixClient("USsRhsHYZGBPnQw8CByJyEQW","8a14c2f9-d94b-4c72-8f5c-a62908e5b30e", Environment.SANDBOX);
-      /*  CreatePaymentInstrumentRequest createPaymentInstrumentRequest = CreatePaymentInstrumentRequest
-                .builder()
-                .accountType(PaymentInstrument.AccountTypeEnum.SAVINGS)
-                .name("Alice")
-                .tags(Map.of("Bank Account", "Company Account"))
-                .country(Country.USA)
-                .bankCode("123123123")
-                .maskedAccountNumber("123123123")
-                .type(PaymentInstrument.TypeEnum.BANK_ACCOUNT)
-                .identity("IDpYDM7J9n57q849o9E9yNrG")
-                .build();
-    */
-        CreatePaymentInstrumentRequest createPaymentInstrumentRequest = CreatePaymentInstrumentRequest
-                .builder()
-                .type(CreatePaymentInstrumentRequest.TypeEnum.PAYMENT_CARD)
-                .build();
-      //  PaymentInstrument response = api.create(createPaymentInstrumentRequest);
+        CreatePaymentInstrumentRequest createPaymentInstrumentRequest = null;
+        PaymentInstrument response = api.create(createPaymentInstrumentRequest);
         // TODO: test validations
     }
 
@@ -127,7 +95,9 @@ public class PaymentInstrumentsApiTest {
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        PaymentInstrumentsList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
+        Boolean sortSorted = null;
+        Boolean sortUnsorted = null;
+        PaymentInstrumentsList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
         // TODO: test validations
     }
 
@@ -145,7 +115,9 @@ public class PaymentInstrumentsApiTest {
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        PaymentInstrumentUpdatesList response = api.listUpdatesByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize);
+        Boolean sortSorted = null;
+        Boolean sortUnsorted = null;
+        PaymentInstrumentUpdatesList response = api.listUpdatesByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
         // TODO: test validations
     }
 
@@ -162,6 +134,8 @@ public class PaymentInstrumentsApiTest {
         Integer offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
+        Boolean sortSorted = null;
+        Boolean sortUnsorted = null;
         String accountLast4 = null;
         String accountRoutingNumber = null;
         String application = null;
@@ -174,7 +148,7 @@ public class PaymentInstrumentsApiTest {
         String name = null;
         String ownerIdentityId = null;
         String type = null;
-        PaymentInstrumentsList response = api.list(limit, offset, pageNumber, pageSize, accountLast4, accountRoutingNumber, application, bin, createdAtGte, createdAtLte, expirationMonth, expirationYear, lastFour, name, ownerIdentityId, type);
+        PaymentInstrumentsList response = api.list(limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted, accountLast4, accountRoutingNumber, application, bin, createdAtGte, createdAtLte, expirationMonth, expirationYear, lastFour, name, ownerIdentityId, type);
         // TODO: test validations
     }
 
@@ -192,7 +166,9 @@ public class PaymentInstrumentsApiTest {
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        PaymentInstrumentsList response = api.listByTransferId(transferId, limit, offset, pageNumber, pageSize);
+        Boolean sortSorted = null;
+        Boolean sortUnsorted = null;
+        PaymentInstrumentsList response = api.listByTransferId(transferId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
         // TODO: test validations
     }
 
@@ -205,15 +181,9 @@ public class PaymentInstrumentsApiTest {
      */
     @Test
     public void putPaymentInstrumentTest() throws ApiException {
-
-        String paymentInstrumentId = "IUp9oSWhWUF31DPrJ8CojQeQ";
-        Authorization authorization = Authorization.builder().merchantIdentity("MUucec6fHeaWo3VHYoSkUySM")
-                .idempotencyId("123xyz")
-
-                .build();
-        Object body = authorization;
-        PaymentInstrument response = finixClient.PaymentInstrument.update(paymentInstrumentId, body);
-        response.toString();
+        String paymentInstrumentId = null;
+        Object body = null;
+        PaymentInstrument response = api.update(paymentInstrumentId, body);
         // TODO: test validations
     }
 

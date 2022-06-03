@@ -81,7 +81,9 @@ public class VerificationsApiTest {
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        VerificationsList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
+        Boolean sortSorted = null;
+        Boolean sortUnsorted = null;
+        VerificationsList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
         // TODO: test validations
     }
 
@@ -99,7 +101,9 @@ public class VerificationsApiTest {
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        VerificationsList response = api.listByMerchantId(merchantId, limit, offset, pageNumber, pageSize);
+        Boolean sortSorted = null;
+        Boolean sortUnsorted = null;
+        VerificationsList response = api.listByMerchantId(merchantId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
         // TODO: test validations
     }
 
@@ -117,7 +121,9 @@ public class VerificationsApiTest {
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        VerificationsList response = api.listByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize);
+        Boolean sortSorted = null;
+        Boolean sortUnsorted = null;
+        VerificationsList response = api.listByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
         // TODO: test validations
     }
 

@@ -14,37 +14,31 @@
 package api;
 
 import invoker.ApiException;
-import invoker.Environment;
-import invoker.FinixClient;
 import model.CreateDisputeEvidenceRequest;
 import model.Dispute;
 import model.DisputeEvidence;
 import model.DisputeEvidenceList;
 import model.DisputesList;
-import org.junit.jupiter.api.*;
+import model.Error401Unauthorized;
+import model.Error403ForbiddenList;
+import model.Error404NotFoundList;
+import model.Error406NotAcceptable;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
-import java.io.File;
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * API tests for DisputesApi
  */
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@DisplayName("When Running DisputesApiDisputesApi")
 @Disabled
 public class DisputesApiTest {
 
     private final DisputesApi api = new DisputesApi();
-    private FinixClient finixClient;
-    @Test
-    @BeforeAll
-    void contextLoads() {
-        finixClient= new FinixClient("USsRhsHYZGBPnQw8CByJyEQW","8a14c2f9-d94b-4c72-8f5c-a62908e5b30e", Environment.SANDBOX);
-      //  assertEquals(true , finixClient!=null);
-        assertTrue(finixClient!=null);
 
-    }
     /**
      * Create Dispute Evidence
      *
@@ -52,20 +46,11 @@ public class DisputesApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-   // @Test
+    @Test
     public void createDisputeEvidenceTest() throws ApiException {
-
-      //  finixClient.buildRequestBodyMultipart(Map.of("File:", multipartBody));
-        String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
-
-        CreateDisputeEvidenceRequest createDisputeEvidenceRequest = CreateDisputeEvidenceRequest.builder()
-                ._file( new File("@/Users/Desktop/finix_file.png"))
-                .build();
-        //finixClient.buildRequestBodyMultipart(Map.of("File:", new File("")));
-
-       // this.finixClient.buildRequestBodyMultipart(Map.of("File:",createDisputeEvidenceRequest));
-        //CreateDisputeEvidenceRequest createDisputeEvidenceRequest = new CreateDisputeEvidenceRequest();
-     //   DisputeEvidence response = finixClient.Disputes.createDisputeEvidence(disputeId, createDisputeEvidenceRequest);
+        String disputeId = null;
+        CreateDisputeEvidenceRequest createDisputeEvidenceRequest = null;
+        DisputeEvidence response = api.createDisputeEvidence(disputeId, createDisputeEvidenceRequest);
         // TODO: test validations
     }
 
@@ -76,12 +61,10 @@ public class DisputesApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-  //  @Test
-   // @DisplayName("Get Dispute")
+    @Test
     public void getDisputeTest() throws ApiException {
-        String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
-        Dispute response = finixClient.Disputes.get(disputeId);
-
+        String disputeId = null;
+        Dispute response = api.get(disputeId);
         // TODO: test validations
     }
 
@@ -92,7 +75,7 @@ public class DisputesApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-   // @Test
+    @Test
     public void getDisputeEvidenceTest() throws ApiException {
         String disputeId = null;
         String evidenceId = null;
@@ -107,7 +90,7 @@ public class DisputesApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-   // @Test
+    @Test
     public void listApplicationDisputesTest() throws ApiException {
         String applicationId = null;
         DisputesList response = api.listApplicationDisputes(applicationId);
@@ -121,7 +104,7 @@ public class DisputesApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-   // @Test
+    @Test
     public void listDisputeEvidenceTest() throws ApiException {
         String disputeId = null;
         DisputeEvidenceList response = api.listDisputeEvidenceByDeviceId(disputeId);
@@ -135,7 +118,7 @@ public class DisputesApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-   // @Test
+    @Test
     public void listDisputesTest() throws ApiException {
         String sort = null;
         Integer offset = null;
@@ -156,14 +139,16 @@ public class DisputesApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-   // @Test
+    @Test
     public void listIdentityDisputesTest() throws ApiException {
         String identityId = null;
         Integer limit = null;
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        DisputesList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
+        Boolean sortSorted = null;
+        Boolean sortUnsorted = null;
+        DisputesList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
         // TODO: test validations
     }
 
@@ -174,14 +159,16 @@ public class DisputesApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-    //@Test
+    @Test
     public void listTransferDisputesTest() throws ApiException {
         String transferId = null;
         Integer limit = null;
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        DisputesList response = api.listByTransferId(transferId, limit, offset, pageNumber, pageSize);
+        Boolean sortSorted = null;
+        Boolean sortUnsorted = null;
+        DisputesList response = api.listByTransferId(transferId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
         // TODO: test validations
     }
 

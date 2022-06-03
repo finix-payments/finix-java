@@ -94,7 +94,9 @@ public class FeesApiTest {
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        TransfersList response = api.listByTransferId(transferId, limit, offset, pageNumber, pageSize);
+        Boolean sortSorted = null;
+        Boolean sortUnsorted = null;
+        TransfersList response = api.listByTransferId(transferId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
         // TODO: test validations
     }
 

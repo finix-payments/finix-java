@@ -43,7 +43,6 @@ public class AuthorizationsApiTest {
         assertEquals(true , finixClient!=null);
 
     }
-
     /**
      * Create an Authorization
      *
@@ -67,15 +66,16 @@ public class AuthorizationsApiTest {
 	}'*/
         CreateAuthorizationRequest createAuthorizationRequest = CreateAuthorizationRequest.builder()
                 .source("PIe2YvpcjvoVJ6PzoRPBK137")
-                .merchant("MUeDVrf2ahuKc9Eg5TeZugvs")
+                .merchantIdentity("MUeDVrf2ahuKc9Eg5TeZugvs")
                 .tags(Map.of("order_number", "21DFASJSAKAS"))
                 .currency(Currency.USD)
                 .amount(BigDecimal.valueOf(100))
                 .processor(CreateAuthorizationRequest.ProcessorEnum.DUMMY_V1)
                 .build();
-       Authorization response = finixClient.Authorization.create(createAuthorizationRequest);
+        Authorization response = finixClient.Authorization.create(createAuthorizationRequest);
         // TODO: test validations
     }
+
 
     /**
      * Get an Authorization
@@ -101,7 +101,6 @@ public class AuthorizationsApiTest {
     @Test
     public void listApplicationAuthorizationsTest() throws ApiException {
         String applicationId = "APgPDQrLD52TYvqazjHJJchM";
-
         AuthorizationsList response = finixClient.Authorization.listByApplicationId(applicationId);
         // TODO: test validations
     }
@@ -154,14 +153,16 @@ public class AuthorizationsApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-    //@Test
+    @Test
     public void listIdentityAuthorizationsTest() throws ApiException {
         String identityId = null;
         Integer limit = null;
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        AuthorizationsList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
+        Boolean sortSorted = null;
+        Boolean sortUnsorted = null;
+        AuthorizationsList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
         // TODO: test validations
     }
 
@@ -172,14 +173,16 @@ public class AuthorizationsApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-    //@Test
+    @Test
     public void listPaymentInstrumentAuthorizationsTest() throws ApiException {
         String paymentInstrumentId = null;
         Integer limit = null;
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        AuthorizationsList response = api.listByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize);
+        Boolean sortSorted = null;
+        Boolean sortUnsorted = null;
+        AuthorizationsList response = api.listByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
         // TODO: test validations
     }
 
@@ -190,10 +193,11 @@ public class AuthorizationsApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-    //@Test
+    @Test
     public void putAuthorizationTest() throws ApiException {
-        String authorizationId = null;
-        UpdateAuthorizationRequest updateAuthorizationRequest = null;
+        String authorizationId = "AUvAZfiEH7irXZf49P7o8P1r";
+        UpdateAuthorizationRequest updateAuthorizationRequest = UpdateAuthorizationRequest.builder()
+                .build();
         Authorization response = api.update(authorizationId, updateAuthorizationRequest);
         // TODO: test validations
     }

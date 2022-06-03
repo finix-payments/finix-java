@@ -126,7 +126,9 @@ public class SettlementsApiTest {
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        SettlementsList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
+        Boolean sortSorted = null;
+        Boolean sortUnsorted = null;
+        SettlementsList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
         // TODO: test validations
     }
 

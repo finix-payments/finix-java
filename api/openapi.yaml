@@ -3354,8 +3354,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: Type of the authorization.
-        explode: true
+      - explode: true
         in: query
         name: type
         required: false
@@ -6577,8 +6576,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: The number of entries to return.
-        explode: true
+      - explode: true
         in: query
         name: limit
         required: false
@@ -6586,8 +6584,7 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The offset of the page.
-        explode: true
+      - explode: true
         in: query
         name: offset
         required: false
@@ -6595,8 +6592,7 @@ paths:
           format: int64
           type: integer
         style: form
-      - description: The page number to list.
-        explode: true
+      - explode: true
         in: query
         name: pageNumber
         required: false
@@ -6604,14 +6600,27 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The size of the page.
-        explode: true
+      - explode: true
         in: query
         name: pageSize
         required: false
         schema:
           format: int32
           type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sort.sorted
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: sort.unsorted
+        required: false
+        schema:
+          type: boolean
         style: form
       responses:
         "200":
@@ -7753,8 +7762,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: The number of entries to return.
-        explode: true
+      - explode: true
         in: query
         name: limit
         required: false
@@ -7762,8 +7770,7 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The offset of the page.
-        explode: true
+      - explode: true
         in: query
         name: offset
         required: false
@@ -7771,8 +7778,7 @@ paths:
           format: int64
           type: integer
         style: form
-      - description: The page number to list.
-        explode: true
+      - explode: true
         in: query
         name: pageNumber
         required: false
@@ -7780,14 +7786,27 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The size of the page.
-        explode: true
+      - explode: true
         in: query
         name: pageSize
         required: false
         schema:
           format: int32
           type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sort.sorted
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: sort.unsorted
+        required: false
+        schema:
+          type: boolean
         style: form
       responses:
         "200":
@@ -7874,8 +7893,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: The number of entries to return.
-        explode: true
+      - explode: true
         in: query
         name: limit
         required: false
@@ -7883,8 +7901,7 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The offset of the page.
-        explode: true
+      - explode: true
         in: query
         name: offset
         required: false
@@ -7892,8 +7909,7 @@ paths:
           format: int64
           type: integer
         style: form
-      - description: The page number to list.
-        explode: true
+      - explode: true
         in: query
         name: pageNumber
         required: false
@@ -7901,14 +7917,27 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The size of the page.
-        explode: true
+      - explode: true
         in: query
         name: pageSize
         required: false
         schema:
           format: int32
           type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sort.sorted
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: sort.unsorted
+        required: false
+        schema:
+          type: boolean
         style: form
       responses:
         "200":
@@ -8108,8 +8137,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: The number of entries to return.
-        explode: true
+      - explode: true
         in: query
         name: limit
         required: false
@@ -8117,8 +8145,7 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The offset of the page.
-        explode: true
+      - explode: true
         in: query
         name: offset
         required: false
@@ -8126,8 +8153,7 @@ paths:
           format: int64
           type: integer
         style: form
-      - description: The page number to list.
-        explode: true
+      - explode: true
         in: query
         name: pageNumber
         required: false
@@ -8135,14 +8161,27 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The size of the page.
-        explode: true
+      - explode: true
         in: query
         name: pageSize
         required: false
         schema:
           format: int32
           type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sort.sorted
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: sort.unsorted
+        required: false
+        schema:
+          type: boolean
         style: form
       responses:
         "200":
@@ -8229,8 +8268,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: The number of entries to return.
-        explode: true
+      - explode: true
         in: query
         name: limit
         required: false
@@ -8238,8 +8276,7 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The offset of the page.
-        explode: true
+      - explode: true
         in: query
         name: offset
         required: false
@@ -8247,8 +8284,7 @@ paths:
           format: int64
           type: integer
         style: form
-      - description: The page number to list.
-        explode: true
+      - explode: true
         in: query
         name: pageNumber
         required: false
@@ -8256,14 +8292,27 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The size of the page.
-        explode: true
+      - explode: true
         in: query
         name: pageSize
         required: false
         schema:
           format: int32
           type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sort.sorted
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: sort.unsorted
+        required: false
+        schema:
+          type: boolean
         style: form
       responses:
         "200":
@@ -8350,8 +8399,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: The number of entries to return.
-        explode: true
+      - explode: true
         in: query
         name: limit
         required: false
@@ -8359,8 +8407,7 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The offset of the page.
-        explode: true
+      - explode: true
         in: query
         name: offset
         required: false
@@ -8368,8 +8415,7 @@ paths:
           format: int64
           type: integer
         style: form
-      - description: The page number to list.
-        explode: true
+      - explode: true
         in: query
         name: pageNumber
         required: false
@@ -8377,14 +8423,27 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The size of the page.
-        explode: true
+      - explode: true
         in: query
         name: pageSize
         required: false
         schema:
           format: int32
           type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sort.sorted
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: sort.unsorted
+        required: false
+        schema:
+          type: boolean
         style: form
       responses:
         "200":
@@ -8584,8 +8643,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: The number of entries to return.
-        explode: true
+      - explode: true
         in: query
         name: limit
         required: false
@@ -8593,8 +8651,7 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The offset of the page.
-        explode: true
+      - explode: true
         in: query
         name: offset
         required: false
@@ -8602,8 +8659,7 @@ paths:
           format: int64
           type: integer
         style: form
-      - description: The page number to list.
-        explode: true
+      - explode: true
         in: query
         name: pageNumber
         required: false
@@ -8611,14 +8667,27 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The size of the page.
-        explode: true
+      - explode: true
         in: query
         name: pageSize
         required: false
         schema:
           format: int32
           type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sort.sorted
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: sort.unsorted
+        required: false
+        schema:
+          type: boolean
         style: form
       responses:
         "200":
@@ -8912,8 +8981,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: The number of entries to return.
-        explode: true
+      - explode: true
         in: query
         name: limit
         required: false
@@ -8921,8 +8989,7 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The offset of the page.
-        explode: true
+      - explode: true
         in: query
         name: offset
         required: false
@@ -8930,8 +8997,7 @@ paths:
           format: int64
           type: integer
         style: form
-      - description: The page number to list.
-        explode: true
+      - explode: true
         in: query
         name: pageNumber
         required: false
@@ -8939,14 +9005,27 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The size of the page.
-        explode: true
+      - explode: true
         in: query
         name: pageSize
         required: false
         schema:
           format: int32
           type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sort.sorted
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: sort.unsorted
+        required: false
+        schema:
+          type: boolean
         style: form
       responses:
         "200":
@@ -9670,8 +9749,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: The number of entries to return.
-        explode: true
+      - explode: true
         in: query
         name: limit
         required: false
@@ -9679,8 +9757,7 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The offset of the page.
-        explode: true
+      - explode: true
         in: query
         name: offset
         required: false
@@ -9688,8 +9765,7 @@ paths:
           format: int64
           type: integer
         style: form
-      - description: The page number to list.
-        explode: true
+      - explode: true
         in: query
         name: pageNumber
         required: false
@@ -9697,8 +9773,7 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The size of the page.
-        explode: true
+      - explode: true
         in: query
         name: pageSize
         required: false
@@ -9710,6 +9785,20 @@ paths:
         explode: true
         in: query
         name: ready_to_settle
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: sort.sorted
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: sort.unsorted
         required: false
         schema:
           type: boolean
@@ -9799,8 +9888,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: The number of entries to return.
-        explode: true
+      - explode: true
         in: query
         name: limit
         required: false
@@ -9808,8 +9896,7 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The offset of the page.
-        explode: true
+      - explode: true
         in: query
         name: offset
         required: false
@@ -9817,8 +9904,7 @@ paths:
           format: int64
           type: integer
         style: form
-      - description: The page number to list.
-        explode: true
+      - explode: true
         in: query
         name: pageNumber
         required: false
@@ -9826,14 +9912,27 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The size of the page.
-        explode: true
+      - explode: true
         in: query
         name: pageSize
         required: false
         schema:
           format: int32
           type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sort.sorted
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: sort.unsorted
+        required: false
+        schema:
+          type: boolean
         style: form
       responses:
         "200":
@@ -10030,8 +10129,7 @@ paths:
         schema:
           type: integer
         style: form
-      - description: The page number to list.
-        explode: true
+      - explode: true
         in: query
         name: pageNumber
         required: false
@@ -10039,14 +10137,27 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The size of the page.
-        explode: true
+      - explode: true
         in: query
         name: pageSize
         required: false
         schema:
           format: int32
           type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sort.sorted
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: sort.unsorted
+        required: false
+        schema:
+          type: boolean
         style: form
       - description: Filter by the last 4 digits of the account if available.
         explode: true
@@ -10481,8 +10592,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: The number of entries to return.
-        explode: true
+      - explode: true
         in: query
         name: limit
         required: false
@@ -10490,8 +10600,7 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The offset of the page.
-        explode: true
+      - explode: true
         in: query
         name: offset
         required: false
@@ -10499,8 +10608,7 @@ paths:
           format: int64
           type: integer
         style: form
-      - description: The page number to list.
-        explode: true
+      - explode: true
         in: query
         name: pageNumber
         required: false
@@ -10508,14 +10616,27 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The size of the page.
-        explode: true
+      - explode: true
         in: query
         name: pageSize
         required: false
         schema:
           format: int32
           type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sort.sorted
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: sort.unsorted
+        required: false
+        schema:
+          type: boolean
         style: form
       responses:
         "200":
@@ -10602,8 +10723,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: The number of entries to return.
-        explode: true
+      - explode: true
         in: query
         name: limit
         required: false
@@ -10611,8 +10731,7 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The offset of the page.
-        explode: true
+      - explode: true
         in: query
         name: offset
         required: false
@@ -10620,8 +10739,7 @@ paths:
           format: int64
           type: integer
         style: form
-      - description: The page number to list.
-        explode: true
+      - explode: true
         in: query
         name: pageNumber
         required: false
@@ -10629,14 +10747,27 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The size of the page.
-        explode: true
+      - explode: true
         in: query
         name: pageSize
         required: false
         schema:
           format: int32
           type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sort.sorted
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: sort.unsorted
+        required: false
+        schema:
+          type: boolean
         style: form
       responses:
         "200":
@@ -10726,8 +10857,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: The number of entries to return.
-        explode: true
+      - explode: true
         in: query
         name: limit
         required: false
@@ -10735,8 +10865,7 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The offset of the page.
-        explode: true
+      - explode: true
         in: query
         name: offset
         required: false
@@ -10744,8 +10873,7 @@ paths:
           format: int64
           type: integer
         style: form
-      - description: The page number to list.
-        explode: true
+      - explode: true
         in: query
         name: pageNumber
         required: false
@@ -10753,14 +10881,27 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The size of the page.
-        explode: true
+      - explode: true
         in: query
         name: pageSize
         required: false
         schema:
           format: int32
           type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sort.sorted
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: sort.unsorted
+        required: false
+        schema:
+          type: boolean
         style: form
       responses:
         "200":
@@ -10846,8 +10987,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: The number of entries to return.
-        explode: true
+      - explode: true
         in: query
         name: limit
         required: false
@@ -10855,8 +10995,7 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The offset of the page.
-        explode: true
+      - explode: true
         in: query
         name: offset
         required: false
@@ -10864,8 +11003,7 @@ paths:
           format: int64
           type: integer
         style: form
-      - description: The page number to list.
-        explode: true
+      - explode: true
         in: query
         name: pageNumber
         required: false
@@ -10873,14 +11011,27 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The size of the page.
-        explode: true
+      - explode: true
         in: query
         name: pageSize
         required: false
         schema:
           format: int32
           type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sort.sorted
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: sort.unsorted
+        required: false
+        schema:
+          type: boolean
         style: form
       responses:
         "200":
@@ -12630,8 +12781,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: The number of entries to return.
-        explode: true
+      - explode: true
         in: query
         name: limit
         required: false
@@ -12639,8 +12789,7 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The offset of the page.
-        explode: true
+      - explode: true
         in: query
         name: offset
         required: false
@@ -12648,8 +12797,7 @@ paths:
           format: int64
           type: integer
         style: form
-      - description: The page number to list.
-        explode: true
+      - explode: true
         in: query
         name: pageNumber
         required: false
@@ -12657,14 +12805,27 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The size of the page.
-        explode: true
+      - explode: true
         in: query
         name: pageSize
         required: false
         schema:
           format: int32
           type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sort.sorted
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: sort.unsorted
+        required: false
+        schema:
+          type: boolean
         style: form
       responses:
         "200":
@@ -12751,8 +12912,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: The number of entries to return.
-        explode: true
+      - explode: true
         in: query
         name: limit
         required: false
@@ -12760,8 +12920,7 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The offset of the page.
-        explode: true
+      - explode: true
         in: query
         name: offset
         required: false
@@ -12769,8 +12928,7 @@ paths:
           format: int64
           type: integer
         style: form
-      - description: The page number to list.
-        explode: true
+      - explode: true
         in: query
         name: pageNumber
         required: false
@@ -12778,14 +12936,27 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The size of the page.
-        explode: true
+      - explode: true
         in: query
         name: pageSize
         required: false
         schema:
           format: int32
           type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sort.sorted
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: sort.unsorted
+        required: false
+        schema:
+          type: boolean
         style: form
       responses:
         "200":
@@ -12872,8 +13043,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: The number of entries to return.
-        explode: true
+      - explode: true
         in: query
         name: limit
         required: false
@@ -12881,8 +13051,7 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The offset of the page.
-        explode: true
+      - explode: true
         in: query
         name: offset
         required: false
@@ -12890,8 +13059,7 @@ paths:
           format: int64
           type: integer
         style: form
-      - description: The page number to list.
-        explode: true
+      - explode: true
         in: query
         name: pageNumber
         required: false
@@ -12899,14 +13067,27 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The size of the page.
-        explode: true
+      - explode: true
         in: query
         name: pageSize
         required: false
         schema:
           format: int32
           type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sort.sorted
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: sort.unsorted
+        required: false
+        schema:
+          type: boolean
         style: form
       responses:
         "200":
@@ -12993,8 +13174,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: The number of entries to return.
-        explode: true
+      - explode: true
         in: query
         name: limit
         required: false
@@ -13002,8 +13182,7 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The offset of the page.
-        explode: true
+      - explode: true
         in: query
         name: offset
         required: false
@@ -13011,8 +13190,7 @@ paths:
           format: int64
           type: integer
         style: form
-      - description: The page number to list.
-        explode: true
+      - explode: true
         in: query
         name: pageNumber
         required: false
@@ -13020,14 +13198,27 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: The size of the page.
-        explode: true
+      - explode: true
         in: query
         name: pageSize
         required: false
         schema:
           format: int32
           type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sort.sorted
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: sort.unsorted
+        required: false
+        schema:
+          type: boolean
         style: form
       responses:
         "200":
@@ -14752,8 +14943,7 @@ paths:
       description: Retrive a list of subscription amounts.
       operationId: get-subscription-subscription_schedules-id-subscription_amounts
       parameters:
-      - description: The IF
-        explode: false
+      - explode: false
         in: path
         name: subscription_schedule_id
         required: true
@@ -14776,8 +14966,7 @@ paths:
       description: Create a `subscription_amount`.
       operationId: createSubscriptionAmounts
       parameters:
-      - description: The IF
-        explode: false
+      - explode: false
         in: path
         name: subscription_schedule_id
         required: true
