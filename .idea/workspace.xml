@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="249ea3b3-c807-478c-ba2b-64a1e80cb15c" name="Changes" comment="Finix Java updated template updates">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/finix-java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/finix-java.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-    </list>
+    <list default="true" id="249ea3b3-c807-478c-ba2b-64a1e80cb15c" name="Changes" comment="Finix Java updated template" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -223,7 +217,7 @@
       <workItem from="1654289606642" duration="599000" />
       <workItem from="1654290218956" duration="81000" />
       <workItem from="1654290309124" duration="192000" />
-      <workItem from="1654290510033" duration="1632000" />
+      <workItem from="1654290510033" duration="1956000" />
     </task>
     <task id="LOCAL-00001" summary="Finix Java library">
       <created>1654102219917</created>
@@ -253,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654292127762</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Finix Java updated template">
+      <created>1654292482220</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1654292482220</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,7 +289,8 @@
     <MESSAGE value="Finix Java update" />
     <MESSAGE value="Finix Java updated" />
     <MESSAGE value="Finix Java updated template updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finix Java updated template updates" />
+    <MESSAGE value="Finix Java updated template" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finix Java updated template" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
