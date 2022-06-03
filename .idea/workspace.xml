@@ -79,7 +79,7 @@
       <command value="mvn clean install" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.AuthorizationsApiTest.contextLoads">
+  <component name="RunManager" selected="JUnit.AuthorizationsApiTest.getAuthorizationTest">
     <configuration name="AuthorizationsApiTest.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="finix-java" />
       <extension name="coverage">
@@ -91,6 +91,22 @@
       <option name="PACKAGE_NAME" value="api" />
       <option name="MAIN_CLASS_NAME" value="api.AuthorizationsApiTest" />
       <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthorizationsApiTest.createAuthorizationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="finix-java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="api" />
+      <option name="MAIN_CLASS_NAME" value="api.AuthorizationsApiTest" />
+      <option name="METHOD_NAME" value="createAuthorizationTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -108,21 +124,6 @@
       <option name="MAIN_CLASS_NAME" value="api.AuthorizationsApiTest" />
       <option name="METHOD_NAME" value="getAuthorizationTest" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TransfersApiTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="finix-java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="api.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="api" />
-      <option name="MAIN_CLASS_NAME" value="api.TransfersApiTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -188,11 +189,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AuthorizationsApiTest.getAuthorizationTest" />
+        <item itemvalue="JUnit.AuthorizationsApiTest.createAuthorizationTest" />
         <item itemvalue="JUnit.AuthorizationsApiTest.contextLoads" />
         <item itemvalue="JUnit.TransfersApiTest.contextLoads" />
         <item itemvalue="JUnit.TransfersApiTest.createTransferTest" />
-        <item itemvalue="JUnit.TransfersApiTest" />
-        <item itemvalue="JUnit.AuthorizationsApiTest.getAuthorizationTest" />
       </list>
     </recent_temporary>
   </component>
