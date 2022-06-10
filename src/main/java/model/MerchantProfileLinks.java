@@ -24,6 +24,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import model.ApplicationLinksApplicationProfile;
+import model.ApplicationLinksSelf;
+import model.ApplicationProfileLinksApplication;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,14 +48,15 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * MerchantProfileLinks
+ * For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these &#x60;_links&#x60; to make your follow-up requests and quickly access relevant IDs.
  */
+@ApiModel(description = "For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class MerchantProfileLinks {
   public static final String SERIALIZED_NAME_APPLICATION = "application";
   @SerializedName(SERIALIZED_NAME_APPLICATION)
-  private ApplicationLinksApplicationProfile application;
+  private ApplicationProfileLinksApplication application;
 
   public static final String SERIALIZED_NAME_FEE_PROFILE = "fee_profile";
   @SerializedName(SERIALIZED_NAME_FEE_PROFILE)
@@ -77,7 +80,7 @@ public class MerchantProfileLinks {
 
   public static final String SERIALIZED_NAME_SELF = "self";
   @SerializedName(SERIALIZED_NAME_SELF)
-  private ApplicationLinksApplicationProfile self;
+  private ApplicationLinksSelf self;
 
   public static final String SERIALIZED_NAME_USERS = "users";
   @SerializedName(SERIALIZED_NAME_USERS)
@@ -86,7 +89,7 @@ public class MerchantProfileLinks {
   public MerchantProfileLinks() { 
   }
 
-  public MerchantProfileLinks application(ApplicationLinksApplicationProfile application) {
+  public MerchantProfileLinks application(ApplicationProfileLinksApplication application) {
     
     this.application = application;
     return this;
@@ -99,12 +102,12 @@ public class MerchantProfileLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getApplication() {
+  public ApplicationProfileLinksApplication getApplication() {
     return application;
   }
 
 
-  public void setApplication(ApplicationLinksApplicationProfile application) {
+  public void setApplication(ApplicationProfileLinksApplication application) {
     this.application = application;
   }
 
@@ -224,7 +227,7 @@ public class MerchantProfileLinks {
   }
 
 
-  public MerchantProfileLinks self(ApplicationLinksApplicationProfile self) {
+  public MerchantProfileLinks self(ApplicationLinksSelf self) {
     
     this.self = self;
     return this;
@@ -237,12 +240,12 @@ public class MerchantProfileLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getSelf() {
+  public ApplicationLinksSelf getSelf() {
     return self;
   }
 
 
-  public void setSelf(ApplicationLinksApplicationProfile self) {
+  public void setSelf(ApplicationLinksSelf self) {
     this.self = self;
   }
 
@@ -368,7 +371,7 @@ public class MerchantProfileLinks {
       */
       // validate the optional field `application`
       if (jsonObj.getAsJsonObject("application") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("application"));
+       ApplicationProfileLinksApplication.validateJsonObject(jsonObj.getAsJsonObject("application"));
       }
       // validate the optional field `fee_profile`
       if (jsonObj.getAsJsonObject("fee_profile") != null) {
@@ -392,7 +395,7 @@ public class MerchantProfileLinks {
       }
       // validate the optional field `self`
       if (jsonObj.getAsJsonObject("self") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("self"));
+       ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
       }
       // validate the optional field `users`
       if (jsonObj.getAsJsonObject("users") != null) {

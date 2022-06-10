@@ -42,7 +42,7 @@ public class ProcessorsApiTest {
     /**
      * Create Application Processor
      *
-     * Enable a processor for an application. If created successfully, return 201 status and add a location header to the response which refers to the newly enabled processor. 
+     * Enable a &#x60;Processor&#x60; for an &#x60;Application&#x60;. If created successfully, a 201 status is returned with a location header added to the response which refers to the newly enabled processor. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -57,7 +57,7 @@ public class ProcessorsApiTest {
     /**
      * Get Application Processor
      *
-     * Get the processor by application and type
+     * Get the &#x60;Processor&#x60; by &#x60;Application&#x60; and &#x60;type&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
@@ -72,7 +72,7 @@ public class ProcessorsApiTest {
     /**
      * List Application Processors
      *
-     * Get all enabled processors of an application
+     * Get all enabled &#x60;Processors&#x60; for an &#x60;Application&#x60;.
      *
      * @throws ApiException if the Api call fails
      */

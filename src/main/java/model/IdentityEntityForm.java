@@ -26,6 +26,7 @@ import java.io.IOException;
 import model.Address;
 import model.IdentityEntityFormBusinessAddress;
 import model.IdentityEntityFormDob;
+import model.IdentityEntityFormIncorporationDate;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -49,10 +50,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * IdentityEntityForm
+ * Information needed to verify the identity of the entity.
  */
+@ApiModel(description = "Information needed to verify the identity of the entity.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class IdentityEntityForm {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -83,7 +85,7 @@ public class IdentityEntityForm {
   private String businessTaxId;
 
   /**
-   * Gets or Sets businessType
+   * Include the value that applies the best.
    */
   @JsonAdapter(BusinessTypeEnum.Adapter.class)
   public enum BusinessTypeEnum {
@@ -181,7 +183,7 @@ public class IdentityEntityForm {
 
   public static final String SERIALIZED_NAME_INCORPORATION_DATE = "incorporation_date";
   @SerializedName(SERIALIZED_NAME_INCORPORATION_DATE)
-  private IdentityEntityFormDob incorporationDate;
+  private IdentityEntityFormIncorporationDate incorporationDate;
 
   public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
   @SerializedName(SERIALIZED_NAME_LAST_NAME)
@@ -196,7 +198,7 @@ public class IdentityEntityForm {
   private String mcc;
 
   /**
-   * Gets or Sets ownershipType
+   * Values can be either: &lt;ul&gt;&lt;li&gt;&lt;strong&gt;PUBLIC&lt;/strong&gt; to indicate a publicly-traded company.&lt;li&gt;&lt;strong&gt;PRIVATE&lt;/strong&gt; for privately-held businesses.
    */
   @JsonAdapter(OwnershipTypeEnum.Adapter.class)
   public enum OwnershipTypeEnum {
@@ -284,11 +286,11 @@ public class IdentityEntityForm {
   }
 
    /**
-   * Get title
+   * Control person&#39;s corporate title or role (i.e. Chief Executive Officer, CFO, etc.; max 60 characters).
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Control person's corporate title or role (i.e. Chief Executive Officer, CFO, etc.; max 60 characters).")
 
   public String getTitle() {
     return title;
@@ -307,11 +309,11 @@ public class IdentityEntityForm {
   }
 
    /**
-   * Get amexMid
+   * Assigned amex_Mid value. If included must be 10 or 11 digits.
    * @return amexMid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Assigned amex_Mid value. If included must be 10 or 11 digits.")
 
   public String getAmexMid() {
     return amexMid;
@@ -330,11 +332,11 @@ public class IdentityEntityForm {
   }
 
    /**
-   * Get annualCardVolume
+   * Approximate annual credit card sales expected to be processed in cents by this merchant (max 19 characters).
    * @return annualCardVolume
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Approximate annual credit card sales expected to be processed in cents by this merchant (max 19 characters).")
 
   public Long getAnnualCardVolume() {
     return annualCardVolume;
@@ -376,11 +378,11 @@ public class IdentityEntityForm {
   }
 
    /**
-   * Get businessName
+   * Merchant&#39;s full legal business name (If INDIVIDUAL\\_SOLE\\_PROPRIETORSHIP, input first name, Full legal last name and middle initial; max 120 characters)
    * @return businessName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Merchant's full legal business name (If INDIVIDUAL\\_SOLE\\_PROPRIETORSHIP, input first name, Full legal last name and middle initial; max 120 characters)")
 
   public String getBusinessName() {
     return businessName;
@@ -399,11 +401,11 @@ public class IdentityEntityForm {
   }
 
    /**
-   * Get businessPhone
+   * Customer service phone number where the merchant can be reached (max 10 characters).
    * @return businessPhone
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Customer service phone number where the merchant can be reached (max 10 characters).")
 
   public String getBusinessPhone() {
     return businessPhone;
@@ -422,11 +424,11 @@ public class IdentityEntityForm {
   }
 
    /**
-   * Get businessTaxId
+   * Nine digit Tax Identification Number (TIN), Employer Identification Number (EIN). If the &#x60;business_type&#x60; is **INDIVIDUAL\\_SOLE\\_PROPRIETORSHIP** and they do not have an EIN, use the sole proprietor&#39;s Social Security Number (SSN).
    * @return businessTaxId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Nine digit Tax Identification Number (TIN), Employer Identification Number (EIN). If the `business_type` is **INDIVIDUAL\\_SOLE\\_PROPRIETORSHIP** and they do not have an EIN, use the sole proprietor's Social Security Number (SSN).")
 
   public String getBusinessTaxId() {
     return businessTaxId;
@@ -445,11 +447,11 @@ public class IdentityEntityForm {
   }
 
    /**
-   * Get businessType
+   * Include the value that applies the best.
    * @return businessType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Include the value that applies the best.")
 
   public BusinessTypeEnum getBusinessType() {
     return businessType;
@@ -468,11 +470,11 @@ public class IdentityEntityForm {
   }
 
    /**
-   * Get defaultStatementDescriptor
+   * Billing description displayed on the buyer&#39;s bank or card statement (Length must be between 1 and 20 characters).
    * @return defaultStatementDescriptor
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Billing description displayed on the buyer's bank or card statement (Length must be between 1 and 20 characters).")
 
   public String getDefaultStatementDescriptor() {
     return defaultStatementDescriptor;
@@ -491,11 +493,11 @@ public class IdentityEntityForm {
   }
 
    /**
-   * Get discoverMid
+   * Assigned discover_Mid value.
    * @return discoverMid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Assigned discover_Mid value.")
 
   public String getDiscoverMid() {
     return discoverMid;
@@ -537,11 +539,11 @@ public class IdentityEntityForm {
   }
 
    /**
-   * Get doingBusinessAs
+   * Alternate name of the business. If no other name is used use the same value used in &#x60;business_name&#x60; (max 60 characters)
    * @return doingBusinessAs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Alternate name of the business. If no other name is used use the same value used in `business_name` (max 60 characters)")
 
   public String getDoingBusinessAs() {
     return doingBusinessAs;
@@ -560,11 +562,11 @@ public class IdentityEntityForm {
   }
 
    /**
-   * Get email
+   * Control person&#39;s email address where they can be reached (max 100 characters).
    * @return email
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Control person's email address where they can be reached (max 100 characters).")
 
   public String getEmail() {
     return email;
@@ -583,11 +585,11 @@ public class IdentityEntityForm {
   }
 
    /**
-   * Get firstName
+   * Full legal first name of the merchant&#39;s principal representative (max 20 characters).
    * @return firstName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Full legal first name of the merchant's principal representative (max 20 characters).")
 
   public String getFirstName() {
     return firstName;
@@ -606,11 +608,11 @@ public class IdentityEntityForm {
   }
 
    /**
-   * Get hasAcceptedCreditCardsPreviously
+   * Defaults to **false** if not passed.
    * @return hasAcceptedCreditCardsPreviously
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Defaults to **false** if not passed.")
 
   public Boolean getHasAcceptedCreditCardsPreviously() {
     return hasAcceptedCreditCardsPreviously;
@@ -622,7 +624,7 @@ public class IdentityEntityForm {
   }
 
 
-  public IdentityEntityForm incorporationDate(IdentityEntityFormDob incorporationDate) {
+  public IdentityEntityForm incorporationDate(IdentityEntityFormIncorporationDate incorporationDate) {
     
     this.incorporationDate = incorporationDate;
     return this;
@@ -635,12 +637,12 @@ public class IdentityEntityForm {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public IdentityEntityFormDob getIncorporationDate() {
+  public IdentityEntityFormIncorporationDate getIncorporationDate() {
     return incorporationDate;
   }
 
 
-  public void setIncorporationDate(IdentityEntityFormDob incorporationDate) {
+  public void setIncorporationDate(IdentityEntityFormIncorporationDate incorporationDate) {
     this.incorporationDate = incorporationDate;
   }
 
@@ -652,11 +654,11 @@ public class IdentityEntityForm {
   }
 
    /**
-   * Get lastName
+   * Full legal last name of the merchant&#39;s principal representative (max 20 characters).
    * @return lastName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Full legal last name of the merchant's principal representative (max 20 characters).")
 
   public String getLastName() {
     return lastName;
@@ -675,11 +677,11 @@ public class IdentityEntityForm {
   }
 
    /**
-   * Get maxTransactionAmount
+   * Maximum amount that can be transacted for a single transaction in cents (max 12 characters).
    * @return maxTransactionAmount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Maximum amount that can be transacted for a single transaction in cents (max 12 characters).")
 
   public Long getMaxTransactionAmount() {
     return maxTransactionAmount;
@@ -698,11 +700,11 @@ public class IdentityEntityForm {
   }
 
    /**
-   * Get mcc
+   * The Merchant Category Code ([MCC](http://www.dm.usda.gov/procurement/card/card_x/mcc.pdf)) the merchant is classified under.
    * @return mcc
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The Merchant Category Code ([MCC](http://www.dm.usda.gov/procurement/card/card_x/mcc.pdf)) the merchant is classified under.")
 
   public String getMcc() {
     return mcc;
@@ -721,11 +723,11 @@ public class IdentityEntityForm {
   }
 
    /**
-   * Get ownershipType
+   * Values can be either: &lt;ul&gt;&lt;li&gt;&lt;strong&gt;PUBLIC&lt;/strong&gt; to indicate a publicly-traded company.&lt;li&gt;&lt;strong&gt;PRIVATE&lt;/strong&gt; for privately-held businesses.
    * @return ownershipType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Values can be either: <ul><li><strong>PUBLIC</strong> to indicate a publicly-traded company.<li><strong>PRIVATE</strong> for privately-held businesses.")
 
   public OwnershipTypeEnum getOwnershipType() {
     return ownershipType;
@@ -767,11 +769,11 @@ public class IdentityEntityForm {
   }
 
    /**
-   * Get phone
+   * Principal&#39;s phone number (max 10 characters).
    * @return phone
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Principal's phone number (max 10 characters).")
 
   public String getPhone() {
     return phone;
@@ -790,13 +792,13 @@ public class IdentityEntityForm {
   }
 
    /**
-   * Get principalPercentageOwnership
+   * Percentage of company owned by the principal (min 0; max 100).
    * minimum: 0
    * maximum: 100
    * @return principalPercentageOwnership
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Percentage of company owned by the principal (min 0; max 100).")
 
   public Integer getPrincipalPercentageOwnership() {
     return principalPercentageOwnership;
@@ -815,11 +817,11 @@ public class IdentityEntityForm {
   }
 
    /**
-   * Get shortBusinessName
+   * The short version of the business name. (Defaults to **null**).
    * @return shortBusinessName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The short version of the business name. (Defaults to **null**).")
 
   public String getShortBusinessName() {
     return shortBusinessName;
@@ -838,11 +840,11 @@ public class IdentityEntityForm {
   }
 
    /**
-   * Get taxAuthority
+   * Used and required when onboarding a &#x60;Merchant&#x60; with a &#x60;MCC&#x60; of **9311**. The  &#x60;tax_authority&#x60; is the tax gathering entity (e.g San Francisco Water Authority).
    * @return taxAuthority
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Used and required when onboarding a `Merchant` with a `MCC` of **9311**. The  `tax_authority` is the tax gathering entity (e.g San Francisco Water Authority).")
 
   public String getTaxAuthority() {
     return taxAuthority;
@@ -861,11 +863,11 @@ public class IdentityEntityForm {
   }
 
    /**
-   * Get taxId
+   * Used to verify &#x60;tax_id&#x60; was provided.
    * @return taxId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Used to verify `tax_id` was provided.")
 
   public String getTaxId() {
     return taxId;
@@ -884,11 +886,11 @@ public class IdentityEntityForm {
   }
 
    /**
-   * Get url
+   * Merchant&#39;s publicly available website (max 100 characters).
    * @return url
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Merchant's publicly available website (max 100 characters).")
 
   public String getUrl() {
     return url;
@@ -1107,7 +1109,7 @@ public class IdentityEntityForm {
       }
       // validate the optional field `incorporation_date`
       if (jsonObj.getAsJsonObject("incorporation_date") != null) {
-       IdentityEntityFormDob.validateJsonObject(jsonObj.getAsJsonObject("incorporation_date"));
+       IdentityEntityFormIncorporationDate.validateJsonObject(jsonObj.getAsJsonObject("incorporation_date"));
       }
       if (jsonObj.get("last_name") != null && !jsonObj.get("last_name").isJsonNull()  && !jsonObj.get("last_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `last_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_name").toString()));

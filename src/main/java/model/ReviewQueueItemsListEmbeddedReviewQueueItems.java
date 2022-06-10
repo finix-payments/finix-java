@@ -27,7 +27,7 @@ import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import model.ReviewQueueItemLinks;
+import model.ReviewQueueItemsListEmbeddedLinks;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -54,7 +54,7 @@ import invoker.JSON;
  * ReviewQueueItemsListEmbeddedReviewQueueItems
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class ReviewQueueItemsListEmbeddedReviewQueueItems {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -338,7 +338,7 @@ public class ReviewQueueItemsListEmbeddedReviewQueueItems {
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private ReviewQueueItemLinks links;
+  private ReviewQueueItemsListEmbeddedLinks links;
 
   public ReviewQueueItemsListEmbeddedReviewQueueItems() { 
   }
@@ -401,11 +401,11 @@ public class ReviewQueueItemsListEmbeddedReviewQueueItems {
   }
 
    /**
-   * Timestamp of when the object was created
+   * Timestamp of when the object was created.
    * @return createdAt
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Timestamp of when the object was created")
+  @ApiModelProperty(required = true, value = "Timestamp of when the object was created.")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -424,11 +424,11 @@ public class ReviewQueueItemsListEmbeddedReviewQueueItems {
   }
 
    /**
-   * Timestamp of when the object was last updated
+   * Timestamp of when the object was last updated.
    * @return updatedAt
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Timestamp of when the object was last updated")
+  @ApiModelProperty(required = true, value = "Timestamp of when the object was last updated.")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -624,7 +624,7 @@ public class ReviewQueueItemsListEmbeddedReviewQueueItems {
   }
 
 
-  public ReviewQueueItemsListEmbeddedReviewQueueItems links(ReviewQueueItemLinks links) {
+  public ReviewQueueItemsListEmbeddedReviewQueueItems links(ReviewQueueItemsListEmbeddedLinks links) {
     
     this.links = links;
     return this;
@@ -637,12 +637,12 @@ public class ReviewQueueItemsListEmbeddedReviewQueueItems {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public ReviewQueueItemLinks getLinks() {
+  public ReviewQueueItemsListEmbeddedLinks getLinks() {
     return links;
   }
 
 
-  public void setLinks(ReviewQueueItemLinks links) {
+  public void setLinks(ReviewQueueItemsListEmbeddedLinks links) {
     this.links = links;
   }
 
@@ -812,7 +812,7 @@ public class ReviewQueueItemsListEmbeddedReviewQueueItems {
       }
       // validate the optional field `_links`
       if (jsonObj.getAsJsonObject("_links") != null) {
-       ReviewQueueItemLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+       ReviewQueueItemsListEmbeddedLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
       }
   }
 

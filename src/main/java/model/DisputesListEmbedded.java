@@ -52,7 +52,7 @@ import invoker.JSON;
  * DisputesListEmbedded
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class DisputesListEmbedded {
   public static final String SERIALIZED_NAME_DISPUTES = "disputes";
   @SerializedName(SERIALIZED_NAME_DISPUTES)
@@ -76,11 +76,11 @@ public class DisputesListEmbedded {
   }
 
    /**
-   * Get disputes
+   * &#x60;Dispute&#x60; object.
    * @return disputes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "`Dispute` object.")
 
   public Set<Dispute> getDisputes() {
     return disputes;

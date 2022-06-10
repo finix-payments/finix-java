@@ -40,23 +40,23 @@ public class FeesApiTest {
     private final FeesApi api = new FeesApi();
 
     /**
-     * Create a custom fee
+     * Create a One-Time Fee
      *
-     * Create a custom fee
+     * Create a custom (i.e. one time) &#x60;fee&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void createFeesTest() throws ApiException {
         CreateFeeRequest createFeeRequest = null;
-        Fee response = api.create(createFeeRequest);
+        api.create(createFeeRequest);
         // TODO: test validations
     }
 
     /**
-     * Get fee
+     * Get Fee
      *
-     * Find an existing fee by id
+     * Retrieve the details of a &#x60;Fee&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
@@ -70,7 +70,7 @@ public class FeesApiTest {
     /**
      * List Fees
      *
-     * Return a collection of fees
+     * Return a collection of &#x60;fees&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
@@ -94,16 +94,14 @@ public class FeesApiTest {
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        Boolean sortSorted = null;
-        Boolean sortUnsorted = null;
-        TransfersList response = api.listByTransferId(transferId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
+        TransfersList response = api.listByTransferId(transferId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 
     /**
      * Update Fee
      *
-     * Merge update the fee
+     * Update the details of a &#x60;Fee&#x60;.
      *
      * @throws ApiException if the Api call fails
      */

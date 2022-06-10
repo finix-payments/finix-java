@@ -23,10 +23,11 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import model.AdditionalPurchaseData;
+import model.CreateAuthorizationRequest3dSecureAuthentication;
 import model.Currency;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -51,10 +52,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * CreateAuthorizationRequest
+ * Create an &#x60;Authorization&#x60; resource.
  */
+@ApiModel(description = "Create an `Authorization` resource.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class CreateAuthorizationRequest {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -62,7 +64,7 @@ public class CreateAuthorizationRequest {
 
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
-  private BigDecimal amount;
+  private Long amount;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
   @SerializedName(SERIALIZED_NAME_CURRENCY)
@@ -72,12 +74,16 @@ public class CreateAuthorizationRequest {
   @SerializedName(SERIALIZED_NAME_IDEMPOTENCY_ID)
   private String idempotencyId;
 
+  public static final String SERIALIZED_NAME_MERCHANT = "merchant";
+  @SerializedName(SERIALIZED_NAME_MERCHANT)
+  private String merchant;
+
   public static final String SERIALIZED_NAME_MERCHANT_IDENTITY = "merchant_identity";
   @SerializedName(SERIALIZED_NAME_MERCHANT_IDENTITY)
   private String merchantIdentity;
 
   /**
-   * Gets or Sets processor
+   * Name of the transaction processor.
    */
   @JsonAdapter(ProcessorEnum.Adapter.class)
   public enum ProcessorEnum {
@@ -163,6 +169,18 @@ public class CreateAuthorizationRequest {
   @SerializedName(SERIALIZED_NAME_SOURCE)
   private String source;
 
+  public static final String SERIALIZED_NAME_ADDITIONAL_PURCHASE_DATA = "additional_purchase_data";
+  @SerializedName(SERIALIZED_NAME_ADDITIONAL_PURCHASE_DATA)
+  private AdditionalPurchaseData additionalPurchaseData;
+
+  public static final String SERIALIZED_NAME_3D_SECURE_AUTHENTICATION = "3d_secure_authentication";
+  @SerializedName(SERIALIZED_NAME_3D_SECURE_AUTHENTICATION)
+  private CreateAuthorizationRequest3dSecureAuthentication _3dSecureAuthentication;
+
+  public static final String SERIALIZED_NAME_OPERATION_KEY = "operation_key";
+  @SerializedName(SERIALIZED_NAME_OPERATION_KEY)
+  private String operationKey;
+
   public CreateAuthorizationRequest() { 
   }
 
@@ -197,25 +215,25 @@ public class CreateAuthorizationRequest {
   }
 
 
-  public CreateAuthorizationRequest amount(BigDecimal amount) {
+  public CreateAuthorizationRequest amount(Long amount) {
     
     this.amount = amount;
     return this;
   }
 
    /**
-   * Get amount
+   * The total amount that will be debited in cents (e.g. 100 cents to debit $1.00).
    * @return amount
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The total amount that will be debited in cents (e.g. 100 cents to debit $1.00).")
 
-  public BigDecimal getAmount() {
+  public Long getAmount() {
     return amount;
   }
 
 
-  public void setAmount(BigDecimal amount) {
+  public void setAmount(Long amount) {
     this.amount = amount;
   }
 
@@ -250,11 +268,11 @@ public class CreateAuthorizationRequest {
   }
 
    /**
-   * Get idempotencyId
+   * A randomly generated value that&#39;ll be associated with the request.
    * @return idempotencyId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A randomly generated value that'll be associated with the request.")
 
   public String getIdempotencyId() {
     return idempotencyId;
@@ -263,6 +281,29 @@ public class CreateAuthorizationRequest {
 
   public void setIdempotencyId(String idempotencyId) {
     this.idempotencyId = idempotencyId;
+  }
+
+
+  public CreateAuthorizationRequest merchant(String merchant) {
+    
+    this.merchant = merchant;
+    return this;
+  }
+
+   /**
+   * The ID of the resource.
+   * @return merchant
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ID of the resource.")
+
+  public String getMerchant() {
+    return merchant;
+  }
+
+
+  public void setMerchant(String merchant) {
+    this.merchant = merchant;
   }
 
 
@@ -277,7 +318,7 @@ public class CreateAuthorizationRequest {
    * @return merchantIdentity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The ID of the resource.")
+  @ApiModelProperty(value = "The ID of the resource.")
 
   public String getMerchantIdentity() {
     return merchantIdentity;
@@ -296,11 +337,11 @@ public class CreateAuthorizationRequest {
   }
 
    /**
-   * Get processor
+   * Name of the transaction processor.
    * @return processor
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Name of the transaction processor.")
 
   public ProcessorEnum getProcessor() {
     return processor;
@@ -323,7 +364,7 @@ public class CreateAuthorizationRequest {
    * @return source
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The ID of the resource.")
+  @ApiModelProperty(value = "The ID of the resource.")
 
   public String getSource() {
     return source;
@@ -332,6 +373,75 @@ public class CreateAuthorizationRequest {
 
   public void setSource(String source) {
     this.source = source;
+  }
+
+
+  public CreateAuthorizationRequest additionalPurchaseData(AdditionalPurchaseData additionalPurchaseData) {
+    
+    this.additionalPurchaseData = additionalPurchaseData;
+    return this;
+  }
+
+   /**
+   * Get additionalPurchaseData
+   * @return additionalPurchaseData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public AdditionalPurchaseData getAdditionalPurchaseData() {
+    return additionalPurchaseData;
+  }
+
+
+  public void setAdditionalPurchaseData(AdditionalPurchaseData additionalPurchaseData) {
+    this.additionalPurchaseData = additionalPurchaseData;
+  }
+
+
+  public CreateAuthorizationRequest _3dSecureAuthentication(CreateAuthorizationRequest3dSecureAuthentication _3dSecureAuthentication) {
+    
+    this._3dSecureAuthentication = _3dSecureAuthentication;
+    return this;
+  }
+
+   /**
+   * Get _3dSecureAuthentication
+   * @return _3dSecureAuthentication
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public CreateAuthorizationRequest3dSecureAuthentication get3dSecureAuthentication() {
+    return _3dSecureAuthentication;
+  }
+
+
+  public void set3dSecureAuthentication(CreateAuthorizationRequest3dSecureAuthentication _3dSecureAuthentication) {
+    this._3dSecureAuthentication = _3dSecureAuthentication;
+  }
+
+
+  public CreateAuthorizationRequest operationKey(String operationKey) {
+    
+    this.operationKey = operationKey;
+    return this;
+  }
+
+   /**
+   * Describes the operation to be performed in the transaction. - **CARD\\_PRESENT\\_AUTHORIZATION**: When making in-person payment with EMV card.
+   * @return operationKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Describes the operation to be performed in the transaction. - **CARD\\_PRESENT\\_AUTHORIZATION**: When making in-person payment with EMV card.")
+
+  public String getOperationKey() {
+    return operationKey;
+  }
+
+
+  public void setOperationKey(String operationKey) {
+    this.operationKey = operationKey;
   }
 
 
@@ -349,9 +459,13 @@ public class CreateAuthorizationRequest {
         Objects.equals(this.amount, createAuthorizationRequest.amount) &&
         Objects.equals(this.currency, createAuthorizationRequest.currency) &&
         Objects.equals(this.idempotencyId, createAuthorizationRequest.idempotencyId) &&
+        Objects.equals(this.merchant, createAuthorizationRequest.merchant) &&
         Objects.equals(this.merchantIdentity, createAuthorizationRequest.merchantIdentity) &&
         Objects.equals(this.processor, createAuthorizationRequest.processor) &&
-        Objects.equals(this.source, createAuthorizationRequest.source);
+        Objects.equals(this.source, createAuthorizationRequest.source) &&
+        Objects.equals(this.additionalPurchaseData, createAuthorizationRequest.additionalPurchaseData) &&
+        Objects.equals(this._3dSecureAuthentication, createAuthorizationRequest._3dSecureAuthentication) &&
+        Objects.equals(this.operationKey, createAuthorizationRequest.operationKey);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -360,7 +474,7 @@ public class CreateAuthorizationRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, amount, currency, idempotencyId, merchantIdentity, processor, source);
+    return Objects.hash(tags, amount, currency, idempotencyId, merchant, merchantIdentity, processor, source, additionalPurchaseData, _3dSecureAuthentication, operationKey);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -378,9 +492,13 @@ public class CreateAuthorizationRequest {
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    idempotencyId: ").append(toIndentedString(idempotencyId)).append("\n");
+    sb.append("    merchant: ").append(toIndentedString(merchant)).append("\n");
     sb.append("    merchantIdentity: ").append(toIndentedString(merchantIdentity)).append("\n");
     sb.append("    processor: ").append(toIndentedString(processor)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    additionalPurchaseData: ").append(toIndentedString(additionalPurchaseData)).append("\n");
+    sb.append("    _3dSecureAuthentication: ").append(toIndentedString(_3dSecureAuthentication)).append("\n");
+    sb.append("    operationKey: ").append(toIndentedString(operationKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -407,16 +525,18 @@ public class CreateAuthorizationRequest {
     openapiFields.add("amount");
     openapiFields.add("currency");
     openapiFields.add("idempotency_id");
+    openapiFields.add("merchant");
     openapiFields.add("merchant_identity");
     openapiFields.add("processor");
     openapiFields.add("source");
+    openapiFields.add("additional_purchase_data");
+    openapiFields.add("3d_secure_authentication");
+    openapiFields.add("operation_key");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("amount");
     openapiRequiredFields.add("currency");
-    openapiRequiredFields.add("merchant_identity");
-    openapiRequiredFields.add("source");
   }
 
  /**
@@ -453,6 +573,9 @@ public class CreateAuthorizationRequest {
       if (jsonObj.get("idempotency_id") != null && !jsonObj.get("idempotency_id").isJsonNull()  && !jsonObj.get("idempotency_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `idempotency_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("idempotency_id").toString()));
       }
+      if (jsonObj.get("merchant") != null && !jsonObj.get("merchant").isJsonNull()  && !jsonObj.get("merchant").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant").toString()));
+      }
       if (jsonObj.get("merchant_identity") != null && !jsonObj.get("merchant_identity").isJsonNull()  && !jsonObj.get("merchant_identity").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_identity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_identity").toString()));
       }
@@ -461,6 +584,17 @@ public class CreateAuthorizationRequest {
       }
       if (jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()  && !jsonObj.get("source").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source").toString()));
+      }
+      // validate the optional field `additional_purchase_data`
+      if (jsonObj.getAsJsonObject("additional_purchase_data") != null) {
+       AdditionalPurchaseData.validateJsonObject(jsonObj.getAsJsonObject("additional_purchase_data"));
+      }
+      // validate the optional field `3d_secure_authentication`
+      if (jsonObj.getAsJsonObject("3d_secure_authentication") != null) {
+       CreateAuthorizationRequest3dSecureAuthentication.validateJsonObject(jsonObj.getAsJsonObject("3d_secure_authentication"));
+      }
+      if (jsonObj.get("operation_key") != null && !jsonObj.get("operation_key").isJsonNull()  && !jsonObj.get("operation_key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `operation_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation_key").toString()));
       }
   }
 

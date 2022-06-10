@@ -23,7 +23,9 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.ApplicationLinksApplicationProfile;
+import model.ApplicationLinksSelf;
+import model.ListLinksFirst;
+import model.ListLinksLast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,35 +48,28 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * ListLinks
+ * For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these &#x60;_links&#x60; to make your follow-up requests and quickly access relevant IDs.
  */
+@ApiModel(description = "For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class ListLinks {
   public static final String SERIALIZED_NAME_FIRST = "first";
   @SerializedName(SERIALIZED_NAME_FIRST)
-  private ApplicationLinksApplicationProfile first;
+  private ListLinksFirst first;
 
   public static final String SERIALIZED_NAME_LAST = "last";
   @SerializedName(SERIALIZED_NAME_LAST)
-  private ApplicationLinksApplicationProfile last;
-
-  public static final String SERIALIZED_NAME_NEXT = "next";
-  @SerializedName(SERIALIZED_NAME_NEXT)
-  private ApplicationLinksApplicationProfile next;
-
-  public static final String SERIALIZED_NAME_PREV = "prev";
-  @SerializedName(SERIALIZED_NAME_PREV)
-  private ApplicationLinksApplicationProfile prev;
+  private ListLinksLast last;
 
   public static final String SERIALIZED_NAME_SELF = "self";
   @SerializedName(SERIALIZED_NAME_SELF)
-  private ApplicationLinksApplicationProfile self;
+  private ApplicationLinksSelf self;
 
   public ListLinks() { 
   }
 
-  public ListLinks first(ApplicationLinksApplicationProfile first) {
+  public ListLinks first(ListLinksFirst first) {
     
     this.first = first;
     return this;
@@ -87,17 +82,17 @@ public class ListLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getFirst() {
+  public ListLinksFirst getFirst() {
     return first;
   }
 
 
-  public void setFirst(ApplicationLinksApplicationProfile first) {
+  public void setFirst(ListLinksFirst first) {
     this.first = first;
   }
 
 
-  public ListLinks last(ApplicationLinksApplicationProfile last) {
+  public ListLinks last(ListLinksLast last) {
     
     this.last = last;
     return this;
@@ -110,63 +105,17 @@ public class ListLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getLast() {
+  public ListLinksLast getLast() {
     return last;
   }
 
 
-  public void setLast(ApplicationLinksApplicationProfile last) {
+  public void setLast(ListLinksLast last) {
     this.last = last;
   }
 
 
-  public ListLinks next(ApplicationLinksApplicationProfile next) {
-    
-    this.next = next;
-    return this;
-  }
-
-   /**
-   * Get next
-   * @return next
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public ApplicationLinksApplicationProfile getNext() {
-    return next;
-  }
-
-
-  public void setNext(ApplicationLinksApplicationProfile next) {
-    this.next = next;
-  }
-
-
-  public ListLinks prev(ApplicationLinksApplicationProfile prev) {
-    
-    this.prev = prev;
-    return this;
-  }
-
-   /**
-   * Get prev
-   * @return prev
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public ApplicationLinksApplicationProfile getPrev() {
-    return prev;
-  }
-
-
-  public void setPrev(ApplicationLinksApplicationProfile prev) {
-    this.prev = prev;
-  }
-
-
-  public ListLinks self(ApplicationLinksApplicationProfile self) {
+  public ListLinks self(ApplicationLinksSelf self) {
     
     this.self = self;
     return this;
@@ -179,12 +128,12 @@ public class ListLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getSelf() {
+  public ApplicationLinksSelf getSelf() {
     return self;
   }
 
 
-  public void setSelf(ApplicationLinksApplicationProfile self) {
+  public void setSelf(ApplicationLinksSelf self) {
     this.self = self;
   }
 
@@ -201,14 +150,12 @@ public class ListLinks {
     ListLinks listLinks = (ListLinks) o;
     return Objects.equals(this.first, listLinks.first) &&
         Objects.equals(this.last, listLinks.last) &&
-        Objects.equals(this.next, listLinks.next) &&
-        Objects.equals(this.prev, listLinks.prev) &&
         Objects.equals(this.self, listLinks.self);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(first, last, next, prev, self);
+    return Objects.hash(first, last, self);
   }
 
   @Override
@@ -217,8 +164,6 @@ public class ListLinks {
     sb.append("class ListLinks {\n");
     sb.append("    first: ").append(toIndentedString(first)).append("\n");
     sb.append("    last: ").append(toIndentedString(last)).append("\n");
-    sb.append("    next: ").append(toIndentedString(next)).append("\n");
-    sb.append("    prev: ").append(toIndentedString(prev)).append("\n");
     sb.append("    self: ").append(toIndentedString(self)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -244,8 +189,6 @@ public class ListLinks {
     openapiFields = new HashSet<String>();
     openapiFields.add("first");
     openapiFields.add("last");
-    openapiFields.add("next");
-    openapiFields.add("prev");
     openapiFields.add("self");
 
     // a set of required properties/fields (JSON key names)
@@ -278,23 +221,15 @@ public class ListLinks {
       */
       // validate the optional field `first`
       if (jsonObj.getAsJsonObject("first") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("first"));
+       ListLinksFirst.validateJsonObject(jsonObj.getAsJsonObject("first"));
       }
       // validate the optional field `last`
       if (jsonObj.getAsJsonObject("last") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("last"));
-      }
-      // validate the optional field `next`
-      if (jsonObj.getAsJsonObject("next") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("next"));
-      }
-      // validate the optional field `prev`
-      if (jsonObj.getAsJsonObject("prev") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("prev"));
+       ListLinksLast.validateJsonObject(jsonObj.getAsJsonObject("last"));
       }
       // validate the optional field `self`
       if (jsonObj.getAsJsonObject("self") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("self"));
+       ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
       }
   }
 

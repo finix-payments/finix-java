@@ -24,6 +24,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import model.ApplicationProfileLinks;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -51,11 +54,11 @@ import invoker.JSON;
  * ApplicationProfile
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class ApplicationProfile {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private Object tags;
+  private Map<String, String> tags = null;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -88,25 +91,33 @@ public class ApplicationProfile {
   public ApplicationProfile() { 
   }
 
-  public ApplicationProfile tags(Object tags) {
+  public ApplicationProfile tags(Map<String, String> tags) {
     
     this.tags = tags;
     return this;
   }
 
+  public ApplicationProfile putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
+    return this;
+  }
+
    /**
-   * Get tags
+   * Key value pair for annotating custom meta data (e.g. order numbers).
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
 
-  public Object getTags() {
+  public Map<String, String> getTags() {
     return tags;
   }
 
 
-  public void setTags(Object tags) {
+  public void setTags(Map<String, String> tags) {
     this.tags = tags;
   }
 
@@ -118,11 +129,11 @@ public class ApplicationProfile {
   }
 
    /**
-   * Get id
+   * ID of the &#x60;application_profile&#x60; resource.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "PPxxxxxxxxxxxxxxxxxx", value = "")
+  @ApiModelProperty(example = "PPxxxxxxxxxxxxxxxxxx", value = "ID of the `application_profile` resource.")
 
   public String getId() {
     return id;
@@ -141,11 +152,11 @@ public class ApplicationProfile {
   }
 
    /**
-   * Timestamp of when the object was created
+   * Timestamp of when the object was created.
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the object was created")
+  @ApiModelProperty(value = "Timestamp of when the object was created.")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -164,11 +175,11 @@ public class ApplicationProfile {
   }
 
    /**
-   * Timestamp of when the object was last updated
+   * Timestamp of when the object was last updated.
    * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the object was last updated")
+  @ApiModelProperty(value = "Timestamp of when the object was last updated.")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -187,11 +198,11 @@ public class ApplicationProfile {
   }
 
    /**
-   * The ID of the resource.
+   * The ID of the &#x60;Application&#x60; resource.
    * @return application
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the resource.")
+  @ApiModelProperty(value = "The ID of the `Application` resource.")
 
   public String getApplication() {
     return application;
@@ -210,11 +221,11 @@ public class ApplicationProfile {
   }
 
    /**
-   * Get feeProfile
+   * The ID of the &#x60;Fee Profile&#x60; associated with the &#x60;Application&#x60;.
    * @return feeProfile
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "FPxxxxxxxxxxxxxxxxxx", value = "")
+  @ApiModelProperty(example = "FPxxxxxxxxxxxxxxxxxx", value = "The ID of the `Fee Profile` associated with the `Application`.")
 
   public String getFeeProfile() {
     return feeProfile;
@@ -233,11 +244,11 @@ public class ApplicationProfile {
   }
 
    /**
-   * Get riskProfile
+   * The ID of the &#x60;risk_profile&#x60; that was created during provisioning.
    * @return riskProfile
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "RPxxxxxxxxxxxxxxxxxx", value = "")
+  @ApiModelProperty(example = "RPxxxxxxxxxxxxxxxxxx", value = "The ID of the `risk_profile` that was created during provisioning.")
 
   public String getRiskProfile() {
     return riskProfile;

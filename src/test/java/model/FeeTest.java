@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 import model.Currency;
 import model.FeeLinks;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

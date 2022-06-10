@@ -45,10 +45,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * ApplicationProfilesListPage
+ * Details the page that&#39;s returned.
  */
+@ApiModel(description = "Details the page that's returned.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class ApplicationProfilesListPage {
   public static final String SERIALIZED_NAME_COUNT = "count";
   @SerializedName(SERIALIZED_NAME_COUNT)
@@ -72,11 +73,11 @@ public class ApplicationProfilesListPage {
   }
 
    /**
-   * Get count
+   * The number of entries returned.
    * @return count
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The number of entries returned.")
 
   public Integer getCount() {
     return count;
@@ -95,11 +96,11 @@ public class ApplicationProfilesListPage {
   }
 
    /**
-   * Get limit
+   * The number of entries to return.
    * @return limit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The number of entries to return.")
 
   public Integer getLimit() {
     return limit;
@@ -118,11 +119,11 @@ public class ApplicationProfilesListPage {
   }
 
    /**
-   * Get offset
+   * The number of items to skip before starting to collect the result set.
    * @return offset
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The number of items to skip before starting to collect the result set.")
 
   public Integer getOffset() {
     return offset;

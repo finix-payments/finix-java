@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import model.AdditionalPurchaseData;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -48,6 +49,38 @@ public class UpdateAuthorizationRequestTest {
     @Test
     public void tagsTest() {
         // TODO: test tags
+    }
+
+    /**
+     * Test the property 'fee'
+     */
+    @Test
+    public void feeTest() {
+        // TODO: test fee
+    }
+
+    /**
+     * Test the property 'captureAmount'
+     */
+    @Test
+    public void captureAmountTest() {
+        // TODO: test captureAmount
+    }
+
+    /**
+     * Test the property 'additionalPurchaseData'
+     */
+    @Test
+    public void additionalPurchaseDataTest() {
+        // TODO: test additionalPurchaseData
+    }
+
+    /**
+     * Test the property 'voidMe'
+     */
+    @Test
+    public void voidMeTest() {
+        // TODO: test voidMe
     }
 
 }

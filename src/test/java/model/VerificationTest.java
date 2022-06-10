@@ -21,13 +21,11 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import model.VerificationLinks;
-import org.openapitools.jackson.nullable.JsonNullable;
+import model.VerificationPage;
+import model.VerificationVerifications;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -47,107 +45,11 @@ public class VerificationTest {
     }
 
     /**
-     * Test the property 'tags'
+     * Test the property 'verifications'
      */
     @Test
-    public void tagsTest() {
-        // TODO: test tags
-    }
-
-    /**
-     * Test the property 'id'
-     */
-    @Test
-    public void idTest() {
-        // TODO: test id
-    }
-
-    /**
-     * Test the property 'createdAt'
-     */
-    @Test
-    public void createdAtTest() {
-        // TODO: test createdAt
-    }
-
-    /**
-     * Test the property 'updatedAt'
-     */
-    @Test
-    public void updatedAtTest() {
-        // TODO: test updatedAt
-    }
-
-    /**
-     * Test the property 'application'
-     */
-    @Test
-    public void applicationTest() {
-        // TODO: test application
-    }
-
-    /**
-     * Test the property 'identity'
-     */
-    @Test
-    public void identityTest() {
-        // TODO: test identity
-    }
-
-    /**
-     * Test the property 'merchant'
-     */
-    @Test
-    public void merchantTest() {
-        // TODO: test merchant
-    }
-
-    /**
-     * Test the property 'messages'
-     */
-    @Test
-    public void messagesTest() {
-        // TODO: test messages
-    }
-
-    /**
-     * Test the property 'paymentInstrument'
-     */
-    @Test
-    public void paymentInstrumentTest() {
-        // TODO: test paymentInstrument
-    }
-
-    /**
-     * Test the property 'processor'
-     */
-    @Test
-    public void processorTest() {
-        // TODO: test processor
-    }
-
-    /**
-     * Test the property 'raw'
-     */
-    @Test
-    public void rawTest() {
-        // TODO: test raw
-    }
-
-    /**
-     * Test the property 'state'
-     */
-    @Test
-    public void stateTest() {
-        // TODO: test state
-    }
-
-    /**
-     * Test the property 'traceId'
-     */
-    @Test
-    public void traceIdTest() {
-        // TODO: test traceId
+    public void verificationsTest() {
+        // TODO: test verifications
     }
 
     /**
@@ -156,6 +58,14 @@ public class VerificationTest {
     @Test
     public void linksTest() {
         // TODO: test links
+    }
+
+    /**
+     * Test the property 'page'
+     */
+    @Test
+    public void pageTest() {
+        // TODO: test page
     }
 
 }

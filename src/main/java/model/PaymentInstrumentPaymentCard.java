@@ -56,14 +56,14 @@ import invoker.JSON;
  * PaymentInstrumentPaymentCard
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class PaymentInstrumentPaymentCard {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private Map<String, String> tags = null;
 
   /**
-   * Gets or Sets type
+   * Type of &#x60;Payment Instrument&#x60;.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -128,7 +128,7 @@ public class PaymentInstrumentPaymentCard {
   private Address address;
 
   /**
-   * Gets or Sets addressVerification
+   * Additional address information that&#39;s required to verify the identity of the merchant.
    */
   @JsonAdapter(AddressVerificationEnum.Adapter.class)
   public enum AddressVerificationEnum {
@@ -197,7 +197,7 @@ public class PaymentInstrumentPaymentCard {
   private String bin;
 
   /**
-   * Gets or Sets brand
+   * The &#x60;brand&#x60; of the card saved in the &#x60;Payment Instrument&#x60;.
    */
   @JsonAdapter(BrandEnum.Adapter.class)
   public enum BrandEnum {
@@ -288,7 +288,7 @@ public class PaymentInstrumentPaymentCard {
   private String cardName;
 
   /**
-   * Gets or Sets cardType
+   * The type of card saved in the &#x60;Payment Instrument&#x60;.
    */
   @JsonAdapter(CardTypeEnum.Adapter.class)
   public enum CardTypeEnum {
@@ -369,7 +369,7 @@ public class PaymentInstrumentPaymentCard {
   private String identity;
 
   /**
-   * Gets or Sets instrumentType
+   * The type of &#x60;Payment Instrument&#x60;.
    */
   @JsonAdapter(InstrumentTypeEnum.Adapter.class)
   public enum InstrumentTypeEnum {
@@ -485,7 +485,7 @@ public class PaymentInstrumentPaymentCard {
   private String pushFundsBlockIndicator;
 
   /**
-   * Gets or Sets securityCodeVerification
+   * Details the results of the Card Verification Code check.
    */
   @JsonAdapter(SecurityCodeVerificationEnum.Adapter.class)
   public enum SecurityCodeVerificationEnum {
@@ -582,11 +582,11 @@ public class PaymentInstrumentPaymentCard {
   }
 
    /**
-   * Get type
+   * Type of &#x60;Payment Instrument&#x60;.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Type of `Payment Instrument`.")
 
   public TypeEnum getType() {
     return type;
@@ -628,11 +628,11 @@ public class PaymentInstrumentPaymentCard {
   }
 
    /**
-   * Timestamp of when the object was created
+   * Timestamp of when the object was created.
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the object was created")
+  @ApiModelProperty(value = "Timestamp of when the object was created.")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -651,11 +651,11 @@ public class PaymentInstrumentPaymentCard {
   }
 
    /**
-   * Timestamp of when the object was last updated
+   * Timestamp of when the object was last updated.
    * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the object was last updated")
+  @ApiModelProperty(value = "Timestamp of when the object was last updated.")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -697,11 +697,11 @@ public class PaymentInstrumentPaymentCard {
   }
 
    /**
-   * Get addressVerification
+   * Additional address information that&#39;s required to verify the identity of the merchant.
    * @return addressVerification
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Additional address information that's required to verify the identity of the merchant.")
 
   public AddressVerificationEnum getAddressVerification() {
     return addressVerification;
@@ -743,11 +743,11 @@ public class PaymentInstrumentPaymentCard {
   }
 
    /**
-   * Get bin
+   * Bank Identification number for the &#x60;Payment Instrument&#x60;.
    * @return bin
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Bank Identification number for the `Payment Instrument`.")
 
   public String getBin() {
     return bin;
@@ -766,11 +766,11 @@ public class PaymentInstrumentPaymentCard {
   }
 
    /**
-   * Get brand
+   * The &#x60;brand&#x60; of the card saved in the &#x60;Payment Instrument&#x60;.
    * @return brand
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The `brand` of the card saved in the `Payment Instrument`.")
 
   public BrandEnum getBrand() {
     return brand;
@@ -789,11 +789,11 @@ public class PaymentInstrumentPaymentCard {
   }
 
    /**
-   * Get cardName
+   * A custom name you can include to identify the card being used (e.g. **Business Card**).
    * @return cardName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A custom name you can include to identify the card being used (e.g. **Business Card**).")
 
   public String getCardName() {
     return cardName;
@@ -812,11 +812,11 @@ public class PaymentInstrumentPaymentCard {
   }
 
    /**
-   * Get cardType
+   * The type of card saved in the &#x60;Payment Instrument&#x60;.
    * @return cardType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of card saved in the `Payment Instrument`.")
 
   public CardTypeEnum getCardType() {
     return cardType;
@@ -858,13 +858,13 @@ public class PaymentInstrumentPaymentCard {
   }
 
    /**
-   * Get expirationMonth
+   * Expiration month (e.g. 12 for December).
    * minimum: 1
    * maximum: 12
    * @return expirationMonth
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Expiration month (e.g. 12 for December).")
 
   public Integer getExpirationMonth() {
     return expirationMonth;
@@ -883,12 +883,12 @@ public class PaymentInstrumentPaymentCard {
   }
 
    /**
-   * Get expirationYear
+   * 4-digit expiration year.
    * minimum: 1
    * @return expirationYear
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "4-digit expiration year.")
 
   public Integer getExpirationYear() {
     return expirationYear;
@@ -907,11 +907,11 @@ public class PaymentInstrumentPaymentCard {
   }
 
    /**
-   * Get fastFundsIndicator
+   * Details if Fast Funds is enabled for the card.
    * @return fastFundsIndicator
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Details if Fast Funds is enabled for the card.")
 
   public String getFastFundsIndicator() {
     return fastFundsIndicator;
@@ -930,11 +930,11 @@ public class PaymentInstrumentPaymentCard {
   }
 
    /**
-   * Get fingerprint
+   * Unique ID that represents the tokenized card data.
    * @return fingerprint
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "FPRxxxxxxxxxxxxxxxxx", value = "")
+  @ApiModelProperty(example = "FPRxxxxxxxxxxxxxxxxx", value = "Unique ID that represents the tokenized card data.")
 
   public String getFingerprint() {
     return fingerprint;
@@ -976,11 +976,11 @@ public class PaymentInstrumentPaymentCard {
   }
 
    /**
-   * Get instrumentType
+   * The type of &#x60;Payment Instrument&#x60;.
    * @return instrumentType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of `Payment Instrument`.")
 
   public InstrumentTypeEnum getInstrumentType() {
     return instrumentType;
@@ -999,11 +999,11 @@ public class PaymentInstrumentPaymentCard {
   }
 
    /**
-   * Get lastFour
+   * Last four digits of the card or bank account number.
    * @return lastFour
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Last four digits of the card or bank account number.")
 
   public String getLastFour() {
     return lastFour;
@@ -1022,11 +1022,11 @@ public class PaymentInstrumentPaymentCard {
   }
 
    /**
-   * Get name
+   * The name of the bank account or card owner.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name of the bank account or card owner.")
 
   public String getName() {
     return name;
@@ -1045,11 +1045,11 @@ public class PaymentInstrumentPaymentCard {
   }
 
    /**
-   * Get onlineGambingBlockIndicator
+   * Detailes if the card is enabled to receive push-payments for online gambling payouts.
    * @return onlineGambingBlockIndicator
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Detailes if the card is enabled to receive push-payments for online gambling payouts.")
 
   public String getOnlineGambingBlockIndicator() {
     return onlineGambingBlockIndicator;
@@ -1091,11 +1091,11 @@ public class PaymentInstrumentPaymentCard {
   }
 
    /**
-   * Get pushFundsBlockIndicator
+   * Details if the card is enabled to receive push-to-card disbursements.
    * @return pushFundsBlockIndicator
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Details if the card is enabled to receive push-to-card disbursements.")
 
   public String getPushFundsBlockIndicator() {
     return pushFundsBlockIndicator;
@@ -1114,11 +1114,11 @@ public class PaymentInstrumentPaymentCard {
   }
 
    /**
-   * Get securityCodeVerification
+   * Details the results of the Card Verification Code check.
    * @return securityCodeVerification
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Details the results of the Card Verification Code check.")
 
   public SecurityCodeVerificationEnum getSecurityCodeVerification() {
     return securityCodeVerification;

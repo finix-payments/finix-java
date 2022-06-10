@@ -21,7 +21,13 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.CreatePaymentInstrumentRequestAddress;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import model.CreatePaymentInstrumentBankAccount;
+import model.CreatePaymentInstrumentCard;
+import model.CreatePaymentInstrumentCardAddress;
+import model.CreatePaymentInstrumentToken;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -42,35 +48,11 @@ public class CreatePaymentInstrumentRequestTest {
     }
 
     /**
-     * Test the property 'tags'
+     * Test the property 'name'
      */
     @Test
-    public void tagsTest() {
-        // TODO: test tags
-    }
-
-    /**
-     * Test the property 'type'
-     */
-    @Test
-    public void typeTest() {
-        // TODO: test type
-    }
-
-    /**
-     * Test the property 'address'
-     */
-    @Test
-    public void addressTest() {
-        // TODO: test address
-    }
-
-    /**
-     * Test the property 'expirationMonth'
-     */
-    @Test
-    public void expirationMonthTest() {
-        // TODO: test expirationMonth
+    public void nameTest() {
+        // TODO: test name
     }
 
     /**
@@ -82,11 +64,11 @@ public class CreatePaymentInstrumentRequestTest {
     }
 
     /**
-     * Test the property 'identity'
+     * Test the property 'tags'
      */
     @Test
-    public void identityTest() {
-        // TODO: test identity
+    public void tagsTest() {
+        // TODO: test tags
     }
 
     /**
@@ -98,11 +80,91 @@ public class CreatePaymentInstrumentRequestTest {
     }
 
     /**
+     * Test the property 'expirationMonth'
+     */
+    @Test
+    public void expirationMonthTest() {
+        // TODO: test expirationMonth
+    }
+
+    /**
+     * Test the property 'address'
+     */
+    @Test
+    public void addressTest() {
+        // TODO: test address
+    }
+
+    /**
      * Test the property 'securityCode'
      */
     @Test
     public void securityCodeTest() {
         // TODO: test securityCode
+    }
+
+    /**
+     * Test the property 'type'
+     */
+    @Test
+    public void typeTest() {
+        // TODO: test type
+    }
+
+    /**
+     * Test the property 'identity'
+     */
+    @Test
+    public void identityTest() {
+        // TODO: test identity
+    }
+
+    /**
+     * Test the property 'thirdPartyToken'
+     */
+    @Test
+    public void thirdPartyTokenTest() {
+        // TODO: test thirdPartyToken
+    }
+
+    /**
+     * Test the property 'accountNumber'
+     */
+    @Test
+    public void accountNumberTest() {
+        // TODO: test accountNumber
+    }
+
+    /**
+     * Test the property 'accountType'
+     */
+    @Test
+    public void accountTypeTest() {
+        // TODO: test accountType
+    }
+
+    /**
+     * Test the property 'bankCode'
+     */
+    @Test
+    public void bankCodeTest() {
+        // TODO: test bankCode
+    }
+
+    /**
+     * Test the property 'country'
+     */
+    @Test
+    public void countryTest() {
+        // TODO: test country
+    }
+
+    /**
+     * Test the property 'token'
+     */
+    @Test
+    public void tokenTest() {
+        // TODO: test token
     }
 
 }

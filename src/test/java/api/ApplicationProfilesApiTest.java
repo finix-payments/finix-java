@@ -54,7 +54,7 @@ public class ApplicationProfilesApiTest {
     /**
      * List Application Profiles
      *
-     * Return a collection of application profiles
+     * Return a collection of &#x60;application_profiles&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
@@ -65,9 +65,9 @@ public class ApplicationProfilesApiTest {
     }
 
     /**
-     * Put Application Profile
+     * Update Application Profile
      *
-     * Update an existing application profile
+     * Update an existing &#x60;application_profile&#x60;.
      *
      * @throws ApiException if the Api call fails
      */

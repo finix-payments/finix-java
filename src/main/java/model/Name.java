@@ -48,7 +48,7 @@ import invoker.JSON;
  * Name
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class Name {
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
@@ -76,11 +76,11 @@ public class Name {
   }
 
    /**
-   * Get firstName
+   * The first name of the &#x60;Payment Instrument&#x60; owner.
    * @return firstName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The first name of the `Payment Instrument` owner.")
 
   public String getFirstName() {
     return firstName;
@@ -99,11 +99,11 @@ public class Name {
   }
 
    /**
-   * Get fullName
+   * The full name of the &#x60;Payment Instrument&#x60; owner.
    * @return fullName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The full name of the `Payment Instrument` owner.")
 
   public String getFullName() {
     return fullName;
@@ -122,11 +122,11 @@ public class Name {
   }
 
    /**
-   * Get lastName
+   * The last name of the &#x60;Payment Instrument&#x60; owner.
    * @return lastName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The last name of the `Payment Instrument` owner.")
 
   public String getLastName() {
     return lastName;

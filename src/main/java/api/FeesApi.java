@@ -90,7 +90,11 @@ import javax.ws.rs.core.GenericType;
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Single fee object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
         public okhttp3.Call createFeesCall(CreateFeeRequest createFeeRequest, final ApiCallback _callback) throws ApiException {
@@ -148,43 +152,48 @@ import javax.ws.rs.core.GenericType;
             }
 
                 /**
-                * Create a custom fee
-                * Create a custom fee
+                * Create a One-Time Fee
+                * Create a custom (i.e. one time) &#x60;fee&#x60;.
                     * @param createFeeRequest  (optional)
-                    * @return Fee
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> Single fee object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+                            <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     </table>
                 */
-                    public Fee create(CreateFeeRequest createFeeRequest) throws ApiException {
-                ApiResponse<Fee> localVarResp = createFeesWithHttpInfo(createFeeRequest);
-                        return localVarResp.getData();
+                    public void create(CreateFeeRequest createFeeRequest) throws ApiException {
+                createFeesWithHttpInfo(createFeeRequest);
                     }
 
         /**
-            * Create a custom fee
-            * Create a custom fee
+            * Create a One-Time Fee
+            * Create a custom (i.e. one time) &#x60;fee&#x60;.
                 * @param createFeeRequest  (optional)
-            * @return ApiResponse&lt;Fee&gt;
+            * @return ApiResponse&lt;Void&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Single fee object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public ApiResponse<Fee> createFeesWithHttpInfo(CreateFeeRequest createFeeRequest) throws ApiException {
+            public ApiResponse<Void> createFeesWithHttpInfo(CreateFeeRequest createFeeRequest) throws ApiException {
             okhttp3.Call localVarCall = createFeesValidateBeforeCall(createFeeRequest, null);
-                    Type localVarReturnType = new TypeToken<Fee>(){}.getType();
-                    return localVarFinixClient.execute(localVarCall, localVarReturnType);
+                return localVarFinixClient.execute(localVarCall);
             }
 
         /**
-            * Create a custom fee (asynchronously)
-            * Create a custom fee
+            * Create a One-Time Fee (asynchronously)
+            * Create a custom (i.e. one time) &#x60;fee&#x60;.
                 * @param createFeeRequest  (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
@@ -192,14 +201,17 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Single fee object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public okhttp3.Call createFeesAsync(CreateFeeRequest createFeeRequest, final ApiCallback<Fee> _callback) throws ApiException {
+            public okhttp3.Call createFeesAsync(CreateFeeRequest createFeeRequest, final ApiCallback<Void> _callback) throws ApiException {
 
             okhttp3.Call localVarCall = createFeesValidateBeforeCall(createFeeRequest, _callback);
-        Type localVarReturnType = new TypeToken<Fee>(){}.getType();
-            localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        localVarFinixClient.executeAsync(localVarCall, _callback);
             return localVarCall;
             }
         /**
@@ -211,7 +223,7 @@ import javax.ws.rs.core.GenericType;
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Single fee object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> Single Fee object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -279,15 +291,15 @@ import javax.ws.rs.core.GenericType;
             }
 
                 /**
-                * Get fee
-                * Find an existing fee by id
+                * Get Fee
+                * Retrieve the details of a &#x60;Fee&#x60;.
                     * @param feeId ID of fee to use (required)
                     * @return Fee
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> Single fee object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> Single Fee object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -300,15 +312,15 @@ import javax.ws.rs.core.GenericType;
                     }
 
         /**
-            * Get fee
-            * Find an existing fee by id
+            * Get Fee
+            * Retrieve the details of a &#x60;Fee&#x60;.
                 * @param feeId ID of fee to use (required)
             * @return ApiResponse&lt;Fee&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Single fee object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> Single Fee object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -322,8 +334,8 @@ import javax.ws.rs.core.GenericType;
             }
 
         /**
-            * Get fee (asynchronously)
-            * Find an existing fee by id
+            * Get Fee (asynchronously)
+            * Retrieve the details of a &#x60;Fee&#x60;.
                 * @param feeId ID of fee to use (required)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
@@ -331,7 +343,7 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Single fee object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> Single Fee object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -353,7 +365,7 @@ import javax.ws.rs.core.GenericType;
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Collection of fees </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> List of Fee objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -415,13 +427,13 @@ import javax.ws.rs.core.GenericType;
 
                 /**
                 * List Fees
-                * Return a collection of fees
+                * Return a collection of &#x60;fees&#x60;.
                     * @return FeesList
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> Collection of fees </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> List of Fee objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -434,13 +446,13 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * List Fees
-            * Return a collection of fees
+            * Return a collection of &#x60;fees&#x60;.
             * @return ApiResponse&lt;FeesList&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Collection of fees </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Fee objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -454,14 +466,14 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * List Fees (asynchronously)
-            * Return a collection of fees
+            * Return a collection of &#x60;fees&#x60;.
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Collection of fees </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Fee objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -477,26 +489,24 @@ import javax.ws.rs.core.GenericType;
         /**
         * Build call for listTransferFees
             * @param transferId ID of object (required)
-            * @param limit  (optional)
-            * @param offset  (optional)
-            * @param pageNumber  (optional)
-            * @param pageSize  (optional)
-            * @param sortSorted  (optional)
-            * @param sortUnsorted  (optional)
+            * @param limit The number of entries to return. (optional)
+            * @param offset The number of items to skip before starting to collect the result set. (optional)
+            * @param pageNumber The page number to list. (optional)
+            * @param pageSize The size of the page. (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call listTransferFeesCall(String transferId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback _callback) throws ApiException {
+        public okhttp3.Call listTransferFeesCall(String transferId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -538,14 +548,6 @@ import javax.ws.rs.core.GenericType;
                 localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageSize", pageSize));
                     }
 
-                    if (sortSorted != null) {
-                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("sort.sorted", sortSorted));
-                    }
-
-                    if (sortUnsorted != null) {
-                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("sort.unsorted", sortUnsorted));
-                    }
-
             final String[] localVarAccepts = {
         "application/hal+json"
             };
@@ -567,7 +569,7 @@ import javax.ws.rs.core.GenericType;
             }
 
             @SuppressWarnings("rawtypes")
-            private okhttp3.Call listTransferFeesValidateBeforeCall(String transferId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback _callback) throws ApiException {
+            private okhttp3.Call listTransferFeesValidateBeforeCall(String transferId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback _callback) throws ApiException {
             
                     // verify the required parameter 'transferId' is set
                     if (transferId == null) {
@@ -575,7 +577,7 @@ import javax.ws.rs.core.GenericType;
                     }
             
 
-                okhttp3.Call localVarCall = listTransferFeesCall(transferId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted, _callback);
+                okhttp3.Call localVarCall = listTransferFeesCall(transferId, limit, offset, pageNumber, pageSize, _callback);
                 return localVarCall;
 
             }
@@ -584,26 +586,24 @@ import javax.ws.rs.core.GenericType;
                 * List Transfer Fees
                 * Get list of all the fees in the transfers object
                     * @param transferId ID of object (required)
-                    * @param limit  (optional)
-                    * @param offset  (optional)
-                    * @param pageNumber  (optional)
-                    * @param pageSize  (optional)
-                    * @param sortSorted  (optional)
-                    * @param sortUnsorted  (optional)
+                    * @param limit The number of entries to return. (optional)
+                    * @param offset The number of items to skip before starting to collect the result set. (optional)
+                    * @param pageNumber The page number to list. (optional)
+                    * @param pageSize The size of the page. (optional)
                     * @return TransfersList
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     </table>
                 */
-                    public TransfersList listByTransferId(String transferId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted) throws ApiException {
-                ApiResponse<TransfersList> localVarResp = listTransferFeesWithHttpInfo(transferId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
+                    public TransfersList listByTransferId(String transferId, Integer limit, Long offset, Integer pageNumber, Integer pageSize) throws ApiException {
+                ApiResponse<TransfersList> localVarResp = listTransferFeesWithHttpInfo(transferId, limit, offset, pageNumber, pageSize);
                         return localVarResp.getData();
                     }
 
@@ -611,26 +611,24 @@ import javax.ws.rs.core.GenericType;
             * List Transfer Fees
             * Get list of all the fees in the transfers object
                 * @param transferId ID of object (required)
-                * @param limit  (optional)
-                * @param offset  (optional)
-                * @param pageNumber  (optional)
-                * @param pageSize  (optional)
-                * @param sortSorted  (optional)
-                * @param sortUnsorted  (optional)
+                * @param limit The number of entries to return. (optional)
+                * @param offset The number of items to skip before starting to collect the result set. (optional)
+                * @param pageNumber The page number to list. (optional)
+                * @param pageSize The size of the page. (optional)
             * @return ApiResponse&lt;TransfersList&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public ApiResponse<TransfersList> listTransferFeesWithHttpInfo(String transferId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted) throws ApiException {
-            okhttp3.Call localVarCall = listTransferFeesValidateBeforeCall(transferId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted, null);
+            public ApiResponse<TransfersList> listTransferFeesWithHttpInfo(String transferId, Integer limit, Long offset, Integer pageNumber, Integer pageSize) throws ApiException {
+            okhttp3.Call localVarCall = listTransferFeesValidateBeforeCall(transferId, limit, offset, pageNumber, pageSize, null);
                     Type localVarReturnType = new TypeToken<TransfersList>(){}.getType();
                     return localVarFinixClient.execute(localVarCall, localVarReturnType);
             }
@@ -639,28 +637,26 @@ import javax.ws.rs.core.GenericType;
             * List Transfer Fees (asynchronously)
             * Get list of all the fees in the transfers object
                 * @param transferId ID of object (required)
-                * @param limit  (optional)
-                * @param offset  (optional)
-                * @param pageNumber  (optional)
-                * @param pageSize  (optional)
-                * @param sortSorted  (optional)
-                * @param sortUnsorted  (optional)
+                * @param limit The number of entries to return. (optional)
+                * @param offset The number of items to skip before starting to collect the result set. (optional)
+                * @param pageNumber The page number to list. (optional)
+                * @param pageSize The size of the page. (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public okhttp3.Call listTransferFeesAsync(String transferId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback<TransfersList> _callback) throws ApiException {
+            public okhttp3.Call listTransferFeesAsync(String transferId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback<TransfersList> _callback) throws ApiException {
 
-            okhttp3.Call localVarCall = listTransferFeesValidateBeforeCall(transferId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted, _callback);
+            okhttp3.Call localVarCall = listTransferFeesValidateBeforeCall(transferId, limit, offset, pageNumber, pageSize, _callback);
         Type localVarReturnType = new TypeToken<TransfersList>(){}.getType();
             localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
             return localVarCall;
@@ -675,7 +671,7 @@ import javax.ws.rs.core.GenericType;
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Single fee object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> Single Fee object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -743,7 +739,7 @@ import javax.ws.rs.core.GenericType;
 
                 /**
                 * Update Fee
-                * Merge update the fee
+                * Update the details of a &#x60;Fee&#x60;.
                     * @param feeId ID of fee to use (required)
                     * @param updateFeeRequest  (optional)
                     * @return Fee
@@ -751,7 +747,7 @@ import javax.ws.rs.core.GenericType;
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> Single fee object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> Single Fee object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -764,7 +760,7 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Update Fee
-            * Merge update the fee
+            * Update the details of a &#x60;Fee&#x60;.
                 * @param feeId ID of fee to use (required)
                 * @param updateFeeRequest  (optional)
             * @return ApiResponse&lt;Fee&gt;
@@ -772,7 +768,7 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Single fee object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> Single Fee object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -786,7 +782,7 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Update Fee (asynchronously)
-            * Merge update the fee
+            * Update the details of a &#x60;Fee&#x60;.
                 * @param feeId ID of fee to use (required)
                 * @param updateFeeRequest  (optional)
             * @param _callback The callback to be executed when the API call finishes
@@ -795,7 +791,7 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Single fee object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> Single Fee object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>

@@ -23,6 +23,9 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -49,11 +52,11 @@ import invoker.JSON;
  * UpdateApplicationProfileRequest
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class UpdateApplicationProfileRequest {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private Object tags;
+  private Map<String, String> tags = null;
 
   public static final String SERIALIZED_NAME_FEE_PROFILE = "fee_profile";
   @SerializedName(SERIALIZED_NAME_FEE_PROFILE)
@@ -66,25 +69,33 @@ public class UpdateApplicationProfileRequest {
   public UpdateApplicationProfileRequest() { 
   }
 
-  public UpdateApplicationProfileRequest tags(Object tags) {
+  public UpdateApplicationProfileRequest tags(Map<String, String> tags) {
     
     this.tags = tags;
     return this;
   }
 
+  public UpdateApplicationProfileRequest putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
+    return this;
+  }
+
    /**
-   * Get tags
+   * Key value pair for annotating custom meta data (e.g. order numbers).
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
 
-  public Object getTags() {
+  public Map<String, String> getTags() {
     return tags;
   }
 
 
-  public void setTags(Object tags) {
+  public void setTags(Map<String, String> tags) {
     this.tags = tags;
   }
 

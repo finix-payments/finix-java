@@ -24,214 +24,428 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import model.ProcessorOneOf;
-import model.ProcessorOneOf1;
-import model.ProcessorOneOfLinks;
+import model.ProcessorApplicationConfig;
+import model.ProcessorLinks;
+import model.ProcessorSystemConfig;
 import org.openapitools.jackson.nullable.JsonNullable;
-
-import javax.ws.rs.core.GenericType;
-
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.HashMap;
-import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.JsonPrimitive;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import invoker.JSON;
 
+/**
+ * Processor
+ */
+@lombok.Builder@lombok.AllArgsConstructor
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+public class Processor {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
-public class Processor extends AbstractOpenApiSchema {
-    private static final Logger log = Logger.getLogger(Processor.class.getName());
+  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private OffsetDateTime createdAt;
 
-    public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-        @SuppressWarnings("unchecked")
-        @Override
-        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!Processor.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'Processor' and its subtypes
-            }
-            final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ProcessorOneOf> adapterProcessorOneOf = gson.getDelegateAdapter(this, TypeToken.get(ProcessorOneOf.class));
-            final TypeAdapter<ProcessorOneOf1> adapterProcessorOneOf1 = gson.getDelegateAdapter(this, TypeToken.get(ProcessorOneOf1.class));
+  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
+  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  private OffsetDateTime updatedAt;
 
-            return (TypeAdapter<T>) new TypeAdapter<Processor>() {
-                @Override
-                public void write(JsonWriter out, Processor value) throws IOException {
-                    if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
-                        return;
-                    }
+  public static final String SERIALIZED_NAME_APPLICATION = "application";
+  @SerializedName(SERIALIZED_NAME_APPLICATION)
+  private String application;
 
-                    // check if the actual instance is of the type `ProcessorOneOf`
-                    if (value.getActualInstance() instanceof ProcessorOneOf) {
-                        JsonObject obj = adapterProcessorOneOf.toJsonTree((ProcessorOneOf)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
+  public static final String SERIALIZED_NAME_APPLICATION_CONFIG = "application_config";
+  @SerializedName(SERIALIZED_NAME_APPLICATION_CONFIG)
+  private ProcessorApplicationConfig applicationConfig;
 
-                    // check if the actual instance is of the type `ProcessorOneOf1`
-                    if (value.getActualInstance() instanceof ProcessorOneOf1) {
-                        JsonObject obj = adapterProcessorOneOf1.toJsonTree((ProcessorOneOf1)value.getActualInstance()).getAsJsonObject();
-                        elementAdapter.write(out, obj);
-                        return;
-                    }
+  public static final String SERIALIZED_NAME_CONFIG = "config";
+  @SerializedName(SERIALIZED_NAME_CONFIG)
+  private Object config;
 
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: ProcessorOneOf, ProcessorOneOf1");
-                }
+  public static final String SERIALIZED_NAME_DEFAULT_MERCHANT_PROFILE = "default_merchant_profile";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_MERCHANT_PROFILE)
+  private String defaultMerchantProfile;
 
-                @Override
-                public Processor read(JsonReader in) throws IOException {
-                    Object deserialized = null;
-                    JsonObject jsonObject = elementAdapter.read(in).getAsJsonObject();
+  public static final String SERIALIZED_NAME_ENABLED = "enabled";
+  @SerializedName(SERIALIZED_NAME_ENABLED)
+  private Boolean enabled;
 
-                    int match = 0;
-                    TypeAdapter actualAdapter = elementAdapter;
+  public static final String SERIALIZED_NAME_PROCESSOR = "processor";
+  @SerializedName(SERIALIZED_NAME_PROCESSOR)
+  private String processor;
 
-                    // deserialize ProcessorOneOf
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        ProcessorOneOf.validateJsonObject(jsonObject);
-                        actualAdapter = adapterProcessorOneOf;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'ProcessorOneOf'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        log.log(Level.FINER, "Input data does not match schema 'ProcessorOneOf'", e);
-                    }
+  public static final String SERIALIZED_NAME_SYSTEM_CONFIG = "system_config";
+  @SerializedName(SERIALIZED_NAME_SYSTEM_CONFIG)
+  private ProcessorSystemConfig systemConfig;
 
-                    // deserialize ProcessorOneOf1
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        ProcessorOneOf1.validateJsonObject(jsonObject);
-                        actualAdapter = adapterProcessorOneOf1;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'ProcessorOneOf1'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        log.log(Level.FINER, "Input data does not match schema 'ProcessorOneOf1'", e);
-                    }
+  public static final String SERIALIZED_NAME_LINKS = "_links";
+  @SerializedName(SERIALIZED_NAME_LINKS)
+  private ProcessorLinks links;
 
-                    if (match == 1) {
-                        Processor ret = new Processor();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonObject));
-                        return ret;
-                    }
+  public Processor() { 
+  }
 
-                    throw new IOException(String.format("Failed deserialization for Processor: %d classes match result, expected 1. JSON: %s", match, jsonObject.toString()));
-                }
-            }.nullSafe();
-        }
+  public Processor id(String id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * ID of the &#x60;Processor&#x60; resource.
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "PRxxxxxxxxxxxxxxxxxx", value = "ID of the `Processor` resource.")
+
+  public String getId() {
+    return id;
+  }
+
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+
+  public Processor createdAt(OffsetDateTime createdAt) {
+    
+    this.createdAt = createdAt;
+    return this;
+  }
+
+   /**
+   * Timestamp of when the object was created.
+   * @return createdAt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Timestamp of when the object was created.")
+
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
+  public Processor updatedAt(OffsetDateTime updatedAt) {
+    
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+   /**
+   * Timestamp of when the object was last updated.
+   * @return updatedAt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Timestamp of when the object was last updated.")
+
+  public OffsetDateTime getUpdatedAt() {
+    return updatedAt;
+  }
+
+
+  public void setUpdatedAt(OffsetDateTime updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+
+  public Processor application(String application) {
+    
+    this.application = application;
+    return this;
+  }
+
+   /**
+   * The ID of the &#x60;Application&#x60; resource.
+   * @return application
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ID of the `Application` resource.")
+
+  public String getApplication() {
+    return application;
+  }
+
+
+  public void setApplication(String application) {
+    this.application = application;
+  }
+
+
+  public Processor applicationConfig(ProcessorApplicationConfig applicationConfig) {
+    
+    this.applicationConfig = applicationConfig;
+    return this;
+  }
+
+   /**
+   * Get applicationConfig
+   * @return applicationConfig
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ProcessorApplicationConfig getApplicationConfig() {
+    return applicationConfig;
+  }
+
+
+  public void setApplicationConfig(ProcessorApplicationConfig applicationConfig) {
+    this.applicationConfig = applicationConfig;
+  }
+
+
+  public Processor config(Object config) {
+    
+    this.config = config;
+    return this;
+  }
+
+   /**
+   * Get config
+   * @return config
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Object getConfig() {
+    return config;
+  }
+
+
+  public void setConfig(Object config) {
+    this.config = config;
+  }
+
+
+  public Processor defaultMerchantProfile(String defaultMerchantProfile) {
+    
+    this.defaultMerchantProfile = defaultMerchantProfile;
+    return this;
+  }
+
+   /**
+   * The ID of the resource.
+   * @return defaultMerchantProfile
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ID of the resource.")
+
+  public String getDefaultMerchantProfile() {
+    return defaultMerchantProfile;
+  }
+
+
+  public void setDefaultMerchantProfile(String defaultMerchantProfile) {
+    this.defaultMerchantProfile = defaultMerchantProfile;
+  }
+
+
+  public Processor enabled(Boolean enabled) {
+    
+    this.enabled = enabled;
+    return this;
+  }
+
+   /**
+   * Details if the &#x60;Processor&#x60; resource is enabled. Set to **false** to disable the &#x60;Processor&#x60;.
+   * @return enabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Details if the `Processor` resource is enabled. Set to **false** to disable the `Processor`.")
+
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
+  }
+
+
+  public Processor processor(String processor) {
+    
+    this.processor = processor;
+    return this;
+  }
+
+   /**
+   * The name of the processor.
+   * @return processor
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The name of the processor.")
+
+  public String getProcessor() {
+    return processor;
+  }
+
+
+  public void setProcessor(String processor) {
+    this.processor = processor;
+  }
+
+
+  public Processor systemConfig(ProcessorSystemConfig systemConfig) {
+    
+    this.systemConfig = systemConfig;
+    return this;
+  }
+
+   /**
+   * Get systemConfig
+   * @return systemConfig
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ProcessorSystemConfig getSystemConfig() {
+    return systemConfig;
+  }
+
+
+  public void setSystemConfig(ProcessorSystemConfig systemConfig) {
+    this.systemConfig = systemConfig;
+  }
+
+
+  public Processor links(ProcessorLinks links) {
+    
+    this.links = links;
+    return this;
+  }
+
+   /**
+   * Get links
+   * @return links
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ProcessorLinks getLinks() {
+    return links;
+  }
+
+
+  public void setLinks(ProcessorLinks links) {
+    this.links = links;
+  }
+
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    // store a list of schema names defined in oneOf
-    public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
-
-    public Processor() {
-        super("oneOf", Boolean.FALSE);
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    Processor processor = (Processor) o;
+    return Objects.equals(this.id, processor.id) &&
+        Objects.equals(this.createdAt, processor.createdAt) &&
+        Objects.equals(this.updatedAt, processor.updatedAt) &&
+        Objects.equals(this.application, processor.application) &&
+        Objects.equals(this.applicationConfig, processor.applicationConfig) &&
+        Objects.equals(this.config, processor.config) &&
+        Objects.equals(this.defaultMerchantProfile, processor.defaultMerchantProfile) &&
+        Objects.equals(this.enabled, processor.enabled) &&
+        Objects.equals(this.processor, processor.processor) &&
+        Objects.equals(this.systemConfig, processor.systemConfig) &&
+        Objects.equals(this.links, processor.links);
+  }
 
-    public Processor(ProcessorOneOf o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, createdAt, updatedAt, application, applicationConfig, config, defaultMerchantProfile, enabled, processor, systemConfig, links);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
     }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+  }
 
-    public Processor(ProcessorOneOf1 o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class Processor {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    application: ").append(toIndentedString(application)).append("\n");
+    sb.append("    applicationConfig: ").append(toIndentedString(applicationConfig)).append("\n");
+    sb.append("    config: ").append(toIndentedString(config)).append("\n");
+    sb.append("    defaultMerchantProfile: ").append(toIndentedString(defaultMerchantProfile)).append("\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    processor: ").append(toIndentedString(processor)).append("\n");
+    sb.append("    systemConfig: ").append(toIndentedString(systemConfig)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
+    return o.toString().replace("\n", "\n    ");
+  }
 
-    static {
-        schemas.put("ProcessorOneOf", new GenericType<ProcessorOneOf>() {
-        });
-        schemas.put("ProcessorOneOf1", new GenericType<ProcessorOneOf1>() {
-        });
-    }
 
-    @Override
-    public Map<String, GenericType> getSchemas() {
-        return Processor.schemas;
-    }
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
 
-    /**
-     * Set the instance that matches the oneOf child schema, check
-     * the instance parameter is valid against the oneOf child schemas:
-     * ProcessorOneOf, ProcessorOneOf1
-     *
-     * It could be an instance of the 'oneOf' schemas.
-     * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
-     */
-    @Override
-    public void setActualInstance(Object instance) {
-        if (instance instanceof ProcessorOneOf) {
-            super.setActualInstance(instance);
-            return;
-        }
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("id");
+    openapiFields.add("created_at");
+    openapiFields.add("updated_at");
+    openapiFields.add("application");
+    openapiFields.add("application_config");
+    openapiFields.add("config");
+    openapiFields.add("default_merchant_profile");
+    openapiFields.add("enabled");
+    openapiFields.add("processor");
+    openapiFields.add("system_config");
+    openapiFields.add("_links");
 
-        if (instance instanceof ProcessorOneOf1) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        throw new RuntimeException("Invalid instance type. Must be ProcessorOneOf, ProcessorOneOf1");
-    }
-
-    /**
-     * Get the actual instance, which can be the following:
-     * ProcessorOneOf, ProcessorOneOf1
-     *
-     * @return The actual instance (ProcessorOneOf, ProcessorOneOf1)
-     */
-    @Override
-    public Object getActualInstance() {
-        return super.getActualInstance();
-    }
-
-    /**
-     * Get the actual instance of `ProcessorOneOf`. If the actual instance is not `ProcessorOneOf`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `ProcessorOneOf`
-     * @throws ClassCastException if the instance is not `ProcessorOneOf`
-     */
-    public ProcessorOneOf getProcessorOneOf() throws ClassCastException {
-        return (ProcessorOneOf)super.getActualInstance();
-    }
-
-    /**
-     * Get the actual instance of `ProcessorOneOf1`. If the actual instance is not `ProcessorOneOf1`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `ProcessorOneOf1`
-     * @throws ClassCastException if the instance is not `ProcessorOneOf1`
-     */
-    public ProcessorOneOf1 getProcessorOneOf1() throws ClassCastException {
-        return (ProcessorOneOf1)super.getActualInstance();
-    }
-
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -240,24 +454,76 @@ public class Processor extends AbstractOpenApiSchema {
   * @throws IOException if the JSON Object is invalid with respect to Processor
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-    // validate oneOf schemas one by one
-    int validCount = 0;
-    // validate the json string with ProcessorOneOf
-    try {
-      ProcessorOneOf.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      // continue to the next one
-    }
-    // validate the json string with ProcessorOneOf1
-    try {
-      ProcessorOneOf1.validateJsonObject(jsonObj);
-      validCount++;
-    } catch (Exception e) {
-      // continue to the next one
-    }
-    if (validCount != 1) {
-      throw new IOException(String.format("The JSON string is invalid for Processor with oneOf schemas: ProcessorOneOf, ProcessorOneOf1. %d class(es) match the result, expected 1. JSON: %s", validCount, jsonObj.toString()));
+      if (jsonObj == null) {
+        if (Processor.openapiRequiredFields.isEmpty()) {
+          return;
+        } else { // has required fields
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Processor is not found in the empty JSON string", Processor.openapiRequiredFields.toString()));
+        }
+      }
+     /* 
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!Processor.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Processor` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      */
+      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()  && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if (jsonObj.get("application") != null && !jsonObj.get("application").isJsonNull()  && !jsonObj.get("application").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `application` to be a primitive type in the JSON string but got `%s`", jsonObj.get("application").toString()));
+      }
+      // validate the optional field `application_config`
+      if (jsonObj.getAsJsonObject("application_config") != null) {
+       ProcessorApplicationConfig.validateJsonObject(jsonObj.getAsJsonObject("application_config"));
+      }
+      if (jsonObj.get("default_merchant_profile") != null && !jsonObj.get("default_merchant_profile").isJsonNull()  && !jsonObj.get("default_merchant_profile").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `default_merchant_profile` to be a primitive type in the JSON string but got `%s`", jsonObj.get("default_merchant_profile").toString()));
+      }
+      if (jsonObj.get("processor") != null && !jsonObj.get("processor").isJsonNull()  && !jsonObj.get("processor").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `processor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("processor").toString()));
+      }
+      // validate the optional field `system_config`
+      if (jsonObj.getAsJsonObject("system_config") != null) {
+       ProcessorSystemConfig.validateJsonObject(jsonObj.getAsJsonObject("system_config"));
+      }
+      // validate the optional field `_links`
+      if (jsonObj.getAsJsonObject("_links") != null) {
+       ProcessorLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+      }
+  }
+
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!Processor.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'Processor' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<Processor> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(Processor.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<Processor>() {
+           @Override
+           public void write(JsonWriter out, Processor value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public Processor read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
     }
   }
 

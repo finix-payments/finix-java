@@ -46,10 +46,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * SubscriptionSchedulesListLinks
+ * For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these &#x60;_links&#x60; to make your follow-up requests and quickly access relevant IDs.
  */
+@ApiModel(description = "For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class SubscriptionSchedulesListLinks {
   public static final String SERIALIZED_NAME_SELF_COLON = "self:";
   @SerializedName(SERIALIZED_NAME_SELF_COLON)

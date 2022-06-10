@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -51,20 +50,20 @@ import invoker.JSON;
  */
 @ApiModel(description = "Specifies when the Fee is charged. This field is null for FIXED_TIME_INTERVAL Subscription Schedules")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class CreateSubscriptionScheduleRequestPeriodOffset {
   public static final String SERIALIZED_NAME_DAY = "day";
   @SerializedName(SERIALIZED_NAME_DAY)
-  private BigDecimal day;
+  private Integer day;
 
   public static final String SERIALIZED_NAME_MONTH = "month";
   @SerializedName(SERIALIZED_NAME_MONTH)
-  private BigDecimal month;
+  private Integer month;
 
   public CreateSubscriptionScheduleRequestPeriodOffset() { 
   }
 
-  public CreateSubscriptionScheduleRequestPeriodOffset day(BigDecimal day) {
+  public CreateSubscriptionScheduleRequestPeriodOffset day(Integer day) {
     
     this.day = day;
     return this;
@@ -77,17 +76,17 @@ public class CreateSubscriptionScheduleRequestPeriodOffset {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Specifies the day when the Subscription Schedule starts.")
 
-  public BigDecimal getDay() {
+  public Integer getDay() {
     return day;
   }
 
 
-  public void setDay(BigDecimal day) {
+  public void setDay(Integer day) {
     this.day = day;
   }
 
 
-  public CreateSubscriptionScheduleRequestPeriodOffset month(BigDecimal month) {
+  public CreateSubscriptionScheduleRequestPeriodOffset month(Integer month) {
     
     this.month = month;
     return this;
@@ -100,12 +99,12 @@ public class CreateSubscriptionScheduleRequestPeriodOffset {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Specifies the month when the Subscription Schedule starts. If the Subscription Schedule is PERIODIC_MONTHLY, the month field can be left null")
 
-  public BigDecimal getMonth() {
+  public Integer getMonth() {
     return month;
   }
 
 
-  public void setMonth(BigDecimal month) {
+  public void setMonth(Integer month) {
     this.month = month;
   }
 

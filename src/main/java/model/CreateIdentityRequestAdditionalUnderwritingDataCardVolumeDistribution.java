@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,24 +49,24 @@ import invoker.JSON;
  */
 @ApiModel(description = "The distribution of the merchant's credit card volume The sum of `card_volume_distribution` must be 100.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class CreateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution {
   public static final String SERIALIZED_NAME_CARD_PRESENT_PERCENTAGE = "card_present_percentage";
   @SerializedName(SERIALIZED_NAME_CARD_PRESENT_PERCENTAGE)
-  private BigDecimal cardPresentPercentage;
+  private Integer cardPresentPercentage;
 
   public static final String SERIALIZED_NAME_MAIL_ORDER_TELEPHONE_ORDER_PERCENTAGE = "mail_order_telephone_order_percentage";
   @SerializedName(SERIALIZED_NAME_MAIL_ORDER_TELEPHONE_ORDER_PERCENTAGE)
-  private BigDecimal mailOrderTelephoneOrderPercentage;
+  private Integer mailOrderTelephoneOrderPercentage;
 
   public static final String SERIALIZED_NAME_ECOMMERCE_PERCENTAGE = "ecommerce_percentage";
   @SerializedName(SERIALIZED_NAME_ECOMMERCE_PERCENTAGE)
-  private BigDecimal ecommercePercentage;
+  private Integer ecommercePercentage;
 
   public CreateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution() { 
   }
 
-  public CreateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution cardPresentPercentage(BigDecimal cardPresentPercentage) {
+  public CreateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution cardPresentPercentage(Integer cardPresentPercentage) {
     
     this.cardPresentPercentage = cardPresentPercentage;
     return this;
@@ -80,17 +79,17 @@ public class CreateIdentityRequestAdditionalUnderwritingDataCardVolumeDistributi
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The percentage of the merchant's volume that's card present (between 0 and 100).")
 
-  public BigDecimal getCardPresentPercentage() {
+  public Integer getCardPresentPercentage() {
     return cardPresentPercentage;
   }
 
 
-  public void setCardPresentPercentage(BigDecimal cardPresentPercentage) {
+  public void setCardPresentPercentage(Integer cardPresentPercentage) {
     this.cardPresentPercentage = cardPresentPercentage;
   }
 
 
-  public CreateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution mailOrderTelephoneOrderPercentage(BigDecimal mailOrderTelephoneOrderPercentage) {
+  public CreateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution mailOrderTelephoneOrderPercentage(Integer mailOrderTelephoneOrderPercentage) {
     
     this.mailOrderTelephoneOrderPercentage = mailOrderTelephoneOrderPercentage;
     return this;
@@ -103,17 +102,17 @@ public class CreateIdentityRequestAdditionalUnderwritingDataCardVolumeDistributi
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The percentage of the merchant's business that is a mail order or telephone order (between 0 and 100).")
 
-  public BigDecimal getMailOrderTelephoneOrderPercentage() {
+  public Integer getMailOrderTelephoneOrderPercentage() {
     return mailOrderTelephoneOrderPercentage;
   }
 
 
-  public void setMailOrderTelephoneOrderPercentage(BigDecimal mailOrderTelephoneOrderPercentage) {
+  public void setMailOrderTelephoneOrderPercentage(Integer mailOrderTelephoneOrderPercentage) {
     this.mailOrderTelephoneOrderPercentage = mailOrderTelephoneOrderPercentage;
   }
 
 
-  public CreateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution ecommercePercentage(BigDecimal ecommercePercentage) {
+  public CreateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution ecommercePercentage(Integer ecommercePercentage) {
     
     this.ecommercePercentage = ecommercePercentage;
     return this;
@@ -126,12 +125,12 @@ public class CreateIdentityRequestAdditionalUnderwritingDataCardVolumeDistributi
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The percentage of the merchant's business that is eCommerce (between 0 and 100).")
 
-  public BigDecimal getEcommercePercentage() {
+  public Integer getEcommercePercentage() {
     return ecommercePercentage;
   }
 
 
-  public void setEcommercePercentage(BigDecimal ecommercePercentage) {
+  public void setEcommercePercentage(Integer ecommercePercentage) {
     this.ecommercePercentage = ecommercePercentage;
   }
 

@@ -23,8 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.DisputeEvidenceListPage;
 import model.ListLinks;
+import model.PaymentInstrumentUpdatesListPage;
 import model.ReserveProfilesListEmbedded;
 
 import com.google.gson.Gson;
@@ -51,11 +51,11 @@ import invoker.JSON;
  * ReserveProfilesList
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class ReserveProfilesList {
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
-  private DisputeEvidenceListPage page;
+  private PaymentInstrumentUpdatesListPage page;
 
   public static final String SERIALIZED_NAME_EMBEDDED = "_embedded";
   @SerializedName(SERIALIZED_NAME_EMBEDDED)
@@ -68,7 +68,7 @@ public class ReserveProfilesList {
   public ReserveProfilesList() { 
   }
 
-  public ReserveProfilesList page(DisputeEvidenceListPage page) {
+  public ReserveProfilesList page(PaymentInstrumentUpdatesListPage page) {
     
     this.page = page;
     return this;
@@ -81,12 +81,12 @@ public class ReserveProfilesList {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public DisputeEvidenceListPage getPage() {
+  public PaymentInstrumentUpdatesListPage getPage() {
     return page;
   }
 
 
-  public void setPage(DisputeEvidenceListPage page) {
+  public void setPage(PaymentInstrumentUpdatesListPage page) {
     this.page = page;
   }
 
@@ -229,7 +229,7 @@ public class ReserveProfilesList {
       }*/
       // validate the optional field `page`
       if (jsonObj.getAsJsonObject("page") != null) {
-       DisputeEvidenceListPage.validateJsonObject(jsonObj.getAsJsonObject("page"));
+       PaymentInstrumentUpdatesListPage.validateJsonObject(jsonObj.getAsJsonObject("page"));
       }
       // validate the optional field `_embedded`
       if (jsonObj.getAsJsonObject("_embedded") != null) {

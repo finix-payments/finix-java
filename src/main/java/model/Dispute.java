@@ -52,11 +52,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * A dispute for a charge
+ * A &#x60;Dispute&#x60; objected created for a chargeback or customer disputes.
  */
-@ApiModel(description = "A dispute for a charge")
+@ApiModel(description = "A `Dispute` objected created for a chargeback or customer disputes.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class Dispute {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -107,7 +107,7 @@ public class Dispute {
   private OffsetDateTime occurredAt;
 
   /**
-   * Gets or Sets reason
+   * The system-defined reason for the &#x60;Dispute&#x60;. Available values include:&lt;ul&gt;&lt;li&gt;**INQUIRY**&lt;li&gt;**QUALITY**&lt;li&gt;**CLERICAL**&lt;li&gt;**FRAUD**&lt;li&gt;**TECHNICAL**&lt;/ul&gt;
    */
   @JsonAdapter(ReasonEnum.Adapter.class)
   public enum ReasonEnum {
@@ -168,7 +168,7 @@ public class Dispute {
   private OffsetDateTime respondBy;
 
   /**
-   * Gets or Sets state
+   * The current state of the &#x60;Dispute&#x60;.
    */
   @JsonAdapter(StateEnum.Adapter.class)
   public enum StateEnum {
@@ -273,11 +273,11 @@ public class Dispute {
   }
 
    /**
-   * Get id
+   * The ID of the &#x60;Dispute&#x60; resource.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "DIxxxxxxxxxxxxxxxxxx", value = "")
+  @ApiModelProperty(example = "DIxxxxxxxxxxxxxxxxxx", value = "The ID of the `Dispute` resource.")
 
   public String getId() {
     return id;
@@ -296,11 +296,11 @@ public class Dispute {
   }
 
    /**
-   * Timestamp of when the object was created
+   * Timestamp of when the object was created.
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the object was created")
+  @ApiModelProperty(value = "Timestamp of when the object was created.")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -319,11 +319,11 @@ public class Dispute {
   }
 
    /**
-   * Timestamp of when the object was last updated
+   * Timestamp of when the object was last updated.
    * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the object was last updated")
+  @ApiModelProperty(value = "Timestamp of when the object was last updated.")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -342,11 +342,11 @@ public class Dispute {
   }
 
    /**
-   * Get action
+   * The next &#x60;action&#x60; required to move forward with the &#x60;Dispute&#x60;.
    * @return action
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The next `action` required to move forward with the `Dispute`.")
 
   public String getAction() {
     return action;
@@ -365,11 +365,11 @@ public class Dispute {
   }
 
    /**
-   * A monetary amount of the smallest unit available to the currency.
+   * The total amount of the &#x60;Dispute&#x60; (in cents).
    * @return amount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A monetary amount of the smallest unit available to the currency.")
+  @ApiModelProperty(value = "The total amount of the `Dispute` (in cents).")
 
   public Integer getAmount() {
     return amount;
@@ -388,11 +388,11 @@ public class Dispute {
   }
 
    /**
-   * The ID of the resource.
+   * The ID of the &#x60;Application&#x60; resource the &#x60;Dispute&#x60; was created under.
    * @return application
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the resource.")
+  @ApiModelProperty(value = "The ID of the `Application` resource the `Dispute` was created under.")
 
   public String getApplication() {
     return application;
@@ -442,11 +442,11 @@ public class Dispute {
   }
 
    /**
-   * Get disputeDetails
+   * Details about the &#x60;Dispute&#x60; recieved by the &#x60;Processor&#x60;.
    * @return disputeDetails
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Details about the `Dispute` recieved by the `Processor`.")
 
   public Map<String, Object> getDisputeDetails() {
     return disputeDetails;
@@ -488,11 +488,11 @@ public class Dispute {
   }
 
    /**
-   * Get message
+   * Message field that provides additional details. This field is typically null.
    * @return message
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Message field that provides additional details. This field is typically null.")
 
   public String getMessage() {
     return message;
@@ -534,11 +534,11 @@ public class Dispute {
   }
 
    /**
-   * Get reason
+   * The system-defined reason for the &#x60;Dispute&#x60;. Available values include:&lt;ul&gt;&lt;li&gt;**INQUIRY**&lt;li&gt;**QUALITY**&lt;li&gt;**CLERICAL**&lt;li&gt;**FRAUD**&lt;li&gt;**TECHNICAL**&lt;/ul&gt;
    * @return reason
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The system-defined reason for the `Dispute`. Available values include:<ul><li>**INQUIRY**<li>**QUALITY**<li>**CLERICAL**<li>**FRAUD**<li>**TECHNICAL**</ul>")
 
   public ReasonEnum getReason() {
     return reason;
@@ -557,11 +557,11 @@ public class Dispute {
   }
 
    /**
-   * Point in time when dispute has to be resolved.
+   * Point in time when dispute has to be resolved and the &#x60;Merchant&#x60; needs to respond by.
    * @return respondBy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Point in time when dispute has to be resolved.")
+  @ApiModelProperty(value = "Point in time when dispute has to be resolved and the `Merchant` needs to respond by.")
 
   public OffsetDateTime getRespondBy() {
     return respondBy;
@@ -580,11 +580,11 @@ public class Dispute {
   }
 
    /**
-   * Get state
+   * The current state of the &#x60;Dispute&#x60;.
    * @return state
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The current state of the `Dispute`.")
 
   public StateEnum getState() {
     return state;
@@ -603,11 +603,11 @@ public class Dispute {
   }
 
    /**
-   * Get transfer
+   * ID of the &#x60;Transfer&#x60; resource.
    * @return transfer
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "TRxxxxxxxxxxxxxxxxxx", value = "")
+  @ApiModelProperty(example = "TRxxxxxxxxxxxxxxxxxx", value = "ID of the `Transfer` resource.")
 
   public String getTransfer() {
     return transfer;

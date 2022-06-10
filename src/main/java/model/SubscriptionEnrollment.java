@@ -54,7 +54,7 @@ import invoker.JSON;
  * SubscriptionEnrollment
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class SubscriptionEnrollment {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -110,11 +110,11 @@ public class SubscriptionEnrollment {
   }
 
    /**
-   * ID of the &#x60;Subscription Enrollment&#x60;
+   * ID of the &#x60;subscription_enrollment&#x60;.
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "ID of the `Subscription Enrollment`")
+  @ApiModelProperty(required = true, value = "ID of the `subscription_enrollment`.")
 
   public String getId() {
     return id;
@@ -133,11 +133,11 @@ public class SubscriptionEnrollment {
   }
 
    /**
-   * Timestamp of when the object was created
+   * Timestamp of when the object was created.
    * @return createdAt
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Timestamp of when the object was created")
+  @ApiModelProperty(required = true, value = "Timestamp of when the object was created.")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -156,11 +156,11 @@ public class SubscriptionEnrollment {
   }
 
    /**
-   * Timestamp of when the object was last updated
+   * Timestamp of when the object was last updated.
    * @return updatedAt
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Timestamp of when the object was last updated")
+  @ApiModelProperty(required = true, value = "Timestamp of when the object was last updated.")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -179,11 +179,11 @@ public class SubscriptionEnrollment {
   }
 
    /**
-   * ID of the User who create the Enrollment
+   * ID of the &#x60;User&#x60; who created the &#x60;subscription_enrollment&#x60;.
    * @return createdBy
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "ID of the User who create the Enrollment")
+  @ApiModelProperty(required = true, value = "ID of the `User` who created the `subscription_enrollment`.")
 
   public String getCreatedBy() {
     return createdBy;
@@ -202,11 +202,11 @@ public class SubscriptionEnrollment {
   }
 
    /**
-   * When the subscription will end in DateTime format
+   * When the &#x60;subscription_enrollment&#x60; will end in **DateTime** format.
    * @return endedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "When the subscription will end in DateTime format")
+  @ApiModelProperty(value = "When the `subscription_enrollment` will end in **DateTime** format.")
 
   public String getEndedAt() {
     return endedAt;
@@ -225,11 +225,11 @@ public class SubscriptionEnrollment {
   }
 
    /**
-   * ID of the Merchant
+   * ID of the &#x60;Merchant&#x60; resource.
    * @return merchant
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "ID of the Merchant")
+  @ApiModelProperty(required = true, value = "ID of the `Merchant` resource.")
 
   public String getMerchant() {
     return merchant;
@@ -271,11 +271,11 @@ public class SubscriptionEnrollment {
   }
 
    /**
-   * When the subscription will begin in DateTime format
+   * When the &#x60;subscription_enrollment&#x60; will begin in **DateTime** format.
    * @return startedAt
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When the subscription will begin in DateTime format")
+  @ApiModelProperty(required = true, value = "When the `subscription_enrollment` will begin in **DateTime** format.")
 
   public String getStartedAt() {
     return startedAt;
@@ -294,11 +294,11 @@ public class SubscriptionEnrollment {
   }
 
    /**
-   * ID of the Subscription Schedule
+   * ID of the &#x60;Subscription Schedule&#x60;.
    * @return subscriptionSchedule
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "ID of the Subscription Schedule")
+  @ApiModelProperty(required = true, value = "ID of the `Subscription Schedule`.")
 
   public String getSubscriptionSchedule() {
     return subscriptionSchedule;

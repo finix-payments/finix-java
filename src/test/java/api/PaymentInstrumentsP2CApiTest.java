@@ -40,7 +40,7 @@ public class PaymentInstrumentsP2CApiTest {
     /**
      * Verify a Payment Instrument
      *
-     * &gt; Only used for [Push To Card](/guides/push-to-card) customers.  Verify a payment instrument to determine if it is elligable for Push To Card. 
+     * Verify a &#x60;Payment Instrument&#x60; to determine if it&#39;s elligable for Push To Card transactions.   &gt; Only verify &#x60;Payment Instruments&#x60; for [Push To Card](/guides/push-to-card) customers.
      *
      * @throws ApiException if the Api call fails
      */

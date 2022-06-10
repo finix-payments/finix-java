@@ -21,7 +21,12 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.ApplicationLinksApplicationProfile;
+import model.MerchantLinksApplication;
+import model.MerchantLinksIdentity;
+import model.MerchantLinksMerchantProfile;
+import model.MerchantLinksSelf;
+import model.MerchantLinksVerification;
+import model.MerchantLinksVerifications;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -41,11 +46,11 @@ public class MerchantLinksTest {
     }
 
     /**
-     * Test the property 'application'
+     * Test the property 'self'
      */
     @Test
-    public void applicationTest() {
-        // TODO: test application
+    public void selfTest() {
+        // TODO: test self
     }
 
     /**
@@ -57,6 +62,14 @@ public class MerchantLinksTest {
     }
 
     /**
+     * Test the property 'verifications'
+     */
+    @Test
+    public void verificationsTest() {
+        // TODO: test verifications
+    }
+
+    /**
      * Test the property 'merchantProfile'
      */
     @Test
@@ -65,11 +78,11 @@ public class MerchantLinksTest {
     }
 
     /**
-     * Test the property 'self'
+     * Test the property 'application'
      */
     @Test
-    public void selfTest() {
-        // TODO: test self
+    public void applicationTest() {
+        // TODO: test application
     }
 
     /**
@@ -78,14 +91,6 @@ public class MerchantLinksTest {
     @Test
     public void verificationTest() {
         // TODO: test verification
-    }
-
-    /**
-     * Test the property 'verifications'
-     */
-    @Test
-    public void verificationsTest() {
-        // TODO: test verifications
     }
 
 }

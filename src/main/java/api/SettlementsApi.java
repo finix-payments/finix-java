@@ -34,6 +34,7 @@ import model.Error404NotFoundList;
 import model.Error406NotAcceptable;
 import model.Error422InvalidFieldList;
 import model.ErrorGeneric;
+import model.RemoveSettlementTransfer;
 import model.Settlement;
 import model.SettlementsList;
 import model.TransfersList;
@@ -86,14 +87,14 @@ import javax.ws.rs.core.GenericType;
         /**
         * Build call for createIdentitySettlement
             * @param identityId ID of identity to fetch (required)
-            * @param body A form that needs to be implemented (optional)
+            * @param body  (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 201 </td><td> Settlement object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 201 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -166,13 +167,13 @@ import javax.ws.rs.core.GenericType;
                 * Create Settlement on Identity
                 * Create a settlement
                     * @param identityId ID of identity to fetch (required)
-                    * @param body A form that needs to be implemented (optional)
+                    * @param body  (optional)
                     * @return Settlement
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 201 </td><td> Settlement object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 201 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -190,13 +191,13 @@ import javax.ws.rs.core.GenericType;
             * Create Settlement on Identity
             * Create a settlement
                 * @param identityId ID of identity to fetch (required)
-                * @param body A form that needs to be implemented (optional)
+                * @param body  (optional)
             * @return ApiResponse&lt;Settlement&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 201 </td><td> Settlement object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 201 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -215,14 +216,14 @@ import javax.ws.rs.core.GenericType;
             * Create Settlement on Identity (asynchronously)
             * Create a settlement
                 * @param identityId ID of identity to fetch (required)
-                * @param body A form that needs to be implemented (optional)
+                * @param body  (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 201 </td><td> Settlement object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 201 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -240,14 +241,14 @@ import javax.ws.rs.core.GenericType;
             }
         /**
         * Build call for createSettlement
-            * @param createSettlementRequest A form that needs to be implemented (optional)
+            * @param createSettlementRequest  (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 201 </td><td> Settlement object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 201 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -310,14 +311,14 @@ import javax.ws.rs.core.GenericType;
 
                 /**
                 * Create a Batch Settlement
-                * Create a batch &#x60;Settlement&#x60;. A settlement is a collection of **SUCCEEDED** &#x60;Transfers&#x60; that are ready to be paid out to a merchant.
-                    * @param createSettlementRequest A form that needs to be implemented (optional)
+                * Create a batch &#x60;Settlement&#x60;. A &#x60;Settlement&#x60; is a collection of **SUCCEEDED** &#x60;Transfers&#x60; that are ready to get paid out to a &#x60;Merchant&#x60;.
+                    * @param createSettlementRequest  (optional)
                     * @return Settlement
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 201 </td><td> Settlement object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 201 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -331,14 +332,14 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Create a Batch Settlement
-            * Create a batch &#x60;Settlement&#x60;. A settlement is a collection of **SUCCEEDED** &#x60;Transfers&#x60; that are ready to be paid out to a merchant.
-                * @param createSettlementRequest A form that needs to be implemented (optional)
+            * Create a batch &#x60;Settlement&#x60;. A &#x60;Settlement&#x60; is a collection of **SUCCEEDED** &#x60;Transfers&#x60; that are ready to get paid out to a &#x60;Merchant&#x60;.
+                * @param createSettlementRequest  (optional)
             * @return ApiResponse&lt;Settlement&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 201 </td><td> Settlement object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 201 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -353,15 +354,15 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Create a Batch Settlement (asynchronously)
-            * Create a batch &#x60;Settlement&#x60;. A settlement is a collection of **SUCCEEDED** &#x60;Transfers&#x60; that are ready to be paid out to a merchant.
-                * @param createSettlementRequest A form that needs to be implemented (optional)
+            * Create a batch &#x60;Settlement&#x60;. A &#x60;Settlement&#x60; is a collection of **SUCCEEDED** &#x60;Transfers&#x60; that are ready to get paid out to a &#x60;Merchant&#x60;.
+                * @param createSettlementRequest  (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 201 </td><td> Settlement object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 201 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -377,14 +378,14 @@ import javax.ws.rs.core.GenericType;
             }
         /**
         * Build call for getSettlement
-            * @param settlementId ID of object (required)
+            * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Settlement object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -453,14 +454,14 @@ import javax.ws.rs.core.GenericType;
 
                 /**
                 * Get a Settlement
-                * Retreive the details of a settlement.
-                    * @param settlementId ID of object (required)
+                * Retreive the details of a &#x60;Settlement&#x60;.
+                    * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
                     * @return Settlement
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> Settlement object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -474,14 +475,14 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Get a Settlement
-            * Retreive the details of a settlement.
-                * @param settlementId ID of object (required)
+            * Retreive the details of a &#x60;Settlement&#x60;.
+                * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
             * @return ApiResponse&lt;Settlement&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Settlement object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -496,15 +497,15 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Get a Settlement (asynchronously)
-            * Retreive the details of a settlement.
-                * @param settlementId ID of object (required)
+            * Retreive the details of a &#x60;Settlement&#x60;.
+                * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Settlement object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -520,14 +521,14 @@ import javax.ws.rs.core.GenericType;
             }
         /**
         * Build call for getSettlementFundingTransfers
-            * @param settlementId ID of object (required)
+            * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -596,14 +597,14 @@ import javax.ws.rs.core.GenericType;
 
                 /**
                 * List Settlement Funding Transfers
-                * List the funding transfers for a settlement
-                    * @param settlementId ID of object (required)
+                * Retrieve the &#x60;Transfers&#x60; in a &#x60;Settlement&#x60; that have &#x60;type&#x60; **CREDIT**.
+                    * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
                     * @return TransfersList
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -617,14 +618,14 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * List Settlement Funding Transfers
-            * List the funding transfers for a settlement
-                * @param settlementId ID of object (required)
+            * Retrieve the &#x60;Transfers&#x60; in a &#x60;Settlement&#x60; that have &#x60;type&#x60; **CREDIT**.
+                * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
             * @return ApiResponse&lt;TransfersList&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -639,15 +640,15 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * List Settlement Funding Transfers (asynchronously)
-            * List the funding transfers for a settlement
-                * @param settlementId ID of object (required)
+            * Retrieve the &#x60;Transfers&#x60; in a &#x60;Settlement&#x60; that have &#x60;type&#x60; **CREDIT**.
+                * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -670,7 +671,7 @@ import javax.ws.rs.core.GenericType;
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of settlements </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> List of &#x60;Settlement&#x60; objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -746,7 +747,7 @@ import javax.ws.rs.core.GenericType;
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> List of settlements </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> List of &#x60;Settlement&#x60; objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -767,7 +768,7 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of settlements </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of &#x60;Settlement&#x60; objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -790,7 +791,7 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of settlements </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of &#x60;Settlement&#x60; objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -807,26 +808,24 @@ import javax.ws.rs.core.GenericType;
         /**
         * Build call for listIdentitySettlements
             * @param identityId ID of identity to fetch (required)
-            * @param limit  (optional)
-            * @param offset  (optional)
-            * @param pageNumber  (optional)
-            * @param pageSize  (optional)
-            * @param sortSorted  (optional)
-            * @param sortUnsorted  (optional)
+            * @param limit The number of entries to return. (optional)
+            * @param offset The number of items to skip before starting to collect the result set. (optional)
+            * @param pageNumber The page number to list. (optional)
+            * @param pageSize The size of the page. (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of settlements </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> List of &#x60;Settlement&#x60; objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call listIdentitySettlementsCall(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback _callback) throws ApiException {
+        public okhttp3.Call listIdentitySettlementsCall(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -868,13 +867,160 @@ import javax.ws.rs.core.GenericType;
                 localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageSize", pageSize));
                     }
 
-                    if (sortSorted != null) {
-                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("sort.sorted", sortSorted));
+            final String[] localVarAccepts = {
+        "application/hal+json"
+            };
+            final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
+            if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+            }
+
+            final String[] localVarContentTypes = {
+        
+            };
+            final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
+            if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+            }
+
+            String[] localVarAuthNames = new String[] { "BasicAuth" };
+            return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+            }
+
+            @SuppressWarnings("rawtypes")
+            private okhttp3.Call listIdentitySettlementsValidateBeforeCall(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback _callback) throws ApiException {
+            
+                    // verify the required parameter 'identityId' is set
+                    if (identityId == null) {
+                    throw new ApiException("Missing the required parameter 'identityId' when calling listIdentitySettlements(Async)");
+                    }
+            
+
+                okhttp3.Call localVarCall = listIdentitySettlementsCall(identityId, limit, offset, pageNumber, pageSize, _callback);
+                return localVarCall;
+
+            }
+
+                /**
+                * List Identity Settlements
+                * Get all settlements associated to this identity
+                    * @param identityId ID of identity to fetch (required)
+                    * @param limit The number of entries to return. (optional)
+                    * @param offset The number of items to skip before starting to collect the result set. (optional)
+                    * @param pageNumber The page number to list. (optional)
+                    * @param pageSize The size of the page. (optional)
+                    * @return SettlementsList
+                * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+                    * @http.response.details
+                    <table summary="Response Details" border="1">
+                        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                            <tr><td> 200 </td><td> List of &#x60;Settlement&#x60; objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    </table>
+                */
+                    public SettlementsList listByIdentityId(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize) throws ApiException {
+                ApiResponse<SettlementsList> localVarResp = listIdentitySettlementsWithHttpInfo(identityId, limit, offset, pageNumber, pageSize);
+                        return localVarResp.getData();
                     }
 
-                    if (sortUnsorted != null) {
-                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("sort.unsorted", sortUnsorted));
-                    }
+        /**
+            * List Identity Settlements
+            * Get all settlements associated to this identity
+                * @param identityId ID of identity to fetch (required)
+                * @param limit The number of entries to return. (optional)
+                * @param offset The number of items to skip before starting to collect the result set. (optional)
+                * @param pageNumber The page number to list. (optional)
+                * @param pageSize The size of the page. (optional)
+            * @return ApiResponse&lt;SettlementsList&gt;
+            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+                * @http.response.details
+                <table summary="Response Details" border="1">
+                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                        <tr><td> 200 </td><td> List of &#x60;Settlement&#x60; objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                </table>
+            */
+            public ApiResponse<SettlementsList> listIdentitySettlementsWithHttpInfo(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize) throws ApiException {
+            okhttp3.Call localVarCall = listIdentitySettlementsValidateBeforeCall(identityId, limit, offset, pageNumber, pageSize, null);
+                    Type localVarReturnType = new TypeToken<SettlementsList>(){}.getType();
+                    return localVarFinixClient.execute(localVarCall, localVarReturnType);
+            }
+
+        /**
+            * List Identity Settlements (asynchronously)
+            * Get all settlements associated to this identity
+                * @param identityId ID of identity to fetch (required)
+                * @param limit The number of entries to return. (optional)
+                * @param offset The number of items to skip before starting to collect the result set. (optional)
+                * @param pageNumber The page number to list. (optional)
+                * @param pageSize The size of the page. (optional)
+            * @param _callback The callback to be executed when the API call finishes
+            * @return The request call
+            * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+                * @http.response.details
+                <table summary="Response Details" border="1">
+                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                        <tr><td> 200 </td><td> List of &#x60;Settlement&#x60; objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                </table>
+            */
+            public okhttp3.Call listIdentitySettlementsAsync(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback<SettlementsList> _callback) throws ApiException {
+
+            okhttp3.Call localVarCall = listIdentitySettlementsValidateBeforeCall(identityId, limit, offset, pageNumber, pageSize, _callback);
+        Type localVarReturnType = new TypeToken<SettlementsList>(){}.getType();
+            localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
+            return localVarCall;
+            }
+        /**
+        * Build call for listSettlementTransfers
+            * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
+        * @param _callback Callback for upload/download progress
+        * @return Call to execute
+        * @throws ApiException If fail to serialize the request body object
+            * @http.response.details
+            <table summary="Response Details" border="1">
+                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                    <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+            </table>
+        */
+        public okhttp3.Call listSettlementTransfersCall(String settlementId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+        basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+        basePath = localBasePaths[localHostIndex];
+        } else {
+        basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+            String localVarPath = "/settlements/{settlement_id}/transfers"
+                .replaceAll("\\{" + "settlement_id" + "\\}", localVarFinixClient.escapeString(settlementId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
             final String[] localVarAccepts = {
         "application/hal+json"
@@ -897,101 +1043,83 @@ import javax.ws.rs.core.GenericType;
             }
 
             @SuppressWarnings("rawtypes")
-            private okhttp3.Call listIdentitySettlementsValidateBeforeCall(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback _callback) throws ApiException {
+            private okhttp3.Call listSettlementTransfersValidateBeforeCall(String settlementId, final ApiCallback _callback) throws ApiException {
             
-                    // verify the required parameter 'identityId' is set
-                    if (identityId == null) {
-                    throw new ApiException("Missing the required parameter 'identityId' when calling listIdentitySettlements(Async)");
+                    // verify the required parameter 'settlementId' is set
+                    if (settlementId == null) {
+                    throw new ApiException("Missing the required parameter 'settlementId' when calling listSettlementTransfers(Async)");
                     }
             
 
-                okhttp3.Call localVarCall = listIdentitySettlementsCall(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted, _callback);
+                okhttp3.Call localVarCall = listSettlementTransfersCall(settlementId, _callback);
                 return localVarCall;
 
             }
 
                 /**
-                * List Identity Settlements
-                * Get all settlements associated to this identity
-                    * @param identityId ID of identity to fetch (required)
-                    * @param limit  (optional)
-                    * @param offset  (optional)
-                    * @param pageNumber  (optional)
-                    * @param pageSize  (optional)
-                    * @param sortSorted  (optional)
-                    * @param sortUnsorted  (optional)
-                    * @return SettlementsList
+                * List Settlement Transfers
+                * Retrieve the &#x60;Transfers&#x60; in a &#x60;Settlement&#x60; that have &#x60;type&#x60; **DEBIT** or **REFUND**.
+                    * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
+                    * @return TransfersList
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> List of settlements </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     </table>
                 */
-                    public SettlementsList listByIdentityId(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted) throws ApiException {
-                ApiResponse<SettlementsList> localVarResp = listIdentitySettlementsWithHttpInfo(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
+                    public TransfersList listBySettlementId(String settlementId) throws ApiException {
+                ApiResponse<TransfersList> localVarResp = listSettlementTransfersWithHttpInfo(settlementId);
                         return localVarResp.getData();
                     }
 
         /**
-            * List Identity Settlements
-            * Get all settlements associated to this identity
-                * @param identityId ID of identity to fetch (required)
-                * @param limit  (optional)
-                * @param offset  (optional)
-                * @param pageNumber  (optional)
-                * @param pageSize  (optional)
-                * @param sortSorted  (optional)
-                * @param sortUnsorted  (optional)
-            * @return ApiResponse&lt;SettlementsList&gt;
+            * List Settlement Transfers
+            * Retrieve the &#x60;Transfers&#x60; in a &#x60;Settlement&#x60; that have &#x60;type&#x60; **DEBIT** or **REFUND**.
+                * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
+            * @return ApiResponse&lt;TransfersList&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of settlements </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public ApiResponse<SettlementsList> listIdentitySettlementsWithHttpInfo(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted) throws ApiException {
-            okhttp3.Call localVarCall = listIdentitySettlementsValidateBeforeCall(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted, null);
-                    Type localVarReturnType = new TypeToken<SettlementsList>(){}.getType();
+            public ApiResponse<TransfersList> listSettlementTransfersWithHttpInfo(String settlementId) throws ApiException {
+            okhttp3.Call localVarCall = listSettlementTransfersValidateBeforeCall(settlementId, null);
+                    Type localVarReturnType = new TypeToken<TransfersList>(){}.getType();
                     return localVarFinixClient.execute(localVarCall, localVarReturnType);
             }
 
         /**
-            * List Identity Settlements (asynchronously)
-            * Get all settlements associated to this identity
-                * @param identityId ID of identity to fetch (required)
-                * @param limit  (optional)
-                * @param offset  (optional)
-                * @param pageNumber  (optional)
-                * @param pageSize  (optional)
-                * @param sortSorted  (optional)
-                * @param sortUnsorted  (optional)
+            * List Settlement Transfers (asynchronously)
+            * Retrieve the &#x60;Transfers&#x60; in a &#x60;Settlement&#x60; that have &#x60;type&#x60; **DEBIT** or **REFUND**.
+                * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of settlements </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public okhttp3.Call listIdentitySettlementsAsync(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback<SettlementsList> _callback) throws ApiException {
+            public okhttp3.Call listSettlementTransfersAsync(String settlementId, final ApiCallback<TransfersList> _callback) throws ApiException {
 
-            okhttp3.Call localVarCall = listIdentitySettlementsValidateBeforeCall(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted, _callback);
-        Type localVarReturnType = new TypeToken<SettlementsList>(){}.getType();
+            okhttp3.Call localVarCall = listSettlementTransfersValidateBeforeCall(settlementId, _callback);
+        Type localVarReturnType = new TypeToken<TransfersList>(){}.getType();
             localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
             return localVarCall;
             }
@@ -1002,10 +1130,10 @@ import javax.ws.rs.core.GenericType;
             * @param amountGt Filter by a total amount greater than (optional)
             * @param amountLte Filter by a total amount less than or equal (optional)
             * @param amountGte Filter by a total amount greater than or equal (optional)
-            * @param createdAtGte Filter were created_at is after the given date (optional)
-            * @param createdAtLte Filter were created_at before the given date (optional)
-            * @param updatedAtGte Filter were updated_at is after the given date (optional)
-            * @param updatedAtLte Filter were updated_at is before the given date (optional)
+            * @param createdAtGte Filter where created_at is after the given date. (optional)
+            * @param createdAtLte Filter where created_at is before the given date. (optional)
+            * @param updatedAtGte Filter where updated_at is after the given date (optional)
+            * @param updatedAtLte Filter where updated_at is before the given date (optional)
             * @param id Filter by id (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
@@ -1013,7 +1141,7 @@ import javax.ws.rs.core.GenericType;
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of settlements </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> List of &#x60;Settlement&#x60; objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -1115,23 +1243,23 @@ import javax.ws.rs.core.GenericType;
 
                 /**
                 * List Settlements
-                * Retrieve a list of settlements.
+                * Retrieve a list of &#x60;Settlements&#x60;.
                     * @param amount Filter by a total amount equal to the given value (optional)
                     * @param amountLt Filter by a total amount less than (optional)
                     * @param amountGt Filter by a total amount greater than (optional)
                     * @param amountLte Filter by a total amount less than or equal (optional)
                     * @param amountGte Filter by a total amount greater than or equal (optional)
-                    * @param createdAtGte Filter were created_at is after the given date (optional)
-                    * @param createdAtLte Filter were created_at before the given date (optional)
-                    * @param updatedAtGte Filter were updated_at is after the given date (optional)
-                    * @param updatedAtLte Filter were updated_at is before the given date (optional)
+                    * @param createdAtGte Filter where created_at is after the given date. (optional)
+                    * @param createdAtLte Filter where created_at is before the given date. (optional)
+                    * @param updatedAtGte Filter where updated_at is after the given date (optional)
+                    * @param updatedAtLte Filter where updated_at is before the given date (optional)
                     * @param id Filter by id (optional)
                     * @return SettlementsList
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> List of settlements </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> List of &#x60;Settlement&#x60; objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -1144,23 +1272,23 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * List Settlements
-            * Retrieve a list of settlements.
+            * Retrieve a list of &#x60;Settlements&#x60;.
                 * @param amount Filter by a total amount equal to the given value (optional)
                 * @param amountLt Filter by a total amount less than (optional)
                 * @param amountGt Filter by a total amount greater than (optional)
                 * @param amountLte Filter by a total amount less than or equal (optional)
                 * @param amountGte Filter by a total amount greater than or equal (optional)
-                * @param createdAtGte Filter were created_at is after the given date (optional)
-                * @param createdAtLte Filter were created_at before the given date (optional)
-                * @param updatedAtGte Filter were updated_at is after the given date (optional)
-                * @param updatedAtLte Filter were updated_at is before the given date (optional)
+                * @param createdAtGte Filter where created_at is after the given date. (optional)
+                * @param createdAtLte Filter where created_at is before the given date. (optional)
+                * @param updatedAtGte Filter where updated_at is after the given date (optional)
+                * @param updatedAtLte Filter where updated_at is before the given date (optional)
                 * @param id Filter by id (optional)
             * @return ApiResponse&lt;SettlementsList&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of settlements </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of &#x60;Settlement&#x60; objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -1174,16 +1302,16 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * List Settlements (asynchronously)
-            * Retrieve a list of settlements.
+            * Retrieve a list of &#x60;Settlements&#x60;.
                 * @param amount Filter by a total amount equal to the given value (optional)
                 * @param amountLt Filter by a total amount less than (optional)
                 * @param amountGt Filter by a total amount greater than (optional)
                 * @param amountLte Filter by a total amount less than or equal (optional)
                 * @param amountGte Filter by a total amount greater than or equal (optional)
-                * @param createdAtGte Filter were created_at is after the given date (optional)
-                * @param createdAtLte Filter were created_at before the given date (optional)
-                * @param updatedAtGte Filter were updated_at is after the given date (optional)
-                * @param updatedAtLte Filter were updated_at is before the given date (optional)
+                * @param createdAtGte Filter where created_at is after the given date. (optional)
+                * @param createdAtLte Filter where created_at is before the given date. (optional)
+                * @param updatedAtGte Filter where updated_at is after the given date (optional)
+                * @param updatedAtLte Filter where updated_at is before the given date (optional)
                 * @param id Filter by id (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
@@ -1191,7 +1319,7 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of settlements </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of &#x60;Settlement&#x60; objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -1206,7 +1334,7 @@ import javax.ws.rs.core.GenericType;
             }
         /**
         * Build call for putSettlement
-            * @param settlementId ID of object (required)
+            * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
             * @param updateSettlementRequest  (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
@@ -1214,7 +1342,7 @@ import javax.ws.rs.core.GenericType;
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Settlement object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -1282,15 +1410,15 @@ import javax.ws.rs.core.GenericType;
 
                 /**
                 * Update a Settlement
-                * Update a settlement.
-                    * @param settlementId ID of object (required)
+                * Update a &#x60;Settlement&#x60;.
+                    * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
                     * @param updateSettlementRequest  (optional)
                     * @return Settlement
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> Settlement object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -1303,15 +1431,15 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Update a Settlement
-            * Update a settlement.
-                * @param settlementId ID of object (required)
+            * Update a &#x60;Settlement&#x60;.
+                * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
                 * @param updateSettlementRequest  (optional)
             * @return ApiResponse&lt;Settlement&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Settlement object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -1325,8 +1453,8 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Update a Settlement (asynchronously)
-            * Update a settlement.
-                * @param settlementId ID of object (required)
+            * Update a &#x60;Settlement&#x60;.
+                * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
                 * @param updateSettlementRequest  (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
@@ -1334,7 +1462,7 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Settlement object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -1349,7 +1477,8 @@ import javax.ws.rs.core.GenericType;
             }
         /**
         * Build call for removeSettlementTransfers
-            * @param settlementId ID of object (required)
+            * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
+            * @param removeSettlementTransfer  (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
@@ -1361,10 +1490,10 @@ import javax.ws.rs.core.GenericType;
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 422 </td><td> 422 Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call removeSettlementTransfersCall(String settlementId, final ApiCallback _callback) throws ApiException {
+        public okhttp3.Call removeSettlementTransfersCall(String settlementId, RemoveSettlementTransfer removeSettlementTransfer, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1378,7 +1507,7 @@ import javax.ws.rs.core.GenericType;
         basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = removeSettlementTransfer;
 
         // create path and map variables
             String localVarPath = "/settlements/{settlement_id}/transfers"
@@ -1399,7 +1528,7 @@ import javax.ws.rs.core.GenericType;
             }
 
             final String[] localVarContentTypes = {
-        
+        "application/json"
             };
             final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
             if (localVarContentType != null) {
@@ -1411,7 +1540,7 @@ import javax.ws.rs.core.GenericType;
             }
 
             @SuppressWarnings("rawtypes")
-            private okhttp3.Call removeSettlementTransfersValidateBeforeCall(String settlementId, final ApiCallback _callback) throws ApiException {
+            private okhttp3.Call removeSettlementTransfersValidateBeforeCall(String settlementId, RemoveSettlementTransfer removeSettlementTransfer, final ApiCallback _callback) throws ApiException {
             
                     // verify the required parameter 'settlementId' is set
                     if (settlementId == null) {
@@ -1419,15 +1548,16 @@ import javax.ws.rs.core.GenericType;
                     }
             
 
-                okhttp3.Call localVarCall = removeSettlementTransfersCall(settlementId, _callback);
+                okhttp3.Call localVarCall = removeSettlementTransfersCall(settlementId, removeSettlementTransfer, _callback);
                 return localVarCall;
 
             }
 
                 /**
-                * Remolve Settlement Transfers
-                * Remove a transfer from a settlement
-                    * @param settlementId ID of object (required)
+                * Remove Settlement Transfers
+                * Remove a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.  As long as the &#x60;Settlement&#x60; hasn&#39;t been funded, you can remove the &#x60;Transfer&#x60; or an array of &#x60;Transfers&#x60;, along with its corresponding &#x60;fee&#x60; from a batch &#x60;Settlement&#x60;.   Note: Per the JSON API for deleting a resource, our API doesn&#39;t have a response body when removing a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.
+                    * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
+                    * @param removeSettlementTransfer  (optional)
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
@@ -1437,17 +1567,18 @@ import javax.ws.rs.core.GenericType;
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                            <tr><td> 422 </td><td> 422 Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     </table>
                 */
-                    public void removeTransfersFromSettlement(String settlementId) throws ApiException {
-                removeSettlementTransfersWithHttpInfo(settlementId);
+                    public void removeTransfersFromSettlement(String settlementId, RemoveSettlementTransfer removeSettlementTransfer) throws ApiException {
+                removeSettlementTransfersWithHttpInfo(settlementId, removeSettlementTransfer);
                     }
 
         /**
-            * Remolve Settlement Transfers
-            * Remove a transfer from a settlement
-                * @param settlementId ID of object (required)
+            * Remove Settlement Transfers
+            * Remove a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.  As long as the &#x60;Settlement&#x60; hasn&#39;t been funded, you can remove the &#x60;Transfer&#x60; or an array of &#x60;Transfers&#x60;, along with its corresponding &#x60;fee&#x60; from a batch &#x60;Settlement&#x60;.   Note: Per the JSON API for deleting a resource, our API doesn&#39;t have a response body when removing a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.
+                * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
+                * @param removeSettlementTransfer  (optional)
             * @return ApiResponse&lt;Void&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
@@ -1458,18 +1589,19 @@ import javax.ws.rs.core.GenericType;
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 422 </td><td> 422 Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public ApiResponse<Void> removeSettlementTransfersWithHttpInfo(String settlementId) throws ApiException {
-            okhttp3.Call localVarCall = removeSettlementTransfersValidateBeforeCall(settlementId, null);
+            public ApiResponse<Void> removeSettlementTransfersWithHttpInfo(String settlementId, RemoveSettlementTransfer removeSettlementTransfer) throws ApiException {
+            okhttp3.Call localVarCall = removeSettlementTransfersValidateBeforeCall(settlementId, removeSettlementTransfer, null);
                 return localVarFinixClient.execute(localVarCall);
             }
 
         /**
-            * Remolve Settlement Transfers (asynchronously)
-            * Remove a transfer from a settlement
-                * @param settlementId ID of object (required)
+            * Remove Settlement Transfers (asynchronously)
+            * Remove a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.  As long as the &#x60;Settlement&#x60; hasn&#39;t been funded, you can remove the &#x60;Transfer&#x60; or an array of &#x60;Transfers&#x60;, along with its corresponding &#x60;fee&#x60; from a batch &#x60;Settlement&#x60;.   Note: Per the JSON API for deleting a resource, our API doesn&#39;t have a response body when removing a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.
+                * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
+                * @param removeSettlementTransfer  (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1481,12 +1613,12 @@ import javax.ws.rs.core.GenericType;
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 422 </td><td> 422 Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public okhttp3.Call removeSettlementTransfersAsync(String settlementId, final ApiCallback<Void> _callback) throws ApiException {
+            public okhttp3.Call removeSettlementTransfersAsync(String settlementId, RemoveSettlementTransfer removeSettlementTransfer, final ApiCallback<Void> _callback) throws ApiException {
 
-            okhttp3.Call localVarCall = removeSettlementTransfersValidateBeforeCall(settlementId, _callback);
+            okhttp3.Call localVarCall = removeSettlementTransfersValidateBeforeCall(settlementId, removeSettlementTransfer, _callback);
         localVarFinixClient.executeAsync(localVarCall, _callback);
             return localVarCall;
             }

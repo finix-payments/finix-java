@@ -23,8 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.ApplicationProfilesListPage;
 import model.FeeProfilesListEmbedded;
+import model.FeeProfilesListPage;
 import model.ListLinks;
 
 import com.google.gson.Gson;
@@ -51,11 +51,11 @@ import invoker.JSON;
  * FeeProfilesList
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class FeeProfilesList {
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
-  private ApplicationProfilesListPage page;
+  private FeeProfilesListPage page;
 
   public static final String SERIALIZED_NAME_EMBEDDED = "_embedded";
   @SerializedName(SERIALIZED_NAME_EMBEDDED)
@@ -68,7 +68,7 @@ public class FeeProfilesList {
   public FeeProfilesList() { 
   }
 
-  public FeeProfilesList page(ApplicationProfilesListPage page) {
+  public FeeProfilesList page(FeeProfilesListPage page) {
     
     this.page = page;
     return this;
@@ -81,12 +81,12 @@ public class FeeProfilesList {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationProfilesListPage getPage() {
+  public FeeProfilesListPage getPage() {
     return page;
   }
 
 
-  public void setPage(ApplicationProfilesListPage page) {
+  public void setPage(FeeProfilesListPage page) {
     this.page = page;
   }
 
@@ -220,7 +220,7 @@ public class FeeProfilesList {
       */
       // validate the optional field `page`
       if (jsonObj.getAsJsonObject("page") != null) {
-       ApplicationProfilesListPage.validateJsonObject(jsonObj.getAsJsonObject("page"));
+       FeeProfilesListPage.validateJsonObject(jsonObj.getAsJsonObject("page"));
       }
       // validate the optional field `_embedded`
       if (jsonObj.getAsJsonObject("_embedded") != null) {

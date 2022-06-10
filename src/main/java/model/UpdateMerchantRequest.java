@@ -23,7 +23,9 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,18 +51,30 @@ import invoker.JSON;
  * UpdateMerchantRequest
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class UpdateMerchantRequest {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private Object tags;
+  private Map<String, String> tags = null;
+
+  public static final String SERIALIZED_NAME_LEVEL_TWO_LEVEL_THREE_DATA_ENABLED = "level_two_level_three_data_enabled";
+  @SerializedName(SERIALIZED_NAME_LEVEL_TWO_LEVEL_THREE_DATA_ENABLED)
+  private Boolean levelTwoLevelThreeDataEnabled;
 
   public UpdateMerchantRequest() { 
   }
 
-  public UpdateMerchantRequest tags(Object tags) {
+  public UpdateMerchantRequest tags(Map<String, String> tags) {
     
     this.tags = tags;
+    return this;
+  }
+
+  public UpdateMerchantRequest putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
     return this;
   }
 
@@ -71,13 +85,36 @@ public class UpdateMerchantRequest {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
 
-  public Object getTags() {
+  public Map<String, String> getTags() {
     return tags;
   }
 
 
-  public void setTags(Object tags) {
+  public void setTags(Map<String, String> tags) {
     this.tags = tags;
+  }
+
+
+  public UpdateMerchantRequest levelTwoLevelThreeDataEnabled(Boolean levelTwoLevelThreeDataEnabled) {
+    
+    this.levelTwoLevelThreeDataEnabled = levelTwoLevelThreeDataEnabled;
+    return this;
+  }
+
+   /**
+   * Set to True to enable Merchant for Level 2 and Level 3 processing. Default value is false.
+   * @return levelTwoLevelThreeDataEnabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set to True to enable Merchant for Level 2 and Level 3 processing. Default value is false.")
+
+  public Boolean getLevelTwoLevelThreeDataEnabled() {
+    return levelTwoLevelThreeDataEnabled;
+  }
+
+
+  public void setLevelTwoLevelThreeDataEnabled(Boolean levelTwoLevelThreeDataEnabled) {
+    this.levelTwoLevelThreeDataEnabled = levelTwoLevelThreeDataEnabled;
   }
 
 
@@ -91,23 +128,13 @@ public class UpdateMerchantRequest {
       return false;
     }
     UpdateMerchantRequest updateMerchantRequest = (UpdateMerchantRequest) o;
-    return Objects.equals(this.tags, updateMerchantRequest.tags);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.tags, updateMerchantRequest.tags) &&
+        Objects.equals(this.levelTwoLevelThreeDataEnabled, updateMerchantRequest.levelTwoLevelThreeDataEnabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(tags, levelTwoLevelThreeDataEnabled);
   }
 
   @Override
@@ -115,6 +142,7 @@ public class UpdateMerchantRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateMerchantRequest {\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    levelTwoLevelThreeDataEnabled: ").append(toIndentedString(levelTwoLevelThreeDataEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -138,6 +166,7 @@ public class UpdateMerchantRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("tags");
+    openapiFields.add("level_two_level_three_data_enabled");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

@@ -21,7 +21,17 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.ApplicationLinksApplicationProfile;
+import model.MerchantLinksSelf;
+import model.TransferLinksApplication;
+import model.TransferLinksDestination;
+import model.TransferLinksDevice;
+import model.TransferLinksDisputes;
+import model.TransferLinksFeeProfile;
+import model.TransferLinksFees;
+import model.TransferLinksMerchantIdentity;
+import model.TransferLinksPaymentInstruments;
+import model.TransferLinksReversals;
+import model.TransferLinksSource;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

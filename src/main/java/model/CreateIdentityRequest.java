@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Map;
 import model.CreateIdentityRequestAdditionalUnderwritingData;
 import model.CreateIdentityRequestEntity;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,7 +54,7 @@ import invoker.JSON;
  * CreateIdentityRequest
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class CreateIdentityRequest {
   public static final String SERIALIZED_NAME_ADDITIONAL_UNDERWRITING_DATA = "additional_underwriting_data";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_UNDERWRITING_DATA)
@@ -162,9 +163,20 @@ public class CreateIdentityRequest {
         Objects.equals(this.entity, createIdentityRequest.entity);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(additionalUnderwritingData, tags, entity);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

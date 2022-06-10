@@ -78,7 +78,7 @@ import javax.ws.rs.core.GenericType;
 
         /**
         * Build call for createSubscriptionEnrollments
-            * @param subscriptionScheduleId  (required)
+            * @param subscriptionScheduleId The ID of the &#x60;subscription_schedule&#x60;. (required)
             * @param createSubscriptionEnrollmentRequest  (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
@@ -86,7 +86,7 @@ import javax.ws.rs.core.GenericType;
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                    <tr><td> 200 </td><td> Single subscription_enrollment resource </td><td>  -  </td></tr>
             </table>
         */
         public okhttp3.Call createSubscriptionEnrollmentsCall(String subscriptionScheduleId, CreateSubscriptionEnrollmentRequest createSubscriptionEnrollmentRequest, final ApiCallback _callback) throws ApiException {
@@ -151,15 +151,15 @@ import javax.ws.rs.core.GenericType;
 
                 /**
                 * Create a Subscription Enrollment
-                * Create a &#x60;subscription_enrollment&#x60;.
-                    * @param subscriptionScheduleId  (required)
+                * Create a &#x60;subscription_enrollment&#x60;.  A &#x60;subscription_enrollment&#x60; details which &#x60;Merchant&#x60; gets charged, to what schedule, and when the subscription will start. The &#x60;subscription_enrollment&#x60; must be associated with a &#x60;Subscription Schedule&#x60;.
+                    * @param subscriptionScheduleId The ID of the &#x60;subscription_schedule&#x60;. (required)
                     * @param createSubscriptionEnrollmentRequest  (optional)
                     * @return SubscriptionEnrollment
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                            <tr><td> 200 </td><td> Single subscription_enrollment resource </td><td>  -  </td></tr>
                     </table>
                 */
                     public SubscriptionEnrollment create(String subscriptionScheduleId, CreateSubscriptionEnrollmentRequest createSubscriptionEnrollmentRequest) throws ApiException {
@@ -169,15 +169,15 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Create a Subscription Enrollment
-            * Create a &#x60;subscription_enrollment&#x60;.
-                * @param subscriptionScheduleId  (required)
+            * Create a &#x60;subscription_enrollment&#x60;.  A &#x60;subscription_enrollment&#x60; details which &#x60;Merchant&#x60; gets charged, to what schedule, and when the subscription will start. The &#x60;subscription_enrollment&#x60; must be associated with a &#x60;Subscription Schedule&#x60;.
+                * @param subscriptionScheduleId The ID of the &#x60;subscription_schedule&#x60;. (required)
                 * @param createSubscriptionEnrollmentRequest  (optional)
             * @return ApiResponse&lt;SubscriptionEnrollment&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                        <tr><td> 200 </td><td> Single subscription_enrollment resource </td><td>  -  </td></tr>
                 </table>
             */
             public ApiResponse<SubscriptionEnrollment> createSubscriptionEnrollmentsWithHttpInfo(String subscriptionScheduleId, CreateSubscriptionEnrollmentRequest createSubscriptionEnrollmentRequest) throws ApiException {
@@ -188,8 +188,8 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Create a Subscription Enrollment (asynchronously)
-            * Create a &#x60;subscription_enrollment&#x60;.
-                * @param subscriptionScheduleId  (required)
+            * Create a &#x60;subscription_enrollment&#x60;.  A &#x60;subscription_enrollment&#x60; details which &#x60;Merchant&#x60; gets charged, to what schedule, and when the subscription will start. The &#x60;subscription_enrollment&#x60; must be associated with a &#x60;Subscription Schedule&#x60;.
+                * @param subscriptionScheduleId The ID of the &#x60;subscription_schedule&#x60;. (required)
                 * @param createSubscriptionEnrollmentRequest  (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
@@ -197,7 +197,7 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                        <tr><td> 200 </td><td> Single subscription_enrollment resource </td><td>  -  </td></tr>
                 </table>
             */
             public okhttp3.Call createSubscriptionEnrollmentsAsync(String subscriptionScheduleId, CreateSubscriptionEnrollmentRequest createSubscriptionEnrollmentRequest, final ApiCallback<SubscriptionEnrollment> _callback) throws ApiException {
@@ -208,8 +208,8 @@ import javax.ws.rs.core.GenericType;
             return localVarCall;
             }
         /**
-        * Build call for deleteSubscriptionSubscriptionEnrollmentsId
-            * @param subscriptionEnrollmentId  (required)
+        * Build call for deleteSubscriptionEnrollment
+            * @param subscriptionEnrollmentId The ID of the &#x60;subscription_enrollment&#x60;. (required)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
@@ -219,7 +219,7 @@ import javax.ws.rs.core.GenericType;
                     <tr><td> 204 </td><td> No content </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call deleteSubscriptionSubscriptionEnrollmentsIdCall(String subscriptionEnrollmentId, final ApiCallback _callback) throws ApiException {
+        public okhttp3.Call deleteSubscriptionEnrollmentCall(String subscriptionEnrollmentId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -266,15 +266,15 @@ import javax.ws.rs.core.GenericType;
             }
 
             @SuppressWarnings("rawtypes")
-            private okhttp3.Call deleteSubscriptionSubscriptionEnrollmentsIdValidateBeforeCall(String subscriptionEnrollmentId, final ApiCallback _callback) throws ApiException {
+            private okhttp3.Call deleteSubscriptionEnrollmentValidateBeforeCall(String subscriptionEnrollmentId, final ApiCallback _callback) throws ApiException {
             
                     // verify the required parameter 'subscriptionEnrollmentId' is set
                     if (subscriptionEnrollmentId == null) {
-                    throw new ApiException("Missing the required parameter 'subscriptionEnrollmentId' when calling deleteSubscriptionSubscriptionEnrollmentsId(Async)");
+                    throw new ApiException("Missing the required parameter 'subscriptionEnrollmentId' when calling deleteSubscriptionEnrollment(Async)");
                     }
             
 
-                okhttp3.Call localVarCall = deleteSubscriptionSubscriptionEnrollmentsIdCall(subscriptionEnrollmentId, _callback);
+                okhttp3.Call localVarCall = deleteSubscriptionEnrollmentCall(subscriptionEnrollmentId, _callback);
                 return localVarCall;
 
             }
@@ -282,7 +282,7 @@ import javax.ws.rs.core.GenericType;
                 /**
                 * Remove a Subscription Enrollment
                 * Remove a &#x60;subscription_enrollment&#x60;.
-                    * @param subscriptionEnrollmentId  (required)
+                    * @param subscriptionEnrollmentId The ID of the &#x60;subscription_enrollment&#x60;. (required)
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
@@ -291,13 +291,13 @@ import javax.ws.rs.core.GenericType;
                     </table>
                 */
                     public void remove(String subscriptionEnrollmentId) throws ApiException {
-                deleteSubscriptionSubscriptionEnrollmentsIdWithHttpInfo(subscriptionEnrollmentId);
+                deleteSubscriptionEnrollmentWithHttpInfo(subscriptionEnrollmentId);
                     }
 
         /**
             * Remove a Subscription Enrollment
             * Remove a &#x60;subscription_enrollment&#x60;.
-                * @param subscriptionEnrollmentId  (required)
+                * @param subscriptionEnrollmentId The ID of the &#x60;subscription_enrollment&#x60;. (required)
             * @return ApiResponse&lt;Void&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
@@ -306,15 +306,15 @@ import javax.ws.rs.core.GenericType;
                         <tr><td> 204 </td><td> No content </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public ApiResponse<Void> deleteSubscriptionSubscriptionEnrollmentsIdWithHttpInfo(String subscriptionEnrollmentId) throws ApiException {
-            okhttp3.Call localVarCall = deleteSubscriptionSubscriptionEnrollmentsIdValidateBeforeCall(subscriptionEnrollmentId, null);
+            public ApiResponse<Void> deleteSubscriptionEnrollmentWithHttpInfo(String subscriptionEnrollmentId) throws ApiException {
+            okhttp3.Call localVarCall = deleteSubscriptionEnrollmentValidateBeforeCall(subscriptionEnrollmentId, null);
                 return localVarFinixClient.execute(localVarCall);
             }
 
         /**
             * Remove a Subscription Enrollment (asynchronously)
             * Remove a &#x60;subscription_enrollment&#x60;.
-                * @param subscriptionEnrollmentId  (required)
+                * @param subscriptionEnrollmentId The ID of the &#x60;subscription_enrollment&#x60;. (required)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -324,24 +324,24 @@ import javax.ws.rs.core.GenericType;
                         <tr><td> 204 </td><td> No content </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public okhttp3.Call deleteSubscriptionSubscriptionEnrollmentsIdAsync(String subscriptionEnrollmentId, final ApiCallback<Void> _callback) throws ApiException {
+            public okhttp3.Call deleteSubscriptionEnrollmentAsync(String subscriptionEnrollmentId, final ApiCallback<Void> _callback) throws ApiException {
 
-            okhttp3.Call localVarCall = deleteSubscriptionSubscriptionEnrollmentsIdValidateBeforeCall(subscriptionEnrollmentId, _callback);
+            okhttp3.Call localVarCall = deleteSubscriptionEnrollmentValidateBeforeCall(subscriptionEnrollmentId, _callback);
         localVarFinixClient.executeAsync(localVarCall, _callback);
             return localVarCall;
             }
         /**
-        * Build call for getSubscriptionSubscriptionEnrollments
+        * Build call for getSubscriptionEnrollments
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                    <tr><td> 200 </td><td> List of subscription_enrollment objects </td><td>  -  </td></tr>
             </table>
         */
-        public okhttp3.Call getSubscriptionSubscriptionEnrollmentsCall(final ApiCallback _callback) throws ApiException {
+        public okhttp3.Call getSubscriptionEnrollmentsCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -387,79 +387,80 @@ import javax.ws.rs.core.GenericType;
             }
 
             @SuppressWarnings("rawtypes")
-            private okhttp3.Call getSubscriptionSubscriptionEnrollmentsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+            private okhttp3.Call getSubscriptionEnrollmentsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
             
 
-                okhttp3.Call localVarCall = getSubscriptionSubscriptionEnrollmentsCall(_callback);
+                okhttp3.Call localVarCall = getSubscriptionEnrollmentsCall(_callback);
                 return localVarCall;
 
             }
 
                 /**
                 * List Subscription Enrollments
-                * Retrieve a list of subscription enrollments.
+                * Retrieve a list of &#x60;Subscription Enrollments&#x60;.
                     * @return SubscriptionEnrollmentList
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                            <tr><td> 200 </td><td> List of subscription_enrollment objects </td><td>  -  </td></tr>
                     </table>
                 */
                     public SubscriptionEnrollmentList get() throws ApiException {
-                ApiResponse<SubscriptionEnrollmentList> localVarResp = getSubscriptionSubscriptionEnrollmentsWithHttpInfo();
+                ApiResponse<SubscriptionEnrollmentList> localVarResp = getSubscriptionEnrollmentsWithHttpInfo();
                         return localVarResp.getData();
                     }
 
         /**
             * List Subscription Enrollments
-            * Retrieve a list of subscription enrollments.
+            * Retrieve a list of &#x60;Subscription Enrollments&#x60;.
             * @return ApiResponse&lt;SubscriptionEnrollmentList&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                        <tr><td> 200 </td><td> List of subscription_enrollment objects </td><td>  -  </td></tr>
                 </table>
             */
-            public ApiResponse<SubscriptionEnrollmentList> getSubscriptionSubscriptionEnrollmentsWithHttpInfo() throws ApiException {
-            okhttp3.Call localVarCall = getSubscriptionSubscriptionEnrollmentsValidateBeforeCall(null);
+            public ApiResponse<SubscriptionEnrollmentList> getSubscriptionEnrollmentsWithHttpInfo() throws ApiException {
+            okhttp3.Call localVarCall = getSubscriptionEnrollmentsValidateBeforeCall(null);
                     Type localVarReturnType = new TypeToken<SubscriptionEnrollmentList>(){}.getType();
                     return localVarFinixClient.execute(localVarCall, localVarReturnType);
             }
 
         /**
             * List Subscription Enrollments (asynchronously)
-            * Retrieve a list of subscription enrollments.
+            * Retrieve a list of &#x60;Subscription Enrollments&#x60;.
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                        <tr><td> 200 </td><td> List of subscription_enrollment objects </td><td>  -  </td></tr>
                 </table>
             */
-            public okhttp3.Call getSubscriptionSubscriptionEnrollmentsAsync(final ApiCallback<SubscriptionEnrollmentList> _callback) throws ApiException {
+            public okhttp3.Call getSubscriptionEnrollmentsAsync(final ApiCallback<SubscriptionEnrollmentList> _callback) throws ApiException {
 
-            okhttp3.Call localVarCall = getSubscriptionSubscriptionEnrollmentsValidateBeforeCall(_callback);
+            okhttp3.Call localVarCall = getSubscriptionEnrollmentsValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<SubscriptionEnrollmentList>(){}.getType();
             localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
             return localVarCall;
             }
         /**
         * Build call for getSubscriptionSubscriptionEnrollmentsId
-            * @param subscriptionEnrollmentId  (required)
+            * @param subscriptionEnrollmentId The ID of the &#x60;subscription_enrollment&#x60;. (required)
+            * @param merchant Filter by the objects &#x60;merchant&#x60; ID. (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                    <tr><td> 200 </td><td> Single subscription_enrollment resource </td><td>  -  </td></tr>
             </table>
         */
-        public okhttp3.Call getSubscriptionSubscriptionEnrollmentsIdCall(String subscriptionEnrollmentId, final ApiCallback _callback) throws ApiException {
+        public okhttp3.Call getSubscriptionSubscriptionEnrollmentsIdCall(String subscriptionEnrollmentId, String merchant, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -485,6 +486,10 @@ import javax.ws.rs.core.GenericType;
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+                    if (merchant != null) {
+                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("merchant", merchant));
+                    }
+
             final String[] localVarAccepts = {
         "application/json"
             };
@@ -506,7 +511,7 @@ import javax.ws.rs.core.GenericType;
             }
 
             @SuppressWarnings("rawtypes")
-            private okhttp3.Call getSubscriptionSubscriptionEnrollmentsIdValidateBeforeCall(String subscriptionEnrollmentId, final ApiCallback _callback) throws ApiException {
+            private okhttp3.Call getSubscriptionSubscriptionEnrollmentsIdValidateBeforeCall(String subscriptionEnrollmentId, String merchant, final ApiCallback _callback) throws ApiException {
             
                     // verify the required parameter 'subscriptionEnrollmentId' is set
                     if (subscriptionEnrollmentId == null) {
@@ -514,7 +519,7 @@ import javax.ws.rs.core.GenericType;
                     }
             
 
-                okhttp3.Call localVarCall = getSubscriptionSubscriptionEnrollmentsIdCall(subscriptionEnrollmentId, _callback);
+                okhttp3.Call localVarCall = getSubscriptionSubscriptionEnrollmentsIdCall(subscriptionEnrollmentId, merchant, _callback);
                 return localVarCall;
 
             }
@@ -522,34 +527,36 @@ import javax.ws.rs.core.GenericType;
                 /**
                 * Get a Subscription Enrollment
                 * Retrieve the details of a &#x60;subscription_enrollment&#x60;.
-                    * @param subscriptionEnrollmentId  (required)
+                    * @param subscriptionEnrollmentId The ID of the &#x60;subscription_enrollment&#x60;. (required)
+                    * @param merchant Filter by the objects &#x60;merchant&#x60; ID. (optional)
                     * @return SubscriptionEnrollment
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                            <tr><td> 200 </td><td> Single subscription_enrollment resource </td><td>  -  </td></tr>
                     </table>
                 */
-                    public SubscriptionEnrollment get(String subscriptionEnrollmentId) throws ApiException {
-                ApiResponse<SubscriptionEnrollment> localVarResp = getSubscriptionSubscriptionEnrollmentsIdWithHttpInfo(subscriptionEnrollmentId);
+                    public SubscriptionEnrollment get(String subscriptionEnrollmentId, String merchant) throws ApiException {
+                ApiResponse<SubscriptionEnrollment> localVarResp = getSubscriptionSubscriptionEnrollmentsIdWithHttpInfo(subscriptionEnrollmentId, merchant);
                         return localVarResp.getData();
                     }
 
         /**
             * Get a Subscription Enrollment
             * Retrieve the details of a &#x60;subscription_enrollment&#x60;.
-                * @param subscriptionEnrollmentId  (required)
+                * @param subscriptionEnrollmentId The ID of the &#x60;subscription_enrollment&#x60;. (required)
+                * @param merchant Filter by the objects &#x60;merchant&#x60; ID. (optional)
             * @return ApiResponse&lt;SubscriptionEnrollment&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                        <tr><td> 200 </td><td> Single subscription_enrollment resource </td><td>  -  </td></tr>
                 </table>
             */
-            public ApiResponse<SubscriptionEnrollment> getSubscriptionSubscriptionEnrollmentsIdWithHttpInfo(String subscriptionEnrollmentId) throws ApiException {
-            okhttp3.Call localVarCall = getSubscriptionSubscriptionEnrollmentsIdValidateBeforeCall(subscriptionEnrollmentId, null);
+            public ApiResponse<SubscriptionEnrollment> getSubscriptionSubscriptionEnrollmentsIdWithHttpInfo(String subscriptionEnrollmentId, String merchant) throws ApiException {
+            okhttp3.Call localVarCall = getSubscriptionSubscriptionEnrollmentsIdValidateBeforeCall(subscriptionEnrollmentId, merchant, null);
                     Type localVarReturnType = new TypeToken<SubscriptionEnrollment>(){}.getType();
                     return localVarFinixClient.execute(localVarCall, localVarReturnType);
             }
@@ -557,33 +564,34 @@ import javax.ws.rs.core.GenericType;
         /**
             * Get a Subscription Enrollment (asynchronously)
             * Retrieve the details of a &#x60;subscription_enrollment&#x60;.
-                * @param subscriptionEnrollmentId  (required)
+                * @param subscriptionEnrollmentId The ID of the &#x60;subscription_enrollment&#x60;. (required)
+                * @param merchant Filter by the objects &#x60;merchant&#x60; ID. (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                        <tr><td> 200 </td><td> Single subscription_enrollment resource </td><td>  -  </td></tr>
                 </table>
             */
-            public okhttp3.Call getSubscriptionSubscriptionEnrollmentsIdAsync(String subscriptionEnrollmentId, final ApiCallback<SubscriptionEnrollment> _callback) throws ApiException {
+            public okhttp3.Call getSubscriptionSubscriptionEnrollmentsIdAsync(String subscriptionEnrollmentId, String merchant, final ApiCallback<SubscriptionEnrollment> _callback) throws ApiException {
 
-            okhttp3.Call localVarCall = getSubscriptionSubscriptionEnrollmentsIdValidateBeforeCall(subscriptionEnrollmentId, _callback);
+            okhttp3.Call localVarCall = getSubscriptionSubscriptionEnrollmentsIdValidateBeforeCall(subscriptionEnrollmentId, merchant, _callback);
         Type localVarReturnType = new TypeToken<SubscriptionEnrollment>(){}.getType();
             localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
             return localVarCall;
             }
         /**
         * Build call for listSubscriptionEnrollments
-            * @param subscriptionScheduleId  (required)
+            * @param subscriptionScheduleId The ID of the &#x60;subscription_schedule&#x60;. (required)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                    <tr><td> 200 </td><td> List of subscription_enrollment objects </td><td>  -  </td></tr>
             </table>
         */
         public okhttp3.Call listSubscriptionEnrollmentsCall(String subscriptionScheduleId, final ApiCallback _callback) throws ApiException {
@@ -647,15 +655,15 @@ import javax.ws.rs.core.GenericType;
             }
 
                 /**
-                * List Subscription Enrollments on a schedule
-                * Retrieve a list of subscription enrollments for a specific &#x60;subscription _chedule&#x60;.
-                    * @param subscriptionScheduleId  (required)
+                * List Subscription Enrollments on a Schedule
+                * Retrieve a list of &#x60;Subscription Enrollments&#x60; for a specific &#x60;subscription_schedule&#x60;.
+                    * @param subscriptionScheduleId The ID of the &#x60;subscription_schedule&#x60;. (required)
                     * @return SubscriptionEnrollmentList
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                            <tr><td> 200 </td><td> List of subscription_enrollment objects </td><td>  -  </td></tr>
                     </table>
                 */
                     public SubscriptionEnrollmentList listBySubscriptionScheduleId(String subscriptionScheduleId) throws ApiException {
@@ -664,15 +672,15 @@ import javax.ws.rs.core.GenericType;
                     }
 
         /**
-            * List Subscription Enrollments on a schedule
-            * Retrieve a list of subscription enrollments for a specific &#x60;subscription _chedule&#x60;.
-                * @param subscriptionScheduleId  (required)
+            * List Subscription Enrollments on a Schedule
+            * Retrieve a list of &#x60;Subscription Enrollments&#x60; for a specific &#x60;subscription_schedule&#x60;.
+                * @param subscriptionScheduleId The ID of the &#x60;subscription_schedule&#x60;. (required)
             * @return ApiResponse&lt;SubscriptionEnrollmentList&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                        <tr><td> 200 </td><td> List of subscription_enrollment objects </td><td>  -  </td></tr>
                 </table>
             */
             public ApiResponse<SubscriptionEnrollmentList> listSubscriptionEnrollmentsWithHttpInfo(String subscriptionScheduleId) throws ApiException {
@@ -682,16 +690,16 @@ import javax.ws.rs.core.GenericType;
             }
 
         /**
-            * List Subscription Enrollments on a schedule (asynchronously)
-            * Retrieve a list of subscription enrollments for a specific &#x60;subscription _chedule&#x60;.
-                * @param subscriptionScheduleId  (required)
+            * List Subscription Enrollments on a Schedule (asynchronously)
+            * Retrieve a list of &#x60;Subscription Enrollments&#x60; for a specific &#x60;subscription_schedule&#x60;.
+                * @param subscriptionScheduleId The ID of the &#x60;subscription_schedule&#x60;. (required)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                        <tr><td> 200 </td><td> List of subscription_enrollment objects </td><td>  -  </td></tr>
                 </table>
             */
             public okhttp3.Call listSubscriptionEnrollmentsAsync(String subscriptionScheduleId, final ApiCallback<SubscriptionEnrollmentList> _callback) throws ApiException {
@@ -703,7 +711,7 @@ import javax.ws.rs.core.GenericType;
             }
         /**
         * Build call for updateSubscriptionEnrollment
-            * @param subscriptionEnrollmentId  (required)
+            * @param subscriptionEnrollmentId The ID of the &#x60;subscription_enrollment&#x60;. (required)
             * @param updateSubscriptionEnrollmentRequest  (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
@@ -711,7 +719,7 @@ import javax.ws.rs.core.GenericType;
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                    <tr><td> 200 </td><td> Single subscription_enrollment resource </td><td>  -  </td></tr>
             </table>
         */
         public okhttp3.Call updateSubscriptionEnrollmentCall(String subscriptionEnrollmentId, UpdateSubscriptionEnrollmentRequest updateSubscriptionEnrollmentRequest, final ApiCallback _callback) throws ApiException {
@@ -777,14 +785,14 @@ import javax.ws.rs.core.GenericType;
                 /**
                 * Update a Subscription Enrollment
                 * Update the details of a &#x60;subscription_enrollment&#x60;.
-                    * @param subscriptionEnrollmentId  (required)
+                    * @param subscriptionEnrollmentId The ID of the &#x60;subscription_enrollment&#x60;. (required)
                     * @param updateSubscriptionEnrollmentRequest  (optional)
                     * @return SubscriptionEnrollment
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                            <tr><td> 200 </td><td> Single subscription_enrollment resource </td><td>  -  </td></tr>
                     </table>
                 */
                     public SubscriptionEnrollment update(String subscriptionEnrollmentId, UpdateSubscriptionEnrollmentRequest updateSubscriptionEnrollmentRequest) throws ApiException {
@@ -795,14 +803,14 @@ import javax.ws.rs.core.GenericType;
         /**
             * Update a Subscription Enrollment
             * Update the details of a &#x60;subscription_enrollment&#x60;.
-                * @param subscriptionEnrollmentId  (required)
+                * @param subscriptionEnrollmentId The ID of the &#x60;subscription_enrollment&#x60;. (required)
                 * @param updateSubscriptionEnrollmentRequest  (optional)
             * @return ApiResponse&lt;SubscriptionEnrollment&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                        <tr><td> 200 </td><td> Single subscription_enrollment resource </td><td>  -  </td></tr>
                 </table>
             */
             public ApiResponse<SubscriptionEnrollment> updateSubscriptionEnrollmentWithHttpInfo(String subscriptionEnrollmentId, UpdateSubscriptionEnrollmentRequest updateSubscriptionEnrollmentRequest) throws ApiException {
@@ -814,7 +822,7 @@ import javax.ws.rs.core.GenericType;
         /**
             * Update a Subscription Enrollment (asynchronously)
             * Update the details of a &#x60;subscription_enrollment&#x60;.
-                * @param subscriptionEnrollmentId  (required)
+                * @param subscriptionEnrollmentId The ID of the &#x60;subscription_enrollment&#x60;. (required)
                 * @param updateSubscriptionEnrollmentRequest  (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
@@ -822,7 +830,7 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                        <tr><td> 200 </td><td> Single subscription_enrollment resource </td><td>  -  </td></tr>
                 </table>
             */
             public okhttp3.Call updateSubscriptionEnrollmentAsync(String subscriptionEnrollmentId, UpdateSubscriptionEnrollmentRequest updateSubscriptionEnrollmentRequest, final ApiCallback<SubscriptionEnrollment> _callback) throws ApiException {

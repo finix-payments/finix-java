@@ -23,7 +23,11 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.ApplicationLinksApplicationProfile;
+import model.ApplicationLinksSelf;
+import model.ApplicationProfileLinksApplication;
+import model.AuthorizationLinksDevice;
+import model.AuthorizationLinksMerchantIdentity;
+import model.AuthorizationLinksTransfer;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,35 +50,36 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * AuthorizationLinks
+ * For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these &#x60;_links&#x60; to make your follow-up requests and quickly access relevant IDs.
  */
+@ApiModel(description = "For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class AuthorizationLinks {
   public static final String SERIALIZED_NAME_APPLICATION = "application";
   @SerializedName(SERIALIZED_NAME_APPLICATION)
-  private ApplicationLinksApplicationProfile application;
+  private ApplicationProfileLinksApplication application;
 
   public static final String SERIALIZED_NAME_DEVICE = "device";
   @SerializedName(SERIALIZED_NAME_DEVICE)
-  private ApplicationLinksApplicationProfile device;
+  private AuthorizationLinksDevice device;
 
   public static final String SERIALIZED_NAME_MERCHANT_IDENTITY = "merchant_identity";
   @SerializedName(SERIALIZED_NAME_MERCHANT_IDENTITY)
-  private ApplicationLinksApplicationProfile merchantIdentity;
+  private AuthorizationLinksMerchantIdentity merchantIdentity;
 
   public static final String SERIALIZED_NAME_SELF = "self";
   @SerializedName(SERIALIZED_NAME_SELF)
-  private ApplicationLinksApplicationProfile self;
+  private ApplicationLinksSelf self;
 
   public static final String SERIALIZED_NAME_TRANSFER = "transfer";
   @SerializedName(SERIALIZED_NAME_TRANSFER)
-  private ApplicationLinksApplicationProfile transfer;
+  private AuthorizationLinksTransfer transfer;
 
   public AuthorizationLinks() { 
   }
 
-  public AuthorizationLinks application(ApplicationLinksApplicationProfile application) {
+  public AuthorizationLinks application(ApplicationProfileLinksApplication application) {
     
     this.application = application;
     return this;
@@ -87,17 +92,17 @@ public class AuthorizationLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getApplication() {
+  public ApplicationProfileLinksApplication getApplication() {
     return application;
   }
 
 
-  public void setApplication(ApplicationLinksApplicationProfile application) {
+  public void setApplication(ApplicationProfileLinksApplication application) {
     this.application = application;
   }
 
 
-  public AuthorizationLinks device(ApplicationLinksApplicationProfile device) {
+  public AuthorizationLinks device(AuthorizationLinksDevice device) {
     
     this.device = device;
     return this;
@@ -110,17 +115,17 @@ public class AuthorizationLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getDevice() {
+  public AuthorizationLinksDevice getDevice() {
     return device;
   }
 
 
-  public void setDevice(ApplicationLinksApplicationProfile device) {
+  public void setDevice(AuthorizationLinksDevice device) {
     this.device = device;
   }
 
 
-  public AuthorizationLinks merchantIdentity(ApplicationLinksApplicationProfile merchantIdentity) {
+  public AuthorizationLinks merchantIdentity(AuthorizationLinksMerchantIdentity merchantIdentity) {
     
     this.merchantIdentity = merchantIdentity;
     return this;
@@ -133,17 +138,17 @@ public class AuthorizationLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getMerchantIdentity() {
+  public AuthorizationLinksMerchantIdentity getMerchantIdentity() {
     return merchantIdentity;
   }
 
 
-  public void setMerchantIdentity(ApplicationLinksApplicationProfile merchantIdentity) {
+  public void setMerchantIdentity(AuthorizationLinksMerchantIdentity merchantIdentity) {
     this.merchantIdentity = merchantIdentity;
   }
 
 
-  public AuthorizationLinks self(ApplicationLinksApplicationProfile self) {
+  public AuthorizationLinks self(ApplicationLinksSelf self) {
     
     this.self = self;
     return this;
@@ -156,17 +161,17 @@ public class AuthorizationLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getSelf() {
+  public ApplicationLinksSelf getSelf() {
     return self;
   }
 
 
-  public void setSelf(ApplicationLinksApplicationProfile self) {
+  public void setSelf(ApplicationLinksSelf self) {
     this.self = self;
   }
 
 
-  public AuthorizationLinks transfer(ApplicationLinksApplicationProfile transfer) {
+  public AuthorizationLinks transfer(AuthorizationLinksTransfer transfer) {
     
     this.transfer = transfer;
     return this;
@@ -179,12 +184,12 @@ public class AuthorizationLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getTransfer() {
+  public AuthorizationLinksTransfer getTransfer() {
     return transfer;
   }
 
 
-  public void setTransfer(ApplicationLinksApplicationProfile transfer) {
+  public void setTransfer(AuthorizationLinksTransfer transfer) {
     this.transfer = transfer;
   }
 
@@ -278,23 +283,23 @@ public class AuthorizationLinks {
       */
       // validate the optional field `application`
       if (jsonObj.getAsJsonObject("application") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("application"));
+       ApplicationProfileLinksApplication.validateJsonObject(jsonObj.getAsJsonObject("application"));
       }
       // validate the optional field `device`
       if (jsonObj.getAsJsonObject("device") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("device"));
+       AuthorizationLinksDevice.validateJsonObject(jsonObj.getAsJsonObject("device"));
       }
       // validate the optional field `merchant_identity`
       if (jsonObj.getAsJsonObject("merchant_identity") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("merchant_identity"));
+       AuthorizationLinksMerchantIdentity.validateJsonObject(jsonObj.getAsJsonObject("merchant_identity"));
       }
       // validate the optional field `self`
       if (jsonObj.getAsJsonObject("self") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("self"));
+       ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
       }
       // validate the optional field `transfer`
       if (jsonObj.getAsJsonObject("transfer") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("transfer"));
+       AuthorizationLinksTransfer.validateJsonObject(jsonObj.getAsJsonObject("transfer"));
       }
   }
 

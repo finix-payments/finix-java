@@ -23,7 +23,9 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,14 +51,14 @@ import invoker.JSON;
  * CreateMerchantUnderwritingRequest
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class CreateMerchantUnderwritingRequest {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private Object tags;
+  private Map<String, String> tags = null;
 
   /**
-   * Name of the gateway that process the &#x60;Merchant&#x60;&#39;s transaction.
+   * Name of the gateway that processes the &#x60;Merchant&#39;s&#x60; transaction.
    */
   @JsonAdapter(GatewayEnum.Adapter.class)
   public enum GatewayEnum {
@@ -117,9 +119,17 @@ public class CreateMerchantUnderwritingRequest {
   public CreateMerchantUnderwritingRequest() { 
   }
 
-  public CreateMerchantUnderwritingRequest tags(Object tags) {
+  public CreateMerchantUnderwritingRequest tags(Map<String, String> tags) {
     
     this.tags = tags;
+    return this;
+  }
+
+  public CreateMerchantUnderwritingRequest putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
     return this;
   }
 
@@ -130,12 +140,12 @@ public class CreateMerchantUnderwritingRequest {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
 
-  public Object getTags() {
+  public Map<String, String> getTags() {
     return tags;
   }
 
 
-  public void setTags(Object tags) {
+  public void setTags(Map<String, String> tags) {
     this.tags = tags;
   }
 
@@ -147,11 +157,11 @@ public class CreateMerchantUnderwritingRequest {
   }
 
    /**
-   * Name of the gateway that process the &#x60;Merchant&#x60;&#39;s transaction.
+   * Name of the gateway that processes the &#x60;Merchant&#39;s&#x60; transaction.
    * @return gateway
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the gateway that process the `Merchant`'s transaction.")
+  @ApiModelProperty(value = "Name of the gateway that processes the `Merchant's` transaction.")
 
   public GatewayEnum getGateway() {
     return gateway;
@@ -170,11 +180,11 @@ public class CreateMerchantUnderwritingRequest {
   }
 
    /**
-   * Name of acquiring processor that settles the &#x60;Merchant&#x60;&#39;s transactions.
+   * Name of acquiring processor that settles the &#x60;Merchant&#39;s&#x60; transactions.
    * @return processor
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of acquiring processor that settles the `Merchant`'s transactions.")
+  @ApiModelProperty(value = "Name of acquiring processor that settles the `Merchant's` transactions.")
 
   public String getProcessor() {
     return processor;
@@ -225,20 +235,9 @@ public class CreateMerchantUnderwritingRequest {
         Objects.equals(this.processorSpecificParameters, createMerchantUnderwritingRequest.processorSpecificParameters);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
     return Objects.hash(tags, gateway, processor, processorSpecificParameters);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

@@ -46,13 +46,14 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * CardPresentInstrumentForm
+ * Details the &#x60;Payment Instrument&#x60; that the &#x60;Transfer&#x60; debits or credits. 
  */
+@ApiModel(description = "Details the `Payment Instrument` that the `Transfer` debits or credits. ")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class CardPresentInstrumentForm {
   /**
-   * Gets or Sets type
+   * The type of &#x60;Payment Instrument&#x60;.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -213,11 +214,11 @@ public class CardPresentInstrumentForm {
   }
 
    /**
-   * Get type
+   * The type of &#x60;Payment Instrument&#x60;.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of `Payment Instrument`.")
 
   public TypeEnum getType() {
     return type;
@@ -259,11 +260,11 @@ public class CardPresentInstrumentForm {
   }
 
    /**
-   * Get emvData
+   * Encrypted card data used to process the transaction.
    * @return emvData
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Encrypted card data used to process the transaction.")
 
   public String getEmvData() {
     return emvData;
@@ -282,11 +283,11 @@ public class CardPresentInstrumentForm {
   }
 
    /**
-   * Get emvDataKeySerialNumber
+   * Encrypted EMV card data about the key serial number used to process the transaction.
    * @return emvDataKeySerialNumber
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Encrypted EMV card data about the key serial number used to process the transaction.")
 
   public String getEmvDataKeySerialNumber() {
     return emvDataKeySerialNumber;
@@ -305,11 +306,11 @@ public class CardPresentInstrumentForm {
   }
 
    /**
-   * Get encryptedEmvData
+   * Encrypted EMV card data. Required if using an encrypted device.
    * @return encryptedEmvData
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Encrypted EMV card data. Required if using an encrypted device.")
 
   public String getEncryptedEmvData() {
     return encryptedEmvData;
@@ -328,11 +329,11 @@ public class CardPresentInstrumentForm {
   }
 
    /**
-   * Get encryptedEmvFormat
+   * EMV encryption format provided from integrated encryption devices (defaults to **0**).
    * @return encryptedEmvFormat
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "EMV encryption format provided from integrated encryption devices (defaults to **0**).")
 
   public Integer getEncryptedEmvFormat() {
     return encryptedEmvFormat;
@@ -351,11 +352,11 @@ public class CardPresentInstrumentForm {
   }
 
    /**
-   * Get expirationMonth
+   * Expiration month of the &#x60;Payment Instrument&#x60; (e.g. 12 for December).
    * @return expirationMonth
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Expiration month of the `Payment Instrument` (e.g. 12 for December).")
 
   public Integer getExpirationMonth() {
     return expirationMonth;
@@ -374,11 +375,11 @@ public class CardPresentInstrumentForm {
   }
 
    /**
-   * Get expirationYear
+   * 4-digit expiration year of the &#x60;Payment Instrument&#x60;.
    * @return expirationYear
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "4-digit expiration year of the `Payment Instrument`.")
 
   public Integer getExpirationYear() {
     return expirationYear;
@@ -397,11 +398,11 @@ public class CardPresentInstrumentForm {
   }
 
    /**
-   * Get firstName
+   * The first name of the &#x60;Payment Instrument&#x60; owner.
    * @return firstName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The first name of the `Payment Instrument` owner.")
 
   public String getFirstName() {
     return firstName;
@@ -420,11 +421,11 @@ public class CardPresentInstrumentForm {
   }
 
    /**
-   * Get lastName
+   * The last name of the &#x60;Payment Instrument&#x60; owner.
    * @return lastName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The last name of the `Payment Instrument` owner.")
 
   public String getLastName() {
     return lastName;
@@ -466,11 +467,11 @@ public class CardPresentInstrumentForm {
   }
 
    /**
-   * Get number
+   * Primary card account number (no dashes in between numbers).
    * @return number
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Primary card account number (no dashes in between numbers).")
 
   public String getNumber() {
     return number;

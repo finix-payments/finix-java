@@ -37,7 +37,7 @@ public class SubscriptionAmountsApiTest {
     /**
      * Create a Subscription Amount
      *
-     * Create a &#x60;subscription_amount&#x60;.
+     * Create a &#x60;subscription_amount&#x60;.  The &#x60;Subscription Amount&#x60; is the amount to be charged to a &#x60;Merchant&#x60;. The &#x60;Subscription Amount&#x60; must be associated to a &#x60;Subscription Schedule&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
@@ -46,6 +46,20 @@ public class SubscriptionAmountsApiTest {
         String subscriptionScheduleId = null;
         CreateSubscriptionAmountRequest createSubscriptionAmountRequest = null;
         SubscriptionAmount response = api.lcreate(subscriptionScheduleId, createSubscriptionAmountRequest);
+        // TODO: test validations
+    }
+
+    /**
+     * Remove a Subscription Amount
+     *
+     * Delete a previously created &#x60;Subscription Amount&#x60;.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void deleteSubscriptionAmountTest() throws ApiException {
+        String subscriptionScheduleId = null;
+        api.deleteSubscriptionAmount(subscriptionScheduleId);
         // TODO: test validations
     }
 
@@ -66,7 +80,7 @@ public class SubscriptionAmountsApiTest {
     /**
      * List Subscription Amounts
      *
-     * Retrive a list of subscription amounts.
+     * Retrive a list of &#x60;Subscription Amounts&#x60;.
      *
      * @throws ApiException if the Api call fails
      */

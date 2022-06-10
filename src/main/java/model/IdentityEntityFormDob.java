@@ -45,10 +45,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * IdentityEntityFormDob
+ * Principal&#39;s date of birth.
  */
+@ApiModel(description = "Principal's date of birth.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class IdentityEntityFormDob {
   public static final String SERIALIZED_NAME_YEAR = "year";
   @SerializedName(SERIALIZED_NAME_YEAR)
@@ -72,11 +73,11 @@ public class IdentityEntityFormDob {
   }
 
    /**
-   * Get year
+   * Year of birth (4-digit).
    * @return year
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Year of birth (4-digit).")
 
   public Integer getYear() {
     return year;
@@ -95,11 +96,11 @@ public class IdentityEntityFormDob {
   }
 
    /**
-   * Get day
+   * Day of birth (between 1 and 31).
    * @return day
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Day of birth (between 1 and 31).")
 
   public Integer getDay() {
     return day;
@@ -118,11 +119,11 @@ public class IdentityEntityFormDob {
   }
 
    /**
-   * Get month
+   * Month of birth (between 1 and 12).
    * @return month
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Month of birth (between 1 and 12).")
 
   public Integer getMonth() {
     return month;

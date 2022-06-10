@@ -24,6 +24,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import model.ApplicationLinksApplicationProfile;
+import model.ApplicationLinksSelf;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,10 +47,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * ApplicationLinks
+ * For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these &#x60;_links&#x60; to make your follow-up requests and quickly access relevant IDs.
  */
+@ApiModel(description = "For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class ApplicationLinks {
   public static final String SERIALIZED_NAME_APPLICATION_PROFILE = "application_profile";
   @SerializedName(SERIALIZED_NAME_APPLICATION_PROFILE)
@@ -89,7 +91,7 @@ public class ApplicationLinks {
 
   public static final String SERIALIZED_NAME_SELF = "self";
   @SerializedName(SERIALIZED_NAME_SELF)
-  private ApplicationLinksApplicationProfile self;
+  private ApplicationLinksSelf self;
 
   public static final String SERIALIZED_NAME_SETTLEMENTS = "settlements";
   @SerializedName(SERIALIZED_NAME_SETTLEMENTS)
@@ -321,7 +323,7 @@ public class ApplicationLinks {
   }
 
 
-  public ApplicationLinks self(ApplicationLinksApplicationProfile self) {
+  public ApplicationLinks self(ApplicationLinksSelf self) {
     
     this.self = self;
     return this;
@@ -334,12 +336,12 @@ public class ApplicationLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getSelf() {
+  public ApplicationLinksSelf getSelf() {
     return self;
   }
 
 
-  public void setSelf(ApplicationLinksApplicationProfile self) {
+  public void setSelf(ApplicationLinksSelf self) {
     this.self = self;
   }
 
@@ -614,7 +616,7 @@ public class ApplicationLinks {
       }
       // validate the optional field `self`
       if (jsonObj.getAsJsonObject("self") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("self"));
+       ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
       }
       // validate the optional field `settlements`
       if (jsonObj.getAsJsonObject("settlements") != null) {

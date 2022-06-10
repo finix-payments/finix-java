@@ -26,9 +26,12 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import model.AdditionalPurchaseData;
 import model.CardPresentInstrumentForm;
+import model.ConfigurationDetails;
+import model.CreateAuthorizationRequest3dSecureAuthentication;
 import model.Currency;
-import model.DeviceConfigurationForm;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,10 +54,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * CreateTransferRequest
+ * Create a &#x60;transfer&#x60;.
  */
+@ApiModel(description = "Create a `transfer`.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class CreateTransferRequest {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -86,14 +90,14 @@ public class CreateTransferRequest {
 
   public static final String SERIALIZED_NAME_DEVICE_CONFIGURATION = "device_configuration";
   @SerializedName(SERIALIZED_NAME_DEVICE_CONFIGURATION)
-  private DeviceConfigurationForm deviceConfiguration;
+  private ConfigurationDetails deviceConfiguration;
 
   public static final String SERIALIZED_NAME_FEE = "fee";
   @SerializedName(SERIALIZED_NAME_FEE)
   private Long fee;
 
   /**
-   * Gets or Sets gateway
+   * Name of the gateway that processed this &#x60;transfer&#x60;. (Finix Core only).
    */
   @JsonAdapter(GatewayEnum.Adapter.class)
   public enum GatewayEnum {
@@ -122,7 +126,7 @@ public class CreateTransferRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
 
     public static class Adapter extends TypeAdapter<GatewayEnum> {
@@ -143,12 +147,16 @@ public class CreateTransferRequest {
   @SerializedName(SERIALIZED_NAME_GATEWAY)
   private GatewayEnum gateway;
 
+  public static final String SERIALIZED_NAME_3D_SECURE_AUTHENTICATION = "3d_secure_authentication";
+  @SerializedName(SERIALIZED_NAME_3D_SECURE_AUTHENTICATION)
+  private CreateAuthorizationRequest3dSecureAuthentication _3dSecureAuthentication;
+
   public static final String SERIALIZED_NAME_IDEMPOTENCY_ID = "idempotency_id";
   @SerializedName(SERIALIZED_NAME_IDEMPOTENCY_ID)
   private String idempotencyId;
 
   /**
-   * Gets or Sets inputMethod
+   * Details how the card details were entered.
    */
   @JsonAdapter(InputMethodEnum.Adapter.class)
   public enum InputMethodEnum {
@@ -193,7 +201,7 @@ public class CreateTransferRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
 
     public static class Adapter extends TypeAdapter<InputMethodEnum> {
@@ -223,7 +231,7 @@ public class CreateTransferRequest {
   private String merchantIdentity;
 
   /**
-   * Gets or Sets operationKey
+   * Details the operation that&#39;ll be performed in the transaction.
    */
   @JsonAdapter(OperationKeyEnum.Adapter.class)
   public enum OperationKeyEnum {
@@ -264,7 +272,7 @@ public class CreateTransferRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
 
     public static class Adapter extends TypeAdapter<OperationKeyEnum> {
@@ -300,6 +308,10 @@ public class CreateTransferRequest {
   public static final String SERIALIZED_NAME_STATEMENT_DESCRIPTOR = "statement_descriptor";
   @SerializedName(SERIALIZED_NAME_STATEMENT_DESCRIPTOR)
   private String statementDescriptor;
+
+  public static final String SERIALIZED_NAME_ADDITIONAL_PURCHASE_DATA = "additional_purchase_data";
+  @SerializedName(SERIALIZED_NAME_ADDITIONAL_PURCHASE_DATA)
+  private AdditionalPurchaseData additionalPurchaseData;
 
   public CreateTransferRequest() { 
   }
@@ -342,11 +354,11 @@ public class CreateTransferRequest {
   }
 
    /**
-   * Get adjustmentRequest
+   * Details if the &#x60;transfer&#x60; was created to adjust funds.
    * @return adjustmentRequest
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Details if the `transfer` was created to adjust funds.")
 
   public Boolean getAdjustmentRequest() {
     return adjustmentRequest;
@@ -365,11 +377,11 @@ public class CreateTransferRequest {
   }
 
    /**
-   * Get amount
+   * The total amount that will be debited in cents (e.g. 100 cents to debit $1.00).
    * @return amount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The total amount that will be debited in cents (e.g. 100 cents to debit $1.00).")
 
   public Long getAmount() {
     return amount;
@@ -442,11 +454,11 @@ public class CreateTransferRequest {
   }
 
    /**
-   * Get destination
+   * ID of the &#x60;Payment Instrument&#x60; where funds will be sent.
    * @return destination
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "ID of the `Payment Instrument` where funds will be sent.")
 
   public String getDestination() {
     return destination;
@@ -465,11 +477,11 @@ public class CreateTransferRequest {
   }
 
    /**
-   * Get device
+   * The ID of the activated device.
    * @return device
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the activated device.")
 
   public String getDevice() {
     return device;
@@ -481,7 +493,7 @@ public class CreateTransferRequest {
   }
 
 
-  public CreateTransferRequest deviceConfiguration(DeviceConfigurationForm deviceConfiguration) {
+  public CreateTransferRequest deviceConfiguration(ConfigurationDetails deviceConfiguration) {
     
     this.deviceConfiguration = deviceConfiguration;
     return this;
@@ -494,12 +506,12 @@ public class CreateTransferRequest {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public DeviceConfigurationForm getDeviceConfiguration() {
+  public ConfigurationDetails getDeviceConfiguration() {
     return deviceConfiguration;
   }
 
 
-  public void setDeviceConfiguration(DeviceConfigurationForm deviceConfiguration) {
+  public void setDeviceConfiguration(ConfigurationDetails deviceConfiguration) {
     this.deviceConfiguration = deviceConfiguration;
   }
 
@@ -511,11 +523,11 @@ public class CreateTransferRequest {
   }
 
    /**
-   * Get fee
+   * The amount of the &#x60;Transfer&#x60; you&#39;d like to collect as your fee in cents. Defaults to zero (must be less than or equal to the &#x60;amount&#x60;).
    * @return fee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The amount of the `Transfer` you'd like to collect as your fee in cents. Defaults to zero (must be less than or equal to the `amount`).")
 
   public Long getFee() {
     return fee;
@@ -534,11 +546,11 @@ public class CreateTransferRequest {
   }
 
    /**
-   * Get gateway
+   * Name of the gateway that processed this &#x60;transfer&#x60;. (Finix Core only).
    * @return gateway
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Name of the gateway that processed this `transfer`. (Finix Core only).")
 
   public GatewayEnum getGateway() {
     return gateway;
@@ -550,6 +562,29 @@ public class CreateTransferRequest {
   }
 
 
+  public CreateTransferRequest _3dSecureAuthentication(CreateAuthorizationRequest3dSecureAuthentication _3dSecureAuthentication) {
+    
+    this._3dSecureAuthentication = _3dSecureAuthentication;
+    return this;
+  }
+
+   /**
+   * Get _3dSecureAuthentication
+   * @return _3dSecureAuthentication
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public CreateAuthorizationRequest3dSecureAuthentication get3dSecureAuthentication() {
+    return _3dSecureAuthentication;
+  }
+
+
+  public void set3dSecureAuthentication(CreateAuthorizationRequest3dSecureAuthentication _3dSecureAuthentication) {
+    this._3dSecureAuthentication = _3dSecureAuthentication;
+  }
+
+
   public CreateTransferRequest idempotencyId(String idempotencyId) {
     
     this.idempotencyId = idempotencyId;
@@ -557,11 +592,11 @@ public class CreateTransferRequest {
   }
 
    /**
-   * Get idempotencyId
+   * A randomly generated value that&#39;ll be associated with the request.
    * @return idempotencyId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A randomly generated value that'll be associated with the request.")
 
   public String getIdempotencyId() {
     return idempotencyId;
@@ -580,11 +615,11 @@ public class CreateTransferRequest {
   }
 
    /**
-   * Get inputMethod
+   * Details how the card details were entered.
    * @return inputMethod
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Details how the card details were entered.")
 
   public InputMethodEnum getInputMethod() {
     return inputMethod;
@@ -603,11 +638,11 @@ public class CreateTransferRequest {
   }
 
    /**
-   * Get merchant
+   * ID of the &#x60;Merchant&#x60; the &#x60;Transfer&#x60; was created under.
    * @return merchant
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "ID of the `Merchant` the `Transfer` was created under.")
 
   public String getMerchant() {
     return merchant;
@@ -626,11 +661,11 @@ public class CreateTransferRequest {
   }
 
    /**
-   * Get merchantIdentity
+   * ID of the &#x60;Identity&#x60; the &#x60;Merchant&#x60; was created under and the &#x60;Transfer&#x60; was submitted with.
    * @return merchantIdentity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "ID of the `Identity` the `Merchant` was created under and the `Transfer` was submitted with.")
 
   public String getMerchantIdentity() {
     return merchantIdentity;
@@ -649,11 +684,11 @@ public class CreateTransferRequest {
   }
 
    /**
-   * Get operationKey
+   * Details the operation that&#39;ll be performed in the transaction.
    * @return operationKey
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Details the operation that'll be performed in the transaction.")
 
   public OperationKeyEnum getOperationKey() {
     return operationKey;
@@ -695,11 +730,11 @@ public class CreateTransferRequest {
   }
 
    /**
-   * Get processor
+   * Name of the transaction processor.
    * @return processor
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Name of the transaction processor.")
 
   public String getProcessor() {
     return processor;
@@ -718,11 +753,11 @@ public class CreateTransferRequest {
   }
 
    /**
-   * Get source
+   * ID of the &#x60;Payment Instrument&#x60; where funds get debited.
    * @return source
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "ID of the `Payment Instrument` where funds get debited.")
 
   public String getSource() {
     return source;
@@ -741,11 +776,11 @@ public class CreateTransferRequest {
   }
 
    /**
-   * Get statementDescriptor
+   * The description of the transaction that appears on the buyer&#39;s bank or card statement.
    * @return statementDescriptor
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The description of the transaction that appears on the buyer's bank or card statement.")
 
   public String getStatementDescriptor() {
     return statementDescriptor;
@@ -754,6 +789,29 @@ public class CreateTransferRequest {
 
   public void setStatementDescriptor(String statementDescriptor) {
     this.statementDescriptor = statementDescriptor;
+  }
+
+
+  public CreateTransferRequest additionalPurchaseData(AdditionalPurchaseData additionalPurchaseData) {
+    
+    this.additionalPurchaseData = additionalPurchaseData;
+    return this;
+  }
+
+   /**
+   * Get additionalPurchaseData
+   * @return additionalPurchaseData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public AdditionalPurchaseData getAdditionalPurchaseData() {
+    return additionalPurchaseData;
+  }
+
+
+  public void setAdditionalPurchaseData(AdditionalPurchaseData additionalPurchaseData) {
+    this.additionalPurchaseData = additionalPurchaseData;
   }
 
 
@@ -777,6 +835,7 @@ public class CreateTransferRequest {
         Objects.equals(this.deviceConfiguration, createTransferRequest.deviceConfiguration) &&
         Objects.equals(this.fee, createTransferRequest.fee) &&
         Objects.equals(this.gateway, createTransferRequest.gateway) &&
+        Objects.equals(this._3dSecureAuthentication, createTransferRequest._3dSecureAuthentication) &&
         Objects.equals(this.idempotencyId, createTransferRequest.idempotencyId) &&
         Objects.equals(this.inputMethod, createTransferRequest.inputMethod) &&
         Objects.equals(this.merchant, createTransferRequest.merchant) &&
@@ -785,12 +844,24 @@ public class CreateTransferRequest {
         Objects.equals(this.paymentInstrument, createTransferRequest.paymentInstrument) &&
         Objects.equals(this.processor, createTransferRequest.processor) &&
         Objects.equals(this.source, createTransferRequest.source) &&
-        Objects.equals(this.statementDescriptor, createTransferRequest.statementDescriptor);
+        Objects.equals(this.statementDescriptor, createTransferRequest.statementDescriptor) &&
+        Objects.equals(this.additionalPurchaseData, createTransferRequest.additionalPurchaseData);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, adjustmentRequest, amount, configOverride, currency, destination, device, deviceConfiguration, fee, gateway, idempotencyId, inputMethod, merchant, merchantIdentity, operationKey, paymentInstrument, processor, source, statementDescriptor);
+    return Objects.hash(tags, adjustmentRequest, amount, configOverride, currency, destination, device, deviceConfiguration, fee, gateway, _3dSecureAuthentication, idempotencyId, inputMethod, merchant, merchantIdentity, operationKey, paymentInstrument, processor, source, statementDescriptor, additionalPurchaseData);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -807,6 +878,7 @@ public class CreateTransferRequest {
     sb.append("    deviceConfiguration: ").append(toIndentedString(deviceConfiguration)).append("\n");
     sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
     sb.append("    gateway: ").append(toIndentedString(gateway)).append("\n");
+    sb.append("    _3dSecureAuthentication: ").append(toIndentedString(_3dSecureAuthentication)).append("\n");
     sb.append("    idempotencyId: ").append(toIndentedString(idempotencyId)).append("\n");
     sb.append("    inputMethod: ").append(toIndentedString(inputMethod)).append("\n");
     sb.append("    merchant: ").append(toIndentedString(merchant)).append("\n");
@@ -816,6 +888,7 @@ public class CreateTransferRequest {
     sb.append("    processor: ").append(toIndentedString(processor)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    statementDescriptor: ").append(toIndentedString(statementDescriptor)).append("\n");
+    sb.append("    additionalPurchaseData: ").append(toIndentedString(additionalPurchaseData)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -848,6 +921,7 @@ public class CreateTransferRequest {
     openapiFields.add("device_configuration");
     openapiFields.add("fee");
     openapiFields.add("gateway");
+    openapiFields.add("3d_secure_authentication");
     openapiFields.add("idempotency_id");
     openapiFields.add("input_method");
     openapiFields.add("merchant");
@@ -857,6 +931,7 @@ public class CreateTransferRequest {
     openapiFields.add("processor");
     openapiFields.add("source");
     openapiFields.add("statement_descriptor");
+    openapiFields.add("additional_purchase_data");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -894,10 +969,14 @@ public class CreateTransferRequest {
       }
       // validate the optional field `device_configuration`
       if (jsonObj.getAsJsonObject("device_configuration") != null) {
-       DeviceConfigurationForm.validateJsonObject(jsonObj.getAsJsonObject("device_configuration"));
+       ConfigurationDetails.validateJsonObject(jsonObj.getAsJsonObject("device_configuration"));
       }
       if (jsonObj.get("gateway") != null && !jsonObj.get("gateway").isJsonNull()  && !jsonObj.get("gateway").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `gateway` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gateway").toString()));
+      }
+      // validate the optional field `3d_secure_authentication`
+      if (jsonObj.getAsJsonObject("3d_secure_authentication") != null) {
+       CreateAuthorizationRequest3dSecureAuthentication.validateJsonObject(jsonObj.getAsJsonObject("3d_secure_authentication"));
       }
       if (jsonObj.get("idempotency_id") != null && !jsonObj.get("idempotency_id").isJsonNull()  && !jsonObj.get("idempotency_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `idempotency_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("idempotency_id").toString()));
@@ -926,6 +1005,10 @@ public class CreateTransferRequest {
       }
       if (jsonObj.get("statement_descriptor") != null && !jsonObj.get("statement_descriptor").isJsonNull()  && !jsonObj.get("statement_descriptor").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `statement_descriptor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("statement_descriptor").toString()));
+      }
+      // validate the optional field `additional_purchase_data`
+      if (jsonObj.getAsJsonObject("additional_purchase_data") != null) {
+       AdditionalPurchaseData.validateJsonObject(jsonObj.getAsJsonObject("additional_purchase_data"));
       }
   }
 

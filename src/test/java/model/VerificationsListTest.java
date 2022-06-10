@@ -43,14 +43,6 @@ public class VerificationsListTest {
     }
 
     /**
-     * Test the property 'page'
-     */
-    @Test
-    public void pageTest() {
-        // TODO: test page
-    }
-
-    /**
      * Test the property 'embedded'
      */
     @Test
@@ -64,6 +56,14 @@ public class VerificationsListTest {
     @Test
     public void linksTest() {
         // TODO: test links
+    }
+
+    /**
+     * Test the property 'page'
+     */
+    @Test
+    public void pageTest() {
+        // TODO: test page
     }
 
 }

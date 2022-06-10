@@ -27,804 +27,305 @@ import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import model.Address;
 import model.Country;
 import model.Currency;
-import model.PaymentInstrumentLinks;
+import model.PaymentInstrumentBankAccount;
+import model.PaymentInstrumentBankAccountLinks;
+import model.PaymentInstrumentOther;
+import model.PaymentInstrumentPaymentCard;
+import model.PaymentInstrumentToken;
 import org.openapitools.jackson.nullable.JsonNullable;
+
+import javax.ws.rs.core.GenericType;
+
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
 
 import invoker.JSON;
 
-/**
- * PaymentInstrument
- */
-@lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
-public class PaymentInstrument {
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
+@lombok.Builder
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+public class PaymentInstrument extends AbstractOpenApiSchema {
+    private static final Logger log = Logger.getLogger(PaymentInstrument.class.getName());
 
-  /**
-   * Gets or Sets type
-   */
-  @JsonAdapter(TypeEnum.Adapter.class)
-  public enum TypeEnum {
-    BANK_ACCOUNT("BANK_ACCOUNT");
+    public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+        @SuppressWarnings("unchecked")
+        @Override
+        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+            if (!PaymentInstrument.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'PaymentInstrument' and its subtypes
+            }
+            final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+            final TypeAdapter<PaymentInstrumentBankAccount> adapterPaymentInstrumentBankAccount = gson.getDelegateAdapter(this, TypeToken.get(PaymentInstrumentBankAccount.class));
+            final TypeAdapter<PaymentInstrumentOther> adapterPaymentInstrumentOther = gson.getDelegateAdapter(this, TypeToken.get(PaymentInstrumentOther.class));
+            final TypeAdapter<PaymentInstrumentPaymentCard> adapterPaymentInstrumentPaymentCard = gson.getDelegateAdapter(this, TypeToken.get(PaymentInstrumentPaymentCard.class));
+            final TypeAdapter<PaymentInstrumentToken> adapterPaymentInstrumentToken = gson.getDelegateAdapter(this, TypeToken.get(PaymentInstrumentToken.class));
 
-    private String value;
+            return (TypeAdapter<T>) new TypeAdapter<PaymentInstrument>() {
+                @Override
+                public void write(JsonWriter out, PaymentInstrument value) throws IOException {
+                    if (value == null || value.getActualInstance() == null) {
+                        elementAdapter.write(out, null);
+                        return;
+                    }
 
-    TypeEnum(String value) {
-      this.value = value;
+                    // check if the actual instance is of the type `PaymentInstrumentBankAccount`
+                    if (value.getActualInstance() instanceof PaymentInstrumentBankAccount) {
+                        JsonObject obj = adapterPaymentInstrumentBankAccount.toJsonTree((PaymentInstrumentBankAccount)value.getActualInstance()).getAsJsonObject();
+                        elementAdapter.write(out, obj);
+                        return;
+                    }
+
+                    // check if the actual instance is of the type `PaymentInstrumentOther`
+                    if (value.getActualInstance() instanceof PaymentInstrumentOther) {
+                        JsonObject obj = adapterPaymentInstrumentOther.toJsonTree((PaymentInstrumentOther)value.getActualInstance()).getAsJsonObject();
+                        elementAdapter.write(out, obj);
+                        return;
+                    }
+
+                    // check if the actual instance is of the type `PaymentInstrumentPaymentCard`
+                    if (value.getActualInstance() instanceof PaymentInstrumentPaymentCard) {
+                        JsonObject obj = adapterPaymentInstrumentPaymentCard.toJsonTree((PaymentInstrumentPaymentCard)value.getActualInstance()).getAsJsonObject();
+                        elementAdapter.write(out, obj);
+                        return;
+                    }
+
+                    // check if the actual instance is of the type `PaymentInstrumentToken`
+                    if (value.getActualInstance() instanceof PaymentInstrumentToken) {
+                        JsonObject obj = adapterPaymentInstrumentToken.toJsonTree((PaymentInstrumentToken)value.getActualInstance()).getAsJsonObject();
+                        elementAdapter.write(out, obj);
+                        return;
+                    }
+
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: PaymentInstrumentBankAccount, PaymentInstrumentOther, PaymentInstrumentPaymentCard, PaymentInstrumentToken");
+                }
+
+                @Override
+                public PaymentInstrument read(JsonReader in) throws IOException {
+                    Object deserialized = null;
+                    JsonObject jsonObject = elementAdapter.read(in).getAsJsonObject();
+
+                    int match = 0;
+                    TypeAdapter actualAdapter = elementAdapter;
+
+                    // deserialize PaymentInstrumentBankAccount
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        PaymentInstrumentBankAccount.validateJsonObject(jsonObject);
+                        actualAdapter = adapterPaymentInstrumentBankAccount;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'PaymentInstrumentBankAccount'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        log.log(Level.FINER, "Input data does not match schema 'PaymentInstrumentBankAccount'", e);
+                    }
+
+                    // deserialize PaymentInstrumentOther
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        PaymentInstrumentOther.validateJsonObject(jsonObject);
+                        actualAdapter = adapterPaymentInstrumentOther;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'PaymentInstrumentOther'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        log.log(Level.FINER, "Input data does not match schema 'PaymentInstrumentOther'", e);
+                    }
+
+                    // deserialize PaymentInstrumentPaymentCard
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        PaymentInstrumentPaymentCard.validateJsonObject(jsonObject);
+                        actualAdapter = adapterPaymentInstrumentPaymentCard;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'PaymentInstrumentPaymentCard'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        log.log(Level.FINER, "Input data does not match schema 'PaymentInstrumentPaymentCard'", e);
+                    }
+
+                    // deserialize PaymentInstrumentToken
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        PaymentInstrumentToken.validateJsonObject(jsonObject);
+                        actualAdapter = adapterPaymentInstrumentToken;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'PaymentInstrumentToken'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        log.log(Level.FINER, "Input data does not match schema 'PaymentInstrumentToken'", e);
+                    }
+
+                    if (match == 1) {
+                        PaymentInstrument ret = new PaymentInstrument();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonObject));
+                        return ret;
+                    }
+
+                    throw new IOException(String.format("Failed deserialization for PaymentInstrument: %d classes match result, expected 1. JSON: %s", match, jsonObject.toString()));
+                }
+            }.nullSafe();
+        }
     }
 
-    public String getValue() {
-      return value;
+    // store a list of schema names defined in oneOf
+    public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
+
+    public PaymentInstrument() {
+        super("oneOf", Boolean.FALSE);
+    }
+
+    public PaymentInstrument(PaymentInstrumentBankAccount o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public PaymentInstrument(PaymentInstrumentOther o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public PaymentInstrument(PaymentInstrumentPaymentCard o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public PaymentInstrument(PaymentInstrumentToken o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    static {
+        schemas.put("PaymentInstrumentBankAccount", new GenericType<PaymentInstrumentBankAccount>() {
+        });
+        schemas.put("PaymentInstrumentOther", new GenericType<PaymentInstrumentOther>() {
+        });
+        schemas.put("PaymentInstrumentPaymentCard", new GenericType<PaymentInstrumentPaymentCard>() {
+        });
+        schemas.put("PaymentInstrumentToken", new GenericType<PaymentInstrumentToken>() {
+        });
     }
 
     @Override
-    public String toString() {
-      return String.valueOf(value);
+    public Map<String, GenericType> getSchemas() {
+        return PaymentInstrument.schemas;
     }
 
-    public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
-  }
-
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private TypeEnum type;
-
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
-
-  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private OffsetDateTime createdAt;
-
-  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
-  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-  private OffsetDateTime updatedAt;
-
-  /**
-   * Gets or Sets accountType
-   */
-  @JsonAdapter(AccountTypeEnum.Adapter.class)
-  public enum AccountTypeEnum {
-    CHECKING("CHECKING"),
-    
-    SAVINGS("SAVINGS"),
-    
-    CORPORATE("CORPORATE"),
-    
-    CORP_SAVINGS("CORP_SAVINGS");
-
-    private String value;
-
-    AccountTypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
+    /**
+     * Set the instance that matches the oneOf child schema, check
+     * the instance parameter is valid against the oneOf child schemas:
+     * PaymentInstrumentBankAccount, PaymentInstrumentOther, PaymentInstrumentPaymentCard, PaymentInstrumentToken
+     *
+     * It could be an instance of the 'oneOf' schemas.
+     * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
+     */
     @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static AccountTypeEnum fromValue(String value) {
-      for (AccountTypeEnum b : AccountTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+    public void setActualInstance(Object instance) {
+        if (instance instanceof PaymentInstrumentBankAccount) {
+            super.setActualInstance(instance);
+            return;
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        if (instance instanceof PaymentInstrumentOther) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof PaymentInstrumentPaymentCard) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof PaymentInstrumentToken) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be PaymentInstrumentBankAccount, PaymentInstrumentOther, PaymentInstrumentPaymentCard, PaymentInstrumentToken");
     }
 
-    public static class Adapter extends TypeAdapter<AccountTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final AccountTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public AccountTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return AccountTypeEnum.fromValue(value);
-      }
-    }
-  }
-
-  public static final String SERIALIZED_NAME_ACCOUNT_TYPE = "account_type";
-  @SerializedName(SERIALIZED_NAME_ACCOUNT_TYPE)
-  private AccountTypeEnum accountType;
-
-  public static final String SERIALIZED_NAME_APPLICATION = "application";
-  @SerializedName(SERIALIZED_NAME_APPLICATION)
-  private String application;
-
-  public static final String SERIALIZED_NAME_BANK_CODE = "bank_code";
-  @SerializedName(SERIALIZED_NAME_BANK_CODE)
-  private String bankCode;
-
-  public static final String SERIALIZED_NAME_COUNTRY = "country";
-  @SerializedName(SERIALIZED_NAME_COUNTRY)
-  private Country country;
-
-  public static final String SERIALIZED_NAME_CURRENCY = "currency";
-  @SerializedName(SERIALIZED_NAME_CURRENCY)
-  private Currency currency;
-
-  public static final String SERIALIZED_NAME_FINGERPRINT = "fingerprint";
-  @SerializedName(SERIALIZED_NAME_FINGERPRINT)
-  private String fingerprint;
-
-  public static final String SERIALIZED_NAME_IDENTITY = "identity";
-  @SerializedName(SERIALIZED_NAME_IDENTITY)
-  private String identity;
-
-  /**
-   * Gets or Sets instrumentType
-   */
-  @JsonAdapter(InstrumentTypeEnum.Adapter.class)
-  public enum InstrumentTypeEnum {
-    BANK_ACCOUNT("BANK_ACCOUNT");
-
-    private String value;
-
-    InstrumentTypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
+    /**
+     * Get the actual instance, which can be the following:
+     * PaymentInstrumentBankAccount, PaymentInstrumentOther, PaymentInstrumentPaymentCard, PaymentInstrumentToken
+     *
+     * @return The actual instance (PaymentInstrumentBankAccount, PaymentInstrumentOther, PaymentInstrumentPaymentCard, PaymentInstrumentToken)
+     */
     @Override
-    public String toString() {
-      return String.valueOf(value);
+    public Object getActualInstance() {
+        return super.getActualInstance();
     }
 
-    public static InstrumentTypeEnum fromValue(String value) {
-      for (InstrumentTypeEnum b : InstrumentTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    /**
+     * Get the actual instance of `PaymentInstrumentBankAccount`. If the actual instance is not `PaymentInstrumentBankAccount`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `PaymentInstrumentBankAccount`
+     * @throws ClassCastException if the instance is not `PaymentInstrumentBankAccount`
+     */
+    public PaymentInstrumentBankAccount getPaymentInstrumentBankAccount() throws ClassCastException {
+        return (PaymentInstrumentBankAccount)super.getActualInstance();
     }
 
-    public static class Adapter extends TypeAdapter<InstrumentTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final InstrumentTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public InstrumentTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return InstrumentTypeEnum.fromValue(value);
-      }
-    }
-  }
-
-  public static final String SERIALIZED_NAME_INSTRUMENT_TYPE = "instrument_type";
-  @SerializedName(SERIALIZED_NAME_INSTRUMENT_TYPE)
-  private InstrumentTypeEnum instrumentType;
-
-  public static final String SERIALIZED_NAME_MASKED_ACCOUNT_NUMBER = "masked_account_number";
-  @SerializedName(SERIALIZED_NAME_MASKED_ACCOUNT_NUMBER)
-  private String maskedAccountNumber;
-
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
-
-  /**
-   * Gets or Sets payloadType
-   */
-  @JsonAdapter(PayloadTypeEnum.Adapter.class)
-  public enum PayloadTypeEnum {
-    SOURCE("SOURCE"),
-    
-    DESTINATION("DESTINATION");
-
-    private String value;
-
-    PayloadTypeEnum(String value) {
-      this.value = value;
+    /**
+     * Get the actual instance of `PaymentInstrumentOther`. If the actual instance is not `PaymentInstrumentOther`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `PaymentInstrumentOther`
+     * @throws ClassCastException if the instance is not `PaymentInstrumentOther`
+     */
+    public PaymentInstrumentOther getPaymentInstrumentOther() throws ClassCastException {
+        return (PaymentInstrumentOther)super.getActualInstance();
     }
 
-    public String getValue() {
-      return value;
+    /**
+     * Get the actual instance of `PaymentInstrumentPaymentCard`. If the actual instance is not `PaymentInstrumentPaymentCard`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `PaymentInstrumentPaymentCard`
+     * @throws ClassCastException if the instance is not `PaymentInstrumentPaymentCard`
+     */
+    public PaymentInstrumentPaymentCard getPaymentInstrumentPaymentCard() throws ClassCastException {
+        return (PaymentInstrumentPaymentCard)super.getActualInstance();
     }
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
+    /**
+     * Get the actual instance of `PaymentInstrumentToken`. If the actual instance is not `PaymentInstrumentToken`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `PaymentInstrumentToken`
+     * @throws ClassCastException if the instance is not `PaymentInstrumentToken`
+     */
+    public PaymentInstrumentToken getPaymentInstrumentToken() throws ClassCastException {
+        return (PaymentInstrumentToken)super.getActualInstance();
     }
 
-    public static PayloadTypeEnum fromValue(String value) {
-      for (PayloadTypeEnum b : PayloadTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<PayloadTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final PayloadTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public PayloadTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return PayloadTypeEnum.fromValue(value);
-      }
-    }
-  }
-
-  public static final String SERIALIZED_NAME_PAYLOAD_TYPE = "payload_type";
-  @SerializedName(SERIALIZED_NAME_PAYLOAD_TYPE)
-  private PayloadTypeEnum payloadType;
-
-  public static final String SERIALIZED_NAME_LINKS = "_links";
-  @SerializedName(SERIALIZED_NAME_LINKS)
-  private PaymentInstrumentLinks links;
-
-  public PaymentInstrument() { 
-  }
-
-  public PaymentInstrument tags(Map<String, String> tags) {
-    
-    this.tags = tags;
-    return this;
-  }
-
-  public PaymentInstrument putTagsItem(String key, String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new HashMap<>();
-    }
-    this.tags.put(key, tagsItem);
-    return this;
-  }
-
-   /**
-   * Key value pair for annotating custom meta data (e.g. order numbers).
-   * @return tags
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
-
-  public Map<String, String> getTags() {
-    return tags;
-  }
-
-
-  public void setTags(Map<String, String> tags) {
-    this.tags = tags;
-  }
-
-
-  public PaymentInstrument type(TypeEnum type) {
-    
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public TypeEnum getType() {
-    return type;
-  }
-
-
-  public void setType(TypeEnum type) {
-    this.type = type;
-  }
-
-
-  public PaymentInstrument id(String id) {
-    
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * The ID of the resource.
-   * @return id
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the resource.")
-
-  public String getId() {
-    return id;
-  }
-
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-
-  public PaymentInstrument createdAt(OffsetDateTime createdAt) {
-    
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * Timestamp of when the object was created
-   * @return createdAt
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the object was created")
-
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-
-  public void setCreatedAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-
-  public PaymentInstrument updatedAt(OffsetDateTime updatedAt) {
-    
-    this.updatedAt = updatedAt;
-    return this;
-  }
-
-   /**
-   * Timestamp of when the object was last updated
-   * @return updatedAt
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the object was last updated")
-
-  public OffsetDateTime getUpdatedAt() {
-    return updatedAt;
-  }
-
-
-  public void setUpdatedAt(OffsetDateTime updatedAt) {
-    this.updatedAt = updatedAt;
-  }
-
-
-  public PaymentInstrument accountType(AccountTypeEnum accountType) {
-    
-    this.accountType = accountType;
-    return this;
-  }
-
-   /**
-   * Get accountType
-   * @return accountType
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public AccountTypeEnum getAccountType() {
-    return accountType;
-  }
-
-
-  public void setAccountType(AccountTypeEnum accountType) {
-    this.accountType = accountType;
-  }
-
-
-  public PaymentInstrument application(String application) {
-    
-    this.application = application;
-    return this;
-  }
-
-   /**
-   * The ID of the resource.
-   * @return application
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the resource.")
-
-  public String getApplication() {
-    return application;
-  }
-
-
-  public void setApplication(String application) {
-    this.application = application;
-  }
-
-
-  public PaymentInstrument bankCode(String bankCode) {
-    
-    this.bankCode = bankCode;
-    return this;
-  }
-
-   /**
-   * Get bankCode
-   * @return bankCode
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getBankCode() {
-    return bankCode;
-  }
-
-
-  public void setBankCode(String bankCode) {
-    this.bankCode = bankCode;
-  }
-
-
-  public PaymentInstrument country(Country country) {
-    
-    this.country = country;
-    return this;
-  }
-
-   /**
-   * Get country
-   * @return country
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Country getCountry() {
-    return country;
-  }
-
-
-  public void setCountry(Country country) {
-    this.country = country;
-  }
-
-
-  public PaymentInstrument currency(Currency currency) {
-    
-    this.currency = currency;
-    return this;
-  }
-
-   /**
-   * Get currency
-   * @return currency
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Currency getCurrency() {
-    return currency;
-  }
-
-
-  public void setCurrency(Currency currency) {
-    this.currency = currency;
-  }
-
-
-  public PaymentInstrument fingerprint(String fingerprint) {
-    
-    this.fingerprint = fingerprint;
-    return this;
-  }
-
-   /**
-   * Get fingerprint
-   * @return fingerprint
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "FPRxxxxxxxxxxxxxxxxx", value = "")
-
-  public String getFingerprint() {
-    return fingerprint;
-  }
-
-
-  public void setFingerprint(String fingerprint) {
-    this.fingerprint = fingerprint;
-  }
-
-
-  public PaymentInstrument identity(String identity) {
-    
-    this.identity = identity;
-    return this;
-  }
-
-   /**
-   * The ID of the resource.
-   * @return identity
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the resource.")
-
-  public String getIdentity() {
-    return identity;
-  }
-
-
-  public void setIdentity(String identity) {
-    this.identity = identity;
-  }
-
-
-  public PaymentInstrument instrumentType(InstrumentTypeEnum instrumentType) {
-    
-    this.instrumentType = instrumentType;
-    return this;
-  }
-
-   /**
-   * Get instrumentType
-   * @return instrumentType
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public InstrumentTypeEnum getInstrumentType() {
-    return instrumentType;
-  }
-
-
-  public void setInstrumentType(InstrumentTypeEnum instrumentType) {
-    this.instrumentType = instrumentType;
-  }
-
-
-  public PaymentInstrument maskedAccountNumber(String maskedAccountNumber) {
-    
-    this.maskedAccountNumber = maskedAccountNumber;
-    return this;
-  }
-
-   /**
-   * Get maskedAccountNumber
-   * @return maskedAccountNumber
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getMaskedAccountNumber() {
-    return maskedAccountNumber;
-  }
-
-
-  public void setMaskedAccountNumber(String maskedAccountNumber) {
-    this.maskedAccountNumber = maskedAccountNumber;
-  }
-
-
-  public PaymentInstrument name(String name) {
-    
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getName() {
-    return name;
-  }
-
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public PaymentInstrument payloadType(PayloadTypeEnum payloadType) {
-    
-    this.payloadType = payloadType;
-    return this;
-  }
-
-   /**
-   * Get payloadType
-   * @return payloadType
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public PayloadTypeEnum getPayloadType() {
-    return payloadType;
-  }
-
-
-  public void setPayloadType(PayloadTypeEnum payloadType) {
-    this.payloadType = payloadType;
-  }
-
-
-  public PaymentInstrument links(PaymentInstrumentLinks links) {
-    
-    this.links = links;
-    return this;
-  }
-
-   /**
-   * Get links
-   * @return links
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public PaymentInstrumentLinks getLinks() {
-    return links;
-  }
-
-
-  public void setLinks(PaymentInstrumentLinks links) {
-    this.links = links;
-  }
-
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    PaymentInstrument paymentInstrument = (PaymentInstrument) o;
-    return Objects.equals(this.tags, paymentInstrument.tags) &&
-        Objects.equals(this.type, paymentInstrument.type) &&
-        Objects.equals(this.id, paymentInstrument.id) &&
-        Objects.equals(this.createdAt, paymentInstrument.createdAt) &&
-        Objects.equals(this.updatedAt, paymentInstrument.updatedAt) &&
-        Objects.equals(this.accountType, paymentInstrument.accountType) &&
-        Objects.equals(this.application, paymentInstrument.application) &&
-        Objects.equals(this.bankCode, paymentInstrument.bankCode) &&
-        Objects.equals(this.country, paymentInstrument.country) &&
-        Objects.equals(this.currency, paymentInstrument.currency) &&
-        Objects.equals(this.fingerprint, paymentInstrument.fingerprint) &&
-        Objects.equals(this.identity, paymentInstrument.identity) &&
-        Objects.equals(this.instrumentType, paymentInstrument.instrumentType) &&
-        Objects.equals(this.maskedAccountNumber, paymentInstrument.maskedAccountNumber) &&
-        Objects.equals(this.name, paymentInstrument.name) &&
-        Objects.equals(this.payloadType, paymentInstrument.payloadType) &&
-        Objects.equals(this.links, paymentInstrument.links);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(tags, type, id, createdAt, updatedAt, accountType, application, bankCode, country, currency, fingerprint, identity, instrumentType, maskedAccountNumber, name, payloadType, links);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentInstrument {\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
-    sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
-    sb.append("    application: ").append(toIndentedString(application)).append("\n");
-    sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
-    sb.append("    country: ").append(toIndentedString(country)).append("\n");
-    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-    sb.append("    fingerprint: ").append(toIndentedString(fingerprint)).append("\n");
-    sb.append("    identity: ").append(toIndentedString(identity)).append("\n");
-    sb.append("    instrumentType: ").append(toIndentedString(instrumentType)).append("\n");
-    sb.append("    maskedAccountNumber: ").append(toIndentedString(maskedAccountNumber)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    payloadType: ").append(toIndentedString(payloadType)).append("\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
-
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("tags");
-    openapiFields.add("type");
-    openapiFields.add("id");
-    openapiFields.add("created_at");
-    openapiFields.add("updated_at");
-    openapiFields.add("account_type");
-    openapiFields.add("application");
-    openapiFields.add("bank_code");
-    openapiFields.add("country");
-    openapiFields.add("currency");
-    openapiFields.add("fingerprint");
-    openapiFields.add("identity");
-    openapiFields.add("instrument_type");
-    openapiFields.add("masked_account_number");
-    openapiFields.add("name");
-    openapiFields.add("payload_type");
-    openapiFields.add("_links");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
@@ -833,89 +334,38 @@ public class PaymentInstrument {
   * @throws IOException if the JSON Object is invalid with respect to PaymentInstrument
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (PaymentInstrument.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentInstrument is not found in the empty JSON string", PaymentInstrument.openapiRequiredFields.toString()));
-        }
-      }
-     /* 
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!PaymentInstrument.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaymentInstrument` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      */
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()  && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()  && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if (jsonObj.get("account_type") != null && !jsonObj.get("account_type").isJsonNull()  && !jsonObj.get("account_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `account_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_type").toString()));
-      }
-      if (jsonObj.get("application") != null && !jsonObj.get("application").isJsonNull()  && !jsonObj.get("application").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `application` to be a primitive type in the JSON string but got `%s`", jsonObj.get("application").toString()));
-      }
-      if (jsonObj.get("bank_code") != null && !jsonObj.get("bank_code").isJsonNull()  && !jsonObj.get("bank_code").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bank_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bank_code").toString()));
-      }
-      if (jsonObj.get("fingerprint") != null && !jsonObj.get("fingerprint").isJsonNull()  && !jsonObj.get("fingerprint").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fingerprint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fingerprint").toString()));
-      }
-      if (jsonObj.get("identity") != null && !jsonObj.get("identity").isJsonNull()  && !jsonObj.get("identity").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `identity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("identity").toString()));
-      }
-      if (jsonObj.get("instrument_type") != null && !jsonObj.get("instrument_type").isJsonNull()  && !jsonObj.get("instrument_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `instrument_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("instrument_type").toString()));
-      }
-      if (jsonObj.get("masked_account_number") != null && !jsonObj.get("masked_account_number").isJsonNull()  && !jsonObj.get("masked_account_number").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `masked_account_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("masked_account_number").toString()));
-      }
-      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()  && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if (jsonObj.get("payload_type") != null && !jsonObj.get("payload_type").isJsonNull()  && !jsonObj.get("payload_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `payload_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payload_type").toString()));
-      }
-      // validate the optional field `_links`
-      if (jsonObj.getAsJsonObject("_links") != null) {
-       PaymentInstrumentLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-      }
-  }
-
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PaymentInstrument.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PaymentInstrument' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PaymentInstrument> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PaymentInstrument.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<PaymentInstrument>() {
-           @Override
-           public void write(JsonWriter out, PaymentInstrument value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public PaymentInstrument read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
+    // validate oneOf schemas one by one
+    int validCount = 0;
+    // validate the json string with PaymentInstrumentBankAccount
+    try {
+      PaymentInstrumentBankAccount.validateJsonObject(jsonObj);
+      validCount++;
+    } catch (Exception e) {
+      // continue to the next one
+    }
+    // validate the json string with PaymentInstrumentOther
+    try {
+      PaymentInstrumentOther.validateJsonObject(jsonObj);
+      validCount++;
+    } catch (Exception e) {
+      // continue to the next one
+    }
+    // validate the json string with PaymentInstrumentPaymentCard
+    try {
+      PaymentInstrumentPaymentCard.validateJsonObject(jsonObj);
+      validCount++;
+    } catch (Exception e) {
+      // continue to the next one
+    }
+    // validate the json string with PaymentInstrumentToken
+    try {
+      PaymentInstrumentToken.validateJsonObject(jsonObj);
+      validCount++;
+    } catch (Exception e) {
+      // continue to the next one
+    }
+    if (validCount != 1) {
+      throw new IOException(String.format("The JSON string is invalid for PaymentInstrument with oneOf schemas: PaymentInstrumentBankAccount, PaymentInstrumentOther, PaymentInstrumentPaymentCard, PaymentInstrumentToken. %d class(es) match the result, expected 1. JSON: %s", validCount, jsonObj.toString()));
     }
   }
 

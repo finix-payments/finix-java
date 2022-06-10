@@ -45,17 +45,18 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * IdentityEntityFormBusinessAddress
+ * Primary address for the legal entity.
  */
+@ApiModel(description = "Primary address for the legal entity.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class IdentityEntityFormBusinessAddress {
   public static final String SERIALIZED_NAME_CITY = "city";
   @SerializedName(SERIALIZED_NAME_CITY)
   private String city;
 
   /**
-   * Gets or Sets country
+   * 3-Letter Country code.
    */
   @JsonAdapter(CountryEnum.Adapter.class)
   public enum CountryEnum {
@@ -648,11 +649,11 @@ public class IdentityEntityFormBusinessAddress {
   }
 
    /**
-   * Get country
+   * 3-Letter Country code.
    * @return country
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "3-Letter Country code.")
 
   public CountryEnum getCountry() {
     return country;
@@ -671,11 +672,11 @@ public class IdentityEntityFormBusinessAddress {
   }
 
    /**
-   * Get line1
+   * First line of the address (max 35 characters).
    * @return line1
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "First line of the address (max 35 characters).")
 
   public String getLine1() {
     return line1;
@@ -694,11 +695,11 @@ public class IdentityEntityFormBusinessAddress {
   }
 
    /**
-   * Get line2
+   * Second line of the address (max 35 characters).
    * @return line2
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Second line of the address (max 35 characters).")
 
   public String getLine2() {
     return line2;
@@ -717,11 +718,11 @@ public class IdentityEntityFormBusinessAddress {
   }
 
    /**
-   * Get postalCode
+   * Zip or Postal code (max 7 characters).
    * @return postalCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Zip or Postal code (max 7 characters).")
 
   public String getPostalCode() {
     return postalCode;
@@ -740,11 +741,11 @@ public class IdentityEntityFormBusinessAddress {
   }
 
    /**
-   * Get region
+   * 2-letter State code.
    * @return region
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "2-letter State code.")
 
   public String getRegion() {
     return region;

@@ -81,7 +81,7 @@ import javax.ws.rs.core.GenericType;
 
         /**
         * Build call for createMerchantDevice
-            * @param merchantId ID of merchant object (required)
+            * @param merchantId ID of the &#x60;Merchant&#x60; object. (required)
             * @param createDevice  (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
@@ -89,7 +89,7 @@ import javax.ws.rs.core.GenericType;
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 201 </td><td> No content </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> Single Device object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -158,15 +158,16 @@ import javax.ws.rs.core.GenericType;
             }
 
                 /**
-                * Create Device
-                * Create a device on merchant
-                    * @param merchantId ID of merchant object (required)
+                * Create a Device
+                * Create a &#x60;Device&#x60; under a &#x60;Merchant&#x60;.
+                    * @param merchantId ID of the &#x60;Merchant&#x60; object. (required)
                     * @param createDevice  (optional)
+                    * @return Device
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 201 </td><td> No content </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> Single Device object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -174,21 +175,22 @@ import javax.ws.rs.core.GenericType;
                             <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     </table>
                 */
-                    public void create(String merchantId, CreateDevice createDevice) throws ApiException {
-                createMerchantDeviceWithHttpInfo(merchantId, createDevice);
+                    public Device create(String merchantId, CreateDevice createDevice) throws ApiException {
+                ApiResponse<Device> localVarResp = createMerchantDeviceWithHttpInfo(merchantId, createDevice);
+                        return localVarResp.getData();
                     }
 
         /**
-            * Create Device
-            * Create a device on merchant
-                * @param merchantId ID of merchant object (required)
+            * Create a Device
+            * Create a &#x60;Device&#x60; under a &#x60;Merchant&#x60;.
+                * @param merchantId ID of the &#x60;Merchant&#x60; object. (required)
                 * @param createDevice  (optional)
-            * @return ApiResponse&lt;Void&gt;
+            * @return ApiResponse&lt;Device&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 201 </td><td> No content </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> Single Device object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -196,15 +198,16 @@ import javax.ws.rs.core.GenericType;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public ApiResponse<Void> createMerchantDeviceWithHttpInfo(String merchantId, CreateDevice createDevice) throws ApiException {
+            public ApiResponse<Device> createMerchantDeviceWithHttpInfo(String merchantId, CreateDevice createDevice) throws ApiException {
             okhttp3.Call localVarCall = createMerchantDeviceValidateBeforeCall(merchantId, createDevice, null);
-                return localVarFinixClient.execute(localVarCall);
+                    Type localVarReturnType = new TypeToken<Device>(){}.getType();
+                    return localVarFinixClient.execute(localVarCall, localVarReturnType);
             }
 
         /**
-            * Create Device (asynchronously)
-            * Create a device on merchant
-                * @param merchantId ID of merchant object (required)
+            * Create a Device (asynchronously)
+            * Create a &#x60;Device&#x60; under a &#x60;Merchant&#x60;.
+                * @param merchantId ID of the &#x60;Merchant&#x60; object. (required)
                 * @param createDevice  (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
@@ -212,7 +215,7 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 201 </td><td> No content </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> Single Device object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -220,22 +223,23 @@ import javax.ws.rs.core.GenericType;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public okhttp3.Call createMerchantDeviceAsync(String merchantId, CreateDevice createDevice, final ApiCallback<Void> _callback) throws ApiException {
+            public okhttp3.Call createMerchantDeviceAsync(String merchantId, CreateDevice createDevice, final ApiCallback<Device> _callback) throws ApiException {
 
             okhttp3.Call localVarCall = createMerchantDeviceValidateBeforeCall(merchantId, createDevice, _callback);
-        localVarFinixClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<Device>(){}.getType();
+            localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
             return localVarCall;
             }
         /**
         * Build call for getDevice
-            * @param deviceId id (required)
+            * @param deviceId ID of the &#x60;Device&#x60;. (required)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Device object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> Single Device object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -304,14 +308,14 @@ import javax.ws.rs.core.GenericType;
 
                 /**
                 * Get Device
-                * Get an existing device
-                    * @param deviceId id (required)
+                * Retrieve the details of an existing &#x60;Device&#x60;.  To check the connectivity of the device, include &#x60;?include_connection\\&#x3D;true \\&#x60; at the end of the request endpoint.
+                    * @param deviceId ID of the &#x60;Device&#x60;. (required)
                     * @return Device
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> Device object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> Single Device object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -325,14 +329,14 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Get Device
-            * Get an existing device
-                * @param deviceId id (required)
+            * Retrieve the details of an existing &#x60;Device&#x60;.  To check the connectivity of the device, include &#x60;?include_connection\\&#x3D;true \\&#x60; at the end of the request endpoint.
+                * @param deviceId ID of the &#x60;Device&#x60;. (required)
             * @return ApiResponse&lt;Device&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Device object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> Single Device object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -347,15 +351,15 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Get Device (asynchronously)
-            * Get an existing device
-                * @param deviceId id (required)
+            * Retrieve the details of an existing &#x60;Device&#x60;.  To check the connectivity of the device, include &#x60;?include_connection\\&#x3D;true \\&#x60; at the end of the request endpoint.
+                * @param deviceId ID of the &#x60;Device&#x60;. (required)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Device object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> Single Device object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -371,15 +375,15 @@ import javax.ws.rs.core.GenericType;
             }
         /**
         * Build call for putDevice
-            * @param deviceId id (required)
-            * @param body DeviceUpdate form (optional)
+            * @param deviceId ID of the &#x60;Device&#x60;. (required)
+            * @param body  (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Device object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> Single Device object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -447,16 +451,16 @@ import javax.ws.rs.core.GenericType;
             }
 
                 /**
-                * Put Device
-                * Update a device in order to perform an action on it.
-                    * @param deviceId id (required)
-                    * @param body DeviceUpdate form (optional)
+                * Update a Device
+                * Update a &#x60;Device&#x60; to activate or deactivate it.
+                    * @param deviceId ID of the &#x60;Device&#x60;. (required)
+                    * @param body  (optional)
                     * @return Device
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> Device object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> Single Device object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -469,16 +473,16 @@ import javax.ws.rs.core.GenericType;
                     }
 
         /**
-            * Put Device
-            * Update a device in order to perform an action on it.
-                * @param deviceId id (required)
-                * @param body DeviceUpdate form (optional)
+            * Update a Device
+            * Update a &#x60;Device&#x60; to activate or deactivate it.
+                * @param deviceId ID of the &#x60;Device&#x60;. (required)
+                * @param body  (optional)
             * @return ApiResponse&lt;Device&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Device object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> Single Device object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -492,17 +496,17 @@ import javax.ws.rs.core.GenericType;
             }
 
         /**
-            * Put Device (asynchronously)
-            * Update a device in order to perform an action on it.
-                * @param deviceId id (required)
-                * @param body DeviceUpdate form (optional)
+            * Update a Device (asynchronously)
+            * Update a &#x60;Device&#x60; to activate or deactivate it.
+                * @param deviceId ID of the &#x60;Device&#x60;. (required)
+                * @param body  (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Device object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> Single Device object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>

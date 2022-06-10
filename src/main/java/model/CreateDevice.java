@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import model.DeviceConfigurationForm;
+import model.ConfigurationDetails;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,7 +52,7 @@ import invoker.JSON;
  * CreateDevice
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class CreateDevice {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -64,14 +64,14 @@ public class CreateDevice {
 
   public static final String SERIALIZED_NAME_CONFIGURATION = "configuration";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION)
-  private DeviceConfigurationForm _configuration;
+  private ConfigurationDetails _configuration;
 
   public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
   private String merchantId;
 
   /**
-   * Gets or Sets model
+   * Include one of the following values to let Finix know the type of device that&#39;s being used.
    */
   @JsonAdapter(ModelEnum.Adapter.class)
   public enum ModelEnum {
@@ -180,11 +180,11 @@ public class CreateDevice {
   }
 
    /**
-   * Get description
+   * Additional information about device (e.g. self serving terminal).
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Additional information about device (e.g. self serving terminal).")
 
   public String getDescription() {
     return description;
@@ -196,7 +196,7 @@ public class CreateDevice {
   }
 
 
-  public CreateDevice _configuration(DeviceConfigurationForm _configuration) {
+  public CreateDevice _configuration(ConfigurationDetails _configuration) {
     
     this._configuration = _configuration;
     return this;
@@ -209,12 +209,12 @@ public class CreateDevice {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public DeviceConfigurationForm getConfiguration() {
+  public ConfigurationDetails getConfiguration() {
     return _configuration;
   }
 
 
-  public void setConfiguration(DeviceConfigurationForm _configuration) {
+  public void setConfiguration(ConfigurationDetails _configuration) {
     this._configuration = _configuration;
   }
 
@@ -226,11 +226,11 @@ public class CreateDevice {
   }
 
    /**
-   * Get merchantId
+   * ID of the &#x60;Merchant&#x60; the &#x60;Device&#x60; is associated with.
    * @return merchantId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "ID of the `Merchant` the `Device` is associated with.")
 
   public String getMerchantId() {
     return merchantId;
@@ -249,11 +249,11 @@ public class CreateDevice {
   }
 
    /**
-   * Get model
+   * Include one of the following values to let Finix know the type of device that&#39;s being used.
    * @return model
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Include one of the following values to let Finix know the type of device that's being used.")
 
   public ModelEnum getModel() {
     return model;
@@ -272,11 +272,11 @@ public class CreateDevice {
   }
 
    /**
-   * Get name
+   * Name of the &#x60;Device&#x60;.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Name of the `Device`.")
 
   public String getName() {
     return name;
@@ -383,7 +383,7 @@ public class CreateDevice {
       }
       // validate the optional field `configuration`
       if (jsonObj.getAsJsonObject("configuration") != null) {
-       DeviceConfigurationForm.validateJsonObject(jsonObj.getAsJsonObject("configuration"));
+       ConfigurationDetails.validateJsonObject(jsonObj.getAsJsonObject("configuration"));
       }
       if (jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonNull()  && !jsonObj.get("merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));

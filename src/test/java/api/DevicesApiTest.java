@@ -14,62 +14,78 @@
 package api;
 
 import invoker.ApiException;
-import model.CreateDevice;
-import model.Device;
-import model.Error401Unauthorized;
-import model.Error403ForbiddenList;
-import model.Error404NotFoundList;
-import model.Error406NotAcceptable;
-import model.ErrorGeneric;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import invoker.Environment;
+import invoker.FinixClient;
+import model.*;
+import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 /**
  * API tests for DevicesApi
  */
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@DisplayName("When Running DevicesApiTest")
 @Disabled
 public class DevicesApiTest {
+    private FinixClient finixClient;
 
     private final DevicesApi api = new DevicesApi();
 
+    @Test
+    @BeforeAll
+    void contextLoads() {
+        finixClient= new FinixClient("USsRhsHYZGBPnQw8CByJyEQW","8a14c2f9-d94b-4c72-8f5c-a62908e5b30e", Environment.SANDBOX);
+        assertEquals(true , finixClient!=null);
+
+    }
+
     /**
-     * Create Device
+     * Create a Device
      *
-     * Create a device on merchant
+     * Create a &#x60;Device&#x60; under a &#x60;Merchant&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void createMerchantDeviceTest() throws ApiException {
-        String merchantId = null;
-        CreateDevice createDevice = null;
-        api.create(merchantId, createDevice);
+        String merchantId = "MUu56ZGx3Xb6U9gAqKfgNisd";
+        CreateDevice createDevice = CreateDevice.builder()
+                .name("Finix  triPOS #1")
+                .model(CreateDevice.ModelEnum.MX915)
+                .description("Mike Jones")
+                ._configuration(ConfigurationDetails.builder()
+                        .allowDebit(true)
+                        .promptSignature("NEVER")
+                        .build())
+                .build();
+        Device response = finixClient.Devices.create(merchantId, createDevice);
         // TODO: test validations
     }
 
     /**
      * Get Device
      *
-     * Get an existing device
+     * Retrieve the details of an existing &#x60;Device&#x60;.  To check the connectivity of the device, include &#x60;?include_connection\\&#x3D;true \\&#x60; at the end of the request endpoint.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void getDeviceTest() throws ApiException {
-        String deviceId = null;
-        Device response = api.get(deviceId);
+        String deviceId = "DVf2H8sh4LZZC52GTUrwCPPf";
+        Device response = finixClient.Devices.get(deviceId);
         // TODO: test validations
     }
 
     /**
-     * Put Device
+     * Update a Device
      *
-     * Update a device in order to perform an action on it.
+     * Update a &#x60;Device&#x60; to activate or deactivate it.
      *
      * @throws ApiException if the Api call fails
      */

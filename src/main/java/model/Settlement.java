@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.List;
@@ -56,14 +55,14 @@ import invoker.JSON;
  * Settlement
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class Settlement {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private Map<String, String> tags = null;
 
   /**
-   * Gets or Sets type
+   * Type of &#x60;Settlement&#x60;.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -161,7 +160,7 @@ public class Settlement {
 
   public static final String SERIALIZED_NAME_NET_AMOUNT = "net_amount";
   @SerializedName(SERIALIZED_NAME_NET_AMOUNT)
-  private BigDecimal netAmount;
+  private Integer netAmount;
 
   public static final String SERIALIZED_NAME_PAYMENT_TYPE = "payment_type";
   @SerializedName(SERIALIZED_NAME_PAYMENT_TYPE)
@@ -172,7 +171,7 @@ public class Settlement {
   private String processor;
 
   /**
-   * Gets or Sets status
+   * The status of the &#x60;Settlement&#x60;. Available values include:&lt;ul&gt;&lt;li&gt;**PENDING**&lt;li&gt;**STAGED**&lt;li&gt;**AWAITING_APPROVAL**&lt;li&gt;**APPROVED**.&lt;/ul&gt; Merchants only receive payouts when &#x60;Settlements&#x60; are **APPROVED**. For more information, see [Payouts](/guides/payouts/payouts/).
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
@@ -230,15 +229,15 @@ public class Settlement {
 
   public static final String SERIALIZED_NAME_TOTAL_AMOUNT = "total_amount";
   @SerializedName(SERIALIZED_NAME_TOTAL_AMOUNT)
-  private BigDecimal totalAmount;
+  private Integer totalAmount;
 
   public static final String SERIALIZED_NAME_TOTAL_FEE = "total_fee";
   @SerializedName(SERIALIZED_NAME_TOTAL_FEE)
-  private BigDecimal totalFee;
+  private Integer totalFee;
 
   public static final String SERIALIZED_NAME_TOTAL_FEES = "total_fees";
   @SerializedName(SERIALIZED_NAME_TOTAL_FEES)
-  private BigDecimal totalFees;
+  private Integer totalFees;
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
@@ -285,11 +284,11 @@ public class Settlement {
   }
 
    /**
-   * Get type
+   * Type of &#x60;Settlement&#x60;.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Type of `Settlement`.")
 
   public TypeEnum getType() {
     return type;
@@ -331,11 +330,11 @@ public class Settlement {
   }
 
    /**
-   * Timestamp of when the object was created
+   * Timestamp of when the object was created.
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the object was created")
+  @ApiModelProperty(value = "Timestamp of when the object was created.")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -354,11 +353,11 @@ public class Settlement {
   }
 
    /**
-   * Timestamp of when the object was last updated
+   * Timestamp of when the object was last updated.
    * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the object was last updated")
+  @ApiModelProperty(value = "Timestamp of when the object was last updated.")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -377,11 +376,11 @@ public class Settlement {
   }
 
    /**
-   * The ID of the resource.
+   * The ID of the &#x60;Application&#x60; resource the &#x60;Settlement&#x60; was created under.
    * @return application
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the resource.")
+  @ApiModelProperty(value = "The ID of the `Application` resource the `Settlement` was created under.")
 
   public String getApplication() {
     return application;
@@ -423,11 +422,11 @@ public class Settlement {
   }
 
    /**
-   * Get destination
+   * ID of the &#x60;Payment Instrument&#x60; where funds will be sent.
    * @return destination
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "PIxxxxxxxxxxxxxxxxxx", value = "")
+  @ApiModelProperty(example = "PIxxxxxxxxxxxxxxxxxx", value = "ID of the `Payment Instrument` where funds will be sent.")
 
   public String getDestination() {
     return destination;
@@ -446,11 +445,11 @@ public class Settlement {
   }
 
    /**
-   * Get fundsFlow
+   * Details how funds will be dispersed in the &#x60;Funding Transfer&#x60; (usually **null**).
    * @return fundsFlow
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Details how funds will be dispersed in the `Funding Transfer` (usually **null**).")
 
   public String getFundsFlow() {
     return fundsFlow;
@@ -508,25 +507,25 @@ public class Settlement {
   }
 
 
-  public Settlement netAmount(BigDecimal netAmount) {
+  public Settlement netAmount(Integer netAmount) {
     
     this.netAmount = netAmount;
     return this;
   }
 
    /**
-   * Get netAmount
+   * The amount in cents that will be deposited into the merchant&#39;s bank account.
    * @return netAmount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The amount in cents that will be deposited into the merchant's bank account.")
 
-  public BigDecimal getNetAmount() {
+  public Integer getNetAmount() {
     return netAmount;
   }
 
 
-  public void setNetAmount(BigDecimal netAmount) {
+  public void setNetAmount(Integer netAmount) {
     this.netAmount = netAmount;
   }
 
@@ -538,11 +537,11 @@ public class Settlement {
   }
 
    /**
-   * Get paymentType
+   * The type of &#x60;Payment Instrument&#x60; used in the &#x60;Funding Transfer&#x60; (or the original payment).
    * @return paymentType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of `Payment Instrument` used in the `Funding Transfer` (or the original payment).")
 
   public String getPaymentType() {
     return paymentType;
@@ -561,11 +560,11 @@ public class Settlement {
   }
 
    /**
-   * Get processor
+   * Name of the &#x60;Settlement&#x60; processor.
    * @return processor
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Name of the `Settlement` processor.")
 
   public String getProcessor() {
     return processor;
@@ -584,11 +583,11 @@ public class Settlement {
   }
 
    /**
-   * Get status
+   * The status of the &#x60;Settlement&#x60;. Available values include:&lt;ul&gt;&lt;li&gt;**PENDING**&lt;li&gt;**STAGED**&lt;li&gt;**AWAITING_APPROVAL**&lt;li&gt;**APPROVED**.&lt;/ul&gt; Merchants only receive payouts when &#x60;Settlements&#x60; are **APPROVED**. For more information, see [Payouts](/guides/payouts/payouts/).
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The status of the `Settlement`. Available values include:<ul><li>**PENDING**<li>**STAGED**<li>**AWAITING_APPROVAL**<li>**APPROVED**.</ul> Merchants only receive payouts when `Settlements` are **APPROVED**. For more information, see [Payouts](/guides/payouts/payouts/).")
 
   public StatusEnum getStatus() {
     return status;
@@ -600,71 +599,71 @@ public class Settlement {
   }
 
 
-  public Settlement totalAmount(BigDecimal totalAmount) {
+  public Settlement totalAmount(Integer totalAmount) {
     
     this.totalAmount = totalAmount;
     return this;
   }
 
    /**
-   * Get totalAmount
+   * Total amount of the &#x60;Settlement&#x60; (in cents).
    * @return totalAmount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Total amount of the `Settlement` (in cents).")
 
-  public BigDecimal getTotalAmount() {
+  public Integer getTotalAmount() {
     return totalAmount;
   }
 
 
-  public void setTotalAmount(BigDecimal totalAmount) {
+  public void setTotalAmount(Integer totalAmount) {
     this.totalAmount = totalAmount;
   }
 
 
-  public Settlement totalFee(BigDecimal totalFee) {
+  public Settlement totalFee(Integer totalFee) {
     
     this.totalFee = totalFee;
     return this;
   }
 
    /**
-   * Get totalFee
+   * Sum of the fees in the &#x60;Settlement&#x60;.
    * @return totalFee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Sum of the fees in the `Settlement`.")
 
-  public BigDecimal getTotalFee() {
+  public Integer getTotalFee() {
     return totalFee;
   }
 
 
-  public void setTotalFee(BigDecimal totalFee) {
+  public void setTotalFee(Integer totalFee) {
     this.totalFee = totalFee;
   }
 
 
-  public Settlement totalFees(BigDecimal totalFees) {
+  public Settlement totalFees(Integer totalFees) {
     
     this.totalFees = totalFees;
     return this;
   }
 
    /**
-   * Get totalFees
+   * Sum of the fees in the &#x60;Settlement&#x60;.
    * @return totalFees
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Sum of the fees in the `Settlement`.")
 
-  public BigDecimal getTotalFees() {
+  public Integer getTotalFees() {
     return totalFees;
   }
 
 
-  public void setTotalFees(BigDecimal totalFees) {
+  public void setTotalFees(Integer totalFees) {
     this.totalFees = totalFees;
   }
 

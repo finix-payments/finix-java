@@ -24,6 +24,7 @@ import java.io.IOException;
 import model.Address;
 import model.IdentityEntityFormBusinessAddress;
 import model.IdentityEntityFormDob;
+import model.IdentityEntityFormIncorporationDate;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;

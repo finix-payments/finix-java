@@ -78,7 +78,7 @@ import javax.ws.rs.core.GenericType;
 
         /**
         * Build call for createSubscriptionAmounts
-            * @param subscriptionScheduleId  (required)
+            * @param subscriptionScheduleId The ID of the &#x60;Subscription Schedule&#x60;. (required)
             * @param createSubscriptionAmountRequest  (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
@@ -86,7 +86,7 @@ import javax.ws.rs.core.GenericType;
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                    <tr><td> 200 </td><td> Single subscription_amount object </td><td>  -  </td></tr>
             </table>
         */
         public okhttp3.Call createSubscriptionAmountsCall(String subscriptionScheduleId, CreateSubscriptionAmountRequest createSubscriptionAmountRequest, final ApiCallback _callback) throws ApiException {
@@ -151,15 +151,15 @@ import javax.ws.rs.core.GenericType;
 
                 /**
                 * Create a Subscription Amount
-                * Create a &#x60;subscription_amount&#x60;.
-                    * @param subscriptionScheduleId  (required)
+                * Create a &#x60;subscription_amount&#x60;.  The &#x60;Subscription Amount&#x60; is the amount to be charged to a &#x60;Merchant&#x60;. The &#x60;Subscription Amount&#x60; must be associated to a &#x60;Subscription Schedule&#x60;.
+                    * @param subscriptionScheduleId The ID of the &#x60;Subscription Schedule&#x60;. (required)
                     * @param createSubscriptionAmountRequest  (optional)
                     * @return SubscriptionAmount
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                            <tr><td> 200 </td><td> Single subscription_amount object </td><td>  -  </td></tr>
                     </table>
                 */
                     public SubscriptionAmount lcreate(String subscriptionScheduleId, CreateSubscriptionAmountRequest createSubscriptionAmountRequest) throws ApiException {
@@ -169,15 +169,15 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Create a Subscription Amount
-            * Create a &#x60;subscription_amount&#x60;.
-                * @param subscriptionScheduleId  (required)
+            * Create a &#x60;subscription_amount&#x60;.  The &#x60;Subscription Amount&#x60; is the amount to be charged to a &#x60;Merchant&#x60;. The &#x60;Subscription Amount&#x60; must be associated to a &#x60;Subscription Schedule&#x60;.
+                * @param subscriptionScheduleId The ID of the &#x60;Subscription Schedule&#x60;. (required)
                 * @param createSubscriptionAmountRequest  (optional)
             * @return ApiResponse&lt;SubscriptionAmount&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                        <tr><td> 200 </td><td> Single subscription_amount object </td><td>  -  </td></tr>
                 </table>
             */
             public ApiResponse<SubscriptionAmount> createSubscriptionAmountsWithHttpInfo(String subscriptionScheduleId, CreateSubscriptionAmountRequest createSubscriptionAmountRequest) throws ApiException {
@@ -188,8 +188,8 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Create a Subscription Amount (asynchronously)
-            * Create a &#x60;subscription_amount&#x60;.
-                * @param subscriptionScheduleId  (required)
+            * Create a &#x60;subscription_amount&#x60;.  The &#x60;Subscription Amount&#x60; is the amount to be charged to a &#x60;Merchant&#x60;. The &#x60;Subscription Amount&#x60; must be associated to a &#x60;Subscription Schedule&#x60;.
+                * @param subscriptionScheduleId The ID of the &#x60;Subscription Schedule&#x60;. (required)
                 * @param createSubscriptionAmountRequest  (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
@@ -197,7 +197,7 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                        <tr><td> 200 </td><td> Single subscription_amount object </td><td>  -  </td></tr>
                 </table>
             */
             public okhttp3.Call createSubscriptionAmountsAsync(String subscriptionScheduleId, CreateSubscriptionAmountRequest createSubscriptionAmountRequest, final ApiCallback<SubscriptionAmount> _callback) throws ApiException {
@@ -208,18 +208,141 @@ import javax.ws.rs.core.GenericType;
             return localVarCall;
             }
         /**
-        * Build call for getSubscriptionSubscriptionAmountsId
-            * @param subscriptionAmountId  (required)
+        * Build call for deleteSubscriptionAmount
+            * @param subscriptionScheduleId The ID of the &#x60;Subscription Schedule&#x60;. (required)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                    <tr><td> 204 </td><td> No content </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call getSubscriptionSubscriptionAmountsIdCall(String subscriptionAmountId, final ApiCallback _callback) throws ApiException {
+        public okhttp3.Call deleteSubscriptionAmountCall(String subscriptionScheduleId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+        basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+        basePath = localBasePaths[localHostIndex];
+        } else {
+        basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+            String localVarPath = "/subscription/subscription_schedules/{subscription_schedule_id}/subscription_amounts"
+                .replaceAll("\\{" + "subscription_schedule_id" + "\\}", localVarFinixClient.escapeString(subscriptionScheduleId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+            final String[] localVarAccepts = {
+        
+            };
+            final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
+            if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+            }
+
+            final String[] localVarContentTypes = {
+        
+            };
+            final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
+            if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+            }
+
+            String[] localVarAuthNames = new String[] { "BasicAuth" };
+            return localVarFinixClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+            }
+
+            @SuppressWarnings("rawtypes")
+            private okhttp3.Call deleteSubscriptionAmountValidateBeforeCall(String subscriptionScheduleId, final ApiCallback _callback) throws ApiException {
+            
+                    // verify the required parameter 'subscriptionScheduleId' is set
+                    if (subscriptionScheduleId == null) {
+                    throw new ApiException("Missing the required parameter 'subscriptionScheduleId' when calling deleteSubscriptionAmount(Async)");
+                    }
+            
+
+                okhttp3.Call localVarCall = deleteSubscriptionAmountCall(subscriptionScheduleId, _callback);
+                return localVarCall;
+
+            }
+
+                /**
+                * Remove a Subscription Amount
+                * Delete a previously created &#x60;Subscription Amount&#x60;.
+                    * @param subscriptionScheduleId The ID of the &#x60;Subscription Schedule&#x60;. (required)
+                * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+                    * @http.response.details
+                    <table summary="Response Details" border="1">
+                        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                            <tr><td> 204 </td><td> No content </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    </table>
+                */
+                    public void deleteSubscriptionAmount(String subscriptionScheduleId) throws ApiException {
+                deleteSubscriptionAmountWithHttpInfo(subscriptionScheduleId);
+                    }
+
+        /**
+            * Remove a Subscription Amount
+            * Delete a previously created &#x60;Subscription Amount&#x60;.
+                * @param subscriptionScheduleId The ID of the &#x60;Subscription Schedule&#x60;. (required)
+            * @return ApiResponse&lt;Void&gt;
+            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+                * @http.response.details
+                <table summary="Response Details" border="1">
+                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                        <tr><td> 204 </td><td> No content </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                </table>
+            */
+            public ApiResponse<Void> deleteSubscriptionAmountWithHttpInfo(String subscriptionScheduleId) throws ApiException {
+            okhttp3.Call localVarCall = deleteSubscriptionAmountValidateBeforeCall(subscriptionScheduleId, null);
+                return localVarFinixClient.execute(localVarCall);
+            }
+
+        /**
+            * Remove a Subscription Amount (asynchronously)
+            * Delete a previously created &#x60;Subscription Amount&#x60;.
+                * @param subscriptionScheduleId The ID of the &#x60;Subscription Schedule&#x60;. (required)
+            * @param _callback The callback to be executed when the API call finishes
+            * @return The request call
+            * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+                * @http.response.details
+                <table summary="Response Details" border="1">
+                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                        <tr><td> 204 </td><td> No content </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                </table>
+            */
+            public okhttp3.Call deleteSubscriptionAmountAsync(String subscriptionScheduleId, final ApiCallback<Void> _callback) throws ApiException {
+
+            okhttp3.Call localVarCall = deleteSubscriptionAmountValidateBeforeCall(subscriptionScheduleId, _callback);
+        localVarFinixClient.executeAsync(localVarCall, _callback);
+            return localVarCall;
+            }
+        /**
+        * Build call for getSubscriptionAmount
+            * @param subscriptionAmountId The ID of the &#x60;Subscription Amount&#x60;. (required)
+        * @param _callback Callback for upload/download progress
+        * @return Call to execute
+        * @throws ApiException If fail to serialize the request body object
+            * @http.response.details
+            <table summary="Response Details" border="1">
+                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                    <tr><td> 200 </td><td> Single subscription_amount object </td><td>  -  </td></tr>
+            </table>
+        */
+        public okhttp3.Call getSubscriptionAmountCall(String subscriptionAmountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -266,15 +389,15 @@ import javax.ws.rs.core.GenericType;
             }
 
             @SuppressWarnings("rawtypes")
-            private okhttp3.Call getSubscriptionSubscriptionAmountsIdValidateBeforeCall(String subscriptionAmountId, final ApiCallback _callback) throws ApiException {
+            private okhttp3.Call getSubscriptionAmountValidateBeforeCall(String subscriptionAmountId, final ApiCallback _callback) throws ApiException {
             
                     // verify the required parameter 'subscriptionAmountId' is set
                     if (subscriptionAmountId == null) {
-                    throw new ApiException("Missing the required parameter 'subscriptionAmountId' when calling getSubscriptionSubscriptionAmountsId(Async)");
+                    throw new ApiException("Missing the required parameter 'subscriptionAmountId' when calling getSubscriptionAmount(Async)");
                     }
             
 
-                okhttp3.Call localVarCall = getSubscriptionSubscriptionAmountsIdCall(subscriptionAmountId, _callback);
+                okhttp3.Call localVarCall = getSubscriptionAmountCall(subscriptionAmountId, _callback);
                 return localVarCall;
 
             }
@@ -282,34 +405,34 @@ import javax.ws.rs.core.GenericType;
                 /**
                 * Get a Subscription Amount
                 * Retrieve the details of a &#x60;subscription_amount&#x60;.
-                    * @param subscriptionAmountId  (required)
+                    * @param subscriptionAmountId The ID of the &#x60;Subscription Amount&#x60;. (required)
                     * @return SubscriptionAmount
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                            <tr><td> 200 </td><td> Single subscription_amount object </td><td>  -  </td></tr>
                     </table>
                 */
                     public SubscriptionAmount get(String subscriptionAmountId) throws ApiException {
-                ApiResponse<SubscriptionAmount> localVarResp = getSubscriptionSubscriptionAmountsIdWithHttpInfo(subscriptionAmountId);
+                ApiResponse<SubscriptionAmount> localVarResp = getSubscriptionAmountWithHttpInfo(subscriptionAmountId);
                         return localVarResp.getData();
                     }
 
         /**
             * Get a Subscription Amount
             * Retrieve the details of a &#x60;subscription_amount&#x60;.
-                * @param subscriptionAmountId  (required)
+                * @param subscriptionAmountId The ID of the &#x60;Subscription Amount&#x60;. (required)
             * @return ApiResponse&lt;SubscriptionAmount&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                        <tr><td> 200 </td><td> Single subscription_amount object </td><td>  -  </td></tr>
                 </table>
             */
-            public ApiResponse<SubscriptionAmount> getSubscriptionSubscriptionAmountsIdWithHttpInfo(String subscriptionAmountId) throws ApiException {
-            okhttp3.Call localVarCall = getSubscriptionSubscriptionAmountsIdValidateBeforeCall(subscriptionAmountId, null);
+            public ApiResponse<SubscriptionAmount> getSubscriptionAmountWithHttpInfo(String subscriptionAmountId) throws ApiException {
+            okhttp3.Call localVarCall = getSubscriptionAmountValidateBeforeCall(subscriptionAmountId, null);
                     Type localVarReturnType = new TypeToken<SubscriptionAmount>(){}.getType();
                     return localVarFinixClient.execute(localVarCall, localVarReturnType);
             }
@@ -317,36 +440,36 @@ import javax.ws.rs.core.GenericType;
         /**
             * Get a Subscription Amount (asynchronously)
             * Retrieve the details of a &#x60;subscription_amount&#x60;.
-                * @param subscriptionAmountId  (required)
+                * @param subscriptionAmountId The ID of the &#x60;Subscription Amount&#x60;. (required)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                        <tr><td> 200 </td><td> Single subscription_amount object </td><td>  -  </td></tr>
                 </table>
             */
-            public okhttp3.Call getSubscriptionSubscriptionAmountsIdAsync(String subscriptionAmountId, final ApiCallback<SubscriptionAmount> _callback) throws ApiException {
+            public okhttp3.Call getSubscriptionAmountAsync(String subscriptionAmountId, final ApiCallback<SubscriptionAmount> _callback) throws ApiException {
 
-            okhttp3.Call localVarCall = getSubscriptionSubscriptionAmountsIdValidateBeforeCall(subscriptionAmountId, _callback);
+            okhttp3.Call localVarCall = getSubscriptionAmountValidateBeforeCall(subscriptionAmountId, _callback);
         Type localVarReturnType = new TypeToken<SubscriptionAmount>(){}.getType();
             localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
             return localVarCall;
             }
         /**
-        * Build call for getSubscriptionSubscriptionSchedulesIdSubscriptionAmounts
-            * @param subscriptionScheduleId  (required)
+        * Build call for listSubscriptionAmount
+            * @param subscriptionScheduleId The ID of the &#x60;Subscription Schedule&#x60;. (required)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                    <tr><td> 200 </td><td> List of subscription_amount objects </td><td>  -  </td></tr>
             </table>
         */
-        public okhttp3.Call getSubscriptionSubscriptionSchedulesIdSubscriptionAmountsCall(String subscriptionScheduleId, final ApiCallback _callback) throws ApiException {
+        public okhttp3.Call listSubscriptionAmountCall(String subscriptionScheduleId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -393,77 +516,77 @@ import javax.ws.rs.core.GenericType;
             }
 
             @SuppressWarnings("rawtypes")
-            private okhttp3.Call getSubscriptionSubscriptionSchedulesIdSubscriptionAmountsValidateBeforeCall(String subscriptionScheduleId, final ApiCallback _callback) throws ApiException {
+            private okhttp3.Call listSubscriptionAmountValidateBeforeCall(String subscriptionScheduleId, final ApiCallback _callback) throws ApiException {
             
                     // verify the required parameter 'subscriptionScheduleId' is set
                     if (subscriptionScheduleId == null) {
-                    throw new ApiException("Missing the required parameter 'subscriptionScheduleId' when calling getSubscriptionSubscriptionSchedulesIdSubscriptionAmounts(Async)");
+                    throw new ApiException("Missing the required parameter 'subscriptionScheduleId' when calling listSubscriptionAmount(Async)");
                     }
             
 
-                okhttp3.Call localVarCall = getSubscriptionSubscriptionSchedulesIdSubscriptionAmountsCall(subscriptionScheduleId, _callback);
+                okhttp3.Call localVarCall = listSubscriptionAmountCall(subscriptionScheduleId, _callback);
                 return localVarCall;
 
             }
 
                 /**
                 * List Subscription Amounts
-                * Retrive a list of subscription amounts.
-                    * @param subscriptionScheduleId  (required)
+                * Retrive a list of &#x60;Subscription Amounts&#x60;.
+                    * @param subscriptionScheduleId The ID of the &#x60;Subscription Schedule&#x60;. (required)
                     * @return SubscriptionAmountList
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                            <tr><td> 200 </td><td> List of subscription_amount objects </td><td>  -  </td></tr>
                     </table>
                 */
                     public SubscriptionAmountList listBySubscriptionSchedule(String subscriptionScheduleId) throws ApiException {
-                ApiResponse<SubscriptionAmountList> localVarResp = getSubscriptionSubscriptionSchedulesIdSubscriptionAmountsWithHttpInfo(subscriptionScheduleId);
+                ApiResponse<SubscriptionAmountList> localVarResp = listSubscriptionAmountWithHttpInfo(subscriptionScheduleId);
                         return localVarResp.getData();
                     }
 
         /**
             * List Subscription Amounts
-            * Retrive a list of subscription amounts.
-                * @param subscriptionScheduleId  (required)
+            * Retrive a list of &#x60;Subscription Amounts&#x60;.
+                * @param subscriptionScheduleId The ID of the &#x60;Subscription Schedule&#x60;. (required)
             * @return ApiResponse&lt;SubscriptionAmountList&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                        <tr><td> 200 </td><td> List of subscription_amount objects </td><td>  -  </td></tr>
                 </table>
             */
-            public ApiResponse<SubscriptionAmountList> getSubscriptionSubscriptionSchedulesIdSubscriptionAmountsWithHttpInfo(String subscriptionScheduleId) throws ApiException {
-            okhttp3.Call localVarCall = getSubscriptionSubscriptionSchedulesIdSubscriptionAmountsValidateBeforeCall(subscriptionScheduleId, null);
+            public ApiResponse<SubscriptionAmountList> listSubscriptionAmountWithHttpInfo(String subscriptionScheduleId) throws ApiException {
+            okhttp3.Call localVarCall = listSubscriptionAmountValidateBeforeCall(subscriptionScheduleId, null);
                     Type localVarReturnType = new TypeToken<SubscriptionAmountList>(){}.getType();
                     return localVarFinixClient.execute(localVarCall, localVarReturnType);
             }
 
         /**
             * List Subscription Amounts (asynchronously)
-            * Retrive a list of subscription amounts.
-                * @param subscriptionScheduleId  (required)
+            * Retrive a list of &#x60;Subscription Amounts&#x60;.
+                * @param subscriptionScheduleId The ID of the &#x60;Subscription Schedule&#x60;. (required)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                        <tr><td> 200 </td><td> List of subscription_amount objects </td><td>  -  </td></tr>
                 </table>
             */
-            public okhttp3.Call getSubscriptionSubscriptionSchedulesIdSubscriptionAmountsAsync(String subscriptionScheduleId, final ApiCallback<SubscriptionAmountList> _callback) throws ApiException {
+            public okhttp3.Call listSubscriptionAmountAsync(String subscriptionScheduleId, final ApiCallback<SubscriptionAmountList> _callback) throws ApiException {
 
-            okhttp3.Call localVarCall = getSubscriptionSubscriptionSchedulesIdSubscriptionAmountsValidateBeforeCall(subscriptionScheduleId, _callback);
+            okhttp3.Call localVarCall = listSubscriptionAmountValidateBeforeCall(subscriptionScheduleId, _callback);
         Type localVarReturnType = new TypeToken<SubscriptionAmountList>(){}.getType();
             localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
             return localVarCall;
             }
         /**
-        * Build call for putSubscriptionSubscriptionAmountsId
-            * @param subscriptionAmountId  (required)
+        * Build call for putSubscriptionAmount
+            * @param subscriptionAmountId The ID of the &#x60;Subscription Amount&#x60;. (required)
             * @param updateSubscriptionAmountRequest  (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
@@ -471,10 +594,10 @@ import javax.ws.rs.core.GenericType;
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                    <tr><td> 200 </td><td> Single subscription_amount object </td><td>  -  </td></tr>
             </table>
         */
-        public okhttp3.Call putSubscriptionSubscriptionAmountsIdCall(String subscriptionAmountId, UpdateSubscriptionAmountRequest updateSubscriptionAmountRequest, final ApiCallback _callback) throws ApiException {
+        public okhttp3.Call putSubscriptionAmountCall(String subscriptionAmountId, UpdateSubscriptionAmountRequest updateSubscriptionAmountRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -521,15 +644,15 @@ import javax.ws.rs.core.GenericType;
             }
 
             @SuppressWarnings("rawtypes")
-            private okhttp3.Call putSubscriptionSubscriptionAmountsIdValidateBeforeCall(String subscriptionAmountId, UpdateSubscriptionAmountRequest updateSubscriptionAmountRequest, final ApiCallback _callback) throws ApiException {
+            private okhttp3.Call putSubscriptionAmountValidateBeforeCall(String subscriptionAmountId, UpdateSubscriptionAmountRequest updateSubscriptionAmountRequest, final ApiCallback _callback) throws ApiException {
             
                     // verify the required parameter 'subscriptionAmountId' is set
                     if (subscriptionAmountId == null) {
-                    throw new ApiException("Missing the required parameter 'subscriptionAmountId' when calling putSubscriptionSubscriptionAmountsId(Async)");
+                    throw new ApiException("Missing the required parameter 'subscriptionAmountId' when calling putSubscriptionAmount(Async)");
                     }
             
 
-                okhttp3.Call localVarCall = putSubscriptionSubscriptionAmountsIdCall(subscriptionAmountId, updateSubscriptionAmountRequest, _callback);
+                okhttp3.Call localVarCall = putSubscriptionAmountCall(subscriptionAmountId, updateSubscriptionAmountRequest, _callback);
                 return localVarCall;
 
             }
@@ -537,36 +660,36 @@ import javax.ws.rs.core.GenericType;
                 /**
                 * Update a Subscription Amount
                 * Update the details of a &#x60;subscription_amount&#x60;.
-                    * @param subscriptionAmountId  (required)
+                    * @param subscriptionAmountId The ID of the &#x60;Subscription Amount&#x60;. (required)
                     * @param updateSubscriptionAmountRequest  (optional)
                     * @return SubscriptionAmount
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                            <tr><td> 200 </td><td> Single subscription_amount object </td><td>  -  </td></tr>
                     </table>
                 */
                     public SubscriptionAmount update(String subscriptionAmountId, UpdateSubscriptionAmountRequest updateSubscriptionAmountRequest) throws ApiException {
-                ApiResponse<SubscriptionAmount> localVarResp = putSubscriptionSubscriptionAmountsIdWithHttpInfo(subscriptionAmountId, updateSubscriptionAmountRequest);
+                ApiResponse<SubscriptionAmount> localVarResp = putSubscriptionAmountWithHttpInfo(subscriptionAmountId, updateSubscriptionAmountRequest);
                         return localVarResp.getData();
                     }
 
         /**
             * Update a Subscription Amount
             * Update the details of a &#x60;subscription_amount&#x60;.
-                * @param subscriptionAmountId  (required)
+                * @param subscriptionAmountId The ID of the &#x60;Subscription Amount&#x60;. (required)
                 * @param updateSubscriptionAmountRequest  (optional)
             * @return ApiResponse&lt;SubscriptionAmount&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                        <tr><td> 200 </td><td> Single subscription_amount object </td><td>  -  </td></tr>
                 </table>
             */
-            public ApiResponse<SubscriptionAmount> putSubscriptionSubscriptionAmountsIdWithHttpInfo(String subscriptionAmountId, UpdateSubscriptionAmountRequest updateSubscriptionAmountRequest) throws ApiException {
-            okhttp3.Call localVarCall = putSubscriptionSubscriptionAmountsIdValidateBeforeCall(subscriptionAmountId, updateSubscriptionAmountRequest, null);
+            public ApiResponse<SubscriptionAmount> putSubscriptionAmountWithHttpInfo(String subscriptionAmountId, UpdateSubscriptionAmountRequest updateSubscriptionAmountRequest) throws ApiException {
+            okhttp3.Call localVarCall = putSubscriptionAmountValidateBeforeCall(subscriptionAmountId, updateSubscriptionAmountRequest, null);
                     Type localVarReturnType = new TypeToken<SubscriptionAmount>(){}.getType();
                     return localVarFinixClient.execute(localVarCall, localVarReturnType);
             }
@@ -574,7 +697,7 @@ import javax.ws.rs.core.GenericType;
         /**
             * Update a Subscription Amount (asynchronously)
             * Update the details of a &#x60;subscription_amount&#x60;.
-                * @param subscriptionAmountId  (required)
+                * @param subscriptionAmountId The ID of the &#x60;Subscription Amount&#x60;. (required)
                 * @param updateSubscriptionAmountRequest  (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
@@ -582,12 +705,12 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+                        <tr><td> 200 </td><td> Single subscription_amount object </td><td>  -  </td></tr>
                 </table>
             */
-            public okhttp3.Call putSubscriptionSubscriptionAmountsIdAsync(String subscriptionAmountId, UpdateSubscriptionAmountRequest updateSubscriptionAmountRequest, final ApiCallback<SubscriptionAmount> _callback) throws ApiException {
+            public okhttp3.Call putSubscriptionAmountAsync(String subscriptionAmountId, UpdateSubscriptionAmountRequest updateSubscriptionAmountRequest, final ApiCallback<SubscriptionAmount> _callback) throws ApiException {
 
-            okhttp3.Call localVarCall = putSubscriptionSubscriptionAmountsIdValidateBeforeCall(subscriptionAmountId, updateSubscriptionAmountRequest, _callback);
+            okhttp3.Call localVarCall = putSubscriptionAmountValidateBeforeCall(subscriptionAmountId, updateSubscriptionAmountRequest, _callback);
         Type localVarReturnType = new TypeToken<SubscriptionAmount>(){}.getType();
             localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
             return localVarCall;

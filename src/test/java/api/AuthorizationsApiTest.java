@@ -43,52 +43,127 @@ public class AuthorizationsApiTest {
         assertEquals(true , finixClient!=null);
 
     }
+    public String AuthorizationId;
+
+
     /**
      * Create an Authorization
      *
-     * Create an authorization
+     * Create an &#x60;Authorization&#x60;.  &#x60;Authorizations&#x60; can have two possible &#x60;states&#x60;:  - **SUCCEEDED**  - **FAILED**  If the &#x60;Authorization&#x60; has **SUCCEEDED** , it must be captured before &#x60;expires_at&#x60; passes or the funds will be released.  Learn how to prevent duplicate authorizations by passing an [Idempotency ID](#section/Idempotency-Requests) in the payload.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
+    @AfterEach
     @DisplayName("Create an authorization")
     public void createAuthorizationTest() throws ApiException {
-        /* '
-	{
-	    "source": "PIe2YvpcjvoVJ6PzoRPBK137",
-	    "merchant": "MUeDVrf2ahuKc9Eg5TeZugvs",
-	    "tags": {
-	        "order_number": "21DFASJSAKAS"
-	    },
-	    "currency": "USD",
-	    "amount": 100,
-	    "processor": "DUMMY_V1"
-	}'*/
         CreateAuthorizationRequest createAuthorizationRequest = CreateAuthorizationRequest.builder()
                 .source("PIe2YvpcjvoVJ6PzoRPBK137")
-                .merchantIdentity("MUeDVrf2ahuKc9Eg5TeZugvs")
+                .merchant("MUeDVrf2ahuKc9Eg5TeZugvs")
                 .tags(Map.of("order_number", "21DFASJSAKAS"))
                 .currency(Currency.USD)
-                .amount(BigDecimal.valueOf(100))
+                .amount(Long.valueOf(100))
                 .processor(CreateAuthorizationRequest.ProcessorEnum.DUMMY_V1)
                 .build();
         Authorization response = finixClient.Authorization.create(createAuthorizationRequest);
-        // TODO: test validations
+        AuthorizationId = response.getId();
+
+    }
+    @Test
+    @DisplayName("Create an Authorization with 3D Secure")
+    public void create3DSecureAuthorizationTest() throws ApiException {
+        CreateAuthorizationRequest createAuthorizationRequest = CreateAuthorizationRequest.builder()
+                .merchant("MUeDVrf2ahuKc9Eg5TeZugvs")
+                ._3dSecureAuthentication(CreateAuthorizationRequest3dSecureAuthentication.builder()
+                        .electronicCommerceIndicator("AUTHENTICATED")
+                        .cardholderAuthentication("BwABBJQ1AgAAAAAgJDUCAAAAAAA=")
+                        .transactionId("EaOMucALHQqLAEGAgk")
+                        .build())
+                .source("PIe2YvpcjvoVJ6PzoRPBK137")
+                .tags(Map.of("order_number", "21DFASJSAKAS"))
+                .currency(Currency.USD)
+                .amount(100L)
+                .build();
+        Authorization response = finixClient.Authorization.create(createAuthorizationRequest);
+
+    }
+
+    @Test
+    @DisplayName("Create an Authorization with Level 2 Processing")
+    public void create2DAuthorizationTest() throws ApiException {
+        CreateAuthorizationRequest createAuthorizationRequest = CreateAuthorizationRequest.builder()
+                .merchant("MUeDVrf2ahuKc9Eg5TeZugvs")
+                .source("PIe2YvpcjvoVJ6PzoRPBK137")
+                .additionalPurchaseData(AdditionalPurchaseData.builder()
+                        .customerReferenceNumber("321xyz")
+                        .salesTax(200)
+                        .build())
+                .tags(Map.of("order_number", "21DFASJSAKAS"))
+                .currency(Currency.USD)
+                .amount(1000L)
+                .processor(CreateAuthorizationRequest.ProcessorEnum.DUMMY_V1)
+                .build();
+        Authorization response = finixClient.Authorization.create(createAuthorizationRequest);
+    }
+
+    @Test
+    @DisplayName("Create an Authorization with Level 3 Processing")
+    public void create3DProcessingAuthorizationTest() throws ApiException {
+        List<AdditionalPurchaseDataItemData> additionalPurchaseDataItemDataList = new ArrayList<>();
+        additionalPurchaseDataItemDataList.add(AdditionalPurchaseDataItemData.builder()
+                        .amountIncludingSalesTax(500)
+                        .unitOfMeasure("BX")
+                        .merchantProductCode("1149611")
+                        .amountExcludingSalesTax(400)
+                        .costPerUnit(500)
+                        .commodityCode("175-62-20")
+                        .itemDescription(String.valueOf(100))
+                        .itemDescription("printing paper")
+                        .quantity(1)
+                .build());
+        additionalPurchaseDataItemDataList.add(AdditionalPurchaseDataItemData.builder()
+                .amountIncludingSalesTax(500)
+                .unitOfMeasure("CTN")
+                .merchantProductCode("2149612")
+                .amountExcludingSalesTax(400)
+                .costPerUnit(500)
+                .commodityCode("207-72-54")
+                .itemDescription(String.valueOf(0))
+                .itemDescription("printing ink")
+                .quantity(1)
+                .build());
+        CreateAuthorizationRequest createAuthorizationRequest = CreateAuthorizationRequest.builder()
+                .merchant("MUeDVrf2ahuKc9Eg5TeZugvs")
+                .source("PIe2YvpcjvoVJ6PzoRPBK137")
+                .additionalPurchaseData(AdditionalPurchaseData.builder()
+                        .itemData(additionalPurchaseDataItemDataList)
+                        .discountAmount(100)
+                        .customerReferenceNumber("321xyz")
+                        .shippingAmount(100)
+                        .customsDutyAmount(10)
+                        .build())
+                .tags(Map.of("order_number", "21DFASJSAKAS"))
+                .currency(Currency.USD)
+                .amount(1000L)
+                .processor(CreateAuthorizationRequest.ProcessorEnum.DUMMY_V1)
+                .build();
+        Authorization response = finixClient.Authorization.create(createAuthorizationRequest);
     }
 
 
     /**
      * Get an Authorization
      *
-     * Retrieve an authorization.
+     * Retrieve the details of a previously created &#x60;Authorization&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     @DisplayName("Get an Authorization")
     public void getAuthorizationTest() throws ApiException {
-        String authorizationId = "AUvAZfiEH7irXZf49P7o8P1r";
+        String authorizationId = "AU9j85tCcnJ7DvkFjNtmZ7g1";
         Authorization response = finixClient.Authorization.get(authorizationId);
+        // TODO: test validations
     }
 
     /**
@@ -98,21 +173,22 @@ public class AuthorizationsApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-    @Test
+  //  @Test
     public void listApplicationAuthorizationsTest() throws ApiException {
-        String applicationId = "APgPDQrLD52TYvqazjHJJchM";
+        String applicationId = null;
         AuthorizationsList response = finixClient.Authorization.listByApplicationId(applicationId);
         // TODO: test validations
     }
 
     /**
-     * List authorizations
+     * List Authorizations
      *
-     * Retrieve a list of authorizations. 
+     * Retrieve a list of &#x60;Authorizations&#x60;. 
      *
      * @throws ApiException if the Api call fails
      */
     @Test
+    @DisplayName("List Authorizations")
     public void listAuthorizationsTest() throws ApiException {
         String sort = null;
         Integer offset = null;
@@ -153,16 +229,14 @@ public class AuthorizationsApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-    @Test
+   // @Test
     public void listIdentityAuthorizationsTest() throws ApiException {
         String identityId = null;
         Integer limit = null;
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        Boolean sortSorted = null;
-        Boolean sortUnsorted = null;
-        AuthorizationsList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
+        AuthorizationsList response = finixClient.Authorization.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 
@@ -173,33 +247,92 @@ public class AuthorizationsApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-    @Test
+   // @Test
     public void listPaymentInstrumentAuthorizationsTest() throws ApiException {
         String paymentInstrumentId = null;
         Integer limit = null;
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        Boolean sortSorted = null;
-        Boolean sortUnsorted = null;
-        AuthorizationsList response = api.listByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
+        AuthorizationsList response = api.listByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 
     /**
      * Update an Authorization
      *
-     * Update an authorization
+     * If successful, the transfer field of the &#x60;Authorization&#x60; will contain the ID of the &#x60;Transfer&#x60; resource that&#39;ll move funds.   By default, &#x60;Transfers&#x60; are in a **PENDING** state. The **PENDING** state means the system hasn&#39;t submitted the request to capture funds. Capture requests get submitted via batch request.   Once the &#x60;Authorization&#x60; is updated with a &#x60;capture_amount&#x60; (i.e. *Captured*), the state of the &#x60;Transfer&#x60; will update to **SUCCEEDED**.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
+    @DisplayName("Capture an Authorization")
     public void putAuthorizationTest() throws ApiException {
-        String authorizationId = "AUvAZfiEH7irXZf49P7o8P1r";
+        System.out.println("Hello " + AuthorizationId);
+        String authorizationId = AuthorizationId;
         UpdateAuthorizationRequest updateAuthorizationRequest = UpdateAuthorizationRequest.builder()
+                .fee(Long.valueOf(0))
+                .captureAmount(100L)
                 .build();
-        Authorization response = api.update(authorizationId, updateAuthorizationRequest);
+        Authorization response = finixClient.Authorization.update(authorizationId, updateAuthorizationRequest);
         // TODO: test validations
     }
+    @Test
+    @DisplayName("Void an Authorization")
+    public void putVoidAuthorization() throws ApiException{
+        String id = AuthorizationId;
+        UpdateAuthorizationRequest updateAuthorizationRequest = UpdateAuthorizationRequest.builder()
+                .voidMe(true)
+                .build();
+        Authorization response = finixClient.Authorization.update(id, updateAuthorizationRequest);
+        // TODO: test validations
+
+    }
+
+    @Test
+    @DisplayName("Capture an Authorization with Level 2/Level 3 Processing")
+    public void CaptureAuthorizationTest() throws ApiException{
+        String id = AuthorizationId;
+        List<AdditionalPurchaseDataItemData> additionalPurchaseDataItemDataList = new ArrayList<>();
+        additionalPurchaseDataItemDataList.add(AdditionalPurchaseDataItemData.builder()
+                .amountIncludingSalesTax(500)
+                .unitOfMeasure("BX")
+                .merchantProductCode("1149611")
+                .amountExcludingSalesTax(400)
+                .costPerUnit(500)
+                .commodityCode("175-62-20")
+                .itemDescription(String.valueOf(100))
+                .itemDescription("printing paper")
+                .quantity(1)
+                .build());
+        additionalPurchaseDataItemDataList.add(AdditionalPurchaseDataItemData.builder()
+                .amountIncludingSalesTax(500)
+                .unitOfMeasure("CTN")
+                .merchantProductCode("2149612")
+                .amountExcludingSalesTax(400)
+                .costPerUnit(500)
+                .commodityCode("207-72-54")
+                .itemDescription(String.valueOf(0))
+                .itemDescription("printing ink")
+                .quantity(1)
+                .build());
+        UpdateAuthorizationRequest updateAuthorizationRequest = UpdateAuthorizationRequest.builder().build().builder()
+                .additionalPurchaseData(AdditionalPurchaseData.builder()
+                        .itemData(additionalPurchaseDataItemDataList)
+                        .discountAmount(100)
+                        .customerReferenceNumber("321xyz")
+                        .shippingAmount(100)
+                        .customsDutyAmount(10)
+                        .build())
+                .fee(0L)
+                .captureAmount(100L)
+                .build();
+        Authorization response = finixClient.Authorization.update(id, updateAuthorizationRequest);
+
+
+    }
+
+
+
 
 }

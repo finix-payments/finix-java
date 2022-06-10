@@ -43,7 +43,7 @@ public class UsersApiTest {
     /**
      * Create an Application User
      *
-     * This is the equivalent of provisioning API keys (i.e. credentials) for an &#x60;Application&#x60;.  &gt; Each Application can have multiple Users which allows each merchant to have multiple API keys that can be independently enabled and disabled. Merchants only have read access to the API.
+     * This is the equivalent of provisioning API keys (i.e. credentials) for an &#x60;Application&#x60;.  &gt; Each Application can have multiple &#x60;Users&#x60; which allows each merchant to have multiple API keys that can be independently enabled and disabled. Merchants only have read access to the API.
      *
      * @throws ApiException if the Api call fails
      */
@@ -71,9 +71,9 @@ public class UsersApiTest {
     }
 
     /**
-     * Find a user by id
+     * Find a User by ID
      *
-     * Get a specific user with the ID of the &#x60;User&#x60;.
+     * Retrieve a specific user with the ID of the &#x60;User&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
@@ -115,7 +115,7 @@ public class UsersApiTest {
     /**
      * List Users
      *
-     * Get a user
+     * Get a &#x60;User&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
@@ -129,7 +129,7 @@ public class UsersApiTest {
     /**
      * Update User
      *
-     * You can update the user with new tags or to disable the user.
+     * You can update the &#x60;User&#x60; with new tags or to disable the &#x60;User&#x60;.
      *
      * @throws ApiException if the Api call fails
      */

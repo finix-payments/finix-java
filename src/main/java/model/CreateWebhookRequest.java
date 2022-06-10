@@ -48,11 +48,15 @@ import invoker.JSON;
  * CreateWebhookRequest
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class CreateWebhookRequest {
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
+
+  public static final String SERIALIZED_NAME_ENABLED = "enabled";
+  @SerializedName(SERIALIZED_NAME_ENABLED)
+  private Boolean enabled;
 
   public CreateWebhookRequest() { 
   }
@@ -64,11 +68,11 @@ public class CreateWebhookRequest {
   }
 
    /**
-   * The HTTP or HTTPS url where the callbacks will be sent via POST request (max 120 characters)
+   * The HTTP or HTTPS URL where callbacks (i.e. events) will be sent via POST request (max 120 characters).
    * @return url
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://example.com/event_handler", value = "The HTTP or HTTPS url where the callbacks will be sent via POST request (max 120 characters)")
+  @ApiModelProperty(example = "https://example.com/event_handler", value = "The HTTP or HTTPS URL where callbacks (i.e. events) will be sent via POST request (max 120 characters).")
 
   public String getUrl() {
     return url;
@@ -77,6 +81,29 @@ public class CreateWebhookRequest {
 
   public void setUrl(String url) {
     this.url = url;
+  }
+
+
+  public CreateWebhookRequest enabled(Boolean enabled) {
+    
+    this.enabled = enabled;
+    return this;
+  }
+
+   /**
+   * Set to false to disable Webhooks. Default value when created is true.
+   * @return enabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set to false to disable Webhooks. Default value when created is true.")
+
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
 
@@ -90,12 +117,13 @@ public class CreateWebhookRequest {
       return false;
     }
     CreateWebhookRequest createWebhookRequest = (CreateWebhookRequest) o;
-    return Objects.equals(this.url, createWebhookRequest.url);
+    return Objects.equals(this.url, createWebhookRequest.url) &&
+        Objects.equals(this.enabled, createWebhookRequest.enabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(url);
+    return Objects.hash(url, enabled);
   }
 
   @Override
@@ -103,6 +131,7 @@ public class CreateWebhookRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateWebhookRequest {\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -126,6 +155,7 @@ public class CreateWebhookRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("url");
+    openapiFields.add("enabled");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

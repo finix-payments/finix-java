@@ -24,6 +24,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import model.IdentityLinksSelf;
+import model.SubscriptionScheduleLinksAmounts;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,10 +47,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * SubscriptionScheduleLinks
+ * For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these &#x60;_links&#x60; to make your follow-up requests and quickly access relevant IDs.
  */
+@ApiModel(description = "For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class SubscriptionScheduleLinks {
   public static final String SERIALIZED_NAME_SELF = "self";
   @SerializedName(SERIALIZED_NAME_SELF)
@@ -57,7 +59,7 @@ public class SubscriptionScheduleLinks {
 
   public static final String SERIALIZED_NAME_AMOUNTS = "amounts";
   @SerializedName(SERIALIZED_NAME_AMOUNTS)
-  private IdentityLinksSelf amounts;
+  private SubscriptionScheduleLinksAmounts amounts;
 
   public SubscriptionScheduleLinks() { 
   }
@@ -85,7 +87,7 @@ public class SubscriptionScheduleLinks {
   }
 
 
-  public SubscriptionScheduleLinks amounts(IdentityLinksSelf amounts) {
+  public SubscriptionScheduleLinks amounts(SubscriptionScheduleLinksAmounts amounts) {
     
     this.amounts = amounts;
     return this;
@@ -98,12 +100,12 @@ public class SubscriptionScheduleLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public IdentityLinksSelf getAmounts() {
+  public SubscriptionScheduleLinksAmounts getAmounts() {
     return amounts;
   }
 
 
-  public void setAmounts(IdentityLinksSelf amounts) {
+  public void setAmounts(SubscriptionScheduleLinksAmounts amounts) {
     this.amounts = amounts;
   }
 
@@ -192,7 +194,7 @@ public class SubscriptionScheduleLinks {
       }
       // validate the optional field `amounts`
       if (jsonObj.getAsJsonObject("amounts") != null) {
-       IdentityLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("amounts"));
+       SubscriptionScheduleLinksAmounts.validateJsonObject(jsonObj.getAsJsonObject("amounts"));
       }
   }
 

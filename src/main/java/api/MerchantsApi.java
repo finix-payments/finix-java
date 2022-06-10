@@ -38,6 +38,7 @@ import model.MerchantsList;
 import model.UpdateMerchantRequest;
 import model.Verification;
 import model.VerificationForm;
+import model.VerificationsList;
 
 import java.lang.reflect.Type;
     import java.util.ArrayList;
@@ -84,16 +85,16 @@ import javax.ws.rs.core.GenericType;
     }
 
         /**
-        * Build call for createIdentityMerchant
-            * @param identityId ID of identity to fetch (required)
-            * @param createMerchantUnderwritingRequest form (optional)
+        * Build call for createMerchant
+            * @param identityId ID of &#x60;Identity&#x60; to fetch. (required)
+            * @param createMerchantUnderwritingRequest  (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 201 </td><td> Single merchant object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 201 </td><td> Single Merchant object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -102,7 +103,7 @@ import javax.ws.rs.core.GenericType;
                     <tr><td> 422 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call createIdentityMerchantCall(String identityId, CreateMerchantUnderwritingRequest createMerchantUnderwritingRequest, final ApiCallback _callback) throws ApiException {
+        public okhttp3.Call createMerchantCall(String identityId, CreateMerchantUnderwritingRequest createMerchantUnderwritingRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -149,30 +150,30 @@ import javax.ws.rs.core.GenericType;
             }
 
             @SuppressWarnings("rawtypes")
-            private okhttp3.Call createIdentityMerchantValidateBeforeCall(String identityId, CreateMerchantUnderwritingRequest createMerchantUnderwritingRequest, final ApiCallback _callback) throws ApiException {
+            private okhttp3.Call createMerchantValidateBeforeCall(String identityId, CreateMerchantUnderwritingRequest createMerchantUnderwritingRequest, final ApiCallback _callback) throws ApiException {
             
                     // verify the required parameter 'identityId' is set
                     if (identityId == null) {
-                    throw new ApiException("Missing the required parameter 'identityId' when calling createIdentityMerchant(Async)");
+                    throw new ApiException("Missing the required parameter 'identityId' when calling createMerchant(Async)");
                     }
             
 
-                okhttp3.Call localVarCall = createIdentityMerchantCall(identityId, createMerchantUnderwritingRequest, _callback);
+                okhttp3.Call localVarCall = createMerchantCall(identityId, createMerchantUnderwritingRequest, _callback);
                 return localVarCall;
 
             }
 
                 /**
                 * Create a Merchant
-                * Create a &#x60;Merchant&#x60; to start the underwriting process for your merchant. Merchants must be created under an [&#x60;Identity&#x60;](/#tag/Identities).
-                    * @param identityId ID of identity to fetch (required)
-                    * @param createMerchantUnderwritingRequest form (optional)
+                * Create a &#x60;Merchant&#x60; to start the underwriting process for your merchant. &#x60;Merchants&#x60; must be created under an [&#x60;Identity&#x60;](#tag/Identities).  &#x60;Merchant&#x60; resources can have three possible &#x60;onboarding_states&#x60;:  1. **PROVISIONING**: The request is pending (the state may change after two minutes).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**  1. **APPROVED**: The &#x60;Merchant&#x60; has been approved and can begin processing payments.     * &#x60;processing_enabled&#x60;: **True**    * &#x60;settlement_enabled&#x60;: **True**  1. **REJECTED**: The &#x60;Merchant&#x60; was rejected by the processor because of invalid information or it failed a regulatory and/or compliance check (e.g. KYC, OFAC, or MATCH).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**   &gt; Provisioning a &#x60;Merchant&#x60; account is an asynchronous request. We recommend creating a [&#x60;Webhook&#x60;](#tag/Webhooks) to listen for the state change.
+                    * @param identityId ID of &#x60;Identity&#x60; to fetch. (required)
+                    * @param createMerchantUnderwritingRequest  (optional)
                     * @return Merchant
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 201 </td><td> Single merchant object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 201 </td><td> Single Merchant object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -182,21 +183,21 @@ import javax.ws.rs.core.GenericType;
                     </table>
                 */
                     public Merchant create(String identityId, CreateMerchantUnderwritingRequest createMerchantUnderwritingRequest) throws ApiException {
-                ApiResponse<Merchant> localVarResp = createIdentityMerchantWithHttpInfo(identityId, createMerchantUnderwritingRequest);
+                ApiResponse<Merchant> localVarResp = createMerchantWithHttpInfo(identityId, createMerchantUnderwritingRequest);
                         return localVarResp.getData();
                     }
 
         /**
             * Create a Merchant
-            * Create a &#x60;Merchant&#x60; to start the underwriting process for your merchant. Merchants must be created under an [&#x60;Identity&#x60;](/#tag/Identities).
-                * @param identityId ID of identity to fetch (required)
-                * @param createMerchantUnderwritingRequest form (optional)
+            * Create a &#x60;Merchant&#x60; to start the underwriting process for your merchant. &#x60;Merchants&#x60; must be created under an [&#x60;Identity&#x60;](#tag/Identities).  &#x60;Merchant&#x60; resources can have three possible &#x60;onboarding_states&#x60;:  1. **PROVISIONING**: The request is pending (the state may change after two minutes).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**  1. **APPROVED**: The &#x60;Merchant&#x60; has been approved and can begin processing payments.     * &#x60;processing_enabled&#x60;: **True**    * &#x60;settlement_enabled&#x60;: **True**  1. **REJECTED**: The &#x60;Merchant&#x60; was rejected by the processor because of invalid information or it failed a regulatory and/or compliance check (e.g. KYC, OFAC, or MATCH).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**   &gt; Provisioning a &#x60;Merchant&#x60; account is an asynchronous request. We recommend creating a [&#x60;Webhook&#x60;](#tag/Webhooks) to listen for the state change.
+                * @param identityId ID of &#x60;Identity&#x60; to fetch. (required)
+                * @param createMerchantUnderwritingRequest  (optional)
             * @return ApiResponse&lt;Merchant&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 201 </td><td> Single merchant object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 201 </td><td> Single Merchant object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -205,24 +206,24 @@ import javax.ws.rs.core.GenericType;
                         <tr><td> 422 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public ApiResponse<Merchant> createIdentityMerchantWithHttpInfo(String identityId, CreateMerchantUnderwritingRequest createMerchantUnderwritingRequest) throws ApiException {
-            okhttp3.Call localVarCall = createIdentityMerchantValidateBeforeCall(identityId, createMerchantUnderwritingRequest, null);
+            public ApiResponse<Merchant> createMerchantWithHttpInfo(String identityId, CreateMerchantUnderwritingRequest createMerchantUnderwritingRequest) throws ApiException {
+            okhttp3.Call localVarCall = createMerchantValidateBeforeCall(identityId, createMerchantUnderwritingRequest, null);
                     Type localVarReturnType = new TypeToken<Merchant>(){}.getType();
                     return localVarFinixClient.execute(localVarCall, localVarReturnType);
             }
 
         /**
             * Create a Merchant (asynchronously)
-            * Create a &#x60;Merchant&#x60; to start the underwriting process for your merchant. Merchants must be created under an [&#x60;Identity&#x60;](/#tag/Identities).
-                * @param identityId ID of identity to fetch (required)
-                * @param createMerchantUnderwritingRequest form (optional)
+            * Create a &#x60;Merchant&#x60; to start the underwriting process for your merchant. &#x60;Merchants&#x60; must be created under an [&#x60;Identity&#x60;](#tag/Identities).  &#x60;Merchant&#x60; resources can have three possible &#x60;onboarding_states&#x60;:  1. **PROVISIONING**: The request is pending (the state may change after two minutes).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**  1. **APPROVED**: The &#x60;Merchant&#x60; has been approved and can begin processing payments.     * &#x60;processing_enabled&#x60;: **True**    * &#x60;settlement_enabled&#x60;: **True**  1. **REJECTED**: The &#x60;Merchant&#x60; was rejected by the processor because of invalid information or it failed a regulatory and/or compliance check (e.g. KYC, OFAC, or MATCH).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**   &gt; Provisioning a &#x60;Merchant&#x60; account is an asynchronous request. We recommend creating a [&#x60;Webhook&#x60;](#tag/Webhooks) to listen for the state change.
+                * @param identityId ID of &#x60;Identity&#x60; to fetch. (required)
+                * @param createMerchantUnderwritingRequest  (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 201 </td><td> Single merchant object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 201 </td><td> Single Merchant object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -231,24 +232,24 @@ import javax.ws.rs.core.GenericType;
                         <tr><td> 422 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public okhttp3.Call createIdentityMerchantAsync(String identityId, CreateMerchantUnderwritingRequest createMerchantUnderwritingRequest, final ApiCallback<Merchant> _callback) throws ApiException {
+            public okhttp3.Call createMerchantAsync(String identityId, CreateMerchantUnderwritingRequest createMerchantUnderwritingRequest, final ApiCallback<Merchant> _callback) throws ApiException {
 
-            okhttp3.Call localVarCall = createIdentityMerchantValidateBeforeCall(identityId, createMerchantUnderwritingRequest, _callback);
+            okhttp3.Call localVarCall = createMerchantValidateBeforeCall(identityId, createMerchantUnderwritingRequest, _callback);
         Type localVarReturnType = new TypeToken<Merchant>(){}.getType();
             localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
             return localVarCall;
             }
         /**
         * Build call for createMerchantVerification
-            * @param merchantId ID of object (required)
-            * @param verificationForm form (optional)
+            * @param merchantId ID of &#x60;Merchant&#x60; object. (required)
+            * @param verificationForm  (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 201 </td><td> Single processor object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 201 </td><td> Single Verification object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -319,14 +320,14 @@ import javax.ws.rs.core.GenericType;
                 /**
                 * Verify a Merchant
                 * Verify a merchant either to reattempt provisioning, or when the merchant&#39;s &#x60;Identity&#x60; was updated.
-                    * @param merchantId ID of object (required)
-                    * @param verificationForm form (optional)
+                    * @param merchantId ID of &#x60;Merchant&#x60; object. (required)
+                    * @param verificationForm  (optional)
                     * @return Verification
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 201 </td><td> Single processor object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 201 </td><td> Single Verification object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -342,14 +343,14 @@ import javax.ws.rs.core.GenericType;
         /**
             * Verify a Merchant
             * Verify a merchant either to reattempt provisioning, or when the merchant&#39;s &#x60;Identity&#x60; was updated.
-                * @param merchantId ID of object (required)
-                * @param verificationForm form (optional)
+                * @param merchantId ID of &#x60;Merchant&#x60; object. (required)
+                * @param verificationForm  (optional)
             * @return ApiResponse&lt;Verification&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 201 </td><td> Single processor object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 201 </td><td> Single Verification object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -366,15 +367,15 @@ import javax.ws.rs.core.GenericType;
         /**
             * Verify a Merchant (asynchronously)
             * Verify a merchant either to reattempt provisioning, or when the merchant&#39;s &#x60;Identity&#x60; was updated.
-                * @param merchantId ID of object (required)
-                * @param verificationForm form (optional)
+                * @param merchantId ID of &#x60;Merchant&#x60; object. (required)
+                * @param verificationForm  (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 201 </td><td> Single processor object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 201 </td><td> Single Verification object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -391,14 +392,14 @@ import javax.ws.rs.core.GenericType;
             }
         /**
         * Build call for getMerchant
-            * @param merchantId ID of merchant. (required)
+            * @param merchantId ID of &#x60;Merchant&#x60;. (required)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Single merchant object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> Single Merchant object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -468,13 +469,13 @@ import javax.ws.rs.core.GenericType;
                 /**
                 * Get a Merchant
                 * Retrieve the details of a &#x60;Merchant&#x60;.
-                    * @param merchantId ID of merchant. (required)
+                    * @param merchantId ID of &#x60;Merchant&#x60;. (required)
                     * @return Merchant
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> Single merchant object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> Single Merchant object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -489,13 +490,13 @@ import javax.ws.rs.core.GenericType;
         /**
             * Get a Merchant
             * Retrieve the details of a &#x60;Merchant&#x60;.
-                * @param merchantId ID of merchant. (required)
+                * @param merchantId ID of &#x60;Merchant&#x60;. (required)
             * @return ApiResponse&lt;Merchant&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Single merchant object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> Single Merchant object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -511,14 +512,14 @@ import javax.ws.rs.core.GenericType;
         /**
             * Get a Merchant (asynchronously)
             * Retrieve the details of a &#x60;Merchant&#x60;.
-                * @param merchantId ID of merchant. (required)
+                * @param merchantId ID of &#x60;Merchant&#x60;. (required)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Single merchant object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> Single Merchant object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -541,7 +542,7 @@ import javax.ws.rs.core.GenericType;
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> List of Merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -617,7 +618,7 @@ import javax.ws.rs.core.GenericType;
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> List of merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> List of Merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -638,7 +639,7 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -661,7 +662,7 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -677,27 +678,25 @@ import javax.ws.rs.core.GenericType;
             }
         /**
         * Build call for listIdentityMerchants
-            * @param identityId ID of identity to fetch (required)
-            * @param limit  (optional)
-            * @param offset  (optional)
-            * @param pageNumber  (optional)
-            * @param pageSize  (optional)
-            * @param sortSorted  (optional)
-            * @param sortUnsorted  (optional)
+            * @param identityId ID of &#x60;Identity&#x60; to fetch. (required)
+            * @param limit The number of entries to return. (optional)
+            * @param offset The number of items to skip before starting to collect the result set. (optional)
+            * @param pageNumber The page number to list. (optional)
+            * @param pageSize The size of the page. (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> List of Merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call listIdentityMerchantsCall(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback _callback) throws ApiException {
+        public okhttp3.Call listIdentityMerchantsCall(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -739,12 +738,179 @@ import javax.ws.rs.core.GenericType;
                 localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageSize", pageSize));
                     }
 
-                    if (sortSorted != null) {
-                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("sort.sorted", sortSorted));
+            final String[] localVarAccepts = {
+        "application/hal+json"
+            };
+            final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
+            if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+            }
+
+            final String[] localVarContentTypes = {
+        
+            };
+            final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
+            if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+            }
+
+            String[] localVarAuthNames = new String[] { "BasicAuth" };
+            return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+            }
+
+            @SuppressWarnings("rawtypes")
+            private okhttp3.Call listIdentityMerchantsValidateBeforeCall(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback _callback) throws ApiException {
+            
+                    // verify the required parameter 'identityId' is set
+                    if (identityId == null) {
+                    throw new ApiException("Missing the required parameter 'identityId' when calling listIdentityMerchants(Async)");
+                    }
+            
+
+                okhttp3.Call localVarCall = listIdentityMerchantsCall(identityId, limit, offset, pageNumber, pageSize, _callback);
+                return localVarCall;
+
+            }
+
+                /**
+                * List Identity Merchants
+                * Get all merchants associated to this identity
+                    * @param identityId ID of &#x60;Identity&#x60; to fetch. (required)
+                    * @param limit The number of entries to return. (optional)
+                    * @param offset The number of items to skip before starting to collect the result set. (optional)
+                    * @param pageNumber The page number to list. (optional)
+                    * @param pageSize The size of the page. (optional)
+                    * @return MerchantsList
+                * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+                    * @http.response.details
+                    <table summary="Response Details" border="1">
+                        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                            <tr><td> 200 </td><td> List of Merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    </table>
+                */
+                    public MerchantsList listByIdentityId(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize) throws ApiException {
+                ApiResponse<MerchantsList> localVarResp = listIdentityMerchantsWithHttpInfo(identityId, limit, offset, pageNumber, pageSize);
+                        return localVarResp.getData();
                     }
 
-                    if (sortUnsorted != null) {
-                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("sort.unsorted", sortUnsorted));
+        /**
+            * List Identity Merchants
+            * Get all merchants associated to this identity
+                * @param identityId ID of &#x60;Identity&#x60; to fetch. (required)
+                * @param limit The number of entries to return. (optional)
+                * @param offset The number of items to skip before starting to collect the result set. (optional)
+                * @param pageNumber The page number to list. (optional)
+                * @param pageSize The size of the page. (optional)
+            * @return ApiResponse&lt;MerchantsList&gt;
+            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+                * @http.response.details
+                <table summary="Response Details" border="1">
+                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                        <tr><td> 200 </td><td> List of Merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                </table>
+            */
+            public ApiResponse<MerchantsList> listIdentityMerchantsWithHttpInfo(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize) throws ApiException {
+            okhttp3.Call localVarCall = listIdentityMerchantsValidateBeforeCall(identityId, limit, offset, pageNumber, pageSize, null);
+                    Type localVarReturnType = new TypeToken<MerchantsList>(){}.getType();
+                    return localVarFinixClient.execute(localVarCall, localVarReturnType);
+            }
+
+        /**
+            * List Identity Merchants (asynchronously)
+            * Get all merchants associated to this identity
+                * @param identityId ID of &#x60;Identity&#x60; to fetch. (required)
+                * @param limit The number of entries to return. (optional)
+                * @param offset The number of items to skip before starting to collect the result set. (optional)
+                * @param pageNumber The page number to list. (optional)
+                * @param pageSize The size of the page. (optional)
+            * @param _callback The callback to be executed when the API call finishes
+            * @return The request call
+            * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+                * @http.response.details
+                <table summary="Response Details" border="1">
+                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                        <tr><td> 200 </td><td> List of Merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                </table>
+            */
+            public okhttp3.Call listIdentityMerchantsAsync(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback<MerchantsList> _callback) throws ApiException {
+
+            okhttp3.Call localVarCall = listIdentityMerchantsValidateBeforeCall(identityId, limit, offset, pageNumber, pageSize, _callback);
+        Type localVarReturnType = new TypeToken<MerchantsList>(){}.getType();
+            localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
+            return localVarCall;
+            }
+        /**
+        * Build call for listMerchantVerifications
+            * @param merchantId ID of &#x60;Merchant&#x60; object. (required)
+            * @param limit The number of entries to return. (optional)
+            * @param offset The number of items to skip before starting to collect the result set. (optional)
+            * @param pageNumber The page number to list. (optional)
+            * @param pageSize The size of the page. (optional)
+        * @param _callback Callback for upload/download progress
+        * @return Call to execute
+        * @throws ApiException If fail to serialize the request body object
+            * @http.response.details
+            <table summary="Response Details" border="1">
+                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                    <tr><td> 200 </td><td> List of Verification objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+            </table>
+        */
+        public okhttp3.Call listMerchantVerificationsCall(String merchantId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+        basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+        basePath = localBasePaths[localHostIndex];
+        } else {
+        basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+            String localVarPath = "/merchants/{merchant_id}/verifications"
+                .replaceAll("\\{" + "merchant_id" + "\\}", localVarFinixClient.escapeString(merchantId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+                    if (limit != null) {
+                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("limit", limit));
+                    }
+
+                    if (offset != null) {
+                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("offset", offset));
+                    }
+
+                    if (pageNumber != null) {
+                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageNumber", pageNumber));
+                    }
+
+                    if (pageSize != null) {
+                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageSize", pageSize));
                     }
 
             final String[] localVarAccepts = {
@@ -768,109 +934,103 @@ import javax.ws.rs.core.GenericType;
             }
 
             @SuppressWarnings("rawtypes")
-            private okhttp3.Call listIdentityMerchantsValidateBeforeCall(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback _callback) throws ApiException {
+            private okhttp3.Call listMerchantVerificationsValidateBeforeCall(String merchantId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback _callback) throws ApiException {
             
-                    // verify the required parameter 'identityId' is set
-                    if (identityId == null) {
-                    throw new ApiException("Missing the required parameter 'identityId' when calling listIdentityMerchants(Async)");
+                    // verify the required parameter 'merchantId' is set
+                    if (merchantId == null) {
+                    throw new ApiException("Missing the required parameter 'merchantId' when calling listMerchantVerifications(Async)");
                     }
             
 
-                okhttp3.Call localVarCall = listIdentityMerchantsCall(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted, _callback);
+                okhttp3.Call localVarCall = listMerchantVerificationsCall(merchantId, limit, offset, pageNumber, pageSize, _callback);
                 return localVarCall;
 
             }
 
                 /**
-                * List Identity Merchants
-                * Get all merchants associated to this identity
-                    * @param identityId ID of identity to fetch (required)
-                    * @param limit  (optional)
-                    * @param offset  (optional)
-                    * @param pageNumber  (optional)
-                    * @param pageSize  (optional)
-                    * @param sortSorted  (optional)
-                    * @param sortUnsorted  (optional)
-                    * @return MerchantsList
+                * List Merchant Verifications
+                * Get a list of all the &#x60;Verifications&#x60; in the &#x60;Merchant&#x60; object.
+                    * @param merchantId ID of &#x60;Merchant&#x60; object. (required)
+                    * @param limit The number of entries to return. (optional)
+                    * @param offset The number of items to skip before starting to collect the result set. (optional)
+                    * @param pageNumber The page number to list. (optional)
+                    * @param pageSize The size of the page. (optional)
+                    * @return VerificationsList
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> List of merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> List of Verification objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     </table>
                 */
-                    public MerchantsList listByIdentityId(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted) throws ApiException {
-                ApiResponse<MerchantsList> localVarResp = listIdentityMerchantsWithHttpInfo(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
+                    public VerificationsList listByMerchantId(String merchantId, Integer limit, Long offset, Integer pageNumber, Integer pageSize) throws ApiException {
+                ApiResponse<VerificationsList> localVarResp = listMerchantVerificationsWithHttpInfo(merchantId, limit, offset, pageNumber, pageSize);
                         return localVarResp.getData();
                     }
 
         /**
-            * List Identity Merchants
-            * Get all merchants associated to this identity
-                * @param identityId ID of identity to fetch (required)
-                * @param limit  (optional)
-                * @param offset  (optional)
-                * @param pageNumber  (optional)
-                * @param pageSize  (optional)
-                * @param sortSorted  (optional)
-                * @param sortUnsorted  (optional)
-            * @return ApiResponse&lt;MerchantsList&gt;
+            * List Merchant Verifications
+            * Get a list of all the &#x60;Verifications&#x60; in the &#x60;Merchant&#x60; object.
+                * @param merchantId ID of &#x60;Merchant&#x60; object. (required)
+                * @param limit The number of entries to return. (optional)
+                * @param offset The number of items to skip before starting to collect the result set. (optional)
+                * @param pageNumber The page number to list. (optional)
+                * @param pageSize The size of the page. (optional)
+            * @return ApiResponse&lt;VerificationsList&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Verification objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public ApiResponse<MerchantsList> listIdentityMerchantsWithHttpInfo(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted) throws ApiException {
-            okhttp3.Call localVarCall = listIdentityMerchantsValidateBeforeCall(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted, null);
-                    Type localVarReturnType = new TypeToken<MerchantsList>(){}.getType();
+            public ApiResponse<VerificationsList> listMerchantVerificationsWithHttpInfo(String merchantId, Integer limit, Long offset, Integer pageNumber, Integer pageSize) throws ApiException {
+            okhttp3.Call localVarCall = listMerchantVerificationsValidateBeforeCall(merchantId, limit, offset, pageNumber, pageSize, null);
+                    Type localVarReturnType = new TypeToken<VerificationsList>(){}.getType();
                     return localVarFinixClient.execute(localVarCall, localVarReturnType);
             }
 
         /**
-            * List Identity Merchants (asynchronously)
-            * Get all merchants associated to this identity
-                * @param identityId ID of identity to fetch (required)
-                * @param limit  (optional)
-                * @param offset  (optional)
-                * @param pageNumber  (optional)
-                * @param pageSize  (optional)
-                * @param sortSorted  (optional)
-                * @param sortUnsorted  (optional)
+            * List Merchant Verifications (asynchronously)
+            * Get a list of all the &#x60;Verifications&#x60; in the &#x60;Merchant&#x60; object.
+                * @param merchantId ID of &#x60;Merchant&#x60; object. (required)
+                * @param limit The number of entries to return. (optional)
+                * @param offset The number of items to skip before starting to collect the result set. (optional)
+                * @param pageNumber The page number to list. (optional)
+                * @param pageSize The size of the page. (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Verification objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public okhttp3.Call listIdentityMerchantsAsync(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback<MerchantsList> _callback) throws ApiException {
+            public okhttp3.Call listMerchantVerificationsAsync(String merchantId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback<VerificationsList> _callback) throws ApiException {
 
-            okhttp3.Call localVarCall = listIdentityMerchantsValidateBeforeCall(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted, _callback);
-        Type localVarReturnType = new TypeToken<MerchantsList>(){}.getType();
+            okhttp3.Call localVarCall = listMerchantVerificationsValidateBeforeCall(merchantId, limit, offset, pageNumber, pageSize, _callback);
+        Type localVarReturnType = new TypeToken<VerificationsList>(){}.getType();
             localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
             return localVarCall;
             }
         /**
         * Build call for listMerchants
             * @param id Filter by id (optional)
-            * @param createdAtGte Filter were created_at is after the given date (optional)
-            * @param createdAtLte Filter were created_at before the given date (optional)
+            * @param createdAtGte Filter where created_at is after the given date. (optional)
+            * @param createdAtLte Filter where created_at is before the given date. (optional)
             * @param sort Specify key to be used for sorting the collection (optional)
             * @param offset The number of items to skip before starting to collect the result set (optional)
             * @param limit The numbers of items to return (optional)
@@ -880,7 +1040,7 @@ import javax.ws.rs.core.GenericType;
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> List of Merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -970,8 +1130,8 @@ import javax.ws.rs.core.GenericType;
                 * List Merchants
                 * Retrieve a list of &#x60;Merchants&#x60;. 
                     * @param id Filter by id (optional)
-                    * @param createdAtGte Filter were created_at is after the given date (optional)
-                    * @param createdAtLte Filter were created_at before the given date (optional)
+                    * @param createdAtGte Filter where created_at is after the given date. (optional)
+                    * @param createdAtLte Filter where created_at is before the given date. (optional)
                     * @param sort Specify key to be used for sorting the collection (optional)
                     * @param offset The number of items to skip before starting to collect the result set (optional)
                     * @param limit The numbers of items to return (optional)
@@ -980,7 +1140,7 @@ import javax.ws.rs.core.GenericType;
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> List of merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> List of Merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -997,8 +1157,8 @@ import javax.ws.rs.core.GenericType;
             * List Merchants
             * Retrieve a list of &#x60;Merchants&#x60;. 
                 * @param id Filter by id (optional)
-                * @param createdAtGte Filter were created_at is after the given date (optional)
-                * @param createdAtLte Filter were created_at before the given date (optional)
+                * @param createdAtGte Filter where created_at is after the given date. (optional)
+                * @param createdAtLte Filter where created_at is before the given date. (optional)
                 * @param sort Specify key to be used for sorting the collection (optional)
                 * @param offset The number of items to skip before starting to collect the result set (optional)
                 * @param limit The numbers of items to return (optional)
@@ -1007,7 +1167,7 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -1025,8 +1185,8 @@ import javax.ws.rs.core.GenericType;
             * List Merchants (asynchronously)
             * Retrieve a list of &#x60;Merchants&#x60;. 
                 * @param id Filter by id (optional)
-                * @param createdAtGte Filter were created_at is after the given date (optional)
-                * @param createdAtLte Filter were created_at before the given date (optional)
+                * @param createdAtGte Filter where created_at is after the given date. (optional)
+                * @param createdAtLte Filter where created_at is before the given date. (optional)
                 * @param sort Specify key to be used for sorting the collection (optional)
                 * @param offset The number of items to skip before starting to collect the result set (optional)
                 * @param limit The numbers of items to return (optional)
@@ -1036,7 +1196,7 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -1053,7 +1213,7 @@ import javax.ws.rs.core.GenericType;
             }
         /**
         * Build call for putMerchant
-            * @param merchantId ID of merchant. (required)
+            * @param merchantId ID of &#x60;Merchant&#x60;. (required)
             * @param updateMerchantRequest  (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
@@ -1061,7 +1221,7 @@ import javax.ws.rs.core.GenericType;
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Single merchant object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> Single Merchant object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -1095,7 +1255,7 @@ import javax.ws.rs.core.GenericType;
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
             final String[] localVarAccepts = {
-        "application/hal+json"
+        "application/json", "application/hal+json"
             };
             final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
             if (localVarAccept != null) {
@@ -1130,15 +1290,15 @@ import javax.ws.rs.core.GenericType;
 
                 /**
                 * Update a Merchant
-                * Update a merchant
-                    * @param merchantId ID of merchant. (required)
+                * Update a &#x60;Merchant&#x60; to change the information saved or enable Level 2/3 processing.
+                    * @param merchantId ID of &#x60;Merchant&#x60;. (required)
                     * @param updateMerchantRequest  (optional)
                     * @return Merchant
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> Single merchant object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> Single Merchant object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -1152,15 +1312,15 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Update a Merchant
-            * Update a merchant
-                * @param merchantId ID of merchant. (required)
+            * Update a &#x60;Merchant&#x60; to change the information saved or enable Level 2/3 processing.
+                * @param merchantId ID of &#x60;Merchant&#x60;. (required)
                 * @param updateMerchantRequest  (optional)
             * @return ApiResponse&lt;Merchant&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Single merchant object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> Single Merchant object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -1175,8 +1335,8 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Update a Merchant (asynchronously)
-            * Update a merchant
-                * @param merchantId ID of merchant. (required)
+            * Update a &#x60;Merchant&#x60; to change the information saved or enable Level 2/3 processing.
+                * @param merchantId ID of &#x60;Merchant&#x60;. (required)
                 * @param updateMerchantRequest  (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
@@ -1184,7 +1344,7 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Single merchant object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> Single Merchant object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>

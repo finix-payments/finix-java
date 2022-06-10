@@ -14,6 +14,8 @@
 package api;
 
 import invoker.ApiException;
+import invoker.Environment;
+import invoker.FinixClient;
 import model.CreateSettlementRequest;
 import model.Error401Unauthorized;
 import model.Error403ForbiddenList;
@@ -21,26 +23,36 @@ import model.Error404NotFoundList;
 import model.Error406NotAcceptable;
 import model.Error422InvalidFieldList;
 import model.ErrorGeneric;
+import model.RemoveSettlementTransfer;
 import model.Settlement;
 import model.SettlementsList;
 import model.TransfersList;
 import model.UpdateSettlementRequest;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.awt.*;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * API tests for SettlementsApi
  */
-@Disabled
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@DisplayName("When Running SettlementsApiTest")
 public class SettlementsApiTest {
 
     private final SettlementsApi api = new SettlementsApi();
+    public FinixClient finixClient;
+    @Test
+    @BeforeAll
+    @DisplayName("Finix Client")
+    void contextLoads() {
+        finixClient = new FinixClient("USpumes23XhzHwXqiy9bfX2B", "c69d39e3-f9ff-4735-8c3e-abca86441906", Environment.SANDBOX);
+        assertEquals(true , finixClient!=null);
 
+    }
     /**
      * Create Settlement on Identity
      *
@@ -59,7 +71,7 @@ public class SettlementsApiTest {
     /**
      * Create a Batch Settlement
      *
-     * Create a batch &#x60;Settlement&#x60;. A settlement is a collection of **SUCCEEDED** &#x60;Transfers&#x60; that are ready to be paid out to a merchant.
+     * Create a batch &#x60;Settlement&#x60;. A &#x60;Settlement&#x60; is a collection of **SUCCEEDED** &#x60;Transfers&#x60; that are ready to get paid out to a &#x60;Merchant&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
@@ -73,28 +85,28 @@ public class SettlementsApiTest {
     /**
      * Get a Settlement
      *
-     * Retreive the details of a settlement.
+     * Retreive the details of a &#x60;Settlement&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void getSettlementTest() throws ApiException {
-        String settlementId = null;
-        Settlement response = api.get(settlementId);
+        String settlementId = "STmCc8GbjjX33SdymwNhb9Et";
+        Settlement response = finixClient.Settlements.get(settlementId);
         // TODO: test validations
     }
 
     /**
      * List Settlement Funding Transfers
      *
-     * List the funding transfers for a settlement
+     * Retrieve the &#x60;Transfers&#x60; in a &#x60;Settlement&#x60; that have &#x60;type&#x60; **CREDIT**.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void getSettlementFundingTransfersTest() throws ApiException {
-        String settlementId = null;
-        TransfersList response = api.listFundingTransfers(settlementId);
+        String settlementId = "STmCc8GbjjX33SdymwNhb9Et";
+        TransfersList response = finixClient.Settlements.listFundingTransfers(settlementId);
         // TODO: test validations
     }
 
@@ -126,16 +138,28 @@ public class SettlementsApiTest {
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        Boolean sortSorted = null;
-        Boolean sortUnsorted = null;
-        SettlementsList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
+        SettlementsList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
+        // TODO: test validations
+    }
+
+    /**
+     * List Settlement Transfers
+     *
+     * Retrieve the &#x60;Transfers&#x60; in a &#x60;Settlement&#x60; that have &#x60;type&#x60; **DEBIT** or **REFUND**.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listSettlementTransfersTest() throws ApiException {
+        String settlementId = "STmCc8GbjjX33SdymwNhb9Et";
+        TransfersList response = finixClient.Settlements.listBySettlementId(settlementId);
         // TODO: test validations
     }
 
     /**
      * List Settlements
      *
-     * Retrieve a list of settlements.
+     * Retrieve a list of &#x60;Settlements&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
@@ -151,14 +175,14 @@ public class SettlementsApiTest {
         String updatedAtGte = null;
         String updatedAtLte = null;
         String id = null;
-        SettlementsList response = api.list(amount, amountLt, amountGt, amountLte, amountGte, createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, id);
+        SettlementsList response = finixClient.Settlements.list(amount, amountLt, amountGt, amountLte, amountGte, createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, id);
         // TODO: test validations
     }
 
     /**
      * Update a Settlement
      *
-     * Update a settlement.
+     * Update a &#x60;Settlement&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
@@ -171,16 +195,24 @@ public class SettlementsApiTest {
     }
 
     /**
-     * Remolve Settlement Transfers
+     * Remove Settlement Transfers
      *
-     * Remove a transfer from a settlement
+     * Remove a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.  As long as the &#x60;Settlement&#x60; hasn&#39;t been funded, you can remove the &#x60;Transfer&#x60; or an array of &#x60;Transfers&#x60;, along with its corresponding &#x60;fee&#x60; from a batch &#x60;Settlement&#x60;.   Note: Per the JSON API for deleting a resource, our API doesn&#39;t have a response body when removing a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void removeSettlementTransfersTest() throws ApiException {
-        String settlementId = null;
-        api.removeTransfersFromSettlement(settlementId);
+        String settlementId = "STmCc8GbjjX33SdymwNhb9Et";
+        //RemoveSettlementTransfer removeSettlementTransfer;
+        List<RemoveSettlementTransfer> removeSettlementTransfersList = new ArrayList<>();
+       /*removeSettlementTransfersList.add(RemoveSettlementTransfer.builder()
+                       .transfers(Collections.singletonList("TRr61njQxaa7AJf6E1C3QwCc"))
+               .build());*/
+        RemoveSettlementTransfer removeSettlementTransfer = RemoveSettlementTransfer.builder()
+                .transfers(List.of("TRr61njQxaa7AJf6E1C3QwCc"))
+                .build();
+        finixClient.Settlements.removeTransfersFromSettlement(settlementId, removeSettlementTransfer);
         // TODO: test validations
     }
 

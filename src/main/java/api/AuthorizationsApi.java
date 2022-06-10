@@ -84,21 +84,21 @@ import javax.ws.rs.core.GenericType;
 
         /**
         * Build call for createAuthorization
-            * @param createAuthorizationRequest form (optional)
+            * @param createAuthorizationRequest  (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 201 </td><td> Single authorization </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 201 </td><td> Single Authorization object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 402 </td><td> 402 - Payment Required </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 402 </td><td> Payment Required </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 422 </td><td> 422 Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
         public okhttp3.Call createAuthorizationCall(CreateAuthorizationRequest createAuthorizationRequest, final ApiCallback _callback) throws ApiException {
@@ -157,21 +157,21 @@ import javax.ws.rs.core.GenericType;
 
                 /**
                 * Create an Authorization
-                * Create an authorization
-                    * @param createAuthorizationRequest form (optional)
+                * Create an &#x60;Authorization&#x60; to process a transaction.  &#x60;Authorizations&#x60; can have two possible &#x60;states&#x60;:  - **SUCCEEDED**  - **FAILED**  If the &#x60;Authorization&#x60; has **SUCCEEDED** , it must be captured before &#x60;expires_at&#x60; passes or the funds will be released.  Learn how to prevent duplicate authorizations by passing an [Idempotency ID](#section/Idempotency-Requests) in the payload.
+                    * @param createAuthorizationRequest  (optional)
                     * @return Authorization
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 201 </td><td> Single authorization </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 201 </td><td> Single Authorization object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                            <tr><td> 402 </td><td> 402 - Payment Required </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 402 </td><td> Payment Required </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                            <tr><td> 422 </td><td> 422 Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     </table>
                 */
                     public Authorization create(CreateAuthorizationRequest createAuthorizationRequest) throws ApiException {
@@ -181,21 +181,21 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Create an Authorization
-            * Create an authorization
-                * @param createAuthorizationRequest form (optional)
+            * Create an &#x60;Authorization&#x60; to process a transaction.  &#x60;Authorizations&#x60; can have two possible &#x60;states&#x60;:  - **SUCCEEDED**  - **FAILED**  If the &#x60;Authorization&#x60; has **SUCCEEDED** , it must be captured before &#x60;expires_at&#x60; passes or the funds will be released.  Learn how to prevent duplicate authorizations by passing an [Idempotency ID](#section/Idempotency-Requests) in the payload.
+                * @param createAuthorizationRequest  (optional)
             * @return ApiResponse&lt;Authorization&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 201 </td><td> Single authorization </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 201 </td><td> Single Authorization object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 402 </td><td> 402 - Payment Required </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 402 </td><td> Payment Required </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 422 </td><td> 422 Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
             public ApiResponse<Authorization> createAuthorizationWithHttpInfo(CreateAuthorizationRequest createAuthorizationRequest) throws ApiException {
@@ -206,22 +206,22 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Create an Authorization (asynchronously)
-            * Create an authorization
-                * @param createAuthorizationRequest form (optional)
+            * Create an &#x60;Authorization&#x60; to process a transaction.  &#x60;Authorizations&#x60; can have two possible &#x60;states&#x60;:  - **SUCCEEDED**  - **FAILED**  If the &#x60;Authorization&#x60; has **SUCCEEDED** , it must be captured before &#x60;expires_at&#x60; passes or the funds will be released.  Learn how to prevent duplicate authorizations by passing an [Idempotency ID](#section/Idempotency-Requests) in the payload.
+                * @param createAuthorizationRequest  (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 201 </td><td> Single authorization </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 201 </td><td> Single Authorization object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 402 </td><td> 402 - Payment Required </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 402 </td><td> Payment Required </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 422 </td><td> 422 Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
             public okhttp3.Call createAuthorizationAsync(CreateAuthorizationRequest createAuthorizationRequest, final ApiCallback<Authorization> _callback) throws ApiException {
@@ -240,7 +240,7 @@ import javax.ws.rs.core.GenericType;
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Single authorization </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> Single Authorization object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -309,14 +309,14 @@ import javax.ws.rs.core.GenericType;
 
                 /**
                 * Get an Authorization
-                * Retrieve an authorization.
+                * Retrieve the details of a previously created &#x60;Authorization&#x60;.
                     * @param authorizationId ID of authorization to fetch (required)
                     * @return Authorization
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> Single authorization </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> Single Authorization object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -330,14 +330,14 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Get an Authorization
-            * Retrieve an authorization.
+            * Retrieve the details of a previously created &#x60;Authorization&#x60;.
                 * @param authorizationId ID of authorization to fetch (required)
             * @return ApiResponse&lt;Authorization&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Single authorization </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> Single Authorization object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -352,7 +352,7 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Get an Authorization (asynchronously)
-            * Retrieve an authorization.
+            * Retrieve the details of a previously created &#x60;Authorization&#x60;.
                 * @param authorizationId ID of authorization to fetch (required)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
@@ -360,7 +360,7 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Single authorization </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> Single Authorization object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -383,7 +383,7 @@ import javax.ws.rs.core.GenericType;
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of authorizations </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -459,7 +459,7 @@ import javax.ws.rs.core.GenericType;
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> List of authorizations </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -480,7 +480,7 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of authorizations </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -503,7 +503,7 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of authorizations </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -524,10 +524,10 @@ import javax.ws.rs.core.GenericType;
             * @param limit The numbers of items to return (optional)
             * @param idempotencyId Filter by idempotency_id (optional)
             * @param state Filter by Transaction state. (optional)
-            * @param createdAtGte Filter were created_at is after the given date (optional)
-            * @param createdAtLte Filter were created_at before the given date (optional)
-            * @param updatedAtGte Filter were updated_at is after the given date (optional)
-            * @param updatedAtLte Filter were updated_at is before the given date (optional)
+            * @param createdAtGte Filter where created_at is after the given date. (optional)
+            * @param createdAtLte Filter where created_at is before the given date. (optional)
+            * @param updatedAtGte Filter where updated_at is after the given date (optional)
+            * @param updatedAtLte Filter where updated_at is before the given date (optional)
             * @param isVoid Filter by idempotency_id (optional)
             * @param amount Filter by an amount equal to the given value (optional)
             * @param amountLt Filter by an amount less than (optional)
@@ -546,14 +546,14 @@ import javax.ws.rs.core.GenericType;
             * @param merchantMid Filter by Merchant Identification Number (MID) (optional)
             * @param instrumentCardLast4 Filter by the payment card last 4 digits (optional)
             * @param merchantProcessorId Filter by Processor ID (optional)
-            * @param type  (optional)
+            * @param type Type of the authorization. (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of authorizations </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -727,17 +727,17 @@ import javax.ws.rs.core.GenericType;
             }
 
                 /**
-                * List authorizations
-                * Retrieve a list of authorizations. 
+                * List Authorizations
+                * Retrieve a list of &#x60;Authorizations&#x60;. 
                     * @param sort Specify key to be used for sorting the collection (optional)
                     * @param offset The number of items to skip before starting to collect the result set (optional)
                     * @param limit The numbers of items to return (optional)
                     * @param idempotencyId Filter by idempotency_id (optional)
                     * @param state Filter by Transaction state. (optional)
-                    * @param createdAtGte Filter were created_at is after the given date (optional)
-                    * @param createdAtLte Filter were created_at before the given date (optional)
-                    * @param updatedAtGte Filter were updated_at is after the given date (optional)
-                    * @param updatedAtLte Filter were updated_at is before the given date (optional)
+                    * @param createdAtGte Filter where created_at is after the given date. (optional)
+                    * @param createdAtLte Filter where created_at is before the given date. (optional)
+                    * @param updatedAtGte Filter where updated_at is after the given date (optional)
+                    * @param updatedAtLte Filter where updated_at is before the given date (optional)
                     * @param isVoid Filter by idempotency_id (optional)
                     * @param amount Filter by an amount equal to the given value (optional)
                     * @param amountLt Filter by an amount less than (optional)
@@ -756,13 +756,13 @@ import javax.ws.rs.core.GenericType;
                     * @param merchantMid Filter by Merchant Identification Number (MID) (optional)
                     * @param instrumentCardLast4 Filter by the payment card last 4 digits (optional)
                     * @param merchantProcessorId Filter by Processor ID (optional)
-                    * @param type  (optional)
+                    * @param type Type of the authorization. (optional)
                     * @return AuthorizationsList
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> List of authorizations </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -775,17 +775,17 @@ import javax.ws.rs.core.GenericType;
                     }
 
         /**
-            * List authorizations
-            * Retrieve a list of authorizations. 
+            * List Authorizations
+            * Retrieve a list of &#x60;Authorizations&#x60;. 
                 * @param sort Specify key to be used for sorting the collection (optional)
                 * @param offset The number of items to skip before starting to collect the result set (optional)
                 * @param limit The numbers of items to return (optional)
                 * @param idempotencyId Filter by idempotency_id (optional)
                 * @param state Filter by Transaction state. (optional)
-                * @param createdAtGte Filter were created_at is after the given date (optional)
-                * @param createdAtLte Filter were created_at before the given date (optional)
-                * @param updatedAtGte Filter were updated_at is after the given date (optional)
-                * @param updatedAtLte Filter were updated_at is before the given date (optional)
+                * @param createdAtGte Filter where created_at is after the given date. (optional)
+                * @param createdAtLte Filter where created_at is before the given date. (optional)
+                * @param updatedAtGte Filter where updated_at is after the given date (optional)
+                * @param updatedAtLte Filter where updated_at is before the given date (optional)
                 * @param isVoid Filter by idempotency_id (optional)
                 * @param amount Filter by an amount equal to the given value (optional)
                 * @param amountLt Filter by an amount less than (optional)
@@ -804,13 +804,13 @@ import javax.ws.rs.core.GenericType;
                 * @param merchantMid Filter by Merchant Identification Number (MID) (optional)
                 * @param instrumentCardLast4 Filter by the payment card last 4 digits (optional)
                 * @param merchantProcessorId Filter by Processor ID (optional)
-                * @param type  (optional)
+                * @param type Type of the authorization. (optional)
             * @return ApiResponse&lt;AuthorizationsList&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of authorizations </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -824,17 +824,17 @@ import javax.ws.rs.core.GenericType;
             }
 
         /**
-            * List authorizations (asynchronously)
-            * Retrieve a list of authorizations. 
+            * List Authorizations (asynchronously)
+            * Retrieve a list of &#x60;Authorizations&#x60;. 
                 * @param sort Specify key to be used for sorting the collection (optional)
                 * @param offset The number of items to skip before starting to collect the result set (optional)
                 * @param limit The numbers of items to return (optional)
                 * @param idempotencyId Filter by idempotency_id (optional)
                 * @param state Filter by Transaction state. (optional)
-                * @param createdAtGte Filter were created_at is after the given date (optional)
-                * @param createdAtLte Filter were created_at before the given date (optional)
-                * @param updatedAtGte Filter were updated_at is after the given date (optional)
-                * @param updatedAtLte Filter were updated_at is before the given date (optional)
+                * @param createdAtGte Filter where created_at is after the given date. (optional)
+                * @param createdAtLte Filter where created_at is before the given date. (optional)
+                * @param updatedAtGte Filter where updated_at is after the given date (optional)
+                * @param updatedAtLte Filter where updated_at is before the given date (optional)
                 * @param isVoid Filter by idempotency_id (optional)
                 * @param amount Filter by an amount equal to the given value (optional)
                 * @param amountLt Filter by an amount less than (optional)
@@ -853,14 +853,14 @@ import javax.ws.rs.core.GenericType;
                 * @param merchantMid Filter by Merchant Identification Number (MID) (optional)
                 * @param instrumentCardLast4 Filter by the payment card last 4 digits (optional)
                 * @param merchantProcessorId Filter by Processor ID (optional)
-                * @param type  (optional)
+                * @param type Type of the authorization. (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of authorizations </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -877,26 +877,24 @@ import javax.ws.rs.core.GenericType;
         /**
         * Build call for listIdentityAuthorizations
             * @param identityId ID of identity to fetch (required)
-            * @param limit  (optional)
-            * @param offset  (optional)
-            * @param pageNumber  (optional)
-            * @param pageSize  (optional)
-            * @param sortSorted  (optional)
-            * @param sortUnsorted  (optional)
+            * @param limit The number of entries to return. (optional)
+            * @param offset The number of items to skip before starting to collect the result set. (optional)
+            * @param pageNumber The page number to list. (optional)
+            * @param pageSize The size of the page. (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of authorizations </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call listIdentityAuthorizationsCall(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback _callback) throws ApiException {
+        public okhttp3.Call listIdentityAuthorizationsCall(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -938,14 +936,6 @@ import javax.ws.rs.core.GenericType;
                 localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageSize", pageSize));
                     }
 
-                    if (sortSorted != null) {
-                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("sort.sorted", sortSorted));
-                    }
-
-                    if (sortUnsorted != null) {
-                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("sort.unsorted", sortUnsorted));
-                    }
-
             final String[] localVarAccepts = {
         "application/hal+json"
             };
@@ -967,7 +957,7 @@ import javax.ws.rs.core.GenericType;
             }
 
             @SuppressWarnings("rawtypes")
-            private okhttp3.Call listIdentityAuthorizationsValidateBeforeCall(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback _callback) throws ApiException {
+            private okhttp3.Call listIdentityAuthorizationsValidateBeforeCall(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback _callback) throws ApiException {
             
                     // verify the required parameter 'identityId' is set
                     if (identityId == null) {
@@ -975,7 +965,7 @@ import javax.ws.rs.core.GenericType;
                     }
             
 
-                okhttp3.Call localVarCall = listIdentityAuthorizationsCall(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted, _callback);
+                okhttp3.Call localVarCall = listIdentityAuthorizationsCall(identityId, limit, offset, pageNumber, pageSize, _callback);
                 return localVarCall;
 
             }
@@ -984,26 +974,24 @@ import javax.ws.rs.core.GenericType;
                 * List Identity Authorizations
                 * All authorizations associated to this identity
                     * @param identityId ID of identity to fetch (required)
-                    * @param limit  (optional)
-                    * @param offset  (optional)
-                    * @param pageNumber  (optional)
-                    * @param pageSize  (optional)
-                    * @param sortSorted  (optional)
-                    * @param sortUnsorted  (optional)
+                    * @param limit The number of entries to return. (optional)
+                    * @param offset The number of items to skip before starting to collect the result set. (optional)
+                    * @param pageNumber The page number to list. (optional)
+                    * @param pageSize The size of the page. (optional)
                     * @return AuthorizationsList
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> List of authorizations </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     </table>
                 */
-                    public AuthorizationsList listByIdentityId(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted) throws ApiException {
-                ApiResponse<AuthorizationsList> localVarResp = listIdentityAuthorizationsWithHttpInfo(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
+                    public AuthorizationsList listByIdentityId(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize) throws ApiException {
+                ApiResponse<AuthorizationsList> localVarResp = listIdentityAuthorizationsWithHttpInfo(identityId, limit, offset, pageNumber, pageSize);
                         return localVarResp.getData();
                     }
 
@@ -1011,26 +999,24 @@ import javax.ws.rs.core.GenericType;
             * List Identity Authorizations
             * All authorizations associated to this identity
                 * @param identityId ID of identity to fetch (required)
-                * @param limit  (optional)
-                * @param offset  (optional)
-                * @param pageNumber  (optional)
-                * @param pageSize  (optional)
-                * @param sortSorted  (optional)
-                * @param sortUnsorted  (optional)
+                * @param limit The number of entries to return. (optional)
+                * @param offset The number of items to skip before starting to collect the result set. (optional)
+                * @param pageNumber The page number to list. (optional)
+                * @param pageSize The size of the page. (optional)
             * @return ApiResponse&lt;AuthorizationsList&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of authorizations </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public ApiResponse<AuthorizationsList> listIdentityAuthorizationsWithHttpInfo(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted) throws ApiException {
-            okhttp3.Call localVarCall = listIdentityAuthorizationsValidateBeforeCall(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted, null);
+            public ApiResponse<AuthorizationsList> listIdentityAuthorizationsWithHttpInfo(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize) throws ApiException {
+            okhttp3.Call localVarCall = listIdentityAuthorizationsValidateBeforeCall(identityId, limit, offset, pageNumber, pageSize, null);
                     Type localVarReturnType = new TypeToken<AuthorizationsList>(){}.getType();
                     return localVarFinixClient.execute(localVarCall, localVarReturnType);
             }
@@ -1039,28 +1025,26 @@ import javax.ws.rs.core.GenericType;
             * List Identity Authorizations (asynchronously)
             * All authorizations associated to this identity
                 * @param identityId ID of identity to fetch (required)
-                * @param limit  (optional)
-                * @param offset  (optional)
-                * @param pageNumber  (optional)
-                * @param pageSize  (optional)
-                * @param sortSorted  (optional)
-                * @param sortUnsorted  (optional)
+                * @param limit The number of entries to return. (optional)
+                * @param offset The number of items to skip before starting to collect the result set. (optional)
+                * @param pageNumber The page number to list. (optional)
+                * @param pageSize The size of the page. (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of authorizations </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public okhttp3.Call listIdentityAuthorizationsAsync(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback<AuthorizationsList> _callback) throws ApiException {
+            public okhttp3.Call listIdentityAuthorizationsAsync(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback<AuthorizationsList> _callback) throws ApiException {
 
-            okhttp3.Call localVarCall = listIdentityAuthorizationsValidateBeforeCall(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted, _callback);
+            okhttp3.Call localVarCall = listIdentityAuthorizationsValidateBeforeCall(identityId, limit, offset, pageNumber, pageSize, _callback);
         Type localVarReturnType = new TypeToken<AuthorizationsList>(){}.getType();
             localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
             return localVarCall;
@@ -1068,26 +1052,24 @@ import javax.ws.rs.core.GenericType;
         /**
         * Build call for listPaymentInstrumentAuthorizations
             * @param paymentInstrumentId ID of object (required)
-            * @param limit  (optional)
-            * @param offset  (optional)
-            * @param pageNumber  (optional)
-            * @param pageSize  (optional)
-            * @param sortSorted  (optional)
-            * @param sortUnsorted  (optional)
+            * @param limit The number of entries to return. (optional)
+            * @param offset The number of items to skip before starting to collect the result set. (optional)
+            * @param pageNumber The page number to list. (optional)
+            * @param pageSize The size of the page. (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of authorizations </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call listPaymentInstrumentAuthorizationsCall(String paymentInstrumentId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback _callback) throws ApiException {
+        public okhttp3.Call listPaymentInstrumentAuthorizationsCall(String paymentInstrumentId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1129,14 +1111,6 @@ import javax.ws.rs.core.GenericType;
                 localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageSize", pageSize));
                     }
 
-                    if (sortSorted != null) {
-                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("sort.sorted", sortSorted));
-                    }
-
-                    if (sortUnsorted != null) {
-                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("sort.unsorted", sortUnsorted));
-                    }
-
             final String[] localVarAccepts = {
         "application/hal+json"
             };
@@ -1158,7 +1132,7 @@ import javax.ws.rs.core.GenericType;
             }
 
             @SuppressWarnings("rawtypes")
-            private okhttp3.Call listPaymentInstrumentAuthorizationsValidateBeforeCall(String paymentInstrumentId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback _callback) throws ApiException {
+            private okhttp3.Call listPaymentInstrumentAuthorizationsValidateBeforeCall(String paymentInstrumentId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback _callback) throws ApiException {
             
                     // verify the required parameter 'paymentInstrumentId' is set
                     if (paymentInstrumentId == null) {
@@ -1166,7 +1140,7 @@ import javax.ws.rs.core.GenericType;
                     }
             
 
-                okhttp3.Call localVarCall = listPaymentInstrumentAuthorizationsCall(paymentInstrumentId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted, _callback);
+                okhttp3.Call localVarCall = listPaymentInstrumentAuthorizationsCall(paymentInstrumentId, limit, offset, pageNumber, pageSize, _callback);
                 return localVarCall;
 
             }
@@ -1175,26 +1149,24 @@ import javax.ws.rs.core.GenericType;
                 * List Payment Instrument Authorizations
                 * Get list of all the transfers in the payment instrument object
                     * @param paymentInstrumentId ID of object (required)
-                    * @param limit  (optional)
-                    * @param offset  (optional)
-                    * @param pageNumber  (optional)
-                    * @param pageSize  (optional)
-                    * @param sortSorted  (optional)
-                    * @param sortUnsorted  (optional)
+                    * @param limit The number of entries to return. (optional)
+                    * @param offset The number of items to skip before starting to collect the result set. (optional)
+                    * @param pageNumber The page number to list. (optional)
+                    * @param pageSize The size of the page. (optional)
                     * @return AuthorizationsList
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> List of authorizations </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     </table>
                 */
-                    public AuthorizationsList listByPaymentInstrumentId(String paymentInstrumentId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted) throws ApiException {
-                ApiResponse<AuthorizationsList> localVarResp = listPaymentInstrumentAuthorizationsWithHttpInfo(paymentInstrumentId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
+                    public AuthorizationsList listByPaymentInstrumentId(String paymentInstrumentId, Integer limit, Long offset, Integer pageNumber, Integer pageSize) throws ApiException {
+                ApiResponse<AuthorizationsList> localVarResp = listPaymentInstrumentAuthorizationsWithHttpInfo(paymentInstrumentId, limit, offset, pageNumber, pageSize);
                         return localVarResp.getData();
                     }
 
@@ -1202,26 +1174,24 @@ import javax.ws.rs.core.GenericType;
             * List Payment Instrument Authorizations
             * Get list of all the transfers in the payment instrument object
                 * @param paymentInstrumentId ID of object (required)
-                * @param limit  (optional)
-                * @param offset  (optional)
-                * @param pageNumber  (optional)
-                * @param pageSize  (optional)
-                * @param sortSorted  (optional)
-                * @param sortUnsorted  (optional)
+                * @param limit The number of entries to return. (optional)
+                * @param offset The number of items to skip before starting to collect the result set. (optional)
+                * @param pageNumber The page number to list. (optional)
+                * @param pageSize The size of the page. (optional)
             * @return ApiResponse&lt;AuthorizationsList&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of authorizations </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public ApiResponse<AuthorizationsList> listPaymentInstrumentAuthorizationsWithHttpInfo(String paymentInstrumentId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted) throws ApiException {
-            okhttp3.Call localVarCall = listPaymentInstrumentAuthorizationsValidateBeforeCall(paymentInstrumentId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted, null);
+            public ApiResponse<AuthorizationsList> listPaymentInstrumentAuthorizationsWithHttpInfo(String paymentInstrumentId, Integer limit, Long offset, Integer pageNumber, Integer pageSize) throws ApiException {
+            okhttp3.Call localVarCall = listPaymentInstrumentAuthorizationsValidateBeforeCall(paymentInstrumentId, limit, offset, pageNumber, pageSize, null);
                     Type localVarReturnType = new TypeToken<AuthorizationsList>(){}.getType();
                     return localVarFinixClient.execute(localVarCall, localVarReturnType);
             }
@@ -1230,28 +1200,26 @@ import javax.ws.rs.core.GenericType;
             * List Payment Instrument Authorizations (asynchronously)
             * Get list of all the transfers in the payment instrument object
                 * @param paymentInstrumentId ID of object (required)
-                * @param limit  (optional)
-                * @param offset  (optional)
-                * @param pageNumber  (optional)
-                * @param pageSize  (optional)
-                * @param sortSorted  (optional)
-                * @param sortUnsorted  (optional)
+                * @param limit The number of entries to return. (optional)
+                * @param offset The number of items to skip before starting to collect the result set. (optional)
+                * @param pageNumber The page number to list. (optional)
+                * @param pageSize The size of the page. (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of authorizations </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public okhttp3.Call listPaymentInstrumentAuthorizationsAsync(String paymentInstrumentId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback<AuthorizationsList> _callback) throws ApiException {
+            public okhttp3.Call listPaymentInstrumentAuthorizationsAsync(String paymentInstrumentId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback<AuthorizationsList> _callback) throws ApiException {
 
-            okhttp3.Call localVarCall = listPaymentInstrumentAuthorizationsValidateBeforeCall(paymentInstrumentId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted, _callback);
+            okhttp3.Call localVarCall = listPaymentInstrumentAuthorizationsValidateBeforeCall(paymentInstrumentId, limit, offset, pageNumber, pageSize, _callback);
         Type localVarReturnType = new TypeToken<AuthorizationsList>(){}.getType();
             localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
             return localVarCall;
@@ -1266,11 +1234,11 @@ import javax.ws.rs.core.GenericType;
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Single authorization </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> Single Authorization object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 422 </td><td> 422 Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
         public okhttp3.Call putAuthorizationCall(String authorizationId, UpdateAuthorizationRequest updateAuthorizationRequest, final ApiCallback _callback) throws ApiException {
@@ -1335,7 +1303,7 @@ import javax.ws.rs.core.GenericType;
 
                 /**
                 * Update an Authorization
-                * Update an authorization
+                * If successful, the transfer field of the &#x60;Authorization&#x60; will contain the ID of the &#x60;Transfer&#x60; resource that&#39;ll move funds.   By default, &#x60;Transfers&#x60; are in a **PENDING** state. The **PENDING** state means the system hasn&#39;t submitted the request to capture funds. Capture requests get submitted via batch request.   Once the &#x60;Authorization&#x60; is updated with a &#x60;capture_amount&#x60; (i.e. *Captured*), the state of the &#x60;Transfer&#x60; will update to **SUCCEEDED**.
                     * @param authorizationId ID of authorization to fetch (required)
                     * @param updateAuthorizationRequest  (optional)
                     * @return Authorization
@@ -1343,11 +1311,11 @@ import javax.ws.rs.core.GenericType;
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> Single authorization </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> Single Authorization object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                            <tr><td> 422 </td><td> 422 Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     </table>
                 */
                     public Authorization update(String authorizationId, UpdateAuthorizationRequest updateAuthorizationRequest) throws ApiException {
@@ -1357,7 +1325,7 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Update an Authorization
-            * Update an authorization
+            * If successful, the transfer field of the &#x60;Authorization&#x60; will contain the ID of the &#x60;Transfer&#x60; resource that&#39;ll move funds.   By default, &#x60;Transfers&#x60; are in a **PENDING** state. The **PENDING** state means the system hasn&#39;t submitted the request to capture funds. Capture requests get submitted via batch request.   Once the &#x60;Authorization&#x60; is updated with a &#x60;capture_amount&#x60; (i.e. *Captured*), the state of the &#x60;Transfer&#x60; will update to **SUCCEEDED**.
                 * @param authorizationId ID of authorization to fetch (required)
                 * @param updateAuthorizationRequest  (optional)
             * @return ApiResponse&lt;Authorization&gt;
@@ -1365,11 +1333,11 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Single authorization </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> Single Authorization object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 422 </td><td> 422 Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
             public ApiResponse<Authorization> putAuthorizationWithHttpInfo(String authorizationId, UpdateAuthorizationRequest updateAuthorizationRequest) throws ApiException {
@@ -1380,7 +1348,7 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Update an Authorization (asynchronously)
-            * Update an authorization
+            * If successful, the transfer field of the &#x60;Authorization&#x60; will contain the ID of the &#x60;Transfer&#x60; resource that&#39;ll move funds.   By default, &#x60;Transfers&#x60; are in a **PENDING** state. The **PENDING** state means the system hasn&#39;t submitted the request to capture funds. Capture requests get submitted via batch request.   Once the &#x60;Authorization&#x60; is updated with a &#x60;capture_amount&#x60; (i.e. *Captured*), the state of the &#x60;Transfer&#x60; will update to **SUCCEEDED**.
                 * @param authorizationId ID of authorization to fetch (required)
                 * @param updateAuthorizationRequest  (optional)
             * @param _callback The callback to be executed when the API call finishes
@@ -1389,11 +1357,11 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Single authorization </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> Single Authorization object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 422 </td><td> 422 Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
             public okhttp3.Call putAuthorizationAsync(String authorizationId, UpdateAuthorizationRequest updateAuthorizationRequest, final ApiCallback<Authorization> _callback) throws ApiException {

@@ -21,7 +21,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.ApplicationLinksApplicationProfile;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -41,43 +40,11 @@ public class ListLinksTest {
     }
 
     /**
-     * Test the property 'first'
+     * Test the property 'href'
      */
     @Test
-    public void firstTest() {
-        // TODO: test first
-    }
-
-    /**
-     * Test the property 'last'
-     */
-    @Test
-    public void lastTest() {
-        // TODO: test last
-    }
-
-    /**
-     * Test the property 'next'
-     */
-    @Test
-    public void nextTest() {
-        // TODO: test next
-    }
-
-    /**
-     * Test the property 'prev'
-     */
-    @Test
-    public void prevTest() {
-        // TODO: test prev
-    }
-
-    /**
-     * Test the property 'self'
-     */
-    @Test
-    public void selfTest() {
-        // TODO: test self
+    public void hrefTest() {
+        // TODO: test href
     }
 
 }

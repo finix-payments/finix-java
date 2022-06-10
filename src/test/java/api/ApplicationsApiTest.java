@@ -42,7 +42,7 @@ public class ApplicationsApiTest {
     /**
      * Create an Application
      *
-     * If created successfully, return 201 status and add a location header to the response which refers to the new created application. 
+     * If created successfully, returns a 201 status and adds a location header to the response which refers to the new created &#x60;Application&#x60;. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -54,9 +54,9 @@ public class ApplicationsApiTest {
     }
 
     /**
-     * Fetch an application
+     * Fetch an Application
      *
-     * Fetch an application
+     * Retrieve the details of an &#x60;Application&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
@@ -68,9 +68,9 @@ public class ApplicationsApiTest {
     }
 
     /**
-     * Get Application Application Profile
+     * Get Application Profile
      *
-     * Show the application profile
+     * Fetch an &#x60;application_profile&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
@@ -84,7 +84,7 @@ public class ApplicationsApiTest {
     /**
      * List Applications
      *
-     * Return a collection of Applications, if there are no Applications, an empty collection will be returned. 
+     * Return a collection of &#x60;Applications&#x60;. If there are no &#x60;Applications&#x60;, an empty collection will be returned.
      *
      * @throws ApiException if the Api call fails
      */
@@ -99,9 +99,9 @@ public class ApplicationsApiTest {
     }
 
     /**
-     * Put Application
+     * Update an Application
      *
-     * Update an existing application
+     * Update an existing &#x60;Application&#x60;.
      *
      * @throws ApiException if the Api call fails
      */

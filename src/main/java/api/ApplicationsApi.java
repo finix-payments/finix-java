@@ -153,7 +153,7 @@ import javax.ws.rs.core.GenericType;
 
                 /**
                 * Create an Application
-                * If created successfully, return 201 status and add a location header to the response which refers to the new created application. 
+                * If created successfully, returns a 201 status and adds a location header to the response which refers to the new created &#x60;Application&#x60;. 
                     * @param createApplicationRequest  (optional)
                     * @return Application
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -174,7 +174,7 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Create an Application
-            * If created successfully, return 201 status and add a location header to the response which refers to the new created application. 
+            * If created successfully, returns a 201 status and adds a location header to the response which refers to the new created &#x60;Application&#x60;. 
                 * @param createApplicationRequest  (optional)
             * @return ApiResponse&lt;Application&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -196,7 +196,7 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Create an Application (asynchronously)
-            * If created successfully, return 201 status and add a location header to the response which refers to the new created application. 
+            * If created successfully, returns a 201 status and adds a location header to the response which refers to the new created &#x60;Application&#x60;. 
                 * @param createApplicationRequest  (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
@@ -295,8 +295,8 @@ import javax.ws.rs.core.GenericType;
             }
 
                 /**
-                * Fetch an application
-                * Fetch an application
+                * Fetch an Application
+                * Retrieve the details of an &#x60;Application&#x60;.
                     * @param applicationId ID of application to use (required)
                     * @return Application
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -316,8 +316,8 @@ import javax.ws.rs.core.GenericType;
                     }
 
         /**
-            * Fetch an application
-            * Fetch an application
+            * Fetch an Application
+            * Retrieve the details of an &#x60;Application&#x60;.
                 * @param applicationId ID of application to use (required)
             * @return ApiResponse&lt;Application&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -338,8 +338,8 @@ import javax.ws.rs.core.GenericType;
             }
 
         /**
-            * Fetch an application (asynchronously)
-            * Fetch an application
+            * Fetch an Application (asynchronously)
+            * Retrieve the details of an &#x60;Application&#x60;.
                 * @param applicationId ID of application to use (required)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
@@ -370,7 +370,7 @@ import javax.ws.rs.core.GenericType;
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Single application profile object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> Single application_profile object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -438,15 +438,15 @@ import javax.ws.rs.core.GenericType;
             }
 
                 /**
-                * Get Application Application Profile
-                * Show the application profile
+                * Get Application Profile
+                * Fetch an &#x60;application_profile&#x60;.
                     * @param applicationId ID of application to use (required)
                     * @return ApplicationProfile
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> Single application profile object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> Single application_profile object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -459,15 +459,15 @@ import javax.ws.rs.core.GenericType;
                     }
 
         /**
-            * Get Application Application Profile
-            * Show the application profile
+            * Get Application Profile
+            * Fetch an &#x60;application_profile&#x60;.
                 * @param applicationId ID of application to use (required)
             * @return ApiResponse&lt;ApplicationProfile&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Single application profile object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> Single application_profile object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -481,8 +481,8 @@ import javax.ws.rs.core.GenericType;
             }
 
         /**
-            * Get Application Application Profile (asynchronously)
-            * Show the application profile
+            * Get Application Profile (asynchronously)
+            * Fetch an &#x60;application_profile&#x60;.
                 * @param applicationId ID of application to use (required)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
@@ -490,7 +490,7 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Single application profile object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> Single application_profile object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -516,9 +516,10 @@ import javax.ws.rs.core.GenericType;
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of applications </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> List of &#x60;Applications&#x60;. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
@@ -594,7 +595,7 @@ import javax.ws.rs.core.GenericType;
 
                 /**
                 * List Applications
-                * Return a collection of Applications, if there are no Applications, an empty collection will be returned. 
+                * Return a collection of &#x60;Applications&#x60;. If there are no &#x60;Applications&#x60;, an empty collection will be returned.
                     * @param id Filter by id (optional)
                     * @param sort Specify key to be used for sorting the collection (optional)
                     * @param offset The number of items to skip before starting to collect the result set (optional)
@@ -604,9 +605,10 @@ import javax.ws.rs.core.GenericType;
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> List of applications </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> List of &#x60;Applications&#x60;. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     </table>
                 */
@@ -617,7 +619,7 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * List Applications
-            * Return a collection of Applications, if there are no Applications, an empty collection will be returned. 
+            * Return a collection of &#x60;Applications&#x60;. If there are no &#x60;Applications&#x60;, an empty collection will be returned.
                 * @param id Filter by id (optional)
                 * @param sort Specify key to be used for sorting the collection (optional)
                 * @param offset The number of items to skip before starting to collect the result set (optional)
@@ -627,9 +629,10 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of applications </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of &#x60;Applications&#x60;. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
@@ -641,7 +644,7 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * List Applications (asynchronously)
-            * Return a collection of Applications, if there are no Applications, an empty collection will be returned. 
+            * Return a collection of &#x60;Applications&#x60;. If there are no &#x60;Applications&#x60;, an empty collection will be returned.
                 * @param id Filter by id (optional)
                 * @param sort Specify key to be used for sorting the collection (optional)
                 * @param offset The number of items to skip before starting to collect the result set (optional)
@@ -652,9 +655,10 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of applications </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of &#x60;Applications&#x60;. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
@@ -742,8 +746,8 @@ import javax.ws.rs.core.GenericType;
             }
 
                 /**
-                * Put Application
-                * Update an existing application
+                * Update an Application
+                * Update an existing &#x60;Application&#x60;.
                     * @param applicationId ID of application to use (required)
                     * @return Application
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -763,8 +767,8 @@ import javax.ws.rs.core.GenericType;
                     }
 
         /**
-            * Put Application
-            * Update an existing application
+            * Update an Application
+            * Update an existing &#x60;Application&#x60;.
                 * @param applicationId ID of application to use (required)
             * @return ApiResponse&lt;Application&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -785,8 +789,8 @@ import javax.ws.rs.core.GenericType;
             }
 
         /**
-            * Put Application (asynchronously)
-            * Update an existing application
+            * Update an Application (asynchronously)
+            * Update an existing &#x60;Application&#x60;.
                 * @param applicationId ID of application to use (required)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call

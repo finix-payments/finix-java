@@ -23,7 +23,16 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import model.IdentityLinksApplication;
+import model.IdentityLinksAssociatedIdentities;
+import model.IdentityLinksAuthorizations;
+import model.IdentityLinksDisputes;
+import model.IdentityLinksMerchants;
+import model.IdentityLinksPaymentInstruments;
 import model.IdentityLinksSelf;
+import model.IdentityLinksSettlements;
+import model.IdentityLinksTransfers;
+import model.IdentityLinksVerifications;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,10 +55,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * IdentityLinks
+ * For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these &#x60;_links&#x60; to make your follow-up requests and quickly access relevant IDs.
  */
+@ApiModel(description = "For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class IdentityLinks {
   public static final String SERIALIZED_NAME_SELF = "self";
   @SerializedName(SERIALIZED_NAME_SELF)
@@ -57,39 +67,39 @@ public class IdentityLinks {
 
   public static final String SERIALIZED_NAME_VERIFICATIONS = "verifications";
   @SerializedName(SERIALIZED_NAME_VERIFICATIONS)
-  private IdentityLinksSelf verifications;
+  private IdentityLinksVerifications verifications;
 
   public static final String SERIALIZED_NAME_MERCHANTS = "merchants";
   @SerializedName(SERIALIZED_NAME_MERCHANTS)
-  private IdentityLinksSelf merchants;
+  private IdentityLinksMerchants merchants;
 
   public static final String SERIALIZED_NAME_SETTLEMENTS = "settlements";
   @SerializedName(SERIALIZED_NAME_SETTLEMENTS)
-  private IdentityLinksSelf settlements;
+  private IdentityLinksSettlements settlements;
 
   public static final String SERIALIZED_NAME_AUTHORIZATIONS = "authorizations";
   @SerializedName(SERIALIZED_NAME_AUTHORIZATIONS)
-  private IdentityLinksSelf authorizations;
+  private IdentityLinksAuthorizations authorizations;
 
   public static final String SERIALIZED_NAME_TRANSFERS = "transfers";
   @SerializedName(SERIALIZED_NAME_TRANSFERS)
-  private IdentityLinksSelf transfers;
+  private IdentityLinksTransfers transfers;
 
   public static final String SERIALIZED_NAME_PAYMENT_INSTRUMENTS = "payment_instruments";
   @SerializedName(SERIALIZED_NAME_PAYMENT_INSTRUMENTS)
-  private IdentityLinksSelf paymentInstruments;
+  private IdentityLinksPaymentInstruments paymentInstruments;
 
   public static final String SERIALIZED_NAME_ASSOCIATED_IDENTITIES = "associated_identities";
   @SerializedName(SERIALIZED_NAME_ASSOCIATED_IDENTITIES)
-  private IdentityLinksSelf associatedIdentities;
+  private IdentityLinksAssociatedIdentities associatedIdentities;
 
   public static final String SERIALIZED_NAME_DISPUTES = "disputes";
   @SerializedName(SERIALIZED_NAME_DISPUTES)
-  private IdentityLinksSelf disputes;
+  private IdentityLinksDisputes disputes;
 
   public static final String SERIALIZED_NAME_APPLICATION = "application";
   @SerializedName(SERIALIZED_NAME_APPLICATION)
-  private IdentityLinksSelf application;
+  private IdentityLinksApplication application;
 
   public IdentityLinks() { 
   }
@@ -117,7 +127,7 @@ public class IdentityLinks {
   }
 
 
-  public IdentityLinks verifications(IdentityLinksSelf verifications) {
+  public IdentityLinks verifications(IdentityLinksVerifications verifications) {
     
     this.verifications = verifications;
     return this;
@@ -130,17 +140,17 @@ public class IdentityLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public IdentityLinksSelf getVerifications() {
+  public IdentityLinksVerifications getVerifications() {
     return verifications;
   }
 
 
-  public void setVerifications(IdentityLinksSelf verifications) {
+  public void setVerifications(IdentityLinksVerifications verifications) {
     this.verifications = verifications;
   }
 
 
-  public IdentityLinks merchants(IdentityLinksSelf merchants) {
+  public IdentityLinks merchants(IdentityLinksMerchants merchants) {
     
     this.merchants = merchants;
     return this;
@@ -153,17 +163,17 @@ public class IdentityLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public IdentityLinksSelf getMerchants() {
+  public IdentityLinksMerchants getMerchants() {
     return merchants;
   }
 
 
-  public void setMerchants(IdentityLinksSelf merchants) {
+  public void setMerchants(IdentityLinksMerchants merchants) {
     this.merchants = merchants;
   }
 
 
-  public IdentityLinks settlements(IdentityLinksSelf settlements) {
+  public IdentityLinks settlements(IdentityLinksSettlements settlements) {
     
     this.settlements = settlements;
     return this;
@@ -176,17 +186,17 @@ public class IdentityLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public IdentityLinksSelf getSettlements() {
+  public IdentityLinksSettlements getSettlements() {
     return settlements;
   }
 
 
-  public void setSettlements(IdentityLinksSelf settlements) {
+  public void setSettlements(IdentityLinksSettlements settlements) {
     this.settlements = settlements;
   }
 
 
-  public IdentityLinks authorizations(IdentityLinksSelf authorizations) {
+  public IdentityLinks authorizations(IdentityLinksAuthorizations authorizations) {
     
     this.authorizations = authorizations;
     return this;
@@ -199,17 +209,17 @@ public class IdentityLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public IdentityLinksSelf getAuthorizations() {
+  public IdentityLinksAuthorizations getAuthorizations() {
     return authorizations;
   }
 
 
-  public void setAuthorizations(IdentityLinksSelf authorizations) {
+  public void setAuthorizations(IdentityLinksAuthorizations authorizations) {
     this.authorizations = authorizations;
   }
 
 
-  public IdentityLinks transfers(IdentityLinksSelf transfers) {
+  public IdentityLinks transfers(IdentityLinksTransfers transfers) {
     
     this.transfers = transfers;
     return this;
@@ -222,17 +232,17 @@ public class IdentityLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public IdentityLinksSelf getTransfers() {
+  public IdentityLinksTransfers getTransfers() {
     return transfers;
   }
 
 
-  public void setTransfers(IdentityLinksSelf transfers) {
+  public void setTransfers(IdentityLinksTransfers transfers) {
     this.transfers = transfers;
   }
 
 
-  public IdentityLinks paymentInstruments(IdentityLinksSelf paymentInstruments) {
+  public IdentityLinks paymentInstruments(IdentityLinksPaymentInstruments paymentInstruments) {
     
     this.paymentInstruments = paymentInstruments;
     return this;
@@ -245,17 +255,17 @@ public class IdentityLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public IdentityLinksSelf getPaymentInstruments() {
+  public IdentityLinksPaymentInstruments getPaymentInstruments() {
     return paymentInstruments;
   }
 
 
-  public void setPaymentInstruments(IdentityLinksSelf paymentInstruments) {
+  public void setPaymentInstruments(IdentityLinksPaymentInstruments paymentInstruments) {
     this.paymentInstruments = paymentInstruments;
   }
 
 
-  public IdentityLinks associatedIdentities(IdentityLinksSelf associatedIdentities) {
+  public IdentityLinks associatedIdentities(IdentityLinksAssociatedIdentities associatedIdentities) {
     
     this.associatedIdentities = associatedIdentities;
     return this;
@@ -268,17 +278,17 @@ public class IdentityLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public IdentityLinksSelf getAssociatedIdentities() {
+  public IdentityLinksAssociatedIdentities getAssociatedIdentities() {
     return associatedIdentities;
   }
 
 
-  public void setAssociatedIdentities(IdentityLinksSelf associatedIdentities) {
+  public void setAssociatedIdentities(IdentityLinksAssociatedIdentities associatedIdentities) {
     this.associatedIdentities = associatedIdentities;
   }
 
 
-  public IdentityLinks disputes(IdentityLinksSelf disputes) {
+  public IdentityLinks disputes(IdentityLinksDisputes disputes) {
     
     this.disputes = disputes;
     return this;
@@ -291,17 +301,17 @@ public class IdentityLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public IdentityLinksSelf getDisputes() {
+  public IdentityLinksDisputes getDisputes() {
     return disputes;
   }
 
 
-  public void setDisputes(IdentityLinksSelf disputes) {
+  public void setDisputes(IdentityLinksDisputes disputes) {
     this.disputes = disputes;
   }
 
 
-  public IdentityLinks application(IdentityLinksSelf application) {
+  public IdentityLinks application(IdentityLinksApplication application) {
     
     this.application = application;
     return this;
@@ -314,12 +324,12 @@ public class IdentityLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public IdentityLinksSelf getApplication() {
+  public IdentityLinksApplication getApplication() {
     return application;
   }
 
 
-  public void setApplication(IdentityLinksSelf application) {
+  public void setApplication(IdentityLinksApplication application) {
     this.application = application;
   }
 
@@ -432,39 +442,39 @@ public class IdentityLinks {
       }
       // validate the optional field `verifications`
       if (jsonObj.getAsJsonObject("verifications") != null) {
-       IdentityLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("verifications"));
+       IdentityLinksVerifications.validateJsonObject(jsonObj.getAsJsonObject("verifications"));
       }
       // validate the optional field `merchants`
       if (jsonObj.getAsJsonObject("merchants") != null) {
-       IdentityLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("merchants"));
+       IdentityLinksMerchants.validateJsonObject(jsonObj.getAsJsonObject("merchants"));
       }
       // validate the optional field `settlements`
       if (jsonObj.getAsJsonObject("settlements") != null) {
-       IdentityLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("settlements"));
+       IdentityLinksSettlements.validateJsonObject(jsonObj.getAsJsonObject("settlements"));
       }
       // validate the optional field `authorizations`
       if (jsonObj.getAsJsonObject("authorizations") != null) {
-       IdentityLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("authorizations"));
+       IdentityLinksAuthorizations.validateJsonObject(jsonObj.getAsJsonObject("authorizations"));
       }
       // validate the optional field `transfers`
       if (jsonObj.getAsJsonObject("transfers") != null) {
-       IdentityLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("transfers"));
+       IdentityLinksTransfers.validateJsonObject(jsonObj.getAsJsonObject("transfers"));
       }
       // validate the optional field `payment_instruments`
       if (jsonObj.getAsJsonObject("payment_instruments") != null) {
-       IdentityLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("payment_instruments"));
+       IdentityLinksPaymentInstruments.validateJsonObject(jsonObj.getAsJsonObject("payment_instruments"));
       }
       // validate the optional field `associated_identities`
       if (jsonObj.getAsJsonObject("associated_identities") != null) {
-       IdentityLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("associated_identities"));
+       IdentityLinksAssociatedIdentities.validateJsonObject(jsonObj.getAsJsonObject("associated_identities"));
       }
       // validate the optional field `disputes`
       if (jsonObj.getAsJsonObject("disputes") != null) {
-       IdentityLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("disputes"));
+       IdentityLinksDisputes.validateJsonObject(jsonObj.getAsJsonObject("disputes"));
       }
       // validate the optional field `application`
       if (jsonObj.getAsJsonObject("application") != null) {
-       IdentityLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("application"));
+       IdentityLinksApplication.validateJsonObject(jsonObj.getAsJsonObject("application"));
       }
   }
 

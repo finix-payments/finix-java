@@ -21,7 +21,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,6 +29,8 @@ import java.util.Map;
 import model.AuthorizationExternalResponses;
 import model.AuthorizationLinks;
 import model.CardPresentDetails;
+import model.Currency;
+import model.Raw;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -106,19 +107,19 @@ public class AuthorizationTest {
     }
 
     /**
-     * Test the property 'captureAmount'
-     */
-    @Test
-    public void captureAmountTest() {
-        // TODO: test captureAmount
-    }
-
-    /**
      * Test the property 'cardPresentDetails'
      */
     @Test
     public void cardPresentDetailsTest() {
         // TODO: test cardPresentDetails
+    }
+
+    /**
+     * Test the property 'captureAmount'
+     */
+    @Test
+    public void captureAmountTest() {
+        // TODO: test captureAmount
     }
 
     /**
@@ -175,6 +176,14 @@ public class AuthorizationTest {
     @Test
     public void merchantIdentityTest() {
         // TODO: test merchantIdentity
+    }
+
+    /**
+     * Test the property 'merchant'
+     */
+    @Test
+    public void merchantTest() {
+        // TODO: test merchant
     }
 
     /**

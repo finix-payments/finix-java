@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,32 +49,32 @@ import invoker.JSON;
  */
 @ApiModel(description = "Merchant's distribution of credit card volume by business type. Sum of `volume_distribution_by_business_type` must be 100.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType {
   public static final String SERIALIZED_NAME_OTHER_VOLUME_PERCENTAGE = "other_volume_percentage";
   @SerializedName(SERIALIZED_NAME_OTHER_VOLUME_PERCENTAGE)
-  private BigDecimal otherVolumePercentage;
+  private Integer otherVolumePercentage;
 
   public static final String SERIALIZED_NAME_CONSUMER_TO_CONSUMER_VOLUME_PERCENTAGE = "consumer_to_consumer_volume_percentage";
   @SerializedName(SERIALIZED_NAME_CONSUMER_TO_CONSUMER_VOLUME_PERCENTAGE)
-  private BigDecimal consumerToConsumerVolumePercentage;
+  private Integer consumerToConsumerVolumePercentage;
 
   public static final String SERIALIZED_NAME_BUSINESS_TO_CONSUMER_VOLUME_PERCENTAGE = "business_to_consumer_volume_percentage";
   @SerializedName(SERIALIZED_NAME_BUSINESS_TO_CONSUMER_VOLUME_PERCENTAGE)
-  private BigDecimal businessToConsumerVolumePercentage;
+  private Integer businessToConsumerVolumePercentage;
 
   public static final String SERIALIZED_NAME_BUSINESS_TO_BUSINESS_VOLUME_PERCENTAGE = "business_to_business_volume_percentage";
   @SerializedName(SERIALIZED_NAME_BUSINESS_TO_BUSINESS_VOLUME_PERCENTAGE)
-  private BigDecimal businessToBusinessVolumePercentage;
+  private Integer businessToBusinessVolumePercentage;
 
   public static final String SERIALIZED_NAME_PERSON_TO_PERSON_VOLUME_PERCENTAGE = "person_to_person_volume_percentage";
   @SerializedName(SERIALIZED_NAME_PERSON_TO_PERSON_VOLUME_PERCENTAGE)
-  private BigDecimal personToPersonVolumePercentage;
+  private Integer personToPersonVolumePercentage;
 
   public UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType() { 
   }
 
-  public UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType otherVolumePercentage(BigDecimal otherVolumePercentage) {
+  public UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType otherVolumePercentage(Integer otherVolumePercentage) {
     
     this.otherVolumePercentage = otherVolumePercentage;
     return this;
@@ -88,17 +87,17 @@ public class UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionBy
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The percentage of the merchant's volume that isn't represented by the previous fields (between 0 and 100).")
 
-  public BigDecimal getOtherVolumePercentage() {
+  public Integer getOtherVolumePercentage() {
     return otherVolumePercentage;
   }
 
 
-  public void setOtherVolumePercentage(BigDecimal otherVolumePercentage) {
+  public void setOtherVolumePercentage(Integer otherVolumePercentage) {
     this.otherVolumePercentage = otherVolumePercentage;
   }
 
 
-  public UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType consumerToConsumerVolumePercentage(BigDecimal consumerToConsumerVolumePercentage) {
+  public UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType consumerToConsumerVolumePercentage(Integer consumerToConsumerVolumePercentage) {
     
     this.consumerToConsumerVolumePercentage = consumerToConsumerVolumePercentage;
     return this;
@@ -111,17 +110,17 @@ public class UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionBy
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Merchant's percentage of volume that is consumer to consumer (between 0 and 100).")
 
-  public BigDecimal getConsumerToConsumerVolumePercentage() {
+  public Integer getConsumerToConsumerVolumePercentage() {
     return consumerToConsumerVolumePercentage;
   }
 
 
-  public void setConsumerToConsumerVolumePercentage(BigDecimal consumerToConsumerVolumePercentage) {
+  public void setConsumerToConsumerVolumePercentage(Integer consumerToConsumerVolumePercentage) {
     this.consumerToConsumerVolumePercentage = consumerToConsumerVolumePercentage;
   }
 
 
-  public UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType businessToConsumerVolumePercentage(BigDecimal businessToConsumerVolumePercentage) {
+  public UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType businessToConsumerVolumePercentage(Integer businessToConsumerVolumePercentage) {
     
     this.businessToConsumerVolumePercentage = businessToConsumerVolumePercentage;
     return this;
@@ -134,17 +133,17 @@ public class UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionBy
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The percentage of the merchant's volume that's business to consumer (between 0 and 100).")
 
-  public BigDecimal getBusinessToConsumerVolumePercentage() {
+  public Integer getBusinessToConsumerVolumePercentage() {
     return businessToConsumerVolumePercentage;
   }
 
 
-  public void setBusinessToConsumerVolumePercentage(BigDecimal businessToConsumerVolumePercentage) {
+  public void setBusinessToConsumerVolumePercentage(Integer businessToConsumerVolumePercentage) {
     this.businessToConsumerVolumePercentage = businessToConsumerVolumePercentage;
   }
 
 
-  public UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType businessToBusinessVolumePercentage(BigDecimal businessToBusinessVolumePercentage) {
+  public UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType businessToBusinessVolumePercentage(Integer businessToBusinessVolumePercentage) {
     
     this.businessToBusinessVolumePercentage = businessToBusinessVolumePercentage;
     return this;
@@ -157,17 +156,17 @@ public class UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionBy
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The percentage of the merchant's volume that's business to business (between 0 and 100).")
 
-  public BigDecimal getBusinessToBusinessVolumePercentage() {
+  public Integer getBusinessToBusinessVolumePercentage() {
     return businessToBusinessVolumePercentage;
   }
 
 
-  public void setBusinessToBusinessVolumePercentage(BigDecimal businessToBusinessVolumePercentage) {
+  public void setBusinessToBusinessVolumePercentage(Integer businessToBusinessVolumePercentage) {
     this.businessToBusinessVolumePercentage = businessToBusinessVolumePercentage;
   }
 
 
-  public UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType personToPersonVolumePercentage(BigDecimal personToPersonVolumePercentage) {
+  public UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType personToPersonVolumePercentage(Integer personToPersonVolumePercentage) {
     
     this.personToPersonVolumePercentage = personToPersonVolumePercentage;
     return this;
@@ -180,12 +179,12 @@ public class UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionBy
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The percentage the merchant's volume that's person to person (between 0 and 100).")
 
-  public BigDecimal getPersonToPersonVolumePercentage() {
+  public Integer getPersonToPersonVolumePercentage() {
     return personToPersonVolumePercentage;
   }
 
 
-  public void setPersonToPersonVolumePercentage(BigDecimal personToPersonVolumePercentage) {
+  public void setPersonToPersonVolumePercentage(Integer personToPersonVolumePercentage) {
     this.personToPersonVolumePercentage = personToPersonVolumePercentage;
   }
 

@@ -52,40 +52,40 @@ import invoker.JSON;
  * PaymentInstrumentUpdatesListEmbedded
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class PaymentInstrumentUpdatesListEmbedded {
-  public static final String SERIALIZED_NAME_PAYMENT_INSTRUMENT_UPDATES = "payment_instrument_updates";
-  @SerializedName(SERIALIZED_NAME_PAYMENT_INSTRUMENT_UPDATES)
-  private Set<InstrumentUpdate> paymentInstrumentUpdates = new LinkedHashSet<>();
+  public static final String SERIALIZED_NAME_UPDATES = "updates";
+  @SerializedName(SERIALIZED_NAME_UPDATES)
+  private Set<InstrumentUpdate> updates = new LinkedHashSet<>();
 
   public PaymentInstrumentUpdatesListEmbedded() { 
   }
 
-  public PaymentInstrumentUpdatesListEmbedded paymentInstrumentUpdates(Set<InstrumentUpdate> paymentInstrumentUpdates) {
+  public PaymentInstrumentUpdatesListEmbedded updates(Set<InstrumentUpdate> updates) {
     
-    this.paymentInstrumentUpdates = paymentInstrumentUpdates;
+    this.updates = updates;
     return this;
   }
 
-  public PaymentInstrumentUpdatesListEmbedded addPaymentInstrumentUpdatesItem(InstrumentUpdate paymentInstrumentUpdatesItem) {
-    this.paymentInstrumentUpdates.add(paymentInstrumentUpdatesItem);
+  public PaymentInstrumentUpdatesListEmbedded addUpdatesItem(InstrumentUpdate updatesItem) {
+    this.updates.add(updatesItem);
     return this;
   }
 
    /**
-   * Get paymentInstrumentUpdates
-   * @return paymentInstrumentUpdates
+   * Get updates
+   * @return updates
   **/
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public Set<InstrumentUpdate> getPaymentInstrumentUpdates() {
-    return paymentInstrumentUpdates;
+  public Set<InstrumentUpdate> getUpdates() {
+    return updates;
   }
 
 
-  public void setPaymentInstrumentUpdates(Set<InstrumentUpdate> paymentInstrumentUpdates) {
-    this.paymentInstrumentUpdates = paymentInstrumentUpdates;
+  public void setUpdates(Set<InstrumentUpdate> updates) {
+    this.updates = updates;
   }
 
 
@@ -99,19 +99,19 @@ public class PaymentInstrumentUpdatesListEmbedded {
       return false;
     }
     PaymentInstrumentUpdatesListEmbedded paymentInstrumentUpdatesListEmbedded = (PaymentInstrumentUpdatesListEmbedded) o;
-    return Objects.equals(this.paymentInstrumentUpdates, paymentInstrumentUpdatesListEmbedded.paymentInstrumentUpdates);
+    return Objects.equals(this.updates, paymentInstrumentUpdatesListEmbedded.updates);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(paymentInstrumentUpdates);
+    return Objects.hash(updates);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentInstrumentUpdatesListEmbedded {\n");
-    sb.append("    paymentInstrumentUpdates: ").append(toIndentedString(paymentInstrumentUpdates)).append("\n");
+    sb.append("    updates: ").append(toIndentedString(updates)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -134,11 +134,11 @@ public class PaymentInstrumentUpdatesListEmbedded {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("payment_instrument_updates");
+    openapiFields.add("updates");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("payment_instrument_updates");
+    openapiRequiredFields.add("updates");
   }
 
  /**
@@ -172,16 +172,16 @@ public class PaymentInstrumentUpdatesListEmbedded {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }*/
-      JsonArray jsonArraypaymentInstrumentUpdates = jsonObj.getAsJsonArray("payment_instrument_updates");
-      if (jsonArraypaymentInstrumentUpdates != null) {
+      JsonArray jsonArrayupdates = jsonObj.getAsJsonArray("updates");
+      if (jsonArrayupdates != null) {
         // ensure the json data is an array
-        if (!jsonObj.get("payment_instrument_updates").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `payment_instrument_updates` to be an array in the JSON string but got `%s`", jsonObj.get("payment_instrument_updates").toString()));
+        if (!jsonObj.get("updates").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `updates` to be an array in the JSON string but got `%s`", jsonObj.get("updates").toString()));
         }
 
-        // validate the optional field `payment_instrument_updates` (array)
-        for (int i = 0; i < jsonArraypaymentInstrumentUpdates.size(); i++) {
-          InstrumentUpdate.validateJsonObject(jsonArraypaymentInstrumentUpdates.get(i).getAsJsonObject());
+        // validate the optional field `updates` (array)
+        for (int i = 0; i < jsonArrayupdates.size(); i++) {
+          InstrumentUpdate.validateJsonObject(jsonArrayupdates.get(i).getAsJsonObject());
         }
           ;
       }

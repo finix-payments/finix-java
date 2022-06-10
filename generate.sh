@@ -33,4 +33,5 @@ rm .travis.yml
 rm README.md
 rm git_push.sh
 rm -r .idea
+rm -r gen
 

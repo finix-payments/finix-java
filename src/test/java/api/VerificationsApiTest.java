@@ -42,7 +42,7 @@ public class VerificationsApiTest {
     /**
      * Perform a Verification
      *
-     * Create a &#x60;verification&#x60; to perform verification for a provided identity or payment instrument.  Verifications can also be created directly on the resources you want to verify: - &#x60;POST /merchants/{id}/verifications&#x60; - &#x60;POST /payment_instruments/{id}/verifications&#x60;
+     * Create a &#x60;verification&#x60; to verify an &#x60;Identity&#x60; or &#x60;Payment Instrument&#x60;.  Verifications can also be created directly on the resources you want to verify: - &#x60;POST /merchants/{id}/verifications&#x60; - &#x60;POST /payment_instruments/{id}/verifications&#x60;
      *
      * @throws ApiException if the Api call fails
      */
@@ -56,7 +56,7 @@ public class VerificationsApiTest {
     /**
      * Get a Verification
      *
-     * Retrieve the details of a verification.
+     * Retrieve the details of a &#x60;Verification&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
@@ -81,36 +81,14 @@ public class VerificationsApiTest {
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        Boolean sortSorted = null;
-        Boolean sortUnsorted = null;
-        VerificationsList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
-        // TODO: test validations
-    }
-
-    /**
-     * List Merchant Verifications
-     *
-     * Get list of all the verifications in the merchant object
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listMerchantVerificationsTest() throws ApiException {
-        String merchantId = null;
-        Integer limit = null;
-        Long offset = null;
-        Integer pageNumber = null;
-        Integer pageSize = null;
-        Boolean sortSorted = null;
-        Boolean sortUnsorted = null;
-        VerificationsList response = api.listByMerchantId(merchantId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
+        VerificationsList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 
     /**
      * List Payment Instrument Verifications
      *
-     * Get list of all the transfers in the payment instrument object
+     * Get list of all the transfers in a &#x60;Payment Instrument&#x60; object
      *
      * @throws ApiException if the Api call fails
      */
@@ -121,16 +99,14 @@ public class VerificationsApiTest {
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        Boolean sortSorted = null;
-        Boolean sortUnsorted = null;
-        VerificationsList response = api.listByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
+        VerificationsList response = api.listByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 
     /**
      * List Verifications
      *
-     * Retrieve a list of verifications
+     * Retrieve a list of &#x60;Verifications&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
@@ -144,7 +120,7 @@ public class VerificationsApiTest {
     /**
      * Update a Verification
      *
-     * Update an existing verification.
+     * Update an existing &#x60;Verification&#x60;.
      *
      * @throws ApiException if the Api call fails
      */

@@ -21,7 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.ApplicationLinksApplicationProfile;
+import model.MerchantLinksSelf;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -38,38 +38,6 @@ public class VerificationLinksTest {
     @Test
     public void testVerificationLinks() {
         // TODO: test VerificationLinks
-    }
-
-    /**
-     * Test the property 'application'
-     */
-    @Test
-    public void applicationTest() {
-        // TODO: test application
-    }
-
-    /**
-     * Test the property 'identity'
-     */
-    @Test
-    public void identityTest() {
-        // TODO: test identity
-    }
-
-    /**
-     * Test the property 'merchant'
-     */
-    @Test
-    public void merchantTest() {
-        // TODO: test merchant
-    }
-
-    /**
-     * Test the property 'paymentInstrument'
-     */
-    @Test
-    public void paymentInstrumentTest() {
-        // TODO: test paymentInstrument
     }
 
     /**

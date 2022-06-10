@@ -48,7 +48,7 @@ import invoker.JSON;
  * CreateProcessorRequestConfig
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class CreateProcessorRequestConfig {
   public static final String SERIALIZED_NAME_CAN_DEBIT_BANK_ACCOUNT = "canDebitBankAccount";
   @SerializedName(SERIALIZED_NAME_CAN_DEBIT_BANK_ACCOUNT)
@@ -64,11 +64,11 @@ public class CreateProcessorRequestConfig {
   }
 
    /**
-   * Get canDebitBankAccount
+   * Details if a &#x60;Processor&#x60; can debit bank accounts.
    * @return canDebitBankAccount
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Details if a `Processor` can debit bank accounts.")
 
   public Boolean getCanDebitBankAccount() {
     return canDebitBankAccount;

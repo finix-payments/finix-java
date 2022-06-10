@@ -27,7 +27,7 @@ import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import model.ReserveProfileLinks;
+import model.ReserveProfilesListEmbeddedLinks;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,7 +53,7 @@ import invoker.JSON;
  * ReserveProfilesListEmbeddedReserveProfiles
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class ReserveProfilesListEmbeddedReserveProfiles {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -85,7 +85,7 @@ public class ReserveProfilesListEmbeddedReserveProfiles {
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private ReserveProfileLinks links;
+  private ReserveProfilesListEmbeddedLinks links;
 
   public ReserveProfilesListEmbeddedReserveProfiles() { 
   }
@@ -148,11 +148,11 @@ public class ReserveProfilesListEmbeddedReserveProfiles {
   }
 
    /**
-   * Timestamp of when the object was created
+   * Timestamp of when the object was created.
    * @return createdAt
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Timestamp of when the object was created")
+  @ApiModelProperty(required = true, value = "Timestamp of when the object was created.")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -171,11 +171,11 @@ public class ReserveProfilesListEmbeddedReserveProfiles {
   }
 
    /**
-   * Timestamp of when the object was last updated
+   * Timestamp of when the object was last updated.
    * @return updatedAt
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Timestamp of when the object was last updated")
+  @ApiModelProperty(required = true, value = "Timestamp of when the object was last updated.")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -256,7 +256,7 @@ public class ReserveProfilesListEmbeddedReserveProfiles {
   }
 
 
-  public ReserveProfilesListEmbeddedReserveProfiles links(ReserveProfileLinks links) {
+  public ReserveProfilesListEmbeddedReserveProfiles links(ReserveProfilesListEmbeddedLinks links) {
     
     this.links = links;
     return this;
@@ -269,12 +269,12 @@ public class ReserveProfilesListEmbeddedReserveProfiles {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public ReserveProfileLinks getLinks() {
+  public ReserveProfilesListEmbeddedLinks getLinks() {
     return links;
   }
 
 
-  public void setLinks(ReserveProfileLinks links) {
+  public void setLinks(ReserveProfilesListEmbeddedLinks links) {
     this.links = links;
   }
 
@@ -398,7 +398,7 @@ public class ReserveProfilesListEmbeddedReserveProfiles {
       }
       // validate the optional field `_links`
       if (jsonObj.getAsJsonObject("_links") != null) {
-       ReserveProfileLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+       ReserveProfilesListEmbeddedLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
       }
   }
 

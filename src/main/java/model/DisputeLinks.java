@@ -24,6 +24,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import model.ApplicationLinksApplicationProfile;
+import model.ApplicationLinksSelf;
+import model.ApplicationProfileLinksApplication;
+import model.DisputeLinksTransfer;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,10 +49,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * DisputeLinks
+ * For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these &#x60;_links&#x60; to make your follow-up requests and quickly access relevant IDs.
  */
+@ApiModel(description = "For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class DisputeLinks {
   public static final String SERIALIZED_NAME_ADJUSTMENT_TRANSFERS = "adjustment_transfers";
   @SerializedName(SERIALIZED_NAME_ADJUSTMENT_TRANSFERS)
@@ -57,7 +61,7 @@ public class DisputeLinks {
 
   public static final String SERIALIZED_NAME_APPLICATION = "application";
   @SerializedName(SERIALIZED_NAME_APPLICATION)
-  private ApplicationLinksApplicationProfile application;
+  private ApplicationProfileLinksApplication application;
 
   public static final String SERIALIZED_NAME_EVIDENCE = "evidence";
   @SerializedName(SERIALIZED_NAME_EVIDENCE)
@@ -65,11 +69,11 @@ public class DisputeLinks {
 
   public static final String SERIALIZED_NAME_SELF = "self";
   @SerializedName(SERIALIZED_NAME_SELF)
-  private ApplicationLinksApplicationProfile self;
+  private ApplicationLinksSelf self;
 
   public static final String SERIALIZED_NAME_TRANSFER = "transfer";
   @SerializedName(SERIALIZED_NAME_TRANSFER)
-  private ApplicationLinksApplicationProfile transfer;
+  private DisputeLinksTransfer transfer;
 
   public DisputeLinks() { 
   }
@@ -97,7 +101,7 @@ public class DisputeLinks {
   }
 
 
-  public DisputeLinks application(ApplicationLinksApplicationProfile application) {
+  public DisputeLinks application(ApplicationProfileLinksApplication application) {
     
     this.application = application;
     return this;
@@ -110,12 +114,12 @@ public class DisputeLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getApplication() {
+  public ApplicationProfileLinksApplication getApplication() {
     return application;
   }
 
 
-  public void setApplication(ApplicationLinksApplicationProfile application) {
+  public void setApplication(ApplicationProfileLinksApplication application) {
     this.application = application;
   }
 
@@ -143,7 +147,7 @@ public class DisputeLinks {
   }
 
 
-  public DisputeLinks self(ApplicationLinksApplicationProfile self) {
+  public DisputeLinks self(ApplicationLinksSelf self) {
     
     this.self = self;
     return this;
@@ -156,17 +160,17 @@ public class DisputeLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getSelf() {
+  public ApplicationLinksSelf getSelf() {
     return self;
   }
 
 
-  public void setSelf(ApplicationLinksApplicationProfile self) {
+  public void setSelf(ApplicationLinksSelf self) {
     this.self = self;
   }
 
 
-  public DisputeLinks transfer(ApplicationLinksApplicationProfile transfer) {
+  public DisputeLinks transfer(DisputeLinksTransfer transfer) {
     
     this.transfer = transfer;
     return this;
@@ -179,12 +183,12 @@ public class DisputeLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getTransfer() {
+  public DisputeLinksTransfer getTransfer() {
     return transfer;
   }
 
 
-  public void setTransfer(ApplicationLinksApplicationProfile transfer) {
+  public void setTransfer(DisputeLinksTransfer transfer) {
     this.transfer = transfer;
   }
 
@@ -282,7 +286,7 @@ public class DisputeLinks {
       }
       // validate the optional field `application`
       if (jsonObj.getAsJsonObject("application") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("application"));
+       ApplicationProfileLinksApplication.validateJsonObject(jsonObj.getAsJsonObject("application"));
       }
       // validate the optional field `evidence`
       if (jsonObj.getAsJsonObject("evidence") != null) {
@@ -290,11 +294,11 @@ public class DisputeLinks {
       }
       // validate the optional field `self`
       if (jsonObj.getAsJsonObject("self") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("self"));
+       ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
       }
       // validate the optional field `transfer`
       if (jsonObj.getAsJsonObject("transfer") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("transfer"));
+       DisputeLinksTransfer.validateJsonObject(jsonObj.getAsJsonObject("transfer"));
       }
   }
 

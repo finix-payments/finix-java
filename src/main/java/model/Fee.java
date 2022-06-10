@@ -29,6 +29,7 @@ import java.util.List;
 import java.util.Map;
 import model.Currency;
 import model.FeeLinks;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,11 +52,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * An out of flow fee that is added to a settlement
+ * An out of flow &#x60;fee&#x60; that is added to a &#x60;settlement&#x60;.
  */
-@ApiModel(description = "An out of flow fee that is added to a settlement")
+@ApiModel(description = "An out of flow `fee` that is added to a `settlement`.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class Fee {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -86,7 +87,7 @@ public class Fee {
   private String displayName;
 
   /**
-   * Gets or Sets feeSubtype
+   * Subtype of the &#x60;fee&#x60;.
    */
   @JsonAdapter(FeeSubtypeEnum.Adapter.class)
   public enum FeeSubtypeEnum {
@@ -139,7 +140,7 @@ public class Fee {
   private FeeSubtypeEnum feeSubtype;
 
   /**
-   * Gets or Sets feeType
+   * The type of &#x60;fee&#x60;.
    */
   @JsonAdapter(FeeTypeEnum.Adapter.class)
   public enum FeeTypeEnum {
@@ -284,7 +285,7 @@ public class Fee {
   private String linkedId;
 
   /**
-   * Gets or Sets linkedType
+   * The type of entity the &#x60;fee&#x60; is linked (**null** by default).
    */
   @JsonAdapter(LinkedTypeEnum.Adapter.class)
   public enum LinkedTypeEnum {
@@ -387,11 +388,11 @@ public class Fee {
   }
 
    /**
-   * Get id
+   * The ID of the &#x60;fee&#x60; resource.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "FExxxxxxxxxxxxxxxxxx", value = "")
+  @ApiModelProperty(example = "FExxxxxxxxxxxxxxxxxx", value = "The ID of the `fee` resource.")
 
   public String getId() {
     return id;
@@ -410,11 +411,11 @@ public class Fee {
   }
 
    /**
-   * Timestamp of when the object was created
+   * Timestamp of when the object was created.
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the object was created")
+  @ApiModelProperty(value = "Timestamp of when the object was created.")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -433,11 +434,11 @@ public class Fee {
   }
 
    /**
-   * Timestamp of when the object was last updated
+   * Timestamp of when the object was last updated.
    * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the object was last updated")
+  @ApiModelProperty(value = "Timestamp of when the object was last updated.")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -456,11 +457,11 @@ public class Fee {
   }
 
    /**
-   * Get amount
+   * The amount of the fee in cents.
    * @return amount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The amount of the fee in cents.")
 
   public Integer getAmount() {
     return amount;
@@ -502,11 +503,11 @@ public class Fee {
   }
 
    /**
-   * Get displayName
+   * The name of the &#x60;fee&#x60; object that was include in &#x60;display_name&#x60; when creating the fee.
    * @return displayName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name of the `fee` object that was include in `display_name` when creating the fee.")
 
   public String getDisplayName() {
     return displayName;
@@ -525,11 +526,11 @@ public class Fee {
   }
 
    /**
-   * Get feeSubtype
+   * Subtype of the &#x60;fee&#x60;.
    * @return feeSubtype
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Subtype of the `fee`.")
 
   public FeeSubtypeEnum getFeeSubtype() {
     return feeSubtype;
@@ -548,11 +549,11 @@ public class Fee {
   }
 
    /**
-   * Get feeType
+   * The type of &#x60;fee&#x60;.
    * @return feeType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of `fee`.")
 
   public FeeTypeEnum getFeeType() {
     return feeType;
@@ -571,11 +572,11 @@ public class Fee {
   }
 
    /**
-   * ID of the linked resource
+   * ID of the linked resource.
    * @return linkedId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the linked resource")
+  @ApiModelProperty(value = "ID of the linked resource.")
 
   public String getLinkedId() {
     return linkedId;
@@ -594,11 +595,11 @@ public class Fee {
   }
 
    /**
-   * Get linkedType
+   * The type of entity the &#x60;fee&#x60; is linked (**null** by default).
    * @return linkedType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of entity the `fee` is linked (**null** by default).")
 
   public LinkedTypeEnum getLinkedType() {
     return linkedType;
@@ -617,11 +618,11 @@ public class Fee {
   }
 
    /**
-   * Get merchant
+   * The &#x60;Merchant&#x60; ID that the fee is being debited from.
    * @return merchant
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The `Merchant` ID that the fee is being debited from.")
 
   public String getMerchant() {
     return merchant;
@@ -681,9 +682,20 @@ public class Fee {
         Objects.equals(this.links, fee.links);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(tags, id, createdAt, updatedAt, amount, currency, displayName, feeSubtype, feeType, linkedId, linkedType, merchant, links);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

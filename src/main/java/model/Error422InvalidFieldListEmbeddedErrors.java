@@ -50,7 +50,7 @@ import invoker.JSON;
  * Error422InvalidFieldListEmbeddedErrors
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class Error422InvalidFieldListEmbeddedErrors {
   /**
    * Gets or Sets code

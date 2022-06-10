@@ -23,9 +23,9 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.ApplicationProfilesListPage;
 import model.ListLinks;
 import model.WebhooksListEmbedded;
+import model.WebhooksListPage;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,14 +48,15 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * WebhooksList
+ * &#x60;Webhook&#x60; resource.
  */
+@ApiModel(description = "`Webhook` resource.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class WebhooksList {
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
-  private ApplicationProfilesListPage page;
+  private WebhooksListPage page;
 
   public static final String SERIALIZED_NAME_EMBEDDED = "_embedded";
   @SerializedName(SERIALIZED_NAME_EMBEDDED)
@@ -68,7 +69,7 @@ public class WebhooksList {
   public WebhooksList() { 
   }
 
-  public WebhooksList page(ApplicationProfilesListPage page) {
+  public WebhooksList page(WebhooksListPage page) {
     
     this.page = page;
     return this;
@@ -81,12 +82,12 @@ public class WebhooksList {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationProfilesListPage getPage() {
+  public WebhooksListPage getPage() {
     return page;
   }
 
 
-  public void setPage(ApplicationProfilesListPage page) {
+  public void setPage(WebhooksListPage page) {
     this.page = page;
   }
 
@@ -220,7 +221,7 @@ public class WebhooksList {
       */
       // validate the optional field `page`
       if (jsonObj.getAsJsonObject("page") != null) {
-       ApplicationProfilesListPage.validateJsonObject(jsonObj.getAsJsonObject("page"));
+       WebhooksListPage.validateJsonObject(jsonObj.getAsJsonObject("page"));
       }
       // validate the optional field `_embedded`
       if (jsonObj.getAsJsonObject("_embedded") != null) {

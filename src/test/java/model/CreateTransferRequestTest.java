@@ -25,8 +25,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import model.CardPresentInstrumentForm;
+import model.ConfigurationDetails;
 import model.Currency;
-import model.DeviceConfigurationForm;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

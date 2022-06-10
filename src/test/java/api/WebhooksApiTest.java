@@ -11,9 +11,12 @@
  */
 
 
+
 package api;
 
 import invoker.ApiException;
+import invoker.Environment;
+import invoker.FinixClient;
 import model.CreateWebhookRequest;
 import model.Error401Unauthorized;
 import model.Error403ForbiddenList;
@@ -23,91 +26,124 @@ import model.Error422InvalidFieldList;
 import model.ErrorGeneric;
 import model.Webhook;
 import model.WebhooksList;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+
 /**
  * API tests for WebhooksApi
  */
+
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@DisplayName("When Running WebhooksApiTest")
 @Disabled
 public class WebhooksApiTest {
 
+    private FinixClient finixClient;
     private final WebhooksApi api = new WebhooksApi();
+    @Test
+    @BeforeAll
+    @DisplayName("Finix Client")
+    void contextLoads() {
+        finixClient= new FinixClient("USsRhsHYZGBPnQw8CByJyEQW","8a14c2f9-d94b-4c72-8f5c-a62908e5b30e", Environment.SANDBOX);
+        //  System.out.println(finixClient == null);
+        assertEquals(true , finixClient!=null);
 
-    /**
+    }
+
+/**
      * Create a Webhook
      *
      * Create a &#x60;Webhook&#x60; to specify an endpoint where Finix can send events.
      *
      * @throws ApiException if the Api call fails
      */
+
     @Test
+    @DisplayName("Create a Webhook")
     public void createWebhookTest() throws ApiException {
-        CreateWebhookRequest createWebhookRequest = null;
-        Webhook response = api.create(createWebhookRequest);
+        CreateWebhookRequest createWebhookRequest = CreateWebhookRequest.builder()
+                .url("https://eohzjuj2prziycz.m.pipedream.net")
+                .build();
+        Webhook response = finixClient.Webhooks.create(createWebhookRequest);
         // TODO: test validations
     }
 
-    /**
+
+/**
      * Get a Webhook
      *
      * Retrieve the details of a &#x60;Webhook&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
+
     @Test
+    @DisplayName("Get a Webhook")
     public void getWebhookTest() throws ApiException {
-        String webhookId = null;
-        Webhook response = api.get(webhookId);
+        String webhookId = "WHED2RM5dbNKcHYc3ALxhbW";
+        Webhook response = finixClient.Webhooks.get(webhookId);
         // TODO: test validations
     }
 
-    /**
+/**
      * List Application Webhooks
      *
      * Return a collection of webhooks, if there are no webhooks, an empty collection will be returned. 
      *
      * @throws ApiException if the Api call fails
      */
-    @Test
+
+  //  @Test
     public void listApplicationWebhooksTest() throws ApiException {
         String applicationId = null;
         WebhooksList response = api.listByApplicationId(applicationId);
         // TODO: test validations
     }
 
-    /**
+
+/**
      * List Webhooks
      *
-     * Retrieve a list of webhooks endpoints.
+     * Retrieve a list of &#x60;Webhook&#x60; endpoints.
      *
      * @throws ApiException if the Api call fails
      */
+
     @Test
+    @DisplayName("List Webhooks")
     public void listWebhooksTest() throws ApiException {
         String id = null;
-        WebhooksList response = api.list(id);
+        WebhooksList response = finixClient.Webhooks.list();
+        System.out.println(response.toString());
         // TODO: test validations
     }
 
-    /**
+
+/**
      * Update a Webhook
      *
-     * Update an existing webhook
+     * Update an existing &#x60;Webhook&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
+
     @Test
+    @DisplayName("Update a Webhook")
     public void putWebhookTest() throws ApiException {
-        String webhookId = null;
-        CreateWebhookRequest createWebhookRequest = null;
-        Webhook response = api.update(webhookId, createWebhookRequest);
+        String webhookId = "WHED2RM5dbNKcHYc3ALxhbW";
+        CreateWebhookRequest createWebhookRequest = CreateWebhookRequest.builder()
+                .url("https://eohzjuj2prziycz.m.pipedream.net")
+                .build();
+        Webhook response = finixClient.Webhooks.update(webhookId, createWebhookRequest);
         // TODO: test validations
     }
 
 }
+

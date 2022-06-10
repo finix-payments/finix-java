@@ -21,10 +21,11 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import model.AdditionalPurchaseData;
+import model.CreateAuthorizationRequest3dSecureAuthentication;
 import model.Currency;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
@@ -78,6 +79,14 @@ public class CreateAuthorizationRequestTest {
     }
 
     /**
+     * Test the property 'merchant'
+     */
+    @Test
+    public void merchantTest() {
+        // TODO: test merchant
+    }
+
+    /**
      * Test the property 'merchantIdentity'
      */
     @Test
@@ -99,6 +108,30 @@ public class CreateAuthorizationRequestTest {
     @Test
     public void sourceTest() {
         // TODO: test source
+    }
+
+    /**
+     * Test the property 'additionalPurchaseData'
+     */
+    @Test
+    public void additionalPurchaseDataTest() {
+        // TODO: test additionalPurchaseData
+    }
+
+    /**
+     * Test the property '_3dSecureAuthentication'
+     */
+    @Test
+    public void _3dSecureAuthenticationTest() {
+        // TODO: test _3dSecureAuthentication
+    }
+
+    /**
+     * Test the property 'operationKey'
+     */
+    @Test
+    public void operationKeyTest() {
+        // TODO: test operationKey
     }
 
 }

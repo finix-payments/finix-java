@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 import model.CreateIdentityRequestEntityBusinessAddress;
 import model.CreateIdentityRequestEntityDob;
 import model.CreateIdentityRequestEntityIncorporationDate;
@@ -55,7 +54,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "The underwriting details required to verify the `Identity` of the `Merchant`.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class CreateIdentityRequestEntity {
   public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
   @SerializedName(SERIALIZED_NAME_LAST_NAME)
@@ -63,7 +62,7 @@ public class CreateIdentityRequestEntity {
 
   public static final String SERIALIZED_NAME_MAX_TRANSACTION_AMOUNT = "max_transaction_amount";
   @SerializedName(SERIALIZED_NAME_MAX_TRANSACTION_AMOUNT)
-  private BigDecimal maxTransactionAmount;
+  private Integer maxTransactionAmount;
 
   public static final String SERIALIZED_NAME_HAS_ACCEPTED_CREDIT_CARDS_PREVIOUSLY = "has_accepted_credit_cards_previously";
   @SerializedName(SERIALIZED_NAME_HAS_ACCEPTED_CREDIT_CARDS_PREVIOUSLY)
@@ -85,9 +84,56 @@ public class CreateIdentityRequestEntity {
   @SerializedName(SERIALIZED_NAME_BUSINESS_ADDRESS)
   private CreateIdentityRequestEntityBusinessAddress businessAddress;
 
+  /**
+   * Avalible values include: &lt;ul&gt;&lt;li&gt;&lt;strong&gt;PUBLIC&lt;/strong&gt; to indicate a publicly-traded company.&lt;li&gt;&lt;strong&gt;PRIVATE&lt;/strong&gt; for privately-held businesses.
+   */
+  @JsonAdapter(OwnershipTypeEnum.Adapter.class)
+  public enum OwnershipTypeEnum {
+    PUBLIC("PUBLIC"),
+    
+    PRIVATE("PRIVATE");
+
+    private String value;
+
+    OwnershipTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static OwnershipTypeEnum fromValue(String value) {
+      for (OwnershipTypeEnum b : OwnershipTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<OwnershipTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final OwnershipTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public OwnershipTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return OwnershipTypeEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_OWNERSHIP_TYPE = "ownership_type";
   @SerializedName(SERIALIZED_NAME_OWNERSHIP_TYPE)
-  private String ownershipType;
+  private OwnershipTypeEnum ownershipType;
 
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
@@ -107,7 +153,7 @@ public class CreateIdentityRequestEntity {
 
   public static final String SERIALIZED_NAME_PRINCIPAL_PERCENTAGE_OWNERSHIP = "principal_percentage_ownership";
   @SerializedName(SERIALIZED_NAME_PRINCIPAL_PERCENTAGE_OWNERSHIP)
-  private BigDecimal principalPercentageOwnership;
+  private Integer principalPercentageOwnership;
 
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
@@ -129,9 +175,68 @@ public class CreateIdentityRequestEntity {
   @SerializedName(SERIALIZED_NAME_TAX_ID)
   private String taxId;
 
+  /**
+   * Include the value that best applies to the merchant.
+   */
+  @JsonAdapter(BusinessTypeEnum.Adapter.class)
+  public enum BusinessTypeEnum {
+    INDIVIDUAL_SOLE_PROPRIETORSHIP("INDIVIDUAL_SOLE_PROPRIETORSHIP"),
+    
+    CORPORATION("CORPORATION"),
+    
+    LIMITED_LIABILITY_COMPANY("LIMITED_LIABILITY_COMPANY"),
+    
+    PARTNERSHIP("PARTNERSHIP"),
+    
+    ASSOCIATION_ESTATE_TRUST("ASSOCIATION_ESTATE_TRUST"),
+    
+    TAX_EXEMPT_ORGANIZATION("TAX_EXEMPT_ORGANIZATION"),
+    
+    INTERNATIONAL_ORGANIZATION("INTERNATIONAL_ORGANIZATION"),
+    
+    GOVERNMENT_AGENCY("GOVERNMENT_AGENCY");
+
+    private String value;
+
+    BusinessTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static BusinessTypeEnum fromValue(String value) {
+      for (BusinessTypeEnum b : BusinessTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<BusinessTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final BusinessTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public BusinessTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return BusinessTypeEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_BUSINESS_TYPE = "business_type";
   @SerializedName(SERIALIZED_NAME_BUSINESS_TYPE)
-  private String businessType;
+  private BusinessTypeEnum businessType;
 
   public static final String SERIALIZED_NAME_BUSINESS_PHONE = "business_phone";
   @SerializedName(SERIALIZED_NAME_BUSINESS_PHONE)
@@ -147,7 +252,7 @@ public class CreateIdentityRequestEntity {
 
   public static final String SERIALIZED_NAME_ANNUAL_CARD_VOLUME = "annual_card_volume";
   @SerializedName(SERIALIZED_NAME_ANNUAL_CARD_VOLUME)
-  private BigDecimal annualCardVolume;
+  private Integer annualCardVolume;
 
   public CreateIdentityRequestEntity() { 
   }
@@ -175,7 +280,7 @@ public class CreateIdentityRequestEntity {
   }
 
 
-  public CreateIdentityRequestEntity maxTransactionAmount(BigDecimal maxTransactionAmount) {
+  public CreateIdentityRequestEntity maxTransactionAmount(Integer maxTransactionAmount) {
     
     this.maxTransactionAmount = maxTransactionAmount;
     return this;
@@ -188,12 +293,12 @@ public class CreateIdentityRequestEntity {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The maximum amount (in cents) that can be charged for a single transaction (max 12 characters).")
 
-  public BigDecimal getMaxTransactionAmount() {
+  public Integer getMaxTransactionAmount() {
     return maxTransactionAmount;
   }
 
 
-  public void setMaxTransactionAmount(BigDecimal maxTransactionAmount) {
+  public void setMaxTransactionAmount(Integer maxTransactionAmount) {
     this.maxTransactionAmount = maxTransactionAmount;
   }
 
@@ -313,25 +418,25 @@ public class CreateIdentityRequestEntity {
   }
 
 
-  public CreateIdentityRequestEntity ownershipType(String ownershipType) {
+  public CreateIdentityRequestEntity ownershipType(OwnershipTypeEnum ownershipType) {
     
     this.ownershipType = ownershipType;
     return this;
   }
 
    /**
-   * Values can be either: &lt;ul&gt;&lt;li&gt;&lt;strong&gt;PUBLIC&lt;/strong&gt; to indicate a publicly-traded company.&lt;li&gt;&lt;strong&gt;PRIVATE&lt;/strong&gt; for privately-held businesses.
+   * Avalible values include: &lt;ul&gt;&lt;li&gt;&lt;strong&gt;PUBLIC&lt;/strong&gt; to indicate a publicly-traded company.&lt;li&gt;&lt;strong&gt;PRIVATE&lt;/strong&gt; for privately-held businesses.
    * @return ownershipType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Values can be either: <ul><li><strong>PUBLIC</strong> to indicate a publicly-traded company.<li><strong>PRIVATE</strong> for privately-held businesses.")
+  @ApiModelProperty(value = "Avalible values include: <ul><li><strong>PUBLIC</strong> to indicate a publicly-traded company.<li><strong>PRIVATE</strong> for privately-held businesses.")
 
-  public String getOwnershipType() {
+  public OwnershipTypeEnum getOwnershipType() {
     return ownershipType;
   }
 
 
-  public void setOwnershipType(String ownershipType) {
+  public void setOwnershipType(OwnershipTypeEnum ownershipType) {
     this.ownershipType = ownershipType;
   }
 
@@ -428,7 +533,7 @@ public class CreateIdentityRequestEntity {
   }
 
 
-  public CreateIdentityRequestEntity principalPercentageOwnership(BigDecimal principalPercentageOwnership) {
+  public CreateIdentityRequestEntity principalPercentageOwnership(Integer principalPercentageOwnership) {
     
     this.principalPercentageOwnership = principalPercentageOwnership;
     return this;
@@ -441,12 +546,12 @@ public class CreateIdentityRequestEntity {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Percentage of the company owned by the principal control owner (min 0; max 100).")
 
-  public BigDecimal getPrincipalPercentageOwnership() {
+  public Integer getPrincipalPercentageOwnership() {
     return principalPercentageOwnership;
   }
 
 
-  public void setPrincipalPercentageOwnership(BigDecimal principalPercentageOwnership) {
+  public void setPrincipalPercentageOwnership(Integer principalPercentageOwnership) {
     this.principalPercentageOwnership = principalPercentageOwnership;
   }
 
@@ -566,25 +671,25 @@ public class CreateIdentityRequestEntity {
   }
 
 
-  public CreateIdentityRequestEntity businessType(String businessType) {
+  public CreateIdentityRequestEntity businessType(BusinessTypeEnum businessType) {
     
     this.businessType = businessType;
     return this;
   }
 
    /**
-   * Pass one of the following values:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;INDIVIDUAL\\_SOLE\\_PROPRIETORSHIP&lt;li&gt;CORPORATION&lt;li&gt;LIMITED\\_LIABILITY\\_COMPANY&lt;li&gt;PARTNERSHIP&lt;li&gt;ASSOCIATION\\_ESTATE\\_TRUST&lt;li&gt;TAX\\_EXEMPT\\_ORGANIZATION&lt;li&gt;INTERNATIONAL\\_ORGANIZATION&lt;li&gt;GOVERNMENT\\_AGENCY&lt;/strong&gt;
+   * Include the value that best applies to the merchant.
    * @return businessType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Pass one of the following values:<ul><li><strong>INDIVIDUAL\\_SOLE\\_PROPRIETORSHIP<li>CORPORATION<li>LIMITED\\_LIABILITY\\_COMPANY<li>PARTNERSHIP<li>ASSOCIATION\\_ESTATE\\_TRUST<li>TAX\\_EXEMPT\\_ORGANIZATION<li>INTERNATIONAL\\_ORGANIZATION<li>GOVERNMENT\\_AGENCY</strong>")
+  @ApiModelProperty(value = "Include the value that best applies to the merchant.")
 
-  public String getBusinessType() {
+  public BusinessTypeEnum getBusinessType() {
     return businessType;
   }
 
 
-  public void setBusinessType(String businessType) {
+  public void setBusinessType(BusinessTypeEnum businessType) {
     this.businessType = businessType;
   }
 
@@ -658,7 +763,7 @@ public class CreateIdentityRequestEntity {
   }
 
 
-  public CreateIdentityRequestEntity annualCardVolume(BigDecimal annualCardVolume) {
+  public CreateIdentityRequestEntity annualCardVolume(Integer annualCardVolume) {
     
     this.annualCardVolume = annualCardVolume;
     return this;
@@ -671,12 +776,12 @@ public class CreateIdentityRequestEntity {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The annual credit card sales (in cents) expected to be processed by this merchant (max 19 characters).")
 
-  public BigDecimal getAnnualCardVolume() {
+  public Integer getAnnualCardVolume() {
     return annualCardVolume;
   }
 
 
-  public void setAnnualCardVolume(BigDecimal annualCardVolume) {
+  public void setAnnualCardVolume(Integer annualCardVolume) {
     this.annualCardVolume = annualCardVolume;
   }
 

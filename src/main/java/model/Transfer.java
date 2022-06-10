@@ -23,15 +23,15 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import model.CardPresentDetails1;
+import model.CardPresentDetails;
 import model.Currency;
 import model.FeeType;
+import model.Raw;
 import model.TransferLinks;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -59,14 +59,14 @@ import invoker.JSON;
  * Transfer
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class Transfer {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private Map<String, String> tags = null;
 
   /**
-   * Gets or Sets type
+   * Type of &#x60;Transfer&#x60;.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -144,7 +144,7 @@ public class Transfer {
 
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
-  private BigDecimal amount;
+  private Long amount;
 
   public static final String SERIALIZED_NAME_APPLICATION = "application";
   @SerializedName(SERIALIZED_NAME_APPLICATION)
@@ -152,7 +152,7 @@ public class Transfer {
 
   public static final String SERIALIZED_NAME_CARD_PRESENT_DETAILS = "card_present_details";
   @SerializedName(SERIALIZED_NAME_CARD_PRESENT_DETAILS)
-  private CardPresentDetails1 cardPresentDetails;
+  private CardPresentDetails cardPresentDetails;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
   @SerializedName(SERIALIZED_NAME_CURRENCY)
@@ -168,7 +168,7 @@ public class Transfer {
 
   public static final String SERIALIZED_NAME_FEE = "fee";
   @SerializedName(SERIALIZED_NAME_FEE)
-  private String fee;
+  private Long fee;
 
   public static final String SERIALIZED_NAME_FEE_TYPE = "fee_type";
   @SerializedName(SERIALIZED_NAME_FEE_TYPE)
@@ -192,7 +192,7 @@ public class Transfer {
 
   public static final String SERIALIZED_NAME_RAW = "raw";
   @SerializedName(SERIALIZED_NAME_RAW)
-  private Object raw;
+  private Raw raw;
 
   public static final String SERIALIZED_NAME_READY_TO_SETTLE_AT = "ready_to_settle_at";
   @SerializedName(SERIALIZED_NAME_READY_TO_SETTLE_AT)
@@ -203,7 +203,7 @@ public class Transfer {
   private String source;
 
   /**
-   * Gets or Sets state
+   * The stauts of the &#x60;Transfer&#x60;.
    */
   @JsonAdapter(StateEnum.Adapter.class)
   public enum StateEnum {
@@ -264,7 +264,7 @@ public class Transfer {
   private String statementDescriptor;
 
   /**
-   * Gets or Sets subtype
+   * Additional information describing the &#x60;payment_type&#x60;.
    */
   @JsonAdapter(SubtypeEnum.Adapter.class)
   public enum SubtypeEnum {
@@ -397,11 +397,11 @@ public class Transfer {
   }
 
    /**
-   * Get type
+   * Type of &#x60;Transfer&#x60;.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Type of `Transfer`.")
 
   public TypeEnum getType() {
     return type;
@@ -420,11 +420,11 @@ public class Transfer {
   }
 
    /**
-   * The ID of the resource.
+   * The ID of the &#x60;Transfer&#x60; resource.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the resource.")
+  @ApiModelProperty(value = "The ID of the `Transfer` resource.")
 
   public String getId() {
     return id;
@@ -443,11 +443,11 @@ public class Transfer {
   }
 
    /**
-   * Timestamp of when the object was created
+   * Timestamp of when the object was created.
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the object was created")
+  @ApiModelProperty(value = "Timestamp of when the object was created.")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -466,11 +466,11 @@ public class Transfer {
   }
 
    /**
-   * Timestamp of when the object was last updated
+   * Timestamp of when the object was last updated.
    * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the object was last updated")
+  @ApiModelProperty(value = "Timestamp of when the object was last updated.")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -482,25 +482,25 @@ public class Transfer {
   }
 
 
-  public Transfer amount(BigDecimal amount) {
+  public Transfer amount(Long amount) {
     
     this.amount = amount;
     return this;
   }
 
    /**
-   * Get amount
+   * The total amount that will be debited in cents (e.g. 100 cents to debit $1.00).
    * @return amount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The total amount that will be debited in cents (e.g. 100 cents to debit $1.00).")
 
-  public BigDecimal getAmount() {
+  public Long getAmount() {
     return amount;
   }
 
 
-  public void setAmount(BigDecimal amount) {
+  public void setAmount(Long amount) {
     this.amount = amount;
   }
 
@@ -528,7 +528,7 @@ public class Transfer {
   }
 
 
-  public Transfer cardPresentDetails(CardPresentDetails1 cardPresentDetails) {
+  public Transfer cardPresentDetails(CardPresentDetails cardPresentDetails) {
     
     this.cardPresentDetails = cardPresentDetails;
     return this;
@@ -541,12 +541,12 @@ public class Transfer {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public CardPresentDetails1 getCardPresentDetails() {
+  public CardPresentDetails getCardPresentDetails() {
     return cardPresentDetails;
   }
 
 
-  public void setCardPresentDetails(CardPresentDetails1 cardPresentDetails) {
+  public void setCardPresentDetails(CardPresentDetails cardPresentDetails) {
     this.cardPresentDetails = cardPresentDetails;
   }
 
@@ -620,25 +620,25 @@ public class Transfer {
   }
 
 
-  public Transfer fee(String fee) {
+  public Transfer fee(Long fee) {
     
     this.fee = fee;
     return this;
   }
 
    /**
-   * The ID of the resource.
+   * The amount of the &#x60;Transfer&#x60; you&#39;d like to collect as your fee in cents. Defaults to zero (must be less than or equal to the &#x60;amount&#x60;).
    * @return fee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the resource.")
+  @ApiModelProperty(value = "The amount of the `Transfer` you'd like to collect as your fee in cents. Defaults to zero (must be less than or equal to the `amount`).")
 
-  public String getFee() {
+  public Long getFee() {
     return fee;
   }
 
 
-  public void setFee(String fee) {
+  public void setFee(Long fee) {
     this.fee = fee;
   }
 
@@ -673,11 +673,11 @@ public class Transfer {
   }
 
    /**
-   * Id to [idempotently](#section/Idempotency-Requests) identifty the transfer.
+   * ID to [idempotently](#section/Idempotency-Requests) identifty the transfer.
    * @return idempotencyId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Id to [idempotently](#section/Idempotency-Requests) identifty the transfer.")
+  @ApiModelProperty(value = "ID to [idempotently](#section/Idempotency-Requests) identifty the transfer.")
 
   public String getIdempotencyId() {
     return idempotencyId;
@@ -766,25 +766,25 @@ public class Transfer {
   }
 
 
-  public Transfer raw(Object raw) {
+  public Transfer raw(Raw raw) {
     
     this.raw = raw;
     return this;
   }
 
    /**
-   * Raw response from the processor
+   * Get raw
    * @return raw
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Raw response from the processor")
+  @ApiModelProperty(value = "")
 
-  public Object getRaw() {
+  public Raw getRaw() {
     return raw;
   }
 
 
-  public void setRaw(Object raw) {
+  public void setRaw(Raw raw) {
     this.raw = raw;
   }
 
@@ -796,11 +796,11 @@ public class Transfer {
   }
 
    /**
-   * Get readyToSettleAt
+   * Timestamp of when the &#x60;Transfer&#x60; is ready to be settled at.
    * @return readyToSettleAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Timestamp of when the `Transfer` is ready to be settled at.")
 
   public OffsetDateTime getReadyToSettleAt() {
     return readyToSettleAt;
@@ -842,11 +842,11 @@ public class Transfer {
   }
 
    /**
-   * Get state
+   * The stauts of the &#x60;Transfer&#x60;.
    * @return state
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The stauts of the `Transfer`.")
 
   public StateEnum getState() {
     return state;
@@ -865,11 +865,11 @@ public class Transfer {
   }
 
    /**
-   * Get statementDescriptor
+   * The description of the merchant that appears on the buyer&#39;s bank or card statement.
    * @return statementDescriptor
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The description of the merchant that appears on the buyer's bank or card statement.")
 
   public String getStatementDescriptor() {
     return statementDescriptor;
@@ -888,11 +888,11 @@ public class Transfer {
   }
 
    /**
-   * Get subtype
+   * Additional information describing the &#x60;payment_type&#x60;.
    * @return subtype
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Additional information describing the `payment_type`.")
 
   public SubtypeEnum getSubtype() {
     return subtype;
@@ -911,11 +911,11 @@ public class Transfer {
   }
 
    /**
-   * Get traceId
+   * Trace ID of the &#x60;Transfer&#x60;. The processor sends back the &#x60;trace_id&#x60; so you can track the &#x60;transfer&#x60; end-to-end.
    * @return traceId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Trace ID of the `Transfer`. The processor sends back the `trace_id` so you can track the `transfer` end-to-end.")
 
   public String getTraceId() {
     return traceId;
@@ -1119,16 +1119,13 @@ public class Transfer {
       }
       // validate the optional field `card_present_details`
       if (jsonObj.getAsJsonObject("card_present_details") != null) {
-       CardPresentDetails1.validateJsonObject(jsonObj.getAsJsonObject("card_present_details"));
+       CardPresentDetails.validateJsonObject(jsonObj.getAsJsonObject("card_present_details"));
       }
       if (jsonObj.get("destination") != null && !jsonObj.get("destination").isJsonNull()  && !jsonObj.get("destination").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `destination` to be a primitive type in the JSON string but got `%s`", jsonObj.get("destination").toString()));
       }
       if (jsonObj.get("device") != null && !jsonObj.get("device").isJsonNull()  && !jsonObj.get("device").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `device` to be a primitive type in the JSON string but got `%s`", jsonObj.get("device").toString()));
-      }
-      if (jsonObj.get("fee") != null && !jsonObj.get("fee").isJsonNull()  && !jsonObj.get("fee").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fee` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee").toString()));
       }
       if (jsonObj.get("idempotency_id") != null && !jsonObj.get("idempotency_id").isJsonNull()  && !jsonObj.get("idempotency_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `idempotency_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("idempotency_id").toString()));
@@ -1142,6 +1139,10 @@ public class Transfer {
       // ensure the json data is an array
       if (jsonObj.get("messages") != null && !jsonObj.get("messages").isJsonNull() && !jsonObj.get("messages").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `messages` to be an array in the JSON string but got `%s`", jsonObj.get("messages").toString()));
+      }
+      // validate the optional field `raw`
+      if (!jsonObj.get("raw").isJsonNull() && jsonObj.getAsJsonObject("raw") != null ) {
+       Raw.validateJsonObject(jsonObj.getAsJsonObject("raw"));
       }
       if (jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()  && !jsonObj.get("source").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source").toString()));

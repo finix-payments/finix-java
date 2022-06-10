@@ -23,7 +23,9 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,11 +51,11 @@ import invoker.JSON;
  * VerificationForm
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class VerificationForm {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private Object tags;
+  private Map<String, String> tags = null;
 
   public static final String SERIALIZED_NAME_IDENTITY = "identity";
   @SerializedName(SERIALIZED_NAME_IDENTITY)
@@ -74,25 +76,33 @@ public class VerificationForm {
   public VerificationForm() { 
   }
 
-  public VerificationForm tags(Object tags) {
+  public VerificationForm tags(Map<String, String> tags) {
     
     this.tags = tags;
     return this;
   }
 
+  public VerificationForm putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
+    return this;
+  }
+
    /**
-   * Get tags
+   * Key value pair for annotating custom meta data (e.g. order numbers).
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
 
-  public Object getTags() {
+  public Map<String, String> getTags() {
     return tags;
   }
 
 
-  public void setTags(Object tags) {
+  public void setTags(Map<String, String> tags) {
     this.tags = tags;
   }
 
@@ -104,11 +114,11 @@ public class VerificationForm {
   }
 
    /**
-   * Get identity
+   * ID of the &#x60;Identity&#x60; resource associated with the &#x60;Merchant&#x60;.
    * @return identity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "ID of the `Identity` resource associated with the `Merchant`.")
 
   public String getIdentity() {
     return identity;
@@ -127,11 +137,11 @@ public class VerificationForm {
   }
 
    /**
-   * Get instrument
+   * The &#x60;Payment Instrument&#x60; that&#39;ll be used to settle the &#x60;Merchant&#39;s&#x60; funds.
    * @return instrument
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The `Payment Instrument` that'll be used to settle the `Merchant's` funds.")
 
   public String getInstrument() {
     return instrument;
@@ -150,11 +160,11 @@ public class VerificationForm {
   }
 
    /**
-   * Get merchant
+   * The ID of the &#x60;Merchant&#x60;.
    * @return merchant
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the `Merchant`.")
 
   public String getMerchant() {
     return merchant;
@@ -173,11 +183,11 @@ public class VerificationForm {
   }
 
    /**
-   * Get processor
+   * Name of the &#x60;Verification&#x60; processor.
    * @return processor
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Name of the `Verification` processor.")
 
   public String getProcessor() {
     return processor;
@@ -206,20 +216,9 @@ public class VerificationForm {
         Objects.equals(this.processor, verificationForm.processor);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
     return Objects.hash(tags, identity, instrument, merchant, processor);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

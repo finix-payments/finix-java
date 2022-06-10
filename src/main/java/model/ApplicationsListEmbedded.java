@@ -52,7 +52,7 @@ import invoker.JSON;
  * ApplicationsListEmbedded
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class ApplicationsListEmbedded {
   public static final String SERIALIZED_NAME_APPLICATIONS = "applications";
   @SerializedName(SERIALIZED_NAME_APPLICATIONS)
@@ -76,11 +76,11 @@ public class ApplicationsListEmbedded {
   }
 
    /**
-   * Get applications
+   * &#x60;Application&#x60; resource.
    * @return applications
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "`Application` resource.")
 
   public Set<Application> getApplications() {
     return applications;

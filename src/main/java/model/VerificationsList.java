@@ -51,12 +51,8 @@ import invoker.JSON;
  * VerificationsList
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class VerificationsList {
-  public static final String SERIALIZED_NAME_PAGE = "page";
-  @SerializedName(SERIALIZED_NAME_PAGE)
-  private ApplicationProfilesListPage page;
-
   public static final String SERIALIZED_NAME_EMBEDDED = "_embedded";
   @SerializedName(SERIALIZED_NAME_EMBEDDED)
   private VerificationsListEmbedded embedded;
@@ -65,31 +61,12 @@ public class VerificationsList {
   @SerializedName(SERIALIZED_NAME_LINKS)
   private ListLinks links;
 
+  public static final String SERIALIZED_NAME_PAGE = "page";
+  @SerializedName(SERIALIZED_NAME_PAGE)
+  private ApplicationProfilesListPage page;
+
   public VerificationsList() { 
   }
-
-  public VerificationsList page(ApplicationProfilesListPage page) {
-    
-    this.page = page;
-    return this;
-  }
-
-   /**
-   * Get page
-   * @return page
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public ApplicationProfilesListPage getPage() {
-    return page;
-  }
-
-
-  public void setPage(ApplicationProfilesListPage page) {
-    this.page = page;
-  }
-
 
   public VerificationsList embedded(VerificationsListEmbedded embedded) {
     
@@ -137,6 +114,29 @@ public class VerificationsList {
   }
 
 
+  public VerificationsList page(ApplicationProfilesListPage page) {
+    
+    this.page = page;
+    return this;
+  }
+
+   /**
+   * Get page
+   * @return page
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ApplicationProfilesListPage getPage() {
+    return page;
+  }
+
+
+  public void setPage(ApplicationProfilesListPage page) {
+    this.page = page;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -147,23 +147,23 @@ public class VerificationsList {
       return false;
     }
     VerificationsList verificationsList = (VerificationsList) o;
-    return Objects.equals(this.page, verificationsList.page) &&
-        Objects.equals(this.embedded, verificationsList.embedded) &&
-        Objects.equals(this.links, verificationsList.links);
+    return Objects.equals(this.embedded, verificationsList.embedded) &&
+        Objects.equals(this.links, verificationsList.links) &&
+        Objects.equals(this.page, verificationsList.page);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(page, embedded, links);
+    return Objects.hash(embedded, links, page);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class VerificationsList {\n");
-    sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    embedded: ").append(toIndentedString(embedded)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -186,9 +186,9 @@ public class VerificationsList {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("page");
     openapiFields.add("_embedded");
     openapiFields.add("_links");
+    openapiFields.add("page");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -218,10 +218,6 @@ public class VerificationsList {
         }
       }
       */
-      // validate the optional field `page`
-      if (jsonObj.getAsJsonObject("page") != null) {
-       ApplicationProfilesListPage.validateJsonObject(jsonObj.getAsJsonObject("page"));
-      }
       // validate the optional field `_embedded`
       if (jsonObj.getAsJsonObject("_embedded") != null) {
        VerificationsListEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
@@ -229,6 +225,10 @@ public class VerificationsList {
       // validate the optional field `_links`
       if (jsonObj.getAsJsonObject("_links") != null) {
        ListLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+      }
+      // validate the optional field `page`
+      if (jsonObj.getAsJsonObject("page") != null) {
+       ApplicationProfilesListPage.validateJsonObject(jsonObj.getAsJsonObject("page"));
       }
   }
 

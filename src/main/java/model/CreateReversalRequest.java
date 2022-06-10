@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -52,11 +51,11 @@ import invoker.JSON;
  * CreateReversalRequest
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class CreateReversalRequest {
   public static final String SERIALIZED_NAME_REFUND_AMOUNT = "refund_amount";
   @SerializedName(SERIALIZED_NAME_REFUND_AMOUNT)
-  private BigDecimal refundAmount;
+  private Integer refundAmount;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -65,7 +64,7 @@ public class CreateReversalRequest {
   public CreateReversalRequest() { 
   }
 
-  public CreateReversalRequest refundAmount(BigDecimal refundAmount) {
+  public CreateReversalRequest refundAmount(Integer refundAmount) {
     
     this.refundAmount = refundAmount;
     return this;
@@ -75,15 +74,15 @@ public class CreateReversalRequest {
    * The amount of the refund in cents. It must be equal to or less than the amount of the original &#x60;Transfer&#x60;.
    * @return refundAmount
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The amount of the refund in cents. It must be equal to or less than the amount of the original `Transfer`.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The amount of the refund in cents. It must be equal to or less than the amount of the original `Transfer`.")
 
-  public BigDecimal getRefundAmount() {
+  public Integer getRefundAmount() {
     return refundAmount;
   }
 
 
-  public void setRefundAmount(BigDecimal refundAmount) {
+  public void setRefundAmount(Integer refundAmount) {
     this.refundAmount = refundAmount;
   }
 
@@ -171,7 +170,6 @@ public class CreateReversalRequest {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("refund_amount");
   }
 
  /**
@@ -198,13 +196,6 @@ public class CreateReversalRequest {
         }
       }
       */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : CreateReversalRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
   }
 
 

@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,47 +49,47 @@ import invoker.JSON;
  */
 @ApiModel(description = "The control owner's date of birth. ")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class UpdateIdentityRequestEntityDob {
   public static final String SERIALIZED_NAME_YEAR = "year";
   @SerializedName(SERIALIZED_NAME_YEAR)
-  private BigDecimal year;
+  private Integer year;
 
   public static final String SERIALIZED_NAME_DAY = "day";
   @SerializedName(SERIALIZED_NAME_DAY)
-  private BigDecimal day;
+  private Integer day;
 
   public static final String SERIALIZED_NAME_MONTH = "month";
   @SerializedName(SERIALIZED_NAME_MONTH)
-  private BigDecimal month;
+  private Integer month;
 
   public UpdateIdentityRequestEntityDob() { 
   }
 
-  public UpdateIdentityRequestEntityDob year(BigDecimal year) {
+  public UpdateIdentityRequestEntityDob year(Integer year) {
     
     this.year = year;
     return this;
   }
 
    /**
-   * The control owner&#39;s date of birth.
+   * Get year
    * @return year
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The control owner's date of birth.")
+  @ApiModelProperty(value = "")
 
-  public BigDecimal getYear() {
+  public Integer getYear() {
     return year;
   }
 
 
-  public void setYear(BigDecimal year) {
+  public void setYear(Integer year) {
     this.year = year;
   }
 
 
-  public UpdateIdentityRequestEntityDob day(BigDecimal day) {
+  public UpdateIdentityRequestEntityDob day(Integer day) {
     
     this.day = day;
     return this;
@@ -103,17 +102,17 @@ public class UpdateIdentityRequestEntityDob {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getDay() {
+  public Integer getDay() {
     return day;
   }
 
 
-  public void setDay(BigDecimal day) {
+  public void setDay(Integer day) {
     this.day = day;
   }
 
 
-  public UpdateIdentityRequestEntityDob month(BigDecimal month) {
+  public UpdateIdentityRequestEntityDob month(Integer month) {
     
     this.month = month;
     return this;
@@ -126,12 +125,12 @@ public class UpdateIdentityRequestEntityDob {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getMonth() {
+  public Integer getMonth() {
     return month;
   }
 
 
-  public void setMonth(BigDecimal month) {
+  public void setMonth(Integer month) {
     this.month = month;
   }
 

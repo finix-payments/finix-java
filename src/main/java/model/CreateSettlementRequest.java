@@ -52,7 +52,7 @@ import invoker.JSON;
  * CreateSettlementRequest
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class CreateSettlementRequest {
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
   @SerializedName(SERIALIZED_NAME_CURRENCY)
@@ -103,11 +103,11 @@ public class CreateSettlementRequest {
   }
 
    /**
-   * If the Application has more than one processor association, it&#39;s required to pass the processor (e.g. DUMMY_V1)
+   * If the &#x60;Application&#x60; has more than one associated &#x60;processor&#x60;, it&#39;s required when creating &#x60;settlements&#x60; to include the &#x60;processor&#x60; (e.g. DUMMY_V1).
    * @return processor
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "If the Application has more than one processor association, it's required to pass the processor (e.g. DUMMY_V1)")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "If the `Application` has more than one associated `processor`, it's required when creating `settlements` to include the `processor` (e.g. DUMMY_V1).")
 
   public String getProcessor() {
     return processor;
@@ -126,11 +126,11 @@ public class CreateSettlementRequest {
   }
 
    /**
-   * If the Application has more than one processor association, this field is required
+   * If the &#x60;Application&#x60; has more than one associated &#x60;processor&#x60;, this field is required.
    * @return merchantId
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "If the Application has more than one processor association, this field is required")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "If the `Application` has more than one associated `processor`, this field is required.")
 
   public String getMerchantId() {
     return merchantId;
@@ -231,6 +231,8 @@ public class CreateSettlementRequest {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("processor");
+    openapiRequiredFields.add("merchant_id");
   }
 
  /**
@@ -257,6 +259,13 @@ public class CreateSettlementRequest {
         }
       }
       */
+
+      // check to make sure all required properties/fields are present in the JSON string
+      /*for (String requiredField : CreateSettlementRequest.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }*/
       if (jsonObj.get("processor") != null && !jsonObj.get("processor").isJsonNull()  && !jsonObj.get("processor").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `processor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("processor").toString()));
       }

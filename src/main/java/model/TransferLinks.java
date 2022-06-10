@@ -23,7 +23,17 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.ApplicationLinksApplicationProfile;
+import model.ApplicationLinksSelf;
+import model.ApplicationProfileLinksApplication;
+import model.AuthorizationLinksDevice;
+import model.AuthorizationLinksMerchantIdentity;
+import model.TransferLinksDestination;
+import model.TransferLinksDisputes;
+import model.TransferLinksFeeProfile;
+import model.TransferLinksFees;
+import model.TransferLinksPaymentInstruments;
+import model.TransferLinksReversals;
+import model.TransferLinksSource;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,59 +56,60 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * TransferLinks
+ * For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these &#x60;_links&#x60; to make your follow-up requests and quickly access relevant IDs.
  */
+@ApiModel(description = "For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class TransferLinks {
   public static final String SERIALIZED_NAME_APPLICATION = "application";
   @SerializedName(SERIALIZED_NAME_APPLICATION)
-  private ApplicationLinksApplicationProfile application;
+  private ApplicationProfileLinksApplication application;
 
   public static final String SERIALIZED_NAME_DESTINATION = "destination";
   @SerializedName(SERIALIZED_NAME_DESTINATION)
-  private ApplicationLinksApplicationProfile destination;
+  private TransferLinksDestination destination;
 
   public static final String SERIALIZED_NAME_DEVICE = "device";
   @SerializedName(SERIALIZED_NAME_DEVICE)
-  private ApplicationLinksApplicationProfile device;
+  private AuthorizationLinksDevice device;
 
   public static final String SERIALIZED_NAME_DISPUTES = "disputes";
   @SerializedName(SERIALIZED_NAME_DISPUTES)
-  private ApplicationLinksApplicationProfile disputes;
+  private TransferLinksDisputes disputes;
 
   public static final String SERIALIZED_NAME_FEE_PROFILE = "fee_profile";
   @SerializedName(SERIALIZED_NAME_FEE_PROFILE)
-  private ApplicationLinksApplicationProfile feeProfile;
+  private TransferLinksFeeProfile feeProfile;
 
   public static final String SERIALIZED_NAME_FEES = "fees";
   @SerializedName(SERIALIZED_NAME_FEES)
-  private ApplicationLinksApplicationProfile fees;
+  private TransferLinksFees fees;
 
   public static final String SERIALIZED_NAME_MERCHANT_IDENTITY = "merchant_identity";
   @SerializedName(SERIALIZED_NAME_MERCHANT_IDENTITY)
-  private ApplicationLinksApplicationProfile merchantIdentity;
+  private AuthorizationLinksMerchantIdentity merchantIdentity;
 
   public static final String SERIALIZED_NAME_PAYMENT_INSTRUMENTS = "payment_instruments";
   @SerializedName(SERIALIZED_NAME_PAYMENT_INSTRUMENTS)
-  private ApplicationLinksApplicationProfile paymentInstruments;
+  private TransferLinksPaymentInstruments paymentInstruments;
 
   public static final String SERIALIZED_NAME_REVERSALS = "reversals";
   @SerializedName(SERIALIZED_NAME_REVERSALS)
-  private ApplicationLinksApplicationProfile reversals;
+  private TransferLinksReversals reversals;
 
   public static final String SERIALIZED_NAME_SELF = "self";
   @SerializedName(SERIALIZED_NAME_SELF)
-  private ApplicationLinksApplicationProfile self;
+  private ApplicationLinksSelf self;
 
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
-  private ApplicationLinksApplicationProfile source;
+  private TransferLinksSource source;
 
   public TransferLinks() { 
   }
 
-  public TransferLinks application(ApplicationLinksApplicationProfile application) {
+  public TransferLinks application(ApplicationProfileLinksApplication application) {
     
     this.application = application;
     return this;
@@ -111,17 +122,17 @@ public class TransferLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getApplication() {
+  public ApplicationProfileLinksApplication getApplication() {
     return application;
   }
 
 
-  public void setApplication(ApplicationLinksApplicationProfile application) {
+  public void setApplication(ApplicationProfileLinksApplication application) {
     this.application = application;
   }
 
 
-  public TransferLinks destination(ApplicationLinksApplicationProfile destination) {
+  public TransferLinks destination(TransferLinksDestination destination) {
     
     this.destination = destination;
     return this;
@@ -134,17 +145,17 @@ public class TransferLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getDestination() {
+  public TransferLinksDestination getDestination() {
     return destination;
   }
 
 
-  public void setDestination(ApplicationLinksApplicationProfile destination) {
+  public void setDestination(TransferLinksDestination destination) {
     this.destination = destination;
   }
 
 
-  public TransferLinks device(ApplicationLinksApplicationProfile device) {
+  public TransferLinks device(AuthorizationLinksDevice device) {
     
     this.device = device;
     return this;
@@ -157,17 +168,17 @@ public class TransferLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getDevice() {
+  public AuthorizationLinksDevice getDevice() {
     return device;
   }
 
 
-  public void setDevice(ApplicationLinksApplicationProfile device) {
+  public void setDevice(AuthorizationLinksDevice device) {
     this.device = device;
   }
 
 
-  public TransferLinks disputes(ApplicationLinksApplicationProfile disputes) {
+  public TransferLinks disputes(TransferLinksDisputes disputes) {
     
     this.disputes = disputes;
     return this;
@@ -180,17 +191,17 @@ public class TransferLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getDisputes() {
+  public TransferLinksDisputes getDisputes() {
     return disputes;
   }
 
 
-  public void setDisputes(ApplicationLinksApplicationProfile disputes) {
+  public void setDisputes(TransferLinksDisputes disputes) {
     this.disputes = disputes;
   }
 
 
-  public TransferLinks feeProfile(ApplicationLinksApplicationProfile feeProfile) {
+  public TransferLinks feeProfile(TransferLinksFeeProfile feeProfile) {
     
     this.feeProfile = feeProfile;
     return this;
@@ -203,17 +214,17 @@ public class TransferLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getFeeProfile() {
+  public TransferLinksFeeProfile getFeeProfile() {
     return feeProfile;
   }
 
 
-  public void setFeeProfile(ApplicationLinksApplicationProfile feeProfile) {
+  public void setFeeProfile(TransferLinksFeeProfile feeProfile) {
     this.feeProfile = feeProfile;
   }
 
 
-  public TransferLinks fees(ApplicationLinksApplicationProfile fees) {
+  public TransferLinks fees(TransferLinksFees fees) {
     
     this.fees = fees;
     return this;
@@ -226,17 +237,17 @@ public class TransferLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getFees() {
+  public TransferLinksFees getFees() {
     return fees;
   }
 
 
-  public void setFees(ApplicationLinksApplicationProfile fees) {
+  public void setFees(TransferLinksFees fees) {
     this.fees = fees;
   }
 
 
-  public TransferLinks merchantIdentity(ApplicationLinksApplicationProfile merchantIdentity) {
+  public TransferLinks merchantIdentity(AuthorizationLinksMerchantIdentity merchantIdentity) {
     
     this.merchantIdentity = merchantIdentity;
     return this;
@@ -249,17 +260,17 @@ public class TransferLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getMerchantIdentity() {
+  public AuthorizationLinksMerchantIdentity getMerchantIdentity() {
     return merchantIdentity;
   }
 
 
-  public void setMerchantIdentity(ApplicationLinksApplicationProfile merchantIdentity) {
+  public void setMerchantIdentity(AuthorizationLinksMerchantIdentity merchantIdentity) {
     this.merchantIdentity = merchantIdentity;
   }
 
 
-  public TransferLinks paymentInstruments(ApplicationLinksApplicationProfile paymentInstruments) {
+  public TransferLinks paymentInstruments(TransferLinksPaymentInstruments paymentInstruments) {
     
     this.paymentInstruments = paymentInstruments;
     return this;
@@ -272,17 +283,17 @@ public class TransferLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getPaymentInstruments() {
+  public TransferLinksPaymentInstruments getPaymentInstruments() {
     return paymentInstruments;
   }
 
 
-  public void setPaymentInstruments(ApplicationLinksApplicationProfile paymentInstruments) {
+  public void setPaymentInstruments(TransferLinksPaymentInstruments paymentInstruments) {
     this.paymentInstruments = paymentInstruments;
   }
 
 
-  public TransferLinks reversals(ApplicationLinksApplicationProfile reversals) {
+  public TransferLinks reversals(TransferLinksReversals reversals) {
     
     this.reversals = reversals;
     return this;
@@ -295,17 +306,17 @@ public class TransferLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getReversals() {
+  public TransferLinksReversals getReversals() {
     return reversals;
   }
 
 
-  public void setReversals(ApplicationLinksApplicationProfile reversals) {
+  public void setReversals(TransferLinksReversals reversals) {
     this.reversals = reversals;
   }
 
 
-  public TransferLinks self(ApplicationLinksApplicationProfile self) {
+  public TransferLinks self(ApplicationLinksSelf self) {
     
     this.self = self;
     return this;
@@ -318,17 +329,17 @@ public class TransferLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getSelf() {
+  public ApplicationLinksSelf getSelf() {
     return self;
   }
 
 
-  public void setSelf(ApplicationLinksApplicationProfile self) {
+  public void setSelf(ApplicationLinksSelf self) {
     this.self = self;
   }
 
 
-  public TransferLinks source(ApplicationLinksApplicationProfile source) {
+  public TransferLinks source(TransferLinksSource source) {
     
     this.source = source;
     return this;
@@ -341,12 +352,12 @@ public class TransferLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getSource() {
+  public TransferLinksSource getSource() {
     return source;
   }
 
 
-  public void setSource(ApplicationLinksApplicationProfile source) {
+  public void setSource(TransferLinksSource source) {
     this.source = source;
   }
 
@@ -458,47 +469,47 @@ public class TransferLinks {
       */
       // validate the optional field `application`
       if (jsonObj.getAsJsonObject("application") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("application"));
+       ApplicationProfileLinksApplication.validateJsonObject(jsonObj.getAsJsonObject("application"));
       }
       // validate the optional field `destination`
       if (jsonObj.getAsJsonObject("destination") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("destination"));
+       TransferLinksDestination.validateJsonObject(jsonObj.getAsJsonObject("destination"));
       }
       // validate the optional field `device`
       if (jsonObj.getAsJsonObject("device") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("device"));
+       AuthorizationLinksDevice.validateJsonObject(jsonObj.getAsJsonObject("device"));
       }
       // validate the optional field `disputes`
       if (jsonObj.getAsJsonObject("disputes") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("disputes"));
+       TransferLinksDisputes.validateJsonObject(jsonObj.getAsJsonObject("disputes"));
       }
       // validate the optional field `fee_profile`
       if (jsonObj.getAsJsonObject("fee_profile") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("fee_profile"));
+       TransferLinksFeeProfile.validateJsonObject(jsonObj.getAsJsonObject("fee_profile"));
       }
       // validate the optional field `fees`
       if (jsonObj.getAsJsonObject("fees") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("fees"));
+       TransferLinksFees.validateJsonObject(jsonObj.getAsJsonObject("fees"));
       }
       // validate the optional field `merchant_identity`
       if (jsonObj.getAsJsonObject("merchant_identity") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("merchant_identity"));
+       AuthorizationLinksMerchantIdentity.validateJsonObject(jsonObj.getAsJsonObject("merchant_identity"));
       }
       // validate the optional field `payment_instruments`
       if (jsonObj.getAsJsonObject("payment_instruments") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("payment_instruments"));
+       TransferLinksPaymentInstruments.validateJsonObject(jsonObj.getAsJsonObject("payment_instruments"));
       }
       // validate the optional field `reversals`
       if (jsonObj.getAsJsonObject("reversals") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("reversals"));
+       TransferLinksReversals.validateJsonObject(jsonObj.getAsJsonObject("reversals"));
       }
       // validate the optional field `self`
       if (jsonObj.getAsJsonObject("self") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("self"));
+       ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
       }
       // validate the optional field `source`
       if (jsonObj.getAsJsonObject("source") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("source"));
+       TransferLinksSource.validateJsonObject(jsonObj.getAsJsonObject("source"));
       }
   }
 

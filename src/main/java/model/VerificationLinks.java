@@ -23,7 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.ApplicationLinksApplicationProfile;
+import model.MerchantLinksSelf;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,127 +46,20 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * VerificationLinks
+ * For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these &#x60;_links&#x60; to make your follow-up requests and quickly access relevant IDs.
  */
+@ApiModel(description = "For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-08T14:39:47.140342-05:00[America/Chicago]")
 public class VerificationLinks {
-  public static final String SERIALIZED_NAME_APPLICATION = "application";
-  @SerializedName(SERIALIZED_NAME_APPLICATION)
-  private ApplicationLinksApplicationProfile application;
-
-  public static final String SERIALIZED_NAME_IDENTITY = "identity";
-  @SerializedName(SERIALIZED_NAME_IDENTITY)
-  private ApplicationLinksApplicationProfile identity;
-
-  public static final String SERIALIZED_NAME_MERCHANT = "merchant";
-  @SerializedName(SERIALIZED_NAME_MERCHANT)
-  private ApplicationLinksApplicationProfile merchant;
-
-  public static final String SERIALIZED_NAME_PAYMENT_INSTRUMENT = "payment_instrument";
-  @SerializedName(SERIALIZED_NAME_PAYMENT_INSTRUMENT)
-  private ApplicationLinksApplicationProfile paymentInstrument;
-
   public static final String SERIALIZED_NAME_SELF = "self";
   @SerializedName(SERIALIZED_NAME_SELF)
-  private ApplicationLinksApplicationProfile self;
+  private MerchantLinksSelf self;
 
   public VerificationLinks() { 
   }
 
-  public VerificationLinks application(ApplicationLinksApplicationProfile application) {
-    
-    this.application = application;
-    return this;
-  }
-
-   /**
-   * Get application
-   * @return application
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public ApplicationLinksApplicationProfile getApplication() {
-    return application;
-  }
-
-
-  public void setApplication(ApplicationLinksApplicationProfile application) {
-    this.application = application;
-  }
-
-
-  public VerificationLinks identity(ApplicationLinksApplicationProfile identity) {
-    
-    this.identity = identity;
-    return this;
-  }
-
-   /**
-   * Get identity
-   * @return identity
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public ApplicationLinksApplicationProfile getIdentity() {
-    return identity;
-  }
-
-
-  public void setIdentity(ApplicationLinksApplicationProfile identity) {
-    this.identity = identity;
-  }
-
-
-  public VerificationLinks merchant(ApplicationLinksApplicationProfile merchant) {
-    
-    this.merchant = merchant;
-    return this;
-  }
-
-   /**
-   * Get merchant
-   * @return merchant
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public ApplicationLinksApplicationProfile getMerchant() {
-    return merchant;
-  }
-
-
-  public void setMerchant(ApplicationLinksApplicationProfile merchant) {
-    this.merchant = merchant;
-  }
-
-
-  public VerificationLinks paymentInstrument(ApplicationLinksApplicationProfile paymentInstrument) {
-    
-    this.paymentInstrument = paymentInstrument;
-    return this;
-  }
-
-   /**
-   * Get paymentInstrument
-   * @return paymentInstrument
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public ApplicationLinksApplicationProfile getPaymentInstrument() {
-    return paymentInstrument;
-  }
-
-
-  public void setPaymentInstrument(ApplicationLinksApplicationProfile paymentInstrument) {
-    this.paymentInstrument = paymentInstrument;
-  }
-
-
-  public VerificationLinks self(ApplicationLinksApplicationProfile self) {
+  public VerificationLinks self(MerchantLinksSelf self) {
     
     this.self = self;
     return this;
@@ -179,12 +72,12 @@ public class VerificationLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getSelf() {
+  public MerchantLinksSelf getSelf() {
     return self;
   }
 
 
-  public void setSelf(ApplicationLinksApplicationProfile self) {
+  public void setSelf(MerchantLinksSelf self) {
     this.self = self;
   }
 
@@ -199,26 +92,18 @@ public class VerificationLinks {
       return false;
     }
     VerificationLinks verificationLinks = (VerificationLinks) o;
-    return Objects.equals(this.application, verificationLinks.application) &&
-        Objects.equals(this.identity, verificationLinks.identity) &&
-        Objects.equals(this.merchant, verificationLinks.merchant) &&
-        Objects.equals(this.paymentInstrument, verificationLinks.paymentInstrument) &&
-        Objects.equals(this.self, verificationLinks.self);
+    return Objects.equals(this.self, verificationLinks.self);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(application, identity, merchant, paymentInstrument, self);
+    return Objects.hash(self);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class VerificationLinks {\n");
-    sb.append("    application: ").append(toIndentedString(application)).append("\n");
-    sb.append("    identity: ").append(toIndentedString(identity)).append("\n");
-    sb.append("    merchant: ").append(toIndentedString(merchant)).append("\n");
-    sb.append("    paymentInstrument: ").append(toIndentedString(paymentInstrument)).append("\n");
     sb.append("    self: ").append(toIndentedString(self)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -242,10 +127,6 @@ public class VerificationLinks {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("application");
-    openapiFields.add("identity");
-    openapiFields.add("merchant");
-    openapiFields.add("payment_instrument");
     openapiFields.add("self");
 
     // a set of required properties/fields (JSON key names)
@@ -276,25 +157,9 @@ public class VerificationLinks {
         }
       }
       */
-      // validate the optional field `application`
-      if (jsonObj.getAsJsonObject("application") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("application"));
-      }
-      // validate the optional field `identity`
-      if (jsonObj.getAsJsonObject("identity") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("identity"));
-      }
-      // validate the optional field `merchant`
-      if (jsonObj.getAsJsonObject("merchant") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("merchant"));
-      }
-      // validate the optional field `payment_instrument`
-      if (jsonObj.getAsJsonObject("payment_instrument") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("payment_instrument"));
-      }
       // validate the optional field `self`
       if (jsonObj.getAsJsonObject("self") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("self"));
+       MerchantLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
       }
   }
 

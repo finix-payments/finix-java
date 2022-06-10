@@ -45,10 +45,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * UpdateSubscriptionEnrollmentRequest
+ * ID of the &#x60;subscription_enrollment&#x60;.
  */
+@ApiModel(description = "ID of the `subscription_enrollment`.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class UpdateSubscriptionEnrollmentRequest {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -64,11 +65,11 @@ public class UpdateSubscriptionEnrollmentRequest {
   }
 
    /**
-   * Get id
+   * ID of the &#x60;subscription_enrollment&#x60;.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "ID of the `subscription_enrollment`.")
 
   public String getId() {
     return id;

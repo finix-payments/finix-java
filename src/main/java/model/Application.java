@@ -53,7 +53,7 @@ import invoker.JSON;
  * Application
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class Application {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -148,11 +148,11 @@ public class Application {
   }
 
    /**
-   * Get id
+   * ID of the &#x60;Application&#x60; resource.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "APxxxxxxxxxxxxxxxxxx", value = "")
+  @ApiModelProperty(example = "APxxxxxxxxxxxxxxxxxx", value = "ID of the `Application` resource.")
 
   public String getId() {
     return id;
@@ -217,11 +217,11 @@ public class Application {
   }
 
    /**
-   * Get cardCvvRequired
+   * Details if the &#x60;Application&#x60; requires CVV code.
    * @return cardCvvRequired
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Details if the `Application` requires CVV code.")
 
   public Boolean getCardCvvRequired() {
     return cardCvvRequired;
@@ -240,11 +240,11 @@ public class Application {
   }
 
    /**
-   * Get cardExpirationDateRequired
+   * Details if the &#x60;Application&#x60; requires the card&#39;s expiration date.
    * @return cardExpirationDateRequired
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Details if the `Application` requires the card's expiration date.")
 
   public Boolean getCardExpirationDateRequired() {
     return cardExpirationDateRequired;
@@ -263,11 +263,11 @@ public class Application {
   }
 
    /**
-   * Get creatingTransferFromReportEnabled
+   * Details if the &#x60;Application&#x60; is automatically set to create &#x60;Transfers&#x60; once settlement reports get generated.
    * @return creatingTransferFromReportEnabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Details if the `Application` is automatically set to create `Transfers` once settlement reports get generated.")
 
   public Boolean getCreatingTransferFromReportEnabled() {
     return creatingTransferFromReportEnabled;
@@ -286,11 +286,11 @@ public class Application {
   }
 
    /**
-   * Get enabled
+   * Details if the &#x60;Application&#x60; is enabled and active. Set to **false** to disable the &#x60;Application&#x60;.
    * @return enabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Details if the `Application` is enabled and active. Set to **false** to disable the `Application`.")
 
   public Boolean getEnabled() {
     return enabled;
@@ -309,11 +309,11 @@ public class Application {
   }
 
    /**
-   * Get name
+   * The name of the &#x60;Application&#x60;.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name of the `Application`.")
 
   public String getName() {
     return name;
@@ -332,11 +332,11 @@ public class Application {
   }
 
    /**
-   * Get owner
+   * ID of the &#x60;Identity&#x60; resource that created the &#x60;Application&#x60;.
    * @return owner
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "IDxxxxxxxxxxxxxxxxxx", value = "")
+  @ApiModelProperty(example = "IDxxxxxxxxxxxxxxxxxx", value = "ID of the `Identity` resource that created the `Application`.")
 
   public String getOwner() {
     return owner;
@@ -355,11 +355,11 @@ public class Application {
   }
 
    /**
-   * Get processingEnabled
+   * Details if transaction processing is enabled for the &#x60;Application&#x60;. 
    * @return processingEnabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Details if transaction processing is enabled for the `Application`. ")
 
   public Boolean getProcessingEnabled() {
     return processingEnabled;
@@ -378,11 +378,11 @@ public class Application {
   }
 
    /**
-   * Get settlementEnabled
+   * Details if settlement processing is enabled for the &#x60;Application&#x60;. 
    * @return settlementEnabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Details if settlement processing is enabled for the `Application`. ")
 
   public Boolean getSettlementEnabled() {
     return settlementEnabled;

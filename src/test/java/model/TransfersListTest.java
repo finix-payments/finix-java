@@ -21,9 +21,9 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.ApplicationProfilesListPage;
 import model.ListLinks;
-import model.TransferReversalsListEmbedded;
+import model.TransfersListEmbedded;
+import model.TransfersListPage;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

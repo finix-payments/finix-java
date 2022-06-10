@@ -52,7 +52,7 @@ import invoker.JSON;
  * ProcessorsListEmbedded
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class ProcessorsListEmbedded {
   public static final String SERIALIZED_NAME_PROCESSORS = "processors";
   @SerializedName(SERIALIZED_NAME_PROCESSORS)
@@ -76,11 +76,11 @@ public class ProcessorsListEmbedded {
   }
 
    /**
-   * Get processors
+   * &#x60;Processors&#x60; object.
    * @return processors
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "`Processors` object.")
 
   public Set<Processor> getProcessors() {
     return processors;

@@ -44,11 +44,11 @@ public class PaymentInstrumentUpdatesListEmbeddedTest {
     }
 
     /**
-     * Test the property 'paymentInstrumentUpdates'
+     * Test the property 'updates'
      */
     @Test
-    public void paymentInstrumentUpdatesTest() {
-        // TODO: test paymentInstrumentUpdates
+    public void updatesTest() {
+        // TODO: test updates
     }
 
 }

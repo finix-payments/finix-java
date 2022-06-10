@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,6 +31,8 @@ import java.util.Map;
 import model.AuthorizationExternalResponses;
 import model.AuthorizationLinks;
 import model.CardPresentDetails;
+import model.Currency;
+import model.Raw;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -59,7 +60,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "A charge authorization")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class Authorization {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -83,424 +84,23 @@ public class Authorization {
 
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
-  private BigDecimal amount;
+  private Integer amount;
 
   public static final String SERIALIZED_NAME_APPLICATION = "application";
   @SerializedName(SERIALIZED_NAME_APPLICATION)
   private String application;
 
-  public static final String SERIALIZED_NAME_CAPTURE_AMOUNT = "capture_amount";
-  @SerializedName(SERIALIZED_NAME_CAPTURE_AMOUNT)
-  private Long captureAmount;
-
   public static final String SERIALIZED_NAME_CARD_PRESENT_DETAILS = "card_present_details";
   @SerializedName(SERIALIZED_NAME_CARD_PRESENT_DETAILS)
   private CardPresentDetails cardPresentDetails;
 
-  /**
-   * ISO 4217 3 letter currency code
-   */
-  @JsonAdapter(CurrencyEnum.Adapter.class)
-  public enum CurrencyEnum {
-    AED("AED"),
-    
-    AFN("AFN"),
-    
-    ALL("ALL"),
-    
-    AMD("AMD"),
-    
-    ANG("ANG"),
-    
-    AOA("AOA"),
-    
-    ARS("ARS"),
-    
-    AUD("AUD"),
-    
-    AWG("AWG"),
-    
-    AZN("AZN"),
-    
-    BAM("BAM"),
-    
-    BBD("BBD"),
-    
-    BDT("BDT"),
-    
-    BGN("BGN"),
-    
-    BHD("BHD"),
-    
-    BIF("BIF"),
-    
-    BMD("BMD"),
-    
-    BND("BND"),
-    
-    BOB("BOB"),
-    
-    BOV("BOV"),
-    
-    BRL("BRL"),
-    
-    BSD("BSD"),
-    
-    BTN("BTN"),
-    
-    BWP("BWP"),
-    
-    BYR("BYR"),
-    
-    BZD("BZD"),
-    
-    CAD("CAD"),
-    
-    CDF("CDF"),
-    
-    CHE("CHE"),
-    
-    CHF("CHF"),
-    
-    CHW("CHW"),
-    
-    CLF("CLF"),
-    
-    CLP("CLP"),
-    
-    CNY("CNY"),
-    
-    COP("COP"),
-    
-    COU("COU"),
-    
-    CRC("CRC"),
-    
-    CUC("CUC"),
-    
-    CUP("CUP"),
-    
-    CVE("CVE"),
-    
-    CZK("CZK"),
-    
-    DJF("DJF"),
-    
-    DKK("DKK"),
-    
-    DOP("DOP"),
-    
-    DZD("DZD"),
-    
-    EGP("EGP"),
-    
-    ERN("ERN"),
-    
-    ETB("ETB"),
-    
-    EUR("EUR"),
-    
-    FJD("FJD"),
-    
-    FKP("FKP"),
-    
-    GBP("GBP"),
-    
-    GEL("GEL"),
-    
-    GHS("GHS"),
-    
-    GIP("GIP"),
-    
-    GMD("GMD"),
-    
-    GNF("GNF"),
-    
-    GTQ("GTQ"),
-    
-    GYD("GYD"),
-    
-    HKD("HKD"),
-    
-    HNL("HNL"),
-    
-    HRK("HRK"),
-    
-    HTG("HTG"),
-    
-    HUF("HUF"),
-    
-    IDR("IDR"),
-    
-    ILS("ILS"),
-    
-    INR("INR"),
-    
-    IQD("IQD"),
-    
-    IRR("IRR"),
-    
-    ISK("ISK"),
-    
-    JMD("JMD"),
-    
-    JOD("JOD"),
-    
-    JPY("JPY"),
-    
-    KES("KES"),
-    
-    KGS("KGS"),
-    
-    KHR("KHR"),
-    
-    KMF("KMF"),
-    
-    KPW("KPW"),
-    
-    KRW("KRW"),
-    
-    KWD("KWD"),
-    
-    KYD("KYD"),
-    
-    KZT("KZT"),
-    
-    LAK("LAK"),
-    
-    LBP("LBP"),
-    
-    LKR("LKR"),
-    
-    LRD("LRD"),
-    
-    LSL("LSL"),
-    
-    LTL("LTL"),
-    
-    LYD("LYD"),
-    
-    MAD("MAD"),
-    
-    MDL("MDL"),
-    
-    MGA("MGA"),
-    
-    MKD("MKD"),
-    
-    MMK("MMK"),
-    
-    MNT("MNT"),
-    
-    MOP("MOP"),
-    
-    MRO("MRO"),
-    
-    MUR("MUR"),
-    
-    MVR("MVR"),
-    
-    MWK("MWK"),
-    
-    MXN("MXN"),
-    
-    MXV("MXV"),
-    
-    MYR("MYR"),
-    
-    MZN("MZN"),
-    
-    NAD("NAD"),
-    
-    NGN("NGN"),
-    
-    NIO("NIO"),
-    
-    NOK("NOK"),
-    
-    NPR("NPR"),
-    
-    NZD("NZD"),
-    
-    OMR("OMR"),
-    
-    PAB("PAB"),
-    
-    PEN("PEN"),
-    
-    PGK("PGK"),
-    
-    PHP("PHP"),
-    
-    PKR("PKR"),
-    
-    PLN("PLN"),
-    
-    PYG("PYG"),
-    
-    QAR("QAR"),
-    
-    RON("RON"),
-    
-    RSD("RSD"),
-    
-    RUB("RUB"),
-    
-    RWF("RWF"),
-    
-    SAR("SAR"),
-    
-    SBD("SBD"),
-    
-    SCR("SCR"),
-    
-    SDG("SDG"),
-    
-    SEK("SEK"),
-    
-    SGD("SGD"),
-    
-    SHP("SHP"),
-    
-    SLL("SLL"),
-    
-    SOS("SOS"),
-    
-    SRD("SRD"),
-    
-    SSP("SSP"),
-    
-    STD("STD"),
-    
-    SVC("SVC"),
-    
-    SYP("SYP"),
-    
-    SZL("SZL"),
-    
-    THB("THB"),
-    
-    TJS("TJS"),
-    
-    TMT("TMT"),
-    
-    TND("TND"),
-    
-    TOP("TOP"),
-    
-    TRY("TRY"),
-    
-    TTD("TTD"),
-    
-    TWD("TWD"),
-    
-    TZS("TZS"),
-    
-    UAH("UAH"),
-    
-    UGX("UGX"),
-    
-    USD("USD"),
-    
-    USN("USN"),
-    
-    UYI("UYI"),
-    
-    UYU("UYU"),
-    
-    UZS("UZS"),
-    
-    VEF("VEF"),
-    
-    VND("VND"),
-    
-    VUV("VUV"),
-    
-    WST("WST"),
-    
-    XAF("XAF"),
-    
-    XAG("XAG"),
-    
-    XAU("XAU"),
-    
-    XBA("XBA"),
-    
-    XBB("XBB"),
-    
-    XBC("XBC"),
-    
-    XBD("XBD"),
-    
-    XCD("XCD"),
-    
-    XDR("XDR"),
-    
-    XOF("XOF"),
-    
-    XPD("XPD"),
-    
-    XPF("XPF"),
-    
-    XPT("XPT"),
-    
-    XSU("XSU"),
-    
-    XTS("XTS"),
-    
-    XUA("XUA"),
-    
-    XXX("XXX"),
-    
-    YER("YER"),
-    
-    ZAR("ZAR"),
-    
-    ZMW("ZMW"),
-    
-    ZWL("ZWL");
-
-    private String value;
-
-    CurrencyEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static CurrencyEnum fromValue(String value) {
-      for (CurrencyEnum b : CurrencyEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<CurrencyEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final CurrencyEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public CurrencyEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return CurrencyEnum.fromValue(value);
-      }
-    }
-  }
+  public static final String SERIALIZED_NAME_CAPTURE_AMOUNT = "capture_amount";
+  @SerializedName(SERIALIZED_NAME_CAPTURE_AMOUNT)
+  private Long captureAmount;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
   @SerializedName(SERIALIZED_NAME_CURRENCY)
-  private CurrencyEnum currency;
+  private Currency currency;
 
   public static final String SERIALIZED_NAME_DEVICE = "device";
   @SerializedName(SERIALIZED_NAME_DEVICE)
@@ -526,20 +126,24 @@ public class Authorization {
   @SerializedName(SERIALIZED_NAME_MERCHANT_IDENTITY)
   private String merchantIdentity;
 
+  public static final String SERIALIZED_NAME_MERCHANT = "merchant";
+  @SerializedName(SERIALIZED_NAME_MERCHANT)
+  private String merchant;
+
   public static final String SERIALIZED_NAME_MESSAGES = "messages";
   @SerializedName(SERIALIZED_NAME_MESSAGES)
   private List<String> messages = null;
 
   public static final String SERIALIZED_NAME_RAW = "raw";
   @SerializedName(SERIALIZED_NAME_RAW)
-  private Object raw;
+  private Raw raw;
 
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
   private String source;
 
   /**
-   * Gets or Sets state
+   * The state of the &#x60;Authorization&#x60;.
    */
   @JsonAdapter(StateEnum.Adapter.class)
   public enum StateEnum {
@@ -652,11 +256,11 @@ public class Authorization {
   }
 
    /**
-   * Get id
+   * The ID of the &#x60;Authorization&#x60; resource.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "AUxxxxxxxxxxxxxxxxxx", value = "")
+  @ApiModelProperty(example = "AUxxxxxxxxxxxxxxxxxx", value = "The ID of the `Authorization` resource.")
 
   public String getId() {
     return id;
@@ -675,11 +279,11 @@ public class Authorization {
   }
 
    /**
-   * Timestamp of when the object was created
+   * Timestamp of when the object was created.
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the object was created")
+  @ApiModelProperty(value = "Timestamp of when the object was created.")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -698,11 +302,11 @@ public class Authorization {
   }
 
    /**
-   * Timestamp of when the object was last updated
+   * Timestamp of when the object was last updated.
    * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the object was last updated")
+  @ApiModelProperty(value = "Timestamp of when the object was last updated.")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -721,11 +325,11 @@ public class Authorization {
   }
 
    /**
-   * Get _3dsRedirectUrl
+   * The redirect URL used for 3DS transactions (if supported by the processor).
    * @return _3dsRedirectUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The redirect URL used for 3DS transactions (if supported by the processor).")
 
   public String get3dsRedirectUrl() {
     return _3dsRedirectUrl;
@@ -737,26 +341,26 @@ public class Authorization {
   }
 
 
-  public Authorization amount(BigDecimal amount) {
+  public Authorization amount(Integer amount) {
     
     this.amount = amount;
     return this;
   }
 
    /**
-   * Get amount
+   * The total amount that will be debited in cents (e.g. 100 cents to debit $1.00).
    * minimum: 0
    * @return amount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The total amount that will be debited in cents (e.g. 100 cents to debit $1.00).")
 
-  public BigDecimal getAmount() {
+  public Integer getAmount() {
     return amount;
   }
 
 
-  public void setAmount(BigDecimal amount) {
+  public void setAmount(Integer amount) {
     this.amount = amount;
   }
 
@@ -768,11 +372,11 @@ public class Authorization {
   }
 
    /**
-   * The ID of the resource.
+   * The ID of the &#x60;Application&#x60; resource the &#x60;Authorization&#x60; was created under.
    * @return application
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the resource.")
+  @ApiModelProperty(value = "The ID of the `Application` resource the `Authorization` was created under.")
 
   public String getApplication() {
     return application;
@@ -781,29 +385,6 @@ public class Authorization {
 
   public void setApplication(String application) {
     this.application = application;
-  }
-
-
-  public Authorization captureAmount(Long captureAmount) {
-    
-    this.captureAmount = captureAmount;
-    return this;
-  }
-
-   /**
-   * Get captureAmount
-   * @return captureAmount
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Long getCaptureAmount() {
-    return captureAmount;
-  }
-
-
-  public void setCaptureAmount(Long captureAmount) {
-    this.captureAmount = captureAmount;
   }
 
 
@@ -830,25 +411,48 @@ public class Authorization {
   }
 
 
-  public Authorization currency(CurrencyEnum currency) {
+  public Authorization captureAmount(Long captureAmount) {
+    
+    this.captureAmount = captureAmount;
+    return this;
+  }
+
+   /**
+   * The amount of the  &#x60;Authorization&#x60;  you would like to capture in cents. Must be less than or equal to the &#x60;amount&#x60; of the &#x60;Authorization&#x60;.
+   * @return captureAmount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The amount of the  `Authorization`  you would like to capture in cents. Must be less than or equal to the `amount` of the `Authorization`.")
+
+  public Long getCaptureAmount() {
+    return captureAmount;
+  }
+
+
+  public void setCaptureAmount(Long captureAmount) {
+    this.captureAmount = captureAmount;
+  }
+
+
+  public Authorization currency(Currency currency) {
     
     this.currency = currency;
     return this;
   }
 
    /**
-   * ISO 4217 3 letter currency code
+   * Get currency
    * @return currency
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ISO 4217 3 letter currency code")
+  @ApiModelProperty(value = "")
 
-  public CurrencyEnum getCurrency() {
+  public Currency getCurrency() {
     return currency;
   }
 
 
-  public void setCurrency(CurrencyEnum currency) {
+  public void setCurrency(Currency currency) {
     this.currency = currency;
   }
 
@@ -860,11 +464,11 @@ public class Authorization {
   }
 
    /**
-   * Get device
+   * The ID of the activated device.
    * @return device
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "DVxxxxxxxxxxxxxxxxxx", value = "")
+  @ApiModelProperty(example = "DVxxxxxxxxxxxxxxxxxx", value = "The ID of the activated device.")
 
   public String getDevice() {
     return device;
@@ -937,11 +541,11 @@ public class Authorization {
   }
 
    /**
-   * Get idempotencyId
+   * A randomly generated value that&#39;ll be associated with the request.
    * @return idempotencyId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A randomly generated value that'll be associated with the request.")
 
   public String getIdempotencyId() {
     return idempotencyId;
@@ -960,11 +564,11 @@ public class Authorization {
   }
 
    /**
-   * Get isVoid
+   * Details if the &#x60;Authorization&#x60; is void.
    * @return isVoid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Details if the `Authorization` is void.")
 
   public Boolean getIsVoid() {
     return isVoid;
@@ -999,6 +603,29 @@ public class Authorization {
   }
 
 
+  public Authorization merchant(String merchant) {
+    
+    this.merchant = merchant;
+    return this;
+  }
+
+   /**
+   * The ID of the resource.
+   * @return merchant
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ID of the resource.")
+
+  public String getMerchant() {
+    return merchant;
+  }
+
+
+  public void setMerchant(String merchant) {
+    this.merchant = merchant;
+  }
+
+
   public Authorization messages(List<String> messages) {
     
     this.messages = messages;
@@ -1014,11 +641,11 @@ public class Authorization {
   }
 
    /**
-   * Get messages
+   * Message field that provides additional details. This field is typically **null**.
    * @return messages
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Message field that provides additional details. This field is typically **null**.")
 
   public List<String> getMessages() {
     return messages;
@@ -1030,25 +657,25 @@ public class Authorization {
   }
 
 
-  public Authorization raw(Object raw) {
+  public Authorization raw(Raw raw) {
     
     this.raw = raw;
     return this;
   }
 
    /**
-   * Raw response from the processor
+   * Get raw
    * @return raw
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Raw response from the processor")
+  @ApiModelProperty(value = "")
 
-  public Object getRaw() {
+  public Raw getRaw() {
     return raw;
   }
 
 
-  public void setRaw(Object raw) {
+  public void setRaw(Raw raw) {
     this.raw = raw;
   }
 
@@ -1060,11 +687,11 @@ public class Authorization {
   }
 
    /**
-   * Get source
+   * ID of the &#x60;Payment Instrument&#x60; where funds get debited.
    * @return source
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "PIxxxxxxxxxxxxxxxxxx", value = "")
+  @ApiModelProperty(example = "PIxxxxxxxxxxxxxxxxxx", value = "ID of the `Payment Instrument` where funds get debited.")
 
   public String getSource() {
     return source;
@@ -1083,11 +710,11 @@ public class Authorization {
   }
 
    /**
-   * Get state
+   * The state of the &#x60;Authorization&#x60;.
    * @return state
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The state of the `Authorization`.")
 
   public StateEnum getState() {
     return state;
@@ -1106,11 +733,11 @@ public class Authorization {
   }
 
    /**
-   * Get traceId
+   * Trace ID of the &#x60;Authorization&#x60;. The processor sends back the &#x60;trace_id&#x60; so you can track the authorization end-to-end.
    * @return traceId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Trace ID of the `Authorization`. The processor sends back the `trace_id` so you can track the authorization end-to-end.")
 
   public String getTraceId() {
     return traceId;
@@ -1129,11 +756,11 @@ public class Authorization {
   }
 
    /**
-   * Get transfer
+   * The ID of the &#x60;transfer&#x60; resource that gets created when the &#x60;Authorization&#x60; moves to **SUCCEEDED**.
    * @return transfer
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "TRxxxxxxxxxxxxxxxxxx", value = "")
+  @ApiModelProperty(example = "TRxxxxxxxxxxxxxxxxxx", value = "The ID of the `transfer` resource that gets created when the `Authorization` moves to **SUCCEEDED**.")
 
   public String getTransfer() {
     return transfer;
@@ -1152,11 +779,11 @@ public class Authorization {
   }
 
    /**
-   * Get voidState
+   * Details if the &#x60;Authorization&#x60; has been voided.
    * @return voidState
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Details if the `Authorization` has been voided.")
 
   public String getVoidState() {
     return voidState;
@@ -1208,8 +835,8 @@ public class Authorization {
         Objects.equals(this._3dsRedirectUrl, authorization._3dsRedirectUrl) &&
         Objects.equals(this.amount, authorization.amount) &&
         Objects.equals(this.application, authorization.application) &&
-        Objects.equals(this.captureAmount, authorization.captureAmount) &&
         Objects.equals(this.cardPresentDetails, authorization.cardPresentDetails) &&
+        Objects.equals(this.captureAmount, authorization.captureAmount) &&
         Objects.equals(this.currency, authorization.currency) &&
         Objects.equals(this.device, authorization.device) &&
         Objects.equals(this.expiresAt, authorization.expiresAt) &&
@@ -1217,6 +844,7 @@ public class Authorization {
         Objects.equals(this.idempotencyId, authorization.idempotencyId) &&
         Objects.equals(this.isVoid, authorization.isVoid) &&
         Objects.equals(this.merchantIdentity, authorization.merchantIdentity) &&
+        Objects.equals(this.merchant, authorization.merchant) &&
         Objects.equals(this.messages, authorization.messages) &&
         Objects.equals(this.raw, authorization.raw) &&
         Objects.equals(this.source, authorization.source) &&
@@ -1233,7 +861,7 @@ public class Authorization {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, id, createdAt, updatedAt, _3dsRedirectUrl, amount, application, captureAmount, cardPresentDetails, currency, device, expiresAt, externalResponses, idempotencyId, isVoid, merchantIdentity, messages, raw, source, state, traceId, transfer, voidState, links);
+    return Objects.hash(tags, id, createdAt, updatedAt, _3dsRedirectUrl, amount, application, cardPresentDetails, captureAmount, currency, device, expiresAt, externalResponses, idempotencyId, isVoid, merchantIdentity, merchant, messages, raw, source, state, traceId, transfer, voidState, links);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1254,8 +882,8 @@ public class Authorization {
     sb.append("    _3dsRedirectUrl: ").append(toIndentedString(_3dsRedirectUrl)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    application: ").append(toIndentedString(application)).append("\n");
-    sb.append("    captureAmount: ").append(toIndentedString(captureAmount)).append("\n");
     sb.append("    cardPresentDetails: ").append(toIndentedString(cardPresentDetails)).append("\n");
+    sb.append("    captureAmount: ").append(toIndentedString(captureAmount)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    device: ").append(toIndentedString(device)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
@@ -1263,6 +891,7 @@ public class Authorization {
     sb.append("    idempotencyId: ").append(toIndentedString(idempotencyId)).append("\n");
     sb.append("    isVoid: ").append(toIndentedString(isVoid)).append("\n");
     sb.append("    merchantIdentity: ").append(toIndentedString(merchantIdentity)).append("\n");
+    sb.append("    merchant: ").append(toIndentedString(merchant)).append("\n");
     sb.append("    messages: ").append(toIndentedString(messages)).append("\n");
     sb.append("    raw: ").append(toIndentedString(raw)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
@@ -1300,8 +929,8 @@ public class Authorization {
     openapiFields.add("3ds_redirect_url");
     openapiFields.add("amount");
     openapiFields.add("application");
-    openapiFields.add("capture_amount");
     openapiFields.add("card_present_details");
+    openapiFields.add("capture_amount");
     openapiFields.add("currency");
     openapiFields.add("device");
     openapiFields.add("expires_at");
@@ -1309,6 +938,7 @@ public class Authorization {
     openapiFields.add("idempotency_id");
     openapiFields.add("is_void");
     openapiFields.add("merchant_identity");
+    openapiFields.add("merchant");
     openapiFields.add("messages");
     openapiFields.add("raw");
     openapiFields.add("source");
@@ -1359,9 +989,6 @@ public class Authorization {
       if (jsonObj.getAsJsonObject("card_present_details") != null) {
        CardPresentDetails.validateJsonObject(jsonObj.getAsJsonObject("card_present_details"));
       }
-      if (jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull()  && !jsonObj.get("currency").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
-      }
       if (jsonObj.get("device") != null && !jsonObj.get("device").isJsonNull()  && !jsonObj.get("device").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `device` to be a primitive type in the JSON string but got `%s`", jsonObj.get("device").toString()));
       }
@@ -1384,10 +1011,17 @@ public class Authorization {
       if (jsonObj.get("merchant_identity") != null && !jsonObj.get("merchant_identity").isJsonNull()  && !jsonObj.get("merchant_identity").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_identity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_identity").toString()));
       }
+      if (jsonObj.get("merchant") != null && !jsonObj.get("merchant").isJsonNull()  && !jsonObj.get("merchant").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant").toString()));
+      }
       // ensure the json data is an array
       if (jsonObj.get("messages") != null && !jsonObj.get("messages").isJsonNull() && !jsonObj.get("messages").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `messages` to be an array in the JSON string but got `%s`", jsonObj.get("messages").toString()));
       }
+      // validate the optional field `raw`
+     /* if (jsonObj.getAsJsonObject("raw") != null) {
+       Raw.validateJsonObject(jsonObj.getAsJsonObject("raw"));
+      }*/
       if (jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()  && !jsonObj.get("source").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source").toString()));
       }

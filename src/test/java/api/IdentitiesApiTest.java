@@ -14,35 +14,41 @@
 package api;
 
 import invoker.ApiException;
-import model.CreateIdentityRequest;
-import model.Error401Unauthorized;
-import model.Error403ForbiddenList;
-import model.Error404NotFoundList;
-import model.Error406NotAcceptable;
-import model.ErrorGeneric;
-import model.IdentitiesList;
-import model.Identity;
-import model.UpdateIdentityRequest;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import invoker.Environment;
+import invoker.FinixClient;
+import model.*;
+import org.junit.jupiter.api.*;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 /**
  * API tests for IdentitiesApi
  */
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@DisplayName("When Running IdentitiesApi")
 @Disabled
 public class IdentitiesApiTest {
-
+    private FinixClient finixClient;
     private final IdentitiesApi api = new IdentitiesApi();
 
+    @Test
+    @BeforeAll
+    void contextLoads() {
+        finixClient= new FinixClient("USsRhsHYZGBPnQw8CByJyEQW","8a14c2f9-d94b-4c72-8f5c-a62908e5b30e", Environment.SANDBOX);
+        // System.out.println(finixClient == null);
+        assertEquals(true , finixClient!=null);
+
+    }
     /**
      * Create an Associated Identity
      *
-     * Create an associated &#x60;Identity&#x60; for [every owner with 25% or more ownership](/guides/building-your-merchant-onboarding-flow/#step-3-add-associated-identities) over the merchant.
+     * Create an associated &#x60;Identity&#x60; for [every owner with 25% or more ownership](/guides/onboarding/#step-3-add-associated-identities) over the merchant.
      *
      * @throws ApiException if the Api call fails
      */
@@ -54,6 +60,31 @@ public class IdentitiesApiTest {
         // TODO: test validations
     }
 
+    @Test
+    @DisplayName("Create an Identity for a Buyer")
+    public void createBuyerIdentityTest() throws ApiException{
+        CreateIdentityRequest createIdentityRequest = CreateIdentityRequest.builder()
+                .tags(Map.of("key", "value"))
+                .entity(CreateIdentityRequestEntity.builder()
+                        .phone("7145677613")
+                        .firstName("Collen")
+                        .lastName("Wade")
+                        .email("therock@gmail.com")
+                        .personalAddress(CreateIdentityRequestEntityPersonalAddress.builder()
+                                .city("San Mateo")
+                                .country("USA")
+                                .region("CA")
+                                .line2("Apartment 7")
+                                .line1("741 Douglass St")
+                                .postalCode("94114")
+                                .build())
+                        .build())
+                .build();
+        Identity response = finixClient.Identity.create(createIdentityRequest);
+        // TODO: test validations
+
+    }
+
     /**
      * Create an Identity
      *
@@ -62,23 +93,103 @@ public class IdentitiesApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    @DisplayName("Create an Identity for a Merchant")
     public void createIdentityTest() throws ApiException {
-        CreateIdentityRequest createIdentityRequest = null;
-        Identity response = api.create(createIdentityRequest);
+        CreateIdentityRequest createIdentityRequest  = CreateIdentityRequest.builder()
+                .additionalUnderwritingData(CreateIdentityRequestAdditionalUnderwritingData.builder()
+                        .merchantAgreementAccepted(true)
+                        .merchantAgreementIpAddress("42.1.1.113")
+                        .volumeDistributionByBusinessType(CreateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType
+                                .builder()
+                                .otherVolumePercentage(Integer.valueOf(0))
+                                .consumerToConsumerVolumePercentage(Integer.valueOf(0))
+                                .businessToConsumerVolumePercentage(Integer.valueOf(0))
+                                .businessToBusinessVolumePercentage(Integer.valueOf(100))
+                                .personToPersonVolumePercentage(Integer.valueOf(0))
+                                .build())
+                        .averageAchTransferAmount(Integer.valueOf(200000))
+                        .annualAchVolume(Integer.valueOf(200000))
+                        .creditCheckUserAgent( "Mozilla 5.0(Macintosh; IntelMac OS X 10 _14_6)")
+                        .refundPolicy(CreateIdentityRequestAdditionalUnderwritingData.RefundPolicyEnum._30_DAYS)
+                        .creditCheckTimestamp("2021-04-28T16:42:55Z")
+                        .creditCheckAllowed(true)
+                        .merchantAgreementTimestamp("2021-04-28T16:42:55Z")
+                        .businessDescription("SB3 vegan cafe")
+                        .averageCardTransferAmount(Integer.valueOf(200000))
+                        .creditCheckIpAddress("42.1.1.113")
+                        .merchantAgreementUserAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6)")
+                        .cardVolumeDistribution(CreateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution.builder()
+                                .cardPresentPercentage(Integer.valueOf(30))
+                                .mailOrderTelephoneOrderPercentage(Integer.valueOf(10))
+                                .ecommercePercentage(Integer.valueOf(60))
+                                .build())
+                        .build())
+                .tags(Map.of("Studio Rating", "4.7"))
+                .entity(CreateIdentityRequestEntity.builder()
+                        .lastName("Sunkhronos")
+                        .maxTransactionAmount(Integer.valueOf(12000000))
+                        .hasAcceptedCreditCardsPreviously(true)
+                        .defaultStatementDescriptor("Petes Coffee")
+                        .personalAddress(CreateIdentityRequestEntityPersonalAddress.builder()
+                                .city("San Mateo")
+                                .country("USA")
+                                .region("CA")
+                                .line2( "Apartment 7")
+                                .line1("741 Douglass St")
+                                .postalCode("94114")
+                                .build())
+                        .incorporationDate(CreateIdentityRequestEntityIncorporationDate.builder()
+                                .year(Integer.valueOf(1978))
+                                .day(Integer.valueOf(27))
+                                .month(Integer.valueOf(6))
+                                .build())
+                        .businessAddress(CreateIdentityRequestEntityBusinessAddress.builder()
+                                .city("San Mateo")
+                                .country("USA")
+                                .region("CA")
+                                .line2( "Apartment 7")
+                                .line1("741 Douglass St")
+                                .postalCode("94114")
+                                .build())
+                        .ownershipType(CreateIdentityRequestEntity.OwnershipTypeEnum.PRIVATE)
+                        .firstName("dwayne")
+                        .title("CEO")
+                        .businessTaxId("123456789")
+                        .doingBusinessAs("Petes Coffee")
+                        .principalPercentageOwnership(Integer.valueOf(50))
+                        .email("user@example.org")
+                        .mcc("0742")
+                        .phone("1234567890")
+                        .businessName( "Petes Coffee")
+                        .taxId("123456789")
+                        .businessType(CreateIdentityRequestEntity.BusinessTypeEnum.INDIVIDUAL_SOLE_PROPRIETORSHIP)
+                        .businessPhone("+1 (408) 756-4497")
+                        .dob(CreateIdentityRequestEntityDob.builder()
+                                .year(Integer.valueOf(1978))
+                                .day(Integer.valueOf(27))
+                                .month(Integer.valueOf(6))
+                                .build())
+                        .url("www.PetesCoffee.com")
+                        .annualCardVolume(Integer.valueOf(12000000))
+                        .build())
+                .build();
+        Identity response = finixClient.Identity.create(createIdentityRequest);
+        //System.out.println(response.toString());
         // TODO: test validations
     }
 
     /**
      * Fetch an Identity
      *
-     * Retrieve the details of a specific &#x60;Identity&#x60;.
+     * Retrieve the details of a previously created &#x60;Identity&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
+    @DisplayName("Fetch an Identity")
     public void getIdentityTest() throws ApiException {
-        String identityId = null;
-        Identity response = api.get(identityId);
+        String identityId = "IDpYDM7J9n57q849o9E9yNrG";
+        Identity response = finixClient.Identity.get(identityId);
         // TODO: test validations
     }
 
@@ -97,18 +208,19 @@ public class IdentitiesApiTest {
     }
 
     /**
-     * List Identities
+         * List Identities
      *
      * Retrieves a list of &#x60;Identities&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
+    @DisplayName("List Identities")
     public void listIdentitiesTest() throws ApiException {
         String sort = null;
         Integer offset = null;
         Integer limit = null;
-        String id = null;
+        String id = "IDpYDM7J9n57q849o9E9yNrG";
         String createdAtGte = null;
         String createdAtLte = null;
         String defaultStatementDescriptor = null;
@@ -118,14 +230,14 @@ public class IdentitiesApiTest {
         String firstName = null;
         String lastName = null;
         String title = null;
-        IdentitiesList response = api.list(sort, offset, limit, id, createdAtGte, createdAtLte, defaultStatementDescriptor, businessName, businessType, email, firstName, lastName, title);
+        IdentitiesList response = finixClient.Identity.list(sort, offset, limit, id, createdAtGte, createdAtLte, defaultStatementDescriptor, businessName, businessType, email, firstName, lastName, title);
         // TODO: test validations
     }
 
     /**
      * List Associated Identities
      *
-     * Retrieve a list of Associated Identities for an Identity.
+     * Retrieve a list of &#x60;Associated Identities&#x60; for an &#x60;Identity&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
@@ -136,24 +248,58 @@ public class IdentitiesApiTest {
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        Boolean sortSorted = null;
-        Boolean sortUnsorted = null;
-        IdentitiesList response = api.listAssocaiatedIdentities(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
+        IdentitiesList response = api.listAssocaiatedIdentities(identityId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 
     /**
      * Update an Identity
      *
-     * Update an existing &#x60;Identity&#x60;.  If you are updating a the &#x60;Identity&#x60; of a &#x60;Merchant&#x60; that’s already been onboarded, you need to [verify the merchant again](#operation/createMerchantVerification).
+     * Update an existing &#x60;Identity&#x60;.  If you are updating the &#x60;Identity&#x60; of a &#x60;Merchant&#x60; that’s already been onboarded, you need to [verify the merchant again](#operation/createMerchantVerification).
      *
      * @throws ApiException if the Api call fails
      */
     @Test
+    @DisplayName("Update an Identity")
     public void putIdentityTest() throws ApiException {
-        String identityId = null;
-        UpdateIdentityRequest updateIdentityRequest = null;
-        Identity response = api.update(identityId, updateIdentityRequest);
+        String identityId = "IDpYDM7J9n57q849o9E9yNrG";
+        UpdateIdentityRequest updateIdentityRequest = UpdateIdentityRequest.builder()
+                .tags(Map.of("key", "value_2"))
+                .entity(UpdateIdentityRequestEntity.builder()
+                        .businessPhone("+1 (408) 756-4497")
+                        .firstName("Bernard")
+                        .lastName("Jones")
+                        .title("CTO")
+                        .dob(UpdateIdentityRequestEntityDob.builder()
+                                .year(1998)
+                                .day(2)
+                                .month(5)
+                                .build())
+                        .ownershipType("PRIVATE")
+                        .hasAcceptedCreditCardsPreviously(true)
+                        .mcc("0742")
+                        .phone("7144177878")
+                        .businessTaxId("123456789")
+                        .maxTransactionAmount(1200000)
+                        .principalPercentageOwnership(50)
+                        .doingBusinessAs("Bobs Burgers")
+                        .annualCardVolume(12000000)
+                        .defaultStatementDescriptor("Bobs Burgers")
+                        .url("www.BobsBurgers.com")
+                        .businessName("Bobs Burgers")
+                        .personalAddress(CreateIdentityRequestEntityPersonalAddress.builder()
+                                .city("San Mateo")
+                                .country("USA")
+                                .region("CA")
+                                .line2("Apartment 7")
+                                .line1("741 Douglass St")
+                                .postalCode("94114")
+                                .build())
+                        .email("user@example.org")
+                        .taxId("999999999")
+                        .build())
+                .build();
+        Identity response = finixClient.Identity.update(identityId, updateIdentityRequest);
         // TODO: test validations
     }
 

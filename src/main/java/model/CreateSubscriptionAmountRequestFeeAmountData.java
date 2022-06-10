@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 import model.Currency;
 
 import com.google.gson.Gson;
@@ -47,11 +46,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * Key value pair specifying amount and currency
+ * The amount and currency of this &#x60;Subsciption Amount&#x60;.
  */
-@ApiModel(description = "Key value pair specifying amount and currency")
+@ApiModel(description = "The amount and currency of this `Subsciption Amount`.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class CreateSubscriptionAmountRequestFeeAmountData {
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
   @SerializedName(SERIALIZED_NAME_CURRENCY)
@@ -59,7 +58,7 @@ public class CreateSubscriptionAmountRequestFeeAmountData {
 
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
-  private BigDecimal amount;
+  private Integer amount;
 
   public static final String SERIALIZED_NAME_LABEL = "label";
   @SerializedName(SERIALIZED_NAME_LABEL)
@@ -91,25 +90,25 @@ public class CreateSubscriptionAmountRequestFeeAmountData {
   }
 
 
-  public CreateSubscriptionAmountRequestFeeAmountData amount(BigDecimal amount) {
+  public CreateSubscriptionAmountRequestFeeAmountData amount(Integer amount) {
     
     this.amount = amount;
     return this;
   }
 
    /**
-   * A positive integer in cents representing how much to charge on a recurring basis
+   * A positive integer in cents representing how much to charge on a recurring basis.
    * @return amount
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A positive integer in cents representing how much to charge on a recurring basis")
+  @ApiModelProperty(required = true, value = "A positive integer in cents representing how much to charge on a recurring basis.")
 
-  public BigDecimal getAmount() {
+  public Integer getAmount() {
     return amount;
   }
 
 
-  public void setAmount(BigDecimal amount) {
+  public void setAmount(Integer amount) {
     this.amount = amount;
   }
 
@@ -121,11 +120,11 @@ public class CreateSubscriptionAmountRequestFeeAmountData {
   }
 
    /**
-   * The display name of the Settlement that can be used for filtering purposes
+   * The display name of the &#x60;Subscirption Amount&#x60; that can be used for filtering purposes.
    * @return label
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The display name of the Settlement that can be used for filtering purposes")
+  @ApiModelProperty(required = true, value = "The display name of the `Subscirption Amount` that can be used for filtering purposes.")
 
   public String getLabel() {
     return label;

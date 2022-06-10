@@ -52,7 +52,7 @@ import invoker.JSON;
  * CreateSubscriptionEnrollmentRequest
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class CreateSubscriptionEnrollmentRequest {
   public static final String SERIALIZED_NAME_MERCHANT = "merchant";
   @SerializedName(SERIALIZED_NAME_MERCHANT)
@@ -80,11 +80,11 @@ public class CreateSubscriptionEnrollmentRequest {
   }
 
    /**
-   * ID of the Merchant
+   * ID of the &#x60;Merchant&#x60; resource.
    * @return merchant
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "ID of the Merchant")
+  @ApiModelProperty(required = true, value = "ID of the `Merchant` resource.")
 
   public String getMerchant() {
     return merchant;
@@ -103,11 +103,11 @@ public class CreateSubscriptionEnrollmentRequest {
   }
 
    /**
-   * When the subscription will begin in DateTime format. The start date must be a future date
+   * When the &#x60;subscription_enrollment&#x60; will begin in **DateTime** format. The start date must be a future date.
    * @return startedAt
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When the subscription will begin in DateTime format. The start date must be a future date")
+  @ApiModelProperty(required = true, value = "When the `subscription_enrollment` will begin in **DateTime** format. The start date must be a future date.")
 
   public OffsetDateTime getStartedAt() {
     return startedAt;
@@ -126,11 +126,11 @@ public class CreateSubscriptionEnrollmentRequest {
   }
 
    /**
-   * Get nickname
+   * Human readable name.
    * @return nickname
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Human readable name.")
 
   public String getNickname() {
     return nickname;

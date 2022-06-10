@@ -25,7 +25,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * ISO 4217 3 letter currency code
+ * ISO 4217 3 letter currency code.
  */
 @JsonAdapter(Currency.Adapter.class)
 public enum Currency {

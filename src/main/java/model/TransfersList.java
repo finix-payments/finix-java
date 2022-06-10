@@ -23,9 +23,9 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.ApplicationProfilesListPage;
 import model.ListLinks;
-import model.TransferReversalsListEmbedded;
+import model.TransfersListEmbedded;
+import model.TransfersListPage;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,15 +51,15 @@ import invoker.JSON;
  * TransfersList
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class TransfersList {
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
-  private ApplicationProfilesListPage page;
+  private TransfersListPage page;
 
   public static final String SERIALIZED_NAME_EMBEDDED = "_embedded";
   @SerializedName(SERIALIZED_NAME_EMBEDDED)
-  private TransferReversalsListEmbedded embedded;
+  private TransfersListEmbedded embedded;
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
@@ -68,7 +68,7 @@ public class TransfersList {
   public TransfersList() { 
   }
 
-  public TransfersList page(ApplicationProfilesListPage page) {
+  public TransfersList page(TransfersListPage page) {
     
     this.page = page;
     return this;
@@ -81,17 +81,17 @@ public class TransfersList {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationProfilesListPage getPage() {
+  public TransfersListPage getPage() {
     return page;
   }
 
 
-  public void setPage(ApplicationProfilesListPage page) {
+  public void setPage(TransfersListPage page) {
     this.page = page;
   }
 
 
-  public TransfersList embedded(TransferReversalsListEmbedded embedded) {
+  public TransfersList embedded(TransfersListEmbedded embedded) {
     
     this.embedded = embedded;
     return this;
@@ -104,12 +104,12 @@ public class TransfersList {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public TransferReversalsListEmbedded getEmbedded() {
+  public TransfersListEmbedded getEmbedded() {
     return embedded;
   }
 
 
-  public void setEmbedded(TransferReversalsListEmbedded embedded) {
+  public void setEmbedded(TransfersListEmbedded embedded) {
     this.embedded = embedded;
   }
 
@@ -220,11 +220,11 @@ public class TransfersList {
       */
       // validate the optional field `page`
       if (jsonObj.getAsJsonObject("page") != null) {
-       ApplicationProfilesListPage.validateJsonObject(jsonObj.getAsJsonObject("page"));
+       TransfersListPage.validateJsonObject(jsonObj.getAsJsonObject("page"));
       }
       // validate the optional field `_embedded`
       if (jsonObj.getAsJsonObject("_embedded") != null) {
-       TransferReversalsListEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
+       TransfersListEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
       }
       // validate the optional field `_links`
       if (jsonObj.getAsJsonObject("_links") != null) {

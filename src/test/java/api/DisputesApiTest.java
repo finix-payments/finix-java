@@ -14,6 +14,9 @@
 package api;
 
 import invoker.ApiException;
+import invoker.Environment;
+import invoker.FinixClient;
+import model.AdjustmentTransfersList;
 import model.CreateDisputeEvidenceRequest;
 import model.Dispute;
 import model.DisputeEvidence;
@@ -23,63 +26,93 @@ import model.Error401Unauthorized;
 import model.Error403ForbiddenList;
 import model.Error404NotFoundList;
 import model.Error406NotAcceptable;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 /**
  * API tests for DisputesApi
  */
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@DisplayName("When Running DevicesApiTest")
 @Disabled
 public class DisputesApiTest {
-
+    private FinixClient finixClient;
     private final DisputesApi api = new DisputesApi();
 
+    @Test
+    @BeforeAll
+    void contextLoads() {
+        finixClient= new FinixClient("USsRhsHYZGBPnQw8CByJyEQW","8a14c2f9-d94b-4c72-8f5c-a62908e5b30e", Environment.SANDBOX);
+        assertEquals(true , finixClient!=null);
+
+    }
     /**
      * Create Dispute Evidence
      *
-     * Upload dispute evidence for a dispute.
+     * Upload dispute evidence for a &#x60;Dispute&#x60;.  There are four available values that indicate the state of the evidence upload:  * **PENDING**: The evidence file has not yet been submitted to the &#x60;Processor&#x60;. No user action is required. * **SUCCEEDED**: The evidence file has been successfully sent to the &#x60;Processor&#x60;. No further user action is required. * **CANCELED**: The evidence file upload was not completed due to user action. * **FAILED**: An issue occurred. User action is required. Any of the following issues could have occurred:     * There was an error in the system and the user should retry uploading their evidence file.     * There is an issue with the file and the user should retry uploading a different file.     * There is an issue and the user should contact Support. 
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void createDisputeEvidenceTest() throws ApiException {
-        String disputeId = null;
-        CreateDisputeEvidenceRequest createDisputeEvidenceRequest = null;
-        DisputeEvidence response = api.createDisputeEvidence(disputeId, createDisputeEvidenceRequest);
+        String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
+        String _file = "/Users/default-admin/Desktop/Finix-Logo.jpg";
+
+        /*CreateDisputeEvidenceRequest createDisputeEvidenceRequest = CreateDisputeEvidenceRequest.builder()
+                ._file(new File("/Users/default-admin/Desktop/Finix-Logo.jpg"))
+                .build();*/
+        CreateDisputeEvidenceRequest createDisputeEvidenceRequest = new CreateDisputeEvidenceRequest( new File("/Users/default-admin/Desktop/Finix-Logo.jpg"));
+        DisputeEvidence response = finixClient.Disputes.createDisputeEvidence(disputeId, createDisputeEvidenceRequest);
         // TODO: test validations
     }
 
     /**
      * Get Dispute
      *
-     * Retreive a dispute.
+     * Retrieve the details of a previously created &#x60;Dispute&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void getDisputeTest() throws ApiException {
-        String disputeId = null;
-        Dispute response = api.get(disputeId);
+        String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
+        Dispute response = finixClient.Disputes.get(disputeId);
         // TODO: test validations
     }
 
     /**
-     * Show Dispute Evidence
+     * Fetch Dispute Evidence
      *
-     * Get dispute evidence
+     * Retrieve the details of a &#x60;Dispute&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void getDisputeEvidenceTest() throws ApiException {
-        String disputeId = null;
-        String evidenceId = null;
-        DisputeEvidence response = api.getDisputeEvidence(disputeId, evidenceId);
+        String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
+        String evidenceId = "DFnA9eVoYxRnxxLKzgcGGxYL";
+        DisputeEvidence response = finixClient.Disputes.getDisputeEvidence(disputeId, evidenceId);
+        // TODO: test validations
+    }
+
+    /**
+     * Fetch Dispute Adjustment Transfers
+     *
+     * List the adjustment &#x60;Transfers&#x60; for a &#x60;Dispute&#x60;. Depending on the stage of the &#x60;Dispute&#x60;, different adjustment &#x60;Transfer&#x60; subtypes can be applied.  There are four available subtypes for adjustment &#x60;Transfers&#x60; in &#x60;Disputes&#x60;: &lt;ul&gt;&lt;li&gt;&lt;strong&gt;PLATFORM\\_CREDIT&lt;/strong&gt;&lt;li&gt;&lt;strong&gt;MERCHANT\\_DEBIT&lt;/strong&gt;&lt;li&gt;&lt;strong&gt;MERCHANT\\_CREDIT&lt;/strong&gt;&lt;li&gt;&lt;strong&gt;PLATFORM\\_DEBIT&lt;/strong&gt;&lt;/ul&gt;
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getDisputesAdjustmentsTest() throws ApiException {
+        String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
+        AdjustmentTransfersList response = api.getDisputesAdjustments(disputeId);
         // TODO: test validations
     }
 
@@ -92,7 +125,7 @@ public class DisputesApiTest {
      */
     @Test
     public void listApplicationDisputesTest() throws ApiException {
-        String applicationId = null;
+        String applicationId = "null";
         DisputesList response = api.listApplicationDisputes(applicationId);
         // TODO: test validations
     }
@@ -100,21 +133,21 @@ public class DisputesApiTest {
     /**
      * List Dispute Evidence
      *
-     * Retrieve list of dispute evidence for a dispute
+     * Retrieve a list of dispute evidence for a &#x60;Dispute&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void listDisputeEvidenceTest() throws ApiException {
-        String disputeId = null;
-        DisputeEvidenceList response = api.listDisputeEvidenceByDeviceId(disputeId);
+        String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
+        DisputeEvidenceList response = finixClient.Disputes.listDisputeEvidenceByDeviceId(disputeId);
         // TODO: test validations
     }
 
     /**
      * List Disputes
      *
-     * Retrieve list of disputes.
+     * Retrieve a list of &#x60;Disputes&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
@@ -123,13 +156,13 @@ public class DisputesApiTest {
         String sort = null;
         Integer offset = null;
         Integer limit = null;
-        String id = null;
+        String id = "DIs7yQRkHDdMYhurzYz72SFk";
         String createdAtGte = null;
         String createdAtLte = null;
         String updatedAtGte = null;
         String updatedAtLte = null;
-        DisputesList response = api.list(sort, offset, limit, id, createdAtGte, createdAtLte, updatedAtGte, updatedAtLte);
-        // TODO: test validations
+        DisputesList response = finixClient.Disputes.list(sort, offset, limit, id, createdAtGte, createdAtLte, updatedAtGte, updatedAtLte);
+        System.out.println(response.toString());
     }
 
     /**
@@ -146,9 +179,7 @@ public class DisputesApiTest {
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        Boolean sortSorted = null;
-        Boolean sortUnsorted = null;
-        DisputesList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
+        DisputesList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 
@@ -166,9 +197,7 @@ public class DisputesApiTest {
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        Boolean sortSorted = null;
-        Boolean sortUnsorted = null;
-        DisputesList response = api.listByTransferId(transferId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
+        DisputesList response = api.listByTransferId(transferId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 

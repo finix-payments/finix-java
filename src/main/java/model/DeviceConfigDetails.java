@@ -45,10 +45,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * DeviceConfigDetails
+ * Information used to configure how the &#x60;Device&#x60; handles transactions.
  */
+@ApiModel(description = "Information used to configure how the `Device` handles transactions.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class DeviceConfigDetails {
   public static final String SERIALIZED_NAME_ALLOW_DEBIT = "allow_debit";
   @SerializedName(SERIALIZED_NAME_ALLOW_DEBIT)
@@ -84,11 +85,11 @@ public class DeviceConfigDetails {
   }
 
    /**
-   * Get allowDebit
+   * Allow transaction to be processed on Debit rails. If **false**, Debit card transactions will be processed on Credit rails.
    * @return allowDebit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Allow transaction to be processed on Debit rails. If **false**, Debit card transactions will be processed on Credit rails.")
 
   public Boolean getAllowDebit() {
     return allowDebit;
@@ -107,11 +108,11 @@ public class DeviceConfigDetails {
   }
 
    /**
-   * Get checkForDuplicateTransactions
+   * Sets whether the &#x60;Device&#x60; will check for duplicate transactions.
    * @return checkForDuplicateTransactions
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Sets whether the `Device` will check for duplicate transactions.")
 
   public Boolean getCheckForDuplicateTransactions() {
     return checkForDuplicateTransactions;
@@ -130,11 +131,11 @@ public class DeviceConfigDetails {
   }
 
    /**
-   * Get promptAmountConfirmation
+   * Sets if the card holder needs to confirm the amount they will pay (defaults to **true**).
    * @return promptAmountConfirmation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Sets if the card holder needs to confirm the amount they will pay (defaults to **true**).")
 
   public Boolean getPromptAmountConfirmation() {
     return promptAmountConfirmation;
@@ -153,11 +154,11 @@ public class DeviceConfigDetails {
   }
 
    /**
-   * Get promptManualEntry
+   * Sets if the device defaults to manual entry as the default card input method. (defaults to **false**).
    * @return promptManualEntry
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Sets if the device defaults to manual entry as the default card input method. (defaults to **false**).")
 
   public Boolean getPromptManualEntry() {
     return promptManualEntry;
@@ -176,11 +177,11 @@ public class DeviceConfigDetails {
   }
 
    /**
-   * Get promptSignature
+   * Sets if the device will prompt the card holder for a signature by default. Available values include: &lt;ul&gt;&lt;li&gt;&lt;strong&gt;ALWAYS&lt;/strong&gt;&lt;li&gt;&lt;strong&gt;NEVER&lt;/strong&gt;&lt;li&gt;&lt;strong&gt;AMOUNT&lt;/strong&gt;: Used in conjunction with &#x60;signature_threshold_amount&#x60; so when the threshold is reached the signature form appears on the device.
    * @return promptSignature
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Sets if the device will prompt the card holder for a signature by default. Available values include: <ul><li><strong>ALWAYS</strong><li><strong>NEVER</strong><li><strong>AMOUNT</strong>: Used in conjunction with `signature_threshold_amount` so when the threshold is reached the signature form appears on the device.")
 
   public String getPromptSignature() {
     return promptSignature;
@@ -199,11 +200,11 @@ public class DeviceConfigDetails {
   }
 
    /**
-   * Get signatureThresholdAmount
+   * The threshold to prompt a signature when &#x60;prompt_signature&#x60; is set to **AMOUNT** (defaults to 0).
    * @return signatureThresholdAmount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The threshold to prompt a signature when `prompt_signature` is set to **AMOUNT** (defaults to 0).")
 
   public Long getSignatureThresholdAmount() {
     return signatureThresholdAmount;

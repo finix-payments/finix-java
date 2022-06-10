@@ -24,8 +24,12 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import model.Currency;
-import model.PaymentInstrumentTokenLinks;
+import model.PaymentInstrumentBankAccountLinks;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,14 +55,14 @@ import invoker.JSON;
  * PaymentInstrumentToken
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class PaymentInstrumentToken {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private Object tags;
+  private Map<String, String> tags = null;
 
   /**
-   * Gets or Sets type
+   * Type of &#x60;Payment Instrument&#x60;.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -135,7 +139,7 @@ public class PaymentInstrumentToken {
   private String identity;
 
   /**
-   * Gets or Sets instrumentType
+   * The type of &#x60;Payment Instrument&#x60;.
    */
   @JsonAdapter(InstrumentTypeEnum.Adapter.class)
   public enum InstrumentTypeEnum {
@@ -236,30 +240,38 @@ public class PaymentInstrumentToken {
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private PaymentInstrumentTokenLinks links;
+  private PaymentInstrumentBankAccountLinks links;
 
   public PaymentInstrumentToken() { 
   }
 
-  public PaymentInstrumentToken tags(Object tags) {
+  public PaymentInstrumentToken tags(Map<String, String> tags) {
     
     this.tags = tags;
     return this;
   }
 
+  public PaymentInstrumentToken putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
+    return this;
+  }
+
    /**
-   * Get tags
+   * Key value pair for annotating custom meta data (e.g. order numbers).
    * @return tags
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
 
-  public Object getTags() {
+  public Map<String, String> getTags() {
     return tags;
   }
 
 
-  public void setTags(Object tags) {
+  public void setTags(Map<String, String> tags) {
     this.tags = tags;
   }
 
@@ -271,11 +283,11 @@ public class PaymentInstrumentToken {
   }
 
    /**
-   * Get type
+   * Type of &#x60;Payment Instrument&#x60;.
    * @return type
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Type of `Payment Instrument`.")
 
   public TypeEnum getType() {
     return type;
@@ -298,7 +310,7 @@ public class PaymentInstrumentToken {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The ID of the resource.")
+  @ApiModelProperty(value = "The ID of the resource.")
 
   public String getId() {
     return id;
@@ -317,11 +329,11 @@ public class PaymentInstrumentToken {
   }
 
    /**
-   * Timestamp of when the object was created
+   * Timestamp of when the object was created.
    * @return createdAt
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Timestamp of when the object was created")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Timestamp of when the object was created.")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -340,11 +352,11 @@ public class PaymentInstrumentToken {
   }
 
    /**
-   * Timestamp of when the object was last updated
+   * Timestamp of when the object was last updated.
    * @return updatedAt
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Timestamp of when the object was last updated")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Timestamp of when the object was last updated.")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -366,8 +378,8 @@ public class PaymentInstrumentToken {
    * The ID of the resource.
    * @return application
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The ID of the resource.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ID of the resource.")
 
   public String getApplication() {
     return application;
@@ -389,8 +401,8 @@ public class PaymentInstrumentToken {
    * Get currency
    * @return currency
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Currency getCurrency() {
     return currency;
@@ -409,11 +421,11 @@ public class PaymentInstrumentToken {
   }
 
    /**
-   * Get fingerprint
+   * Unique ID that represents the tokenized card data.
    * @return fingerprint
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "FPRxxxxxxxxxxxxxxxxx", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "FPRxxxxxxxxxxxxxxxxx", value = "Unique ID that represents the tokenized card data.")
 
   public String getFingerprint() {
     return fingerprint;
@@ -436,7 +448,7 @@ public class PaymentInstrumentToken {
    * @return identity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The ID of the resource.")
+  @ApiModelProperty(value = "The ID of the resource.")
 
   public String getIdentity() {
     return identity;
@@ -455,11 +467,11 @@ public class PaymentInstrumentToken {
   }
 
    /**
-   * Get instrumentType
+   * The type of &#x60;Payment Instrument&#x60;.
    * @return instrumentType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of `Payment Instrument`.")
 
   public InstrumentTypeEnum getInstrumentType() {
     return instrumentType;
@@ -494,7 +506,7 @@ public class PaymentInstrumentToken {
   }
 
 
-  public PaymentInstrumentToken links(PaymentInstrumentTokenLinks links) {
+  public PaymentInstrumentToken links(PaymentInstrumentBankAccountLinks links) {
     
     this.links = links;
     return this;
@@ -504,15 +516,15 @@ public class PaymentInstrumentToken {
    * Get links
    * @return links
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-  public PaymentInstrumentTokenLinks getLinks() {
+  public PaymentInstrumentBankAccountLinks getLinks() {
     return links;
   }
 
 
-  public void setLinks(PaymentInstrumentTokenLinks links) {
+  public void setLinks(PaymentInstrumentBankAccountLinks links) {
     this.links = links;
   }
 
@@ -541,9 +553,20 @@ public class PaymentInstrumentToken {
         Objects.equals(this.links, paymentInstrumentToken.links);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(tags, type, id, createdAt, updatedAt, application, currency, fingerprint, identity, instrumentType, payloadType, links);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -599,16 +622,6 @@ public class PaymentInstrumentToken {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("tags");
-    openapiRequiredFields.add("type");
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("created_at");
-    openapiRequiredFields.add("updated_at");
-    openapiRequiredFields.add("application");
-    openapiRequiredFields.add("currency");
-    openapiRequiredFields.add("fingerprint");
-    openapiRequiredFields.add("identity");
-    openapiRequiredFields.add("_links");
   }
 
  /**
@@ -635,13 +648,6 @@ public class PaymentInstrumentToken {
         }
       }
       */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : PaymentInstrumentToken.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()  && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
@@ -665,7 +671,7 @@ public class PaymentInstrumentToken {
       }
       // validate the optional field `_links`
       if (jsonObj.getAsJsonObject("_links") != null) {
-       PaymentInstrumentTokenLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+       PaymentInstrumentBankAccountLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
       }
   }
 

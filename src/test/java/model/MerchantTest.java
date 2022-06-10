@@ -26,6 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import model.MerchantLinks;
+import model.MerchantProcessorDetails;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -46,6 +47,102 @@ public class MerchantTest {
     }
 
     /**
+     * Test the property 'id'
+     */
+    @Test
+    public void idTest() {
+        // TODO: test id
+    }
+
+    /**
+     * Test the property 'application'
+     */
+    @Test
+    public void applicationTest() {
+        // TODO: test application
+    }
+
+    /**
+     * Test the property 'identity'
+     */
+    @Test
+    public void identityTest() {
+        // TODO: test identity
+    }
+
+    /**
+     * Test the property 'verification'
+     */
+    @Test
+    public void verificationTest() {
+        // TODO: test verification
+    }
+
+    /**
+     * Test the property 'merchantProfile'
+     */
+    @Test
+    public void merchantProfileTest() {
+        // TODO: test merchantProfile
+    }
+
+    /**
+     * Test the property 'processor'
+     */
+    @Test
+    public void processorTest() {
+        // TODO: test processor
+    }
+
+    /**
+     * Test the property 'processingEnabled'
+     */
+    @Test
+    public void processingEnabledTest() {
+        // TODO: test processingEnabled
+    }
+
+    /**
+     * Test the property 'settlementEnabled'
+     */
+    @Test
+    public void settlementEnabledTest() {
+        // TODO: test settlementEnabled
+    }
+
+    /**
+     * Test the property 'grossSettlementEnabled'
+     */
+    @Test
+    public void grossSettlementEnabledTest() {
+        // TODO: test grossSettlementEnabled
+    }
+
+    /**
+     * Test the property 'creatingTransferFromReportEnabled'
+     */
+    @Test
+    public void creatingTransferFromReportEnabledTest() {
+        // TODO: test creatingTransferFromReportEnabled
+    }
+
+    /**
+     * Test the property 'cardExpirationDateRequired'
+     */
+    @Test
+    public void cardExpirationDateRequiredTest() {
+        // TODO: test cardExpirationDateRequired
+    }
+
+    /**
+     * Test the property 'cardCvvRequired'
+     */
+    @Test
+    public void cardCvvRequiredTest() {
+        // TODO: test cardCvvRequired
+    }
+
+    /**
      * Test the property 'tags'
      */
     @Test
@@ -54,11 +151,59 @@ public class MerchantTest {
     }
 
     /**
-     * Test the property 'id'
+     * Test the property 'mcc'
      */
     @Test
-    public void idTest() {
-        // TODO: test id
+    public void mccTest() {
+        // TODO: test mcc
+    }
+
+    /**
+     * Test the property 'mid'
+     */
+    @Test
+    public void midTest() {
+        // TODO: test mid
+    }
+
+    /**
+     * Test the property 'merchantName'
+     */
+    @Test
+    public void merchantNameTest() {
+        // TODO: test merchantName
+    }
+
+    /**
+     * Test the property 'settlementFundingIdentifier'
+     */
+    @Test
+    public void settlementFundingIdentifierTest() {
+        // TODO: test settlementFundingIdentifier
+    }
+
+    /**
+     * Test the property 'readyToSettleUpon'
+     */
+    @Test
+    public void readyToSettleUponTest() {
+        // TODO: test readyToSettleUpon
+    }
+
+    /**
+     * Test the property 'feeReadyToSettleUpon'
+     */
+    @Test
+    public void feeReadyToSettleUponTest() {
+        // TODO: test feeReadyToSettleUpon
+    }
+
+    /**
+     * Test the property 'levelTwoLevelThreeDataEnabled'
+     */
+    @Test
+    public void levelTwoLevelThreeDataEnabledTest() {
+        // TODO: test levelTwoLevelThreeDataEnabled
     }
 
     /**
@@ -78,86 +223,6 @@ public class MerchantTest {
     }
 
     /**
-     * Test the property 'application'
-     */
-    @Test
-    public void applicationTest() {
-        // TODO: test application
-    }
-
-    /**
-     * Test the property 'cardCvvRequired'
-     */
-    @Test
-    public void cardCvvRequiredTest() {
-        // TODO: test cardCvvRequired
-    }
-
-    /**
-     * Test the property 'cardExpirationDateRequired'
-     */
-    @Test
-    public void cardExpirationDateRequiredTest() {
-        // TODO: test cardExpirationDateRequired
-    }
-
-    /**
-     * Test the property 'creatingTransferFromReportEnabled'
-     */
-    @Test
-    public void creatingTransferFromReportEnabledTest() {
-        // TODO: test creatingTransferFromReportEnabled
-    }
-
-    /**
-     * Test the property 'grossSettlementEnabled'
-     */
-    @Test
-    public void grossSettlementEnabledTest() {
-        // TODO: test grossSettlementEnabled
-    }
-
-    /**
-     * Test the property 'identity'
-     */
-    @Test
-    public void identityTest() {
-        // TODO: test identity
-    }
-
-    /**
-     * Test the property 'mcc'
-     */
-    @Test
-    public void mccTest() {
-        // TODO: test mcc
-    }
-
-    /**
-     * Test the property 'merchantName'
-     */
-    @Test
-    public void merchantNameTest() {
-        // TODO: test merchantName
-    }
-
-    /**
-     * Test the property 'merchantProfile'
-     */
-    @Test
-    public void merchantProfileTest() {
-        // TODO: test merchantProfile
-    }
-
-    /**
-     * Test the property 'mid'
-     */
-    @Test
-    public void midTest() {
-        // TODO: test mid
-    }
-
-    /**
      * Test the property 'onboardingState'
      */
     @Test
@@ -166,43 +231,11 @@ public class MerchantTest {
     }
 
     /**
-     * Test the property 'processingEnabled'
-     */
-    @Test
-    public void processingEnabledTest() {
-        // TODO: test processingEnabled
-    }
-
-    /**
-     * Test the property 'processor'
-     */
-    @Test
-    public void processorTest() {
-        // TODO: test processor
-    }
-
-    /**
      * Test the property 'processorDetails'
      */
     @Test
     public void processorDetailsTest() {
         // TODO: test processorDetails
-    }
-
-    /**
-     * Test the property 'settlementEnabled'
-     */
-    @Test
-    public void settlementEnabledTest() {
-        // TODO: test settlementEnabled
-    }
-
-    /**
-     * Test the property 'verification'
-     */
-    @Test
-    public void verificationTest() {
-        // TODO: test verification
     }
 
     /**

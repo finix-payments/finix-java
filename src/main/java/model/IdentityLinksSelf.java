@@ -45,10 +45,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * IdentityLinksSelf
+ * Link to the resource that was used in the request.
  */
+@ApiModel(description = "Link to the resource that was used in the request.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class IdentityLinksSelf {
   public static final String SERIALIZED_NAME_HREF = "href";
   @SerializedName(SERIALIZED_NAME_HREF)

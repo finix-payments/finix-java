@@ -23,7 +23,12 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.ApplicationLinksApplicationProfile;
+import model.ApplicationLinksSelf;
+import model.MerchantLinksApplication;
+import model.MerchantLinksIdentity;
+import model.MerchantLinksMerchantProfile;
+import model.MerchantLinksVerification;
+import model.MerchantLinksVerifications;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,108 +51,40 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * MerchantLinks
+ * For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these &#x60;_links&#x60; to make your follow-up requests and quickly access relevant IDs.
  */
+@ApiModel(description = "For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class MerchantLinks {
-  public static final String SERIALIZED_NAME_APPLICATION = "application";
-  @SerializedName(SERIALIZED_NAME_APPLICATION)
-  private ApplicationLinksApplicationProfile application;
+  public static final String SERIALIZED_NAME_SELF = "self";
+  @SerializedName(SERIALIZED_NAME_SELF)
+  private ApplicationLinksSelf self;
 
   public static final String SERIALIZED_NAME_IDENTITY = "identity";
   @SerializedName(SERIALIZED_NAME_IDENTITY)
-  private ApplicationLinksApplicationProfile identity;
-
-  public static final String SERIALIZED_NAME_MERCHANT_PROFILE = "merchant_profile";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_PROFILE)
-  private ApplicationLinksApplicationProfile merchantProfile;
-
-  public static final String SERIALIZED_NAME_SELF = "self";
-  @SerializedName(SERIALIZED_NAME_SELF)
-  private ApplicationLinksApplicationProfile self;
-
-  public static final String SERIALIZED_NAME_VERIFICATION = "verification";
-  @SerializedName(SERIALIZED_NAME_VERIFICATION)
-  private ApplicationLinksApplicationProfile verification;
+  private MerchantLinksIdentity identity;
 
   public static final String SERIALIZED_NAME_VERIFICATIONS = "verifications";
   @SerializedName(SERIALIZED_NAME_VERIFICATIONS)
-  private ApplicationLinksApplicationProfile verifications;
+  private MerchantLinksVerifications verifications;
+
+  public static final String SERIALIZED_NAME_MERCHANT_PROFILE = "merchant_profile";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_PROFILE)
+  private MerchantLinksMerchantProfile merchantProfile;
+
+  public static final String SERIALIZED_NAME_APPLICATION = "application";
+  @SerializedName(SERIALIZED_NAME_APPLICATION)
+  private MerchantLinksApplication application;
+
+  public static final String SERIALIZED_NAME_VERIFICATION = "verification";
+  @SerializedName(SERIALIZED_NAME_VERIFICATION)
+  private MerchantLinksVerification verification;
 
   public MerchantLinks() { 
   }
 
-  public MerchantLinks application(ApplicationLinksApplicationProfile application) {
-    
-    this.application = application;
-    return this;
-  }
-
-   /**
-   * Get application
-   * @return application
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public ApplicationLinksApplicationProfile getApplication() {
-    return application;
-  }
-
-
-  public void setApplication(ApplicationLinksApplicationProfile application) {
-    this.application = application;
-  }
-
-
-  public MerchantLinks identity(ApplicationLinksApplicationProfile identity) {
-    
-    this.identity = identity;
-    return this;
-  }
-
-   /**
-   * Get identity
-   * @return identity
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public ApplicationLinksApplicationProfile getIdentity() {
-    return identity;
-  }
-
-
-  public void setIdentity(ApplicationLinksApplicationProfile identity) {
-    this.identity = identity;
-  }
-
-
-  public MerchantLinks merchantProfile(ApplicationLinksApplicationProfile merchantProfile) {
-    
-    this.merchantProfile = merchantProfile;
-    return this;
-  }
-
-   /**
-   * Get merchantProfile
-   * @return merchantProfile
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public ApplicationLinksApplicationProfile getMerchantProfile() {
-    return merchantProfile;
-  }
-
-
-  public void setMerchantProfile(ApplicationLinksApplicationProfile merchantProfile) {
-    this.merchantProfile = merchantProfile;
-  }
-
-
-  public MerchantLinks self(ApplicationLinksApplicationProfile self) {
+  public MerchantLinks self(ApplicationLinksSelf self) {
     
     this.self = self;
     return this;
@@ -160,40 +97,40 @@ public class MerchantLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getSelf() {
+  public ApplicationLinksSelf getSelf() {
     return self;
   }
 
 
-  public void setSelf(ApplicationLinksApplicationProfile self) {
+  public void setSelf(ApplicationLinksSelf self) {
     this.self = self;
   }
 
 
-  public MerchantLinks verification(ApplicationLinksApplicationProfile verification) {
+  public MerchantLinks identity(MerchantLinksIdentity identity) {
     
-    this.verification = verification;
+    this.identity = identity;
     return this;
   }
 
    /**
-   * Get verification
-   * @return verification
+   * Get identity
+   * @return identity
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getVerification() {
-    return verification;
+  public MerchantLinksIdentity getIdentity() {
+    return identity;
   }
 
 
-  public void setVerification(ApplicationLinksApplicationProfile verification) {
-    this.verification = verification;
+  public void setIdentity(MerchantLinksIdentity identity) {
+    this.identity = identity;
   }
 
 
-  public MerchantLinks verifications(ApplicationLinksApplicationProfile verifications) {
+  public MerchantLinks verifications(MerchantLinksVerifications verifications) {
     
     this.verifications = verifications;
     return this;
@@ -206,13 +143,82 @@ public class MerchantLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getVerifications() {
+  public MerchantLinksVerifications getVerifications() {
     return verifications;
   }
 
 
-  public void setVerifications(ApplicationLinksApplicationProfile verifications) {
+  public void setVerifications(MerchantLinksVerifications verifications) {
     this.verifications = verifications;
+  }
+
+
+  public MerchantLinks merchantProfile(MerchantLinksMerchantProfile merchantProfile) {
+    
+    this.merchantProfile = merchantProfile;
+    return this;
+  }
+
+   /**
+   * Get merchantProfile
+   * @return merchantProfile
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public MerchantLinksMerchantProfile getMerchantProfile() {
+    return merchantProfile;
+  }
+
+
+  public void setMerchantProfile(MerchantLinksMerchantProfile merchantProfile) {
+    this.merchantProfile = merchantProfile;
+  }
+
+
+  public MerchantLinks application(MerchantLinksApplication application) {
+    
+    this.application = application;
+    return this;
+  }
+
+   /**
+   * Get application
+   * @return application
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public MerchantLinksApplication getApplication() {
+    return application;
+  }
+
+
+  public void setApplication(MerchantLinksApplication application) {
+    this.application = application;
+  }
+
+
+  public MerchantLinks verification(MerchantLinksVerification verification) {
+    
+    this.verification = verification;
+    return this;
+  }
+
+   /**
+   * Get verification
+   * @return verification
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public MerchantLinksVerification getVerification() {
+    return verification;
+  }
+
+
+  public void setVerification(MerchantLinksVerification verification) {
+    this.verification = verification;
   }
 
 
@@ -226,29 +232,29 @@ public class MerchantLinks {
       return false;
     }
     MerchantLinks merchantLinks = (MerchantLinks) o;
-    return Objects.equals(this.application, merchantLinks.application) &&
+    return Objects.equals(this.self, merchantLinks.self) &&
         Objects.equals(this.identity, merchantLinks.identity) &&
+        Objects.equals(this.verifications, merchantLinks.verifications) &&
         Objects.equals(this.merchantProfile, merchantLinks.merchantProfile) &&
-        Objects.equals(this.self, merchantLinks.self) &&
-        Objects.equals(this.verification, merchantLinks.verification) &&
-        Objects.equals(this.verifications, merchantLinks.verifications);
+        Objects.equals(this.application, merchantLinks.application) &&
+        Objects.equals(this.verification, merchantLinks.verification);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(application, identity, merchantProfile, self, verification, verifications);
+    return Objects.hash(self, identity, verifications, merchantProfile, application, verification);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MerchantLinks {\n");
-    sb.append("    application: ").append(toIndentedString(application)).append("\n");
-    sb.append("    identity: ").append(toIndentedString(identity)).append("\n");
-    sb.append("    merchantProfile: ").append(toIndentedString(merchantProfile)).append("\n");
     sb.append("    self: ").append(toIndentedString(self)).append("\n");
-    sb.append("    verification: ").append(toIndentedString(verification)).append("\n");
+    sb.append("    identity: ").append(toIndentedString(identity)).append("\n");
     sb.append("    verifications: ").append(toIndentedString(verifications)).append("\n");
+    sb.append("    merchantProfile: ").append(toIndentedString(merchantProfile)).append("\n");
+    sb.append("    application: ").append(toIndentedString(application)).append("\n");
+    sb.append("    verification: ").append(toIndentedString(verification)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -271,12 +277,12 @@ public class MerchantLinks {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("application");
-    openapiFields.add("identity");
-    openapiFields.add("merchant_profile");
     openapiFields.add("self");
-    openapiFields.add("verification");
+    openapiFields.add("identity");
     openapiFields.add("verifications");
+    openapiFields.add("merchant_profile");
+    openapiFields.add("application");
+    openapiFields.add("verification");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -306,29 +312,29 @@ public class MerchantLinks {
         }
       }
       */
-      // validate the optional field `application`
-      if (jsonObj.getAsJsonObject("application") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("application"));
+      // validate the optional field `self`
+      if (jsonObj.getAsJsonObject("self") != null) {
+       ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
       }
       // validate the optional field `identity`
       if (jsonObj.getAsJsonObject("identity") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("identity"));
-      }
-      // validate the optional field `merchant_profile`
-      if (jsonObj.getAsJsonObject("merchant_profile") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("merchant_profile"));
-      }
-      // validate the optional field `self`
-      if (jsonObj.getAsJsonObject("self") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("self"));
-      }
-      // validate the optional field `verification`
-      if (jsonObj.getAsJsonObject("verification") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("verification"));
+       MerchantLinksIdentity.validateJsonObject(jsonObj.getAsJsonObject("identity"));
       }
       // validate the optional field `verifications`
       if (jsonObj.getAsJsonObject("verifications") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("verifications"));
+       MerchantLinksVerifications.validateJsonObject(jsonObj.getAsJsonObject("verifications"));
+      }
+      // validate the optional field `merchant_profile`
+      if (jsonObj.getAsJsonObject("merchant_profile") != null) {
+       MerchantLinksMerchantProfile.validateJsonObject(jsonObj.getAsJsonObject("merchant_profile"));
+      }
+      // validate the optional field `application`
+      if (jsonObj.getAsJsonObject("application") != null) {
+       MerchantLinksApplication.validateJsonObject(jsonObj.getAsJsonObject("application"));
+      }
+      // validate the optional field `verification`
+      if (jsonObj.getAsJsonObject("verification") != null) {
+       MerchantLinksVerification.validateJsonObject(jsonObj.getAsJsonObject("verification"));
       }
   }
 

@@ -14,36 +14,49 @@
 package api;
 
 import invoker.ApiException;
-import model.CreateSubscriptionScheduleRequest;
-import model.SubscriptionSchedule;
-import model.SubscriptionSchedulesList;
-import model.UpdateSubscriptionScheduleRequest;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import invoker.Environment;
+import invoker.FinixClient;
+import model.*;
+import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 /**
  * API tests for SubscriptionSchedulesApi
  */
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@DisplayName("When Running SubscriptionSchedulesApiTest")
 @Disabled
 public class SubscriptionSchedulesApiTest {
-
+    private FinixClient finixClient;
     private final SubscriptionSchedulesApi api = new SubscriptionSchedulesApi();
+    @Test
+    @BeforeAll
+    @DisplayName("Finix Client")
+    void contextLoads() {
+        finixClient= new FinixClient("UStxEci4vXxGDWLQhNvao7YY","25038781-2369-4113-8187-34780e91052e", Environment.SANDBOX);
+        //  System.out.println(finixClient == null);
+        assertEquals(true , finixClient!=null);
 
+    }
     /**
      * List Subscription Schedules
      *
-     * Retrieve a list of subscription schedules.
+     * Retrieve a list of &#x60;Subscription Schedules&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void getSubscriptionSubscriptionSchedulesTest() throws ApiException {
-        SubscriptionSchedulesList response = api.list();
+    @DisplayName("List Subscription Schedules\n")
+    public void getSubscriptionSchedulesTest() throws ApiException {
+        String nickname = null;
+        String type = null;
+        SubscriptionSchedulesList response = finixClient.SubscriptionSchedules.list(nickname, type);
         // TODO: test validations
     }
 
@@ -57,7 +70,9 @@ public class SubscriptionSchedulesApiTest {
     @Test
     public void getSubscriptionSubscriptionSchedulesIdTest() throws ApiException {
         String subscriptionScheduleId = null;
-        SubscriptionSchedule response = api.get(subscriptionScheduleId);
+        String nickname = null;
+        String type = null;
+        SubscriptionSchedule response = api.get(subscriptionScheduleId, nickname, type);
         // TODO: test validations
     }
 
@@ -69,9 +84,49 @@ public class SubscriptionSchedulesApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void postSubscriptionSubscriptionSchedulesTest() throws ApiException {
-        CreateSubscriptionScheduleRequest createSubscriptionScheduleRequest = null;
-        SubscriptionSchedule response = api.create(createSubscriptionScheduleRequest);
+    @DisplayName("Create Subscription Schedule FIXED_TIME_INTERVAL")
+    public void postFixedTimeSubscriptionSubscriptionSchedulesTest() throws ApiException {
+        CreateSubscriptionScheduleRequest createSubscriptionScheduleRequest = CreateSubscriptionScheduleRequest.builder()
+                .lineItemType(CreateSubscriptionScheduleRequest.LineItemTypeEnum.FEE)
+                .nickname("Fixed_Time_Subscription_Schedule")
+                .fixedTimeIntervalOffset(CreateSubscriptionScheduleRequestFixedTimeIntervalOffset.builder()
+                        .intervalCount(4)
+                        .hourlyInterval(24)
+                        .build())
+                .subscriptionType(CreateSubscriptionScheduleRequest.SubscriptionTypeEnum.FIXED_TIME_INTERVAL)
+                .build();
+        SubscriptionSchedule response = finixClient.SubscriptionSchedules.create(createSubscriptionScheduleRequest);
+        // TODO: test validations
+    }
+    @Test
+    @DisplayName("Create Subscription Schedule PERIODIC_MONTHLY")
+    public void postPeriodicMonthlySubscriptionSubscriptionSchedulesTest() throws ApiException {
+        CreateSubscriptionScheduleRequest createSubscriptionScheduleRequest = CreateSubscriptionScheduleRequest.builder()
+                .lineItemType(CreateSubscriptionScheduleRequest.LineItemTypeEnum.FEE)
+                .periodOffset(CreateSubscriptionScheduleRequestPeriodOffset.builder()
+                        .day(1)
+                        .month(null)
+                        .build())
+                .nickname("Monthly_Subscription_Schedule")
+                .subscriptionType(CreateSubscriptionScheduleRequest.SubscriptionTypeEnum.PERIODIC_MONTHLY)
+                .build();
+        SubscriptionSchedule response = finixClient.SubscriptionSchedules.create(createSubscriptionScheduleRequest);
+        // TODO: test validations
+    }
+
+    @Test
+    @DisplayName("Create Subscription Schedule PERIODIC_YEARLY")
+    public void postPeriodicYearlySubscriptionSubscriptionSchedulesTest() throws ApiException {
+        CreateSubscriptionScheduleRequest createSubscriptionScheduleRequest = CreateSubscriptionScheduleRequest.builder()
+                .lineItemType(CreateSubscriptionScheduleRequest.LineItemTypeEnum.FEE)
+                .periodOffset(CreateSubscriptionScheduleRequestPeriodOffset.builder()
+                        .day(5)
+                        .month(1)
+                        .build())
+                .nickname("Yearly_Subscription_Schedule")
+                .subscriptionType(CreateSubscriptionScheduleRequest.SubscriptionTypeEnum.PERIODIC_YEARLY)
+                .build();
+        SubscriptionSchedule response = finixClient.SubscriptionSchedules.create(createSubscriptionScheduleRequest);
         // TODO: test validations
     }
 

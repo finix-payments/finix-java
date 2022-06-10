@@ -52,7 +52,7 @@ import invoker.JSON;
  * InstrumentUpdate
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class InstrumentUpdate {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -83,7 +83,7 @@ public class InstrumentUpdate {
   private String paymentInstrument;
 
   /**
-   * Gets or Sets state
+   * The status of the &#x60;instrument_updates&#x60; resource and update request.
    */
   @JsonAdapter(StateEnum.Adapter.class)
   public enum StateEnum {
@@ -153,11 +153,11 @@ public class InstrumentUpdate {
   }
 
    /**
-   * Get id
+   * The ID of the &#x60;instrument_updates&#x60; resource.
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "IUxxxxxxxxxxxxxxxxxx", required = true, value = "")
+  @ApiModelProperty(example = "IUxxxxxxxxxxxxxxxxxx", required = true, value = "The ID of the `instrument_updates` resource.")
 
   public String getId() {
     return id;
@@ -176,11 +176,11 @@ public class InstrumentUpdate {
   }
 
    /**
-   * Timestamp of when the object was created
+   * Timestamp of when the object was created.
    * @return createdAt
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Timestamp of when the object was created")
+  @ApiModelProperty(required = true, value = "Timestamp of when the object was created.")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -199,11 +199,11 @@ public class InstrumentUpdate {
   }
 
    /**
-   * Timestamp of when the object was last updated
+   * Timestamp of when the object was last updated.
    * @return updatedAt
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Timestamp of when the object was last updated")
+  @ApiModelProperty(required = true, value = "Timestamp of when the object was last updated.")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -222,11 +222,11 @@ public class InstrumentUpdate {
   }
 
    /**
-   * The ID of the resource.
+   * The ID of the &#x60;Application&#x60; that created the &#x60;instrument_updates&#x60;.
    * @return application
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The ID of the resource.")
+  @ApiModelProperty(required = true, value = "The ID of the `Application` that created the `instrument_updates`.")
 
   public String getApplication() {
     return application;
@@ -273,11 +273,11 @@ public class InstrumentUpdate {
   }
 
    /**
-   * Get messages
+   * Message field that provides additional details. This field is typically null.
    * @return messages
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Message field that provides additional details. This field is typically null.")
 
   public List<String> getMessages() {
     return messages;
@@ -319,11 +319,11 @@ public class InstrumentUpdate {
   }
 
    /**
-   * Get state
+   * The status of the &#x60;instrument_updates&#x60; resource and update request.
    * @return state
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The status of the `instrument_updates` resource and update request.")
 
   public StateEnum getState() {
     return state;
@@ -342,11 +342,11 @@ public class InstrumentUpdate {
   }
 
    /**
-   * Get traceId
+   * A &#x60;trace_id&#x60; you can use to track the update request end-to-end.
    * @return traceId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A `trace_id` you can use to track the update request end-to-end.")
 
   public String getTraceId() {
     return traceId;

@@ -37,7 +37,7 @@ public class SubscriptionEnrollmentsApiTest {
     /**
      * Create a Subscription Enrollment
      *
-     * Create a &#x60;subscription_enrollment&#x60;.
+     * Create a &#x60;subscription_enrollment&#x60;.  A &#x60;subscription_enrollment&#x60; details which &#x60;Merchant&#x60; gets charged, to what schedule, and when the subscription will start. The &#x60;subscription_enrollment&#x60; must be associated with a &#x60;Subscription Schedule&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
@@ -57,7 +57,7 @@ public class SubscriptionEnrollmentsApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void deleteSubscriptionSubscriptionEnrollmentsIdTest() throws ApiException {
+    public void deleteSubscriptionEnrollmentTest() throws ApiException {
         String subscriptionEnrollmentId = null;
         api.remove(subscriptionEnrollmentId);
         // TODO: test validations
@@ -66,7 +66,7 @@ public class SubscriptionEnrollmentsApiTest {
     /**
      * List Subscription Enrollments
      *
-     * Retrieve a list of subscription enrollments.
+     * Retrieve a list of &#x60;Subscription Enrollments&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
@@ -86,14 +86,15 @@ public class SubscriptionEnrollmentsApiTest {
     @Test
     public void getSubscriptionSubscriptionEnrollmentsIdTest() throws ApiException {
         String subscriptionEnrollmentId = null;
-        SubscriptionEnrollment response = api.get(subscriptionEnrollmentId);
+        String merchant = null;
+        SubscriptionEnrollment response = api.get(subscriptionEnrollmentId, merchant);
         // TODO: test validations
     }
 
     /**
-     * List Subscription Enrollments on a schedule
+     * List Subscription Enrollments on a Schedule
      *
-     * Retrieve a list of subscription enrollments for a specific &#x60;subscription _chedule&#x60;.
+     * Retrieve a list of &#x60;Subscription Enrollments&#x60; for a specific &#x60;subscription_schedule&#x60;.
      *
      * @throws ApiException if the Api call fails
      */

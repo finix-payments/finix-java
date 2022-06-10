@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import model.ProcessorOneOfLinks;
+import model.ProcessorLinks;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,7 +50,7 @@ import invoker.JSON;
  * Webhook
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class Webhook {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -78,7 +78,7 @@ public class Webhook {
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private ProcessorOneOfLinks links;
+  private ProcessorLinks links;
 
   public Webhook() { 
   }
@@ -90,11 +90,11 @@ public class Webhook {
   }
 
    /**
-   * Get id
+   * The ID of the &#x60;Webhook&#x60; resource.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "WHxxxxxxxxxxxxxxxxxx", value = "")
+  @ApiModelProperty(example = "WHxxxxxxxxxxxxxxxxxx", value = "The ID of the `Webhook` resource.")
 
   public String getId() {
     return id;
@@ -113,11 +113,11 @@ public class Webhook {
   }
 
    /**
-   * Timestamp of when the object was created
+   * Timestamp of when the object was created.
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the object was created")
+  @ApiModelProperty(value = "Timestamp of when the object was created.")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -136,11 +136,11 @@ public class Webhook {
   }
 
    /**
-   * Timestamp of when the object was last updated
+   * Timestamp of when the object was last updated.
    * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the object was last updated")
+  @ApiModelProperty(value = "Timestamp of when the object was last updated.")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -159,11 +159,11 @@ public class Webhook {
   }
 
    /**
-   * The ID of the resource.
+   * The ID of the &#x60;Application&#x60; resource the &#x60;Webhook&#x60; was created under.
    * @return application
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the resource.")
+  @ApiModelProperty(value = "The ID of the `Application` resource the `Webhook` was created under.")
 
   public String getApplication() {
     return application;
@@ -182,11 +182,11 @@ public class Webhook {
   }
 
    /**
-   * Get enabled
+   * Details if the &#x60;Webhook&#x60; is enabled:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;true&lt;/strong&gt;: Events are being sent to the &#x60;url&#x60;.&lt;li&gt;&lt;strong&gt;false&lt;/strong&gt;: Events are not being sent.
    * @return enabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Details if the `Webhook` is enabled:<ul><li><strong>true</strong>: Events are being sent to the `url`.<li><strong>false</strong>: Events are not being sent.")
 
   public Boolean getEnabled() {
     return enabled;
@@ -205,11 +205,11 @@ public class Webhook {
   }
 
    /**
-   * Get url
+   * The HTTP or HTTPS URL where callbacks (i.e. events) will be sent via POST request (max 120 characters).
    * @return url
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The HTTP or HTTPS URL where callbacks (i.e. events) will be sent via POST request (max 120 characters).")
 
   public String getUrl() {
     return url;
@@ -221,7 +221,7 @@ public class Webhook {
   }
 
 
-  public Webhook links(ProcessorOneOfLinks links) {
+  public Webhook links(ProcessorLinks links) {
     
     this.links = links;
     return this;
@@ -234,12 +234,12 @@ public class Webhook {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ProcessorOneOfLinks getLinks() {
+  public ProcessorLinks getLinks() {
     return links;
   }
 
 
-  public void setLinks(ProcessorOneOfLinks links) {
+  public void setLinks(ProcessorLinks links) {
     this.links = links;
   }
 
@@ -348,7 +348,7 @@ public class Webhook {
       }
       // validate the optional field `_links`
       if (jsonObj.getAsJsonObject("_links") != null) {
-       ProcessorOneOfLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+       ProcessorLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
       }
   }
 

@@ -27,7 +27,7 @@ import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import model.DisputeEvidenceListLinks;
+import model.RiskProfileRulesListEmbeddedLinks;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -54,7 +54,7 @@ import invoker.JSON;
  * RiskProfileRulesListEmbeddedRiskProfileRules
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class RiskProfileRulesListEmbeddedRiskProfileRules {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -114,7 +114,7 @@ public class RiskProfileRulesListEmbeddedRiskProfileRules {
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private DisputeEvidenceListLinks links;
+  private RiskProfileRulesListEmbeddedLinks links;
 
   public RiskProfileRulesListEmbeddedRiskProfileRules() { 
   }
@@ -203,11 +203,11 @@ public class RiskProfileRulesListEmbeddedRiskProfileRules {
   }
 
    /**
-   * Timestamp of when the object was created
+   * Timestamp of when the object was created.
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the object was created")
+  @ApiModelProperty(value = "Timestamp of when the object was created.")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -226,11 +226,11 @@ public class RiskProfileRulesListEmbeddedRiskProfileRules {
   }
 
    /**
-   * Timestamp of when the object was last updated
+   * Timestamp of when the object was last updated.
    * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the object was last updated")
+  @ApiModelProperty(value = "Timestamp of when the object was last updated.")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -449,7 +449,7 @@ public class RiskProfileRulesListEmbeddedRiskProfileRules {
   }
 
 
-  public RiskProfileRulesListEmbeddedRiskProfileRules links(DisputeEvidenceListLinks links) {
+  public RiskProfileRulesListEmbeddedRiskProfileRules links(RiskProfileRulesListEmbeddedLinks links) {
     
     this.links = links;
     return this;
@@ -462,12 +462,12 @@ public class RiskProfileRulesListEmbeddedRiskProfileRules {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public DisputeEvidenceListLinks getLinks() {
+  public RiskProfileRulesListEmbeddedLinks getLinks() {
     return links;
   }
 
 
-  public void setLinks(DisputeEvidenceListLinks links) {
+  public void setLinks(RiskProfileRulesListEmbeddedLinks links) {
     this.links = links;
   }
 
@@ -620,7 +620,7 @@ public class RiskProfileRulesListEmbeddedRiskProfileRules {
       }
       // validate the optional field `_links`
       if (jsonObj.getAsJsonObject("_links") != null) {
-       DisputeEvidenceListLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+       RiskProfileRulesListEmbeddedLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
       }
   }
 

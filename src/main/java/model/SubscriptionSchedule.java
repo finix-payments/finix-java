@@ -27,9 +27,9 @@ import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import model.CreateSubscriptionScheduleRequestFixedTimeIntervalOffset;
-import model.CreateSubscriptionScheduleRequestPeriodOffset;
+import model.SubscriptionScheduleFixedTimeIntervalOffset;
 import model.SubscriptionScheduleLinks;
+import model.SubscriptionSchedulePeriodOffset;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -56,7 +56,7 @@ import invoker.JSON;
  * SubscriptionSchedule
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class SubscriptionSchedule {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -76,10 +76,10 @@ public class SubscriptionSchedule {
 
   public static final String SERIALIZED_NAME_FIXED_TIME_INTERVAL_OFFSET = "fixed_time_interval_offset";
   @SerializedName(SERIALIZED_NAME_FIXED_TIME_INTERVAL_OFFSET)
-  private CreateSubscriptionScheduleRequestFixedTimeIntervalOffset fixedTimeIntervalOffset;
+  private SubscriptionScheduleFixedTimeIntervalOffset fixedTimeIntervalOffset;
 
   /**
-   * Subscription Schedule type. For subscriptions, the type is FEE
+   * &#x60;Subscription Schedule&#x60; type. For subscriptions, the type is **FEE**.
    */
   @JsonAdapter(LineItemTypeEnum.Adapter.class)
   public enum LineItemTypeEnum {
@@ -133,10 +133,10 @@ public class SubscriptionSchedule {
 
   public static final String SERIALIZED_NAME_PERIOD_OFFSET = "period_offset";
   @SerializedName(SERIALIZED_NAME_PERIOD_OFFSET)
-  private CreateSubscriptionScheduleRequestPeriodOffset periodOffset;
+  private SubscriptionSchedulePeriodOffset periodOffset;
 
   /**
-   * Subscription schedule type.
+   * &#x60;Subscription Schedule&#x60; type.
    */
   @JsonAdapter(SubscriptionTypeEnum.Adapter.class)
   public enum SubscriptionTypeEnum {
@@ -206,11 +206,11 @@ public class SubscriptionSchedule {
   }
 
    /**
-   * ID of the Subscription Schedule
+   * ID of the &#x60;Subscription Schedule&#x60;.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "SUBSCHEDULE_uxsUJrgbQZEXsWm9toq6gZ", value = "ID of the Subscription Schedule")
+  @ApiModelProperty(example = "SUBSCHEDULE_uxsUJrgbQZEXsWm9toq6gZ", value = "ID of the `Subscription Schedule`.")
 
   public String getId() {
     return id;
@@ -229,11 +229,11 @@ public class SubscriptionSchedule {
   }
 
    /**
-   * Timestamp of when the object was created
+   * Timestamp of when the object was created.
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the object was created")
+  @ApiModelProperty(value = "Timestamp of when the object was created.")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -252,11 +252,11 @@ public class SubscriptionSchedule {
   }
 
    /**
-   * Timestamp of when the object was last updated
+   * Timestamp of when the object was last updated.
    * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the object was last updated")
+  @ApiModelProperty(value = "Timestamp of when the object was last updated.")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -275,11 +275,11 @@ public class SubscriptionSchedule {
   }
 
    /**
-   * User ID who created the schedule.
+   * &#x60;User&#x60; ID who created the schedule.
    * @return createdBy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "User ID who created the schedule.")
+  @ApiModelProperty(value = "`User` ID who created the schedule.")
 
   public String getCreatedBy() {
     return createdBy;
@@ -291,7 +291,7 @@ public class SubscriptionSchedule {
   }
 
 
-  public SubscriptionSchedule fixedTimeIntervalOffset(CreateSubscriptionScheduleRequestFixedTimeIntervalOffset fixedTimeIntervalOffset) {
+  public SubscriptionSchedule fixedTimeIntervalOffset(SubscriptionScheduleFixedTimeIntervalOffset fixedTimeIntervalOffset) {
     
     this.fixedTimeIntervalOffset = fixedTimeIntervalOffset;
     return this;
@@ -304,12 +304,12 @@ public class SubscriptionSchedule {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public CreateSubscriptionScheduleRequestFixedTimeIntervalOffset getFixedTimeIntervalOffset() {
+  public SubscriptionScheduleFixedTimeIntervalOffset getFixedTimeIntervalOffset() {
     return fixedTimeIntervalOffset;
   }
 
 
-  public void setFixedTimeIntervalOffset(CreateSubscriptionScheduleRequestFixedTimeIntervalOffset fixedTimeIntervalOffset) {
+  public void setFixedTimeIntervalOffset(SubscriptionScheduleFixedTimeIntervalOffset fixedTimeIntervalOffset) {
     this.fixedTimeIntervalOffset = fixedTimeIntervalOffset;
   }
 
@@ -321,11 +321,11 @@ public class SubscriptionSchedule {
   }
 
    /**
-   * Subscription Schedule type. For subscriptions, the type is FEE
+   * &#x60;Subscription Schedule&#x60; type. For subscriptions, the type is **FEE**.
    * @return lineItemType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Subscription Schedule type. For subscriptions, the type is FEE")
+  @ApiModelProperty(value = "`Subscription Schedule` type. For subscriptions, the type is **FEE**.")
 
   public LineItemTypeEnum getLineItemType() {
     return lineItemType;
@@ -360,7 +360,7 @@ public class SubscriptionSchedule {
   }
 
 
-  public SubscriptionSchedule periodOffset(CreateSubscriptionScheduleRequestPeriodOffset periodOffset) {
+  public SubscriptionSchedule periodOffset(SubscriptionSchedulePeriodOffset periodOffset) {
     
     this.periodOffset = periodOffset;
     return this;
@@ -373,12 +373,12 @@ public class SubscriptionSchedule {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public CreateSubscriptionScheduleRequestPeriodOffset getPeriodOffset() {
+  public SubscriptionSchedulePeriodOffset getPeriodOffset() {
     return periodOffset;
   }
 
 
-  public void setPeriodOffset(CreateSubscriptionScheduleRequestPeriodOffset periodOffset) {
+  public void setPeriodOffset(SubscriptionSchedulePeriodOffset periodOffset) {
     this.periodOffset = periodOffset;
   }
 
@@ -390,11 +390,11 @@ public class SubscriptionSchedule {
   }
 
    /**
-   * Subscription schedule type.
+   * &#x60;Subscription Schedule&#x60; type.
    * @return subscriptionType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Subscription schedule type.")
+  @ApiModelProperty(value = "`Subscription Schedule` type.")
 
   public SubscriptionTypeEnum getSubscriptionType() {
     return subscriptionType;
@@ -584,7 +584,7 @@ public class SubscriptionSchedule {
       }
       // validate the optional field `fixed_time_interval_offset`
       if (jsonObj.getAsJsonObject("fixed_time_interval_offset") != null) {
-       CreateSubscriptionScheduleRequestFixedTimeIntervalOffset.validateJsonObject(jsonObj.getAsJsonObject("fixed_time_interval_offset"));
+       SubscriptionScheduleFixedTimeIntervalOffset.validateJsonObject(jsonObj.getAsJsonObject("fixed_time_interval_offset"));
       }
       if (jsonObj.get("line_item_type") != null && !jsonObj.get("line_item_type").isJsonNull()  && !jsonObj.get("line_item_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `line_item_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("line_item_type").toString()));
@@ -594,7 +594,7 @@ public class SubscriptionSchedule {
       }
       // validate the optional field `period_offset`
       if (jsonObj.getAsJsonObject("period_offset") != null) {
-       CreateSubscriptionScheduleRequestPeriodOffset.validateJsonObject(jsonObj.getAsJsonObject("period_offset"));
+       SubscriptionSchedulePeriodOffset.validateJsonObject(jsonObj.getAsJsonObject("period_offset"));
       }
       if (jsonObj.get("subscription_type") != null && !jsonObj.get("subscription_type").isJsonNull()  && !jsonObj.get("subscription_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subscription_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subscription_type").toString()));

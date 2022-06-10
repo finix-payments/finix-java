@@ -28,6 +28,10 @@ import java.io.IOException;
 
 
 import model.CreateSubscriptionScheduleRequest;
+import model.Error401Unauthorized;
+import model.Error403ForbiddenList;
+import model.Error404NotFoundList;
+import model.Error406NotAcceptable;
 import model.SubscriptionSchedule;
 import model.SubscriptionSchedulesList;
 import model.UpdateSubscriptionScheduleRequest;
@@ -77,7 +81,10 @@ import javax.ws.rs.core.GenericType;
     }
 
         /**
-        * Build call for getSubscriptionSubscriptionSchedules
+        * Build call for getSubscriptionSchedule
+            * @param subscriptionScheduleId The ID of the &#x60;Subscription Schedule&#x60;. (required)
+            * @param nickname Filter by the object&#39;s &#x60;nickname&#x60;. (optional)
+            * @param type Filter by the object&#39;s &#x60;subscription_type&#x60;. (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
@@ -87,125 +94,7 @@ import javax.ws.rs.core.GenericType;
                     <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
             </table>
         */
-        public okhttp3.Call getSubscriptionSubscriptionSchedulesCall(final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-        basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-        basePath = localBasePaths[localHostIndex];
-        } else {
-        basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-            String localVarPath = "/subscription/subscription_schedules";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-            final String[] localVarAccepts = {
-        "application/json"
-            };
-            final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
-            if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-            }
-
-            final String[] localVarContentTypes = {
-        
-            };
-            final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
-            if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-            }
-
-            String[] localVarAuthNames = new String[] { "BasicAuth" };
-            return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-            }
-
-            @SuppressWarnings("rawtypes")
-            private okhttp3.Call getSubscriptionSubscriptionSchedulesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-            
-
-                okhttp3.Call localVarCall = getSubscriptionSubscriptionSchedulesCall(_callback);
-                return localVarCall;
-
-            }
-
-                /**
-                * List Subscription Schedules
-                * Retrieve a list of subscription schedules.
-                    * @return SubscriptionSchedulesList
-                * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                    * @http.response.details
-                    <table summary="Response Details" border="1">
-                        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-                    </table>
-                */
-                    public SubscriptionSchedulesList list() throws ApiException {
-                ApiResponse<SubscriptionSchedulesList> localVarResp = getSubscriptionSubscriptionSchedulesWithHttpInfo();
-                        return localVarResp.getData();
-                    }
-
-        /**
-            * List Subscription Schedules
-            * Retrieve a list of subscription schedules.
-            * @return ApiResponse&lt;SubscriptionSchedulesList&gt;
-            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-                </table>
-            */
-            public ApiResponse<SubscriptionSchedulesList> getSubscriptionSubscriptionSchedulesWithHttpInfo() throws ApiException {
-            okhttp3.Call localVarCall = getSubscriptionSubscriptionSchedulesValidateBeforeCall(null);
-                    Type localVarReturnType = new TypeToken<SubscriptionSchedulesList>(){}.getType();
-                    return localVarFinixClient.execute(localVarCall, localVarReturnType);
-            }
-
-        /**
-            * List Subscription Schedules (asynchronously)
-            * Retrieve a list of subscription schedules.
-            * @param _callback The callback to be executed when the API call finishes
-            * @return The request call
-            * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-                </table>
-            */
-            public okhttp3.Call getSubscriptionSubscriptionSchedulesAsync(final ApiCallback<SubscriptionSchedulesList> _callback) throws ApiException {
-
-            okhttp3.Call localVarCall = getSubscriptionSubscriptionSchedulesValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<SubscriptionSchedulesList>(){}.getType();
-            localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
-            return localVarCall;
-            }
-        /**
-        * Build call for getSubscriptionSubscriptionSchedulesId
-            * @param subscriptionScheduleId The ID of the subscription schedule (required)
-        * @param _callback Callback for upload/download progress
-        * @return Call to execute
-        * @throws ApiException If fail to serialize the request body object
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-            </table>
-        */
-        public okhttp3.Call getSubscriptionSubscriptionSchedulesIdCall(String subscriptionScheduleId, final ApiCallback _callback) throws ApiException {
+        public okhttp3.Call getSubscriptionScheduleCall(String subscriptionScheduleId, String nickname, String type, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -231,6 +120,14 @@ import javax.ws.rs.core.GenericType;
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+                    if (nickname != null) {
+                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("nickname", nickname));
+                    }
+
+                    if (type != null) {
+                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("type", type));
+                    }
+
             final String[] localVarAccepts = {
         "application/json"
             };
@@ -252,15 +149,15 @@ import javax.ws.rs.core.GenericType;
             }
 
             @SuppressWarnings("rawtypes")
-            private okhttp3.Call getSubscriptionSubscriptionSchedulesIdValidateBeforeCall(String subscriptionScheduleId, final ApiCallback _callback) throws ApiException {
+            private okhttp3.Call getSubscriptionScheduleValidateBeforeCall(String subscriptionScheduleId, String nickname, String type, final ApiCallback _callback) throws ApiException {
             
                     // verify the required parameter 'subscriptionScheduleId' is set
                     if (subscriptionScheduleId == null) {
-                    throw new ApiException("Missing the required parameter 'subscriptionScheduleId' when calling getSubscriptionSubscriptionSchedulesId(Async)");
+                    throw new ApiException("Missing the required parameter 'subscriptionScheduleId' when calling getSubscriptionSchedule(Async)");
                     }
             
 
-                okhttp3.Call localVarCall = getSubscriptionSubscriptionSchedulesIdCall(subscriptionScheduleId, _callback);
+                okhttp3.Call localVarCall = getSubscriptionScheduleCall(subscriptionScheduleId, nickname, type, _callback);
                 return localVarCall;
 
             }
@@ -268,7 +165,9 @@ import javax.ws.rs.core.GenericType;
                 /**
                 * Get a Subscription Schedule
                 * Retrieve the details of a &#x60;subscription_schedule&#x60;
-                    * @param subscriptionScheduleId The ID of the subscription schedule (required)
+                    * @param subscriptionScheduleId The ID of the &#x60;Subscription Schedule&#x60;. (required)
+                    * @param nickname Filter by the object&#39;s &#x60;nickname&#x60;. (optional)
+                    * @param type Filter by the object&#39;s &#x60;subscription_type&#x60;. (optional)
                     * @return SubscriptionSchedule
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
@@ -277,15 +176,17 @@ import javax.ws.rs.core.GenericType;
                             <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
                     </table>
                 */
-                    public SubscriptionSchedule get(String subscriptionScheduleId) throws ApiException {
-                ApiResponse<SubscriptionSchedule> localVarResp = getSubscriptionSubscriptionSchedulesIdWithHttpInfo(subscriptionScheduleId);
+                    public SubscriptionSchedule get(String subscriptionScheduleId, String nickname, String type) throws ApiException {
+                ApiResponse<SubscriptionSchedule> localVarResp = getSubscriptionScheduleWithHttpInfo(subscriptionScheduleId, nickname, type);
                         return localVarResp.getData();
                     }
 
         /**
             * Get a Subscription Schedule
             * Retrieve the details of a &#x60;subscription_schedule&#x60;
-                * @param subscriptionScheduleId The ID of the subscription schedule (required)
+                * @param subscriptionScheduleId The ID of the &#x60;Subscription Schedule&#x60;. (required)
+                * @param nickname Filter by the object&#39;s &#x60;nickname&#x60;. (optional)
+                * @param type Filter by the object&#39;s &#x60;subscription_type&#x60;. (optional)
             * @return ApiResponse&lt;SubscriptionSchedule&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
@@ -294,8 +195,8 @@ import javax.ws.rs.core.GenericType;
                         <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
                 </table>
             */
-            public ApiResponse<SubscriptionSchedule> getSubscriptionSubscriptionSchedulesIdWithHttpInfo(String subscriptionScheduleId) throws ApiException {
-            okhttp3.Call localVarCall = getSubscriptionSubscriptionSchedulesIdValidateBeforeCall(subscriptionScheduleId, null);
+            public ApiResponse<SubscriptionSchedule> getSubscriptionScheduleWithHttpInfo(String subscriptionScheduleId, String nickname, String type) throws ApiException {
+            okhttp3.Call localVarCall = getSubscriptionScheduleValidateBeforeCall(subscriptionScheduleId, nickname, type, null);
                     Type localVarReturnType = new TypeToken<SubscriptionSchedule>(){}.getType();
                     return localVarFinixClient.execute(localVarCall, localVarReturnType);
             }
@@ -303,7 +204,9 @@ import javax.ws.rs.core.GenericType;
         /**
             * Get a Subscription Schedule (asynchronously)
             * Retrieve the details of a &#x60;subscription_schedule&#x60;
-                * @param subscriptionScheduleId The ID of the subscription schedule (required)
+                * @param subscriptionScheduleId The ID of the &#x60;Subscription Schedule&#x60;. (required)
+                * @param nickname Filter by the object&#39;s &#x60;nickname&#x60;. (optional)
+                * @param type Filter by the object&#39;s &#x60;subscription_type&#x60;. (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -313,10 +216,159 @@ import javax.ws.rs.core.GenericType;
                         <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
                 </table>
             */
-            public okhttp3.Call getSubscriptionSubscriptionSchedulesIdAsync(String subscriptionScheduleId, final ApiCallback<SubscriptionSchedule> _callback) throws ApiException {
+            public okhttp3.Call getSubscriptionScheduleAsync(String subscriptionScheduleId, String nickname, String type, final ApiCallback<SubscriptionSchedule> _callback) throws ApiException {
 
-            okhttp3.Call localVarCall = getSubscriptionSubscriptionSchedulesIdValidateBeforeCall(subscriptionScheduleId, _callback);
+            okhttp3.Call localVarCall = getSubscriptionScheduleValidateBeforeCall(subscriptionScheduleId, nickname, type, _callback);
         Type localVarReturnType = new TypeToken<SubscriptionSchedule>(){}.getType();
+            localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
+            return localVarCall;
+            }
+        /**
+        * Build call for getSubscriptionSchedules
+            * @param nickname Filter by the object&#39;s &#x60;nickname&#x60;. (optional)
+            * @param type Filter by the object&#39;s &#x60;type&#x60;. (optional)
+        * @param _callback Callback for upload/download progress
+        * @return Call to execute
+        * @throws ApiException If fail to serialize the request body object
+            * @http.response.details
+            <table summary="Response Details" border="1">
+                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                    <tr><td> 200 </td><td> List of subscription_schedule objects </td><td>  -  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+            </table>
+        */
+        public okhttp3.Call getSubscriptionSchedulesCall(String nickname, String type, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+        basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+        basePath = localBasePaths[localHostIndex];
+        } else {
+        basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+            String localVarPath = "/subscription/subscription_schedules";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+                    if (nickname != null) {
+                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("nickname", nickname));
+                    }
+
+                    if (type != null) {
+                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("type", type));
+                    }
+
+            final String[] localVarAccepts = {
+        "application/json", "application/hal+json"
+            };
+            final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
+            if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+            }
+
+            final String[] localVarContentTypes = {
+        
+            };
+            final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
+            if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+            }
+
+            String[] localVarAuthNames = new String[] { "BasicAuth" };
+            return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+            }
+
+            @SuppressWarnings("rawtypes")
+            private okhttp3.Call getSubscriptionSchedulesValidateBeforeCall(String nickname, String type, final ApiCallback _callback) throws ApiException {
+            
+
+                okhttp3.Call localVarCall = getSubscriptionSchedulesCall(nickname, type, _callback);
+                return localVarCall;
+
+            }
+
+                /**
+                * List Subscription Schedules
+                * Retrieve a list of &#x60;Subscription Schedules&#x60;.
+                    * @param nickname Filter by the object&#39;s &#x60;nickname&#x60;. (optional)
+                    * @param type Filter by the object&#39;s &#x60;type&#x60;. (optional)
+                    * @return SubscriptionSchedulesList
+                * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+                    * @http.response.details
+                    <table summary="Response Details" border="1">
+                        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                            <tr><td> 200 </td><td> List of subscription_schedule objects </td><td>  -  </td></tr>
+                            <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    </table>
+                */
+                    public SubscriptionSchedulesList list(String nickname, String type) throws ApiException {
+                ApiResponse<SubscriptionSchedulesList> localVarResp = getSubscriptionSchedulesWithHttpInfo(nickname, type);
+                        return localVarResp.getData();
+                    }
+
+        /**
+            * List Subscription Schedules
+            * Retrieve a list of &#x60;Subscription Schedules&#x60;.
+                * @param nickname Filter by the object&#39;s &#x60;nickname&#x60;. (optional)
+                * @param type Filter by the object&#39;s &#x60;type&#x60;. (optional)
+            * @return ApiResponse&lt;SubscriptionSchedulesList&gt;
+            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+                * @http.response.details
+                <table summary="Response Details" border="1">
+                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                        <tr><td> 200 </td><td> List of subscription_schedule objects </td><td>  -  </td></tr>
+                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                </table>
+            */
+            public ApiResponse<SubscriptionSchedulesList> getSubscriptionSchedulesWithHttpInfo(String nickname, String type) throws ApiException {
+            okhttp3.Call localVarCall = getSubscriptionSchedulesValidateBeforeCall(nickname, type, null);
+                    Type localVarReturnType = new TypeToken<SubscriptionSchedulesList>(){}.getType();
+                    return localVarFinixClient.execute(localVarCall, localVarReturnType);
+            }
+
+        /**
+            * List Subscription Schedules (asynchronously)
+            * Retrieve a list of &#x60;Subscription Schedules&#x60;.
+                * @param nickname Filter by the object&#39;s &#x60;nickname&#x60;. (optional)
+                * @param type Filter by the object&#39;s &#x60;type&#x60;. (optional)
+            * @param _callback The callback to be executed when the API call finishes
+            * @return The request call
+            * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+                * @http.response.details
+                <table summary="Response Details" border="1">
+                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                        <tr><td> 200 </td><td> List of subscription_schedule objects </td><td>  -  </td></tr>
+                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                </table>
+            */
+            public okhttp3.Call getSubscriptionSchedulesAsync(String nickname, String type, final ApiCallback<SubscriptionSchedulesList> _callback) throws ApiException {
+
+            okhttp3.Call localVarCall = getSubscriptionSchedulesValidateBeforeCall(nickname, type, _callback);
+        Type localVarReturnType = new TypeToken<SubscriptionSchedulesList>(){}.getType();
             localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
             return localVarCall;
             }
@@ -442,8 +494,8 @@ import javax.ws.rs.core.GenericType;
             return localVarCall;
             }
         /**
-        * Build call for putSubscriptionSubscriptionSchedulesId
-            * @param subscriptionScheduleId The ID of the subscription schedule (required)
+        * Build call for putSubscriptionSchedules
+            * @param subscriptionScheduleId The ID of the &#x60;Subscription Schedule&#x60;. (required)
             * @param updateSubscriptionScheduleRequest  (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
@@ -454,7 +506,7 @@ import javax.ws.rs.core.GenericType;
                     <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
             </table>
         */
-        public okhttp3.Call putSubscriptionSubscriptionSchedulesIdCall(String subscriptionScheduleId, UpdateSubscriptionScheduleRequest updateSubscriptionScheduleRequest, final ApiCallback _callback) throws ApiException {
+        public okhttp3.Call putSubscriptionSchedulesCall(String subscriptionScheduleId, UpdateSubscriptionScheduleRequest updateSubscriptionScheduleRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -501,15 +553,15 @@ import javax.ws.rs.core.GenericType;
             }
 
             @SuppressWarnings("rawtypes")
-            private okhttp3.Call putSubscriptionSubscriptionSchedulesIdValidateBeforeCall(String subscriptionScheduleId, UpdateSubscriptionScheduleRequest updateSubscriptionScheduleRequest, final ApiCallback _callback) throws ApiException {
+            private okhttp3.Call putSubscriptionSchedulesValidateBeforeCall(String subscriptionScheduleId, UpdateSubscriptionScheduleRequest updateSubscriptionScheduleRequest, final ApiCallback _callback) throws ApiException {
             
                     // verify the required parameter 'subscriptionScheduleId' is set
                     if (subscriptionScheduleId == null) {
-                    throw new ApiException("Missing the required parameter 'subscriptionScheduleId' when calling putSubscriptionSubscriptionSchedulesId(Async)");
+                    throw new ApiException("Missing the required parameter 'subscriptionScheduleId' when calling putSubscriptionSchedules(Async)");
                     }
             
 
-                okhttp3.Call localVarCall = putSubscriptionSubscriptionSchedulesIdCall(subscriptionScheduleId, updateSubscriptionScheduleRequest, _callback);
+                okhttp3.Call localVarCall = putSubscriptionSchedulesCall(subscriptionScheduleId, updateSubscriptionScheduleRequest, _callback);
                 return localVarCall;
 
             }
@@ -517,7 +569,7 @@ import javax.ws.rs.core.GenericType;
                 /**
                 * Update a Subscription Schedule
                 * Update the details of a &#x60;subscription_schedule&#x60;.
-                    * @param subscriptionScheduleId The ID of the subscription schedule (required)
+                    * @param subscriptionScheduleId The ID of the &#x60;Subscription Schedule&#x60;. (required)
                     * @param updateSubscriptionScheduleRequest  (optional)
                     * @return SubscriptionSchedule
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -528,14 +580,14 @@ import javax.ws.rs.core.GenericType;
                     </table>
                 */
                     public SubscriptionSchedule update(String subscriptionScheduleId, UpdateSubscriptionScheduleRequest updateSubscriptionScheduleRequest) throws ApiException {
-                ApiResponse<SubscriptionSchedule> localVarResp = putSubscriptionSubscriptionSchedulesIdWithHttpInfo(subscriptionScheduleId, updateSubscriptionScheduleRequest);
+                ApiResponse<SubscriptionSchedule> localVarResp = putSubscriptionSchedulesWithHttpInfo(subscriptionScheduleId, updateSubscriptionScheduleRequest);
                         return localVarResp.getData();
                     }
 
         /**
             * Update a Subscription Schedule
             * Update the details of a &#x60;subscription_schedule&#x60;.
-                * @param subscriptionScheduleId The ID of the subscription schedule (required)
+                * @param subscriptionScheduleId The ID of the &#x60;Subscription Schedule&#x60;. (required)
                 * @param updateSubscriptionScheduleRequest  (optional)
             * @return ApiResponse&lt;SubscriptionSchedule&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -545,8 +597,8 @@ import javax.ws.rs.core.GenericType;
                         <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
                 </table>
             */
-            public ApiResponse<SubscriptionSchedule> putSubscriptionSubscriptionSchedulesIdWithHttpInfo(String subscriptionScheduleId, UpdateSubscriptionScheduleRequest updateSubscriptionScheduleRequest) throws ApiException {
-            okhttp3.Call localVarCall = putSubscriptionSubscriptionSchedulesIdValidateBeforeCall(subscriptionScheduleId, updateSubscriptionScheduleRequest, null);
+            public ApiResponse<SubscriptionSchedule> putSubscriptionSchedulesWithHttpInfo(String subscriptionScheduleId, UpdateSubscriptionScheduleRequest updateSubscriptionScheduleRequest) throws ApiException {
+            okhttp3.Call localVarCall = putSubscriptionSchedulesValidateBeforeCall(subscriptionScheduleId, updateSubscriptionScheduleRequest, null);
                     Type localVarReturnType = new TypeToken<SubscriptionSchedule>(){}.getType();
                     return localVarFinixClient.execute(localVarCall, localVarReturnType);
             }
@@ -554,7 +606,7 @@ import javax.ws.rs.core.GenericType;
         /**
             * Update a Subscription Schedule (asynchronously)
             * Update the details of a &#x60;subscription_schedule&#x60;.
-                * @param subscriptionScheduleId The ID of the subscription schedule (required)
+                * @param subscriptionScheduleId The ID of the &#x60;Subscription Schedule&#x60;. (required)
                 * @param updateSubscriptionScheduleRequest  (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
@@ -565,9 +617,9 @@ import javax.ws.rs.core.GenericType;
                         <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
                 </table>
             */
-            public okhttp3.Call putSubscriptionSubscriptionSchedulesIdAsync(String subscriptionScheduleId, UpdateSubscriptionScheduleRequest updateSubscriptionScheduleRequest, final ApiCallback<SubscriptionSchedule> _callback) throws ApiException {
+            public okhttp3.Call putSubscriptionSchedulesAsync(String subscriptionScheduleId, UpdateSubscriptionScheduleRequest updateSubscriptionScheduleRequest, final ApiCallback<SubscriptionSchedule> _callback) throws ApiException {
 
-            okhttp3.Call localVarCall = putSubscriptionSubscriptionSchedulesIdValidateBeforeCall(subscriptionScheduleId, updateSubscriptionScheduleRequest, _callback);
+            okhttp3.Call localVarCall = putSubscriptionSchedulesValidateBeforeCall(subscriptionScheduleId, updateSubscriptionScheduleRequest, _callback);
         Type localVarReturnType = new TypeToken<SubscriptionSchedule>(){}.getType();
             localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
             return localVarCall;

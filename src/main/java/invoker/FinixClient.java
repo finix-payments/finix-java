@@ -13,10 +13,8 @@
 
 package invoker;
 
-import api.AuthorizationsApi;
-import api.DisputesApi;
-import api.IdentitiesApi;
-import api.PaymentInstrumentsApi;
+import api.*;
+import model.FinixList;
 import okhttp3.*;
 import okhttp3.internal.http.HttpMethod;
 import okhttp3.internal.tls.OkHostnameVerifier;
@@ -85,7 +83,16 @@ public class FinixClient {
     public AuthorizationsApi Authorization;
     public IdentitiesApi Identity;
     public DisputesApi Disputes;
+    public DevicesApi Devices;
     public PaymentInstrumentsApi PaymentInstrument;
+    public BalanceTransfersApi BalanceTransfers;
+    public MerchantProfilesApi MerchantProfiles;
+    public WebhooksApi Webhooks;
+    public FilesApi filesApi;
+    public MerchantsApi Merchants;
+    public SubscriptionSchedulesApi SubscriptionSchedules;
+    public SettlementsApi Settlements;
+    public FinixList finixList;
     private OkHttpClient httpClient;
     private JSON json;
     private HttpBasicAuth httpBasicAuth = new HttpBasicAuth();
@@ -107,11 +114,19 @@ public class FinixClient {
         if(environment.equals(Environment.SANDBOX)){
         this.basePath = "https://finix.sandbox-payments-api.com";}else{
         this.basePath = "https://finix.sandbox-payments-api1.com";}
+        finixList = new FinixList(this);
         Transfers = new TransfersApi(this);
         PaymentInstrument = new PaymentInstrumentsApi(this);
         Authorization = new AuthorizationsApi(this);
         Identity = new IdentitiesApi(this);
         Disputes = new DisputesApi(this);
+        Devices = new DevicesApi(this);
+        Webhooks = new WebhooksApi(this);
+        BalanceTransfers = new BalanceTransfersApi(this);
+        filesApi = new FilesApi(this);
+        Merchants = new MerchantsApi(this);
+        SubscriptionSchedules = new SubscriptionSchedulesApi(this);
+        Settlements = new SettlementsApi(this);
 
     }
 

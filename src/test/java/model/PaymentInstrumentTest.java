@@ -25,9 +25,14 @@ import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import model.Address;
 import model.Country;
 import model.Currency;
-import model.PaymentInstrumentLinks;
+import model.PaymentInstrumentBankAccount;
+import model.PaymentInstrumentBankAccountLinks;
+import model.PaymentInstrumentOther;
+import model.PaymentInstrumentPaymentCard;
+import model.PaymentInstrumentToken;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -181,6 +186,110 @@ public class PaymentInstrumentTest {
     @Test
     public void linksTest() {
         // TODO: test links
+    }
+
+    /**
+     * Test the property 'address'
+     */
+    @Test
+    public void addressTest() {
+        // TODO: test address
+    }
+
+    /**
+     * Test the property 'addressVerification'
+     */
+    @Test
+    public void addressVerificationTest() {
+        // TODO: test addressVerification
+    }
+
+    /**
+     * Test the property 'bin'
+     */
+    @Test
+    public void binTest() {
+        // TODO: test bin
+    }
+
+    /**
+     * Test the property 'brand'
+     */
+    @Test
+    public void brandTest() {
+        // TODO: test brand
+    }
+
+    /**
+     * Test the property 'cardName'
+     */
+    @Test
+    public void cardNameTest() {
+        // TODO: test cardName
+    }
+
+    /**
+     * Test the property 'cardType'
+     */
+    @Test
+    public void cardTypeTest() {
+        // TODO: test cardType
+    }
+
+    /**
+     * Test the property 'expirationMonth'
+     */
+    @Test
+    public void expirationMonthTest() {
+        // TODO: test expirationMonth
+    }
+
+    /**
+     * Test the property 'expirationYear'
+     */
+    @Test
+    public void expirationYearTest() {
+        // TODO: test expirationYear
+    }
+
+    /**
+     * Test the property 'fastFundsIndicator'
+     */
+    @Test
+    public void fastFundsIndicatorTest() {
+        // TODO: test fastFundsIndicator
+    }
+
+    /**
+     * Test the property 'lastFour'
+     */
+    @Test
+    public void lastFourTest() {
+        // TODO: test lastFour
+    }
+
+    /**
+     * Test the property 'onlineGambingBlockIndicator'
+     */
+    @Test
+    public void onlineGambingBlockIndicatorTest() {
+        // TODO: test onlineGambingBlockIndicator
+    }
+
+    /**
+     * Test the property 'pushFundsBlockIndicator'
+     */
+    @Test
+    public void pushFundsBlockIndicatorTest() {
+        // TODO: test pushFundsBlockIndicator
+    }
+
+    /**
+     * Test the property 'securityCodeVerification'
+     */
+    @Test
+    public void securityCodeVerificationTest() {
+        // TODO: test securityCodeVerification
     }
 
 }

@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 import model.IdentityAdditionalUnderwritingDataCardVolumeDistribution;
 import model.IdentityAdditionalUnderwritingDataVolumeDistributionByBusinessType;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -49,23 +48,23 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * Additional underwriting data that&#39;s required to verify the identity of the merchant.
+ * Additional underwriting data that&#39;s required to verify the &#x60;Identity&#x60; of the &#x60;Merchant&#x60;.
  */
-@ApiModel(description = "Additional underwriting data that's required to verify the identity of the merchant.")
+@ApiModel(description = "Additional underwriting data that's required to verify the `Identity` of the `Merchant`.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class IdentityAdditionalUnderwritingData {
   public static final String SERIALIZED_NAME_ANNUAL_ACH_VOLUME = "annual_ach_volume";
   @SerializedName(SERIALIZED_NAME_ANNUAL_ACH_VOLUME)
-  private BigDecimal annualAchVolume;
+  private Integer annualAchVolume;
 
   public static final String SERIALIZED_NAME_AVERAGE_ACH_TRANSFER_AMOUNT = "average_ach_transfer_amount";
   @SerializedName(SERIALIZED_NAME_AVERAGE_ACH_TRANSFER_AMOUNT)
-  private BigDecimal averageAchTransferAmount;
+  private Integer averageAchTransferAmount;
 
   public static final String SERIALIZED_NAME_AVERAGE_CARD_TRANSFER_AMOUNT = "average_card_transfer_amount";
   @SerializedName(SERIALIZED_NAME_AVERAGE_CARD_TRANSFER_AMOUNT)
-  private BigDecimal averageCardTransferAmount;
+  private Integer averageCardTransferAmount;
 
   public static final String SERIALIZED_NAME_BUSINESS_DESCRIPTION = "business_description";
   @SerializedName(SERIALIZED_NAME_BUSINESS_DESCRIPTION)
@@ -107,9 +106,60 @@ public class IdentityAdditionalUnderwritingData {
   @SerializedName(SERIALIZED_NAME_MERCHANT_AGREEMENT_USER_AGENT)
   private String merchantAgreementUserAgent;
 
+  /**
+   * Include the value that best applies to the merchant&#39;s refund policy.
+   */
+  @JsonAdapter(RefundPolicyEnum.Adapter.class)
+  public enum RefundPolicyEnum {
+    NO_REFUNDS("NO_REFUNDS"),
+    
+    MERCHANDISE_EXCHANGE_ONLY("MERCHANDISE_EXCHANGE_ONLY"),
+    
+    WITHIN_30_DAYS("WITHIN_30_DAYS"),
+    
+    OTHER("OTHER");
+
+    private String value;
+
+    RefundPolicyEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RefundPolicyEnum fromValue(String value) {
+      for (RefundPolicyEnum b : RefundPolicyEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<RefundPolicyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RefundPolicyEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RefundPolicyEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return RefundPolicyEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_REFUND_POLICY = "refund_policy";
   @SerializedName(SERIALIZED_NAME_REFUND_POLICY)
-  private String refundPolicy;
+  private RefundPolicyEnum refundPolicy;
 
   public static final String SERIALIZED_NAME_VOLUME_DISTRIBUTION_BY_BUSINESS_TYPE = "volume_distribution_by_business_type";
   @SerializedName(SERIALIZED_NAME_VOLUME_DISTRIBUTION_BY_BUSINESS_TYPE)
@@ -118,7 +168,7 @@ public class IdentityAdditionalUnderwritingData {
   public IdentityAdditionalUnderwritingData() { 
   }
 
-  public IdentityAdditionalUnderwritingData annualAchVolume(BigDecimal annualAchVolume) {
+  public IdentityAdditionalUnderwritingData annualAchVolume(Integer annualAchVolume) {
     
     this.annualAchVolume = annualAchVolume;
     return this;
@@ -131,17 +181,17 @@ public class IdentityAdditionalUnderwritingData {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The approximate annual ACH sales expected to be processed (in cents) by this merchant (max 10 characters).")
 
-  public BigDecimal getAnnualAchVolume() {
+  public Integer getAnnualAchVolume() {
     return annualAchVolume;
   }
 
 
-  public void setAnnualAchVolume(BigDecimal annualAchVolume) {
+  public void setAnnualAchVolume(Integer annualAchVolume) {
     this.annualAchVolume = annualAchVolume;
   }
 
 
-  public IdentityAdditionalUnderwritingData averageAchTransferAmount(BigDecimal averageAchTransferAmount) {
+  public IdentityAdditionalUnderwritingData averageAchTransferAmount(Integer averageAchTransferAmount) {
     
     this.averageAchTransferAmount = averageAchTransferAmount;
     return this;
@@ -154,17 +204,17 @@ public class IdentityAdditionalUnderwritingData {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The approximate average ACH sale amount (in cents) for this merchant.")
 
-  public BigDecimal getAverageAchTransferAmount() {
+  public Integer getAverageAchTransferAmount() {
     return averageAchTransferAmount;
   }
 
 
-  public void setAverageAchTransferAmount(BigDecimal averageAchTransferAmount) {
+  public void setAverageAchTransferAmount(Integer averageAchTransferAmount) {
     this.averageAchTransferAmount = averageAchTransferAmount;
   }
 
 
-  public IdentityAdditionalUnderwritingData averageCardTransferAmount(BigDecimal averageCardTransferAmount) {
+  public IdentityAdditionalUnderwritingData averageCardTransferAmount(Integer averageCardTransferAmount) {
     
     this.averageCardTransferAmount = averageCardTransferAmount;
     return this;
@@ -177,12 +227,12 @@ public class IdentityAdditionalUnderwritingData {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The average credit card sale amount (in cents) for this merchant.")
 
-  public BigDecimal getAverageCardTransferAmount() {
+  public Integer getAverageCardTransferAmount() {
     return averageCardTransferAmount;
   }
 
 
-  public void setAverageCardTransferAmount(BigDecimal averageCardTransferAmount) {
+  public void setAverageCardTransferAmount(Integer averageCardTransferAmount) {
     this.averageCardTransferAmount = averageCardTransferAmount;
   }
 
@@ -417,25 +467,25 @@ public class IdentityAdditionalUnderwritingData {
   }
 
 
-  public IdentityAdditionalUnderwritingData refundPolicy(String refundPolicy) {
+  public IdentityAdditionalUnderwritingData refundPolicy(RefundPolicyEnum refundPolicy) {
     
     this.refundPolicy = refundPolicy;
     return this;
   }
 
    /**
-   * Set one of the following values:&lt;ul&gt;&lt;li&gt; &lt;strong&gt;NO_REFUNDS&lt;/strong&gt;&lt;li&gt;&lt;strong&gt;MERCHANDISE_EXCHANGE_ONLY&lt;/strong&gt; &lt;li&gt;&lt;strong&gt;WITHIN_30_DAYS&lt;/strong&gt;&lt;li&gt;&lt;strong&gt;OTHER&lt;/strong&gt;&lt;/ul&gt;
+   * Include the value that best applies to the merchant&#39;s refund policy.
    * @return refundPolicy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Set one of the following values:<ul><li> <strong>NO_REFUNDS</strong><li><strong>MERCHANDISE_EXCHANGE_ONLY</strong> <li><strong>WITHIN_30_DAYS</strong><li><strong>OTHER</strong></ul>")
+  @ApiModelProperty(value = "Include the value that best applies to the merchant's refund policy.")
 
-  public String getRefundPolicy() {
+  public RefundPolicyEnum getRefundPolicy() {
     return refundPolicy;
   }
 
 
-  public void setRefundPolicy(String refundPolicy) {
+  public void setRefundPolicy(RefundPolicyEnum refundPolicy) {
     this.refundPolicy = refundPolicy;
   }
 

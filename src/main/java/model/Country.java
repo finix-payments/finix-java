@@ -15,6 +15,7 @@ package model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
@@ -24,7 +25,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets Country
+ * The sender&#39;s country.
  */
 @JsonAdapter(Country.Adapter.class)
 public enum Country {

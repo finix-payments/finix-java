@@ -54,7 +54,7 @@ import invoker.JSON;
  * User
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class User {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -85,7 +85,7 @@ public class User {
   private String password;
 
   /**
-   * Gets or Sets role
+   * Details the level of access the [&#x60;User&#x60;](#tag/Users) has available.
    */
   @JsonAdapter(RoleEnum.Adapter.class)
   public enum RoleEnum {
@@ -184,11 +184,11 @@ public class User {
   }
 
    /**
-   * The ID of the resource.
+   * The ID of the &#x60;User&#x60; resource.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the resource.")
+  @ApiModelProperty(value = "The ID of the `User` resource.")
 
   public String getId() {
     return id;
@@ -207,11 +207,11 @@ public class User {
   }
 
    /**
-   * Timestamp of when the object was created
+   * Timestamp of when the object was created.
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the object was created")
+  @ApiModelProperty(value = "Timestamp of when the object was created.")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -230,11 +230,11 @@ public class User {
   }
 
    /**
-   * Timestamp of when the object was last updated
+   * Timestamp of when the object was last updated.
    * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the object was last updated")
+  @ApiModelProperty(value = "Timestamp of when the object was last updated.")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -253,11 +253,11 @@ public class User {
   }
 
    /**
-   * Get enabled
+   * Details if the &#x60;User&#x60; is enabled and active. Set to **false** to disable the &#x60;User&#x60;.
    * @return enabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Details if the `User` is enabled and active. Set to **false** to disable the `User`.")
 
   public Boolean getEnabled() {
     return enabled;
@@ -276,11 +276,11 @@ public class User {
   }
 
    /**
-   * Get identity
+   * ID of the &#x60;Identity&#x60; that the &#x60;User&#x60; resource was created under.
    * @return identity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "IDxxxxxxxxxxxxxxxxxx", value = "")
+  @ApiModelProperty(example = "IDxxxxxxxxxxxxxxxxxx", value = "ID of the `Identity` that the `User` resource was created under.")
 
   public String getIdentity() {
     return identity;
@@ -299,11 +299,11 @@ public class User {
   }
 
    /**
-   * Get password
+   * The &#x60;password&#x60; you&#39;ll use to authetnicate requests.
    * @return password
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The `password` you'll use to authetnicate requests.")
 
   public String getPassword() {
     return password;
@@ -322,11 +322,11 @@ public class User {
   }
 
    /**
-   * Get role
+   * Details the level of access the [&#x60;User&#x60;](#tag/Users) has available.
    * @return role
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Details the level of access the [`User`](#tag/Users) has available.")
 
   public RoleEnum getRole() {
     return role;

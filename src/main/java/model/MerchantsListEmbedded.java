@@ -49,10 +49,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * MerchantsListEmbedded
+ * List of &#x60;Merchant&#x60; objects.
  */
+@ApiModel(description = "List of `Merchant` objects.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class MerchantsListEmbedded {
   public static final String SERIALIZED_NAME_MERCHANTS = "merchants";
   @SerializedName(SERIALIZED_NAME_MERCHANTS)

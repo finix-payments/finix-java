@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,20 +49,20 @@ import invoker.JSON;
  */
 @ApiModel(description = "Specifies when the Fee is charged")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class CreateSubscriptionScheduleRequestFixedTimeIntervalOffset {
   public static final String SERIALIZED_NAME_HOURLY_INTERVAL = "hourly_interval";
   @SerializedName(SERIALIZED_NAME_HOURLY_INTERVAL)
-  private BigDecimal hourlyInterval;
+  private Integer hourlyInterval;
 
   public static final String SERIALIZED_NAME_INTERVAL_COUNT = "interval_count";
   @SerializedName(SERIALIZED_NAME_INTERVAL_COUNT)
-  private BigDecimal intervalCount;
+  private Integer intervalCount;
 
   public CreateSubscriptionScheduleRequestFixedTimeIntervalOffset() { 
   }
 
-  public CreateSubscriptionScheduleRequestFixedTimeIntervalOffset hourlyInterval(BigDecimal hourlyInterval) {
+  public CreateSubscriptionScheduleRequestFixedTimeIntervalOffset hourlyInterval(Integer hourlyInterval) {
     
     this.hourlyInterval = hourlyInterval;
     return this;
@@ -76,17 +75,17 @@ public class CreateSubscriptionScheduleRequestFixedTimeIntervalOffset {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Hourly increments between recurring charges")
 
-  public BigDecimal getHourlyInterval() {
+  public Integer getHourlyInterval() {
     return hourlyInterval;
   }
 
 
-  public void setHourlyInterval(BigDecimal hourlyInterval) {
+  public void setHourlyInterval(Integer hourlyInterval) {
     this.hourlyInterval = hourlyInterval;
   }
 
 
-  public CreateSubscriptionScheduleRequestFixedTimeIntervalOffset intervalCount(BigDecimal intervalCount) {
+  public CreateSubscriptionScheduleRequestFixedTimeIntervalOffset intervalCount(Integer intervalCount) {
     
     this.intervalCount = intervalCount;
     return this;
@@ -99,12 +98,12 @@ public class CreateSubscriptionScheduleRequestFixedTimeIntervalOffset {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Number of recurring charges")
 
-  public BigDecimal getIntervalCount() {
+  public Integer getIntervalCount() {
     return intervalCount;
   }
 
 
-  public void setIntervalCount(BigDecimal intervalCount) {
+  public void setIntervalCount(Integer intervalCount) {
     this.intervalCount = intervalCount;
   }
 

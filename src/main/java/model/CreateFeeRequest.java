@@ -23,12 +23,12 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import model.Currency;
 import model.FeeType;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -54,15 +54,15 @@ import invoker.JSON;
  * CreateFeeRequest
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class CreateFeeRequest {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = new HashMap<>();
+  private Map<String, String> tags = null;
 
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
-  private BigDecimal amount;
+  private Long amount;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
   @SerializedName(SERIALIZED_NAME_CURRENCY)
@@ -73,7 +73,7 @@ public class CreateFeeRequest {
   private String displayName;
 
   /**
-   * Gets or Sets feeSubtype
+   * Subtype of the fee. Set to **CUSTOM**.
    */
   @JsonAdapter(FeeSubtypeEnum.Adapter.class)
   public enum FeeSubtypeEnum {
@@ -130,7 +130,7 @@ public class CreateFeeRequest {
   private String linkedId;
 
   /**
-   * Gets or Sets linkedType
+   * The type of entity the fee is linked to (**null** by default).
    */
   @JsonAdapter(LinkedTypeEnum.Adapter.class)
   public enum LinkedTypeEnum {
@@ -198,6 +198,9 @@ public class CreateFeeRequest {
   }
 
   public CreateFeeRequest putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
     this.tags.put(key, tagsItem);
     return this;
   }
@@ -206,8 +209,8 @@ public class CreateFeeRequest {
    * Key value pair for annotating custom meta data (e.g. order numbers).
    * @return tags
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Key value pair for annotating custom meta data (e.g. order numbers).")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
 
   public Map<String, String> getTags() {
     return tags;
@@ -219,25 +222,25 @@ public class CreateFeeRequest {
   }
 
 
-  public CreateFeeRequest amount(BigDecimal amount) {
+  public CreateFeeRequest amount(Long amount) {
     
     this.amount = amount;
     return this;
   }
 
    /**
-   * Get amount
+   * The total amount that will be debited in cents (e.g. 100 cents to debit $1.00).
    * @return amount
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The total amount that will be debited in cents (e.g. 100 cents to debit $1.00).")
 
-  public BigDecimal getAmount() {
+  public Long getAmount() {
     return amount;
   }
 
 
-  public void setAmount(BigDecimal amount) {
+  public void setAmount(Long amount) {
     this.amount = amount;
   }
 
@@ -272,11 +275,11 @@ public class CreateFeeRequest {
   }
 
    /**
-   * Get displayName
+   * The display name of the &#x60;Fee&#x60; that can be used for filtering purposes.
    * @return displayName
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The display name of the `Fee` that can be used for filtering purposes.")
 
   public String getDisplayName() {
     return displayName;
@@ -295,11 +298,11 @@ public class CreateFeeRequest {
   }
 
    /**
-   * Get feeSubtype
+   * Subtype of the fee. Set to **CUSTOM**.
    * @return feeSubtype
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Subtype of the fee. Set to **CUSTOM**.")
 
   public FeeSubtypeEnum getFeeSubtype() {
     return feeSubtype;
@@ -344,8 +347,8 @@ public class CreateFeeRequest {
    * ID of the linked resource
    * @return linkedId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "ID of the linked resource")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ID of the linked resource")
 
   public String getLinkedId() {
     return linkedId;
@@ -364,11 +367,11 @@ public class CreateFeeRequest {
   }
 
    /**
-   * Get linkedType
+   * The type of entity the fee is linked to (**null** by default).
    * @return linkedType
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The type of entity the fee is linked to (**null** by default).")
 
   public LinkedTypeEnum getLinkedType() {
     return linkedType;
@@ -391,7 +394,7 @@ public class CreateFeeRequest {
    * @return merchant
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The ID of the resource.")
+  @ApiModelProperty(value = "The ID of the resource.")
 
   public String getMerchant() {
     return merchant;
@@ -424,9 +427,20 @@ public class CreateFeeRequest {
         Objects.equals(this.merchant, createFeeRequest.merchant);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(tags, amount, currency, displayName, feeSubtype, feeType, linkedId, linkedType, merchant);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -476,15 +490,10 @@ public class CreateFeeRequest {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("tags");
     openapiRequiredFields.add("amount");
     openapiRequiredFields.add("currency");
-    openapiRequiredFields.add("display_name");
     openapiRequiredFields.add("fee_subtype");
     openapiRequiredFields.add("fee_type");
-    openapiRequiredFields.add("linked_id");
-    openapiRequiredFields.add("linked_type");
-    openapiRequiredFields.add("merchant");
   }
 
  /**

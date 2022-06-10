@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.List;
@@ -56,7 +55,7 @@ import invoker.JSON;
  * SettlementEngineSettlementsListEmbeddedSettlements
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class SettlementEngineSettlementsListEmbeddedSettlements {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -76,19 +75,19 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
 
   public static final String SERIALIZED_NAME_ADJUSTMENT_CREDIT_AMOUNT = "adjustment_credit_amount";
   @SerializedName(SERIALIZED_NAME_ADJUSTMENT_CREDIT_AMOUNT)
-  private BigDecimal adjustmentCreditAmount;
+  private Integer adjustmentCreditAmount;
 
   public static final String SERIALIZED_NAME_ADJUSTMENT_CREDIT_COUNT = "adjustment_credit_count";
   @SerializedName(SERIALIZED_NAME_ADJUSTMENT_CREDIT_COUNT)
-  private BigDecimal adjustmentCreditCount;
+  private Integer adjustmentCreditCount;
 
   public static final String SERIALIZED_NAME_ADJUSTMENT_DEBIT_AMOUNT = "adjustment_debit_amount";
   @SerializedName(SERIALIZED_NAME_ADJUSTMENT_DEBIT_AMOUNT)
-  private BigDecimal adjustmentDebitAmount;
+  private Integer adjustmentDebitAmount;
 
   public static final String SERIALIZED_NAME_ADJUSTMENT_DEBIT_COUNT = "adjustment_debit_count";
   @SerializedName(SERIALIZED_NAME_ADJUSTMENT_DEBIT_COUNT)
-  private BigDecimal adjustmentDebitCount;
+  private Integer adjustmentDebitCount;
 
   public static final String SERIALIZED_NAME_APPLICATION = "application";
   @SerializedName(SERIALIZED_NAME_APPLICATION)
@@ -104,19 +103,19 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
 
   public static final String SERIALIZED_NAME_DISPUTE_CREDIT_AMOUNT = "dispute_credit_amount";
   @SerializedName(SERIALIZED_NAME_DISPUTE_CREDIT_AMOUNT)
-  private BigDecimal disputeCreditAmount;
+  private Integer disputeCreditAmount;
 
   public static final String SERIALIZED_NAME_DISPUTE_CREDIT_COUNT = "dispute_credit_count";
   @SerializedName(SERIALIZED_NAME_DISPUTE_CREDIT_COUNT)
-  private BigDecimal disputeCreditCount;
+  private Integer disputeCreditCount;
 
   public static final String SERIALIZED_NAME_DISPUTE_DEBIT_AMOUNT = "dispute_debit_amount";
   @SerializedName(SERIALIZED_NAME_DISPUTE_DEBIT_AMOUNT)
-  private BigDecimal disputeDebitAmount;
+  private Integer disputeDebitAmount;
 
   public static final String SERIALIZED_NAME_DISPUTE_DEBIT_COUNT = "dispute_debit_count";
   @SerializedName(SERIALIZED_NAME_DISPUTE_DEBIT_COUNT)
-  private BigDecimal disputeDebitCount;
+  private Integer disputeDebitCount;
 
   public static final String SERIALIZED_NAME_EXCEPTION = "exception";
   @SerializedName(SERIALIZED_NAME_EXCEPTION)
@@ -124,7 +123,7 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
 
   public static final String SERIALIZED_NAME_FEE_COUNT = "fee_count";
   @SerializedName(SERIALIZED_NAME_FEE_COUNT)
-  private BigDecimal feeCount;
+  private Integer feeCount;
 
   public static final String SERIALIZED_NAME_IDENTITY = "identity";
   @SerializedName(SERIALIZED_NAME_IDENTITY)
@@ -144,11 +143,11 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
 
   public static final String SERIALIZED_NAME_REVERSE_AMOUNT = "reverse_amount";
   @SerializedName(SERIALIZED_NAME_REVERSE_AMOUNT)
-  private BigDecimal reverseAmount;
+  private Integer reverseAmount;
 
   public static final String SERIALIZED_NAME_REVERSE_COUNT = "reverse_count";
   @SerializedName(SERIALIZED_NAME_REVERSE_COUNT)
-  private BigDecimal reverseCount;
+  private Integer reverseCount;
 
   /**
    * Gets or Sets scheduleType
@@ -266,27 +265,27 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
 
   public static final String SERIALIZED_NAME_TOTAL_AMOUNT = "total_amount";
   @SerializedName(SERIALIZED_NAME_TOTAL_AMOUNT)
-  private BigDecimal totalAmount;
+  private Integer totalAmount;
 
   public static final String SERIALIZED_NAME_TOTAL_FEE_AMOUNT = "total_fee_amount";
   @SerializedName(SERIALIZED_NAME_TOTAL_FEE_AMOUNT)
-  private BigDecimal totalFeeAmount;
+  private Integer totalFeeAmount;
 
   public static final String SERIALIZED_NAME_TRANSFER_CREDIT_AMOUNT = "transfer_credit_amount";
   @SerializedName(SERIALIZED_NAME_TRANSFER_CREDIT_AMOUNT)
-  private BigDecimal transferCreditAmount;
+  private Integer transferCreditAmount;
 
   public static final String SERIALIZED_NAME_TRANSFER_CREDIT_COUNT = "transfer_credit_count";
   @SerializedName(SERIALIZED_NAME_TRANSFER_CREDIT_COUNT)
-  private BigDecimal transferCreditCount;
+  private Integer transferCreditCount;
 
   public static final String SERIALIZED_NAME_TRANSFER_DEBIT_AMOUNT = "transfer_debit_amount";
   @SerializedName(SERIALIZED_NAME_TRANSFER_DEBIT_AMOUNT)
-  private BigDecimal transferDebitAmount;
+  private Integer transferDebitAmount;
 
   public static final String SERIALIZED_NAME_TRANSFER_DEBIT_COUNT = "transfer_debit_count";
   @SerializedName(SERIALIZED_NAME_TRANSFER_DEBIT_COUNT)
-  private BigDecimal transferDebitCount;
+  private Integer transferDebitCount;
 
   public static final String SERIALIZED_NAME_WINDOW_END = "window_end";
   @SerializedName(SERIALIZED_NAME_WINDOW_END)
@@ -361,11 +360,11 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
   }
 
    /**
-   * Timestamp of when the object was created
+   * Timestamp of when the object was created.
    * @return createdAt
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Timestamp of when the object was created")
+  @ApiModelProperty(required = true, value = "Timestamp of when the object was created.")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -384,11 +383,11 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
   }
 
    /**
-   * Timestamp of when the object was last updated
+   * Timestamp of when the object was last updated.
    * @return updatedAt
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Timestamp of when the object was last updated")
+  @ApiModelProperty(required = true, value = "Timestamp of when the object was last updated.")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -400,7 +399,7 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
   }
 
 
-  public SettlementEngineSettlementsListEmbeddedSettlements adjustmentCreditAmount(BigDecimal adjustmentCreditAmount) {
+  public SettlementEngineSettlementsListEmbeddedSettlements adjustmentCreditAmount(Integer adjustmentCreditAmount) {
     
     this.adjustmentCreditAmount = adjustmentCreditAmount;
     return this;
@@ -413,17 +412,17 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public BigDecimal getAdjustmentCreditAmount() {
+  public Integer getAdjustmentCreditAmount() {
     return adjustmentCreditAmount;
   }
 
 
-  public void setAdjustmentCreditAmount(BigDecimal adjustmentCreditAmount) {
+  public void setAdjustmentCreditAmount(Integer adjustmentCreditAmount) {
     this.adjustmentCreditAmount = adjustmentCreditAmount;
   }
 
 
-  public SettlementEngineSettlementsListEmbeddedSettlements adjustmentCreditCount(BigDecimal adjustmentCreditCount) {
+  public SettlementEngineSettlementsListEmbeddedSettlements adjustmentCreditCount(Integer adjustmentCreditCount) {
     
     this.adjustmentCreditCount = adjustmentCreditCount;
     return this;
@@ -436,17 +435,17 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public BigDecimal getAdjustmentCreditCount() {
+  public Integer getAdjustmentCreditCount() {
     return adjustmentCreditCount;
   }
 
 
-  public void setAdjustmentCreditCount(BigDecimal adjustmentCreditCount) {
+  public void setAdjustmentCreditCount(Integer adjustmentCreditCount) {
     this.adjustmentCreditCount = adjustmentCreditCount;
   }
 
 
-  public SettlementEngineSettlementsListEmbeddedSettlements adjustmentDebitAmount(BigDecimal adjustmentDebitAmount) {
+  public SettlementEngineSettlementsListEmbeddedSettlements adjustmentDebitAmount(Integer adjustmentDebitAmount) {
     
     this.adjustmentDebitAmount = adjustmentDebitAmount;
     return this;
@@ -459,17 +458,17 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public BigDecimal getAdjustmentDebitAmount() {
+  public Integer getAdjustmentDebitAmount() {
     return adjustmentDebitAmount;
   }
 
 
-  public void setAdjustmentDebitAmount(BigDecimal adjustmentDebitAmount) {
+  public void setAdjustmentDebitAmount(Integer adjustmentDebitAmount) {
     this.adjustmentDebitAmount = adjustmentDebitAmount;
   }
 
 
-  public SettlementEngineSettlementsListEmbeddedSettlements adjustmentDebitCount(BigDecimal adjustmentDebitCount) {
+  public SettlementEngineSettlementsListEmbeddedSettlements adjustmentDebitCount(Integer adjustmentDebitCount) {
     
     this.adjustmentDebitCount = adjustmentDebitCount;
     return this;
@@ -482,12 +481,12 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public BigDecimal getAdjustmentDebitCount() {
+  public Integer getAdjustmentDebitCount() {
     return adjustmentDebitCount;
   }
 
 
-  public void setAdjustmentDebitCount(BigDecimal adjustmentDebitCount) {
+  public void setAdjustmentDebitCount(Integer adjustmentDebitCount) {
     this.adjustmentDebitCount = adjustmentDebitCount;
   }
 
@@ -561,7 +560,7 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
   }
 
 
-  public SettlementEngineSettlementsListEmbeddedSettlements disputeCreditAmount(BigDecimal disputeCreditAmount) {
+  public SettlementEngineSettlementsListEmbeddedSettlements disputeCreditAmount(Integer disputeCreditAmount) {
     
     this.disputeCreditAmount = disputeCreditAmount;
     return this;
@@ -574,17 +573,17 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public BigDecimal getDisputeCreditAmount() {
+  public Integer getDisputeCreditAmount() {
     return disputeCreditAmount;
   }
 
 
-  public void setDisputeCreditAmount(BigDecimal disputeCreditAmount) {
+  public void setDisputeCreditAmount(Integer disputeCreditAmount) {
     this.disputeCreditAmount = disputeCreditAmount;
   }
 
 
-  public SettlementEngineSettlementsListEmbeddedSettlements disputeCreditCount(BigDecimal disputeCreditCount) {
+  public SettlementEngineSettlementsListEmbeddedSettlements disputeCreditCount(Integer disputeCreditCount) {
     
     this.disputeCreditCount = disputeCreditCount;
     return this;
@@ -597,17 +596,17 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public BigDecimal getDisputeCreditCount() {
+  public Integer getDisputeCreditCount() {
     return disputeCreditCount;
   }
 
 
-  public void setDisputeCreditCount(BigDecimal disputeCreditCount) {
+  public void setDisputeCreditCount(Integer disputeCreditCount) {
     this.disputeCreditCount = disputeCreditCount;
   }
 
 
-  public SettlementEngineSettlementsListEmbeddedSettlements disputeDebitAmount(BigDecimal disputeDebitAmount) {
+  public SettlementEngineSettlementsListEmbeddedSettlements disputeDebitAmount(Integer disputeDebitAmount) {
     
     this.disputeDebitAmount = disputeDebitAmount;
     return this;
@@ -620,17 +619,17 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public BigDecimal getDisputeDebitAmount() {
+  public Integer getDisputeDebitAmount() {
     return disputeDebitAmount;
   }
 
 
-  public void setDisputeDebitAmount(BigDecimal disputeDebitAmount) {
+  public void setDisputeDebitAmount(Integer disputeDebitAmount) {
     this.disputeDebitAmount = disputeDebitAmount;
   }
 
 
-  public SettlementEngineSettlementsListEmbeddedSettlements disputeDebitCount(BigDecimal disputeDebitCount) {
+  public SettlementEngineSettlementsListEmbeddedSettlements disputeDebitCount(Integer disputeDebitCount) {
     
     this.disputeDebitCount = disputeDebitCount;
     return this;
@@ -643,12 +642,12 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public BigDecimal getDisputeDebitCount() {
+  public Integer getDisputeDebitCount() {
     return disputeDebitCount;
   }
 
 
-  public void setDisputeDebitCount(BigDecimal disputeDebitCount) {
+  public void setDisputeDebitCount(Integer disputeDebitCount) {
     this.disputeDebitCount = disputeDebitCount;
   }
 
@@ -676,7 +675,7 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
   }
 
 
-  public SettlementEngineSettlementsListEmbeddedSettlements feeCount(BigDecimal feeCount) {
+  public SettlementEngineSettlementsListEmbeddedSettlements feeCount(Integer feeCount) {
     
     this.feeCount = feeCount;
     return this;
@@ -689,12 +688,12 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public BigDecimal getFeeCount() {
+  public Integer getFeeCount() {
     return feeCount;
   }
 
 
-  public void setFeeCount(BigDecimal feeCount) {
+  public void setFeeCount(Integer feeCount) {
     this.feeCount = feeCount;
   }
 
@@ -791,7 +790,7 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
   }
 
 
-  public SettlementEngineSettlementsListEmbeddedSettlements reverseAmount(BigDecimal reverseAmount) {
+  public SettlementEngineSettlementsListEmbeddedSettlements reverseAmount(Integer reverseAmount) {
     
     this.reverseAmount = reverseAmount;
     return this;
@@ -804,17 +803,17 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public BigDecimal getReverseAmount() {
+  public Integer getReverseAmount() {
     return reverseAmount;
   }
 
 
-  public void setReverseAmount(BigDecimal reverseAmount) {
+  public void setReverseAmount(Integer reverseAmount) {
     this.reverseAmount = reverseAmount;
   }
 
 
-  public SettlementEngineSettlementsListEmbeddedSettlements reverseCount(BigDecimal reverseCount) {
+  public SettlementEngineSettlementsListEmbeddedSettlements reverseCount(Integer reverseCount) {
     
     this.reverseCount = reverseCount;
     return this;
@@ -827,12 +826,12 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public BigDecimal getReverseCount() {
+  public Integer getReverseCount() {
     return reverseCount;
   }
 
 
-  public void setReverseCount(BigDecimal reverseCount) {
+  public void setReverseCount(Integer reverseCount) {
     this.reverseCount = reverseCount;
   }
 
@@ -906,7 +905,7 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
   }
 
 
-  public SettlementEngineSettlementsListEmbeddedSettlements totalAmount(BigDecimal totalAmount) {
+  public SettlementEngineSettlementsListEmbeddedSettlements totalAmount(Integer totalAmount) {
     
     this.totalAmount = totalAmount;
     return this;
@@ -919,17 +918,17 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public BigDecimal getTotalAmount() {
+  public Integer getTotalAmount() {
     return totalAmount;
   }
 
 
-  public void setTotalAmount(BigDecimal totalAmount) {
+  public void setTotalAmount(Integer totalAmount) {
     this.totalAmount = totalAmount;
   }
 
 
-  public SettlementEngineSettlementsListEmbeddedSettlements totalFeeAmount(BigDecimal totalFeeAmount) {
+  public SettlementEngineSettlementsListEmbeddedSettlements totalFeeAmount(Integer totalFeeAmount) {
     
     this.totalFeeAmount = totalFeeAmount;
     return this;
@@ -942,17 +941,17 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public BigDecimal getTotalFeeAmount() {
+  public Integer getTotalFeeAmount() {
     return totalFeeAmount;
   }
 
 
-  public void setTotalFeeAmount(BigDecimal totalFeeAmount) {
+  public void setTotalFeeAmount(Integer totalFeeAmount) {
     this.totalFeeAmount = totalFeeAmount;
   }
 
 
-  public SettlementEngineSettlementsListEmbeddedSettlements transferCreditAmount(BigDecimal transferCreditAmount) {
+  public SettlementEngineSettlementsListEmbeddedSettlements transferCreditAmount(Integer transferCreditAmount) {
     
     this.transferCreditAmount = transferCreditAmount;
     return this;
@@ -965,17 +964,17 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public BigDecimal getTransferCreditAmount() {
+  public Integer getTransferCreditAmount() {
     return transferCreditAmount;
   }
 
 
-  public void setTransferCreditAmount(BigDecimal transferCreditAmount) {
+  public void setTransferCreditAmount(Integer transferCreditAmount) {
     this.transferCreditAmount = transferCreditAmount;
   }
 
 
-  public SettlementEngineSettlementsListEmbeddedSettlements transferCreditCount(BigDecimal transferCreditCount) {
+  public SettlementEngineSettlementsListEmbeddedSettlements transferCreditCount(Integer transferCreditCount) {
     
     this.transferCreditCount = transferCreditCount;
     return this;
@@ -988,17 +987,17 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public BigDecimal getTransferCreditCount() {
+  public Integer getTransferCreditCount() {
     return transferCreditCount;
   }
 
 
-  public void setTransferCreditCount(BigDecimal transferCreditCount) {
+  public void setTransferCreditCount(Integer transferCreditCount) {
     this.transferCreditCount = transferCreditCount;
   }
 
 
-  public SettlementEngineSettlementsListEmbeddedSettlements transferDebitAmount(BigDecimal transferDebitAmount) {
+  public SettlementEngineSettlementsListEmbeddedSettlements transferDebitAmount(Integer transferDebitAmount) {
     
     this.transferDebitAmount = transferDebitAmount;
     return this;
@@ -1011,17 +1010,17 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public BigDecimal getTransferDebitAmount() {
+  public Integer getTransferDebitAmount() {
     return transferDebitAmount;
   }
 
 
-  public void setTransferDebitAmount(BigDecimal transferDebitAmount) {
+  public void setTransferDebitAmount(Integer transferDebitAmount) {
     this.transferDebitAmount = transferDebitAmount;
   }
 
 
-  public SettlementEngineSettlementsListEmbeddedSettlements transferDebitCount(BigDecimal transferDebitCount) {
+  public SettlementEngineSettlementsListEmbeddedSettlements transferDebitCount(Integer transferDebitCount) {
     
     this.transferDebitCount = transferDebitCount;
     return this;
@@ -1034,12 +1033,12 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public BigDecimal getTransferDebitCount() {
+  public Integer getTransferDebitCount() {
     return transferDebitCount;
   }
 
 
-  public void setTransferDebitCount(BigDecimal transferDebitCount) {
+  public void setTransferDebitCount(Integer transferDebitCount) {
     this.transferDebitCount = transferDebitCount;
   }
 

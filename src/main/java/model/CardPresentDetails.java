@@ -23,7 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.EmvDetails;
+import model.CardPresentDetailsEmvData;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -47,10 +47,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * CardPresentDetails
+ * Details needed to process card present transactions.
  */
+@ApiModel(description = "Details needed to process card present transactions.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class CardPresentDetails {
   public static final String SERIALIZED_NAME_APPROVAL_CODE = "approval_code";
   @SerializedName(SERIALIZED_NAME_APPROVAL_CODE)
@@ -62,7 +63,7 @@ public class CardPresentDetails {
 
   public static final String SERIALIZED_NAME_EMV_DATA = "emv_data";
   @SerializedName(SERIALIZED_NAME_EMV_DATA)
-  private EmvDetails emvData;
+  private CardPresentDetailsEmvData emvData;
 
   public static final String SERIALIZED_NAME_ENTRY_MODE = "entry_mode";
   @SerializedName(SERIALIZED_NAME_ENTRY_MODE)
@@ -90,11 +91,11 @@ public class CardPresentDetails {
   }
 
    /**
-   * Get approvalCode
+   * Unique ID used to identify the approval of the &#x60;Transfer&#x60;.
    * @return approvalCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Unique ID used to identify the approval of the `Transfer`.")
 
   public String getApprovalCode() {
     return approvalCode;
@@ -113,11 +114,11 @@ public class CardPresentDetails {
   }
 
    /**
-   * Get brand
+   * The brand of the card saved in the &#x60;Payment Instrument&#x60;.
    * @return brand
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The brand of the card saved in the `Payment Instrument`.")
 
   public String getBrand() {
     return brand;
@@ -129,7 +130,7 @@ public class CardPresentDetails {
   }
 
 
-  public CardPresentDetails emvData(EmvDetails emvData) {
+  public CardPresentDetails emvData(CardPresentDetailsEmvData emvData) {
     
     this.emvData = emvData;
     return this;
@@ -142,12 +143,12 @@ public class CardPresentDetails {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public EmvDetails getEmvData() {
+  public CardPresentDetailsEmvData getEmvData() {
     return emvData;
   }
 
 
-  public void setEmvData(EmvDetails emvData) {
+  public void setEmvData(CardPresentDetailsEmvData emvData) {
     this.emvData = emvData;
   }
 
@@ -159,11 +160,11 @@ public class CardPresentDetails {
   }
 
    /**
-   * Get entryMode
+   * Details how the card was entered to process the transaction.
    * @return entryMode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Details how the card was entered to process the transaction.")
 
   public String getEntryMode() {
     return entryMode;
@@ -182,11 +183,11 @@ public class CardPresentDetails {
   }
 
    /**
-   * Get maskedAccountNumber
+   * Last four digits of the bank account number.
    * @return maskedAccountNumber
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Last four digits of the bank account number.")
 
   public String getMaskedAccountNumber() {
     return maskedAccountNumber;
@@ -205,11 +206,11 @@ public class CardPresentDetails {
   }
 
    /**
-   * Get name
+   * The name of the bank account or card owner.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name of the bank account or card owner.")
 
   public String getName() {
     return name;
@@ -228,11 +229,11 @@ public class CardPresentDetails {
   }
 
    /**
-   * Get paymentType
+   * The type of &#x60;Payment Instrument&#x60; used in the transaction (or the original payment).
    * @return paymentType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of `Payment Instrument` used in the transaction (or the original payment).")
 
   public String getPaymentType() {
     return paymentType;
@@ -356,7 +357,7 @@ public class CardPresentDetails {
       }
       // validate the optional field `emv_data`
       if (jsonObj.getAsJsonObject("emv_data") != null) {
-       EmvDetails.validateJsonObject(jsonObj.getAsJsonObject("emv_data"));
+       CardPresentDetailsEmvData.validateJsonObject(jsonObj.getAsJsonObject("emv_data"));
       }
       if (jsonObj.get("entry_mode") != null && !jsonObj.get("entry_mode").isJsonNull()  && !jsonObj.get("entry_mode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `entry_mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entry_mode").toString()));

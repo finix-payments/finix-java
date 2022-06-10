@@ -52,7 +52,7 @@ import invoker.JSON;
  * CreateSubscriptionAmountRequest
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class CreateSubscriptionAmountRequest {
   public static final String SERIALIZED_NAME_AMOUNT_TYPE = "amount_type";
   @SerializedName(SERIALIZED_NAME_AMOUNT_TYPE)
@@ -80,11 +80,11 @@ public class CreateSubscriptionAmountRequest {
   }
 
    /**
-   * Subscription Amount type. For subscriptions, the type is FEE
+   * &#x60;Subscription Amount&#x60; type. For subscriptions, the type is **FEE**.
    * @return amountType
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Subscription Amount type. For subscriptions, the type is FEE")
+  @ApiModelProperty(required = true, value = "`Subscription Amount` type. For subscriptions, the type is **FEE**.")
 
   public String getAmountType() {
     return amountType;

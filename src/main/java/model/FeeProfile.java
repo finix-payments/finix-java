@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.List;
@@ -55,7 +54,7 @@ import invoker.JSON;
  * FeeProfile
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class FeeProfile {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -75,27 +74,27 @@ public class FeeProfile {
 
   public static final String SERIALIZED_NAME_ACH_BASIS_POINTS = "ach_basis_points";
   @SerializedName(SERIALIZED_NAME_ACH_BASIS_POINTS)
-  private BigDecimal achBasisPoints;
+  private Integer achBasisPoints;
 
   public static final String SERIALIZED_NAME_ACH_CREDIT_RETURN_FIXED_FEE = "ach_credit_return_fixed_fee";
   @SerializedName(SERIALIZED_NAME_ACH_CREDIT_RETURN_FIXED_FEE)
-  private BigDecimal achCreditReturnFixedFee;
+  private Integer achCreditReturnFixedFee;
 
   public static final String SERIALIZED_NAME_ACH_DEBIT_RETURN_FIXED_FEE = "ach_debit_return_fixed_fee";
   @SerializedName(SERIALIZED_NAME_ACH_DEBIT_RETURN_FIXED_FEE)
-  private BigDecimal achDebitReturnFixedFee;
+  private Integer achDebitReturnFixedFee;
 
   public static final String SERIALIZED_NAME_ACH_FIXED_FEE = "ach_fixed_fee";
   @SerializedName(SERIALIZED_NAME_ACH_FIXED_FEE)
-  private BigDecimal achFixedFee;
+  private Integer achFixedFee;
 
   public static final String SERIALIZED_NAME_AMERICAN_EXPRESS_ASSESSMENT_BASIS_POINTS = "american_express_assessment_basis_points";
   @SerializedName(SERIALIZED_NAME_AMERICAN_EXPRESS_ASSESSMENT_BASIS_POINTS)
-  private BigDecimal americanExpressAssessmentBasisPoints;
+  private Integer americanExpressAssessmentBasisPoints;
 
   public static final String SERIALIZED_NAME_AMERICAN_EXPRESS_BASIS_POINTS = "american_express_basis_points";
   @SerializedName(SERIALIZED_NAME_AMERICAN_EXPRESS_BASIS_POINTS)
-  private BigDecimal americanExpressBasisPoints;
+  private Integer americanExpressBasisPoints;
 
   public static final String SERIALIZED_NAME_AMERICAN_EXPRESS_CHARGE_INTERCHANGE = "american_express_charge_interchange";
   @SerializedName(SERIALIZED_NAME_AMERICAN_EXPRESS_CHARGE_INTERCHANGE)
@@ -103,15 +102,15 @@ public class FeeProfile {
 
   public static final String SERIALIZED_NAME_AMERICAN_EXPRESS_FIXED_FEE = "american_express_fixed_fee";
   @SerializedName(SERIALIZED_NAME_AMERICAN_EXPRESS_FIXED_FEE)
-  private BigDecimal americanExpressFixedFee;
+  private Integer americanExpressFixedFee;
 
   public static final String SERIALIZED_NAME_ANCILLARY_FIXED_FEE_PRIMARY = "ancillary_fixed_fee_primary";
   @SerializedName(SERIALIZED_NAME_ANCILLARY_FIXED_FEE_PRIMARY)
-  private BigDecimal ancillaryFixedFeePrimary;
+  private Integer ancillaryFixedFeePrimary;
 
   public static final String SERIALIZED_NAME_ANCILLARY_FIXED_FEE_SECONDARY = "ancillary_fixed_fee_secondary";
   @SerializedName(SERIALIZED_NAME_ANCILLARY_FIXED_FEE_SECONDARY)
-  private BigDecimal ancillaryFixedFeeSecondary;
+  private Integer ancillaryFixedFeeSecondary;
 
   public static final String SERIALIZED_NAME_APPLICATION = "application";
   @SerializedName(SERIALIZED_NAME_APPLICATION)
@@ -119,7 +118,7 @@ public class FeeProfile {
 
   public static final String SERIALIZED_NAME_BASIS_POINTS = "basis_points";
   @SerializedName(SERIALIZED_NAME_BASIS_POINTS)
-  private BigDecimal basisPoints;
+  private Integer basisPoints;
 
   public static final String SERIALIZED_NAME_CHARGE_INTERCHANGE = "charge_interchange";
   @SerializedName(SERIALIZED_NAME_CHARGE_INTERCHANGE)
@@ -127,7 +126,7 @@ public class FeeProfile {
 
   public static final String SERIALIZED_NAME_DINERS_CLUB_BASIS_POINTS = "diners_club_basis_points";
   @SerializedName(SERIALIZED_NAME_DINERS_CLUB_BASIS_POINTS)
-  private BigDecimal dinersClubBasisPoints;
+  private Integer dinersClubBasisPoints;
 
   public static final String SERIALIZED_NAME_DINERS_CLUB_CHARGE_INTERCHANGE = "diners_club_charge_interchange";
   @SerializedName(SERIALIZED_NAME_DINERS_CLUB_CHARGE_INTERCHANGE)
@@ -135,15 +134,15 @@ public class FeeProfile {
 
   public static final String SERIALIZED_NAME_DINERS_CLUB_FIXED_FEE = "diners_club_fixed_fee";
   @SerializedName(SERIALIZED_NAME_DINERS_CLUB_FIXED_FEE)
-  private BigDecimal dinersClubFixedFee;
+  private Integer dinersClubFixedFee;
 
   public static final String SERIALIZED_NAME_DISCOVER_ASSESSMENTS_BASIS_POINTS = "discover_assessments_basis_points";
   @SerializedName(SERIALIZED_NAME_DISCOVER_ASSESSMENTS_BASIS_POINTS)
-  private BigDecimal discoverAssessmentsBasisPoints;
+  private Integer discoverAssessmentsBasisPoints;
 
   public static final String SERIALIZED_NAME_DISCOVER_BASIS_POINTS = "discover_basis_points";
   @SerializedName(SERIALIZED_NAME_DISCOVER_BASIS_POINTS)
-  private BigDecimal discoverBasisPoints;
+  private Integer discoverBasisPoints;
 
   public static final String SERIALIZED_NAME_DISCOVER_CHARGE_INTERCHANGE = "discover_charge_interchange";
   @SerializedName(SERIALIZED_NAME_DISCOVER_CHARGE_INTERCHANGE)
@@ -151,31 +150,31 @@ public class FeeProfile {
 
   public static final String SERIALIZED_NAME_DISCOVER_DATA_USAGE_FIXED_FEE = "discover_data_usage_fixed_fee";
   @SerializedName(SERIALIZED_NAME_DISCOVER_DATA_USAGE_FIXED_FEE)
-  private BigDecimal discoverDataUsageFixedFee;
+  private Integer discoverDataUsageFixedFee;
 
   public static final String SERIALIZED_NAME_DISCOVER_FIXED_FEE = "discover_fixed_fee";
   @SerializedName(SERIALIZED_NAME_DISCOVER_FIXED_FEE)
-  private BigDecimal discoverFixedFee;
+  private Integer discoverFixedFee;
 
   public static final String SERIALIZED_NAME_DISCOVER_NETWORK_AUTHORIZATION_FIXED_FEE = "discover_network_authorization_fixed_fee";
   @SerializedName(SERIALIZED_NAME_DISCOVER_NETWORK_AUTHORIZATION_FIXED_FEE)
-  private BigDecimal discoverNetworkAuthorizationFixedFee;
+  private Integer discoverNetworkAuthorizationFixedFee;
 
   public static final String SERIALIZED_NAME_DISPUTE_FIXED_FEE = "dispute_fixed_fee";
   @SerializedName(SERIALIZED_NAME_DISPUTE_FIXED_FEE)
-  private BigDecimal disputeFixedFee;
+  private Integer disputeFixedFee;
 
   public static final String SERIALIZED_NAME_DISPUTE_INQUIRY_FIXED_FEE = "dispute_inquiry_fixed_fee";
   @SerializedName(SERIALIZED_NAME_DISPUTE_INQUIRY_FIXED_FEE)
-  private BigDecimal disputeInquiryFixedFee;
+  private Integer disputeInquiryFixedFee;
 
   public static final String SERIALIZED_NAME_FIXED_FEE = "fixed_fee";
   @SerializedName(SERIALIZED_NAME_FIXED_FEE)
-  private BigDecimal fixedFee;
+  private Integer fixedFee;
 
   public static final String SERIALIZED_NAME_JCB_BASIS_POINTS = "jcb_basis_points";
   @SerializedName(SERIALIZED_NAME_JCB_BASIS_POINTS)
-  private BigDecimal jcbBasisPoints;
+  private Integer jcbBasisPoints;
 
   public static final String SERIALIZED_NAME_JCB_CHARGE_INTERCHANGE = "jcb_charge_interchange";
   @SerializedName(SERIALIZED_NAME_JCB_CHARGE_INTERCHANGE)
@@ -183,23 +182,23 @@ public class FeeProfile {
 
   public static final String SERIALIZED_NAME_JCB_FIXED_FEE = "jcb_fixed_fee";
   @SerializedName(SERIALIZED_NAME_JCB_FIXED_FEE)
-  private BigDecimal jcbFixedFee;
+  private Integer jcbFixedFee;
 
   public static final String SERIALIZED_NAME_MASTERCARD_ACQUIRER_FEES_BASIS_POINTS = "mastercard_acquirer_fees_basis_points";
   @SerializedName(SERIALIZED_NAME_MASTERCARD_ACQUIRER_FEES_BASIS_POINTS)
-  private BigDecimal mastercardAcquirerFeesBasisPoints;
+  private Integer mastercardAcquirerFeesBasisPoints;
 
   public static final String SERIALIZED_NAME_MASTERCARD_ASSESSMENTS_OVER1K_BASIS_POINTS = "mastercard_assessments_over1k_basis_points";
   @SerializedName(SERIALIZED_NAME_MASTERCARD_ASSESSMENTS_OVER1K_BASIS_POINTS)
-  private BigDecimal mastercardAssessmentsOver1kBasisPoints;
+  private Integer mastercardAssessmentsOver1kBasisPoints;
 
   public static final String SERIALIZED_NAME_MASTERCARD_ASSESSMENTS_UNDER1K_BASIS_POINTS = "mastercard_assessments_under1k_basis_points";
   @SerializedName(SERIALIZED_NAME_MASTERCARD_ASSESSMENTS_UNDER1K_BASIS_POINTS)
-  private BigDecimal mastercardAssessmentsUnder1kBasisPoints;
+  private Integer mastercardAssessmentsUnder1kBasisPoints;
 
   public static final String SERIALIZED_NAME_MASTERCARD_BASIS_POINTS = "mastercard_basis_points";
   @SerializedName(SERIALIZED_NAME_MASTERCARD_BASIS_POINTS)
-  private BigDecimal mastercardBasisPoints;
+  private Integer mastercardBasisPoints;
 
   public static final String SERIALIZED_NAME_MASTERCARD_CHARGE_INTERCHANGE = "mastercard_charge_interchange";
   @SerializedName(SERIALIZED_NAME_MASTERCARD_CHARGE_INTERCHANGE)
@@ -207,7 +206,7 @@ public class FeeProfile {
 
   public static final String SERIALIZED_NAME_MASTERCARD_FIXED_FEE = "mastercard_fixed_fee";
   @SerializedName(SERIALIZED_NAME_MASTERCARD_FIXED_FEE)
-  private BigDecimal mastercardFixedFee;
+  private Integer mastercardFixedFee;
 
   public static final String SERIALIZED_NAME_QUALIFIED_TIERS = "qualified_tiers";
   @SerializedName(SERIALIZED_NAME_QUALIFIED_TIERS)
@@ -266,23 +265,23 @@ public class FeeProfile {
 
   public static final String SERIALIZED_NAME_VISA_ACQUIRER_PROCESSING_FIXED_FEE = "visa_acquirer_processing_fixed_fee";
   @SerializedName(SERIALIZED_NAME_VISA_ACQUIRER_PROCESSING_FIXED_FEE)
-  private BigDecimal visaAcquirerProcessingFixedFee;
+  private Integer visaAcquirerProcessingFixedFee;
 
   public static final String SERIALIZED_NAME_VISA_ASSESSMENTS_BASIS_POINTS = "visa_assessments_basis_points";
   @SerializedName(SERIALIZED_NAME_VISA_ASSESSMENTS_BASIS_POINTS)
-  private BigDecimal visaAssessmentsBasisPoints;
+  private Integer visaAssessmentsBasisPoints;
 
   public static final String SERIALIZED_NAME_VISA_BASE_I_I_CREDIT_VOUCHER_FIXED_FEE = "visa_base_II_credit_voucher_fixed_fee";
   @SerializedName(SERIALIZED_NAME_VISA_BASE_I_I_CREDIT_VOUCHER_FIXED_FEE)
-  private BigDecimal visaBaseIICreditVoucherFixedFee;
+  private Integer visaBaseIICreditVoucherFixedFee;
 
   public static final String SERIALIZED_NAME_VISA_BASE_I_I_SYSTEM_FILE_TRANSMISSION_FIXED_FEE = "visa_base_II_system_file_transmission_fixed_fee";
   @SerializedName(SERIALIZED_NAME_VISA_BASE_I_I_SYSTEM_FILE_TRANSMISSION_FIXED_FEE)
-  private BigDecimal visaBaseIISystemFileTransmissionFixedFee;
+  private Integer visaBaseIISystemFileTransmissionFixedFee;
 
   public static final String SERIALIZED_NAME_VISA_BASIS_POINTS = "visa_basis_points";
   @SerializedName(SERIALIZED_NAME_VISA_BASIS_POINTS)
-  private BigDecimal visaBasisPoints;
+  private Integer visaBasisPoints;
 
   public static final String SERIALIZED_NAME_VISA_CHARGE_INTERCHANGE = "visa_charge_interchange";
   @SerializedName(SERIALIZED_NAME_VISA_CHARGE_INTERCHANGE)
@@ -290,15 +289,15 @@ public class FeeProfile {
 
   public static final String SERIALIZED_NAME_VISA_CREDIT_VOUCHER_FIXED_FEE = "visa_credit_voucher_fixed_fee";
   @SerializedName(SERIALIZED_NAME_VISA_CREDIT_VOUCHER_FIXED_FEE)
-  private BigDecimal visaCreditVoucherFixedFee;
+  private Integer visaCreditVoucherFixedFee;
 
   public static final String SERIALIZED_NAME_VISA_FIXED_FEE = "visa_fixed_fee";
   @SerializedName(SERIALIZED_NAME_VISA_FIXED_FEE)
-  private BigDecimal visaFixedFee;
+  private Integer visaFixedFee;
 
   public static final String SERIALIZED_NAME_VISA_KILOBYTE_ACCESS_FIXED_FEE = "visa_kilobyte_access_fixed_fee";
   @SerializedName(SERIALIZED_NAME_VISA_KILOBYTE_ACCESS_FIXED_FEE)
-  private BigDecimal visaKilobyteAccessFixedFee;
+  private Integer visaKilobyteAccessFixedFee;
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
@@ -368,11 +367,11 @@ public class FeeProfile {
   }
 
    /**
-   * Timestamp of when the object was created
+   * Timestamp of when the object was created.
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the object was created")
+  @ApiModelProperty(value = "Timestamp of when the object was created.")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -391,11 +390,11 @@ public class FeeProfile {
   }
 
    /**
-   * Timestamp of when the object was last updated
+   * Timestamp of when the object was last updated.
    * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the object was last updated")
+  @ApiModelProperty(value = "Timestamp of when the object was last updated.")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -407,7 +406,7 @@ public class FeeProfile {
   }
 
 
-  public FeeProfile achBasisPoints(BigDecimal achBasisPoints) {
+  public FeeProfile achBasisPoints(Integer achBasisPoints) {
     
     this.achBasisPoints = achBasisPoints;
     return this;
@@ -420,17 +419,17 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getAchBasisPoints() {
+  public Integer getAchBasisPoints() {
     return achBasisPoints;
   }
 
 
-  public void setAchBasisPoints(BigDecimal achBasisPoints) {
+  public void setAchBasisPoints(Integer achBasisPoints) {
     this.achBasisPoints = achBasisPoints;
   }
 
 
-  public FeeProfile achCreditReturnFixedFee(BigDecimal achCreditReturnFixedFee) {
+  public FeeProfile achCreditReturnFixedFee(Integer achCreditReturnFixedFee) {
     
     this.achCreditReturnFixedFee = achCreditReturnFixedFee;
     return this;
@@ -443,17 +442,17 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getAchCreditReturnFixedFee() {
+  public Integer getAchCreditReturnFixedFee() {
     return achCreditReturnFixedFee;
   }
 
 
-  public void setAchCreditReturnFixedFee(BigDecimal achCreditReturnFixedFee) {
+  public void setAchCreditReturnFixedFee(Integer achCreditReturnFixedFee) {
     this.achCreditReturnFixedFee = achCreditReturnFixedFee;
   }
 
 
-  public FeeProfile achDebitReturnFixedFee(BigDecimal achDebitReturnFixedFee) {
+  public FeeProfile achDebitReturnFixedFee(Integer achDebitReturnFixedFee) {
     
     this.achDebitReturnFixedFee = achDebitReturnFixedFee;
     return this;
@@ -466,17 +465,17 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getAchDebitReturnFixedFee() {
+  public Integer getAchDebitReturnFixedFee() {
     return achDebitReturnFixedFee;
   }
 
 
-  public void setAchDebitReturnFixedFee(BigDecimal achDebitReturnFixedFee) {
+  public void setAchDebitReturnFixedFee(Integer achDebitReturnFixedFee) {
     this.achDebitReturnFixedFee = achDebitReturnFixedFee;
   }
 
 
-  public FeeProfile achFixedFee(BigDecimal achFixedFee) {
+  public FeeProfile achFixedFee(Integer achFixedFee) {
     
     this.achFixedFee = achFixedFee;
     return this;
@@ -489,17 +488,17 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getAchFixedFee() {
+  public Integer getAchFixedFee() {
     return achFixedFee;
   }
 
 
-  public void setAchFixedFee(BigDecimal achFixedFee) {
+  public void setAchFixedFee(Integer achFixedFee) {
     this.achFixedFee = achFixedFee;
   }
 
 
-  public FeeProfile americanExpressAssessmentBasisPoints(BigDecimal americanExpressAssessmentBasisPoints) {
+  public FeeProfile americanExpressAssessmentBasisPoints(Integer americanExpressAssessmentBasisPoints) {
     
     this.americanExpressAssessmentBasisPoints = americanExpressAssessmentBasisPoints;
     return this;
@@ -512,17 +511,17 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getAmericanExpressAssessmentBasisPoints() {
+  public Integer getAmericanExpressAssessmentBasisPoints() {
     return americanExpressAssessmentBasisPoints;
   }
 
 
-  public void setAmericanExpressAssessmentBasisPoints(BigDecimal americanExpressAssessmentBasisPoints) {
+  public void setAmericanExpressAssessmentBasisPoints(Integer americanExpressAssessmentBasisPoints) {
     this.americanExpressAssessmentBasisPoints = americanExpressAssessmentBasisPoints;
   }
 
 
-  public FeeProfile americanExpressBasisPoints(BigDecimal americanExpressBasisPoints) {
+  public FeeProfile americanExpressBasisPoints(Integer americanExpressBasisPoints) {
     
     this.americanExpressBasisPoints = americanExpressBasisPoints;
     return this;
@@ -535,12 +534,12 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getAmericanExpressBasisPoints() {
+  public Integer getAmericanExpressBasisPoints() {
     return americanExpressBasisPoints;
   }
 
 
-  public void setAmericanExpressBasisPoints(BigDecimal americanExpressBasisPoints) {
+  public void setAmericanExpressBasisPoints(Integer americanExpressBasisPoints) {
     this.americanExpressBasisPoints = americanExpressBasisPoints;
   }
 
@@ -568,7 +567,7 @@ public class FeeProfile {
   }
 
 
-  public FeeProfile americanExpressFixedFee(BigDecimal americanExpressFixedFee) {
+  public FeeProfile americanExpressFixedFee(Integer americanExpressFixedFee) {
     
     this.americanExpressFixedFee = americanExpressFixedFee;
     return this;
@@ -581,17 +580,17 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getAmericanExpressFixedFee() {
+  public Integer getAmericanExpressFixedFee() {
     return americanExpressFixedFee;
   }
 
 
-  public void setAmericanExpressFixedFee(BigDecimal americanExpressFixedFee) {
+  public void setAmericanExpressFixedFee(Integer americanExpressFixedFee) {
     this.americanExpressFixedFee = americanExpressFixedFee;
   }
 
 
-  public FeeProfile ancillaryFixedFeePrimary(BigDecimal ancillaryFixedFeePrimary) {
+  public FeeProfile ancillaryFixedFeePrimary(Integer ancillaryFixedFeePrimary) {
     
     this.ancillaryFixedFeePrimary = ancillaryFixedFeePrimary;
     return this;
@@ -604,17 +603,17 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getAncillaryFixedFeePrimary() {
+  public Integer getAncillaryFixedFeePrimary() {
     return ancillaryFixedFeePrimary;
   }
 
 
-  public void setAncillaryFixedFeePrimary(BigDecimal ancillaryFixedFeePrimary) {
+  public void setAncillaryFixedFeePrimary(Integer ancillaryFixedFeePrimary) {
     this.ancillaryFixedFeePrimary = ancillaryFixedFeePrimary;
   }
 
 
-  public FeeProfile ancillaryFixedFeeSecondary(BigDecimal ancillaryFixedFeeSecondary) {
+  public FeeProfile ancillaryFixedFeeSecondary(Integer ancillaryFixedFeeSecondary) {
     
     this.ancillaryFixedFeeSecondary = ancillaryFixedFeeSecondary;
     return this;
@@ -627,12 +626,12 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getAncillaryFixedFeeSecondary() {
+  public Integer getAncillaryFixedFeeSecondary() {
     return ancillaryFixedFeeSecondary;
   }
 
 
-  public void setAncillaryFixedFeeSecondary(BigDecimal ancillaryFixedFeeSecondary) {
+  public void setAncillaryFixedFeeSecondary(Integer ancillaryFixedFeeSecondary) {
     this.ancillaryFixedFeeSecondary = ancillaryFixedFeeSecondary;
   }
 
@@ -660,7 +659,7 @@ public class FeeProfile {
   }
 
 
-  public FeeProfile basisPoints(BigDecimal basisPoints) {
+  public FeeProfile basisPoints(Integer basisPoints) {
     
     this.basisPoints = basisPoints;
     return this;
@@ -673,12 +672,12 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getBasisPoints() {
+  public Integer getBasisPoints() {
     return basisPoints;
   }
 
 
-  public void setBasisPoints(BigDecimal basisPoints) {
+  public void setBasisPoints(Integer basisPoints) {
     this.basisPoints = basisPoints;
   }
 
@@ -706,7 +705,7 @@ public class FeeProfile {
   }
 
 
-  public FeeProfile dinersClubBasisPoints(BigDecimal dinersClubBasisPoints) {
+  public FeeProfile dinersClubBasisPoints(Integer dinersClubBasisPoints) {
     
     this.dinersClubBasisPoints = dinersClubBasisPoints;
     return this;
@@ -719,12 +718,12 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getDinersClubBasisPoints() {
+  public Integer getDinersClubBasisPoints() {
     return dinersClubBasisPoints;
   }
 
 
-  public void setDinersClubBasisPoints(BigDecimal dinersClubBasisPoints) {
+  public void setDinersClubBasisPoints(Integer dinersClubBasisPoints) {
     this.dinersClubBasisPoints = dinersClubBasisPoints;
   }
 
@@ -752,7 +751,7 @@ public class FeeProfile {
   }
 
 
-  public FeeProfile dinersClubFixedFee(BigDecimal dinersClubFixedFee) {
+  public FeeProfile dinersClubFixedFee(Integer dinersClubFixedFee) {
     
     this.dinersClubFixedFee = dinersClubFixedFee;
     return this;
@@ -765,17 +764,17 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getDinersClubFixedFee() {
+  public Integer getDinersClubFixedFee() {
     return dinersClubFixedFee;
   }
 
 
-  public void setDinersClubFixedFee(BigDecimal dinersClubFixedFee) {
+  public void setDinersClubFixedFee(Integer dinersClubFixedFee) {
     this.dinersClubFixedFee = dinersClubFixedFee;
   }
 
 
-  public FeeProfile discoverAssessmentsBasisPoints(BigDecimal discoverAssessmentsBasisPoints) {
+  public FeeProfile discoverAssessmentsBasisPoints(Integer discoverAssessmentsBasisPoints) {
     
     this.discoverAssessmentsBasisPoints = discoverAssessmentsBasisPoints;
     return this;
@@ -788,17 +787,17 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getDiscoverAssessmentsBasisPoints() {
+  public Integer getDiscoverAssessmentsBasisPoints() {
     return discoverAssessmentsBasisPoints;
   }
 
 
-  public void setDiscoverAssessmentsBasisPoints(BigDecimal discoverAssessmentsBasisPoints) {
+  public void setDiscoverAssessmentsBasisPoints(Integer discoverAssessmentsBasisPoints) {
     this.discoverAssessmentsBasisPoints = discoverAssessmentsBasisPoints;
   }
 
 
-  public FeeProfile discoverBasisPoints(BigDecimal discoverBasisPoints) {
+  public FeeProfile discoverBasisPoints(Integer discoverBasisPoints) {
     
     this.discoverBasisPoints = discoverBasisPoints;
     return this;
@@ -811,12 +810,12 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getDiscoverBasisPoints() {
+  public Integer getDiscoverBasisPoints() {
     return discoverBasisPoints;
   }
 
 
-  public void setDiscoverBasisPoints(BigDecimal discoverBasisPoints) {
+  public void setDiscoverBasisPoints(Integer discoverBasisPoints) {
     this.discoverBasisPoints = discoverBasisPoints;
   }
 
@@ -844,7 +843,7 @@ public class FeeProfile {
   }
 
 
-  public FeeProfile discoverDataUsageFixedFee(BigDecimal discoverDataUsageFixedFee) {
+  public FeeProfile discoverDataUsageFixedFee(Integer discoverDataUsageFixedFee) {
     
     this.discoverDataUsageFixedFee = discoverDataUsageFixedFee;
     return this;
@@ -857,17 +856,17 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getDiscoverDataUsageFixedFee() {
+  public Integer getDiscoverDataUsageFixedFee() {
     return discoverDataUsageFixedFee;
   }
 
 
-  public void setDiscoverDataUsageFixedFee(BigDecimal discoverDataUsageFixedFee) {
+  public void setDiscoverDataUsageFixedFee(Integer discoverDataUsageFixedFee) {
     this.discoverDataUsageFixedFee = discoverDataUsageFixedFee;
   }
 
 
-  public FeeProfile discoverFixedFee(BigDecimal discoverFixedFee) {
+  public FeeProfile discoverFixedFee(Integer discoverFixedFee) {
     
     this.discoverFixedFee = discoverFixedFee;
     return this;
@@ -880,17 +879,17 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getDiscoverFixedFee() {
+  public Integer getDiscoverFixedFee() {
     return discoverFixedFee;
   }
 
 
-  public void setDiscoverFixedFee(BigDecimal discoverFixedFee) {
+  public void setDiscoverFixedFee(Integer discoverFixedFee) {
     this.discoverFixedFee = discoverFixedFee;
   }
 
 
-  public FeeProfile discoverNetworkAuthorizationFixedFee(BigDecimal discoverNetworkAuthorizationFixedFee) {
+  public FeeProfile discoverNetworkAuthorizationFixedFee(Integer discoverNetworkAuthorizationFixedFee) {
     
     this.discoverNetworkAuthorizationFixedFee = discoverNetworkAuthorizationFixedFee;
     return this;
@@ -903,17 +902,17 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getDiscoverNetworkAuthorizationFixedFee() {
+  public Integer getDiscoverNetworkAuthorizationFixedFee() {
     return discoverNetworkAuthorizationFixedFee;
   }
 
 
-  public void setDiscoverNetworkAuthorizationFixedFee(BigDecimal discoverNetworkAuthorizationFixedFee) {
+  public void setDiscoverNetworkAuthorizationFixedFee(Integer discoverNetworkAuthorizationFixedFee) {
     this.discoverNetworkAuthorizationFixedFee = discoverNetworkAuthorizationFixedFee;
   }
 
 
-  public FeeProfile disputeFixedFee(BigDecimal disputeFixedFee) {
+  public FeeProfile disputeFixedFee(Integer disputeFixedFee) {
     
     this.disputeFixedFee = disputeFixedFee;
     return this;
@@ -926,17 +925,17 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getDisputeFixedFee() {
+  public Integer getDisputeFixedFee() {
     return disputeFixedFee;
   }
 
 
-  public void setDisputeFixedFee(BigDecimal disputeFixedFee) {
+  public void setDisputeFixedFee(Integer disputeFixedFee) {
     this.disputeFixedFee = disputeFixedFee;
   }
 
 
-  public FeeProfile disputeInquiryFixedFee(BigDecimal disputeInquiryFixedFee) {
+  public FeeProfile disputeInquiryFixedFee(Integer disputeInquiryFixedFee) {
     
     this.disputeInquiryFixedFee = disputeInquiryFixedFee;
     return this;
@@ -949,17 +948,17 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getDisputeInquiryFixedFee() {
+  public Integer getDisputeInquiryFixedFee() {
     return disputeInquiryFixedFee;
   }
 
 
-  public void setDisputeInquiryFixedFee(BigDecimal disputeInquiryFixedFee) {
+  public void setDisputeInquiryFixedFee(Integer disputeInquiryFixedFee) {
     this.disputeInquiryFixedFee = disputeInquiryFixedFee;
   }
 
 
-  public FeeProfile fixedFee(BigDecimal fixedFee) {
+  public FeeProfile fixedFee(Integer fixedFee) {
     
     this.fixedFee = fixedFee;
     return this;
@@ -972,17 +971,17 @@ public class FeeProfile {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public BigDecimal getFixedFee() {
+  public Integer getFixedFee() {
     return fixedFee;
   }
 
 
-  public void setFixedFee(BigDecimal fixedFee) {
+  public void setFixedFee(Integer fixedFee) {
     this.fixedFee = fixedFee;
   }
 
 
-  public FeeProfile jcbBasisPoints(BigDecimal jcbBasisPoints) {
+  public FeeProfile jcbBasisPoints(Integer jcbBasisPoints) {
     
     this.jcbBasisPoints = jcbBasisPoints;
     return this;
@@ -995,12 +994,12 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getJcbBasisPoints() {
+  public Integer getJcbBasisPoints() {
     return jcbBasisPoints;
   }
 
 
-  public void setJcbBasisPoints(BigDecimal jcbBasisPoints) {
+  public void setJcbBasisPoints(Integer jcbBasisPoints) {
     this.jcbBasisPoints = jcbBasisPoints;
   }
 
@@ -1028,7 +1027,7 @@ public class FeeProfile {
   }
 
 
-  public FeeProfile jcbFixedFee(BigDecimal jcbFixedFee) {
+  public FeeProfile jcbFixedFee(Integer jcbFixedFee) {
     
     this.jcbFixedFee = jcbFixedFee;
     return this;
@@ -1041,17 +1040,17 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getJcbFixedFee() {
+  public Integer getJcbFixedFee() {
     return jcbFixedFee;
   }
 
 
-  public void setJcbFixedFee(BigDecimal jcbFixedFee) {
+  public void setJcbFixedFee(Integer jcbFixedFee) {
     this.jcbFixedFee = jcbFixedFee;
   }
 
 
-  public FeeProfile mastercardAcquirerFeesBasisPoints(BigDecimal mastercardAcquirerFeesBasisPoints) {
+  public FeeProfile mastercardAcquirerFeesBasisPoints(Integer mastercardAcquirerFeesBasisPoints) {
     
     this.mastercardAcquirerFeesBasisPoints = mastercardAcquirerFeesBasisPoints;
     return this;
@@ -1064,17 +1063,17 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getMastercardAcquirerFeesBasisPoints() {
+  public Integer getMastercardAcquirerFeesBasisPoints() {
     return mastercardAcquirerFeesBasisPoints;
   }
 
 
-  public void setMastercardAcquirerFeesBasisPoints(BigDecimal mastercardAcquirerFeesBasisPoints) {
+  public void setMastercardAcquirerFeesBasisPoints(Integer mastercardAcquirerFeesBasisPoints) {
     this.mastercardAcquirerFeesBasisPoints = mastercardAcquirerFeesBasisPoints;
   }
 
 
-  public FeeProfile mastercardAssessmentsOver1kBasisPoints(BigDecimal mastercardAssessmentsOver1kBasisPoints) {
+  public FeeProfile mastercardAssessmentsOver1kBasisPoints(Integer mastercardAssessmentsOver1kBasisPoints) {
     
     this.mastercardAssessmentsOver1kBasisPoints = mastercardAssessmentsOver1kBasisPoints;
     return this;
@@ -1087,17 +1086,17 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getMastercardAssessmentsOver1kBasisPoints() {
+  public Integer getMastercardAssessmentsOver1kBasisPoints() {
     return mastercardAssessmentsOver1kBasisPoints;
   }
 
 
-  public void setMastercardAssessmentsOver1kBasisPoints(BigDecimal mastercardAssessmentsOver1kBasisPoints) {
+  public void setMastercardAssessmentsOver1kBasisPoints(Integer mastercardAssessmentsOver1kBasisPoints) {
     this.mastercardAssessmentsOver1kBasisPoints = mastercardAssessmentsOver1kBasisPoints;
   }
 
 
-  public FeeProfile mastercardAssessmentsUnder1kBasisPoints(BigDecimal mastercardAssessmentsUnder1kBasisPoints) {
+  public FeeProfile mastercardAssessmentsUnder1kBasisPoints(Integer mastercardAssessmentsUnder1kBasisPoints) {
     
     this.mastercardAssessmentsUnder1kBasisPoints = mastercardAssessmentsUnder1kBasisPoints;
     return this;
@@ -1110,17 +1109,17 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getMastercardAssessmentsUnder1kBasisPoints() {
+  public Integer getMastercardAssessmentsUnder1kBasisPoints() {
     return mastercardAssessmentsUnder1kBasisPoints;
   }
 
 
-  public void setMastercardAssessmentsUnder1kBasisPoints(BigDecimal mastercardAssessmentsUnder1kBasisPoints) {
+  public void setMastercardAssessmentsUnder1kBasisPoints(Integer mastercardAssessmentsUnder1kBasisPoints) {
     this.mastercardAssessmentsUnder1kBasisPoints = mastercardAssessmentsUnder1kBasisPoints;
   }
 
 
-  public FeeProfile mastercardBasisPoints(BigDecimal mastercardBasisPoints) {
+  public FeeProfile mastercardBasisPoints(Integer mastercardBasisPoints) {
     
     this.mastercardBasisPoints = mastercardBasisPoints;
     return this;
@@ -1133,12 +1132,12 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getMastercardBasisPoints() {
+  public Integer getMastercardBasisPoints() {
     return mastercardBasisPoints;
   }
 
 
-  public void setMastercardBasisPoints(BigDecimal mastercardBasisPoints) {
+  public void setMastercardBasisPoints(Integer mastercardBasisPoints) {
     this.mastercardBasisPoints = mastercardBasisPoints;
   }
 
@@ -1166,7 +1165,7 @@ public class FeeProfile {
   }
 
 
-  public FeeProfile mastercardFixedFee(BigDecimal mastercardFixedFee) {
+  public FeeProfile mastercardFixedFee(Integer mastercardFixedFee) {
     
     this.mastercardFixedFee = mastercardFixedFee;
     return this;
@@ -1179,12 +1178,12 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getMastercardFixedFee() {
+  public Integer getMastercardFixedFee() {
     return mastercardFixedFee;
   }
 
 
-  public void setMastercardFixedFee(BigDecimal mastercardFixedFee) {
+  public void setMastercardFixedFee(Integer mastercardFixedFee) {
     this.mastercardFixedFee = mastercardFixedFee;
   }
 
@@ -1235,7 +1234,7 @@ public class FeeProfile {
   }
 
 
-  public FeeProfile visaAcquirerProcessingFixedFee(BigDecimal visaAcquirerProcessingFixedFee) {
+  public FeeProfile visaAcquirerProcessingFixedFee(Integer visaAcquirerProcessingFixedFee) {
     
     this.visaAcquirerProcessingFixedFee = visaAcquirerProcessingFixedFee;
     return this;
@@ -1248,17 +1247,17 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getVisaAcquirerProcessingFixedFee() {
+  public Integer getVisaAcquirerProcessingFixedFee() {
     return visaAcquirerProcessingFixedFee;
   }
 
 
-  public void setVisaAcquirerProcessingFixedFee(BigDecimal visaAcquirerProcessingFixedFee) {
+  public void setVisaAcquirerProcessingFixedFee(Integer visaAcquirerProcessingFixedFee) {
     this.visaAcquirerProcessingFixedFee = visaAcquirerProcessingFixedFee;
   }
 
 
-  public FeeProfile visaAssessmentsBasisPoints(BigDecimal visaAssessmentsBasisPoints) {
+  public FeeProfile visaAssessmentsBasisPoints(Integer visaAssessmentsBasisPoints) {
     
     this.visaAssessmentsBasisPoints = visaAssessmentsBasisPoints;
     return this;
@@ -1271,17 +1270,17 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getVisaAssessmentsBasisPoints() {
+  public Integer getVisaAssessmentsBasisPoints() {
     return visaAssessmentsBasisPoints;
   }
 
 
-  public void setVisaAssessmentsBasisPoints(BigDecimal visaAssessmentsBasisPoints) {
+  public void setVisaAssessmentsBasisPoints(Integer visaAssessmentsBasisPoints) {
     this.visaAssessmentsBasisPoints = visaAssessmentsBasisPoints;
   }
 
 
-  public FeeProfile visaBaseIICreditVoucherFixedFee(BigDecimal visaBaseIICreditVoucherFixedFee) {
+  public FeeProfile visaBaseIICreditVoucherFixedFee(Integer visaBaseIICreditVoucherFixedFee) {
     
     this.visaBaseIICreditVoucherFixedFee = visaBaseIICreditVoucherFixedFee;
     return this;
@@ -1294,17 +1293,17 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getVisaBaseIICreditVoucherFixedFee() {
+  public Integer getVisaBaseIICreditVoucherFixedFee() {
     return visaBaseIICreditVoucherFixedFee;
   }
 
 
-  public void setVisaBaseIICreditVoucherFixedFee(BigDecimal visaBaseIICreditVoucherFixedFee) {
+  public void setVisaBaseIICreditVoucherFixedFee(Integer visaBaseIICreditVoucherFixedFee) {
     this.visaBaseIICreditVoucherFixedFee = visaBaseIICreditVoucherFixedFee;
   }
 
 
-  public FeeProfile visaBaseIISystemFileTransmissionFixedFee(BigDecimal visaBaseIISystemFileTransmissionFixedFee) {
+  public FeeProfile visaBaseIISystemFileTransmissionFixedFee(Integer visaBaseIISystemFileTransmissionFixedFee) {
     
     this.visaBaseIISystemFileTransmissionFixedFee = visaBaseIISystemFileTransmissionFixedFee;
     return this;
@@ -1317,17 +1316,17 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getVisaBaseIISystemFileTransmissionFixedFee() {
+  public Integer getVisaBaseIISystemFileTransmissionFixedFee() {
     return visaBaseIISystemFileTransmissionFixedFee;
   }
 
 
-  public void setVisaBaseIISystemFileTransmissionFixedFee(BigDecimal visaBaseIISystemFileTransmissionFixedFee) {
+  public void setVisaBaseIISystemFileTransmissionFixedFee(Integer visaBaseIISystemFileTransmissionFixedFee) {
     this.visaBaseIISystemFileTransmissionFixedFee = visaBaseIISystemFileTransmissionFixedFee;
   }
 
 
-  public FeeProfile visaBasisPoints(BigDecimal visaBasisPoints) {
+  public FeeProfile visaBasisPoints(Integer visaBasisPoints) {
     
     this.visaBasisPoints = visaBasisPoints;
     return this;
@@ -1340,12 +1339,12 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getVisaBasisPoints() {
+  public Integer getVisaBasisPoints() {
     return visaBasisPoints;
   }
 
 
-  public void setVisaBasisPoints(BigDecimal visaBasisPoints) {
+  public void setVisaBasisPoints(Integer visaBasisPoints) {
     this.visaBasisPoints = visaBasisPoints;
   }
 
@@ -1373,7 +1372,7 @@ public class FeeProfile {
   }
 
 
-  public FeeProfile visaCreditVoucherFixedFee(BigDecimal visaCreditVoucherFixedFee) {
+  public FeeProfile visaCreditVoucherFixedFee(Integer visaCreditVoucherFixedFee) {
     
     this.visaCreditVoucherFixedFee = visaCreditVoucherFixedFee;
     return this;
@@ -1386,17 +1385,17 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getVisaCreditVoucherFixedFee() {
+  public Integer getVisaCreditVoucherFixedFee() {
     return visaCreditVoucherFixedFee;
   }
 
 
-  public void setVisaCreditVoucherFixedFee(BigDecimal visaCreditVoucherFixedFee) {
+  public void setVisaCreditVoucherFixedFee(Integer visaCreditVoucherFixedFee) {
     this.visaCreditVoucherFixedFee = visaCreditVoucherFixedFee;
   }
 
 
-  public FeeProfile visaFixedFee(BigDecimal visaFixedFee) {
+  public FeeProfile visaFixedFee(Integer visaFixedFee) {
     
     this.visaFixedFee = visaFixedFee;
     return this;
@@ -1409,17 +1408,17 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getVisaFixedFee() {
+  public Integer getVisaFixedFee() {
     return visaFixedFee;
   }
 
 
-  public void setVisaFixedFee(BigDecimal visaFixedFee) {
+  public void setVisaFixedFee(Integer visaFixedFee) {
     this.visaFixedFee = visaFixedFee;
   }
 
 
-  public FeeProfile visaKilobyteAccessFixedFee(BigDecimal visaKilobyteAccessFixedFee) {
+  public FeeProfile visaKilobyteAccessFixedFee(Integer visaKilobyteAccessFixedFee) {
     
     this.visaKilobyteAccessFixedFee = visaKilobyteAccessFixedFee;
     return this;
@@ -1432,12 +1431,12 @@ public class FeeProfile {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public BigDecimal getVisaKilobyteAccessFixedFee() {
+  public Integer getVisaKilobyteAccessFixedFee() {
     return visaKilobyteAccessFixedFee;
   }
 
 
-  public void setVisaKilobyteAccessFixedFee(BigDecimal visaKilobyteAccessFixedFee) {
+  public void setVisaKilobyteAccessFixedFee(Integer visaKilobyteAccessFixedFee) {
     this.visaKilobyteAccessFixedFee = visaKilobyteAccessFixedFee;
   }
 

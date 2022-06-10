@@ -4,7 +4,573 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="249ea3b3-c807-478c-ba2b-64a1e80cb15c" name="Changes" comment="Finix Java updated template" />
+    <list default="true" id="48b9ec3c-2cc3-47f1-bf1f-ad6697df9430" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Finix-Logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/FinixList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/api/FinixListTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/libraries/okhttp-gson/AbstractOpenApiSchema.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_12_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_12_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_12_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_9_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okhttp3_logging_interceptor_4_9_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okhttp3_okhttp_4_9_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okio_okio_2_8_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_gsonfire_gson_fire_1_8_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_annotations_1_6_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_1_3_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_ws_rs_javax_ws_rs_api_2_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_ws_rs_jsr311_api_1_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_11_13.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_11_13.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_12_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_13_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_1_4_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_common_1_4_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_jdk7_1_4_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_jdk8_1_4_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_3_12_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_3_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openapitools_jackson_databind_nullable_0_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.openapi-generator/FILES" beforeDir="false" afterPath="$PROJECT_DIR$/.openapi-generator/FILES" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/openapi.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/openapi.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finix-java-old.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/finix-java-old.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finix-java.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/generate.sh" beforeDir="false" afterPath="$PROJECT_DIR$/generate.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/ApplicationProfilesApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/ApplicationsApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/AuthorizationsApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/DevicesApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/DisputesApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/FeeProfilesApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/FeesApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/IdentitiesApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/MerchantProfilesApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/MerchantsApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/PaymentInstrumentsApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/PaymentInstrumentsP2CApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/ProcessorsApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/ReversalsApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/ReviewQueueApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/SettlementsApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/SubscriptionAmountsApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/SubscriptionEnrollmentsApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/SubscriptionSchedulesApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/TransfersApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/UsersApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/VerificationsApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/WebhooksApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invoker/ApiCallback.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invoker/ApiException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invoker/ApiResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invoker/Configuration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invoker/FinixClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invoker/GzipRequestInterceptor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invoker/JSON.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invoker/Pair.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invoker/ProgressRequestBody.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invoker/ProgressResponseBody.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invoker/ServerConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invoker/ServerVariable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invoker/StringUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invoker/auth/ApiKeyAuth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invoker/auth/Authentication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invoker/auth/HttpBasicAuth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/invoker/auth/HttpBearerAuth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Address.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Application.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ApplicationLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ApplicationLinksApplicationProfile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ApplicationProfile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ApplicationProfileLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ApplicationProfilesList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ApplicationProfilesListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ApplicationProfilesListLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ApplicationProfilesListPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ApplicationsList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ApplicationsListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Authorization.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/AuthorizationExternalResponses.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/AuthorizationLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/AuthorizationsList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/AuthorizationsListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CardPresentDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CardPresentDetails1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CardPresentInstrumentForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CashbackOptions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Country.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateApplicationRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateAuthorizationRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateDevice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateDisputeEvidenceRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateFeeProfileRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateFeeRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateIdentityRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateIdentityRequestAdditionalUnderwritingData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateIdentityRequestEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateIdentityRequestEntityBusinessAddress.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateIdentityRequestEntityDob.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateIdentityRequestEntityIncorporationDate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateIdentityRequestEntityPersonalAddress.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateMerchantUnderwritingRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreatePaymentInstrumentRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreatePaymentInstrumentRequestAddress.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateProcessorRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateProcessorRequestConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateReversalRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateSettlementRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateSubscriptionAmountRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateSubscriptionAmountRequestFeeAmountData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateSubscriptionEnrollmentRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateSubscriptionScheduleRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateSubscriptionScheduleRequestFixedTimeIntervalOffset.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateSubscriptionScheduleRequestPeriodOffset.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateTransferRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateUserRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateWebhookRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Currency.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Device.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DeviceConfigDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DeviceConfigurationForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DeviceLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Dispute.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DisputeEvidence.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DisputeEvidenceLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DisputeEvidenceList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DisputeEvidenceListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DisputeEvidenceListLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DisputeEvidenceListPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DisputeLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DisputesList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DisputesListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/EmvDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/EmvDetailsTags.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Error401Unauthorized.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Error401UnauthorizedEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Error402PaymentRequired.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Error402PaymentRequiredEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Error403ForbiddenList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Error403ForbiddenListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Error404NotFoundList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Error404NotFoundListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Error406NotAcceptable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Error422InvalidFieldList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Error422InvalidFieldListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Error422InvalidFieldListEmbeddedErrors.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Error422InvalidFieldListEmbeddedLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ErrorGeneric.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Fee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/FeeLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/FeeProfile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/FeeProfileLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/FeeProfilesList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/FeeProfilesListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/FeeType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/FeesList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/FeesListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/IdentitiesList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/IdentitiesListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Identity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/IdentityAdditionalUnderwritingData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/IdentityAdditionalUnderwritingDataCardVolumeDistribution.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/IdentityAdditionalUnderwritingDataVolumeDistributionByBusinessType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/IdentityEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/IdentityEntityBusinessAddress.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/IdentityEntityDob.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/IdentityEntityForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/IdentityEntityFormBusinessAddress.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/IdentityEntityFormDob.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/IdentityEntityIncorporationDate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/IdentityEntityPersonalAddress.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/IdentityLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/IdentityLinksSelf.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/InputDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/InstrumentUpdate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ListLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/LogRef.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ManualEntry.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Merchant.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/MerchantLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/MerchantProfile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/MerchantProfileLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/MerchantProfilesList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/MerchantProfilesListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/MerchantProfilesListEmbeddedMerchantProfiles.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/MerchantsList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/MerchantsListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Name.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/PaymentInstrument.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/PaymentInstrument1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/PaymentInstrument2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/PaymentInstrumentLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/PaymentInstrumentPaymentCard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/PaymentInstrumentPaymentCardLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/PaymentInstrumentToken.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/PaymentInstrumentTokenLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/PaymentInstrumentUpdatesList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/PaymentInstrumentUpdatesListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/PaymentInstrumentUpdatesListEmbeddedLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/PaymentInstrumentsList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/PaymentInstrumentsListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Processor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ProcessorOneOf.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ProcessorOneOf1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ProcessorOneOfApplicationConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ProcessorOneOfApplicationConfigConfigurationTemplates.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ProcessorOneOfLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ProcessorOneOfSystemConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ProcessorOneOfSystemConfigConfigurationTemplates.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ProcessorsList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ProcessorsListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ReserveProfile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ReserveProfileLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ReserveProfilesList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ReserveProfilesListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ReserveProfilesListEmbeddedReserveProfiles.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ReviewQueueItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ReviewQueueItemLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ReviewQueueItemsList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ReviewQueueItemsListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ReviewQueueItemsListEmbeddedReviewQueueItems.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/RiskProfile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/RiskProfileLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/RiskProfileRule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/RiskProfileRulesList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/RiskProfileRulesListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/RiskProfileRulesListEmbeddedRiskProfileRules.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/RiskProfilesList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/RiskProfilesListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Root.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/RootLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Settlement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SettlementEngineSettlement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SettlementEngineSettlementLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SettlementEngineSettlementsList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SettlementEngineSettlementsListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SettlementEngineSettlementsListEmbeddedSettlements.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SettlementLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SettlementsList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SettlementsListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SubscriptionAmount.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SubscriptionAmountFeeAmountData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SubscriptionAmountLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SubscriptionAmountList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SubscriptionAmountListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SubscriptionEnrollment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SubscriptionEnrollmentLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SubscriptionEnrollmentLinksSelf.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SubscriptionEnrollmentList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SubscriptionEnrollmentListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SubscriptionSchedule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SubscriptionScheduleLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SubscriptionSchedulesList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SubscriptionSchedulesListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SubscriptionSchedulesListLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/TipOptions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Transfer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/TransferLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/TransferReversalsList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/TransferReversalsListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/TransfersList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/UpdateApplicationProfileRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/UpdateAuthorizationRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/UpdateFeeRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/UpdateIdentityRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/UpdateIdentityRequestAdditionalUnderwritingData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/UpdateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/UpdateIdentityRequestEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/UpdateIdentityRequestEntityBusinessAddress.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/UpdateIdentityRequestEntityDob.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/UpdateMerchantRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/UpdateSettlementRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/UpdateSubscriptionAmountRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/UpdateSubscriptionEnrollmentRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/UpdateSubscriptionScheduleRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/UpdateTransferRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/UpdateUserRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/UserLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/UsersList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/UsersListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Verification.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/VerificationForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/VerificationLinks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/VerificationsList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/VerificationsListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Webhook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/WebhooksList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/WebhooksListEmbedded.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/ApplicationProfilesApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/ApplicationsApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/AuthorizationsApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/DevicesApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/DisputesApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/FeeProfilesApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/FeesApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/IdentitiesApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/MerchantProfilesApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/MerchantsApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/PaymentInstrumentsApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/PaymentInstrumentsP2CApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/ProcessorsApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/ReversalsApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/ReviewQueueApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/SettlementsApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/SubscriptionAmountsApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/SubscriptionEnrollmentsApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/SubscriptionSchedulesApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/TransfersApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/UsersApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/VerificationsApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/WebhooksApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/AddressTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ApplicationLinksApplicationProfileTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ApplicationLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ApplicationProfileLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ApplicationProfileTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ApplicationProfilesListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ApplicationProfilesListLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ApplicationProfilesListPageTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ApplicationProfilesListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ApplicationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ApplicationsListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ApplicationsListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/AuthorizationExternalResponsesTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/AuthorizationLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/AuthorizationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/AuthorizationsListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/AuthorizationsListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CardPresentDetails1Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CardPresentDetailsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CardPresentInstrumentFormTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CashbackOptionsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CountryTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateApplicationRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateAuthorizationRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateDeviceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateDisputeEvidenceRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateFeeProfileRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateFeeRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateIdentityRequestAdditionalUnderwritingDataCardVolumeDistributionTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateIdentityRequestAdditionalUnderwritingDataTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessTypeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateIdentityRequestEntityBusinessAddressTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateIdentityRequestEntityDobTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateIdentityRequestEntityIncorporationDateTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateIdentityRequestEntityPersonalAddressTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateIdentityRequestEntityTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateIdentityRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateMerchantUnderwritingRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreatePaymentInstrumentRequestAddressTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreatePaymentInstrumentRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateProcessorRequestConfigTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateProcessorRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateReversalRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateSettlementRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateSubscriptionAmountRequestFeeAmountDataTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateSubscriptionAmountRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateSubscriptionEnrollmentRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateSubscriptionScheduleRequestFixedTimeIntervalOffsetTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateSubscriptionScheduleRequestPeriodOffsetTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateSubscriptionScheduleRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateTransferRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateUserRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CreateWebhookRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CurrencyTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/DeviceConfigDetailsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/DeviceConfigurationFormTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/DeviceLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/DeviceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/DisputeEvidenceLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/DisputeEvidenceListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/DisputeEvidenceListLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/DisputeEvidenceListPageTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/DisputeEvidenceListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/DisputeEvidenceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/DisputeLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/DisputeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/DisputesListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/DisputesListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/EmvDetailsTagsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/EmvDetailsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/Error401UnauthorizedEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/Error401UnauthorizedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/Error402PaymentRequiredEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/Error402PaymentRequiredTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/Error403ForbiddenListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/Error403ForbiddenListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/Error404NotFoundListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/Error404NotFoundListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/Error406NotAcceptableTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/Error422InvalidFieldListEmbeddedErrorsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/Error422InvalidFieldListEmbeddedLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/Error422InvalidFieldListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/Error422InvalidFieldListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ErrorGenericTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/FeeLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/FeeProfileLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/FeeProfileTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/FeeProfilesListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/FeeProfilesListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/FeeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/FeeTypeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/FeesListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/FeesListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/IdentitiesListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/IdentitiesListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/IdentityAdditionalUnderwritingDataCardVolumeDistributionTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/IdentityAdditionalUnderwritingDataTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/IdentityAdditionalUnderwritingDataVolumeDistributionByBusinessTypeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/IdentityEntityBusinessAddressTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/IdentityEntityDobTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/IdentityEntityFormBusinessAddressTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/IdentityEntityFormDobTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/IdentityEntityFormTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/IdentityEntityIncorporationDateTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/IdentityEntityPersonalAddressTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/IdentityEntityTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/IdentityLinksSelfTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/IdentityLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/IdentityTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/InputDetailsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/InstrumentUpdateTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ListLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/LogRefTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ManualEntryTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/MerchantLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/MerchantProfileLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/MerchantProfileTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/MerchantProfilesListEmbeddedMerchantProfilesTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/MerchantProfilesListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/MerchantProfilesListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/MerchantTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/MerchantsListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/MerchantsListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/NameTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/PaymentInstrument1Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/PaymentInstrument2Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/PaymentInstrumentLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/PaymentInstrumentPaymentCardLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/PaymentInstrumentPaymentCardTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/PaymentInstrumentTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/PaymentInstrumentTokenLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/PaymentInstrumentTokenTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/PaymentInstrumentUpdatesListEmbeddedLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/PaymentInstrumentUpdatesListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/PaymentInstrumentUpdatesListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/PaymentInstrumentsListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/PaymentInstrumentsListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ProcessorOneOf1Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ProcessorOneOfApplicationConfigConfigurationTemplatesTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ProcessorOneOfApplicationConfigTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ProcessorOneOfLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ProcessorOneOfSystemConfigConfigurationTemplatesTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ProcessorOneOfSystemConfigTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ProcessorOneOfTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ProcessorTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ProcessorsListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ProcessorsListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ReserveProfileLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ReserveProfileTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ReserveProfilesListEmbeddedReserveProfilesTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ReserveProfilesListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ReserveProfilesListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ReviewQueueItemLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ReviewQueueItemTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ReviewQueueItemsListEmbeddedReviewQueueItemsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ReviewQueueItemsListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ReviewQueueItemsListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/RiskProfileLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/RiskProfileRuleTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/RiskProfileRulesListEmbeddedRiskProfileRulesTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/RiskProfileRulesListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/RiskProfileRulesListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/RiskProfileTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/RiskProfilesListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/RiskProfilesListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/RootLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/RootTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/SettlementEngineSettlementLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/SettlementEngineSettlementTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/SettlementEngineSettlementsListEmbeddedSettlementsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/SettlementEngineSettlementsListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/SettlementEngineSettlementsListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/SettlementLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/SettlementTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/SettlementsListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/SettlementsListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/SubscriptionAmountFeeAmountDataTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/SubscriptionAmountLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/SubscriptionAmountListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/SubscriptionAmountListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/SubscriptionAmountTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/SubscriptionEnrollmentLinksSelfTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/SubscriptionEnrollmentLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/SubscriptionEnrollmentListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/SubscriptionEnrollmentListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/SubscriptionEnrollmentTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/SubscriptionScheduleLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/SubscriptionScheduleTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/SubscriptionSchedulesListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/SubscriptionSchedulesListLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/SubscriptionSchedulesListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/TipOptionsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/TransferLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/TransferReversalsListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/TransferReversalsListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/TransferTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/TransfersListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/UpdateApplicationProfileRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/UpdateAuthorizationRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/UpdateFeeRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/UpdateIdentityRequestAdditionalUnderwritingDataCardVolumeDistributionTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/UpdateIdentityRequestAdditionalUnderwritingDataTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessTypeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/UpdateIdentityRequestEntityBusinessAddressTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/UpdateIdentityRequestEntityDobTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/UpdateIdentityRequestEntityTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/UpdateIdentityRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/UpdateMerchantRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/UpdateSettlementRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/UpdateSubscriptionAmountRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/UpdateSubscriptionEnrollmentRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/UpdateSubscriptionScheduleRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/UpdateTransferRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/UpdateUserRequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/UserLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/UserTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/UsersListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/UsersListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/VerificationFormTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/VerificationLinksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/VerificationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/VerificationsListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/VerificationsListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/WebhookTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/WebhooksListEmbeddedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/WebhooksListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/libraries/okhttp-gson/ApiClient.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/template/libraries/okhttp-gson/ApiClient.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/libraries/okhttp-gson/pojo.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/template/libraries/okhttp-gson/pojo.mustache" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,11 +584,6 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -35,52 +596,28 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
-  <component name="ProjectId" id="29OSESMscFbfNrfuNAvzyG6wL7h" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2AJ9wn3XOCMMUBAO7fASKkw9EBA" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/test" />
-      <recent name="$PROJECT_DIR$/src/main/java/invoker" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/template/libraries/okhttp-gson" />
       <recent name="$PROJECT_DIR$/src/main/java/model" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/test/java" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/template" />
-      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/main/java/invoker" />
     </key>
   </component>
-  <component name="RunAnythingCache">
-    <option name="myCommands">
-      <command value="mvn clean" />
-      <command value="mvn clean install" />
-    </option>
-  </component>
-  <component name="RunManager" selected="JUnit.AuthorizationsApiTest.getAuthorizationTest">
-    <configuration name="AuthorizationsApiTest.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.TransfersApiTest">
+    <configuration name="FinixListTest.getListTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="finix-java" />
       <extension name="coverage">
         <pattern>
@@ -89,14 +626,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="api" />
-      <option name="MAIN_CLASS_NAME" value="api.AuthorizationsApiTest" />
-      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="MAIN_CLASS_NAME" value="api.FinixListTest" />
+      <option name="METHOD_NAME" value="getListTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AuthorizationsApiTest.createAuthorizationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FinixListTest.getNextListTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="finix-java" />
       <extension name="coverage">
         <pattern>
@@ -105,14 +642,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="api" />
-      <option name="MAIN_CLASS_NAME" value="api.AuthorizationsApiTest" />
-      <option name="METHOD_NAME" value="createAuthorizationTest" />
+      <option name="MAIN_CLASS_NAME" value="api.FinixListTest" />
+      <option name="METHOD_NAME" value="getNextListTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AuthorizationsApiTest.getAuthorizationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SettlementsApiTest.removeSettlementTransfersTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="finix-java" />
       <extension name="coverage">
         <pattern>
@@ -121,14 +658,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="api" />
-      <option name="MAIN_CLASS_NAME" value="api.AuthorizationsApiTest" />
-      <option name="METHOD_NAME" value="getAuthorizationTest" />
+      <option name="MAIN_CLASS_NAME" value="api.SettlementsApiTest" />
+      <option name="METHOD_NAME" value="removeSettlementTransfersTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TransfersApiTest.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TransfersApiTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="finix-java" />
       <extension name="coverage">
         <pattern>
@@ -138,8 +675,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="api" />
       <option name="MAIN_CLASS_NAME" value="api.TransfersApiTest" />
-      <option name="METHOD_NAME" value="contextLoads" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -171,91 +707,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="SwaggerCodegen">
-      <option name="activeConfigurationType" value="FILE" />
-      <option name="configurationPath" value="" />
-      <option name="customJreEnabled" value="false" />
-      <option name="customTemplatesPath" value="" />
-      <option name="enableDebugLogging" value="false" />
-      <option name="generateToPath" value="$PROJECT_DIR$/gen" />
-      <option name="generationParameters">
-        <list />
-      </option>
-      <option name="generatorPath" value="https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.0.0/openapi-generator-cli-5.0.0.jar" />
-      <option name="jdkPath" value="" />
-      <option name="language" value="java" />
-      <option name="specificationPath" value="$PROJECT_DIR$/finix-java.yaml" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AuthorizationsApiTest.getAuthorizationTest" />
-        <item itemvalue="JUnit.AuthorizationsApiTest.createAuthorizationTest" />
-        <item itemvalue="JUnit.AuthorizationsApiTest.contextLoads" />
-        <item itemvalue="JUnit.TransfersApiTest.contextLoads" />
+        <item itemvalue="JUnit.TransfersApiTest" />
         <item itemvalue="JUnit.TransfersApiTest.createTransferTest" />
+        <item itemvalue="JUnit.FinixListTest.getNextListTest" />
+        <item itemvalue="JUnit.FinixListTest.getListTest" />
+        <item itemvalue="JUnit.SettlementsApiTest.removeSettlementTransfersTest" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="249ea3b3-c807-478c-ba2b-64a1e80cb15c" name="Changes" comment="" />
-      <created>1652982527440</created>
+      <changelist id="48b9ec3c-2cc3-47f1-bf1f-ad6697df9430" name="Changes" comment="" />
+      <created>1654717061521</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1652982527440</updated>
-      <workItem from="1652982529990" duration="1222000" />
-      <workItem from="1653333420515" duration="2671000" />
-      <workItem from="1653429428803" duration="598000" />
-      <workItem from="1653507870454" duration="50683000" />
-      <workItem from="1654183361407" duration="22643000" />
-      <workItem from="1654284257358" duration="81000" />
-      <workItem from="1654284346720" duration="5000" />
-      <workItem from="1654284682212" duration="270000" />
-      <workItem from="1654285285560" duration="3623000" />
-      <workItem from="1654289026933" duration="556000" />
-      <workItem from="1654289606642" duration="599000" />
-      <workItem from="1654290218956" duration="81000" />
-      <workItem from="1654290309124" duration="192000" />
-      <workItem from="1654290510033" duration="1956000" />
+      <updated>1654717061521</updated>
+      <workItem from="1654717063780" duration="30367000" />
+      <workItem from="1654815879506" duration="1179000" />
+      <workItem from="1654817066640" duration="24000" />
+      <workItem from="1654817096157" duration="2730000" />
+      <workItem from="1654819836220" duration="16000000" />
     </task>
-    <task id="LOCAL-00001" summary="Finix Java library">
-      <created>1654102219917</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1654102219917</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Finix Java">
-      <created>1654184128642</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1654184128642</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Finix Java">
-      <created>1654184237008</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1654184237008</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Finix Java updated template updates">
-      <created>1654292127762</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1654292127762</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Finix Java updated template">
-      <created>1654292482220</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1654292482220</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,56 +741,169 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="develop" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Finix Java library" />
-    <MESSAGE value="Finix Java" />
-    <MESSAGE value="Finix Java update" />
-    <MESSAGE value="Finix Java updated" />
-    <MESSAGE value="Finix Java updated template updates" />
-    <MESSAGE value="Finix Java updated template" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finix Java updated template" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/api/AuthorizationsApi.java</url>
-          <line>327</line>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/src/main/java/api/FilesApi.java</url>
+          <line>1152</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/api/FilesApiTest.java</url>
+          <line>182</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/BalanceTransfer.java</url>
+          <line>687</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/BalanceTransfer.java</url>
+          <line>696</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/invoker/FinixClient.java</url>
+          <line>1081</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/api/BalanceTransfersApiTest.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/api/BalanceTransfersApi.java</url>
+          <line>169</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/api/BalanceTransfersApiTest.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/api/BalanceTransfersApi.java</url>
+          <line>170</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/invoker/FinixClient.java</url>
+          <line>1096</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/invoker/FinixClient.java</url>
+          <line>1017</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/invoker/FinixClient.java</url>
+          <line>1019</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/invoker/FinixClient.java</url>
+          <line>1018</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/api/DisputesApi.java</url>
+          <line>179</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/api/DisputesApi.java</url>
+          <line>180</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/api/DisputesApiTest.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/api/DisputesApiTest.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/invoker/FinixClient.java</url>
+          <line>1361</line>
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/invoker/FinixClient.java</url>
+          <line>1358</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/invoker/FinixClient.java</url>
+          <line>1345</line>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/invoker/FinixClient.java</url>
+          <line>1346</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/invoker/FinixClient.java</url>
+          <line>1349</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/invoker/FinixClient.java</url>
+          <line>1352</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/invoker/FinixClient.java</url>
+          <line>1356</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/invoker/FinixClient.java</url>
+          <line>1357</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/invoker/FinixClient.java</url>
+          <line>1175</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/api/DisputesApi.java</url>
+          <line>144</line>
+          <option name="timeStamp" value="68" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/api/AuthorizationsApi.java</url>
-          <line>325</line>
-          <properties class="api.AuthorizationsApi" method="get">
+          <url>file://$PROJECT_DIR$/src/main/java/model/CreateDisputeEvidenceRequest.java</url>
+          <line>60</line>
+          <properties class="model.CreateDisputeEvidenceRequest" method="_file">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/invoker/FinixClient.java</url>
+          <line>1343</line>
+          <properties class="invoker.FinixClient" method="buildRequestBodyMultipart">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="59" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/finix_java$TransfersApiTest.ic" NAME="TransfersApiTest Coverage Results" MODIFIED="1654283469768" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>api.*</FILTER>
-    </SUITE>
   </component>
 </project>

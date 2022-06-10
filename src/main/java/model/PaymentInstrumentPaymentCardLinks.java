@@ -23,7 +23,13 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.ApplicationLinksApplicationProfile;
+import model.ApplicationLinksSelf;
+import model.MerchantLinksApplication;
+import model.MerchantLinksIdentity;
+import model.MerchantLinksVerifications;
+import model.PaymentInstrumentBankAccountLinksAuthorizations;
+import model.PaymentInstrumentBankAccountLinksTransfers;
+import model.PaymentInstrumentPaymentCardLinksUpdates;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,43 +52,44 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * PaymentInstrumentPaymentCardLinks
+ * For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these &#x60;_links&#x60; to make your follow-up requests and quickly access relevant IDs.
  */
+@ApiModel(description = "For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class PaymentInstrumentPaymentCardLinks {
   public static final String SERIALIZED_NAME_APPLICATION = "application";
   @SerializedName(SERIALIZED_NAME_APPLICATION)
-  private ApplicationLinksApplicationProfile application;
+  private MerchantLinksApplication application;
 
   public static final String SERIALIZED_NAME_AUTHORIZATIONS = "authorizations";
   @SerializedName(SERIALIZED_NAME_AUTHORIZATIONS)
-  private ApplicationLinksApplicationProfile authorizations;
+  private PaymentInstrumentBankAccountLinksAuthorizations authorizations;
 
   public static final String SERIALIZED_NAME_IDENTITY = "identity";
   @SerializedName(SERIALIZED_NAME_IDENTITY)
-  private ApplicationLinksApplicationProfile identity;
+  private MerchantLinksIdentity identity;
 
   public static final String SERIALIZED_NAME_SELF = "self";
   @SerializedName(SERIALIZED_NAME_SELF)
-  private ApplicationLinksApplicationProfile self;
+  private ApplicationLinksSelf self;
 
   public static final String SERIALIZED_NAME_TRANSFERS = "transfers";
   @SerializedName(SERIALIZED_NAME_TRANSFERS)
-  private ApplicationLinksApplicationProfile transfers;
+  private PaymentInstrumentBankAccountLinksTransfers transfers;
 
   public static final String SERIALIZED_NAME_UPDATES = "updates";
   @SerializedName(SERIALIZED_NAME_UPDATES)
-  private ApplicationLinksApplicationProfile updates;
+  private PaymentInstrumentPaymentCardLinksUpdates updates;
 
   public static final String SERIALIZED_NAME_VERIFICATIONS = "verifications";
   @SerializedName(SERIALIZED_NAME_VERIFICATIONS)
-  private ApplicationLinksApplicationProfile verifications;
+  private MerchantLinksVerifications verifications;
 
   public PaymentInstrumentPaymentCardLinks() { 
   }
 
-  public PaymentInstrumentPaymentCardLinks application(ApplicationLinksApplicationProfile application) {
+  public PaymentInstrumentPaymentCardLinks application(MerchantLinksApplication application) {
     
     this.application = application;
     return this;
@@ -95,17 +102,17 @@ public class PaymentInstrumentPaymentCardLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getApplication() {
+  public MerchantLinksApplication getApplication() {
     return application;
   }
 
 
-  public void setApplication(ApplicationLinksApplicationProfile application) {
+  public void setApplication(MerchantLinksApplication application) {
     this.application = application;
   }
 
 
-  public PaymentInstrumentPaymentCardLinks authorizations(ApplicationLinksApplicationProfile authorizations) {
+  public PaymentInstrumentPaymentCardLinks authorizations(PaymentInstrumentBankAccountLinksAuthorizations authorizations) {
     
     this.authorizations = authorizations;
     return this;
@@ -118,17 +125,17 @@ public class PaymentInstrumentPaymentCardLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getAuthorizations() {
+  public PaymentInstrumentBankAccountLinksAuthorizations getAuthorizations() {
     return authorizations;
   }
 
 
-  public void setAuthorizations(ApplicationLinksApplicationProfile authorizations) {
+  public void setAuthorizations(PaymentInstrumentBankAccountLinksAuthorizations authorizations) {
     this.authorizations = authorizations;
   }
 
 
-  public PaymentInstrumentPaymentCardLinks identity(ApplicationLinksApplicationProfile identity) {
+  public PaymentInstrumentPaymentCardLinks identity(MerchantLinksIdentity identity) {
     
     this.identity = identity;
     return this;
@@ -141,17 +148,17 @@ public class PaymentInstrumentPaymentCardLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getIdentity() {
+  public MerchantLinksIdentity getIdentity() {
     return identity;
   }
 
 
-  public void setIdentity(ApplicationLinksApplicationProfile identity) {
+  public void setIdentity(MerchantLinksIdentity identity) {
     this.identity = identity;
   }
 
 
-  public PaymentInstrumentPaymentCardLinks self(ApplicationLinksApplicationProfile self) {
+  public PaymentInstrumentPaymentCardLinks self(ApplicationLinksSelf self) {
     
     this.self = self;
     return this;
@@ -164,17 +171,17 @@ public class PaymentInstrumentPaymentCardLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getSelf() {
+  public ApplicationLinksSelf getSelf() {
     return self;
   }
 
 
-  public void setSelf(ApplicationLinksApplicationProfile self) {
+  public void setSelf(ApplicationLinksSelf self) {
     this.self = self;
   }
 
 
-  public PaymentInstrumentPaymentCardLinks transfers(ApplicationLinksApplicationProfile transfers) {
+  public PaymentInstrumentPaymentCardLinks transfers(PaymentInstrumentBankAccountLinksTransfers transfers) {
     
     this.transfers = transfers;
     return this;
@@ -187,17 +194,17 @@ public class PaymentInstrumentPaymentCardLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getTransfers() {
+  public PaymentInstrumentBankAccountLinksTransfers getTransfers() {
     return transfers;
   }
 
 
-  public void setTransfers(ApplicationLinksApplicationProfile transfers) {
+  public void setTransfers(PaymentInstrumentBankAccountLinksTransfers transfers) {
     this.transfers = transfers;
   }
 
 
-  public PaymentInstrumentPaymentCardLinks updates(ApplicationLinksApplicationProfile updates) {
+  public PaymentInstrumentPaymentCardLinks updates(PaymentInstrumentPaymentCardLinksUpdates updates) {
     
     this.updates = updates;
     return this;
@@ -210,17 +217,17 @@ public class PaymentInstrumentPaymentCardLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getUpdates() {
+  public PaymentInstrumentPaymentCardLinksUpdates getUpdates() {
     return updates;
   }
 
 
-  public void setUpdates(ApplicationLinksApplicationProfile updates) {
+  public void setUpdates(PaymentInstrumentPaymentCardLinksUpdates updates) {
     this.updates = updates;
   }
 
 
-  public PaymentInstrumentPaymentCardLinks verifications(ApplicationLinksApplicationProfile verifications) {
+  public PaymentInstrumentPaymentCardLinks verifications(MerchantLinksVerifications verifications) {
     
     this.verifications = verifications;
     return this;
@@ -233,12 +240,12 @@ public class PaymentInstrumentPaymentCardLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getVerifications() {
+  public MerchantLinksVerifications getVerifications() {
     return verifications;
   }
 
 
-  public void setVerifications(ApplicationLinksApplicationProfile verifications) {
+  public void setVerifications(MerchantLinksVerifications verifications) {
     this.verifications = verifications;
   }
 
@@ -338,31 +345,31 @@ public class PaymentInstrumentPaymentCardLinks {
       */
       // validate the optional field `application`
       if (jsonObj.getAsJsonObject("application") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("application"));
+       MerchantLinksApplication.validateJsonObject(jsonObj.getAsJsonObject("application"));
       }
       // validate the optional field `authorizations`
       if (jsonObj.getAsJsonObject("authorizations") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("authorizations"));
+       PaymentInstrumentBankAccountLinksAuthorizations.validateJsonObject(jsonObj.getAsJsonObject("authorizations"));
       }
       // validate the optional field `identity`
       if (jsonObj.getAsJsonObject("identity") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("identity"));
+       MerchantLinksIdentity.validateJsonObject(jsonObj.getAsJsonObject("identity"));
       }
       // validate the optional field `self`
       if (jsonObj.getAsJsonObject("self") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("self"));
+       ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
       }
       // validate the optional field `transfers`
       if (jsonObj.getAsJsonObject("transfers") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("transfers"));
+       PaymentInstrumentBankAccountLinksTransfers.validateJsonObject(jsonObj.getAsJsonObject("transfers"));
       }
       // validate the optional field `updates`
       if (jsonObj.getAsJsonObject("updates") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("updates"));
+       PaymentInstrumentPaymentCardLinksUpdates.validateJsonObject(jsonObj.getAsJsonObject("updates"));
       }
       // validate the optional field `verifications`
       if (jsonObj.getAsJsonObject("verifications") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("verifications"));
+       MerchantLinksVerifications.validateJsonObject(jsonObj.getAsJsonObject("verifications"));
       }
   }
 

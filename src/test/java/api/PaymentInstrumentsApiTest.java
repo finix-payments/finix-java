@@ -14,56 +14,150 @@
 package api;
 
 import invoker.ApiException;
+import invoker.Environment;
+import invoker.FinixClient;
+import model.ApplePaySession;
+import model.ApplePaySessionRequest;
+import model.CreateInstrumentUpdates;
 import model.CreatePaymentInstrumentRequest;
 import model.Error401Unauthorized;
 import model.Error403ForbiddenList;
 import model.Error404NotFoundList;
 import model.Error406NotAcceptable;
 import model.ErrorGeneric;
+import model.InstrumentUpdates;
 import model.PaymentInstrument;
 import model.PaymentInstrumentUpdatesList;
 import model.PaymentInstrumentsList;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import model.Verification;
+import model.VerificationForm;
+import org.junit.jupiter.api.*;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 /**
  * API tests for PaymentInstrumentsApi
  */
 @Disabled
-public class PaymentInstrumentsApiTest {
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@DisplayName("When Running PaymentInstrumentsApiTest")
 
+public class PaymentInstrumentsApiTest {
+    private FinixClient finixClient;
     private final PaymentInstrumentsApi api = new PaymentInstrumentsApi();
+    @Test
+    @BeforeAll
+    void contextLoads() {
+        finixClient= new FinixClient("USsRhsHYZGBPnQw8CByJyEQW","8a14c2f9-d94b-4c72-8f5c-a62908e5b30e", Environment.SANDBOX);
+        // System.out.println(finixClient == null);
+        assertEquals(true , finixClient!=null);
+
+    }
+    /**
+     * Create an Apple Pay Session
+     *
+     * Create an &#x60;apple_pay_session&#x60; to process Apple Pay transactions on the web.  To create an Apple Pay Session, pass a &#x60;validation\\_url&#x60; while creating an &#x60;apple_pay_sessions&#x60; resource. Finix returns a &#x60;merchantSession&#x60; object which you can use to create a payment. For more information, see [Apple Pay](/guides/payments/alternative-payment-methods/apple-pay/apple-pay/).
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createApplePaySessionTest() throws ApiException {
+        ApplePaySessionRequest applePaySessionRequest = ApplePaySessionRequest.builder()
+                .build();
+        ApplePaySession response = api.createApplePaySession(applePaySessionRequest);
+        // TODO: test validations
+    }
 
     /**
      * Create a Payment Instrument
      *
-     * Create a payment instrument
+     * Create a &#x60;Payment Instrument&#x60; resource using a card or bank account.  To accept payment detail, review our guide on how to [tokenize cards using hosted fields](/guides/payments/tokenization-with-hosted-fields).
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void createPaymentInstrumentTest() throws ApiException {
-        CreatePaymentInstrumentRequest createPaymentInstrumentRequest = null;
+        CreatePaymentInstrumentRequest createPaymentInstrumentRequest = CreatePaymentInstrumentRequest.builder()
+
+                .build();
         PaymentInstrument response = api.create(createPaymentInstrumentRequest);
+        // TODO: test validations
+    }
+
+    /**
+     * Create Instrument Updates
+     *
+     * To update the card details of your customers, create an &#x60;instrument_updates&#x60; resource. Include the &#x60;Payment Instrument&#x60; IDs you want to update in a CSV. For more info, see the [Account Updater Guide](/guides/payments/account-updater/).
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createPaymentInstrumentUpdateTest() throws ApiException {
+        CreateInstrumentUpdates createInstrumentUpdates = null;
+      //  InstrumentUpdates response = api.createPaymentInstrumentUpdate(createInstrumentUpdates);
+        // TODO: test validations
+    }
+
+    /**
+     * Verify a Payment Instrument
+     *
+     * Verify a &#x60;Payment Instrument&#x60; to determine if it&#39;s elligable for Push To Card transactions.   &gt; Only verify &#x60;Payment Instruments&#x60; for [Push To Card](/guides/push-to-card) customers.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createPaymentInstrumentVerificationTest() throws ApiException {
+        String paymentInstrumentId = null;
+        VerificationForm verificationForm = null;
+        Verification response = api.createPaymentInstrumentVerification(paymentInstrumentId, verificationForm);
+        // TODO: test validations
+    }
+
+    /**
+     * Fetch an Instrument Update
+     *
+     * Fetch a specific &#x60;instrument_update&#x60; from an &#x60;instrument_updates&#x60; resource. For more information, see the [Account Updater Guide](/guides/payments/account-updater).
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getInstrumentUpdateTest() throws ApiException {
+        String instrumentUpdatesId = null;
+        InstrumentUpdates response = api.getInstrumentUpdate(instrumentUpdatesId);
+        // TODO: test validations
+    }
+
+    /**
+     * Download Instrument Updates
+     *
+     * Fetch a previously created &#x60;instrument_updates&#x60; resource as a CSV.   To fetch the &#x60;instrument_updates&#x60; resource in JSON, add &#x60;?format&#x3D;json&#x60; to the request endpoint.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getInstrumentUpdatesTest() throws ApiException {
+        String instrumentUpdatesId = "IUp9oSWhWUF31DPrJ8CojQeQ";
+        api.getInstrumentUpdates(instrumentUpdatesId);
         // TODO: test validations
     }
 
     /**
      * Get a Payment Instrument
      *
-     * Retrieve the details of a payment instrument.
+     * Retrieve the details of a &#x60;Payment Instrument&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void getPaymentInstrumentTest() throws ApiException {
-        String paymentInstrumentId = null;
-        PaymentInstrument response = api.get(paymentInstrumentId);
+        String paymentInstrumentId = "PI8sdzepdapDehPWKFTcre1m";
+        PaymentInstrument response = finixClient.PaymentInstrument.get(paymentInstrumentId);
         // TODO: test validations
     }
 
@@ -95,16 +189,14 @@ public class PaymentInstrumentsApiTest {
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        Boolean sortSorted = null;
-        Boolean sortUnsorted = null;
-        PaymentInstrumentsList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
+        PaymentInstrumentsList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 
     /**
      * List Payment Instrument Updates
      *
-     * List the updates on a &#x60;Payment Instrument&#x60;.  When using [account updater](/guides/account_updater), payment instrument details that are updated are represented by an &#x60;update&#x60;.
+     * List the updates on a &#x60;Payment Instrument&#x60;.  When using the [account updater](/guides/payments/account-updater), &#x60;Payment Instrument&#x60; details that are updated are represented by an &#x60;update&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
@@ -115,16 +207,14 @@ public class PaymentInstrumentsApiTest {
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        Boolean sortSorted = null;
-        Boolean sortUnsorted = null;
-        PaymentInstrumentUpdatesList response = api.listUpdatesByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
+        PaymentInstrumentUpdatesList response = api.listUpdatesByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 
     /**
      * List Payment Instruments
      *
-     * Retrieve a list of payment instruments.
+     * Retrieve a list of &#x60;Payment Instruments&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
@@ -134,8 +224,6 @@ public class PaymentInstrumentsApiTest {
         Integer offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        Boolean sortSorted = null;
-        Boolean sortUnsorted = null;
         String accountLast4 = null;
         String accountRoutingNumber = null;
         String application = null;
@@ -148,7 +236,7 @@ public class PaymentInstrumentsApiTest {
         String name = null;
         String ownerIdentityId = null;
         String type = null;
-        PaymentInstrumentsList response = api.list(limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted, accountLast4, accountRoutingNumber, application, bin, createdAtGte, createdAtLte, expirationMonth, expirationYear, lastFour, name, ownerIdentityId, type);
+        PaymentInstrumentsList response = api.list(limit, offset, pageNumber, pageSize, accountLast4, accountRoutingNumber, application, bin, createdAtGte, createdAtLte, expirationMonth, expirationYear, lastFour, name, ownerIdentityId, type);
         // TODO: test validations
     }
 
@@ -166,24 +254,25 @@ public class PaymentInstrumentsApiTest {
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        Boolean sortSorted = null;
-        Boolean sortUnsorted = null;
-        PaymentInstrumentsList response = api.listByTransferId(transferId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
+        PaymentInstrumentsList response = api.listByTransferId(transferId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 
     /**
      * Update a Payment Instrument
      *
-     * Update a payment instrument.
+     * Update a &#x60;Payment Instrument&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void putPaymentInstrumentTest() throws ApiException {
-        String paymentInstrumentId = null;
-        Object body = null;
-        PaymentInstrument response = api.update(paymentInstrumentId, body);
+        String paymentInstrumentId = "IUp9oSWhWUF31DPrJ8CojQeQ";
+        Object body = CreateInstrumentUpdates.builder()
+                ._file(new File("/Users/Desktop/finix_file.png"))
+                .request("{\"merchant_id\":\"MUucec6fHeaWo3VHYoSkUySM\",  \"idempotency_id\":\"123xyz\" }")
+                .build();
+        PaymentInstrument response = finixClient.PaymentInstrument.update(paymentInstrumentId, body);
         // TODO: test validations
     }
 

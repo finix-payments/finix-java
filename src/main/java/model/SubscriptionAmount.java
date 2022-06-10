@@ -54,7 +54,7 @@ import invoker.JSON;
  * SubscriptionAmount
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class SubscriptionAmount {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -69,7 +69,7 @@ public class SubscriptionAmount {
   private OffsetDateTime updatedAt;
 
   /**
-   * Subscription Amount type. The only type supported as of now is FEE
+   * &#x60;Subscription Amount&#x60; type. The only type supported as of now is **FEE**.
    */
   @JsonAdapter(AmountTypeEnum.Adapter.class)
   public enum AmountTypeEnum {
@@ -151,11 +151,11 @@ public class SubscriptionAmount {
   }
 
    /**
-   * ID of the Subscription Amount
+   * ID of the &#x60;Subscription Amount&#x60;.
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "ID of the Subscription Amount")
+  @ApiModelProperty(required = true, value = "ID of the `Subscription Amount`.")
 
   public String getId() {
     return id;
@@ -174,11 +174,11 @@ public class SubscriptionAmount {
   }
 
    /**
-   * Timestamp of when the object was created
+   * Timestamp of when the object was created.
    * @return createdAt
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Timestamp of when the object was created")
+  @ApiModelProperty(required = true, value = "Timestamp of when the object was created.")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -197,11 +197,11 @@ public class SubscriptionAmount {
   }
 
    /**
-   * Timestamp of when the object was last updated
+   * Timestamp of when the object was last updated.
    * @return updatedAt
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Timestamp of when the object was last updated")
+  @ApiModelProperty(required = true, value = "Timestamp of when the object was last updated.")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -220,11 +220,11 @@ public class SubscriptionAmount {
   }
 
    /**
-   * Subscription Amount type. The only type supported as of now is FEE
+   * &#x60;Subscription Amount&#x60; type. The only type supported as of now is **FEE**.
    * @return amountType
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "FEE", required = true, value = "Subscription Amount type. The only type supported as of now is FEE")
+  @ApiModelProperty(example = "FEE", required = true, value = "`Subscription Amount` type. The only type supported as of now is **FEE**.")
 
   public AmountTypeEnum getAmountType() {
     return amountType;
@@ -243,11 +243,11 @@ public class SubscriptionAmount {
   }
 
    /**
-   * User ID
+   * The ID of the &#x60;User&#x60; that created the &#x60;Subscription Amount&#x60;.
    * @return createdBy
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "User ID")
+  @ApiModelProperty(required = true, value = "The ID of the `User` that created the `Subscription Amount`.")
 
   public String getCreatedBy() {
     return createdBy;
@@ -312,11 +312,11 @@ public class SubscriptionAmount {
   }
 
    /**
-   * ID of the Subscription Schedule 
+   * ID of the &#x60;Subscription Schedule&#x60;.
    * @return subscriptionSchedule
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "ID of the Subscription Schedule ")
+  @ApiModelProperty(required = true, value = "ID of the `Subscription Schedule`.")
 
   public String getSubscriptionSchedule() {
     return subscriptionSchedule;

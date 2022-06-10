@@ -86,21 +86,21 @@ import javax.ws.rs.core.GenericType;
 
         /**
         * Build call for createTransfer
-            * @param createTransferRequest A form that needs to be implemented (optional)
+            * @param createTransferRequest  (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 201 </td><td> Single transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 201 </td><td> Single Transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 402 </td><td> 402 - Payment required </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 422 </td><td> 422 Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
         public okhttp3.Call createTransferCall(CreateTransferRequest createTransferRequest, final ApiCallback _callback) throws ApiException {
@@ -159,21 +159,21 @@ import javax.ws.rs.core.GenericType;
 
                 /**
                 * Create a Transfer
-                * Create a transfer.
-                    * @param createTransferRequest A form that needs to be implemented (optional)
+                * Create a &#x60;Transfer&#x60;.
+                    * @param createTransferRequest  (optional)
                     * @return Transfer
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 201 </td><td> Single transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 201 </td><td> Single Transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 402 </td><td> 402 - Payment required </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                            <tr><td> 422 </td><td> 422 Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     </table>
                 */
                     public Transfer create(CreateTransferRequest createTransferRequest) throws ApiException {
@@ -183,21 +183,21 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Create a Transfer
-            * Create a transfer.
-                * @param createTransferRequest A form that needs to be implemented (optional)
+            * Create a &#x60;Transfer&#x60;.
+                * @param createTransferRequest  (optional)
             * @return ApiResponse&lt;Transfer&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 201 </td><td> Single transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 201 </td><td> Single Transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 402 </td><td> 402 - Payment required </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 422 </td><td> 422 Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
             public ApiResponse<Transfer> createTransferWithHttpInfo(CreateTransferRequest createTransferRequest) throws ApiException {
@@ -208,22 +208,22 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Create a Transfer (asynchronously)
-            * Create a transfer.
-                * @param createTransferRequest A form that needs to be implemented (optional)
+            * Create a &#x60;Transfer&#x60;.
+                * @param createTransferRequest  (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 201 </td><td> Single transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 201 </td><td> Single Transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 402 </td><td> 402 - Payment required </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 422 </td><td> 422 Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
             public okhttp3.Call createTransferAsync(CreateTransferRequest createTransferRequest, final ApiCallback<Transfer> _callback) throws ApiException {
@@ -235,15 +235,15 @@ import javax.ws.rs.core.GenericType;
             }
         /**
         * Build call for createTransferReversal
-            * @param transferId ID of object (required)
-            * @param createReversalRequest Reversal Creation (optional)
+            * @param transferId ID of &#x60;transfer&#x60; object (required)
+            * @param createReversalRequest  (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 201 </td><td> Single transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 201 </td><td> Single Transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -314,15 +314,15 @@ import javax.ws.rs.core.GenericType;
 
                 /**
                 * Refund or Reverse a Transfer
-                * Reverse a transfer with a &#x60;type&#x60; of **DEBIT**. This creates a new &#x60;Transfer&#x60; resource with a &#x60;type&#x60; of **REVERSAL**
-                    * @param transferId ID of object (required)
-                    * @param createReversalRequest Reversal Creation (optional)
+                * Reverse a transfer with a &#x60;type&#x60; of **DEBIT**. This reversal creates a new &#x60;Transfer&#x60; resource with a &#x60;type&#x60; of **REVERSAL**.   The refund can get delivered in most cases without the physical card. The card only needs to be swiped (to receive the refund) when:  - The payment type is **DEBIT**, and the transaction is no longer in the batch. - The payment type is **CREDIT**, and the transaction is no longer in the batch and is older than 45 days.
+                    * @param transferId ID of &#x60;transfer&#x60; object (required)
+                    * @param createReversalRequest  (optional)
                     * @return Transfer
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 201 </td><td> Single transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 201 </td><td> Single Transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -338,15 +338,15 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Refund or Reverse a Transfer
-            * Reverse a transfer with a &#x60;type&#x60; of **DEBIT**. This creates a new &#x60;Transfer&#x60; resource with a &#x60;type&#x60; of **REVERSAL**
-                * @param transferId ID of object (required)
-                * @param createReversalRequest Reversal Creation (optional)
+            * Reverse a transfer with a &#x60;type&#x60; of **DEBIT**. This reversal creates a new &#x60;Transfer&#x60; resource with a &#x60;type&#x60; of **REVERSAL**.   The refund can get delivered in most cases without the physical card. The card only needs to be swiped (to receive the refund) when:  - The payment type is **DEBIT**, and the transaction is no longer in the batch. - The payment type is **CREDIT**, and the transaction is no longer in the batch and is older than 45 days.
+                * @param transferId ID of &#x60;transfer&#x60; object (required)
+                * @param createReversalRequest  (optional)
             * @return ApiResponse&lt;Transfer&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 201 </td><td> Single transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 201 </td><td> Single Transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -363,16 +363,16 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Refund or Reverse a Transfer (asynchronously)
-            * Reverse a transfer with a &#x60;type&#x60; of **DEBIT**. This creates a new &#x60;Transfer&#x60; resource with a &#x60;type&#x60; of **REVERSAL**
-                * @param transferId ID of object (required)
-                * @param createReversalRequest Reversal Creation (optional)
+            * Reverse a transfer with a &#x60;type&#x60; of **DEBIT**. This reversal creates a new &#x60;Transfer&#x60; resource with a &#x60;type&#x60; of **REVERSAL**.   The refund can get delivered in most cases without the physical card. The card only needs to be swiped (to receive the refund) when:  - The payment type is **DEBIT**, and the transaction is no longer in the batch. - The payment type is **CREDIT**, and the transaction is no longer in the batch and is older than 45 days.
+                * @param transferId ID of &#x60;transfer&#x60; object (required)
+                * @param createReversalRequest  (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 201 </td><td> Single transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 201 </td><td> Single Transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -389,22 +389,22 @@ import javax.ws.rs.core.GenericType;
             return localVarCall;
             }
         /**
-        * Build call for get
-            * @param transferId ID of object (required)
+        * Build call for getTransfer
+            * @param transferId ID of &#x60;transfer&#x60; object. (required)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Single transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> Single Transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call getCall(String transferId, final ApiCallback _callback) throws ApiException {
+        public okhttp3.Call getTransferCall(String transferId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -451,29 +451,29 @@ import javax.ws.rs.core.GenericType;
             }
 
             @SuppressWarnings("rawtypes")
-            private okhttp3.Call getValidateBeforeCall(String transferId, final ApiCallback _callback) throws ApiException {
+            private okhttp3.Call getTransferValidateBeforeCall(String transferId, final ApiCallback _callback) throws ApiException {
             
                     // verify the required parameter 'transferId' is set
                     if (transferId == null) {
-                    throw new ApiException("Missing the required parameter 'transferId' when calling get(Async)");
+                    throw new ApiException("Missing the required parameter 'transferId' when calling getTransfer(Async)");
                     }
             
 
-                okhttp3.Call localVarCall = getCall(transferId, _callback);
+                okhttp3.Call localVarCall = getTransferCall(transferId, _callback);
                 return localVarCall;
 
             }
 
                 /**
                 * Get a Transfer
-                * Retrieve a transfer.
-                    * @param transferId ID of object (required)
+                * Retrieve a &#x60;transfer&#x60;.
+                    * @param transferId ID of &#x60;transfer&#x60; object. (required)
                     * @return Transfer
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> Single transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> Single Transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -481,52 +481,52 @@ import javax.ws.rs.core.GenericType;
                     </table>
                 */
                     public Transfer get(String transferId) throws ApiException {
-                ApiResponse<Transfer> localVarResp = getWithHttpInfo(transferId);
+                ApiResponse<Transfer> localVarResp = getTransferWithHttpInfo(transferId);
                         return localVarResp.getData();
                     }
 
         /**
             * Get a Transfer
-            * Retrieve a transfer.
-                * @param transferId ID of object (required)
+            * Retrieve a &#x60;transfer&#x60;.
+                * @param transferId ID of &#x60;transfer&#x60; object. (required)
             * @return ApiResponse&lt;Transfer&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Single transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> Single Transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public ApiResponse<Transfer> getWithHttpInfo(String transferId) throws ApiException {
-            okhttp3.Call localVarCall = getValidateBeforeCall(transferId, null);
+            public ApiResponse<Transfer> getTransferWithHttpInfo(String transferId) throws ApiException {
+            okhttp3.Call localVarCall = getTransferValidateBeforeCall(transferId, null);
                     Type localVarReturnType = new TypeToken<Transfer>(){}.getType();
                     return localVarFinixClient.execute(localVarCall, localVarReturnType);
             }
 
         /**
             * Get a Transfer (asynchronously)
-            * Retrieve a transfer.
-                * @param transferId ID of object (required)
+            * Retrieve a &#x60;transfer&#x60;.
+                * @param transferId ID of &#x60;transfer&#x60; object. (required)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Single transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> Single Transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public okhttp3.Call getAsync(String transferId, final ApiCallback<Transfer> _callback) throws ApiException {
+            public okhttp3.Call getTransferAsync(String transferId, final ApiCallback<Transfer> _callback) throws ApiException {
 
-            okhttp3.Call localVarCall = getValidateBeforeCall(transferId, _callback);
+            okhttp3.Call localVarCall = getTransferValidateBeforeCall(transferId, _callback);
         Type localVarReturnType = new TypeToken<Transfer>(){}.getType();
             localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
             return localVarCall;
@@ -540,7 +540,7 @@ import javax.ws.rs.core.GenericType;
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -616,7 +616,7 @@ import javax.ws.rs.core.GenericType;
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -637,7 +637,7 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -660,7 +660,7 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -677,26 +677,24 @@ import javax.ws.rs.core.GenericType;
         /**
         * Build call for listIdentityTransfers
             * @param identityId ID of identity to fetch (required)
-            * @param limit  (optional)
-            * @param offset  (optional)
-            * @param pageNumber  (optional)
-            * @param pageSize  (optional)
-            * @param sortSorted  (optional)
-            * @param sortUnsorted  (optional)
+            * @param limit The number of entries to return. (optional)
+            * @param offset The number of items to skip before starting to collect the result set. (optional)
+            * @param pageNumber The page number to list. (optional)
+            * @param pageSize The size of the page. (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call listIdentityTransfersCall(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback _callback) throws ApiException {
+        public okhttp3.Call listIdentityTransfersCall(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -738,14 +736,6 @@ import javax.ws.rs.core.GenericType;
                 localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageSize", pageSize));
                     }
 
-                    if (sortSorted != null) {
-                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("sort.sorted", sortSorted));
-                    }
-
-                    if (sortUnsorted != null) {
-                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("sort.unsorted", sortUnsorted));
-                    }
-
             final String[] localVarAccepts = {
         "application/hal+json"
             };
@@ -767,7 +757,7 @@ import javax.ws.rs.core.GenericType;
             }
 
             @SuppressWarnings("rawtypes")
-            private okhttp3.Call listIdentityTransfersValidateBeforeCall(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback _callback) throws ApiException {
+            private okhttp3.Call listIdentityTransfersValidateBeforeCall(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback _callback) throws ApiException {
             
                     // verify the required parameter 'identityId' is set
                     if (identityId == null) {
@@ -775,7 +765,7 @@ import javax.ws.rs.core.GenericType;
                     }
             
 
-                okhttp3.Call localVarCall = listIdentityTransfersCall(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted, _callback);
+                okhttp3.Call localVarCall = listIdentityTransfersCall(identityId, limit, offset, pageNumber, pageSize, _callback);
                 return localVarCall;
 
             }
@@ -784,26 +774,24 @@ import javax.ws.rs.core.GenericType;
                 * List Identity Transfers
                 * All transfers associated to this identity
                     * @param identityId ID of identity to fetch (required)
-                    * @param limit  (optional)
-                    * @param offset  (optional)
-                    * @param pageNumber  (optional)
-                    * @param pageSize  (optional)
-                    * @param sortSorted  (optional)
-                    * @param sortUnsorted  (optional)
+                    * @param limit The number of entries to return. (optional)
+                    * @param offset The number of items to skip before starting to collect the result set. (optional)
+                    * @param pageNumber The page number to list. (optional)
+                    * @param pageSize The size of the page. (optional)
                     * @return TransfersList
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     </table>
                 */
-                    public TransfersList listByIdentityId(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted) throws ApiException {
-                ApiResponse<TransfersList> localVarResp = listIdentityTransfersWithHttpInfo(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
+                    public TransfersList listByIdentityId(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize) throws ApiException {
+                ApiResponse<TransfersList> localVarResp = listIdentityTransfersWithHttpInfo(identityId, limit, offset, pageNumber, pageSize);
                         return localVarResp.getData();
                     }
 
@@ -811,26 +799,24 @@ import javax.ws.rs.core.GenericType;
             * List Identity Transfers
             * All transfers associated to this identity
                 * @param identityId ID of identity to fetch (required)
-                * @param limit  (optional)
-                * @param offset  (optional)
-                * @param pageNumber  (optional)
-                * @param pageSize  (optional)
-                * @param sortSorted  (optional)
-                * @param sortUnsorted  (optional)
+                * @param limit The number of entries to return. (optional)
+                * @param offset The number of items to skip before starting to collect the result set. (optional)
+                * @param pageNumber The page number to list. (optional)
+                * @param pageSize The size of the page. (optional)
             * @return ApiResponse&lt;TransfersList&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public ApiResponse<TransfersList> listIdentityTransfersWithHttpInfo(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted) throws ApiException {
-            okhttp3.Call localVarCall = listIdentityTransfersValidateBeforeCall(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted, null);
+            public ApiResponse<TransfersList> listIdentityTransfersWithHttpInfo(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize) throws ApiException {
+            okhttp3.Call localVarCall = listIdentityTransfersValidateBeforeCall(identityId, limit, offset, pageNumber, pageSize, null);
                     Type localVarReturnType = new TypeToken<TransfersList>(){}.getType();
                     return localVarFinixClient.execute(localVarCall, localVarReturnType);
             }
@@ -839,28 +825,26 @@ import javax.ws.rs.core.GenericType;
             * List Identity Transfers (asynchronously)
             * All transfers associated to this identity
                 * @param identityId ID of identity to fetch (required)
-                * @param limit  (optional)
-                * @param offset  (optional)
-                * @param pageNumber  (optional)
-                * @param pageSize  (optional)
-                * @param sortSorted  (optional)
-                * @param sortUnsorted  (optional)
+                * @param limit The number of entries to return. (optional)
+                * @param offset The number of items to skip before starting to collect the result set. (optional)
+                * @param pageNumber The page number to list. (optional)
+                * @param pageSize The size of the page. (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public okhttp3.Call listIdentityTransfersAsync(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback<TransfersList> _callback) throws ApiException {
+            public okhttp3.Call listIdentityTransfersAsync(String identityId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback<TransfersList> _callback) throws ApiException {
 
-            okhttp3.Call localVarCall = listIdentityTransfersValidateBeforeCall(identityId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted, _callback);
+            okhttp3.Call localVarCall = listIdentityTransfersValidateBeforeCall(identityId, limit, offset, pageNumber, pageSize, _callback);
         Type localVarReturnType = new TypeToken<TransfersList>(){}.getType();
             localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
             return localVarCall;
@@ -868,27 +852,25 @@ import javax.ws.rs.core.GenericType;
         /**
         * Build call for listMerchantTransfers
             * @param merchantId ID of object (required)
-            * @param limit  (optional)
-            * @param offset  (optional)
-            * @param pageNumber  (optional)
-            * @param pageSize  (optional)
+            * @param limit The number of entries to return. (optional)
+            * @param offset The number of items to skip before starting to collect the result set. (optional)
+            * @param pageNumber The page number to list. (optional)
+            * @param pageSize The size of the page. (optional)
             * @param readyToSettle ready_to_settle (optional)
-            * @param sortSorted  (optional)
-            * @param sortUnsorted  (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call listMerchantTransfersCall(String merchantId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean readyToSettle, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback _callback) throws ApiException {
+        public okhttp3.Call listMerchantTransfersCall(String merchantId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean readyToSettle, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -934,14 +916,6 @@ import javax.ws.rs.core.GenericType;
                 localVarQueryParams.addAll(localVarFinixClient.parameterToPair("ready_to_settle", readyToSettle));
                     }
 
-                    if (sortSorted != null) {
-                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("sort.sorted", sortSorted));
-                    }
-
-                    if (sortUnsorted != null) {
-                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("sort.unsorted", sortUnsorted));
-                    }
-
             final String[] localVarAccepts = {
         "application/hal+json"
             };
@@ -963,7 +937,7 @@ import javax.ws.rs.core.GenericType;
             }
 
             @SuppressWarnings("rawtypes")
-            private okhttp3.Call listMerchantTransfersValidateBeforeCall(String merchantId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean readyToSettle, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback _callback) throws ApiException {
+            private okhttp3.Call listMerchantTransfersValidateBeforeCall(String merchantId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean readyToSettle, final ApiCallback _callback) throws ApiException {
             
                     // verify the required parameter 'merchantId' is set
                     if (merchantId == null) {
@@ -971,7 +945,7 @@ import javax.ws.rs.core.GenericType;
                     }
             
 
-                okhttp3.Call localVarCall = listMerchantTransfersCall(merchantId, limit, offset, pageNumber, pageSize, readyToSettle, sortSorted, sortUnsorted, _callback);
+                okhttp3.Call localVarCall = listMerchantTransfersCall(merchantId, limit, offset, pageNumber, pageSize, readyToSettle, _callback);
                 return localVarCall;
 
             }
@@ -980,27 +954,25 @@ import javax.ws.rs.core.GenericType;
                 * List Merchant Transfers
                 * Get list of all the tranfers in the merchant object
                     * @param merchantId ID of object (required)
-                    * @param limit  (optional)
-                    * @param offset  (optional)
-                    * @param pageNumber  (optional)
-                    * @param pageSize  (optional)
+                    * @param limit The number of entries to return. (optional)
+                    * @param offset The number of items to skip before starting to collect the result set. (optional)
+                    * @param pageNumber The page number to list. (optional)
+                    * @param pageSize The size of the page. (optional)
                     * @param readyToSettle ready_to_settle (optional)
-                    * @param sortSorted  (optional)
-                    * @param sortUnsorted  (optional)
                     * @return TransfersList
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     </table>
                 */
-                    public TransfersList listByMerchantId(String merchantId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean readyToSettle, Boolean sortSorted, Boolean sortUnsorted) throws ApiException {
-                ApiResponse<TransfersList> localVarResp = listMerchantTransfersWithHttpInfo(merchantId, limit, offset, pageNumber, pageSize, readyToSettle, sortSorted, sortUnsorted);
+                    public TransfersList listByMerchantId(String merchantId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean readyToSettle) throws ApiException {
+                ApiResponse<TransfersList> localVarResp = listMerchantTransfersWithHttpInfo(merchantId, limit, offset, pageNumber, pageSize, readyToSettle);
                         return localVarResp.getData();
                     }
 
@@ -1008,27 +980,25 @@ import javax.ws.rs.core.GenericType;
             * List Merchant Transfers
             * Get list of all the tranfers in the merchant object
                 * @param merchantId ID of object (required)
-                * @param limit  (optional)
-                * @param offset  (optional)
-                * @param pageNumber  (optional)
-                * @param pageSize  (optional)
+                * @param limit The number of entries to return. (optional)
+                * @param offset The number of items to skip before starting to collect the result set. (optional)
+                * @param pageNumber The page number to list. (optional)
+                * @param pageSize The size of the page. (optional)
                 * @param readyToSettle ready_to_settle (optional)
-                * @param sortSorted  (optional)
-                * @param sortUnsorted  (optional)
             * @return ApiResponse&lt;TransfersList&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public ApiResponse<TransfersList> listMerchantTransfersWithHttpInfo(String merchantId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean readyToSettle, Boolean sortSorted, Boolean sortUnsorted) throws ApiException {
-            okhttp3.Call localVarCall = listMerchantTransfersValidateBeforeCall(merchantId, limit, offset, pageNumber, pageSize, readyToSettle, sortSorted, sortUnsorted, null);
+            public ApiResponse<TransfersList> listMerchantTransfersWithHttpInfo(String merchantId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean readyToSettle) throws ApiException {
+            okhttp3.Call localVarCall = listMerchantTransfersValidateBeforeCall(merchantId, limit, offset, pageNumber, pageSize, readyToSettle, null);
                     Type localVarReturnType = new TypeToken<TransfersList>(){}.getType();
                     return localVarFinixClient.execute(localVarCall, localVarReturnType);
             }
@@ -1037,29 +1007,27 @@ import javax.ws.rs.core.GenericType;
             * List Merchant Transfers (asynchronously)
             * Get list of all the tranfers in the merchant object
                 * @param merchantId ID of object (required)
-                * @param limit  (optional)
-                * @param offset  (optional)
-                * @param pageNumber  (optional)
-                * @param pageSize  (optional)
+                * @param limit The number of entries to return. (optional)
+                * @param offset The number of items to skip before starting to collect the result set. (optional)
+                * @param pageNumber The page number to list. (optional)
+                * @param pageSize The size of the page. (optional)
                 * @param readyToSettle ready_to_settle (optional)
-                * @param sortSorted  (optional)
-                * @param sortUnsorted  (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public okhttp3.Call listMerchantTransfersAsync(String merchantId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean readyToSettle, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback<TransfersList> _callback) throws ApiException {
+            public okhttp3.Call listMerchantTransfersAsync(String merchantId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean readyToSettle, final ApiCallback<TransfersList> _callback) throws ApiException {
 
-            okhttp3.Call localVarCall = listMerchantTransfersValidateBeforeCall(merchantId, limit, offset, pageNumber, pageSize, readyToSettle, sortSorted, sortUnsorted, _callback);
+            okhttp3.Call localVarCall = listMerchantTransfersValidateBeforeCall(merchantId, limit, offset, pageNumber, pageSize, readyToSettle, _callback);
         Type localVarReturnType = new TypeToken<TransfersList>(){}.getType();
             localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
             return localVarCall;
@@ -1067,26 +1035,24 @@ import javax.ws.rs.core.GenericType;
         /**
         * Build call for listPaymentInstrumentTransfers
             * @param paymentInstrumentId ID of object (required)
-            * @param limit  (optional)
-            * @param offset  (optional)
-            * @param pageNumber  (optional)
-            * @param pageSize  (optional)
-            * @param sortSorted  (optional)
-            * @param sortUnsorted  (optional)
+            * @param limit The number of entries to return. (optional)
+            * @param offset The number of items to skip before starting to collect the result set. (optional)
+            * @param pageNumber The page number to list. (optional)
+            * @param pageSize The size of the page. (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call listPaymentInstrumentTransfersCall(String paymentInstrumentId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback _callback) throws ApiException {
+        public okhttp3.Call listPaymentInstrumentTransfersCall(String paymentInstrumentId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1128,14 +1094,6 @@ import javax.ws.rs.core.GenericType;
                 localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageSize", pageSize));
                     }
 
-                    if (sortSorted != null) {
-                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("sort.sorted", sortSorted));
-                    }
-
-                    if (sortUnsorted != null) {
-                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("sort.unsorted", sortUnsorted));
-                    }
-
             final String[] localVarAccepts = {
         "application/hal+json"
             };
@@ -1157,7 +1115,7 @@ import javax.ws.rs.core.GenericType;
             }
 
             @SuppressWarnings("rawtypes")
-            private okhttp3.Call listPaymentInstrumentTransfersValidateBeforeCall(String paymentInstrumentId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback _callback) throws ApiException {
+            private okhttp3.Call listPaymentInstrumentTransfersValidateBeforeCall(String paymentInstrumentId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback _callback) throws ApiException {
             
                     // verify the required parameter 'paymentInstrumentId' is set
                     if (paymentInstrumentId == null) {
@@ -1165,7 +1123,7 @@ import javax.ws.rs.core.GenericType;
                     }
             
 
-                okhttp3.Call localVarCall = listPaymentInstrumentTransfersCall(paymentInstrumentId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted, _callback);
+                okhttp3.Call localVarCall = listPaymentInstrumentTransfersCall(paymentInstrumentId, limit, offset, pageNumber, pageSize, _callback);
                 return localVarCall;
 
             }
@@ -1174,26 +1132,24 @@ import javax.ws.rs.core.GenericType;
                 * List Payment Instrument Transfers
                 * Get list of all the transfers in the payment instrument object
                     * @param paymentInstrumentId ID of object (required)
-                    * @param limit  (optional)
-                    * @param offset  (optional)
-                    * @param pageNumber  (optional)
-                    * @param pageSize  (optional)
-                    * @param sortSorted  (optional)
-                    * @param sortUnsorted  (optional)
+                    * @param limit The number of entries to return. (optional)
+                    * @param offset The number of items to skip before starting to collect the result set. (optional)
+                    * @param pageNumber The page number to list. (optional)
+                    * @param pageSize The size of the page. (optional)
                     * @return TransfersList
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     </table>
                 */
-                    public TransfersList listByPaymentInstrumentId(String paymentInstrumentId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted) throws ApiException {
-                ApiResponse<TransfersList> localVarResp = listPaymentInstrumentTransfersWithHttpInfo(paymentInstrumentId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
+                    public TransfersList listByPaymentInstrumentId(String paymentInstrumentId, Integer limit, Long offset, Integer pageNumber, Integer pageSize) throws ApiException {
+                ApiResponse<TransfersList> localVarResp = listPaymentInstrumentTransfersWithHttpInfo(paymentInstrumentId, limit, offset, pageNumber, pageSize);
                         return localVarResp.getData();
                     }
 
@@ -1201,26 +1157,24 @@ import javax.ws.rs.core.GenericType;
             * List Payment Instrument Transfers
             * Get list of all the transfers in the payment instrument object
                 * @param paymentInstrumentId ID of object (required)
-                * @param limit  (optional)
-                * @param offset  (optional)
-                * @param pageNumber  (optional)
-                * @param pageSize  (optional)
-                * @param sortSorted  (optional)
-                * @param sortUnsorted  (optional)
+                * @param limit The number of entries to return. (optional)
+                * @param offset The number of items to skip before starting to collect the result set. (optional)
+                * @param pageNumber The page number to list. (optional)
+                * @param pageSize The size of the page. (optional)
             * @return ApiResponse&lt;TransfersList&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public ApiResponse<TransfersList> listPaymentInstrumentTransfersWithHttpInfo(String paymentInstrumentId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted) throws ApiException {
-            okhttp3.Call localVarCall = listPaymentInstrumentTransfersValidateBeforeCall(paymentInstrumentId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted, null);
+            public ApiResponse<TransfersList> listPaymentInstrumentTransfersWithHttpInfo(String paymentInstrumentId, Integer limit, Long offset, Integer pageNumber, Integer pageSize) throws ApiException {
+            okhttp3.Call localVarCall = listPaymentInstrumentTransfersValidateBeforeCall(paymentInstrumentId, limit, offset, pageNumber, pageSize, null);
                     Type localVarReturnType = new TypeToken<TransfersList>(){}.getType();
                     return localVarFinixClient.execute(localVarCall, localVarReturnType);
             }
@@ -1229,198 +1183,51 @@ import javax.ws.rs.core.GenericType;
             * List Payment Instrument Transfers (asynchronously)
             * Get list of all the transfers in the payment instrument object
                 * @param paymentInstrumentId ID of object (required)
-                * @param limit  (optional)
-                * @param offset  (optional)
-                * @param pageNumber  (optional)
-                * @param pageSize  (optional)
-                * @param sortSorted  (optional)
-                * @param sortUnsorted  (optional)
+                * @param limit The number of entries to return. (optional)
+                * @param offset The number of items to skip before starting to collect the result set. (optional)
+                * @param pageNumber The page number to list. (optional)
+                * @param pageSize The size of the page. (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public okhttp3.Call listPaymentInstrumentTransfersAsync(String paymentInstrumentId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback<TransfersList> _callback) throws ApiException {
+            public okhttp3.Call listPaymentInstrumentTransfersAsync(String paymentInstrumentId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback<TransfersList> _callback) throws ApiException {
 
-            okhttp3.Call localVarCall = listPaymentInstrumentTransfersValidateBeforeCall(paymentInstrumentId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted, _callback);
-        Type localVarReturnType = new TypeToken<TransfersList>(){}.getType();
-            localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
-            return localVarCall;
-            }
-        /**
-        * Build call for listSettlementTransfers
-            * @param settlementId ID of object (required)
-        * @param _callback Callback for upload/download progress
-        * @return Call to execute
-        * @throws ApiException If fail to serialize the request body object
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public okhttp3.Call listSettlementTransfersCall(String settlementId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-        basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-        basePath = localBasePaths[localHostIndex];
-        } else {
-        basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-            String localVarPath = "/settlements/{settlement_id}/transfers"
-                .replaceAll("\\{" + "settlement_id" + "\\}", localVarFinixClient.escapeString(settlementId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-            final String[] localVarAccepts = {
-        "application/hal+json"
-            };
-            final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
-            if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-            }
-
-            final String[] localVarContentTypes = {
-        
-            };
-            final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
-            if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-            }
-
-            String[] localVarAuthNames = new String[] { "BasicAuth" };
-            return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-            }
-
-            @SuppressWarnings("rawtypes")
-            private okhttp3.Call listSettlementTransfersValidateBeforeCall(String settlementId, final ApiCallback _callback) throws ApiException {
-            
-                    // verify the required parameter 'settlementId' is set
-                    if (settlementId == null) {
-                    throw new ApiException("Missing the required parameter 'settlementId' when calling listSettlementTransfers(Async)");
-                    }
-            
-
-                okhttp3.Call localVarCall = listSettlementTransfersCall(settlementId, _callback);
-                return localVarCall;
-
-            }
-
-                /**
-                * List Settlement Transfers
-                * Find all transfers for a settlement
-                    * @param settlementId ID of object (required)
-                    * @return TransfersList
-                * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                    * @http.response.details
-                    <table summary="Response Details" border="1">
-                        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                            <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                            <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                            <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                            <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    </table>
-                */
-                    public TransfersList listBySettlementId(String settlementId) throws ApiException {
-                ApiResponse<TransfersList> localVarResp = listSettlementTransfersWithHttpInfo(settlementId);
-                        return localVarResp.getData();
-                    }
-
-        /**
-            * List Settlement Transfers
-            * Find all transfers for a settlement
-                * @param settlementId ID of object (required)
-            * @return ApiResponse&lt;TransfersList&gt;
-            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                </table>
-            */
-            public ApiResponse<TransfersList> listSettlementTransfersWithHttpInfo(String settlementId) throws ApiException {
-            okhttp3.Call localVarCall = listSettlementTransfersValidateBeforeCall(settlementId, null);
-                    Type localVarReturnType = new TypeToken<TransfersList>(){}.getType();
-                    return localVarFinixClient.execute(localVarCall, localVarReturnType);
-            }
-
-        /**
-            * List Settlement Transfers (asynchronously)
-            * Find all transfers for a settlement
-                * @param settlementId ID of object (required)
-            * @param _callback The callback to be executed when the API call finishes
-            * @return The request call
-            * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                </table>
-            */
-            public okhttp3.Call listSettlementTransfersAsync(String settlementId, final ApiCallback<TransfersList> _callback) throws ApiException {
-
-            okhttp3.Call localVarCall = listSettlementTransfersValidateBeforeCall(settlementId, _callback);
+            okhttp3.Call localVarCall = listPaymentInstrumentTransfersValidateBeforeCall(paymentInstrumentId, limit, offset, pageNumber, pageSize, _callback);
         Type localVarReturnType = new TypeToken<TransfersList>(){}.getType();
             localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
             return localVarCall;
             }
         /**
         * Build call for listTransferReversals
-            * @param transferId ID of object (required)
-            * @param limit  (optional)
-            * @param offset  (optional)
-            * @param pageNumber  (optional)
-            * @param pageSize  (optional)
-            * @param sortSorted  (optional)
-            * @param sortUnsorted  (optional)
+            * @param transferId ID of &#x60;transfer&#x60; object (required)
+            * @param limit The number of entries to return. (optional)
+            * @param offset The number of items to skip before starting to collect the result set. (optional)
+            * @param pageNumber The page number to list. (optional)
+            * @param pageSize The size of the page. (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of reversals </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> List of Reversals </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call listTransferReversalsCall(String transferId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback _callback) throws ApiException {
+        public okhttp3.Call listTransferReversalsCall(String transferId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1462,14 +1269,6 @@ import javax.ws.rs.core.GenericType;
                 localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageSize", pageSize));
                     }
 
-                    if (sortSorted != null) {
-                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("sort.sorted", sortSorted));
-                    }
-
-                    if (sortUnsorted != null) {
-                localVarQueryParams.addAll(localVarFinixClient.parameterToPair("sort.unsorted", sortUnsorted));
-                    }
-
             final String[] localVarAccepts = {
         "application/hal+json"
             };
@@ -1491,7 +1290,7 @@ import javax.ws.rs.core.GenericType;
             }
 
             @SuppressWarnings("rawtypes")
-            private okhttp3.Call listTransferReversalsValidateBeforeCall(String transferId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback _callback) throws ApiException {
+            private okhttp3.Call listTransferReversalsValidateBeforeCall(String transferId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback _callback) throws ApiException {
             
                     // verify the required parameter 'transferId' is set
                     if (transferId == null) {
@@ -1499,92 +1298,86 @@ import javax.ws.rs.core.GenericType;
                     }
             
 
-                okhttp3.Call localVarCall = listTransferReversalsCall(transferId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted, _callback);
+                okhttp3.Call localVarCall = listTransferReversalsCall(transferId, limit, offset, pageNumber, pageSize, _callback);
                 return localVarCall;
 
             }
 
                 /**
                 * List Reversals on a Transfer
-                * Retrieve a list of reversals for a transfer.
-                    * @param transferId ID of object (required)
-                    * @param limit  (optional)
-                    * @param offset  (optional)
-                    * @param pageNumber  (optional)
-                    * @param pageSize  (optional)
-                    * @param sortSorted  (optional)
-                    * @param sortUnsorted  (optional)
+                * Retrieve a list of reversals for a &#x60;Transfer&#x60;.
+                    * @param transferId ID of &#x60;transfer&#x60; object (required)
+                    * @param limit The number of entries to return. (optional)
+                    * @param offset The number of items to skip before starting to collect the result set. (optional)
+                    * @param pageNumber The page number to list. (optional)
+                    * @param pageSize The size of the page. (optional)
                     * @return TransfersList
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> List of reversals </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> List of Reversals </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     </table>
                 */
-                    public TransfersList listTransfersReversals(String transferId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted) throws ApiException {
-                ApiResponse<TransfersList> localVarResp = listTransferReversalsWithHttpInfo(transferId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted);
+                    public TransfersList listTransfersReversals(String transferId, Integer limit, Long offset, Integer pageNumber, Integer pageSize) throws ApiException {
+                ApiResponse<TransfersList> localVarResp = listTransferReversalsWithHttpInfo(transferId, limit, offset, pageNumber, pageSize);
                         return localVarResp.getData();
                     }
 
         /**
             * List Reversals on a Transfer
-            * Retrieve a list of reversals for a transfer.
-                * @param transferId ID of object (required)
-                * @param limit  (optional)
-                * @param offset  (optional)
-                * @param pageNumber  (optional)
-                * @param pageSize  (optional)
-                * @param sortSorted  (optional)
-                * @param sortUnsorted  (optional)
+            * Retrieve a list of reversals for a &#x60;Transfer&#x60;.
+                * @param transferId ID of &#x60;transfer&#x60; object (required)
+                * @param limit The number of entries to return. (optional)
+                * @param offset The number of items to skip before starting to collect the result set. (optional)
+                * @param pageNumber The page number to list. (optional)
+                * @param pageSize The size of the page. (optional)
             * @return ApiResponse&lt;TransfersList&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of reversals </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Reversals </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public ApiResponse<TransfersList> listTransferReversalsWithHttpInfo(String transferId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted) throws ApiException {
-            okhttp3.Call localVarCall = listTransferReversalsValidateBeforeCall(transferId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted, null);
+            public ApiResponse<TransfersList> listTransferReversalsWithHttpInfo(String transferId, Integer limit, Long offset, Integer pageNumber, Integer pageSize) throws ApiException {
+            okhttp3.Call localVarCall = listTransferReversalsValidateBeforeCall(transferId, limit, offset, pageNumber, pageSize, null);
                     Type localVarReturnType = new TypeToken<TransfersList>(){}.getType();
                     return localVarFinixClient.execute(localVarCall, localVarReturnType);
             }
 
         /**
             * List Reversals on a Transfer (asynchronously)
-            * Retrieve a list of reversals for a transfer.
-                * @param transferId ID of object (required)
-                * @param limit  (optional)
-                * @param offset  (optional)
-                * @param pageNumber  (optional)
-                * @param pageSize  (optional)
-                * @param sortSorted  (optional)
-                * @param sortUnsorted  (optional)
+            * Retrieve a list of reversals for a &#x60;Transfer&#x60;.
+                * @param transferId ID of &#x60;transfer&#x60; object (required)
+                * @param limit The number of entries to return. (optional)
+                * @param offset The number of items to skip before starting to collect the result set. (optional)
+                * @param pageNumber The page number to list. (optional)
+                * @param pageSize The size of the page. (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of reversals </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Reversals </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public okhttp3.Call listTransferReversalsAsync(String transferId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, Boolean sortSorted, Boolean sortUnsorted, final ApiCallback<TransfersList> _callback) throws ApiException {
+            public okhttp3.Call listTransferReversalsAsync(String transferId, Integer limit, Long offset, Integer pageNumber, Integer pageSize, final ApiCallback<TransfersList> _callback) throws ApiException {
 
-            okhttp3.Call localVarCall = listTransferReversalsValidateBeforeCall(transferId, limit, offset, pageNumber, pageSize, sortSorted, sortUnsorted, _callback);
+            okhttp3.Call localVarCall = listTransferReversalsValidateBeforeCall(transferId, limit, offset, pageNumber, pageSize, _callback);
         Type localVarReturnType = new TypeToken<TransfersList>(){}.getType();
             localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
             return localVarCall;
@@ -1599,8 +1392,8 @@ import javax.ws.rs.core.GenericType;
             * @param amountGt Filter by an amount greater than (optional)
             * @param amountLte Filter by an amount less than or equal (optional)
             * @param amountLt Filter by an amount less than (optional)
-            * @param createdAtGte Filter were created_at is after the given date (optional)
-            * @param createdAtLte Filter were created_at before the given date (optional)
+            * @param createdAtGte Filter where created_at is after the given date. (optional)
+            * @param createdAtLte Filter where created_at is before the given date. (optional)
             * @param idempotencyId Filter by idempotency_id (optional)
             * @param id Filter by id (optional)
             * @param state Filter by Transaction state. (optional)
@@ -1608,8 +1401,8 @@ import javax.ws.rs.core.GenericType;
             * @param readyToSettleAtLte Filter by ready_to_settle_at (optional)
             * @param statementDescriptor Filter by statement_descriptor (optional)
             * @param traceId Filter by trace_id (optional)
-            * @param updatedAtGte Filter were updated_at is after the given date (optional)
-            * @param updatedAtLte Filter were updated_at is before the given date (optional)
+            * @param updatedAtGte Filter where updated_at is after the given date (optional)
+            * @param updatedAtLte Filter where updated_at is before the given date (optional)
             * @param instrumentBin Filter by Bank Identification Number (BIN). The BIN is the first 6 digits of the masked number (optional)
             * @param instrumentAccountLast4 Filter Transactions by the last 4 digits of the bank account. The bank account last 4 are the last 4 digits of the masked number instrument_account_last4&#x3D;9444 BIN  (optional)
             * @param instrumentBrandType Filter by card brand. Available card brand types can be found in the drop-down (optional)
@@ -1628,7 +1421,7 @@ import javax.ws.rs.core.GenericType;
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -1815,7 +1608,7 @@ import javax.ws.rs.core.GenericType;
 
                 /**
                 * List Transfers
-                * Retrieve a list of transfers.
+                * Retrieve a list of &#x60;Transfers&#x60;.
                     * @param sort Specify key to be used for sorting the collection (optional)
                     * @param offset The number of items to skip before starting to collect the result set (optional)
                     * @param limit The numbers of items to return (optional)
@@ -1824,8 +1617,8 @@ import javax.ws.rs.core.GenericType;
                     * @param amountGt Filter by an amount greater than (optional)
                     * @param amountLte Filter by an amount less than or equal (optional)
                     * @param amountLt Filter by an amount less than (optional)
-                    * @param createdAtGte Filter were created_at is after the given date (optional)
-                    * @param createdAtLte Filter were created_at before the given date (optional)
+                    * @param createdAtGte Filter where created_at is after the given date. (optional)
+                    * @param createdAtLte Filter where created_at is before the given date. (optional)
                     * @param idempotencyId Filter by idempotency_id (optional)
                     * @param id Filter by id (optional)
                     * @param state Filter by Transaction state. (optional)
@@ -1833,8 +1626,8 @@ import javax.ws.rs.core.GenericType;
                     * @param readyToSettleAtLte Filter by ready_to_settle_at (optional)
                     * @param statementDescriptor Filter by statement_descriptor (optional)
                     * @param traceId Filter by trace_id (optional)
-                    * @param updatedAtGte Filter were updated_at is after the given date (optional)
-                    * @param updatedAtLte Filter were updated_at is before the given date (optional)
+                    * @param updatedAtGte Filter where updated_at is after the given date (optional)
+                    * @param updatedAtLte Filter where updated_at is before the given date (optional)
                     * @param instrumentBin Filter by Bank Identification Number (BIN). The BIN is the first 6 digits of the masked number (optional)
                     * @param instrumentAccountLast4 Filter Transactions by the last 4 digits of the bank account. The bank account last 4 are the last 4 digits of the masked number instrument_account_last4&#x3D;9444 BIN  (optional)
                     * @param instrumentBrandType Filter by card brand. Available card brand types can be found in the drop-down (optional)
@@ -1852,7 +1645,7 @@ import javax.ws.rs.core.GenericType;
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -1866,7 +1659,7 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * List Transfers
-            * Retrieve a list of transfers.
+            * Retrieve a list of &#x60;Transfers&#x60;.
                 * @param sort Specify key to be used for sorting the collection (optional)
                 * @param offset The number of items to skip before starting to collect the result set (optional)
                 * @param limit The numbers of items to return (optional)
@@ -1875,8 +1668,8 @@ import javax.ws.rs.core.GenericType;
                 * @param amountGt Filter by an amount greater than (optional)
                 * @param amountLte Filter by an amount less than or equal (optional)
                 * @param amountLt Filter by an amount less than (optional)
-                * @param createdAtGte Filter were created_at is after the given date (optional)
-                * @param createdAtLte Filter were created_at before the given date (optional)
+                * @param createdAtGte Filter where created_at is after the given date. (optional)
+                * @param createdAtLte Filter where created_at is before the given date. (optional)
                 * @param idempotencyId Filter by idempotency_id (optional)
                 * @param id Filter by id (optional)
                 * @param state Filter by Transaction state. (optional)
@@ -1884,8 +1677,8 @@ import javax.ws.rs.core.GenericType;
                 * @param readyToSettleAtLte Filter by ready_to_settle_at (optional)
                 * @param statementDescriptor Filter by statement_descriptor (optional)
                 * @param traceId Filter by trace_id (optional)
-                * @param updatedAtGte Filter were updated_at is after the given date (optional)
-                * @param updatedAtLte Filter were updated_at is before the given date (optional)
+                * @param updatedAtGte Filter where updated_at is after the given date (optional)
+                * @param updatedAtLte Filter where updated_at is before the given date (optional)
                 * @param instrumentBin Filter by Bank Identification Number (BIN). The BIN is the first 6 digits of the masked number (optional)
                 * @param instrumentAccountLast4 Filter Transactions by the last 4 digits of the bank account. The bank account last 4 are the last 4 digits of the masked number instrument_account_last4&#x3D;9444 BIN  (optional)
                 * @param instrumentBrandType Filter by card brand. Available card brand types can be found in the drop-down (optional)
@@ -1903,7 +1696,7 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -1918,7 +1711,7 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * List Transfers (asynchronously)
-            * Retrieve a list of transfers.
+            * Retrieve a list of &#x60;Transfers&#x60;.
                 * @param sort Specify key to be used for sorting the collection (optional)
                 * @param offset The number of items to skip before starting to collect the result set (optional)
                 * @param limit The numbers of items to return (optional)
@@ -1927,8 +1720,8 @@ import javax.ws.rs.core.GenericType;
                 * @param amountGt Filter by an amount greater than (optional)
                 * @param amountLte Filter by an amount less than or equal (optional)
                 * @param amountLt Filter by an amount less than (optional)
-                * @param createdAtGte Filter were created_at is after the given date (optional)
-                * @param createdAtLte Filter were created_at before the given date (optional)
+                * @param createdAtGte Filter where created_at is after the given date. (optional)
+                * @param createdAtLte Filter where created_at is before the given date. (optional)
                 * @param idempotencyId Filter by idempotency_id (optional)
                 * @param id Filter by id (optional)
                 * @param state Filter by Transaction state. (optional)
@@ -1936,8 +1729,8 @@ import javax.ws.rs.core.GenericType;
                 * @param readyToSettleAtLte Filter by ready_to_settle_at (optional)
                 * @param statementDescriptor Filter by statement_descriptor (optional)
                 * @param traceId Filter by trace_id (optional)
-                * @param updatedAtGte Filter were updated_at is after the given date (optional)
-                * @param updatedAtLte Filter were updated_at is before the given date (optional)
+                * @param updatedAtGte Filter where updated_at is after the given date (optional)
+                * @param updatedAtLte Filter where updated_at is before the given date (optional)
                 * @param instrumentBin Filter by Bank Identification Number (BIN). The BIN is the first 6 digits of the masked number (optional)
                 * @param instrumentAccountLast4 Filter Transactions by the last 4 digits of the bank account. The bank account last 4 are the last 4 digits of the masked number instrument_account_last4&#x3D;9444 BIN  (optional)
                 * @param instrumentBrandType Filter by card brand. Available card brand types can be found in the drop-down (optional)
@@ -1956,7 +1749,7 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> List of Transfer objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -1971,8 +1764,8 @@ import javax.ws.rs.core.GenericType;
             return localVarCall;
             }
         /**
-        * Build call for update
-            * @param transferId ID of object (required)
+        * Build call for updateTransfer
+            * @param transferId ID of &#x60;transfer&#x60; object. (required)
             * @param updateTransferRequest  (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
@@ -1980,14 +1773,14 @@ import javax.ws.rs.core.GenericType;
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Single transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> Single Transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call updateCall(String transferId, UpdateTransferRequest updateTransferRequest, final ApiCallback _callback) throws ApiException {
+        public okhttp3.Call updateTransferCall(String transferId, UpdateTransferRequest updateTransferRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2034,30 +1827,30 @@ import javax.ws.rs.core.GenericType;
             }
 
             @SuppressWarnings("rawtypes")
-            private okhttp3.Call updateValidateBeforeCall(String transferId, UpdateTransferRequest updateTransferRequest, final ApiCallback _callback) throws ApiException {
+            private okhttp3.Call updateTransferValidateBeforeCall(String transferId, UpdateTransferRequest updateTransferRequest, final ApiCallback _callback) throws ApiException {
             
                     // verify the required parameter 'transferId' is set
                     if (transferId == null) {
-                    throw new ApiException("Missing the required parameter 'transferId' when calling update(Async)");
+                    throw new ApiException("Missing the required parameter 'transferId' when calling updateTransfer(Async)");
                     }
             
 
-                okhttp3.Call localVarCall = updateCall(transferId, updateTransferRequest, _callback);
+                okhttp3.Call localVarCall = updateTransferCall(transferId, updateTransferRequest, _callback);
                 return localVarCall;
 
             }
 
                 /**
                 * Update a Transfer
-                * Update a transfer.
-                    * @param transferId ID of object (required)
+                * Update a &#x60;Transfer&#x60;.
+                    * @param transferId ID of &#x60;transfer&#x60; object. (required)
                     * @param updateTransferRequest  (optional)
                     * @return Transfer
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> Single transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 200 </td><td> Single Transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -2065,37 +1858,37 @@ import javax.ws.rs.core.GenericType;
                     </table>
                 */
                     public Transfer update(String transferId, UpdateTransferRequest updateTransferRequest) throws ApiException {
-                ApiResponse<Transfer> localVarResp = updateWithHttpInfo(transferId, updateTransferRequest);
+                ApiResponse<Transfer> localVarResp = updateTransferWithHttpInfo(transferId, updateTransferRequest);
                         return localVarResp.getData();
                     }
 
         /**
             * Update a Transfer
-            * Update a transfer.
-                * @param transferId ID of object (required)
+            * Update a &#x60;Transfer&#x60;.
+                * @param transferId ID of &#x60;transfer&#x60; object. (required)
                 * @param updateTransferRequest  (optional)
             * @return ApiResponse&lt;Transfer&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Single transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> Single Transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public ApiResponse<Transfer> updateWithHttpInfo(String transferId, UpdateTransferRequest updateTransferRequest) throws ApiException {
-            okhttp3.Call localVarCall = updateValidateBeforeCall(transferId, updateTransferRequest, null);
+            public ApiResponse<Transfer> updateTransferWithHttpInfo(String transferId, UpdateTransferRequest updateTransferRequest) throws ApiException {
+            okhttp3.Call localVarCall = updateTransferValidateBeforeCall(transferId, updateTransferRequest, null);
                     Type localVarReturnType = new TypeToken<Transfer>(){}.getType();
                     return localVarFinixClient.execute(localVarCall, localVarReturnType);
             }
 
         /**
             * Update a Transfer (asynchronously)
-            * Update a transfer.
-                * @param transferId ID of object (required)
+            * Update a &#x60;Transfer&#x60;.
+                * @param transferId ID of &#x60;transfer&#x60; object. (required)
                 * @param updateTransferRequest  (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
@@ -2103,16 +1896,16 @@ import javax.ws.rs.core.GenericType;
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Single transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> Single Transfer object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public okhttp3.Call updateAsync(String transferId, UpdateTransferRequest updateTransferRequest, final ApiCallback<Transfer> _callback) throws ApiException {
+            public okhttp3.Call updateTransferAsync(String transferId, UpdateTransferRequest updateTransferRequest, final ApiCallback<Transfer> _callback) throws ApiException {
 
-            okhttp3.Call localVarCall = updateValidateBeforeCall(transferId, updateTransferRequest, _callback);
+            okhttp3.Call localVarCall = updateTransferValidateBeforeCall(transferId, updateTransferRequest, _callback);
         Type localVarReturnType = new TypeToken<Transfer>(){}.getType();
             localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
             return localVarCall;

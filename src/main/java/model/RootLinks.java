@@ -24,6 +24,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import model.ApplicationLinksApplicationProfile;
+import model.ApplicationLinksSelf;
+import model.PaymentInstrumentTokenLinksVerifications;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,10 +48,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * RootLinks
+ * For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these &#x60;_links&#x60; to make your follow-up requests and quickly access relevant IDs.
  */
+@ApiModel(description = "For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-03T16:00:09.531596-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
 public class RootLinks {
   public static final String SERIALIZED_NAME_APPLICATIONS = "applications";
   @SerializedName(SERIALIZED_NAME_APPLICATIONS)
@@ -81,7 +84,7 @@ public class RootLinks {
 
   public static final String SERIALIZED_NAME_SELF = "self";
   @SerializedName(SERIALIZED_NAME_SELF)
-  private ApplicationLinksApplicationProfile self;
+  private ApplicationLinksSelf self;
 
   public static final String SERIALIZED_NAME_TRANSFERS = "transfers";
   @SerializedName(SERIALIZED_NAME_TRANSFERS)
@@ -93,7 +96,7 @@ public class RootLinks {
 
   public static final String SERIALIZED_NAME_VERIFICATIONS = "verifications";
   @SerializedName(SERIALIZED_NAME_VERIFICATIONS)
-  private ApplicationLinksApplicationProfile verifications;
+  private PaymentInstrumentTokenLinksVerifications verifications;
 
   public static final String SERIALIZED_NAME_WEBHOOKS = "webhooks";
   @SerializedName(SERIALIZED_NAME_WEBHOOKS)
@@ -263,7 +266,7 @@ public class RootLinks {
   }
 
 
-  public RootLinks self(ApplicationLinksApplicationProfile self) {
+  public RootLinks self(ApplicationLinksSelf self) {
     
     this.self = self;
     return this;
@@ -276,12 +279,12 @@ public class RootLinks {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public ApplicationLinksApplicationProfile getSelf() {
+  public ApplicationLinksSelf getSelf() {
     return self;
   }
 
 
-  public void setSelf(ApplicationLinksApplicationProfile self) {
+  public void setSelf(ApplicationLinksSelf self) {
     this.self = self;
   }
 
@@ -332,7 +335,7 @@ public class RootLinks {
   }
 
 
-  public RootLinks verifications(ApplicationLinksApplicationProfile verifications) {
+  public RootLinks verifications(PaymentInstrumentTokenLinksVerifications verifications) {
     
     this.verifications = verifications;
     return this;
@@ -345,12 +348,12 @@ public class RootLinks {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public ApplicationLinksApplicationProfile getVerifications() {
+  public PaymentInstrumentTokenLinksVerifications getVerifications() {
     return verifications;
   }
 
 
-  public void setVerifications(ApplicationLinksApplicationProfile verifications) {
+  public void setVerifications(PaymentInstrumentTokenLinksVerifications verifications) {
     this.verifications = verifications;
   }
 
@@ -535,7 +538,7 @@ public class RootLinks {
       }
       // validate the optional field `self`
       if (jsonObj.getAsJsonObject("self") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("self"));
+       ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
       }
       // validate the optional field `transfers`
       if (jsonObj.getAsJsonObject("transfers") != null) {
@@ -547,7 +550,7 @@ public class RootLinks {
       }
       // validate the optional field `verifications`
       if (jsonObj.getAsJsonObject("verifications") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("verifications"));
+       PaymentInstrumentTokenLinksVerifications.validateJsonObject(jsonObj.getAsJsonObject("verifications"));
       }
       // validate the optional field `webhooks`
       if (jsonObj.getAsJsonObject("webhooks") != null) {
