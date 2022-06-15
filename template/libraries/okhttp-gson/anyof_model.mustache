@@ -94,7 +94,8 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
                     // deserialize {{{.}}}
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        {{.}}.validateJsonObject(jsonObject);
+                        {{.}}.
+                        validateJsonObject(jsonObject);
                         log.log(Level.FINER, "Input data matches schema '{{{.}}}'");
                         {{classname}} ret = new {{classname}}();
                         ret.setActualInstance(adapter{{.}}.fromJsonTree(jsonObject));
@@ -202,7 +203,8 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
     {{#anyOf}}
     // validate the json string with {{{.}}}
     try {
-      {{{.}}}.validateJsonObject(jsonObj);
+      {{{.}}}.
+        validateJsonObject(jsonObj);
       return; // return earlier as at least one schema is valid with respect to the Json object
       //validCount++;
     } catch (Exception e) {

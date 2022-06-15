@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import model.ExternalLink;
 
 import com.google.gson.Gson;
@@ -50,18 +52,26 @@ import invoker.JSON;
  */
 @ApiModel(description = "`external_links` resources.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T15:40:46.516755-05:00[America/Chicago]")
 public class ExternalLinksListPageEmbedded {
   public static final String SERIALIZED_NAME_EXTERNAL_LINKS = "external_links";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_LINKS)
-  private ExternalLink externalLinks;
+  private List<ExternalLink> externalLinks = null;
 
   public ExternalLinksListPageEmbedded() { 
   }
 
-  public ExternalLinksListPageEmbedded externalLinks(ExternalLink externalLinks) {
+  public ExternalLinksListPageEmbedded externalLinks(List<ExternalLink> externalLinks) {
     
     this.externalLinks = externalLinks;
+    return this;
+  }
+
+  public ExternalLinksListPageEmbedded addExternalLinksItem(ExternalLink externalLinksItem) {
+    if (this.externalLinks == null) {
+      this.externalLinks = new ArrayList<>();
+    }
+    this.externalLinks.add(externalLinksItem);
     return this;
   }
 
@@ -72,12 +82,12 @@ public class ExternalLinksListPageEmbedded {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ExternalLink getExternalLinks() {
+  public List<ExternalLink> getExternalLinks() {
     return externalLinks;
   }
 
 
-  public void setExternalLinks(ExternalLink externalLinks) {
+  public void setExternalLinks(List<ExternalLink> externalLinks) {
     this.externalLinks = externalLinks;
   }
 
@@ -157,9 +167,18 @@ public class ExternalLinksListPageEmbedded {
         }
       }
       */
-      // validate the optional field `external_links`
-      if (jsonObj.getAsJsonObject("external_links") != null) {
-       ExternalLink.validateJsonObject(jsonObj.getAsJsonObject("external_links"));
+      JsonArray jsonArrayexternalLinks = jsonObj.getAsJsonArray("external_links");
+      if (jsonArrayexternalLinks != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("external_links").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `external_links` to be an array in the JSON string but got `%s`", jsonObj.get("external_links").toString()));
+        }
+
+        // validate the optional field `external_links` (array)
+        for (int i = 0; i < jsonArrayexternalLinks.size(); i++) {
+          ExternalLink.validateJsonObject(jsonArrayexternalLinks.get(i).getAsJsonObject());
+        }
+          ;
       }
   }
 

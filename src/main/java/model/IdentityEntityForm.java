@@ -54,7 +54,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Information needed to verify the identity of the entity.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class IdentityEntityForm {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -1073,9 +1073,9 @@ public class IdentityEntityForm {
         throw new IllegalArgumentException(String.format("Expected the field `amex_mid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amex_mid").toString()));
       }
       // validate the optional field `business_address`
-      if (jsonObj.getAsJsonObject("business_address") != null) {
-       IdentityEntityFormBusinessAddress.validateJsonObject(jsonObj.getAsJsonObject("business_address"));
-      }
+     // if (jsonObj.getAsJsonObject("business_address") != null) {
+       //IdentityEntityFormBusinessAddress.validateJsonObject(jsonObj.getAsJsonObject("business_address"));
+     // }
       if (jsonObj.get("business_name") != null && !jsonObj.get("business_name").isJsonNull()  && !jsonObj.get("business_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `business_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("business_name").toString()));
       }
@@ -1095,9 +1095,9 @@ public class IdentityEntityForm {
         throw new IllegalArgumentException(String.format("Expected the field `discover_mid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("discover_mid").toString()));
       }
       // validate the optional field `dob`
-      if (jsonObj.getAsJsonObject("dob") != null) {
-       IdentityEntityFormDob.validateJsonObject(jsonObj.getAsJsonObject("dob"));
-      }
+     // if (jsonObj.getAsJsonObject("dob") != null) {
+       //IdentityEntityFormDob.validateJsonObject(jsonObj.getAsJsonObject("dob"));
+     // }
       if (jsonObj.get("doing_business_as") != null && !jsonObj.get("doing_business_as").isJsonNull()  && !jsonObj.get("doing_business_as").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `doing_business_as` to be a primitive type in the JSON string but got `%s`", jsonObj.get("doing_business_as").toString()));
       }
@@ -1108,9 +1108,9 @@ public class IdentityEntityForm {
         throw new IllegalArgumentException(String.format("Expected the field `first_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("first_name").toString()));
       }
       // validate the optional field `incorporation_date`
-      if (jsonObj.getAsJsonObject("incorporation_date") != null) {
-       IdentityEntityFormIncorporationDate.validateJsonObject(jsonObj.getAsJsonObject("incorporation_date"));
-      }
+     // if (jsonObj.getAsJsonObject("incorporation_date") != null) {
+       //IdentityEntityFormIncorporationDate.validateJsonObject(jsonObj.getAsJsonObject("incorporation_date"));
+     // }
       if (jsonObj.get("last_name") != null && !jsonObj.get("last_name").isJsonNull()  && !jsonObj.get("last_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `last_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_name").toString()));
       }
@@ -1121,9 +1121,9 @@ public class IdentityEntityForm {
         throw new IllegalArgumentException(String.format("Expected the field `ownership_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ownership_type").toString()));
       }
       // validate the optional field `personal_address`
-      if (jsonObj.getAsJsonObject("personal_address") != null) {
-       Address.validateJsonObject(jsonObj.getAsJsonObject("personal_address"));
-      }
+     // if (jsonObj.getAsJsonObject("personal_address") != null) {
+       //Address.validateJsonObject(jsonObj.getAsJsonObject("personal_address"));
+     // }
       if (jsonObj.get("phone") != null && !jsonObj.get("phone").isJsonNull()  && !jsonObj.get("phone").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `phone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phone").toString()));
       }

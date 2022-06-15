@@ -50,7 +50,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Details the page that's returned.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T15:40:46.516755-05:00[America/Chicago]")
 public class ExternalLinksListPage {
   public static final String SERIALIZED_NAME_COUNT = "count";
   @SerializedName(SERIALIZED_NAME_COUNT)
@@ -248,9 +248,9 @@ public class ExternalLinksListPage {
       }
       */
       // validate the optional field `_embedded`
-      if (jsonObj.getAsJsonObject("_embedded") != null) {
-       ExternalLinksListPageEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
-      }
+     // if (jsonObj.getAsJsonObject("_embedded") != null) {
+       //ExternalLinksListPageEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
+     // }
   }
 
 

@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
-import model.RiskProfileRulesListEmbeddedRiskProfileRules;
+import model.RiskProfileRulesListEmbeddedRiskProfileRulesInner;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,22 +52,22 @@ import invoker.JSON;
  * RiskProfileRulesListEmbedded
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class RiskProfileRulesListEmbedded {
   public static final String SERIALIZED_NAME_RISK_PROFILE_RULES = "risk_profile_rules";
   @SerializedName(SERIALIZED_NAME_RISK_PROFILE_RULES)
-  private Set<RiskProfileRulesListEmbeddedRiskProfileRules> riskProfileRules = null;
+  private Set<RiskProfileRulesListEmbeddedRiskProfileRulesInner> riskProfileRules = null;
 
   public RiskProfileRulesListEmbedded() { 
   }
 
-  public RiskProfileRulesListEmbedded riskProfileRules(Set<RiskProfileRulesListEmbeddedRiskProfileRules> riskProfileRules) {
+  public RiskProfileRulesListEmbedded riskProfileRules(Set<RiskProfileRulesListEmbeddedRiskProfileRulesInner> riskProfileRules) {
     
     this.riskProfileRules = riskProfileRules;
     return this;
   }
 
-  public RiskProfileRulesListEmbedded addRiskProfileRulesItem(RiskProfileRulesListEmbeddedRiskProfileRules riskProfileRulesItem) {
+  public RiskProfileRulesListEmbedded addRiskProfileRulesItem(RiskProfileRulesListEmbeddedRiskProfileRulesInner riskProfileRulesItem) {
     if (this.riskProfileRules == null) {
       this.riskProfileRules = new LinkedHashSet<>();
     }
@@ -82,12 +82,12 @@ public class RiskProfileRulesListEmbedded {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Set<RiskProfileRulesListEmbeddedRiskProfileRules> getRiskProfileRules() {
+  public Set<RiskProfileRulesListEmbeddedRiskProfileRulesInner> getRiskProfileRules() {
     return riskProfileRules;
   }
 
 
-  public void setRiskProfileRules(Set<RiskProfileRulesListEmbeddedRiskProfileRules> riskProfileRules) {
+  public void setRiskProfileRules(Set<RiskProfileRulesListEmbeddedRiskProfileRulesInner> riskProfileRules) {
     this.riskProfileRules = riskProfileRules;
   }
 
@@ -176,7 +176,7 @@ public class RiskProfileRulesListEmbedded {
 
         // validate the optional field `risk_profile_rules` (array)
         for (int i = 0; i < jsonArrayriskProfileRules.size(); i++) {
-          RiskProfileRulesListEmbeddedRiskProfileRules.validateJsonObject(jsonArrayriskProfileRules.get(i).getAsJsonObject());
+          RiskProfileRulesListEmbeddedRiskProfileRulesInner.validateJsonObject(jsonArrayriskProfileRules.get(i).getAsJsonObject());
         }
           ;
       }

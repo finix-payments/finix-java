@@ -49,7 +49,7 @@ import invoker.JSON;
  * PaymentInstrumentUpdatesListEmbeddedLinks
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-14T15:32:10.087418-05:00[America/Chicago]")
 public class PaymentInstrumentUpdatesListEmbeddedLinks {
   public static final String SERIALIZED_NAME_APPLICATION = "application";
   @SerializedName(SERIALIZED_NAME_APPLICATION)
@@ -226,17 +226,17 @@ public class PaymentInstrumentUpdatesListEmbeddedLinks {
         }
       }*/
       // validate the optional field `application`
-      if (jsonObj.getAsJsonObject("application") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("application"));
-      }
+     // if (jsonObj.getAsJsonObject("application") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("application"));
+     // }
       // validate the optional field `payment_instrument`
-      if (jsonObj.getAsJsonObject("payment_instrument") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("payment_instrument"));
-      }
+     // if (jsonObj.getAsJsonObject("payment_instrument") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("payment_instrument"));
+     // }
       // validate the optional field `self`
-      if (jsonObj.getAsJsonObject("self") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("self"));
-      }
+     // if (jsonObj.getAsJsonObject("self") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("self"));
+     // }
   }
 
 

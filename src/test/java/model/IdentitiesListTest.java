@@ -21,7 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.FeeProfilesListPage;
+import model.ApplicationProfilesListPage;
 import model.IdentitiesListEmbedded;
 import model.ListLinks;
 import org.junit.jupiter.api.Disabled;

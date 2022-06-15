@@ -55,7 +55,7 @@ import invoker.JSON;
  * PaymentInstrumentOther
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-14T11:20:42.244239-05:00[America/Chicago]")
 public class PaymentInstrumentOther {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -682,9 +682,9 @@ public class PaymentInstrumentOther {
         throw new IllegalArgumentException(String.format("Expected the field `payload_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payload_type").toString()));
       }
       // validate the optional field `_links`
-      if (jsonObj.getAsJsonObject("_links") != null) {
-       PaymentInstrumentBankAccountLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-      }
+     // if (jsonObj.getAsJsonObject("_links") != null) {
+       //PaymentInstrumentBankAccountLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+     // }
   }
 
 

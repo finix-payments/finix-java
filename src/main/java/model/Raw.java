@@ -51,7 +51,7 @@ import com.google.gson.JsonParseException;
 import invoker.JSON;
 
 @lombok.Builder
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-14T17:44:07.062584-05:00[America/Chicago]")
 public class Raw extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(Raw.class.getName());
 
@@ -99,6 +99,7 @@ public class Raw extends AbstractOpenApiSchema {
                     // deserialize Object
                     try {
                         // validate the JSON object to see if any exception is thrown
+                        //Object.
                         validateJsonObject(jsonObject);
                         log.log(Level.FINER, "Input data matches schema 'Object'");
                         Raw ret = new Raw();
@@ -112,6 +113,7 @@ public class Raw extends AbstractOpenApiSchema {
                     // deserialize String
                     try {
                         // validate the JSON object to see if any exception is thrown
+                        // String.
                         validateJsonObject(jsonObject);
                         log.log(Level.FINER, "Input data matches schema 'String'");
                         Raw ret = new Raw();
@@ -226,7 +228,8 @@ public class Raw extends AbstractOpenApiSchema {
     int validCount = 0;
     // validate the json string with Object
     try {
-      validateJsonObject(jsonObj);
+      //Object.
+        validateJsonObject(jsonObj);
       return; // return earlier as at least one schema is valid with respect to the Json object
       //validCount++;
     } catch (Exception e) {
@@ -234,7 +237,8 @@ public class Raw extends AbstractOpenApiSchema {
     }
     // validate the json string with String
     try {
-      validateJsonObject(jsonObj);
+        //String.
+        validateJsonObject(jsonObj);
       return; // return earlier as at least one schema is valid with respect to the Json object
       //validCount++;
     } catch (Exception e) {

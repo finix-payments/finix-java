@@ -14,7 +14,6 @@
 package invoker;
 
 import api.*;
-import model.FinixList;
 import okhttp3.*;
 import okhttp3.internal.http.HttpMethod;
 import okhttp3.internal.tls.OkHostnameVerifier;
@@ -92,7 +91,6 @@ public class FinixClient {
     public MerchantsApi Merchants;
     public SubscriptionSchedulesApi SubscriptionSchedules;
     public SettlementsApi Settlements;
-    public FinixList finixList;
     private OkHttpClient httpClient;
     private JSON json;
     private HttpBasicAuth httpBasicAuth = new HttpBasicAuth();
@@ -114,7 +112,6 @@ public class FinixClient {
         if(environment.equals(Environment.SANDBOX)){
         this.basePath = "https://finix.sandbox-payments-api.com";}else{
         this.basePath = "https://finix.sandbox-payments-api1.com";}
-        finixList = new FinixList(this);
         Transfers = new TransfersApi(this);
         PaymentInstrument = new PaymentInstrumentsApi(this);
         Authorization = new AuthorizationsApi(this);
@@ -127,7 +124,6 @@ public class FinixClient {
         Merchants = new MerchantsApi(this);
         SubscriptionSchedules = new SubscriptionSchedulesApi(this);
         Settlements = new SettlementsApi(this);
-
     }
 
 

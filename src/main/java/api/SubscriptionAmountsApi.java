@@ -28,6 +28,10 @@ import java.io.IOException;
 
 
 import model.CreateSubscriptionAmountRequest;
+import model.Error401Unauthorized;
+import model.Error403ForbiddenList;
+import model.Error404NotFoundList;
+import model.Error406NotAcceptable;
 import model.SubscriptionAmount;
 import model.SubscriptionAmountList;
 import model.UpdateSubscriptionAmountRequest;
@@ -87,6 +91,10 @@ import javax.ws.rs.core.GenericType;
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
                     <tr><td> 200 </td><td> Single subscription_amount object </td><td>  -  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
         public okhttp3.Call createSubscriptionAmountsCall(String subscriptionScheduleId, CreateSubscriptionAmountRequest createSubscriptionAmountRequest, final ApiCallback _callback) throws ApiException {
@@ -116,7 +124,7 @@ import javax.ws.rs.core.GenericType;
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
             final String[] localVarAccepts = {
-        "application/json"
+        "application/hal+json"
             };
             final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
             if (localVarAccept != null) {
@@ -124,7 +132,7 @@ import javax.ws.rs.core.GenericType;
             }
 
             final String[] localVarContentTypes = {
-        "application/json"
+        "application/hal+json"
             };
             final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
             if (localVarContentType != null) {
@@ -160,6 +168,10 @@ import javax.ws.rs.core.GenericType;
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
                             <tr><td> 200 </td><td> Single subscription_amount object </td><td>  -  </td></tr>
+                            <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     </table>
                 */
                     public SubscriptionAmount lcreate(String subscriptionScheduleId, CreateSubscriptionAmountRequest createSubscriptionAmountRequest) throws ApiException {
@@ -178,6 +190,10 @@ import javax.ws.rs.core.GenericType;
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
                         <tr><td> 200 </td><td> Single subscription_amount object </td><td>  -  </td></tr>
+                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
             public ApiResponse<SubscriptionAmount> createSubscriptionAmountsWithHttpInfo(String subscriptionScheduleId, CreateSubscriptionAmountRequest createSubscriptionAmountRequest) throws ApiException {
@@ -198,6 +214,10 @@ import javax.ws.rs.core.GenericType;
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
                         <tr><td> 200 </td><td> Single subscription_amount object </td><td>  -  </td></tr>
+                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
             public okhttp3.Call createSubscriptionAmountsAsync(String subscriptionScheduleId, CreateSubscriptionAmountRequest createSubscriptionAmountRequest, final ApiCallback<SubscriptionAmount> _callback) throws ApiException {
@@ -217,6 +237,10 @@ import javax.ws.rs.core.GenericType;
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
                     <tr><td> 204 </td><td> No content </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
         public okhttp3.Call deleteSubscriptionAmountCall(String subscriptionScheduleId, final ApiCallback _callback) throws ApiException {
@@ -246,7 +270,7 @@ import javax.ws.rs.core.GenericType;
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
             final String[] localVarAccepts = {
-        
+        "application/hal+json"
             };
             final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
             if (localVarAccept != null) {
@@ -288,6 +312,10 @@ import javax.ws.rs.core.GenericType;
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
                             <tr><td> 204 </td><td> No content </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     </table>
                 */
                     public void deleteSubscriptionAmount(String subscriptionScheduleId) throws ApiException {
@@ -304,6 +332,10 @@ import javax.ws.rs.core.GenericType;
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
                         <tr><td> 204 </td><td> No content </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
             public ApiResponse<Void> deleteSubscriptionAmountWithHttpInfo(String subscriptionScheduleId) throws ApiException {
@@ -322,6 +354,10 @@ import javax.ws.rs.core.GenericType;
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
                         <tr><td> 204 </td><td> No content </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
             public okhttp3.Call deleteSubscriptionAmountAsync(String subscriptionScheduleId, final ApiCallback<Void> _callback) throws ApiException {
@@ -340,6 +376,10 @@ import javax.ws.rs.core.GenericType;
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
                     <tr><td> 200 </td><td> Single subscription_amount object </td><td>  -  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
         public okhttp3.Call getSubscriptionAmountCall(String subscriptionAmountId, final ApiCallback _callback) throws ApiException {
@@ -369,7 +409,7 @@ import javax.ws.rs.core.GenericType;
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
             final String[] localVarAccepts = {
-        "application/json"
+        "application/hal+json"
             };
             final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
             if (localVarAccept != null) {
@@ -412,6 +452,10 @@ import javax.ws.rs.core.GenericType;
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
                             <tr><td> 200 </td><td> Single subscription_amount object </td><td>  -  </td></tr>
+                            <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     </table>
                 */
                     public SubscriptionAmount get(String subscriptionAmountId) throws ApiException {
@@ -429,6 +473,10 @@ import javax.ws.rs.core.GenericType;
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
                         <tr><td> 200 </td><td> Single subscription_amount object </td><td>  -  </td></tr>
+                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
             public ApiResponse<SubscriptionAmount> getSubscriptionAmountWithHttpInfo(String subscriptionAmountId) throws ApiException {
@@ -448,6 +496,10 @@ import javax.ws.rs.core.GenericType;
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
                         <tr><td> 200 </td><td> Single subscription_amount object </td><td>  -  </td></tr>
+                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
             public okhttp3.Call getSubscriptionAmountAsync(String subscriptionAmountId, final ApiCallback<SubscriptionAmount> _callback) throws ApiException {
@@ -467,6 +519,10 @@ import javax.ws.rs.core.GenericType;
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
                     <tr><td> 200 </td><td> List of subscription_amount objects </td><td>  -  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  -  </td></tr>
             </table>
         */
         public okhttp3.Call listSubscriptionAmountCall(String subscriptionScheduleId, final ApiCallback _callback) throws ApiException {
@@ -496,7 +552,7 @@ import javax.ws.rs.core.GenericType;
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
             final String[] localVarAccepts = {
-        "application/json"
+        "application/hal+json"
             };
             final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
             if (localVarAccept != null) {
@@ -539,6 +595,10 @@ import javax.ws.rs.core.GenericType;
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
                             <tr><td> 200 </td><td> List of subscription_amount objects </td><td>  -  </td></tr>
+                            <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 406 </td><td> Not Acceptable </td><td>  -  </td></tr>
                     </table>
                 */
                     public SubscriptionAmountList listBySubscriptionSchedule(String subscriptionScheduleId) throws ApiException {
@@ -556,6 +616,10 @@ import javax.ws.rs.core.GenericType;
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
                         <tr><td> 200 </td><td> List of subscription_amount objects </td><td>  -  </td></tr>
+                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 406 </td><td> Not Acceptable </td><td>  -  </td></tr>
                 </table>
             */
             public ApiResponse<SubscriptionAmountList> listSubscriptionAmountWithHttpInfo(String subscriptionScheduleId) throws ApiException {
@@ -575,6 +639,10 @@ import javax.ws.rs.core.GenericType;
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
                         <tr><td> 200 </td><td> List of subscription_amount objects </td><td>  -  </td></tr>
+                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 406 </td><td> Not Acceptable </td><td>  -  </td></tr>
                 </table>
             */
             public okhttp3.Call listSubscriptionAmountAsync(String subscriptionScheduleId, final ApiCallback<SubscriptionAmountList> _callback) throws ApiException {
@@ -595,6 +663,10 @@ import javax.ws.rs.core.GenericType;
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
                     <tr><td> 200 </td><td> Single subscription_amount object </td><td>  -  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
         public okhttp3.Call putSubscriptionAmountCall(String subscriptionAmountId, UpdateSubscriptionAmountRequest updateSubscriptionAmountRequest, final ApiCallback _callback) throws ApiException {
@@ -624,7 +696,7 @@ import javax.ws.rs.core.GenericType;
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
             final String[] localVarAccepts = {
-        "application/json"
+        "application/hal+json"
             };
             final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
             if (localVarAccept != null) {
@@ -632,7 +704,7 @@ import javax.ws.rs.core.GenericType;
             }
 
             final String[] localVarContentTypes = {
-        "application/json"
+        "application/hal+json"
             };
             final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
             if (localVarContentType != null) {
@@ -668,6 +740,10 @@ import javax.ws.rs.core.GenericType;
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
                             <tr><td> 200 </td><td> Single subscription_amount object </td><td>  -  </td></tr>
+                            <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                            <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     </table>
                 */
                     public SubscriptionAmount update(String subscriptionAmountId, UpdateSubscriptionAmountRequest updateSubscriptionAmountRequest) throws ApiException {
@@ -686,6 +762,10 @@ import javax.ws.rs.core.GenericType;
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
                         <tr><td> 200 </td><td> Single subscription_amount object </td><td>  -  </td></tr>
+                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
             public ApiResponse<SubscriptionAmount> putSubscriptionAmountWithHttpInfo(String subscriptionAmountId, UpdateSubscriptionAmountRequest updateSubscriptionAmountRequest) throws ApiException {
@@ -706,6 +786,10 @@ import javax.ws.rs.core.GenericType;
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
                         <tr><td> 200 </td><td> Single subscription_amount object </td><td>  -  </td></tr>
+                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
             public okhttp3.Call putSubscriptionAmountAsync(String subscriptionAmountId, UpdateSubscriptionAmountRequest updateSubscriptionAmountRequest, final ApiCallback<SubscriptionAmount> _callback) throws ApiException {

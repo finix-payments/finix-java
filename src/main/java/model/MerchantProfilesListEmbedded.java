@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
-import model.MerchantProfilesListEmbeddedMerchantProfiles;
+import model.MerchantProfilesListEmbeddedMerchantProfilesInner;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,22 +52,22 @@ import invoker.JSON;
  * MerchantProfilesListEmbedded
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class MerchantProfilesListEmbedded {
   public static final String SERIALIZED_NAME_MERCHANT_PROFILES = "merchant_profiles";
   @SerializedName(SERIALIZED_NAME_MERCHANT_PROFILES)
-  private Set<MerchantProfilesListEmbeddedMerchantProfiles> merchantProfiles = null;
+  private Set<MerchantProfilesListEmbeddedMerchantProfilesInner> merchantProfiles = null;
 
   public MerchantProfilesListEmbedded() { 
   }
 
-  public MerchantProfilesListEmbedded merchantProfiles(Set<MerchantProfilesListEmbeddedMerchantProfiles> merchantProfiles) {
+  public MerchantProfilesListEmbedded merchantProfiles(Set<MerchantProfilesListEmbeddedMerchantProfilesInner> merchantProfiles) {
     
     this.merchantProfiles = merchantProfiles;
     return this;
   }
 
-  public MerchantProfilesListEmbedded addMerchantProfilesItem(MerchantProfilesListEmbeddedMerchantProfiles merchantProfilesItem) {
+  public MerchantProfilesListEmbedded addMerchantProfilesItem(MerchantProfilesListEmbeddedMerchantProfilesInner merchantProfilesItem) {
     if (this.merchantProfiles == null) {
       this.merchantProfiles = new LinkedHashSet<>();
     }
@@ -82,12 +82,12 @@ public class MerchantProfilesListEmbedded {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Set<MerchantProfilesListEmbeddedMerchantProfiles> getMerchantProfiles() {
+  public Set<MerchantProfilesListEmbeddedMerchantProfilesInner> getMerchantProfiles() {
     return merchantProfiles;
   }
 
 
-  public void setMerchantProfiles(Set<MerchantProfilesListEmbeddedMerchantProfiles> merchantProfiles) {
+  public void setMerchantProfiles(Set<MerchantProfilesListEmbeddedMerchantProfilesInner> merchantProfiles) {
     this.merchantProfiles = merchantProfiles;
   }
 
@@ -176,7 +176,7 @@ public class MerchantProfilesListEmbedded {
 
         // validate the optional field `merchant_profiles` (array)
         for (int i = 0; i < jsonArraymerchantProfiles.size(); i++) {
-          MerchantProfilesListEmbeddedMerchantProfiles.validateJsonObject(jsonArraymerchantProfiles.get(i).getAsJsonObject());
+          MerchantProfilesListEmbeddedMerchantProfilesInner.validateJsonObject(jsonArraymerchantProfiles.get(i).getAsJsonObject());
         }
           ;
       }

@@ -23,9 +23,9 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import model.ApplicationProfilesListPage;
+import model.DisputeEvidenceLinks;
 import model.DisputeEvidenceListEmbedded;
-import model.DisputeEvidenceListLinks;
-import model.DisputeEvidenceListPage;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,11 +51,11 @@ import invoker.JSON;
  * DisputeEvidenceList
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class DisputeEvidenceList {
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
-  private DisputeEvidenceListPage page;
+  private ApplicationProfilesListPage page;
 
   public static final String SERIALIZED_NAME_EMBEDDED = "_embedded";
   @SerializedName(SERIALIZED_NAME_EMBEDDED)
@@ -63,12 +63,12 @@ public class DisputeEvidenceList {
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private DisputeEvidenceListLinks links;
+  private DisputeEvidenceLinks links;
 
   public DisputeEvidenceList() { 
   }
 
-  public DisputeEvidenceList page(DisputeEvidenceListPage page) {
+  public DisputeEvidenceList page(ApplicationProfilesListPage page) {
     
     this.page = page;
     return this;
@@ -78,15 +78,15 @@ public class DisputeEvidenceList {
    * Get page
    * @return page
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-  public DisputeEvidenceListPage getPage() {
+  public ApplicationProfilesListPage getPage() {
     return page;
   }
 
 
-  public void setPage(DisputeEvidenceListPage page) {
+  public void setPage(ApplicationProfilesListPage page) {
     this.page = page;
   }
 
@@ -114,7 +114,7 @@ public class DisputeEvidenceList {
   }
 
 
-  public DisputeEvidenceList links(DisputeEvidenceListLinks links) {
+  public DisputeEvidenceList links(DisputeEvidenceLinks links) {
     
     this.links = links;
     return this;
@@ -124,15 +124,15 @@ public class DisputeEvidenceList {
    * Get links
    * @return links
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-  public DisputeEvidenceListLinks getLinks() {
+  public DisputeEvidenceLinks getLinks() {
     return links;
   }
 
 
-  public void setLinks(DisputeEvidenceListLinks links) {
+  public void setLinks(DisputeEvidenceLinks links) {
     this.links = links;
   }
 
@@ -192,8 +192,6 @@ public class DisputeEvidenceList {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("page");
-    openapiRequiredFields.add("_links");
   }
 
  /**
@@ -220,25 +218,18 @@ public class DisputeEvidenceList {
         }
       }
       */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : DisputeEvidenceList.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       // validate the optional field `page`
-      if (jsonObj.getAsJsonObject("page") != null) {
-       DisputeEvidenceListPage.validateJsonObject(jsonObj.getAsJsonObject("page"));
-      }
+     // if (jsonObj.getAsJsonObject("page") != null) {
+       //ApplicationProfilesListPage.validateJsonObject(jsonObj.getAsJsonObject("page"));
+     // }
       // validate the optional field `_embedded`
-      if (jsonObj.getAsJsonObject("_embedded") != null) {
-       DisputeEvidenceListEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
-      }
+     // if (jsonObj.getAsJsonObject("_embedded") != null) {
+       //DisputeEvidenceListEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
+     // }
       // validate the optional field `_links`
-      if (jsonObj.getAsJsonObject("_links") != null) {
-       DisputeEvidenceListLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-      }
+     // if (jsonObj.getAsJsonObject("_links") != null) {
+       //DisputeEvidenceLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+     // }
   }
 
 

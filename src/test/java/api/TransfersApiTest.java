@@ -88,11 +88,24 @@ public class TransfersApiTest {
         Transfer transfer = finixClient.Transfers.create(createTransferRequest);
         assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",transfer.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + transfer.getSource());
     }
-
+    @Test
+    @DisplayName("Debit a Bank Account (ie eCheck)")
+    public void createDebitBankAccountTest() throws ApiException{
+        CreateTransferRequest createTransferRequest = CreateTransferRequest.builder()
+                .fee(603l)
+                .currency(Currency.USD)
+                .merchant("MUeDVrf2ahuKc9Eg5TeZugvs")
+                .tags(Map.of("order_number", "21DFASJSAKAS"))
+                .source("PIk3AG7aUSCyNgYpDwCKkwDC")
+                .amount(6031l)
+                .processor("DUMMY_V1")
+                .build();
+        Transfer transfer = finixClient.Transfers.create(createTransferRequest);
+    }
     @Test
     @DisplayName("Create a 3D Secure Sale")
     public void create3DSecureSaleTest() throws ApiException{
-        CreateAuthorizationRequest createAuthorizationRequest = CreateAuthorizationRequest.builder()
+        CreateTransferRequest createTransferRequest = CreateTransferRequest.builder()
                 .merchant("MUeDVrf2ahuKc9Eg5TeZugvs")
                 ._3dSecureAuthentication(CreateAuthorizationRequest3dSecureAuthentication.builder()
                         .electronicCommerceIndicator("AUTHENTICATED")
@@ -104,17 +117,70 @@ public class TransfersApiTest {
                 .currency(Currency.USD)
                 .amount(92169L)
                 .build();
-        /*CreateTransferRequest createTransferRequest = CreateTransferRequest.builder()
-                .merchant("MUeDVrf2ahuKc9Eg5TeZugvs")
-                .currency(Currency.USD)
-                .amount(Long.valueOf(662154))
-                .source("PIe2YvpcjvoVJ6PzoRPBK137")
-                .tags(Map.of( "test", "sale"))
-                .build();
-        Transfer transfer = finixClient.Transfers.create(createAuthorizationRequest);*/
-        // assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",transfer.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + transfer.getSource());
-        //System.out.println(transfer.getMerchantIdentity());
+        Transfer transfer = finixClient.Transfers.create(createTransferRequest);
+       // System.out.println(transfer.toJson());
     }
+    @Test
+    @DisplayName("Create a Sale with Level 3 Processing")
+    public void createSaleLevel3Processing() throws ApiException {
+        List<AdditionalPurchaseDataItemDataInner> additionalPurchaseDataItemDataList = new ArrayList<>();
+        additionalPurchaseDataItemDataList.add(AdditionalPurchaseDataItemDataInner.builder()
+                .amountIncludingSalesTax(500)
+                .unitOfMeasure("BX")
+                .merchantProductCode("1149611")
+                .amountExcludingSalesTax(400)
+                .costPerUnit(500)
+                .commodityCode("175-62-20")
+                .itemDescription(String.valueOf(100))
+                .itemDescription("printing paper")
+                .quantity(1)
+                .build());
+        additionalPurchaseDataItemDataList.add(AdditionalPurchaseDataItemDataInner.builder()
+                .amountIncludingSalesTax(500)
+                .unitOfMeasure("CTN")
+                .merchantProductCode("2149612")
+                .amountExcludingSalesTax(400)
+                .costPerUnit(500)
+                .commodityCode("207-72-54")
+                .itemDescription(String.valueOf(0))
+                .itemDescription("printing ink")
+                .quantity(1)
+                .build());
+        CreateTransferRequest createTransferRequest = CreateTransferRequest.builder()
+                .merchant("MUeDVrf2ahuKc9Eg5TeZugvs")
+                .source("PIe2YvpcjvoVJ6PzoRPBK137")
+                .additionalPurchaseData(AdditionalPurchaseData.builder()
+                        .itemData(additionalPurchaseDataItemDataList)
+                        .discountAmount(100)
+                        .customerReferenceNumber("321xyz")
+                        .shippingAmount(100)
+                        .customsDutyAmount(10)
+                        .build())
+                .tags(Map.of("test", "sale"))
+                .currency(Currency.USD)
+                .amount(1000l)
+                .build();
+        Transfer resposne = finixClient.Transfers.create(createTransferRequest);
+    }
+    @Test
+    @DisplayName("Create a Sale with Level 2 Processing")
+    public void createSaleLebel2ProcessingTest() throws ApiException {
+        CreateTransferRequest createTransferRequest = CreateTransferRequest.builder()
+                .merchant("MUeDVrf2ahuKc9Eg5TeZugvs")
+                .source("PIe2YvpcjvoVJ6PzoRPBK137")
+                .additionalPurchaseData(AdditionalPurchaseData.builder()
+                        .customerReferenceNumber("321xyz")
+                        .salesTax(200)
+                        .build())
+                .tags(Map.of("test", "sale"))
+                .currency(Currency.USD)
+                .amount(1000l)
+                .build();
+        Transfer transfer = finixClient.Transfers.create(createTransferRequest);
+        //System.out.println(transfer.toJson());
+    }
+    /*@Test
+    @DisplayName("lvl")*/
     /**
      * Refund or Reverse a Transfer
      *
@@ -132,8 +198,6 @@ public class TransfersApiTest {
                 .build();
         Transfer transfer = finixClient.Transfers.createTransferReversal(transferId, createReversalRequest);
         assertEquals(Long.valueOf(100),transfer.getAmount(),()->"Should return " + "100" + " but returns " + transfer.getAmount());
-        // System.out.println(transfer.getState());
-        // TODO: test validations
     }
 
     /**
@@ -189,7 +253,7 @@ public class TransfersApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-   // @Test
+    // @Test
     public void listMerchantTransfersTest() throws ApiException {
         String merchantId = null;
         Integer limit = null;
@@ -208,7 +272,7 @@ public class TransfersApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-   // @Test
+    // @Test
     public void listPaymentInstrumentTransfersTest() throws ApiException {
         String paymentInstrumentId = null;
         Integer limit = null;
@@ -280,7 +344,7 @@ public class TransfersApiTest {
         String type = null;
         TransfersList transfersList = finixClient.Transfers.list(sort, offset, limit, amount, amountGte, amountGt, amountLte, amountLt, createdAtGte, createdAtLte, idempotencyId, id, state, readyToSettleAtGte, readyToSettleAtLte, statementDescriptor, traceId, updatedAtGte, updatedAtLte, instrumentBin, instrumentAccountLast4, instrumentBrandType, merchantIdentityId, merchantIdentityName, instrumentName, instrumentType, merchantId, merchantMid, instrumentCardLast4, merchantProcessorId, type);
         assertEquals(20,transfersList.getPage().getLimit(),()->"Should return " + "20" + " but returns " + transfersList.getPage().getLimit());
-}
+    }
 
     /**
      * Update a Transfer

@@ -50,7 +50,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "The amount and currency of this `Subsciption Amount`.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class SubscriptionAmountFeeAmountData {
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
@@ -77,8 +77,8 @@ public class SubscriptionAmountFeeAmountData {
    * A positive integer in cents representing how much to charge on a recurring basis
    * @return amount
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A positive integer in cents representing how much to charge on a recurring basis")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A positive integer in cents representing how much to charge on a recurring basis")
 
   public Integer getAmount() {
     return amount;
@@ -100,8 +100,8 @@ public class SubscriptionAmountFeeAmountData {
    * Get currency
    * @return currency
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Currency getCurrency() {
     return currency;
@@ -191,8 +191,6 @@ public class SubscriptionAmountFeeAmountData {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("amount");
-    openapiRequiredFields.add("currency");
   }
 
  /**
@@ -219,13 +217,6 @@ public class SubscriptionAmountFeeAmountData {
         }
       }
       */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : SubscriptionAmountFeeAmountData.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       if (jsonObj.get("label") != null && !jsonObj.get("label").isJsonNull()  && !jsonObj.get("label").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `label` to be a primitive type in the JSON string but got `%s`", jsonObj.get("label").toString()));
       }

@@ -54,7 +54,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Underwriting data that's required to verify the identity of the merchant.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class UpdateIdentityRequestEntity {
   public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
   @SerializedName(SERIALIZED_NAME_LAST_NAME)
@@ -909,17 +909,17 @@ public class UpdateIdentityRequestEntity {
         throw new IllegalArgumentException(String.format("Expected the field `default_statement_descriptor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("default_statement_descriptor").toString()));
       }
       // validate the optional field `personal_address`
-      if (jsonObj.getAsJsonObject("personal_address") != null) {
-       CreateIdentityRequestEntityPersonalAddress.validateJsonObject(jsonObj.getAsJsonObject("personal_address"));
-      }
+     // if (jsonObj.getAsJsonObject("personal_address") != null) {
+       //CreateIdentityRequestEntityPersonalAddress.validateJsonObject(jsonObj.getAsJsonObject("personal_address"));
+     // }
       // validate the optional field `incorporation_date`
-      if (jsonObj.getAsJsonObject("incorporation_date") != null) {
-       CreateIdentityRequestEntityIncorporationDate.validateJsonObject(jsonObj.getAsJsonObject("incorporation_date"));
-      }
+     // if (jsonObj.getAsJsonObject("incorporation_date") != null) {
+       //CreateIdentityRequestEntityIncorporationDate.validateJsonObject(jsonObj.getAsJsonObject("incorporation_date"));
+     // }
       // validate the optional field `business_address`
-      if (jsonObj.getAsJsonObject("business_address") != null) {
-       UpdateIdentityRequestEntityBusinessAddress.validateJsonObject(jsonObj.getAsJsonObject("business_address"));
-      }
+     // if (jsonObj.getAsJsonObject("business_address") != null) {
+       //UpdateIdentityRequestEntityBusinessAddress.validateJsonObject(jsonObj.getAsJsonObject("business_address"));
+     // }
       if (jsonObj.get("ownership_type") != null && !jsonObj.get("ownership_type").isJsonNull()  && !jsonObj.get("ownership_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ownership_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ownership_type").toString()));
       }
@@ -957,9 +957,9 @@ public class UpdateIdentityRequestEntity {
         throw new IllegalArgumentException(String.format("Expected the field `business_phone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("business_phone").toString()));
       }
       // validate the optional field `dob`
-      if (jsonObj.getAsJsonObject("dob") != null) {
-       UpdateIdentityRequestEntityDob.validateJsonObject(jsonObj.getAsJsonObject("dob"));
-      }
+     // if (jsonObj.getAsJsonObject("dob") != null) {
+       //UpdateIdentityRequestEntityDob.validateJsonObject(jsonObj.getAsJsonObject("dob"));
+     // }
       if (jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()  && !jsonObj.get("url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
       }

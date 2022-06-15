@@ -49,7 +49,7 @@ import invoker.JSON;
  * ReviewQueueItemsListEmbeddedLinks
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-14T15:32:10.087418-05:00[America/Chicago]")
 public class ReviewQueueItemsListEmbeddedLinks {
   public static final String SERIALIZED_NAME_APPLICATION = "application";
   @SerializedName(SERIALIZED_NAME_APPLICATION)
@@ -180,8 +180,8 @@ public class ReviewQueueItemsListEmbeddedLinks {
    * Get self
    * @return self
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public ApplicationLinksApplicationProfile getSelf() {
     return self;
@@ -280,7 +280,6 @@ public class ReviewQueueItemsListEmbeddedLinks {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("self");
   }
 
  /**
@@ -307,37 +306,30 @@ public class ReviewQueueItemsListEmbeddedLinks {
         }
       }
       */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : ReviewQueueItemsListEmbeddedLinks.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       // validate the optional field `application`
-      if (jsonObj.getAsJsonObject("application") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("application"));
-      }
+     // if (jsonObj.getAsJsonObject("application") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("application"));
+     // }
       // validate the optional field `identity`
-      if (jsonObj.getAsJsonObject("identity") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("identity"));
-      }
+     // if (jsonObj.getAsJsonObject("identity") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("identity"));
+     // }
       // validate the optional field `merchant`
-      if (jsonObj.getAsJsonObject("merchant") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("merchant"));
-      }
+     // if (jsonObj.getAsJsonObject("merchant") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("merchant"));
+     // }
       // validate the optional field `review_by`
-      if (jsonObj.getAsJsonObject("review_by") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("review_by"));
-      }
+     // if (jsonObj.getAsJsonObject("review_by") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("review_by"));
+     // }
       // validate the optional field `self`
-      if (jsonObj.getAsJsonObject("self") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("self"));
-      }
+     // if (jsonObj.getAsJsonObject("self") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("self"));
+     // }
       // validate the optional field `settlement`
-      if (jsonObj.getAsJsonObject("settlement") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("settlement"));
-      }
+     // if (jsonObj.getAsJsonObject("settlement") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("settlement"));
+     // }
   }
 
 

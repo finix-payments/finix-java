@@ -57,7 +57,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "`Device` resource.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class Device {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -610,9 +610,9 @@ public class Device {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       // validate the optional field `configuration_details`
-      if (jsonObj.getAsJsonObject("configuration_details") != null) {
-       DeviceConfigDetails.validateJsonObject(jsonObj.getAsJsonObject("configuration_details"));
-      }
+     // if (jsonObj.getAsJsonObject("configuration_details") != null) {
+       //DeviceConfigDetails.validateJsonObject(jsonObj.getAsJsonObject("configuration_details"));
+     // }
       if (jsonObj.get("connection") != null && !jsonObj.get("connection").isJsonNull()  && !jsonObj.get("connection").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `connection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connection").toString()));
       }
@@ -620,9 +620,9 @@ public class Device {
         throw new IllegalArgumentException(String.format("Expected the field `idle_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("idle_message").toString()));
       }
       // validate the optional field `input_details`
-      if (jsonObj.getAsJsonObject("input_details") != null) {
-       InputDetails.validateJsonObject(jsonObj.getAsJsonObject("input_details"));
-      }
+     // if (jsonObj.getAsJsonObject("input_details") != null) {
+       //InputDetails.validateJsonObject(jsonObj.getAsJsonObject("input_details"));
+     // }
       if (jsonObj.get("merchant") != null && !jsonObj.get("merchant").isJsonNull()  && !jsonObj.get("merchant").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant").toString()));
       }
@@ -636,9 +636,9 @@ public class Device {
         throw new IllegalArgumentException(String.format("Expected the field `serial_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("serial_number").toString()));
       }
       // validate the optional field `_links`
-      if (jsonObj.getAsJsonObject("_links") != null) {
-       DeviceLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-      }
+     // if (jsonObj.getAsJsonObject("_links") != null) {
+       //DeviceLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+     // }
   }
 
 

@@ -23,7 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.ExternalLinksListPage;
+import model.ApplicationProfilesListPage;
+import model.ExternalLinksListEmbedded;
 import model.ListLinks;
 
 import com.google.gson.Gson;
@@ -50,11 +51,15 @@ import invoker.JSON;
  * ExternalLinksList
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class ExternalLinksList {
+  public static final String SERIALIZED_NAME_EMBEDDED = "_embedded";
+  @SerializedName(SERIALIZED_NAME_EMBEDDED)
+  private ExternalLinksListEmbedded embedded;
+
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
-  private ExternalLinksListPage page;
+  private ApplicationProfilesListPage page;
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
@@ -63,7 +68,30 @@ public class ExternalLinksList {
   public ExternalLinksList() { 
   }
 
-  public ExternalLinksList page(ExternalLinksListPage page) {
+  public ExternalLinksList embedded(ExternalLinksListEmbedded embedded) {
+    
+    this.embedded = embedded;
+    return this;
+  }
+
+   /**
+   * Get embedded
+   * @return embedded
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ExternalLinksListEmbedded getEmbedded() {
+    return embedded;
+  }
+
+
+  public void setEmbedded(ExternalLinksListEmbedded embedded) {
+    this.embedded = embedded;
+  }
+
+
+  public ExternalLinksList page(ApplicationProfilesListPage page) {
     
     this.page = page;
     return this;
@@ -76,12 +104,12 @@ public class ExternalLinksList {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ExternalLinksListPage getPage() {
+  public ApplicationProfilesListPage getPage() {
     return page;
   }
 
 
-  public void setPage(ExternalLinksListPage page) {
+  public void setPage(ApplicationProfilesListPage page) {
     this.page = page;
   }
 
@@ -119,19 +147,21 @@ public class ExternalLinksList {
       return false;
     }
     ExternalLinksList externalLinksList = (ExternalLinksList) o;
-    return Objects.equals(this.page, externalLinksList.page) &&
+    return Objects.equals(this.embedded, externalLinksList.embedded) &&
+        Objects.equals(this.page, externalLinksList.page) &&
         Objects.equals(this.links, externalLinksList.links);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(page, links);
+    return Objects.hash(embedded, page, links);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExternalLinksList {\n");
+    sb.append("    embedded: ").append(toIndentedString(embedded)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
@@ -156,6 +186,7 @@ public class ExternalLinksList {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("_embedded");
     openapiFields.add("page");
     openapiFields.add("_links");
 
@@ -187,14 +218,18 @@ public class ExternalLinksList {
         }
       }
       */
+      // validate the optional field `_embedded`
+     // if (jsonObj.getAsJsonObject("_embedded") != null) {
+       //ExternalLinksListEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
+     // }
       // validate the optional field `page`
-      if (jsonObj.getAsJsonObject("page") != null) {
-       ExternalLinksListPage.validateJsonObject(jsonObj.getAsJsonObject("page"));
-      }
+     // if (jsonObj.getAsJsonObject("page") != null) {
+       //ApplicationProfilesListPage.validateJsonObject(jsonObj.getAsJsonObject("page"));
+     // }
       // validate the optional field `_links`
-      if (jsonObj.getAsJsonObject("_links") != null) {
-       ListLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-      }
+     // if (jsonObj.getAsJsonObject("_links") != null) {
+       //ListLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+     // }
   }
 
 

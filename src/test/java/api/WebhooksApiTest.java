@@ -17,15 +17,7 @@ package api;
 import invoker.ApiException;
 import invoker.Environment;
 import invoker.FinixClient;
-import model.CreateWebhookRequest;
-import model.Error401Unauthorized;
-import model.Error403ForbiddenList;
-import model.Error404NotFoundList;
-import model.Error406NotAcceptable;
-import model.Error422InvalidFieldList;
-import model.ErrorGeneric;
-import model.Webhook;
-import model.WebhooksList;
+import model.*;
 import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
@@ -42,7 +34,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @DisplayName("When Running WebhooksApiTest")
-@Disabled
 public class WebhooksApiTest {
 
     private FinixClient finixClient;
@@ -57,7 +48,7 @@ public class WebhooksApiTest {
 
     }
 
-/**
+    /**
      * Create a Webhook
      *
      * Create a &#x60;Webhook&#x60; to specify an endpoint where Finix can send events.
@@ -76,7 +67,7 @@ public class WebhooksApiTest {
     }
 
 
-/**
+    /**
      * Get a Webhook
      *
      * Retrieve the details of a &#x60;Webhook&#x60;.
@@ -92,7 +83,7 @@ public class WebhooksApiTest {
         // TODO: test validations
     }
 
-/**
+    /**
      * List Application Webhooks
      *
      * Return a collection of webhooks, if there are no webhooks, an empty collection will be returned. 
@@ -103,12 +94,12 @@ public class WebhooksApiTest {
   //  @Test
     public void listApplicationWebhooksTest() throws ApiException {
         String applicationId = null;
-        WebhooksList response = api.listByApplicationId(applicationId);
+        WebhooksList response = finixClient.Webhooks.listByApplicationId(applicationId);
         // TODO: test validations
     }
 
 
-/**
+    /**
      * List Webhooks
      *
      * Retrieve a list of &#x60;Webhook&#x60; endpoints.
@@ -119,14 +110,14 @@ public class WebhooksApiTest {
     @Test
     @DisplayName("List Webhooks")
     public void listWebhooksTest() throws ApiException {
-        String id = null;
+        //String id = null;
         WebhooksList response = finixClient.Webhooks.list();
         System.out.println(response.toString());
         // TODO: test validations
     }
 
 
-/**
+    /**
      * Update a Webhook
      *
      * Update an existing &#x60;Webhook&#x60;.
@@ -138,10 +129,11 @@ public class WebhooksApiTest {
     @DisplayName("Update a Webhook")
     public void putWebhookTest() throws ApiException {
         String webhookId = "WHED2RM5dbNKcHYc3ALxhbW";
-        CreateWebhookRequest createWebhookRequest = CreateWebhookRequest.builder()
+        UpdateWebhookRequest updateWebhookRequest = UpdateWebhookRequest.builder()
                 .url("https://eohzjuj2prziycz.m.pipedream.net")
+                .enabled(false)
                 .build();
-        Webhook response = finixClient.Webhooks.update(webhookId, createWebhookRequest);
+        Webhook response = finixClient.Webhooks.update(webhookId, updateWebhookRequest);
         // TODO: test validations
     }
 

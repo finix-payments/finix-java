@@ -58,7 +58,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Create a `transfer`.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class CreateTransferRequest {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -968,16 +968,16 @@ public class CreateTransferRequest {
         throw new IllegalArgumentException(String.format("Expected the field `device` to be a primitive type in the JSON string but got `%s`", jsonObj.get("device").toString()));
       }
       // validate the optional field `device_configuration`
-      if (jsonObj.getAsJsonObject("device_configuration") != null) {
-       ConfigurationDetails.validateJsonObject(jsonObj.getAsJsonObject("device_configuration"));
-      }
+     // if (jsonObj.getAsJsonObject("device_configuration") != null) {
+       //ConfigurationDetails.validateJsonObject(jsonObj.getAsJsonObject("device_configuration"));
+     // }
       if (jsonObj.get("gateway") != null && !jsonObj.get("gateway").isJsonNull()  && !jsonObj.get("gateway").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `gateway` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gateway").toString()));
       }
       // validate the optional field `3d_secure_authentication`
-      if (jsonObj.getAsJsonObject("3d_secure_authentication") != null) {
-       CreateAuthorizationRequest3dSecureAuthentication.validateJsonObject(jsonObj.getAsJsonObject("3d_secure_authentication"));
-      }
+     // if (jsonObj.getAsJsonObject("3d_secure_authentication") != null) {
+       //CreateAuthorizationRequest3dSecureAuthentication.validateJsonObject(jsonObj.getAsJsonObject("3d_secure_authentication"));
+     // }
       if (jsonObj.get("idempotency_id") != null && !jsonObj.get("idempotency_id").isJsonNull()  && !jsonObj.get("idempotency_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `idempotency_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("idempotency_id").toString()));
       }
@@ -994,9 +994,9 @@ public class CreateTransferRequest {
         throw new IllegalArgumentException(String.format("Expected the field `operation_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation_key").toString()));
       }
       // validate the optional field `payment_instrument`
-      if (jsonObj.getAsJsonObject("payment_instrument") != null) {
-       CardPresentInstrumentForm.validateJsonObject(jsonObj.getAsJsonObject("payment_instrument"));
-      }
+     // if (jsonObj.getAsJsonObject("payment_instrument") != null) {
+       //CardPresentInstrumentForm.validateJsonObject(jsonObj.getAsJsonObject("payment_instrument"));
+     // }
       if (jsonObj.get("processor") != null && !jsonObj.get("processor").isJsonNull()  && !jsonObj.get("processor").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `processor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("processor").toString()));
       }
@@ -1007,9 +1007,9 @@ public class CreateTransferRequest {
         throw new IllegalArgumentException(String.format("Expected the field `statement_descriptor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("statement_descriptor").toString()));
       }
       // validate the optional field `additional_purchase_data`
-      if (jsonObj.getAsJsonObject("additional_purchase_data") != null) {
-       AdditionalPurchaseData.validateJsonObject(jsonObj.getAsJsonObject("additional_purchase_data"));
-      }
+     // if (jsonObj.getAsJsonObject("additional_purchase_data") != null) {
+       //AdditionalPurchaseData.validateJsonObject(jsonObj.getAsJsonObject("additional_purchase_data"));
+     // }
   }
 
 

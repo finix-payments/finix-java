@@ -51,10 +51,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * CreateIdentityRequest
+ * 
  */
+@ApiModel(description = "")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class CreateIdentityRequest {
   public static final String SERIALIZED_NAME_ADDITIONAL_UNDERWRITING_DATA = "additional_underwriting_data";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_UNDERWRITING_DATA)
@@ -249,13 +250,13 @@ public class CreateIdentityRequest {
         }
       }*/
       // validate the optional field `additional_underwriting_data`
-      if (jsonObj.getAsJsonObject("additional_underwriting_data") != null) {
-       CreateIdentityRequestAdditionalUnderwritingData.validateJsonObject(jsonObj.getAsJsonObject("additional_underwriting_data"));
-      }
+     // if (jsonObj.getAsJsonObject("additional_underwriting_data") != null) {
+       //CreateIdentityRequestAdditionalUnderwritingData.validateJsonObject(jsonObj.getAsJsonObject("additional_underwriting_data"));
+     // }
       // validate the optional field `entity`
-      if (jsonObj.getAsJsonObject("entity") != null) {
-       CreateIdentityRequestEntity.validateJsonObject(jsonObj.getAsJsonObject("entity"));
-      }
+     // if (jsonObj.getAsJsonObject("entity") != null) {
+       //CreateIdentityRequestEntity.validateJsonObject(jsonObj.getAsJsonObject("entity"));
+     // }
   }
 
 

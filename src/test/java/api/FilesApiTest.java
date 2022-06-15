@@ -18,10 +18,6 @@ import invoker.Environment;
 import invoker.FinixClient;
 import model.CreateExternalLinkRequest;
 import model.CreateFileRequest;
-import model.Error401Unauthorized;
-import model.Error403ForbiddenList;
-import model.Error404NotFoundList;
-import model.Error406NotAcceptable;
 import model.ExternalLink;
 import model.ExternalLinksList;
 import model.FilesList;
@@ -29,22 +25,24 @@ import model.ModelFile;
 import model.UploadFileRequest;
 import org.junit.jupiter.api.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 
+import static model.CreateFileRequest.TypeEnum.DRIVERS_LICENSE_FRONT;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * API tests for FilesApi
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@DisplayName("When Running DevicesApiTest")
-@Disabled
+@DisplayName("When Running FilesApiTest")
 public class FilesApiTest {
     private FinixClient finixClient;
     private final FilesApi api = new FilesApi();
+    private String localFileId;
+    private String localExternalLinkId;
+
 
     @Test
     @BeforeAll
@@ -53,6 +51,7 @@ public class FilesApiTest {
         assertEquals(true , finixClient!=null);
 
     }
+
     /**
      * Create an External Link
      *
@@ -62,35 +61,18 @@ public class FilesApiTest {
      */
     @Test
     @DisplayName("Create an External Link")
+    @BeforeEach
     public void createExternalLinkTest() throws ApiException {
-        String fileId = "FILE_bJecqoRPasStEPVpvKHtgA";
+        String fileId = localFileId;
         CreateExternalLinkRequest createExternalLinkRequest = CreateExternalLinkRequest.builder()
-                .type("UPLOAD")
+                .type(CreateExternalLinkRequest.TypeEnum.UPLOAD)
                 .duration(15)
                 .build();
         ExternalLink response = finixClient.filesApi.createExternalLink(fileId, createExternalLinkRequest);
-        // TODO: test validations
+        localExternalLinkId = response.getId();
     }
 
-    /**
-     * Create a File
-     *
-     * Before uploading a file, you need to create a &#x60;File&#x60; resource.   Once created, you can [upload](#operations/uploadFile) your file to the new &#x60;File&#x60; resource.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    @DisplayName("Create a File")
-    public void createFilesTest() throws ApiException {
-        CreateFileRequest createFileRequest = CreateFileRequest.builder()
-                .displayName("My Drivers License")
-                .linkedTo("MU2n7BSovtwYsWYZF6rBnnzk")
-                .type("DRIVERS_LICENSE_FRONT")
-                .tags(Map.of("key_1", "value_1"))
-                .build();
-        ModelFile response = finixClient.filesApi.createFiles(createFileRequest);
-        // TODO: test validations
-    }
+
 
     /**
      * Download a file
@@ -103,9 +85,9 @@ public class FilesApiTest {
     @DisplayName("Download a file")
     public void downloadFileTest() throws ApiException {
         String fileId = "FILE_bJecqoRPasStEPVpvKHtgA";
-        String output = null;
-        finixClient.filesApi.downloadFile(fileId, output);
-        // TODO: test validations
+        //String output = "finix_file.png";
+       File response = finixClient.filesApi.downloadFile(fileId);
+       // System.out.println(response.toString());
     }
 
     /**
@@ -118,10 +100,10 @@ public class FilesApiTest {
     @Test
     @DisplayName("Fetch an External LInk")
     public void getExternalLinkTest() throws ApiException {
-        String fileId = "FILE_bJecqoRPasStEPVpvKHtgA";
-        String externalLinkId = "EL_n4baDHgeidWcst61qzf1Aq";
+        String fileId = localFileId;
+        String externalLinkId = localExternalLinkId;
         ExternalLink response = finixClient.filesApi.getExternalLink(fileId, externalLinkId);
-        // TODO: test validations
+       // System.out.println(localFileId + localExternalLinkId);
     }
 
     /**
@@ -136,7 +118,9 @@ public class FilesApiTest {
     public void getFileTest() throws ApiException {
         String fileId = "FILE_bJecqoRPasStEPVpvKHtgA";
         ModelFile response = finixClient.filesApi.getFile(fileId);
-        // TODO: test validations
+        System.out.println(response.toJson());
+        assertEquals("FILE_bJecqoRPasStEPVpvKHtgA",response.getId(),()->" Should return " + "FILE_bJecqoRPasStEPVpvKHtgA" + " but returns " + response.getId());
+        System.out.println(localFileId);
     }
 
     /**
@@ -146,10 +130,10 @@ public class FilesApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-    @Test
+   @Test
     @DisplayName("List All External Links")
     public void listExternalLinkTest() throws ApiException {
-        String fileId = "FILE_bJecqoRPasStEPVpvKHtgA";
+        String fileId = localFileId;
         String sort = null;
         Integer offset = null;
         Integer limit = null;
@@ -159,7 +143,7 @@ public class FilesApiTest {
         String updatedAtGte = null;
         String updatedAtLte = null;
         ExternalLinksList response = finixClient.filesApi.listExternalLink(fileId, sort, offset, limit, id, createdAtGte, createdAtLte, updatedAtGte, updatedAtLte);
-        // TODO: test validations
+
     }
 
     /**
@@ -191,15 +175,39 @@ public class FilesApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-    /*@Test
+    @Test
     @DisplayName("Upload files Directly")
-    public void uploadFileTest() throws ApiException {
-        String fileId = "FILE_bJecqoRPasStEPVpvKHtgA";
-        String _file = "/Users/Desktop/finix_file.png";
-        String contentType = "multipart/form-data";
-        Object body = "multipart/form-data";
-        ModelFile response = finixClient.filesApi.uploadFile(fileId, _file, contentType, body);
+    public void uploadFileTest() throws ApiException, IOException {
+            String fileId = localFileId;
+        File file = new File("finix_file.png");
+      UploadFileRequest uploadFileRequest = UploadFileRequest.builder()
+                ._file(file)
+                .build();
+        ModelFile response = finixClient.filesApi.uploadFile(fileId, uploadFileRequest);
+        //System.out.println(response.toJson());
         // TODO: test validations
-    }*/
+    }
+
+    /**
+     * Create a File
+     *
+     * Before uploading a file, you need to create a &#x60;File&#x60; resource.   Once created, you can [upload](#operations/uploadFile) your file to the new &#x60;File&#x60; resource.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    @DisplayName("Create a File")
+    @BeforeAll
+    public void createFilesTest() throws ApiException {
+        CreateFileRequest createFileRequest = CreateFileRequest.builder()
+                .displayName("My Drivers License")
+                .linkedTo("MU2n7BSovtwYsWYZF6rBnnzk")
+                .type(DRIVERS_LICENSE_FRONT)
+                .tags(Map.of("key_1", "value_1"))
+                .build();
+        ModelFile response = finixClient.filesApi.createFiles(createFileRequest);
+        localFileId=response.getId();
+        //System.out.println(localFileId);
+    }
 
 }

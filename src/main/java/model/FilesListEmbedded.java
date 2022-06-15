@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import model.ModelFile;
 
 import com.google.gson.Gson;
@@ -50,18 +52,26 @@ import invoker.JSON;
  */
 @ApiModel(description = "The number of items to skip before starting to collect the result set.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class FilesListEmbedded {
   public static final String SERIALIZED_NAME_FILES = "files";
   @SerializedName(SERIALIZED_NAME_FILES)
-  private ModelFile files;
+  private List<ModelFile> files = null;
 
   public FilesListEmbedded() { 
   }
 
-  public FilesListEmbedded files(ModelFile files) {
+  public FilesListEmbedded files(List<ModelFile> files) {
     
     this.files = files;
+    return this;
+  }
+
+  public FilesListEmbedded addFilesItem(ModelFile filesItem) {
+    if (this.files == null) {
+      this.files = new ArrayList<>();
+    }
+    this.files.add(filesItem);
     return this;
   }
 
@@ -72,12 +82,12 @@ public class FilesListEmbedded {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ModelFile getFiles() {
+  public List<ModelFile> getFiles() {
     return files;
   }
 
 
-  public void setFiles(ModelFile files) {
+  public void setFiles(List<ModelFile> files) {
     this.files = files;
   }
 
@@ -157,9 +167,18 @@ public class FilesListEmbedded {
         }
       }
       */
-      // validate the optional field `files`
-      if (jsonObj.getAsJsonObject("files") != null) {
-       ModelFile.validateJsonObject(jsonObj.getAsJsonObject("files"));
+      JsonArray jsonArrayfiles = jsonObj.getAsJsonArray("files");
+      if (jsonArrayfiles != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("files").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `files` to be an array in the JSON string but got `%s`", jsonObj.get("files").toString()));
+        }
+
+        // validate the optional field `files` (array)
+        for (int i = 0; i < jsonArrayfiles.size(); i++) {
+          ModelFile.validateJsonObject(jsonArrayfiles.get(i).getAsJsonObject());
+        }
+          ;
       }
   }
 

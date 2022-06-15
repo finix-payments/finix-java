@@ -54,7 +54,7 @@ import invoker.JSON;
  * FeeProfile
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class FeeProfile {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -968,8 +968,8 @@ public class FeeProfile {
    * Get fixedFee
    * @return fixedFee
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getFixedFee() {
     return fixedFee;
@@ -1671,7 +1671,6 @@ public class FeeProfile {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("fixed_fee");
   }
 
  /**
@@ -1698,13 +1697,6 @@ public class FeeProfile {
         }
       }
       */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : FeeProfile.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()  && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -1715,9 +1707,9 @@ public class FeeProfile {
         throw new IllegalArgumentException(String.format("Expected the field `rounding_mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rounding_mode").toString()));
       }
       // validate the optional field `_links`
-      if (jsonObj.getAsJsonObject("_links") != null) {
-       FeeProfileLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-      }
+     // if (jsonObj.getAsJsonObject("_links") != null) {
+       //FeeProfileLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+     // }
   }
 
 

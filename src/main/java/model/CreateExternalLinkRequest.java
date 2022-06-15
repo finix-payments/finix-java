@@ -51,11 +51,60 @@ import invoker.JSON;
  * CreateExternalLinkRequest
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class CreateExternalLinkRequest {
+  /**
+   * &lt;ul&gt;&lt;li&gt;Set to &lt;strong&gt;UPLOAD&lt;/strong&gt; to create a link that can be used to upload files to Finix.&lt;li&gt;Set to &lt;strong&gt;DOWNLOAD&lt;/strong&gt; to create a link where the uploaded file can be downloaded from.&lt;li&gt;Set to &lt;strong&gt;VIEW&lt;/strong&gt; to create a link that displays the file in browser.
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    UPLOAD("UPLOAD"),
+    
+    DOWNLOAD("DOWNLOAD"),
+    
+    VIEW("VIEW");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TypeEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  private TypeEnum type;
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
@@ -68,7 +117,7 @@ public class CreateExternalLinkRequest {
   public CreateExternalLinkRequest() { 
   }
 
-  public CreateExternalLinkRequest type(String type) {
+  public CreateExternalLinkRequest type(TypeEnum type) {
     
     this.type = type;
     return this;
@@ -81,12 +130,12 @@ public class CreateExternalLinkRequest {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "<ul><li>Set to <strong>UPLOAD</strong> to create a link that can be used to upload files to Finix.<li>Set to <strong>DOWNLOAD</strong> to create a link where the uploaded file can be downloaded from.<li>Set to <strong>VIEW</strong> to create a link that displays the file in browser.")
 
-  public String getType() {
+  public TypeEnum getType() {
     return type;
   }
 
 
-  public void setType(String type) {
+  public void setType(TypeEnum type) {
     this.type = type;
   }
 

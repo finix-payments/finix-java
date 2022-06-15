@@ -51,7 +51,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Configure the details of the activated device.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class ConfigurationDetails {
   public static final String SERIALIZED_NAME_ALLOW_DEBIT = "allow_debit";
   @SerializedName(SERIALIZED_NAME_ALLOW_DEBIT)
@@ -549,9 +549,9 @@ public class ConfigurationDetails {
       }
       */
       // validate the optional field `cashback_options`
-      if (jsonObj.getAsJsonObject("cashback_options") != null) {
-       ConfigurationDetailsCashbackOptions.validateJsonObject(jsonObj.getAsJsonObject("cashback_options"));
-      }
+     // if (jsonObj.getAsJsonObject("cashback_options") != null) {
+       //ConfigurationDetailsCashbackOptions.validateJsonObject(jsonObj.getAsJsonObject("cashback_options"));
+     // }
       if (jsonObj.get("is_gift_supported") != null && !jsonObj.get("is_gift_supported").isJsonNull()  && !jsonObj.get("is_gift_supported").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `is_gift_supported` to be a primitive type in the JSON string but got `%s`", jsonObj.get("is_gift_supported").toString()));
       }
@@ -562,9 +562,9 @@ public class ConfigurationDetails {
         throw new IllegalArgumentException(String.format("Expected the field `prompt_signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("prompt_signature").toString()));
       }
       // validate the optional field `tip_options`
-      if (jsonObj.getAsJsonObject("tip_options") != null) {
-       ConfigurationDetailsTipOptions.validateJsonObject(jsonObj.getAsJsonObject("tip_options"));
-      }
+     // if (jsonObj.getAsJsonObject("tip_options") != null) {
+       //ConfigurationDetailsTipOptions.validateJsonObject(jsonObj.getAsJsonObject("tip_options"));
+     // }
   }
 
 

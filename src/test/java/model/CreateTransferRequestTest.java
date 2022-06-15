@@ -24,8 +24,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import model.AdditionalPurchaseData;
 import model.CardPresentInstrumentForm;
 import model.ConfigurationDetails;
+import model.CreateAuthorizationRequest3dSecureAuthentication;
 import model.Currency;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
@@ -127,6 +129,14 @@ public class CreateTransferRequestTest {
     }
 
     /**
+     * Test the property '_3dSecureAuthentication'
+     */
+    @Test
+    public void _3dSecureAuthenticationTest() {
+        // TODO: test _3dSecureAuthentication
+    }
+
+    /**
      * Test the property 'idempotencyId'
      */
     @Test
@@ -196,6 +206,14 @@ public class CreateTransferRequestTest {
     @Test
     public void statementDescriptorTest() {
         // TODO: test statementDescriptor
+    }
+
+    /**
+     * Test the property 'additionalPurchaseData'
+     */
+    @Test
+    public void additionalPurchaseDataTest() {
+        // TODO: test additionalPurchaseData
     }
 
 }

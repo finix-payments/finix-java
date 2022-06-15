@@ -27,7 +27,7 @@ import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import model.DisputeEvidenceListLinks;
+import model.DisputeEvidenceLinks;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -54,7 +54,7 @@ import invoker.JSON;
  * RiskProfileRule
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class RiskProfileRule {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -114,7 +114,7 @@ public class RiskProfileRule {
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private DisputeEvidenceListLinks links;
+  private DisputeEvidenceLinks links;
 
   public RiskProfileRule() { 
   }
@@ -449,7 +449,7 @@ public class RiskProfileRule {
   }
 
 
-  public RiskProfileRule links(DisputeEvidenceListLinks links) {
+  public RiskProfileRule links(DisputeEvidenceLinks links) {
     
     this.links = links;
     return this;
@@ -462,12 +462,12 @@ public class RiskProfileRule {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public DisputeEvidenceListLinks getLinks() {
+  public DisputeEvidenceLinks getLinks() {
     return links;
   }
 
 
-  public void setLinks(DisputeEvidenceListLinks links) {
+  public void setLinks(DisputeEvidenceLinks links) {
     this.links = links;
   }
 
@@ -619,9 +619,9 @@ public class RiskProfileRule {
         throw new IllegalArgumentException(String.format("Expected the field `trailing_unit` to be a primitive type in the JSON string but got `%s`", jsonObj.get("trailing_unit").toString()));
       }
       // validate the optional field `_links`
-      if (jsonObj.getAsJsonObject("_links") != null) {
-       DisputeEvidenceListLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-      }
+     // if (jsonObj.getAsJsonObject("_links") != null) {
+       //DisputeEvidenceLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+     // }
   }
 
 

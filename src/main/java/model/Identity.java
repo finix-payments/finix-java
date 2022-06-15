@@ -52,10 +52,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * Identity
+ * 
  */
+@ApiModel(description = "")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class Identity {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -398,9 +399,9 @@ public class Identity {
         throw new IllegalArgumentException(String.format("Expected the field `application` to be a primitive type in the JSON string but got `%s`", jsonObj.get("application").toString()));
       }
       // validate the optional field `entity`
-      if (jsonObj.getAsJsonObject("entity") != null) {
-       IdentityEntity.validateJsonObject(jsonObj.getAsJsonObject("entity"));
-      }
+     // if (jsonObj.getAsJsonObject("entity") != null) {
+       //IdentityEntity.validateJsonObject(jsonObj.getAsJsonObject("entity"));
+     // }
       if (jsonObj.get("created_at") != null && !jsonObj.get("created_at").isJsonNull()  && !jsonObj.get("created_at").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `created_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_at").toString()));
       }
@@ -408,13 +409,13 @@ public class Identity {
         throw new IllegalArgumentException(String.format("Expected the field `updated_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("updated_at").toString()));
       }
       // validate the optional field `additional_underwriting_data`
-      if (jsonObj.getAsJsonObject("additional_underwriting_data") != null) {
-       IdentityAdditionalUnderwritingData.validateJsonObject(jsonObj.getAsJsonObject("additional_underwriting_data"));
-      }
+     // if (jsonObj.getAsJsonObject("additional_underwriting_data") != null) {
+       //IdentityAdditionalUnderwritingData.validateJsonObject(jsonObj.getAsJsonObject("additional_underwriting_data"));
+     // }
       // validate the optional field `_links`
-      if (jsonObj.getAsJsonObject("_links") != null) {
-       IdentityLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-      }
+     // if (jsonObj.getAsJsonObject("_links") != null) {
+       //IdentityLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+     // }
   }
 
 

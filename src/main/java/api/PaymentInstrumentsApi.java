@@ -24,12 +24,13 @@ import invoker.ProgressResponseBody;
 
 import com.google.gson.reflect.TypeToken;
 
+import java.io.File;
 import java.io.IOException;
 
 
 import model.ApplePaySession;
 import model.ApplePaySessionRequest;
-import model.CreateInstrumentUpdates;
+import model.CreateInstrumentUpdatesRequest;
 import model.CreatePaymentInstrumentRequest;
 import model.Error401Unauthorized;
 import model.Error403ForbiddenList;
@@ -159,7 +160,7 @@ import javax.ws.rs.core.GenericType;
 
                 /**
                 * Create an Apple Pay Session
-                * Create an &#x60;apple_pay_session&#x60; to process Apple Pay transactions on the web.  To create an Apple Pay Session, pass a &#x60;validation_url&#x60; while creating an &#x60;apple_pay_sessions&#x60; resource. Finix returns a &#x60;merchantSession&#x60; object which you can use to create a payment. For more information, see [Apple Pay](guides/payments/alternative-payment-methods/apple-pay/).
+                * Create an &#x60;apple_pay_session&#x60; to process Apple Pay transactions on the web.  To create an Apple Pay Session, pass a &#x60;validation_url&#x60; while creating an &#x60;apple_pay_sessions&#x60; resource. Finix returns a &#x60;merchantSession&#x60; object which you can use to create a payment. For more information, see [Apple Pay](guides/payments/alternative-payment-methods/apple-pay/). 
                     * @param applePaySessionRequest  (optional)
                     * @return ApplePaySession
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -180,7 +181,7 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Create an Apple Pay Session
-            * Create an &#x60;apple_pay_session&#x60; to process Apple Pay transactions on the web.  To create an Apple Pay Session, pass a &#x60;validation_url&#x60; while creating an &#x60;apple_pay_sessions&#x60; resource. Finix returns a &#x60;merchantSession&#x60; object which you can use to create a payment. For more information, see [Apple Pay](guides/payments/alternative-payment-methods/apple-pay/).
+            * Create an &#x60;apple_pay_session&#x60; to process Apple Pay transactions on the web.  To create an Apple Pay Session, pass a &#x60;validation_url&#x60; while creating an &#x60;apple_pay_sessions&#x60; resource. Finix returns a &#x60;merchantSession&#x60; object which you can use to create a payment. For more information, see [Apple Pay](guides/payments/alternative-payment-methods/apple-pay/). 
                 * @param applePaySessionRequest  (optional)
             * @return ApiResponse&lt;ApplePaySession&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -202,7 +203,7 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Create an Apple Pay Session (asynchronously)
-            * Create an &#x60;apple_pay_session&#x60; to process Apple Pay transactions on the web.  To create an Apple Pay Session, pass a &#x60;validation_url&#x60; while creating an &#x60;apple_pay_sessions&#x60; resource. Finix returns a &#x60;merchantSession&#x60; object which you can use to create a payment. For more information, see [Apple Pay](guides/payments/alternative-payment-methods/apple-pay/).
+            * Create an &#x60;apple_pay_session&#x60; to process Apple Pay transactions on the web.  To create an Apple Pay Session, pass a &#x60;validation_url&#x60; while creating an &#x60;apple_pay_sessions&#x60; resource. Finix returns a &#x60;merchantSession&#x60; object which you can use to create a payment. For more information, see [Apple Pay](guides/payments/alternative-payment-methods/apple-pay/). 
                 * @param applePaySessionRequest  (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
@@ -363,7 +364,7 @@ import javax.ws.rs.core.GenericType;
             }
         /**
         * Build call for createPaymentInstrumentUpdate
-            * @param createInstrumentUpdates  (optional)
+            * @param createInstrumentUpdatesRequest  (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
@@ -377,7 +378,7 @@ import javax.ws.rs.core.GenericType;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call createPaymentInstrumentUpdateCall(CreateInstrumentUpdates createInstrumentUpdates, final ApiCallback _callback) throws ApiException {
+        public okhttp3.Call createPaymentInstrumentUpdateCall(CreateInstrumentUpdatesRequest createInstrumentUpdatesRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -391,7 +392,7 @@ import javax.ws.rs.core.GenericType;
         basePath = null;
         }
 
-        Object localVarPostBody = createInstrumentUpdates;
+        Object localVarPostBody = createInstrumentUpdatesRequest;
 
         // create path and map variables
             String localVarPath = "/instrument_updates";
@@ -401,6 +402,11 @@ import javax.ws.rs.core.GenericType;
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+            localVarFormParams.put("file", createInstrumentUpdatesRequest.getFile());
+            localVarFormParams.put("request", createInstrumentUpdatesRequest.getRequest());
+
 
             final String[] localVarAccepts = {
         "application/json", "application/hal+json"
@@ -423,10 +429,10 @@ import javax.ws.rs.core.GenericType;
             }
 
             @SuppressWarnings("rawtypes")
-            private okhttp3.Call createPaymentInstrumentUpdateValidateBeforeCall(CreateInstrumentUpdates createInstrumentUpdates, final ApiCallback _callback) throws ApiException {
+            private okhttp3.Call createPaymentInstrumentUpdateValidateBeforeCall(CreateInstrumentUpdatesRequest createInstrumentUpdatesRequest, final ApiCallback _callback) throws ApiException {
             
 
-                okhttp3.Call localVarCall = createPaymentInstrumentUpdateCall(createInstrumentUpdates, _callback);
+                okhttp3.Call localVarCall = createPaymentInstrumentUpdateCall(createInstrumentUpdatesRequest, _callback);
                 return localVarCall;
 
             }
@@ -434,7 +440,7 @@ import javax.ws.rs.core.GenericType;
                 /**
                 * Create Instrument Updates
                 * To update the card details of your customers, create an &#x60;instrument_updates&#x60; resource. Include the &#x60;Payment Instrument&#x60; IDs you want to update in a CSV. For more info, see the guide on using our [Account Updater](//payments/account-updater/).
-                    * @param createInstrumentUpdates  (optional)
+                    * @param createInstrumentUpdatesRequest  (optional)
                     * @return InstrumentUpdates
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
@@ -447,15 +453,15 @@ import javax.ws.rs.core.GenericType;
                             <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     </table>
                 */
-                    public InstrumentUpdates createPaymentInstrumentUpdate(CreateInstrumentUpdates createInstrumentUpdates) throws ApiException {
-                ApiResponse<InstrumentUpdates> localVarResp = createPaymentInstrumentUpdateWithHttpInfo(createInstrumentUpdates);
+                    public InstrumentUpdates createPaymentInstrumentUpdate(CreateInstrumentUpdatesRequest createInstrumentUpdatesRequest) throws ApiException {
+                ApiResponse<InstrumentUpdates> localVarResp = createPaymentInstrumentUpdateWithHttpInfo(createInstrumentUpdatesRequest);
                         return localVarResp.getData();
                     }
 
         /**
             * Create Instrument Updates
             * To update the card details of your customers, create an &#x60;instrument_updates&#x60; resource. Include the &#x60;Payment Instrument&#x60; IDs you want to update in a CSV. For more info, see the guide on using our [Account Updater](//payments/account-updater/).
-                * @param createInstrumentUpdates  (optional)
+                * @param createInstrumentUpdatesRequest  (optional)
             * @return ApiResponse&lt;InstrumentUpdates&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
@@ -468,8 +474,8 @@ import javax.ws.rs.core.GenericType;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public ApiResponse<InstrumentUpdates> createPaymentInstrumentUpdateWithHttpInfo(CreateInstrumentUpdates createInstrumentUpdates) throws ApiException {
-            okhttp3.Call localVarCall = createPaymentInstrumentUpdateValidateBeforeCall(createInstrumentUpdates, null);
+            public ApiResponse<InstrumentUpdates> createPaymentInstrumentUpdateWithHttpInfo(CreateInstrumentUpdatesRequest createInstrumentUpdatesRequest) throws ApiException {
+            okhttp3.Call localVarCall = createPaymentInstrumentUpdateValidateBeforeCall(createInstrumentUpdatesRequest, null);
                     Type localVarReturnType = new TypeToken<InstrumentUpdates>(){}.getType();
                     return localVarFinixClient.execute(localVarCall, localVarReturnType);
             }
@@ -477,7 +483,7 @@ import javax.ws.rs.core.GenericType;
         /**
             * Create Instrument Updates (asynchronously)
             * To update the card details of your customers, create an &#x60;instrument_updates&#x60; resource. Include the &#x60;Payment Instrument&#x60; IDs you want to update in a CSV. For more info, see the guide on using our [Account Updater](//payments/account-updater/).
-                * @param createInstrumentUpdates  (optional)
+                * @param createInstrumentUpdatesRequest  (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -491,9 +497,9 @@ import javax.ws.rs.core.GenericType;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public okhttp3.Call createPaymentInstrumentUpdateAsync(CreateInstrumentUpdates createInstrumentUpdates, final ApiCallback<InstrumentUpdates> _callback) throws ApiException {
+            public okhttp3.Call createPaymentInstrumentUpdateAsync(CreateInstrumentUpdatesRequest createInstrumentUpdatesRequest, final ApiCallback<InstrumentUpdates> _callback) throws ApiException {
 
-            okhttp3.Call localVarCall = createPaymentInstrumentUpdateValidateBeforeCall(createInstrumentUpdates, _callback);
+            okhttp3.Call localVarCall = createPaymentInstrumentUpdateValidateBeforeCall(createInstrumentUpdatesRequest, _callback);
         Type localVarReturnType = new TypeToken<InstrumentUpdates>(){}.getType();
             localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
             return localVarCall;

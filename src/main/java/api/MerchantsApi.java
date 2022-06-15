@@ -138,7 +138,7 @@ import javax.ws.rs.core.GenericType;
             }
 
             final String[] localVarContentTypes = {
-        "application/json"
+        "application/hal+json"
             };
             final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
             if (localVarContentType != null) {
@@ -292,7 +292,7 @@ import javax.ws.rs.core.GenericType;
             }
 
             final String[] localVarContentTypes = {
-        "application/json"
+        "application/hal+json"
             };
             final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
             if (localVarContentType != null) {
@@ -1255,7 +1255,7 @@ import javax.ws.rs.core.GenericType;
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
             final String[] localVarAccepts = {
-        "application/json", "application/hal+json"
+        "application/hal+json"
             };
             final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
             if (localVarAccept != null) {
@@ -1263,7 +1263,7 @@ import javax.ws.rs.core.GenericType;
             }
 
             final String[] localVarContentTypes = {
-        "application/json"
+        "application/hal+json"
             };
             final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
             if (localVarContentType != null) {

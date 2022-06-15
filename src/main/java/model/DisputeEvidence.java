@@ -53,11 +53,11 @@ import invoker.JSON;
  * DisputeEvidence
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class DisputeEvidence {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = new HashMap<>();
+  private Map<String, String> tags = null;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -144,6 +144,9 @@ public class DisputeEvidence {
   }
 
   public DisputeEvidence putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
     this.tags.put(key, tagsItem);
     return this;
   }
@@ -152,8 +155,8 @@ public class DisputeEvidence {
    * Key value pair for annotating custom meta data (e.g. order numbers).
    * @return tags
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Key value pair for annotating custom meta data (e.g. order numbers).")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
 
   public Map<String, String> getTags() {
     return tags;
@@ -175,8 +178,8 @@ public class DisputeEvidence {
    * The ID of the &#x60;Dispute&#x60; resource.
    * @return id
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "DFxxxxxxxxxxxxxxxxxx", required = true, value = "The ID of the `Dispute` resource.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "DFxxxxxxxxxxxxxxxxxx", value = "The ID of the `Dispute` resource.")
 
   public String getId() {
     return id;
@@ -198,8 +201,8 @@ public class DisputeEvidence {
    * Timestamp of when the object was created.
    * @return createdAt
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Timestamp of when the object was created.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Timestamp of when the object was created.")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -221,8 +224,8 @@ public class DisputeEvidence {
    * Timestamp of when the object was last updated.
    * @return updatedAt
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Timestamp of when the object was last updated.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Timestamp of when the object was last updated.")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -244,8 +247,8 @@ public class DisputeEvidence {
    * The ID of the resource.
    * @return dispute
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The ID of the resource.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ID of the resource.")
 
   public String getDispute() {
     return dispute;
@@ -290,8 +293,8 @@ public class DisputeEvidence {
    * Get links
    * @return links
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public DisputeEvidenceLinks getLinks() {
     return links;
@@ -370,12 +373,6 @@ public class DisputeEvidence {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("tags");
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("created_at");
-    openapiRequiredFields.add("updated_at");
-    openapiRequiredFields.add("dispute");
-    openapiRequiredFields.add("_links");
   }
 
  /**
@@ -402,13 +399,6 @@ public class DisputeEvidence {
         }
       }
       */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : DisputeEvidence.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()  && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -419,9 +409,9 @@ public class DisputeEvidence {
         throw new IllegalArgumentException(String.format("Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
       }
       // validate the optional field `_links`
-      if (jsonObj.getAsJsonObject("_links") != null) {
-       DisputeEvidenceLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-      }
+     // if (jsonObj.getAsJsonObject("_links") != null) {
+       //DisputeEvidenceLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+     // }
   }
 
 

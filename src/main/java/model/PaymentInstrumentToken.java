@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import model.Currency;
-import model.PaymentInstrumentBankAccountLinks;
+import model.PaymentInstrumentTokenLinks;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -55,14 +55,14 @@ import invoker.JSON;
  * PaymentInstrumentToken
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class PaymentInstrumentToken {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private Map<String, String> tags = null;
 
   /**
-   * Type of &#x60;Payment Instrument&#x60;.
+   * Gets or Sets type
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -139,7 +139,7 @@ public class PaymentInstrumentToken {
   private String identity;
 
   /**
-   * The type of &#x60;Payment Instrument&#x60;.
+   * Gets or Sets instrumentType
    */
   @JsonAdapter(InstrumentTypeEnum.Adapter.class)
   public enum InstrumentTypeEnum {
@@ -240,7 +240,7 @@ public class PaymentInstrumentToken {
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private PaymentInstrumentBankAccountLinks links;
+  private PaymentInstrumentTokenLinks links;
 
   public PaymentInstrumentToken() { 
   }
@@ -283,11 +283,11 @@ public class PaymentInstrumentToken {
   }
 
    /**
-   * Type of &#x60;Payment Instrument&#x60;.
+   * Get type
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Type of `Payment Instrument`.")
+  @ApiModelProperty(value = "")
 
   public TypeEnum getType() {
     return type;
@@ -421,11 +421,11 @@ public class PaymentInstrumentToken {
   }
 
    /**
-   * Unique ID that represents the tokenized card data.
+   * Get fingerprint
    * @return fingerprint
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "FPRxxxxxxxxxxxxxxxxx", value = "Unique ID that represents the tokenized card data.")
+  @ApiModelProperty(example = "FPRxxxxxxxxxxxxxxxxx", value = "")
 
   public String getFingerprint() {
     return fingerprint;
@@ -467,11 +467,11 @@ public class PaymentInstrumentToken {
   }
 
    /**
-   * The type of &#x60;Payment Instrument&#x60;.
+   * Get instrumentType
    * @return instrumentType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The type of `Payment Instrument`.")
+  @ApiModelProperty(value = "")
 
   public InstrumentTypeEnum getInstrumentType() {
     return instrumentType;
@@ -506,7 +506,7 @@ public class PaymentInstrumentToken {
   }
 
 
-  public PaymentInstrumentToken links(PaymentInstrumentBankAccountLinks links) {
+  public PaymentInstrumentToken links(PaymentInstrumentTokenLinks links) {
     
     this.links = links;
     return this;
@@ -519,12 +519,12 @@ public class PaymentInstrumentToken {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public PaymentInstrumentBankAccountLinks getLinks() {
+  public PaymentInstrumentTokenLinks getLinks() {
     return links;
   }
 
 
-  public void setLinks(PaymentInstrumentBankAccountLinks links) {
+  public void setLinks(PaymentInstrumentTokenLinks links) {
     this.links = links;
   }
 
@@ -670,9 +670,9 @@ public class PaymentInstrumentToken {
         throw new IllegalArgumentException(String.format("Expected the field `payload_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payload_type").toString()));
       }
       // validate the optional field `_links`
-      if (jsonObj.getAsJsonObject("_links") != null) {
-       PaymentInstrumentBankAccountLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-      }
+     // if (jsonObj.getAsJsonObject("_links") != null) {
+       //PaymentInstrumentTokenLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+     // }
   }
 
 

@@ -53,10 +53,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * SubscriptionSchedule
+ * 
  */
+@ApiModel(description = "")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class SubscriptionSchedule {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -583,9 +584,9 @@ public class SubscriptionSchedule {
         throw new IllegalArgumentException(String.format("Expected the field `created_by` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_by").toString()));
       }
       // validate the optional field `fixed_time_interval_offset`
-      if (jsonObj.getAsJsonObject("fixed_time_interval_offset") != null) {
-       SubscriptionScheduleFixedTimeIntervalOffset.validateJsonObject(jsonObj.getAsJsonObject("fixed_time_interval_offset"));
-      }
+     // if (jsonObj.getAsJsonObject("fixed_time_interval_offset") != null) {
+       //SubscriptionScheduleFixedTimeIntervalOffset.validateJsonObject(jsonObj.getAsJsonObject("fixed_time_interval_offset"));
+     // }
       if (jsonObj.get("line_item_type") != null && !jsonObj.get("line_item_type").isJsonNull()  && !jsonObj.get("line_item_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `line_item_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("line_item_type").toString()));
       }
@@ -593,16 +594,16 @@ public class SubscriptionSchedule {
         throw new IllegalArgumentException(String.format("Expected the field `nickname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nickname").toString()));
       }
       // validate the optional field `period_offset`
-      if (jsonObj.getAsJsonObject("period_offset") != null) {
-       SubscriptionSchedulePeriodOffset.validateJsonObject(jsonObj.getAsJsonObject("period_offset"));
-      }
+     // if (jsonObj.getAsJsonObject("period_offset") != null) {
+       //SubscriptionSchedulePeriodOffset.validateJsonObject(jsonObj.getAsJsonObject("period_offset"));
+     // }
       if (jsonObj.get("subscription_type") != null && !jsonObj.get("subscription_type").isJsonNull()  && !jsonObj.get("subscription_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subscription_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subscription_type").toString()));
       }
       // validate the optional field `_links`
-      if (jsonObj.getAsJsonObject("_links") != null) {
-       SubscriptionScheduleLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-      }
+     // if (jsonObj.getAsJsonObject("_links") != null) {
+       //SubscriptionScheduleLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+     // }
   }
 
 

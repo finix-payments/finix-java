@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
-import model.SettlementEngineSettlementsListEmbeddedSettlements;
+import model.SettlementEngineSettlementsListEmbeddedSettlementsInner;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,22 +52,25 @@ import invoker.JSON;
  * SettlementEngineSettlementsListEmbedded
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class SettlementEngineSettlementsListEmbedded {
   public static final String SERIALIZED_NAME_SETTLEMENTS = "settlements";
   @SerializedName(SERIALIZED_NAME_SETTLEMENTS)
-  private Set<SettlementEngineSettlementsListEmbeddedSettlements> settlements = new LinkedHashSet<>();
+  private Set<SettlementEngineSettlementsListEmbeddedSettlementsInner> settlements = null;
 
   public SettlementEngineSettlementsListEmbedded() { 
   }
 
-  public SettlementEngineSettlementsListEmbedded settlements(Set<SettlementEngineSettlementsListEmbeddedSettlements> settlements) {
+  public SettlementEngineSettlementsListEmbedded settlements(Set<SettlementEngineSettlementsListEmbeddedSettlementsInner> settlements) {
     
     this.settlements = settlements;
     return this;
   }
 
-  public SettlementEngineSettlementsListEmbedded addSettlementsItem(SettlementEngineSettlementsListEmbeddedSettlements settlementsItem) {
+  public SettlementEngineSettlementsListEmbedded addSettlementsItem(SettlementEngineSettlementsListEmbeddedSettlementsInner settlementsItem) {
+    if (this.settlements == null) {
+      this.settlements = new LinkedHashSet<>();
+    }
     this.settlements.add(settlementsItem);
     return this;
   }
@@ -76,15 +79,15 @@ public class SettlementEngineSettlementsListEmbedded {
    * Get settlements
    * @return settlements
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-  public Set<SettlementEngineSettlementsListEmbeddedSettlements> getSettlements() {
+  public Set<SettlementEngineSettlementsListEmbeddedSettlementsInner> getSettlements() {
     return settlements;
   }
 
 
-  public void setSettlements(Set<SettlementEngineSettlementsListEmbeddedSettlements> settlements) {
+  public void setSettlements(Set<SettlementEngineSettlementsListEmbeddedSettlementsInner> settlements) {
     this.settlements = settlements;
   }
 
@@ -138,7 +141,6 @@ public class SettlementEngineSettlementsListEmbedded {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("settlements");
   }
 
  /**
@@ -165,13 +167,6 @@ public class SettlementEngineSettlementsListEmbedded {
         }
       }
       */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : SettlementEngineSettlementsListEmbedded.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       JsonArray jsonArraysettlements = jsonObj.getAsJsonArray("settlements");
       if (jsonArraysettlements != null) {
         // ensure the json data is an array
@@ -181,7 +176,7 @@ public class SettlementEngineSettlementsListEmbedded {
 
         // validate the optional field `settlements` (array)
         for (int i = 0; i < jsonArraysettlements.size(); i++) {
-          SettlementEngineSettlementsListEmbeddedSettlements.validateJsonObject(jsonArraysettlements.get(i).getAsJsonObject());
+          SettlementEngineSettlementsListEmbeddedSettlementsInner.validateJsonObject(jsonArraysettlements.get(i).getAsJsonObject());
         }
           ;
       }

@@ -54,7 +54,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "The underwriting details required to verify the `Identity` of the `Merchant`.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class IdentityEntity {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -76,68 +76,9 @@ public class IdentityEntity {
   @SerializedName(SERIALIZED_NAME_BUSINESS_NAME)
   private String businessName;
 
-  /**
-   * Include the value that best applies to the merchant.
-   */
-  @JsonAdapter(BusinessTypeEnum.Adapter.class)
-  public enum BusinessTypeEnum {
-    INDIVIDUAL_SOLE_PROPRIETORSHIP("INDIVIDUAL_SOLE_PROPRIETORSHIP"),
-    
-    CORPORATION("CORPORATION"),
-    
-    LIMITED_LIABILITY_COMPANY("LIMITED_LIABILITY_COMPANY"),
-    
-    PARTNERSHIP("PARTNERSHIP"),
-    
-    ASSOCIATION_ESTATE_TRUST("ASSOCIATION_ESTATE_TRUST"),
-    
-    TAX_EXEMPT_ORGANIZATION("TAX_EXEMPT_ORGANIZATION"),
-    
-    INTERNATIONAL_ORGANIZATION("INTERNATIONAL_ORGANIZATION"),
-    
-    GOVERNMENT_AGENCY("GOVERNMENT_AGENCY");
-
-    private String value;
-
-    BusinessTypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static BusinessTypeEnum fromValue(String value) {
-      for (BusinessTypeEnum b : BusinessTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<BusinessTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final BusinessTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public BusinessTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return BusinessTypeEnum.fromValue(value);
-      }
-    }
-  }
-
   public static final String SERIALIZED_NAME_BUSINESS_TYPE = "business_type";
   @SerializedName(SERIALIZED_NAME_BUSINESS_TYPE)
-  private BusinessTypeEnum businessType;
+  private String businessType;
 
   public static final String SERIALIZED_NAME_DOING_BUSINESS_AS = "doing_business_as";
   @SerializedName(SERIALIZED_NAME_DOING_BUSINESS_AS)
@@ -388,7 +329,7 @@ public class IdentityEntity {
   }
 
 
-  public IdentityEntity businessType(BusinessTypeEnum businessType) {
+  public IdentityEntity businessType(String businessType) {
     
     this.businessType = businessType;
     return this;
@@ -401,12 +342,12 @@ public class IdentityEntity {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Include the value that best applies to the merchant.")
 
-  public BusinessTypeEnum getBusinessType() {
+  public String getBusinessType() {
     return businessType;
   }
 
 
-  public void setBusinessType(BusinessTypeEnum businessType) {
+  public void setBusinessType(String businessType) {
     this.businessType = businessType;
   }
 
@@ -1086,27 +1027,27 @@ public class IdentityEntity {
         throw new IllegalArgumentException(String.format("Expected the field `business_phone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("business_phone").toString()));
       }
       // validate the optional field `personal_address`
-      if (jsonObj.getAsJsonObject("personal_address") != null) {
-       IdentityEntityPersonalAddress.validateJsonObject(jsonObj.getAsJsonObject("personal_address"));
-      }
+     // if (jsonObj.getAsJsonObject("personal_address") != null) {
+       //IdentityEntityPersonalAddress.validateJsonObject(jsonObj.getAsJsonObject("personal_address"));
+     // }
       // validate the optional field `business_address`
-      if (jsonObj.getAsJsonObject("business_address") != null) {
-       IdentityEntityBusinessAddress.validateJsonObject(jsonObj.getAsJsonObject("business_address"));
-      }
+     // if (jsonObj.getAsJsonObject("business_address") != null) {
+       //IdentityEntityBusinessAddress.validateJsonObject(jsonObj.getAsJsonObject("business_address"));
+     // }
       if (jsonObj.get("mcc") != null && !jsonObj.get("mcc").isJsonNull()  && !jsonObj.get("mcc").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mcc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mcc").toString()));
       }
       // validate the optional field `dob`
-      if (jsonObj.getAsJsonObject("dob") != null) {
-       IdentityEntityDob.validateJsonObject(jsonObj.getAsJsonObject("dob"));
-      }
+     // if (jsonObj.getAsJsonObject("dob") != null) {
+       //IdentityEntityDob.validateJsonObject(jsonObj.getAsJsonObject("dob"));
+     // }
       if (jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()  && !jsonObj.get("url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
       }
       // validate the optional field `incorporation_date`
-      if (jsonObj.getAsJsonObject("incorporation_date") != null) {
-       IdentityEntityIncorporationDate.validateJsonObject(jsonObj.getAsJsonObject("incorporation_date"));
-      }
+     // if (jsonObj.getAsJsonObject("incorporation_date") != null) {
+       //IdentityEntityIncorporationDate.validateJsonObject(jsonObj.getAsJsonObject("incorporation_date"));
+     // }
       if (jsonObj.get("short_business_name") != null && !jsonObj.get("short_business_name").isJsonNull()  && !jsonObj.get("short_business_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `short_business_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("short_business_name").toString()));
       }

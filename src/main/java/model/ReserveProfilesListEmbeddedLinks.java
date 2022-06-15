@@ -49,7 +49,7 @@ import invoker.JSON;
  * ReserveProfilesListEmbeddedLinks
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-14T15:32:10.087418-05:00[America/Chicago]")
 public class ReserveProfilesListEmbeddedLinks {
   public static final String SERIALIZED_NAME_APPLICATION = "application";
   @SerializedName(SERIALIZED_NAME_APPLICATION)
@@ -153,8 +153,8 @@ public class ReserveProfilesListEmbeddedLinks {
    * Get self
    * @return self
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public ApplicationLinksApplicationProfile getSelf() {
     return self;
@@ -250,7 +250,6 @@ public class ReserveProfilesListEmbeddedLinks {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("self");
   }
 
  /**
@@ -277,33 +276,26 @@ public class ReserveProfilesListEmbeddedLinks {
         }
       }
       */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : ReserveProfilesListEmbeddedLinks.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       // validate the optional field `application`
-      if (jsonObj.getAsJsonObject("application") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("application"));
-      }
+     // if (jsonObj.getAsJsonObject("application") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("application"));
+     // }
       // validate the optional field `owner_identity`
-      if (jsonObj.getAsJsonObject("owner_identity") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("owner_identity"));
-      }
+     // if (jsonObj.getAsJsonObject("owner_identity") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("owner_identity"));
+     // }
       // validate the optional field `processors`
-      if (jsonObj.getAsJsonObject("processors") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("processors"));
-      }
+     // if (jsonObj.getAsJsonObject("processors") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("processors"));
+     // }
       // validate the optional field `self`
-      if (jsonObj.getAsJsonObject("self") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("self"));
-      }
+     // if (jsonObj.getAsJsonObject("self") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("self"));
+     // }
       // validate the optional field `users`
-      if (jsonObj.getAsJsonObject("users") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("users"));
-      }
+     // if (jsonObj.getAsJsonObject("users") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("users"));
+     // }
   }
 
 

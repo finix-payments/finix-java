@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import model.AdjustmentTransfersListEmbedded;
-import model.VerificationLinks;
+import model.DisputeEvidenceListLinks;
 import model.VerificationPage;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;

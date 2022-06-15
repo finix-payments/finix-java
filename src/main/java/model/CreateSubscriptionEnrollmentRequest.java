@@ -49,10 +49,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * CreateSubscriptionEnrollmentRequest
+ * 
  */
+@ApiModel(description = "")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class CreateSubscriptionEnrollmentRequest {
   public static final String SERIALIZED_NAME_MERCHANT = "merchant";
   @SerializedName(SERIALIZED_NAME_MERCHANT)
@@ -68,7 +69,7 @@ public class CreateSubscriptionEnrollmentRequest {
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = new HashMap<>();
+  private Map<String, String> tags = null;
 
   public CreateSubscriptionEnrollmentRequest() { 
   }
@@ -149,6 +150,9 @@ public class CreateSubscriptionEnrollmentRequest {
   }
 
   public CreateSubscriptionEnrollmentRequest putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
     this.tags.put(key, tagsItem);
     return this;
   }
@@ -157,8 +161,8 @@ public class CreateSubscriptionEnrollmentRequest {
    * Key value pair for annotating custom meta data (e.g. order numbers).
    * @return tags
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Key value pair for annotating custom meta data (e.g. order numbers).")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
 
   public Map<String, String> getTags() {
     return tags;
@@ -231,7 +235,6 @@ public class CreateSubscriptionEnrollmentRequest {
     openapiRequiredFields.add("merchant");
     openapiRequiredFields.add("started_at");
     openapiRequiredFields.add("nickname");
-    openapiRequiredFields.add("tags");
   }
 
  /**

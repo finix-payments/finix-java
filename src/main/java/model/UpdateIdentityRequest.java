@@ -53,7 +53,7 @@ import invoker.JSON;
  * UpdateIdentityRequest
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class UpdateIdentityRequest {
   public static final String SERIALIZED_NAME_ADDITIONAL_UNDERWRITING_DATA = "additional_underwriting_data";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_UNDERWRITING_DATA)
@@ -134,8 +134,8 @@ public class UpdateIdentityRequest {
    * Get entity
    * @return entity
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UpdateIdentityRequestEntity getEntity() {
     return entity;
@@ -202,7 +202,6 @@ public class UpdateIdentityRequest {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("entity");
   }
 
  /**
@@ -229,21 +228,14 @@ public class UpdateIdentityRequest {
         }
       }
       */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : UpdateIdentityRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       // validate the optional field `additional_underwriting_data`
-      if (jsonObj.getAsJsonObject("additional_underwriting_data") != null) {
-       UpdateIdentityRequestAdditionalUnderwritingData.validateJsonObject(jsonObj.getAsJsonObject("additional_underwriting_data"));
-      }
+     // if (jsonObj.getAsJsonObject("additional_underwriting_data") != null) {
+       //UpdateIdentityRequestAdditionalUnderwritingData.validateJsonObject(jsonObj.getAsJsonObject("additional_underwriting_data"));
+     // }
       // validate the optional field `entity`
-      if (jsonObj.getAsJsonObject("entity") != null) {
-       UpdateIdentityRequestEntity.validateJsonObject(jsonObj.getAsJsonObject("entity"));
-      }
+     // if (jsonObj.getAsJsonObject("entity") != null) {
+       //UpdateIdentityRequestEntity.validateJsonObject(jsonObj.getAsJsonObject("entity"));
+     // }
   }
 
 

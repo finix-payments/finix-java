@@ -51,10 +51,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * SubscriptionEnrollment
+ * 
  */
+@ApiModel(description = "")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class SubscriptionEnrollment {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -94,7 +95,7 @@ public class SubscriptionEnrollment {
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = new HashMap<>();
+  private Map<String, String> tags = null;
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
@@ -113,8 +114,8 @@ public class SubscriptionEnrollment {
    * ID of the &#x60;subscription_enrollment&#x60;.
    * @return id
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "ID of the `subscription_enrollment`.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ID of the `subscription_enrollment`.")
 
   public String getId() {
     return id;
@@ -136,8 +137,8 @@ public class SubscriptionEnrollment {
    * Timestamp of when the object was created.
    * @return createdAt
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Timestamp of when the object was created.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Timestamp of when the object was created.")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -159,8 +160,8 @@ public class SubscriptionEnrollment {
    * Timestamp of when the object was last updated.
    * @return updatedAt
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Timestamp of when the object was last updated.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Timestamp of when the object was last updated.")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -182,8 +183,8 @@ public class SubscriptionEnrollment {
    * ID of the &#x60;User&#x60; who created the &#x60;subscription_enrollment&#x60;.
    * @return createdBy
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "ID of the `User` who created the `subscription_enrollment`.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ID of the `User` who created the `subscription_enrollment`.")
 
   public String getCreatedBy() {
     return createdBy;
@@ -228,8 +229,8 @@ public class SubscriptionEnrollment {
    * ID of the &#x60;Merchant&#x60; resource.
    * @return merchant
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "ID of the `Merchant` resource.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ID of the `Merchant` resource.")
 
   public String getMerchant() {
     return merchant;
@@ -251,8 +252,8 @@ public class SubscriptionEnrollment {
    * Human readable name.
    * @return nickname
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "super important thing", required = true, value = "Human readable name.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "super important thing", value = "Human readable name.")
 
   public String getNickname() {
     return nickname;
@@ -274,8 +275,8 @@ public class SubscriptionEnrollment {
    * When the &#x60;subscription_enrollment&#x60; will begin in **DateTime** format.
    * @return startedAt
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When the `subscription_enrollment` will begin in **DateTime** format.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When the `subscription_enrollment` will begin in **DateTime** format.")
 
   public String getStartedAt() {
     return startedAt;
@@ -297,8 +298,8 @@ public class SubscriptionEnrollment {
    * ID of the &#x60;Subscription Schedule&#x60;.
    * @return subscriptionSchedule
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "ID of the `Subscription Schedule`.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ID of the `Subscription Schedule`.")
 
   public String getSubscriptionSchedule() {
     return subscriptionSchedule;
@@ -317,6 +318,9 @@ public class SubscriptionEnrollment {
   }
 
   public SubscriptionEnrollment putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
     this.tags.put(key, tagsItem);
     return this;
   }
@@ -325,8 +329,8 @@ public class SubscriptionEnrollment {
    * Key value pair for annotating custom meta data (e.g. order numbers).
    * @return tags
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Key value pair for annotating custom meta data (e.g. order numbers).")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
 
   public Map<String, String> getTags() {
     return tags;
@@ -348,8 +352,8 @@ public class SubscriptionEnrollment {
    * Get links
    * @return links
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public SubscriptionEnrollmentLinks getLinks() {
     return links;
@@ -451,16 +455,6 @@ public class SubscriptionEnrollment {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("created_at");
-    openapiRequiredFields.add("updated_at");
-    openapiRequiredFields.add("created_by");
-    openapiRequiredFields.add("merchant");
-    openapiRequiredFields.add("nickname");
-    openapiRequiredFields.add("started_at");
-    openapiRequiredFields.add("subscription_schedule");
-    openapiRequiredFields.add("tags");
-    openapiRequiredFields.add("_links");
   }
 
  /**
@@ -487,13 +481,6 @@ public class SubscriptionEnrollment {
         }
       }
       */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : SubscriptionEnrollment.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()  && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -516,9 +503,9 @@ public class SubscriptionEnrollment {
         throw new IllegalArgumentException(String.format("Expected the field `subscription_schedule` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subscription_schedule").toString()));
       }
       // validate the optional field `_links`
-      if (jsonObj.getAsJsonObject("_links") != null) {
-       SubscriptionEnrollmentLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-      }
+     // if (jsonObj.getAsJsonObject("_links") != null) {
+       //SubscriptionEnrollmentLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+     // }
   }
 
 

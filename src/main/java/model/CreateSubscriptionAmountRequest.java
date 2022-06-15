@@ -49,10 +49,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * CreateSubscriptionAmountRequest
+ * 
  */
+@ApiModel(description = "")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class CreateSubscriptionAmountRequest {
   public static final String SERIALIZED_NAME_AMOUNT_TYPE = "amount_type";
   @SerializedName(SERIALIZED_NAME_AMOUNT_TYPE)
@@ -269,9 +270,9 @@ public class CreateSubscriptionAmountRequest {
         throw new IllegalArgumentException(String.format("Expected the field `amount_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount_type").toString()));
       }
       // validate the optional field `fee_amount_data`
-      if (jsonObj.getAsJsonObject("fee_amount_data") != null) {
-       CreateSubscriptionAmountRequestFeeAmountData.validateJsonObject(jsonObj.getAsJsonObject("fee_amount_data"));
-      }
+     // if (jsonObj.getAsJsonObject("fee_amount_data") != null) {
+       //CreateSubscriptionAmountRequestFeeAmountData.validateJsonObject(jsonObj.getAsJsonObject("fee_amount_data"));
+     // }
       if (jsonObj.get("nickname") != null && !jsonObj.get("nickname").isJsonNull()  && !jsonObj.get("nickname").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `nickname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nickname").toString()));
       }

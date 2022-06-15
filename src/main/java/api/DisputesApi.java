@@ -568,7 +568,7 @@ import javax.ws.rs.core.GenericType;
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
             final String[] localVarAccepts = {
-        "application/json", "application/hal+json"
+        "application/hal+json"
             };
             final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
             if (localVarAccept != null) {

@@ -32,10 +32,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @DisplayName("When Running AuthorizationsApi")
-@Disabled
 public class AuthorizationsApiTest {
     private FinixClient finixClient;
     private final AuthorizationsApi api = new AuthorizationsApi();
+    public String AuthorizationId;
     @Test
     @BeforeAll
     void contextLoads() {
@@ -43,7 +43,7 @@ public class AuthorizationsApiTest {
         assertEquals(true , finixClient!=null);
 
     }
-    public String AuthorizationId;
+
 
 
     /**
@@ -67,7 +67,7 @@ public class AuthorizationsApiTest {
                 .build();
         Authorization response = finixClient.Authorization.create(createAuthorizationRequest);
         AuthorizationId = response.getId();
-
+        assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getSource());
     }
     @Test
     @DisplayName("Create an Authorization with 3D Secure")
@@ -85,6 +85,7 @@ public class AuthorizationsApiTest {
                 .amount(100L)
                 .build();
         Authorization response = finixClient.Authorization.create(createAuthorizationRequest);
+        assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getSource());
 
     }
 
@@ -104,13 +105,15 @@ public class AuthorizationsApiTest {
                 .processor(CreateAuthorizationRequest.ProcessorEnum.DUMMY_V1)
                 .build();
         Authorization response = finixClient.Authorization.create(createAuthorizationRequest);
+        assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getSource());
+
     }
 
     @Test
     @DisplayName("Create an Authorization with Level 3 Processing")
     public void create3DProcessingAuthorizationTest() throws ApiException {
-        List<AdditionalPurchaseDataItemData> additionalPurchaseDataItemDataList = new ArrayList<>();
-        additionalPurchaseDataItemDataList.add(AdditionalPurchaseDataItemData.builder()
+        List<AdditionalPurchaseDataItemDataInner> additionalPurchaseDataItemDataList = new ArrayList<>();
+        additionalPurchaseDataItemDataList.add(AdditionalPurchaseDataItemDataInner.builder()
                         .amountIncludingSalesTax(500)
                         .unitOfMeasure("BX")
                         .merchantProductCode("1149611")
@@ -121,7 +124,7 @@ public class AuthorizationsApiTest {
                         .itemDescription("printing paper")
                         .quantity(1)
                 .build());
-        additionalPurchaseDataItemDataList.add(AdditionalPurchaseDataItemData.builder()
+        additionalPurchaseDataItemDataList.add(AdditionalPurchaseDataItemDataInner.builder()
                 .amountIncludingSalesTax(500)
                 .unitOfMeasure("CTN")
                 .merchantProductCode("2149612")
@@ -148,6 +151,8 @@ public class AuthorizationsApiTest {
                 .processor(CreateAuthorizationRequest.ProcessorEnum.DUMMY_V1)
                 .build();
         Authorization response = finixClient.Authorization.create(createAuthorizationRequest);
+        assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getSource());
+
     }
 
 
@@ -163,8 +168,8 @@ public class AuthorizationsApiTest {
     public void getAuthorizationTest() throws ApiException {
         String authorizationId = "AU9j85tCcnJ7DvkFjNtmZ7g1";
         Authorization response = finixClient.Authorization.get(authorizationId);
-        // TODO: test validations
-    }
+        assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getSource());
+}
 
     /**
      * List Application Authorizations
@@ -219,7 +224,7 @@ public class AuthorizationsApiTest {
         String merchantProcessorId = null;
         String type = null;
         AuthorizationsList response = finixClient.Authorization.list(sort, offset, limit, idempotencyId, state, createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, isVoid, amount, amountLt, amountGt, amountLte, amountGte, traceId, instrumentBin, instrumentAccountLast4, instrumentBrandType, merchantIdentityId, merchantIdentityName, instrumentName, instrumentType, merchantId, merchantMid, instrumentCardLast4, merchantProcessorId, type);
-        // TODO: test validations
+        assertEquals(20,response.getPage().getLimit().intValue(),()->"Should return " + "20" + " but returns " + response.getPage().getLimit());
     }
 
     /**
@@ -268,14 +273,14 @@ public class AuthorizationsApiTest {
     @Test
     @DisplayName("Capture an Authorization")
     public void putAuthorizationTest() throws ApiException {
-        System.out.println("Hello " + AuthorizationId);
         String authorizationId = AuthorizationId;
         UpdateAuthorizationRequest updateAuthorizationRequest = UpdateAuthorizationRequest.builder()
                 .fee(Long.valueOf(0))
                 .captureAmount(100L)
                 .build();
         Authorization response = finixClient.Authorization.update(authorizationId, updateAuthorizationRequest);
-        // TODO: test validations
+        assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getSource());
+
     }
     @Test
     @DisplayName("Void an Authorization")
@@ -285,7 +290,8 @@ public class AuthorizationsApiTest {
                 .voidMe(true)
                 .build();
         Authorization response = finixClient.Authorization.update(id, updateAuthorizationRequest);
-        // TODO: test validations
+        assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getSource());
+
 
     }
 
@@ -293,8 +299,8 @@ public class AuthorizationsApiTest {
     @DisplayName("Capture an Authorization with Level 2/Level 3 Processing")
     public void CaptureAuthorizationTest() throws ApiException{
         String id = AuthorizationId;
-        List<AdditionalPurchaseDataItemData> additionalPurchaseDataItemDataList = new ArrayList<>();
-        additionalPurchaseDataItemDataList.add(AdditionalPurchaseDataItemData.builder()
+        List<AdditionalPurchaseDataItemDataInner> additionalPurchaseDataItemDataList = new ArrayList<>();
+        additionalPurchaseDataItemDataList.add(AdditionalPurchaseDataItemDataInner.builder()
                 .amountIncludingSalesTax(500)
                 .unitOfMeasure("BX")
                 .merchantProductCode("1149611")
@@ -305,7 +311,7 @@ public class AuthorizationsApiTest {
                 .itemDescription("printing paper")
                 .quantity(1)
                 .build());
-        additionalPurchaseDataItemDataList.add(AdditionalPurchaseDataItemData.builder()
+        additionalPurchaseDataItemDataList.add(AdditionalPurchaseDataItemDataInner.builder()
                 .amountIncludingSalesTax(500)
                 .unitOfMeasure("CTN")
                 .merchantProductCode("2149612")
@@ -328,6 +334,7 @@ public class AuthorizationsApiTest {
                 .captureAmount(100L)
                 .build();
         Authorization response = finixClient.Authorization.update(id, updateAuthorizationRequest);
+        assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getSource());
 
 
     }

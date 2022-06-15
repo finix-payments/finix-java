@@ -56,7 +56,7 @@ import invoker.JSON;
  * PaymentInstrumentPaymentCard
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-14T11:20:42.244239-05:00[America/Chicago]")
 public class PaymentInstrumentPaymentCard {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -128,7 +128,7 @@ public class PaymentInstrumentPaymentCard {
   private Address address;
 
   /**
-   * Additional address information that&#39;s required to verify the identity of the merchant.
+   * Additional address information that’s required to verify the identity of the merchant.
    */
   @JsonAdapter(AddressVerificationEnum.Adapter.class)
   public enum AddressVerificationEnum {
@@ -697,11 +697,11 @@ public class PaymentInstrumentPaymentCard {
   }
 
    /**
-   * Additional address information that&#39;s required to verify the identity of the merchant.
+   * Additional address information that’s required to verify the identity of the merchant.
    * @return addressVerification
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Additional address information that's required to verify the identity of the merchant.")
+  @ApiModelProperty(value = "Additional address information that’s required to verify the identity of the merchant.")
 
   public AddressVerificationEnum getAddressVerification() {
     return addressVerification;
@@ -1321,9 +1321,9 @@ public class PaymentInstrumentPaymentCard {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       // validate the optional field `address`
-      if (jsonObj.getAsJsonObject("address") != null) {
-       Address.validateJsonObject(jsonObj.getAsJsonObject("address"));
-      }
+     // if (jsonObj.getAsJsonObject("address") != null) {
+       //Address.validateJsonObject(jsonObj.getAsJsonObject("address"));
+     // }
       if (jsonObj.get("address_verification") != null && !jsonObj.get("address_verification").isJsonNull()  && !jsonObj.get("address_verification").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `address_verification` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address_verification").toString()));
       }
@@ -1373,9 +1373,9 @@ public class PaymentInstrumentPaymentCard {
         throw new IllegalArgumentException(String.format("Expected the field `security_code_verification` to be a primitive type in the JSON string but got `%s`", jsonObj.get("security_code_verification").toString()));
       }
       // validate the optional field `_links`
-      if (jsonObj.getAsJsonObject("_links") != null) {
-       PaymentInstrumentPaymentCardLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-      }
+     // if (jsonObj.getAsJsonObject("_links") != null) {
+       //PaymentInstrumentPaymentCardLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+     // }
   }
 
 

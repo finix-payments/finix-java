@@ -48,10 +48,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * SettlementsList
+ * 
  */
+@ApiModel(description = "")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class SettlementsList {
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
@@ -219,17 +220,17 @@ public class SettlementsList {
       }
       */
       // validate the optional field `page`
-      if (jsonObj.getAsJsonObject("page") != null) {
-       ApplicationProfilesListPage.validateJsonObject(jsonObj.getAsJsonObject("page"));
-      }
+     // if (jsonObj.getAsJsonObject("page") != null) {
+       //ApplicationProfilesListPage.validateJsonObject(jsonObj.getAsJsonObject("page"));
+     // }
       // validate the optional field `_embedded`
-      if (jsonObj.getAsJsonObject("_embedded") != null) {
-       SettlementsListEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
-      }
+     // if (jsonObj.getAsJsonObject("_embedded") != null) {
+       //SettlementsListEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
+     // }
       // validate the optional field `_links`
-      if (jsonObj.getAsJsonObject("_links") != null) {
-       ListLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-      }
+     // if (jsonObj.getAsJsonObject("_links") != null) {
+       //ListLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+     // }
   }
 
 

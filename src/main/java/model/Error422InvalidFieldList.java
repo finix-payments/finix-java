@@ -50,7 +50,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Invalid field")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class Error422InvalidFieldList {
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
@@ -188,9 +188,9 @@ public class Error422InvalidFieldList {
       }
       */
       // validate the optional field `_embedded`
-      if (jsonObj.getAsJsonObject("_embedded") != null) {
-       Error422InvalidFieldListEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
-      }
+     // if (jsonObj.getAsJsonObject("_embedded") != null) {
+       //Error422InvalidFieldListEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
+     // }
   }
 
 

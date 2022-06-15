@@ -47,4 +47,12 @@ public class CreateWebhookRequestTest {
         // TODO: test url
     }
 
+    /**
+     * Test the property 'enabled'
+     */
+    @Test
+    public void enabledTest() {
+        // TODO: test enabled
+    }
+
 }

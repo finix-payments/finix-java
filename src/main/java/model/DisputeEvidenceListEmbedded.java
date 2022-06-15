@@ -52,11 +52,11 @@ import invoker.JSON;
  * DisputeEvidenceListEmbedded
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class DisputeEvidenceListEmbedded {
   public static final String SERIALIZED_NAME_EVIDENCES = "evidences";
   @SerializedName(SERIALIZED_NAME_EVIDENCES)
-  private Set<DisputeEvidence> evidences = new LinkedHashSet<>();
+  private Set<DisputeEvidence> evidences = null;
 
   public DisputeEvidenceListEmbedded() { 
   }
@@ -68,6 +68,9 @@ public class DisputeEvidenceListEmbedded {
   }
 
   public DisputeEvidenceListEmbedded addEvidencesItem(DisputeEvidence evidencesItem) {
+    if (this.evidences == null) {
+      this.evidences = new LinkedHashSet<>();
+    }
     this.evidences.add(evidencesItem);
     return this;
   }
@@ -76,8 +79,8 @@ public class DisputeEvidenceListEmbedded {
    * Get evidences
    * @return evidences
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Set<DisputeEvidence> getEvidences() {
     return evidences;
@@ -138,7 +141,6 @@ public class DisputeEvidenceListEmbedded {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("evidences");
   }
 
  /**
@@ -165,13 +167,6 @@ public class DisputeEvidenceListEmbedded {
         }
       }
       */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : DisputeEvidenceListEmbedded.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       JsonArray jsonArrayevidences = jsonObj.getAsJsonArray("evidences");
       if (jsonArrayevidences != null) {
         // ensure the json data is an array

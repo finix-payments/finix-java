@@ -49,7 +49,7 @@ import invoker.JSON;
  * Error401Unauthorized
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class Error401Unauthorized {
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
@@ -72,8 +72,8 @@ public class Error401Unauthorized {
    * Get total
    * @return total
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getTotal() {
     return total;
@@ -95,8 +95,8 @@ public class Error401Unauthorized {
    * Get embedded
    * @return embedded
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Error401UnauthorizedEmbedded getEmbedded() {
     return embedded;
@@ -160,8 +160,6 @@ public class Error401Unauthorized {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("total");
-    openapiRequiredFields.add("_embedded");
   }
 
  /**
@@ -188,17 +186,10 @@ public class Error401Unauthorized {
         }
       }
       */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : Error401Unauthorized.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       // validate the optional field `_embedded`
-      if (jsonObj.getAsJsonObject("_embedded") != null) {
-       Error401UnauthorizedEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
-      }
+     // if (jsonObj.getAsJsonObject("_embedded") != null) {
+       //Error401UnauthorizedEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
+     // }
   }
 
 

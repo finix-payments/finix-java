@@ -50,7 +50,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Details the `Payment Instrument` that the `Transfer` debits or credits. ")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class CardPresentInstrumentForm {
   /**
    * The type of &#x60;Payment Instrument&#x60;.
@@ -613,9 +613,9 @@ public class CardPresentInstrumentForm {
         throw new IllegalArgumentException(String.format("Expected the field `last_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_name").toString()));
       }
       // validate the optional field `name`
-      if (jsonObj.getAsJsonObject("name") != null) {
-       Name.validateJsonObject(jsonObj.getAsJsonObject("name"));
-      }
+     // if (jsonObj.getAsJsonObject("name") != null) {
+       //Name.validateJsonObject(jsonObj.getAsJsonObject("name"));
+     // }
       if (jsonObj.get("number") != null && !jsonObj.get("number").isJsonNull()  && !jsonObj.get("number").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("number").toString()));
       }

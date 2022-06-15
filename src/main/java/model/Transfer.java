@@ -56,10 +56,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * Transfer
+ * 
  */
+@ApiModel(description = "")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class Transfer {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -351,6 +352,18 @@ public class Transfer {
   public static final String SERIALIZED_NAME_TRACE_ID = "trace_id";
   @SerializedName(SERIALIZED_NAME_TRACE_ID)
   private String traceId;
+
+  public static final String SERIALIZED_NAME_EXTERNALLY_FUNDED = "externally_funded";
+  @SerializedName(SERIALIZED_NAME_EXTERNALLY_FUNDED)
+  private String externallyFunded;
+
+  public static final String SERIALIZED_NAME_FAILURE_CODE = "failure_code";
+  @SerializedName(SERIALIZED_NAME_FAILURE_CODE)
+  private String failureCode;
+
+  public static final String SERIALIZED_NAME_FAILURE_MESSAGE = "failure_message";
+  @SerializedName(SERIALIZED_NAME_FAILURE_MESSAGE)
+  private String failureMessage;
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
@@ -927,6 +940,75 @@ public class Transfer {
   }
 
 
+  public Transfer externallyFunded(String externallyFunded) {
+    
+    this.externallyFunded = externallyFunded;
+    return this;
+  }
+
+   /**
+   * Details if the Transfer will be settled externally by card processors.
+   * @return externallyFunded
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Details if the Transfer will be settled externally by card processors.")
+
+  public String getExternallyFunded() {
+    return externallyFunded;
+  }
+
+
+  public void setExternallyFunded(String externallyFunded) {
+    this.externallyFunded = externallyFunded;
+  }
+
+
+  public Transfer failureCode(String failureCode) {
+    
+    this.failureCode = failureCode;
+    return this;
+  }
+
+   /**
+   * When a transfer is declined. This is the code of the failure so the decline can be handled programmatically.
+   * @return failureCode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When a transfer is declined. This is the code of the failure so the decline can be handled programmatically.")
+
+  public String getFailureCode() {
+    return failureCode;
+  }
+
+
+  public void setFailureCode(String failureCode) {
+    this.failureCode = failureCode;
+  }
+
+
+  public Transfer failureMessage(String failureMessage) {
+    
+    this.failureMessage = failureMessage;
+    return this;
+  }
+
+   /**
+   * A human-readable description of why the transaction was declined. This will also include a suggestion on how to complete the payment.
+   * @return failureMessage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A human-readable description of why the transaction was declined. This will also include a suggestion on how to complete the payment.")
+
+  public String getFailureMessage() {
+    return failureMessage;
+  }
+
+
+  public void setFailureMessage(String failureMessage) {
+    this.failureMessage = failureMessage;
+  }
+
+
   public Transfer links(TransferLinks links) {
     
     this.links = links;
@@ -984,6 +1066,9 @@ public class Transfer {
         Objects.equals(this.statementDescriptor, transfer.statementDescriptor) &&
         Objects.equals(this.subtype, transfer.subtype) &&
         Objects.equals(this.traceId, transfer.traceId) &&
+        Objects.equals(this.externallyFunded, transfer.externallyFunded) &&
+        Objects.equals(this.failureCode, transfer.failureCode) &&
+        Objects.equals(this.failureMessage, transfer.failureMessage) &&
         Objects.equals(this.links, transfer.links);
   }
 
@@ -993,7 +1078,7 @@ public class Transfer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, type, id, createdAt, updatedAt, amount, application, cardPresentDetails, currency, destination, device, fee, feeType, idempotencyId, identity, merchantIdentity, messages, raw, readyToSettleAt, source, state, statementDescriptor, subtype, traceId, links);
+    return Objects.hash(tags, type, id, createdAt, updatedAt, amount, application, cardPresentDetails, currency, destination, device, fee, feeType, idempotencyId, identity, merchantIdentity, messages, raw, readyToSettleAt, source, state, statementDescriptor, subtype, traceId, externallyFunded, failureCode, failureMessage, links);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1031,6 +1116,9 @@ public class Transfer {
     sb.append("    statementDescriptor: ").append(toIndentedString(statementDescriptor)).append("\n");
     sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
     sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
+    sb.append("    externallyFunded: ").append(toIndentedString(externallyFunded)).append("\n");
+    sb.append("    failureCode: ").append(toIndentedString(failureCode)).append("\n");
+    sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1078,6 +1166,9 @@ public class Transfer {
     openapiFields.add("statement_descriptor");
     openapiFields.add("subtype");
     openapiFields.add("trace_id");
+    openapiFields.add("externally_funded");
+    openapiFields.add("failure_code");
+    openapiFields.add("failure_message");
     openapiFields.add("_links");
 
     // a set of required properties/fields (JSON key names)
@@ -1118,9 +1209,9 @@ public class Transfer {
         throw new IllegalArgumentException(String.format("Expected the field `application` to be a primitive type in the JSON string but got `%s`", jsonObj.get("application").toString()));
       }
       // validate the optional field `card_present_details`
-      if (jsonObj.getAsJsonObject("card_present_details") != null) {
-       CardPresentDetails.validateJsonObject(jsonObj.getAsJsonObject("card_present_details"));
-      }
+     // if (jsonObj.getAsJsonObject("card_present_details") != null) {
+       //CardPresentDetails.validateJsonObject(jsonObj.getAsJsonObject("card_present_details"));
+     // }
       if (jsonObj.get("destination") != null && !jsonObj.get("destination").isJsonNull()  && !jsonObj.get("destination").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `destination` to be a primitive type in the JSON string but got `%s`", jsonObj.get("destination").toString()));
       }
@@ -1141,9 +1232,9 @@ public class Transfer {
         throw new IllegalArgumentException(String.format("Expected the field `messages` to be an array in the JSON string but got `%s`", jsonObj.get("messages").toString()));
       }
       // validate the optional field `raw`
-      if (!jsonObj.get("raw").isJsonNull() && jsonObj.getAsJsonObject("raw") != null ) {
-       Raw.validateJsonObject(jsonObj.getAsJsonObject("raw"));
-      }
+     // if (jsonObj.getAsJsonObject("raw") != null) {
+       //Raw.validateJsonObject(jsonObj.getAsJsonObject("raw"));
+     // }
       if (jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()  && !jsonObj.get("source").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source").toString()));
       }
@@ -1159,10 +1250,19 @@ public class Transfer {
       if (jsonObj.get("trace_id") != null && !jsonObj.get("trace_id").isJsonNull()  && !jsonObj.get("trace_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `trace_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("trace_id").toString()));
       }
-      // validate the optional field `_links`
-      if (jsonObj.getAsJsonObject("_links") != null) {
-       TransferLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+      if (jsonObj.get("externally_funded") != null && !jsonObj.get("externally_funded").isJsonNull()  && !jsonObj.get("externally_funded").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `externally_funded` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externally_funded").toString()));
       }
+      if (jsonObj.get("failure_code") != null && !jsonObj.get("failure_code").isJsonNull()  && !jsonObj.get("failure_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `failure_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failure_code").toString()));
+      }
+      if (jsonObj.get("failure_message") != null && !jsonObj.get("failure_message").isJsonNull()  && !jsonObj.get("failure_message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `failure_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failure_message").toString()));
+      }
+      // validate the optional field `_links`
+     // if (jsonObj.getAsJsonObject("_links") != null) {
+       //TransferLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+     // }
   }
 
 

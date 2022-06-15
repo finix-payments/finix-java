@@ -50,7 +50,7 @@ import invoker.JSON;
  * Error422InvalidFieldListEmbeddedErrors
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-14T15:32:10.087418-05:00[America/Chicago]")
 public class Error422InvalidFieldListEmbeddedErrors {
   /**
    * Gets or Sets code
@@ -130,8 +130,8 @@ public class Error422InvalidFieldListEmbeddedErrors {
    * Get code
    * @return code
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public CodeEnum getCode() {
     return code;
@@ -176,8 +176,8 @@ public class Error422InvalidFieldListEmbeddedErrors {
    * Get logref
    * @return logref
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public LogRef getLogref() {
     return logref;
@@ -199,8 +199,8 @@ public class Error422InvalidFieldListEmbeddedErrors {
    * Get message
    * @return message
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getMessage() {
     return message;
@@ -222,8 +222,8 @@ public class Error422InvalidFieldListEmbeddedErrors {
    * Get links
    * @return links
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Error422InvalidFieldListEmbeddedLinks getLinks() {
     return links;
@@ -296,10 +296,6 @@ public class Error422InvalidFieldListEmbeddedErrors {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("code");
-    openapiRequiredFields.add("logref");
-    openapiRequiredFields.add("message");
-    openapiRequiredFields.add("_links");
   }
 
  /**
@@ -326,13 +322,6 @@ public class Error422InvalidFieldListEmbeddedErrors {
         }
       }
       */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : Error422InvalidFieldListEmbeddedErrors.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       if (jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull()  && !jsonObj.get("code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
       }
@@ -340,16 +329,16 @@ public class Error422InvalidFieldListEmbeddedErrors {
         throw new IllegalArgumentException(String.format("Expected the field `field` to be a primitive type in the JSON string but got `%s`", jsonObj.get("field").toString()));
       }
       // validate the optional field `logref`
-      if (jsonObj.getAsJsonObject("logref") != null) {
-       LogRef.validateJsonObject(jsonObj.getAsJsonObject("logref"));
-      }
+     // if (jsonObj.getAsJsonObject("logref") != null) {
+       //LogRef.validateJsonObject(jsonObj.getAsJsonObject("logref"));
+     // }
       if (jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()  && !jsonObj.get("message").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
       }
       // validate the optional field `_links`
-      if (jsonObj.getAsJsonObject("_links") != null) {
-       Error422InvalidFieldListEmbeddedLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-      }
+     // if (jsonObj.getAsJsonObject("_links") != null) {
+       //Error422InvalidFieldListEmbeddedLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+     // }
   }
 
 

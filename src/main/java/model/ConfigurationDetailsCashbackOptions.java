@@ -49,7 +49,7 @@ import invoker.JSON;
  * ConfigurationDetailsCashbackOptions
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class ConfigurationDetailsCashbackOptions {
   public static final String SERIALIZED_NAME_MANUAL_ENTRY = "manual_entry";
   @SerializedName(SERIALIZED_NAME_MANUAL_ENTRY)
@@ -187,9 +187,9 @@ public class ConfigurationDetailsCashbackOptions {
       }
       */
       // validate the optional field `manual_entry`
-      if (jsonObj.getAsJsonObject("manual_entry") != null) {
-       ConfigurationDetailsCashbackOptionsManualEntry.validateJsonObject(jsonObj.getAsJsonObject("manual_entry"));
-      }
+     // if (jsonObj.getAsJsonObject("manual_entry") != null) {
+       //ConfigurationDetailsCashbackOptionsManualEntry.validateJsonObject(jsonObj.getAsJsonObject("manual_entry"));
+     // }
       if (jsonObj.get("selection_amounts") != null && !jsonObj.get("selection_amounts").isJsonNull()  && !jsonObj.get("selection_amounts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `selection_amounts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selection_amounts").toString()));
       }

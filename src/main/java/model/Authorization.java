@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import model.AuthorizationExternalResponses;
+import model.AuthorizationExternalResponsesInner;
 import model.AuthorizationLinks;
 import model.CardPresentDetails;
 import model.Currency;
@@ -60,7 +60,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "A charge authorization")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class Authorization {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -112,7 +112,7 @@ public class Authorization {
 
   public static final String SERIALIZED_NAME_EXTERNAL_RESPONSES = "external_responses";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_RESPONSES)
-  private List<AuthorizationExternalResponses> externalResponses = null;
+  private List<AuthorizationExternalResponsesInner> externalResponses = null;
 
   public static final String SERIALIZED_NAME_IDEMPOTENCY_ID = "idempotency_id";
   @SerializedName(SERIALIZED_NAME_IDEMPOTENCY_ID)
@@ -503,13 +503,13 @@ public class Authorization {
   }
 
 
-  public Authorization externalResponses(List<AuthorizationExternalResponses> externalResponses) {
+  public Authorization externalResponses(List<AuthorizationExternalResponsesInner> externalResponses) {
     
     this.externalResponses = externalResponses;
     return this;
   }
 
-  public Authorization addExternalResponsesItem(AuthorizationExternalResponses externalResponsesItem) {
+  public Authorization addExternalResponsesItem(AuthorizationExternalResponsesInner externalResponsesItem) {
     if (this.externalResponses == null) {
       this.externalResponses = new ArrayList<>();
     }
@@ -524,12 +524,12 @@ public class Authorization {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<AuthorizationExternalResponses> getExternalResponses() {
+  public List<AuthorizationExternalResponsesInner> getExternalResponses() {
     return externalResponses;
   }
 
 
-  public void setExternalResponses(List<AuthorizationExternalResponses> externalResponses) {
+  public void setExternalResponses(List<AuthorizationExternalResponsesInner> externalResponses) {
     this.externalResponses = externalResponses;
   }
 
@@ -986,9 +986,9 @@ public class Authorization {
         throw new IllegalArgumentException(String.format("Expected the field `application` to be a primitive type in the JSON string but got `%s`", jsonObj.get("application").toString()));
       }
       // validate the optional field `card_present_details`
-      if (jsonObj.getAsJsonObject("card_present_details") != null) {
-       CardPresentDetails.validateJsonObject(jsonObj.getAsJsonObject("card_present_details"));
-      }
+     // if (jsonObj.getAsJsonObject("card_present_details") != null) {
+       //CardPresentDetails.validateJsonObject(jsonObj.getAsJsonObject("card_present_details"));
+     // }
       if (jsonObj.get("device") != null && !jsonObj.get("device").isJsonNull()  && !jsonObj.get("device").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `device` to be a primitive type in the JSON string but got `%s`", jsonObj.get("device").toString()));
       }
@@ -1001,7 +1001,7 @@ public class Authorization {
 
         // validate the optional field `external_responses` (array)
         for (int i = 0; i < jsonArrayexternalResponses.size(); i++) {
-          AuthorizationExternalResponses.validateJsonObject(jsonArrayexternalResponses.get(i).getAsJsonObject());
+          AuthorizationExternalResponsesInner.validateJsonObject(jsonArrayexternalResponses.get(i).getAsJsonObject());
         }
           ;
       }
@@ -1019,9 +1019,9 @@ public class Authorization {
         throw new IllegalArgumentException(String.format("Expected the field `messages` to be an array in the JSON string but got `%s`", jsonObj.get("messages").toString()));
       }
       // validate the optional field `raw`
-     /* if (jsonObj.getAsJsonObject("raw") != null) {
-       Raw.validateJsonObject(jsonObj.getAsJsonObject("raw"));
-      }*/
+     // if (jsonObj.getAsJsonObject("raw") != null) {
+       //Raw.validateJsonObject(jsonObj.getAsJsonObject("raw"));
+     // }
       if (jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()  && !jsonObj.get("source").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source").toString()));
       }
@@ -1038,9 +1038,9 @@ public class Authorization {
         throw new IllegalArgumentException(String.format("Expected the field `void_state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("void_state").toString()));
       }
       // validate the optional field `_links`
-      if (jsonObj.getAsJsonObject("_links") != null) {
-       AuthorizationLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-      }
+     // if (jsonObj.getAsJsonObject("_links") != null) {
+       //AuthorizationLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+     // }
   }
 
 

@@ -49,7 +49,7 @@ import invoker.JSON;
  * MerchantProfilesListEmbeddedLinks
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-14T15:32:10.087418-05:00[America/Chicago]")
 public class MerchantProfilesListEmbeddedLinks {
   public static final String SERIALIZED_NAME_APPLICATION = "application";
   @SerializedName(SERIALIZED_NAME_APPLICATION)
@@ -367,37 +367,37 @@ public class MerchantProfilesListEmbeddedLinks {
       }
       */
       // validate the optional field `application`
-      if (jsonObj.getAsJsonObject("application") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("application"));
-      }
+     // if (jsonObj.getAsJsonObject("application") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("application"));
+     // }
       // validate the optional field `fee_profile`
-      if (jsonObj.getAsJsonObject("fee_profile") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("fee_profile"));
-      }
+     // if (jsonObj.getAsJsonObject("fee_profile") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("fee_profile"));
+     // }
       // validate the optional field `owner_identity`
-      if (jsonObj.getAsJsonObject("owner_identity") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("owner_identity"));
-      }
+     // if (jsonObj.getAsJsonObject("owner_identity") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("owner_identity"));
+     // }
       // validate the optional field `processors`
-      if (jsonObj.getAsJsonObject("processors") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("processors"));
-      }
+     // if (jsonObj.getAsJsonObject("processors") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("processors"));
+     // }
       // validate the optional field `reserve_profile`
-      if (jsonObj.getAsJsonObject("reserve_profile") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("reserve_profile"));
-      }
+     // if (jsonObj.getAsJsonObject("reserve_profile") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("reserve_profile"));
+     // }
       // validate the optional field `risk_profile`
-      if (jsonObj.getAsJsonObject("risk_profile") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("risk_profile"));
-      }
+     // if (jsonObj.getAsJsonObject("risk_profile") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("risk_profile"));
+     // }
       // validate the optional field `self`
-      if (jsonObj.getAsJsonObject("self") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("self"));
-      }
+     // if (jsonObj.getAsJsonObject("self") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("self"));
+     // }
       // validate the optional field `users`
-      if (jsonObj.getAsJsonObject("users") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("users"));
-      }
+     // if (jsonObj.getAsJsonObject("users") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("users"));
+     // }
   }
 
 

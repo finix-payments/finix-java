@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import model.Error422InvalidFieldListEmbeddedErrors;
+import model.Error422InvalidFieldListEmbeddedErrorsInner;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,22 +51,25 @@ import invoker.JSON;
  * Error422InvalidFieldListEmbedded
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class Error422InvalidFieldListEmbedded {
   public static final String SERIALIZED_NAME_ERRORS = "errors";
   @SerializedName(SERIALIZED_NAME_ERRORS)
-  private List<Error422InvalidFieldListEmbeddedErrors> errors = new ArrayList<>();
+  private List<Error422InvalidFieldListEmbeddedErrorsInner> errors = null;
 
   public Error422InvalidFieldListEmbedded() { 
   }
 
-  public Error422InvalidFieldListEmbedded errors(List<Error422InvalidFieldListEmbeddedErrors> errors) {
+  public Error422InvalidFieldListEmbedded errors(List<Error422InvalidFieldListEmbeddedErrorsInner> errors) {
     
     this.errors = errors;
     return this;
   }
 
-  public Error422InvalidFieldListEmbedded addErrorsItem(Error422InvalidFieldListEmbeddedErrors errorsItem) {
+  public Error422InvalidFieldListEmbedded addErrorsItem(Error422InvalidFieldListEmbeddedErrorsInner errorsItem) {
+    if (this.errors == null) {
+      this.errors = new ArrayList<>();
+    }
     this.errors.add(errorsItem);
     return this;
   }
@@ -75,15 +78,15 @@ public class Error422InvalidFieldListEmbedded {
    * Get errors
    * @return errors
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-  public List<Error422InvalidFieldListEmbeddedErrors> getErrors() {
+  public List<Error422InvalidFieldListEmbeddedErrorsInner> getErrors() {
     return errors;
   }
 
 
-  public void setErrors(List<Error422InvalidFieldListEmbeddedErrors> errors) {
+  public void setErrors(List<Error422InvalidFieldListEmbeddedErrorsInner> errors) {
     this.errors = errors;
   }
 
@@ -137,7 +140,6 @@ public class Error422InvalidFieldListEmbedded {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("errors");
   }
 
  /**
@@ -164,13 +166,6 @@ public class Error422InvalidFieldListEmbedded {
         }
       }
       */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : Error422InvalidFieldListEmbedded.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       JsonArray jsonArrayerrors = jsonObj.getAsJsonArray("errors");
       if (jsonArrayerrors != null) {
         // ensure the json data is an array
@@ -180,7 +175,7 @@ public class Error422InvalidFieldListEmbedded {
 
         // validate the optional field `errors` (array)
         for (int i = 0; i < jsonArrayerrors.size(); i++) {
-          Error422InvalidFieldListEmbeddedErrors.validateJsonObject(jsonArrayerrors.get(i).getAsJsonObject());
+          Error422InvalidFieldListEmbeddedErrorsInner.validateJsonObject(jsonArrayerrors.get(i).getAsJsonObject());
         }
           ;
       }

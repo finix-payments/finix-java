@@ -35,6 +35,7 @@ import model.Error404NotFoundList;
 import model.Error406NotAcceptable;
 import model.ExternalLink;
 import model.ExternalLinksList;
+import java.io.File;
 import model.FilesList;
 import model.ModelFile;
 import model.UploadFileRequest;
@@ -127,7 +128,7 @@ import javax.ws.rs.core.GenericType;
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
             final String[] localVarAccepts = {
-        "application/json", "application/hal+json"
+        "application/vnd.api+json", "application/hal+json"
             };
             final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
             if (localVarAccept != null) {
@@ -135,7 +136,7 @@ import javax.ws.rs.core.GenericType;
             }
 
             final String[] localVarContentTypes = {
-        "application/json"
+        "application/vnd.api+json"
             };
             final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
             if (localVarContentType != null) {
@@ -370,21 +371,20 @@ import javax.ws.rs.core.GenericType;
         /**
         * Build call for downloadFile
             * @param fileId The ID of the &#x60;File&#x60; that was created to upload the file. (required)
-            * @param output The name you want to give to the downloaded file (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> The uploaded file will begin to donwload. </td><td>  -  </td></tr>
+                    <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call downloadFileCall(String fileId, String output, final ApiCallback _callback) throws ApiException {
+        public okhttp3.Call downloadFileCall(String fileId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -410,12 +410,8 @@ import javax.ws.rs.core.GenericType;
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-                    if (output != null) {
-                    localVarHeaderParams.put("output", localVarFinixClient.parameterToString(output));
-                    }
-
             final String[] localVarAccepts = {
-        "application/hal+json"
+        "application/octet-stream"
             };
             final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
             if (localVarAccept != null) {
@@ -435,7 +431,7 @@ import javax.ws.rs.core.GenericType;
             }
 
             @SuppressWarnings("rawtypes")
-            private okhttp3.Call downloadFileValidateBeforeCall(String fileId, String output, final ApiCallback _callback) throws ApiException {
+            private okhttp3.Call downloadFileValidateBeforeCall(String fileId, final ApiCallback _callback) throws ApiException {
             
                     // verify the required parameter 'fileId' is set
                     if (fileId == null) {
@@ -443,7 +439,7 @@ import javax.ws.rs.core.GenericType;
                     }
             
 
-                okhttp3.Call localVarCall = downloadFileCall(fileId, output, _callback);
+                okhttp3.Call localVarCall = downloadFileCall(fileId, _callback);
                 return localVarCall;
 
             }
@@ -452,66 +448,67 @@ import javax.ws.rs.core.GenericType;
                 * Download a file
                 * Download a file uploaded to a &#x60;File&#x60; resource. For more info, see [Uploading files to Finix](/guides/onboarding/uploading-files-to-finix).
                     * @param fileId The ID of the &#x60;File&#x60; that was created to upload the file. (required)
-                    * @param output The name you want to give to the downloaded file (optional)
+                    * @return File
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
                     <table summary="Response Details" border="1">
                         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                            <tr><td> 200 </td><td> The uploaded file will begin to donwload. </td><td>  -  </td></tr>
+                            <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
                             <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                             <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     </table>
                 */
-                    public void downloadFile(String fileId, String output) throws ApiException {
-                downloadFileWithHttpInfo(fileId, output);
+                    public File downloadFile(String fileId) throws ApiException {
+                ApiResponse<File> localVarResp = downloadFileWithHttpInfo(fileId);
+                        return localVarResp.getData();
                     }
 
         /**
             * Download a file
             * Download a file uploaded to a &#x60;File&#x60; resource. For more info, see [Uploading files to Finix](/guides/onboarding/uploading-files-to-finix).
                 * @param fileId The ID of the &#x60;File&#x60; that was created to upload the file. (required)
-                * @param output The name you want to give to the downloaded file (optional)
-            * @return ApiResponse&lt;Void&gt;
+            * @return ApiResponse&lt;File&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> The uploaded file will begin to donwload. </td><td>  -  </td></tr>
+                        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public ApiResponse<Void> downloadFileWithHttpInfo(String fileId, String output) throws ApiException {
-            okhttp3.Call localVarCall = downloadFileValidateBeforeCall(fileId, output, null);
-                return localVarFinixClient.execute(localVarCall);
+            public ApiResponse<File> downloadFileWithHttpInfo(String fileId) throws ApiException {
+            okhttp3.Call localVarCall = downloadFileValidateBeforeCall(fileId, null);
+                    Type localVarReturnType = new TypeToken<File>(){}.getType();
+                    return localVarFinixClient.execute(localVarCall, localVarReturnType);
             }
 
         /**
             * Download a file (asynchronously)
             * Download a file uploaded to a &#x60;File&#x60; resource. For more info, see [Uploading files to Finix](/guides/onboarding/uploading-files-to-finix).
                 * @param fileId The ID of the &#x60;File&#x60; that was created to upload the file. (required)
-                * @param output The name you want to give to the downloaded file (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> The uploaded file will begin to donwload. </td><td>  -  </td></tr>
+                        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public okhttp3.Call downloadFileAsync(String fileId, String output, final ApiCallback<Void> _callback) throws ApiException {
+            public okhttp3.Call downloadFileAsync(String fileId, final ApiCallback<File> _callback) throws ApiException {
 
-            okhttp3.Call localVarCall = downloadFileValidateBeforeCall(fileId, output, _callback);
-        localVarFinixClient.executeAsync(localVarCall, _callback);
+            okhttp3.Call localVarCall = downloadFileValidateBeforeCall(fileId, _callback);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+            localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
             return localVarCall;
             }
         /**
@@ -548,7 +545,7 @@ import javax.ws.rs.core.GenericType;
         Object localVarPostBody = null;
 
         // create path and map variables
-            String localVarPath = "/files/{file_id}/external_link/{external_link_id}"
+            String localVarPath = "/files/{file_id}/external_links/{external_link_id}"
                 .replaceAll("\\{" + "file_id" + "\\}", localVarFinixClient.escapeString(fileId.toString()))
                 .replaceAll("\\{" + "external_link_id" + "\\}", localVarFinixClient.escapeString(externalLinkId.toString()));
 
@@ -559,7 +556,7 @@ import javax.ws.rs.core.GenericType;
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
             final String[] localVarAccepts = {
-        "application/json", "application/hal+json"
+        "application/vnd.api+json", "application/hal+json"
             };
             final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
             if (localVarAccept != null) {
@@ -893,7 +890,7 @@ import javax.ws.rs.core.GenericType;
                     }
 
             final String[] localVarAccepts = {
-        "application/json", "application/hal+json"
+        "application/vnd.api+json", "application/hal+json"
             };
             final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
             if (localVarAccept != null) {
@@ -1098,7 +1095,7 @@ import javax.ws.rs.core.GenericType;
                     }
 
             final String[] localVarAccepts = {
-        "application/json", "application/hal+json"
+        "application/vnd.api+json", "application/hal+json"
             };
             final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
             if (localVarAccept != null) {
@@ -1256,7 +1253,7 @@ import javax.ws.rs.core.GenericType;
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
+            localVarFormParams.put("file", uploadFileRequest.getFile());
             final String[] localVarAccepts = {
         "application/vnd.api+json", "application/hal+json"
             };

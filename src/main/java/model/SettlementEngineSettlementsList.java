@@ -23,8 +23,9 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.PaymentInstrumentUpdatesListPage;
+import model.FeeProfilesListPage;
 import model.SettlementEngineSettlementsListEmbedded;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,11 +51,11 @@ import invoker.JSON;
  * SettlementEngineSettlementsList
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class SettlementEngineSettlementsList {
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
-  private PaymentInstrumentUpdatesListPage page;
+  private FeeProfilesListPage page;
 
   public static final String SERIALIZED_NAME_EMBEDDED = "_embedded";
   @SerializedName(SERIALIZED_NAME_EMBEDDED)
@@ -67,7 +68,7 @@ public class SettlementEngineSettlementsList {
   public SettlementEngineSettlementsList() { 
   }
 
-  public SettlementEngineSettlementsList page(PaymentInstrumentUpdatesListPage page) {
+  public SettlementEngineSettlementsList page(FeeProfilesListPage page) {
     
     this.page = page;
     return this;
@@ -77,15 +78,15 @@ public class SettlementEngineSettlementsList {
    * Get page
    * @return page
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-  public PaymentInstrumentUpdatesListPage getPage() {
+  public FeeProfilesListPage getPage() {
     return page;
   }
 
 
-  public void setPage(PaymentInstrumentUpdatesListPage page) {
+  public void setPage(FeeProfilesListPage page) {
     this.page = page;
   }
 
@@ -124,7 +125,7 @@ public class SettlementEngineSettlementsList {
    * @return links
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
 
   public Object getLinks() {
     return links;
@@ -151,9 +152,20 @@ public class SettlementEngineSettlementsList {
         Objects.equals(this.links, settlementEngineSettlementsList.links);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(page, embedded, links);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -191,8 +203,6 @@ public class SettlementEngineSettlementsList {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("page");
-    openapiRequiredFields.add("_links");
   }
 
  /**
@@ -219,21 +229,14 @@ public class SettlementEngineSettlementsList {
         }
       }
       */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : SettlementEngineSettlementsList.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       // validate the optional field `page`
-      if (jsonObj.getAsJsonObject("page") != null) {
-       PaymentInstrumentUpdatesListPage.validateJsonObject(jsonObj.getAsJsonObject("page"));
-      }
+     // if (jsonObj.getAsJsonObject("page") != null) {
+       //FeeProfilesListPage.validateJsonObject(jsonObj.getAsJsonObject("page"));
+     // }
       // validate the optional field `_embedded`
-      if (jsonObj.getAsJsonObject("_embedded") != null) {
-       SettlementEngineSettlementsListEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
-      }
+     // if (jsonObj.getAsJsonObject("_embedded") != null) {
+       //SettlementEngineSettlementsListEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
+     // }
   }
 
 

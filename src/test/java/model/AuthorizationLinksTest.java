@@ -21,7 +21,11 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.ApplicationLinksApplicationProfile;
+import model.ApplicationLinksSelf;
+import model.ApplicationProfileLinksApplication;
+import model.AuthorizationLinksDevice;
+import model.AuthorizationLinksMerchantIdentity;
+import model.AuthorizationLinksTransfer;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

@@ -52,7 +52,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-14T11:20:42.244239-05:00[America/Chicago]")
 public class ReserveProfileLinks {
   public static final String SERIALIZED_NAME_APPLICATION = "application";
   @SerializedName(SERIALIZED_NAME_APPLICATION)
@@ -288,25 +288,25 @@ public class ReserveProfileLinks {
         }
       }*/
       // validate the optional field `application`
-      if (jsonObj.getAsJsonObject("application") != null) {
-       ApplicationProfileLinksApplication.validateJsonObject(jsonObj.getAsJsonObject("application"));
-      }
+     // if (jsonObj.getAsJsonObject("application") != null) {
+       //ApplicationProfileLinksApplication.validateJsonObject(jsonObj.getAsJsonObject("application"));
+     // }
       // validate the optional field `owner_identity`
-      if (jsonObj.getAsJsonObject("owner_identity") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("owner_identity"));
-      }
+     // if (jsonObj.getAsJsonObject("owner_identity") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("owner_identity"));
+     // }
       // validate the optional field `processors`
-      if (jsonObj.getAsJsonObject("processors") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("processors"));
-      }
+     // if (jsonObj.getAsJsonObject("processors") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("processors"));
+     // }
       // validate the optional field `self`
-      if (jsonObj.getAsJsonObject("self") != null) {
-       ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
-      }
+     // if (jsonObj.getAsJsonObject("self") != null) {
+       //ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
+     // }
       // validate the optional field `users`
-      if (jsonObj.getAsJsonObject("users") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("users"));
-      }
+     // if (jsonObj.getAsJsonObject("users") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("users"));
+     // }
   }
 
 

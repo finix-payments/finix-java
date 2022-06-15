@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
-import model.ReviewQueueItemsListEmbeddedReviewQueueItems;
+import model.ReviewQueueItemsListEmbeddedReviewQueueItemsInner;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,22 +52,25 @@ import invoker.JSON;
  * ReviewQueueItemsListEmbedded
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class ReviewQueueItemsListEmbedded {
   public static final String SERIALIZED_NAME_REVIEW_QUEUE_ITEMS = "review_queue_items";
   @SerializedName(SERIALIZED_NAME_REVIEW_QUEUE_ITEMS)
-  private Set<ReviewQueueItemsListEmbeddedReviewQueueItems> reviewQueueItems = new LinkedHashSet<>();
+  private Set<ReviewQueueItemsListEmbeddedReviewQueueItemsInner> reviewQueueItems = null;
 
   public ReviewQueueItemsListEmbedded() { 
   }
 
-  public ReviewQueueItemsListEmbedded reviewQueueItems(Set<ReviewQueueItemsListEmbeddedReviewQueueItems> reviewQueueItems) {
+  public ReviewQueueItemsListEmbedded reviewQueueItems(Set<ReviewQueueItemsListEmbeddedReviewQueueItemsInner> reviewQueueItems) {
     
     this.reviewQueueItems = reviewQueueItems;
     return this;
   }
 
-  public ReviewQueueItemsListEmbedded addReviewQueueItemsItem(ReviewQueueItemsListEmbeddedReviewQueueItems reviewQueueItemsItem) {
+  public ReviewQueueItemsListEmbedded addReviewQueueItemsItem(ReviewQueueItemsListEmbeddedReviewQueueItemsInner reviewQueueItemsItem) {
+    if (this.reviewQueueItems == null) {
+      this.reviewQueueItems = new LinkedHashSet<>();
+    }
     this.reviewQueueItems.add(reviewQueueItemsItem);
     return this;
   }
@@ -76,15 +79,15 @@ public class ReviewQueueItemsListEmbedded {
    * Get reviewQueueItems
    * @return reviewQueueItems
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-  public Set<ReviewQueueItemsListEmbeddedReviewQueueItems> getReviewQueueItems() {
+  public Set<ReviewQueueItemsListEmbeddedReviewQueueItemsInner> getReviewQueueItems() {
     return reviewQueueItems;
   }
 
 
-  public void setReviewQueueItems(Set<ReviewQueueItemsListEmbeddedReviewQueueItems> reviewQueueItems) {
+  public void setReviewQueueItems(Set<ReviewQueueItemsListEmbeddedReviewQueueItemsInner> reviewQueueItems) {
     this.reviewQueueItems = reviewQueueItems;
   }
 
@@ -138,7 +141,6 @@ public class ReviewQueueItemsListEmbedded {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("review_queue_items");
   }
 
  /**
@@ -165,13 +167,6 @@ public class ReviewQueueItemsListEmbedded {
         }
       }
       */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : ReviewQueueItemsListEmbedded.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       JsonArray jsonArrayreviewQueueItems = jsonObj.getAsJsonArray("review_queue_items");
       if (jsonArrayreviewQueueItems != null) {
         // ensure the json data is an array
@@ -181,7 +176,7 @@ public class ReviewQueueItemsListEmbedded {
 
         // validate the optional field `review_queue_items` (array)
         for (int i = 0; i < jsonArrayreviewQueueItems.size(); i++) {
-          ReviewQueueItemsListEmbeddedReviewQueueItems.validateJsonObject(jsonArrayreviewQueueItems.get(i).getAsJsonObject());
+          ReviewQueueItemsListEmbeddedReviewQueueItemsInner.validateJsonObject(jsonArrayreviewQueueItems.get(i).getAsJsonObject());
         }
           ;
       }

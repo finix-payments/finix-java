@@ -50,10 +50,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * Processor
+ * 
  */
+@ApiModel(description = "")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class Processor {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -478,9 +479,9 @@ public class Processor {
         throw new IllegalArgumentException(String.format("Expected the field `application` to be a primitive type in the JSON string but got `%s`", jsonObj.get("application").toString()));
       }
       // validate the optional field `application_config`
-      if (jsonObj.getAsJsonObject("application_config") != null) {
-       ProcessorApplicationConfig.validateJsonObject(jsonObj.getAsJsonObject("application_config"));
-      }
+     // if (jsonObj.getAsJsonObject("application_config") != null) {
+       //ProcessorApplicationConfig.validateJsonObject(jsonObj.getAsJsonObject("application_config"));
+     // }
       if (jsonObj.get("default_merchant_profile") != null && !jsonObj.get("default_merchant_profile").isJsonNull()  && !jsonObj.get("default_merchant_profile").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `default_merchant_profile` to be a primitive type in the JSON string but got `%s`", jsonObj.get("default_merchant_profile").toString()));
       }
@@ -488,13 +489,13 @@ public class Processor {
         throw new IllegalArgumentException(String.format("Expected the field `processor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("processor").toString()));
       }
       // validate the optional field `system_config`
-      if (jsonObj.getAsJsonObject("system_config") != null) {
-       ProcessorSystemConfig.validateJsonObject(jsonObj.getAsJsonObject("system_config"));
-      }
+     // if (jsonObj.getAsJsonObject("system_config") != null) {
+       //ProcessorSystemConfig.validateJsonObject(jsonObj.getAsJsonObject("system_config"));
+     // }
       // validate the optional field `_links`
-      if (jsonObj.getAsJsonObject("_links") != null) {
-       ProcessorLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-      }
+     // if (jsonObj.getAsJsonObject("_links") != null) {
+       //ProcessorLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+     // }
   }
 
 

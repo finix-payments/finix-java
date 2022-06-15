@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import model.PaymentInstrumentUpdatesListEmbeddedLinks;
+import model.InstrumentUpdateLinks;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,7 +52,7 @@ import invoker.JSON;
  * InstrumentUpdate
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class InstrumentUpdate {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -141,7 +141,7 @@ public class InstrumentUpdate {
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private PaymentInstrumentUpdatesListEmbeddedLinks links;
+  private InstrumentUpdateLinks links;
 
   public InstrumentUpdate() { 
   }
@@ -358,7 +358,7 @@ public class InstrumentUpdate {
   }
 
 
-  public InstrumentUpdate links(PaymentInstrumentUpdatesListEmbeddedLinks links) {
+  public InstrumentUpdate links(InstrumentUpdateLinks links) {
     
     this.links = links;
     return this;
@@ -368,15 +368,15 @@ public class InstrumentUpdate {
    * Get links
    * @return links
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-  public PaymentInstrumentUpdatesListEmbeddedLinks getLinks() {
+  public InstrumentUpdateLinks getLinks() {
     return links;
   }
 
 
-  public void setLinks(PaymentInstrumentUpdatesListEmbeddedLinks links) {
+  public void setLinks(InstrumentUpdateLinks links) {
     this.links = links;
   }
 
@@ -466,7 +466,6 @@ public class InstrumentUpdate {
     openapiRequiredFields.add("payment_instrument");
     openapiRequiredFields.add("state");
     openapiRequiredFields.add("trace_id");
-    openapiRequiredFields.add("_links");
   }
 
  /**
@@ -523,9 +522,9 @@ public class InstrumentUpdate {
         throw new IllegalArgumentException(String.format("Expected the field `trace_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("trace_id").toString()));
       }
       // validate the optional field `_links`
-      if (jsonObj.getAsJsonObject("_links") != null) {
-       PaymentInstrumentUpdatesListEmbeddedLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-      }
+     // if (jsonObj.getAsJsonObject("_links") != null) {
+       //InstrumentUpdateLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+     // }
   }
 
 

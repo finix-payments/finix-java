@@ -56,7 +56,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Create an `Authorization` resource.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class CreateAuthorizationRequest {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -586,13 +586,13 @@ public class CreateAuthorizationRequest {
         throw new IllegalArgumentException(String.format("Expected the field `source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source").toString()));
       }
       // validate the optional field `additional_purchase_data`
-      if (jsonObj.getAsJsonObject("additional_purchase_data") != null) {
-       AdditionalPurchaseData.validateJsonObject(jsonObj.getAsJsonObject("additional_purchase_data"));
-      }
+     // if (jsonObj.getAsJsonObject("additional_purchase_data") != null) {
+       //AdditionalPurchaseData.validateJsonObject(jsonObj.getAsJsonObject("additional_purchase_data"));
+     // }
       // validate the optional field `3d_secure_authentication`
-      if (jsonObj.getAsJsonObject("3d_secure_authentication") != null) {
-       CreateAuthorizationRequest3dSecureAuthentication.validateJsonObject(jsonObj.getAsJsonObject("3d_secure_authentication"));
-      }
+     // if (jsonObj.getAsJsonObject("3d_secure_authentication") != null) {
+       //CreateAuthorizationRequest3dSecureAuthentication.validateJsonObject(jsonObj.getAsJsonObject("3d_secure_authentication"));
+     // }
       if (jsonObj.get("operation_key") != null && !jsonObj.get("operation_key").isJsonNull()  && !jsonObj.get("operation_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `operation_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation_key").toString()));
       }

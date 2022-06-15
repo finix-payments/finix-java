@@ -60,7 +60,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class TransferLinks {
   public static final String SERIALIZED_NAME_APPLICATION = "application";
   @SerializedName(SERIALIZED_NAME_APPLICATION)
@@ -468,49 +468,49 @@ public class TransferLinks {
       }
       */
       // validate the optional field `application`
-      if (jsonObj.getAsJsonObject("application") != null) {
-       ApplicationProfileLinksApplication.validateJsonObject(jsonObj.getAsJsonObject("application"));
-      }
+     // if (jsonObj.getAsJsonObject("application") != null) {
+       //ApplicationProfileLinksApplication.validateJsonObject(jsonObj.getAsJsonObject("application"));
+     // }
       // validate the optional field `destination`
-      if (jsonObj.getAsJsonObject("destination") != null) {
-       TransferLinksDestination.validateJsonObject(jsonObj.getAsJsonObject("destination"));
-      }
+     // if (jsonObj.getAsJsonObject("destination") != null) {
+       //TransferLinksDestination.validateJsonObject(jsonObj.getAsJsonObject("destination"));
+     // }
       // validate the optional field `device`
-      if (jsonObj.getAsJsonObject("device") != null) {
-       AuthorizationLinksDevice.validateJsonObject(jsonObj.getAsJsonObject("device"));
-      }
+     // if (jsonObj.getAsJsonObject("device") != null) {
+       //AuthorizationLinksDevice.validateJsonObject(jsonObj.getAsJsonObject("device"));
+     // }
       // validate the optional field `disputes`
-      if (jsonObj.getAsJsonObject("disputes") != null) {
-       TransferLinksDisputes.validateJsonObject(jsonObj.getAsJsonObject("disputes"));
-      }
+     // if (jsonObj.getAsJsonObject("disputes") != null) {
+       //TransferLinksDisputes.validateJsonObject(jsonObj.getAsJsonObject("disputes"));
+     // }
       // validate the optional field `fee_profile`
-      if (jsonObj.getAsJsonObject("fee_profile") != null) {
-       TransferLinksFeeProfile.validateJsonObject(jsonObj.getAsJsonObject("fee_profile"));
-      }
+     // if (jsonObj.getAsJsonObject("fee_profile") != null) {
+       //TransferLinksFeeProfile.validateJsonObject(jsonObj.getAsJsonObject("fee_profile"));
+     // }
       // validate the optional field `fees`
-      if (jsonObj.getAsJsonObject("fees") != null) {
-       TransferLinksFees.validateJsonObject(jsonObj.getAsJsonObject("fees"));
-      }
+     // if (jsonObj.getAsJsonObject("fees") != null) {
+       //TransferLinksFees.validateJsonObject(jsonObj.getAsJsonObject("fees"));
+     // }
       // validate the optional field `merchant_identity`
-      if (jsonObj.getAsJsonObject("merchant_identity") != null) {
-       AuthorizationLinksMerchantIdentity.validateJsonObject(jsonObj.getAsJsonObject("merchant_identity"));
-      }
+     // if (jsonObj.getAsJsonObject("merchant_identity") != null) {
+       //AuthorizationLinksMerchantIdentity.validateJsonObject(jsonObj.getAsJsonObject("merchant_identity"));
+     // }
       // validate the optional field `payment_instruments`
-      if (jsonObj.getAsJsonObject("payment_instruments") != null) {
-       TransferLinksPaymentInstruments.validateJsonObject(jsonObj.getAsJsonObject("payment_instruments"));
-      }
+     // if (jsonObj.getAsJsonObject("payment_instruments") != null) {
+       //TransferLinksPaymentInstruments.validateJsonObject(jsonObj.getAsJsonObject("payment_instruments"));
+     // }
       // validate the optional field `reversals`
-      if (jsonObj.getAsJsonObject("reversals") != null) {
-       TransferLinksReversals.validateJsonObject(jsonObj.getAsJsonObject("reversals"));
-      }
+     // if (jsonObj.getAsJsonObject("reversals") != null) {
+       //TransferLinksReversals.validateJsonObject(jsonObj.getAsJsonObject("reversals"));
+     // }
       // validate the optional field `self`
-      if (jsonObj.getAsJsonObject("self") != null) {
-       ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
-      }
+     // if (jsonObj.getAsJsonObject("self") != null) {
+       //ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
+     // }
       // validate the optional field `source`
-      if (jsonObj.getAsJsonObject("source") != null) {
-       TransferLinksSource.validateJsonObject(jsonObj.getAsJsonObject("source"));
-      }
+     // if (jsonObj.getAsJsonObject("source") != null) {
+       //TransferLinksSource.validateJsonObject(jsonObj.getAsJsonObject("source"));
+     // }
   }
 
 

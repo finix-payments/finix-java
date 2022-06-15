@@ -53,7 +53,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class DisputeLinks {
   public static final String SERIALIZED_NAME_ADJUSTMENT_TRANSFERS = "adjustment_transfers";
   @SerializedName(SERIALIZED_NAME_ADJUSTMENT_TRANSFERS)
@@ -281,25 +281,25 @@ public class DisputeLinks {
       }
       */
       // validate the optional field `adjustment_transfers`
-      if (jsonObj.getAsJsonObject("adjustment_transfers") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("adjustment_transfers"));
-      }
+     // if (jsonObj.getAsJsonObject("adjustment_transfers") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("adjustment_transfers"));
+     // }
       // validate the optional field `application`
-      if (jsonObj.getAsJsonObject("application") != null) {
-       ApplicationProfileLinksApplication.validateJsonObject(jsonObj.getAsJsonObject("application"));
-      }
+     // if (jsonObj.getAsJsonObject("application") != null) {
+       //ApplicationProfileLinksApplication.validateJsonObject(jsonObj.getAsJsonObject("application"));
+     // }
       // validate the optional field `evidence`
-      if (jsonObj.getAsJsonObject("evidence") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("evidence"));
-      }
+     // if (jsonObj.getAsJsonObject("evidence") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("evidence"));
+     // }
       // validate the optional field `self`
-      if (jsonObj.getAsJsonObject("self") != null) {
-       ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
-      }
+     // if (jsonObj.getAsJsonObject("self") != null) {
+       //ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
+     // }
       // validate the optional field `transfer`
-      if (jsonObj.getAsJsonObject("transfer") != null) {
-       DisputeLinksTransfer.validateJsonObject(jsonObj.getAsJsonObject("transfer"));
-      }
+     // if (jsonObj.getAsJsonObject("transfer") != null) {
+       //DisputeLinksTransfer.validateJsonObject(jsonObj.getAsJsonObject("transfer"));
+     // }
   }
 
 

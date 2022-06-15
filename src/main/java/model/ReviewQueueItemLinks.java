@@ -26,6 +26,7 @@ import java.io.IOException;
 import model.ApplicationLinksApplicationProfile;
 import model.ApplicationLinksSelf;
 import model.ApplicationProfileLinksApplication;
+import model.DeviceLinksMerchant;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,7 +53,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class ReviewQueueItemLinks {
   public static final String SERIALIZED_NAME_APPLICATION = "application";
   @SerializedName(SERIALIZED_NAME_APPLICATION)
@@ -64,7 +65,7 @@ public class ReviewQueueItemLinks {
 
   public static final String SERIALIZED_NAME_MERCHANT = "merchant";
   @SerializedName(SERIALIZED_NAME_MERCHANT)
-  private ApplicationLinksApplicationProfile merchant;
+  private DeviceLinksMerchant merchant;
 
   public static final String SERIALIZED_NAME_REVIEW_BY = "review_by";
   @SerializedName(SERIALIZED_NAME_REVIEW_BY)
@@ -127,7 +128,7 @@ public class ReviewQueueItemLinks {
   }
 
 
-  public ReviewQueueItemLinks merchant(ApplicationLinksApplicationProfile merchant) {
+  public ReviewQueueItemLinks merchant(DeviceLinksMerchant merchant) {
     
     this.merchant = merchant;
     return this;
@@ -140,12 +141,12 @@ public class ReviewQueueItemLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getMerchant() {
+  public DeviceLinksMerchant getMerchant() {
     return merchant;
   }
 
 
-  public void setMerchant(ApplicationLinksApplicationProfile merchant) {
+  public void setMerchant(DeviceLinksMerchant merchant) {
     this.merchant = merchant;
   }
 
@@ -183,8 +184,8 @@ public class ReviewQueueItemLinks {
    * Get self
    * @return self
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public ApplicationLinksSelf getSelf() {
     return self;
@@ -283,7 +284,6 @@ public class ReviewQueueItemLinks {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("self");
   }
 
  /**
@@ -310,37 +310,30 @@ public class ReviewQueueItemLinks {
         }
       }
       */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : ReviewQueueItemLinks.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       // validate the optional field `application`
-      if (jsonObj.getAsJsonObject("application") != null) {
-       ApplicationProfileLinksApplication.validateJsonObject(jsonObj.getAsJsonObject("application"));
-      }
+     // if (jsonObj.getAsJsonObject("application") != null) {
+       //ApplicationProfileLinksApplication.validateJsonObject(jsonObj.getAsJsonObject("application"));
+     // }
       // validate the optional field `identity`
-      if (jsonObj.getAsJsonObject("identity") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("identity"));
-      }
+     // if (jsonObj.getAsJsonObject("identity") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("identity"));
+     // }
       // validate the optional field `merchant`
-      if (jsonObj.getAsJsonObject("merchant") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("merchant"));
-      }
+     // if (jsonObj.getAsJsonObject("merchant") != null) {
+       //DeviceLinksMerchant.validateJsonObject(jsonObj.getAsJsonObject("merchant"));
+     // }
       // validate the optional field `review_by`
-      if (jsonObj.getAsJsonObject("review_by") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("review_by"));
-      }
+     // if (jsonObj.getAsJsonObject("review_by") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("review_by"));
+     // }
       // validate the optional field `self`
-      if (jsonObj.getAsJsonObject("self") != null) {
-       ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
-      }
+     // if (jsonObj.getAsJsonObject("self") != null) {
+       //ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
+     // }
       // validate the optional field `settlement`
-      if (jsonObj.getAsJsonObject("settlement") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("settlement"));
-      }
+     // if (jsonObj.getAsJsonObject("settlement") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("settlement"));
+     // }
   }
 
 

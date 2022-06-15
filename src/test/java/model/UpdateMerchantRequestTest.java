@@ -50,4 +50,12 @@ public class UpdateMerchantRequestTest {
         // TODO: test tags
     }
 
+    /**
+     * Test the property 'levelTwoLevelThreeDataEnabled'
+     */
+    @Test
+    public void levelTwoLevelThreeDataEnabledTest() {
+        // TODO: test levelTwoLevelThreeDataEnabled
+    }
+
 }

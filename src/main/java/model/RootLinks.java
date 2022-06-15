@@ -52,7 +52,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class RootLinks {
   public static final String SERIALIZED_NAME_APPLICATIONS = "applications";
   @SerializedName(SERIALIZED_NAME_APPLICATIONS)
@@ -115,8 +115,8 @@ public class RootLinks {
    * Get applications
    * @return applications
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public ApplicationLinksApplicationProfile getApplications() {
     return applications;
@@ -138,8 +138,8 @@ public class RootLinks {
    * Get authorizations
    * @return authorizations
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public ApplicationLinksApplicationProfile getAuthorizations() {
     return authorizations;
@@ -161,8 +161,8 @@ public class RootLinks {
    * Get identities
    * @return identities
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public ApplicationLinksApplicationProfile getIdentities() {
     return identities;
@@ -184,8 +184,8 @@ public class RootLinks {
    * Get merchants
    * @return merchants
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public ApplicationLinksApplicationProfile getMerchants() {
     return merchants;
@@ -207,8 +207,8 @@ public class RootLinks {
    * Get paymentInstruments
    * @return paymentInstruments
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public ApplicationLinksApplicationProfile getPaymentInstruments() {
     return paymentInstruments;
@@ -230,8 +230,8 @@ public class RootLinks {
    * Get processorCallbacks
    * @return processorCallbacks
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public ApplicationLinksApplicationProfile getProcessorCallbacks() {
     return processorCallbacks;
@@ -253,8 +253,8 @@ public class RootLinks {
    * Get processorClients
    * @return processorClients
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public ApplicationLinksApplicationProfile getProcessorClients() {
     return processorClients;
@@ -276,8 +276,8 @@ public class RootLinks {
    * Get self
    * @return self
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public ApplicationLinksSelf getSelf() {
     return self;
@@ -299,8 +299,8 @@ public class RootLinks {
    * Get transfers
    * @return transfers
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public ApplicationLinksApplicationProfile getTransfers() {
     return transfers;
@@ -322,8 +322,8 @@ public class RootLinks {
    * Get users
    * @return users
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public ApplicationLinksApplicationProfile getUsers() {
     return users;
@@ -345,8 +345,8 @@ public class RootLinks {
    * Get verifications
    * @return verifications
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public PaymentInstrumentTokenLinksVerifications getVerifications() {
     return verifications;
@@ -368,8 +368,8 @@ public class RootLinks {
    * Get webhooks
    * @return webhooks
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public ApplicationLinksApplicationProfile getWebhooks() {
     return webhooks;
@@ -463,18 +463,6 @@ public class RootLinks {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("applications");
-    openapiRequiredFields.add("authorizations");
-    openapiRequiredFields.add("identities");
-    openapiRequiredFields.add("merchants");
-    openapiRequiredFields.add("payment_instruments");
-    openapiRequiredFields.add("processor_callbacks");
-    openapiRequiredFields.add("processor_clients");
-    openapiRequiredFields.add("self");
-    openapiRequiredFields.add("transfers");
-    openapiRequiredFields.add("users");
-    openapiRequiredFields.add("verifications");
-    openapiRequiredFields.add("webhooks");
   }
 
  /**
@@ -501,61 +489,54 @@ public class RootLinks {
         }
       }
       */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : RootLinks.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       // validate the optional field `applications`
-      if (jsonObj.getAsJsonObject("applications") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("applications"));
-      }
+     // if (jsonObj.getAsJsonObject("applications") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("applications"));
+     // }
       // validate the optional field `authorizations`
-      if (jsonObj.getAsJsonObject("authorizations") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("authorizations"));
-      }
+     // if (jsonObj.getAsJsonObject("authorizations") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("authorizations"));
+     // }
       // validate the optional field `identities`
-      if (jsonObj.getAsJsonObject("identities") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("identities"));
-      }
+     // if (jsonObj.getAsJsonObject("identities") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("identities"));
+     // }
       // validate the optional field `merchants`
-      if (jsonObj.getAsJsonObject("merchants") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("merchants"));
-      }
+     // if (jsonObj.getAsJsonObject("merchants") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("merchants"));
+     // }
       // validate the optional field `payment_instruments`
-      if (jsonObj.getAsJsonObject("payment_instruments") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("payment_instruments"));
-      }
+     // if (jsonObj.getAsJsonObject("payment_instruments") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("payment_instruments"));
+     // }
       // validate the optional field `processor_callbacks`
-      if (jsonObj.getAsJsonObject("processor_callbacks") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("processor_callbacks"));
-      }
+     // if (jsonObj.getAsJsonObject("processor_callbacks") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("processor_callbacks"));
+     // }
       // validate the optional field `processor_clients`
-      if (jsonObj.getAsJsonObject("processor_clients") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("processor_clients"));
-      }
+     // if (jsonObj.getAsJsonObject("processor_clients") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("processor_clients"));
+     // }
       // validate the optional field `self`
-      if (jsonObj.getAsJsonObject("self") != null) {
-       ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
-      }
+     // if (jsonObj.getAsJsonObject("self") != null) {
+       //ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
+     // }
       // validate the optional field `transfers`
-      if (jsonObj.getAsJsonObject("transfers") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("transfers"));
-      }
+     // if (jsonObj.getAsJsonObject("transfers") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("transfers"));
+     // }
       // validate the optional field `users`
-      if (jsonObj.getAsJsonObject("users") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("users"));
-      }
+     // if (jsonObj.getAsJsonObject("users") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("users"));
+     // }
       // validate the optional field `verifications`
-      if (jsonObj.getAsJsonObject("verifications") != null) {
-       PaymentInstrumentTokenLinksVerifications.validateJsonObject(jsonObj.getAsJsonObject("verifications"));
-      }
+     // if (jsonObj.getAsJsonObject("verifications") != null) {
+       //PaymentInstrumentTokenLinksVerifications.validateJsonObject(jsonObj.getAsJsonObject("verifications"));
+     // }
       // validate the optional field `webhooks`
-      if (jsonObj.getAsJsonObject("webhooks") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("webhooks"));
-      }
+     // if (jsonObj.getAsJsonObject("webhooks") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("webhooks"));
+     // }
   }
 
 

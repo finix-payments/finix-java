@@ -16,24 +16,18 @@ package api;
 import invoker.ApiException;
 import invoker.Environment;
 import invoker.FinixClient;
-import model.ApplePaySession;
-import model.ApplePaySessionRequest;
-import model.CreateInstrumentUpdates;
-import model.CreatePaymentInstrumentRequest;
-import model.Error401Unauthorized;
-import model.Error403ForbiddenList;
-import model.Error404NotFoundList;
-import model.Error406NotAcceptable;
-import model.ErrorGeneric;
-import model.InstrumentUpdates;
-import model.PaymentInstrument;
-import model.PaymentInstrumentUpdatesList;
-import model.PaymentInstrumentsList;
-import model.Verification;
-import model.VerificationForm;
+import io.swagger.annotations.Api;
+import model.*;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import org.junit.jupiter.api.*;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.InvalidPathException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -44,7 +38,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * API tests for PaymentInstrumentsApi
  */
-@Disabled
+//@Disabled
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @DisplayName("When Running PaymentInstrumentsApiTest")
 
@@ -55,7 +49,6 @@ public class PaymentInstrumentsApiTest {
     @BeforeAll
     void contextLoads() {
         finixClient= new FinixClient("USsRhsHYZGBPnQw8CByJyEQW","8a14c2f9-d94b-4c72-8f5c-a62908e5b30e", Environment.SANDBOX);
-        // System.out.println(finixClient == null);
         assertEquals(true , finixClient!=null);
 
     }
@@ -66,11 +59,15 @@ public class PaymentInstrumentsApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-    @Test
+   // @Test
     public void createApplePaySessionTest() throws ApiException {
         ApplePaySessionRequest applePaySessionRequest = ApplePaySessionRequest.builder()
+                .displayName("Finix Test Merchant")
+                .domain("www.finixtestmerchant.com")
+                .merchantIdentity("IDmULj61C8ke6Y7qQiKENJ7")
+                .validationUrl("https://apple-pay-gateway-cert.apple.com/paymentservices/paymentSession")
                 .build();
-        ApplePaySession response = api.createApplePaySession(applePaySessionRequest);
+        ApplePaySession response = finixClient.PaymentInstrument.createApplePaySession(applePaySessionRequest);
         // TODO: test validations
     }
 
@@ -82,14 +79,47 @@ public class PaymentInstrumentsApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void createPaymentInstrumentTest() throws ApiException {
-        CreatePaymentInstrumentRequest createPaymentInstrumentRequest = CreatePaymentInstrumentRequest.builder()
-
+    @DisplayName("Create a Payment Instrument")
+    public void createPaymentInstrumentTest() throws ApiException, IOException {
+        CreatePaymentInstrumentRequest createPaymentInstrumentRequest =  CreatePaymentInstrumentRequest.builder()
+                .name("Amy White")
+                .expirationYear(2029)
+                .tags(Map.of("card_name", "Business Card"))
+                .number("4895142232120006")
+                .expirationMonth(12)
+                .address(CreatePaymentInstrumentRequestAddress.builder()
+                        .city("San Francisco")
+                        .region("CA")
+                        .postalCode("94404")
+                        .line1("900 Metro Center Blv")
+                        .country("USA")
+                        .build())
+                .securityCode("022")
+                .type(CreatePaymentInstrumentRequest.TypeEnum.PAYMENT_CARD)
+                .identity("IDgWxBhfGYLLdkhxx2ddYf9K")
                 .build();
-        PaymentInstrument response = api.create(createPaymentInstrumentRequest);
-        // TODO: test validations
+        PaymentInstrument response = (PaymentInstrument) finixClient.PaymentInstrument.create(createPaymentInstrumentRequest);
+       // System.out.println(response.hashCode());
+
     }
 
+    @Test
+    @DisplayName("Create a Bank Account")
+    public void createBankAccount() throws ApiException{
+       // Create
+        CreatePaymentInstrumentRequest createPaymentInstrumentRequest =  CreatePaymentInstrumentRequest.builder()
+                .accountType(CreatePaymentInstrumentRequest.AccountTypeEnum.CHECKING)
+                .name("Alice")
+                .tags(Map.of("Bank Account", "Company Account"))
+                .country("USA")
+                .bankCode("123123123")
+                .accountNumber("123123123")
+                .type(CreatePaymentInstrumentRequest.TypeEnum.BANK_ACCOUNT)
+                .identity("IDpYDM7J9n57q849o9E9yNrG")
+                .build();
+       PaymentInstrument response =  finixClient.PaymentInstrument.create(createPaymentInstrumentRequest);
+      System.out.println(response.toJson());
+    }
     /**
      * Create Instrument Updates
      *
@@ -97,7 +127,7 @@ public class PaymentInstrumentsApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-    @Test
+   // @Test
     public void createPaymentInstrumentUpdateTest() throws ApiException {
         CreateInstrumentUpdates createInstrumentUpdates = null;
       //  InstrumentUpdates response = api.createPaymentInstrumentUpdate(createInstrumentUpdates);
@@ -112,11 +142,14 @@ public class PaymentInstrumentsApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    @DisplayName("Payment instrument verification")
     public void createPaymentInstrumentVerificationTest() throws ApiException {
-        String paymentInstrumentId = null;
-        VerificationForm verificationForm = null;
-        Verification response = api.createPaymentInstrumentVerification(paymentInstrumentId, verificationForm);
-        // TODO: test validations
+        String paymentInstrumentId = "PIe2YvpcjvoVJ6PzoRPBK137";
+        VerificationForm verificationForm = VerificationForm.builder()
+                .processor("DUMMY_V1")
+                .build();
+        Verification response = finixClient.PaymentInstrument.createPaymentInstrumentVerification(paymentInstrumentId, verificationForm);
+
     }
 
     /**
@@ -126,7 +159,7 @@ public class PaymentInstrumentsApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-    @Test
+   // @Test
     public void getInstrumentUpdateTest() throws ApiException {
         String instrumentUpdatesId = null;
         InstrumentUpdates response = api.getInstrumentUpdate(instrumentUpdatesId);
@@ -141,9 +174,10 @@ public class PaymentInstrumentsApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    @DisplayName("Fetch an Instrument Update")
     public void getInstrumentUpdatesTest() throws ApiException {
         String instrumentUpdatesId = "IUp9oSWhWUF31DPrJ8CojQeQ";
-        api.getInstrumentUpdates(instrumentUpdatesId);
+        finixClient.PaymentInstrument.getInstrumentUpdates(instrumentUpdatesId);
         // TODO: test validations
     }
 
@@ -155,10 +189,26 @@ public class PaymentInstrumentsApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    @DisplayName("Fetch a Bank Account")
     public void getPaymentInstrumentTest() throws ApiException {
         String paymentInstrumentId = "PI8sdzepdapDehPWKFTcre1m";
         PaymentInstrument response = finixClient.PaymentInstrument.get(paymentInstrumentId);
-        // TODO: test validations
+        //System.out.println(response.toJson());
+    }
+
+    /**
+     * Fetch a Payment Card
+     *
+     * Retrieve the details of a &#x60;Payment Instrument&#x60;.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    @DisplayName("Fetch a Payment Card")
+    public void getPaymentInstrumentCardTest() throws ApiException {
+        String paymentInstrumentId = "PIe2YvpcjvoVJ6PzoRPBK137";
+        PaymentInstrument response = finixClient.PaymentInstrument.get(paymentInstrumentId);
+      //  System.out.println(response.toJson());
     }
 
     /**
@@ -168,7 +218,7 @@ public class PaymentInstrumentsApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-    @Test
+  //  @Test
     public void listApplicationPaymentInstrumentsTest() throws ApiException {
         String applicationId = null;
         PaymentInstrumentsList response = api.listByApplicationId(applicationId);
@@ -182,7 +232,7 @@ public class PaymentInstrumentsApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-    @Test
+  //  @Test
     public void listIdentityPaymentInstrumentsTest() throws ApiException {
         String identityId = null;
         Integer limit = null;
@@ -200,7 +250,7 @@ public class PaymentInstrumentsApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-    @Test
+   // @Test
     public void listPaymentInstrumentUpdatesTest() throws ApiException {
         String paymentInstrumentId = null;
         Integer limit = null;
@@ -219,6 +269,7 @@ public class PaymentInstrumentsApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    @DisplayName("List All Payment Instruments")
     public void listPaymentInstrumentsTest() throws ApiException {
         Integer limit = null;
         Integer offset = null;
@@ -236,7 +287,7 @@ public class PaymentInstrumentsApiTest {
         String name = null;
         String ownerIdentityId = null;
         String type = null;
-        PaymentInstrumentsList response = api.list(limit, offset, pageNumber, pageSize, accountLast4, accountRoutingNumber, application, bin, createdAtGte, createdAtLte, expirationMonth, expirationYear, lastFour, name, ownerIdentityId, type);
+        PaymentInstrumentsList response = finixClient.PaymentInstrument.list(limit, offset, pageNumber, pageSize, accountLast4, accountRoutingNumber, application, bin, createdAtGte, createdAtLte, expirationMonth, expirationYear, lastFour, name, ownerIdentityId, type);
         // TODO: test validations
     }
 
@@ -247,14 +298,14 @@ public class PaymentInstrumentsApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-    @Test
+    //@Test
     public void listTransferPaymentInstrumentsTest() throws ApiException {
         String transferId = null;
         Integer limit = null;
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        PaymentInstrumentsList response = api.listByTransferId(transferId, limit, offset, pageNumber, pageSize);
+        PaymentInstrumentsList response = finixClient.PaymentInstrument.listByTransferId(transferId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 
@@ -266,14 +317,16 @@ public class PaymentInstrumentsApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void putPaymentInstrumentTest() throws ApiException {
+    @DisplayName("Update a Payment Instrument")
+    public void putPaymentInstrumentTest() throws ApiException, IOException {
         String paymentInstrumentId = "IUp9oSWhWUF31DPrJ8CojQeQ";
-        Object body = CreateInstrumentUpdates.builder()
-                ._file(new File("/Users/Desktop/finix_file.png"))
-                .request("{\"merchant_id\":\"MUucec6fHeaWo3VHYoSkUySM\",  \"idempotency_id\":\"123xyz\" }")
+        File file = new File("Finix-Logo.jpg");
+        //String request = "{ merchant_id: MUucec6fHeaWo3VHYoSkUySM,  idempotency_id:123xyz testing }";
+        CreateInstrumentUpdatesRequest createInstrumentUpdates = CreateInstrumentUpdatesRequest.builder()
+                ._file(file)
+                .request("{\"merchant\":\"MUucec6fHeaWo3VHYoSkUySM\"}")
                 .build();
-        PaymentInstrument response = finixClient.PaymentInstrument.update(paymentInstrumentId, body);
+       InstrumentUpdates response = finixClient.PaymentInstrument.createPaymentInstrumentUpdate(createInstrumentUpdates);
         // TODO: test validations
     }
-
 }

@@ -51,13 +51,14 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * CreateSubscriptionScheduleRequest
+ * 
  */
+@ApiModel(description = "")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class CreateSubscriptionScheduleRequest {
   /**
-   * Subscription Schedule type. For subscriptions, the type is FEE
+   * Subscription Schedule type. For subscriptions, the type is **FEE**.
    */
   @JsonAdapter(LineItemTypeEnum.Adapter.class)
   public enum LineItemTypeEnum {
@@ -184,11 +185,11 @@ public class CreateSubscriptionScheduleRequest {
   }
 
    /**
-   * Subscription Schedule type. For subscriptions, the type is FEE
+   * Subscription Schedule type. For subscriptions, the type is **FEE**.
    * @return lineItemType
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Subscription Schedule type. For subscriptions, the type is FEE")
+  @ApiModelProperty(required = true, value = "Subscription Schedule type. For subscriptions, the type is **FEE**.")
 
   public LineItemTypeEnum getLineItemType() {
     return lineItemType;
@@ -441,13 +442,13 @@ public class CreateSubscriptionScheduleRequest {
         throw new IllegalArgumentException(String.format("Expected the field `nickname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nickname").toString()));
       }
       // validate the optional field `fixed_time_interval_offset`
-      if (jsonObj.getAsJsonObject("fixed_time_interval_offset") != null) {
-       CreateSubscriptionScheduleRequestFixedTimeIntervalOffset.validateJsonObject(jsonObj.getAsJsonObject("fixed_time_interval_offset"));
-      }
+     // if (jsonObj.getAsJsonObject("fixed_time_interval_offset") != null) {
+       //CreateSubscriptionScheduleRequestFixedTimeIntervalOffset.validateJsonObject(jsonObj.getAsJsonObject("fixed_time_interval_offset"));
+     // }
       // validate the optional field `period_offset`
-      if (jsonObj.getAsJsonObject("period_offset") != null) {
-       CreateSubscriptionScheduleRequestPeriodOffset.validateJsonObject(jsonObj.getAsJsonObject("period_offset"));
-      }
+     // if (jsonObj.getAsJsonObject("period_offset") != null) {
+       //CreateSubscriptionScheduleRequestPeriodOffset.validateJsonObject(jsonObj.getAsJsonObject("period_offset"));
+     // }
       if (jsonObj.get("subscription_type") != null && !jsonObj.get("subscription_type").isJsonNull()  && !jsonObj.get("subscription_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subscription_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subscription_type").toString()));
       }

@@ -59,7 +59,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class IdentityLinks {
   public static final String SERIALIZED_NAME_SELF = "self";
   @SerializedName(SERIALIZED_NAME_SELF)
@@ -437,45 +437,45 @@ public class IdentityLinks {
       }
       */
       // validate the optional field `self`
-      if (jsonObj.getAsJsonObject("self") != null) {
-       IdentityLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
-      }
+     // if (jsonObj.getAsJsonObject("self") != null) {
+       //IdentityLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
+     // }
       // validate the optional field `verifications`
-      if (jsonObj.getAsJsonObject("verifications") != null) {
-       IdentityLinksVerifications.validateJsonObject(jsonObj.getAsJsonObject("verifications"));
-      }
+     // if (jsonObj.getAsJsonObject("verifications") != null) {
+       //IdentityLinksVerifications.validateJsonObject(jsonObj.getAsJsonObject("verifications"));
+     // }
       // validate the optional field `merchants`
-      if (jsonObj.getAsJsonObject("merchants") != null) {
-       IdentityLinksMerchants.validateJsonObject(jsonObj.getAsJsonObject("merchants"));
-      }
+     // if (jsonObj.getAsJsonObject("merchants") != null) {
+       //IdentityLinksMerchants.validateJsonObject(jsonObj.getAsJsonObject("merchants"));
+     // }
       // validate the optional field `settlements`
-      if (jsonObj.getAsJsonObject("settlements") != null) {
-       IdentityLinksSettlements.validateJsonObject(jsonObj.getAsJsonObject("settlements"));
-      }
+     // if (jsonObj.getAsJsonObject("settlements") != null) {
+       //IdentityLinksSettlements.validateJsonObject(jsonObj.getAsJsonObject("settlements"));
+     // }
       // validate the optional field `authorizations`
-      if (jsonObj.getAsJsonObject("authorizations") != null) {
-       IdentityLinksAuthorizations.validateJsonObject(jsonObj.getAsJsonObject("authorizations"));
-      }
+     // if (jsonObj.getAsJsonObject("authorizations") != null) {
+       //IdentityLinksAuthorizations.validateJsonObject(jsonObj.getAsJsonObject("authorizations"));
+     // }
       // validate the optional field `transfers`
-      if (jsonObj.getAsJsonObject("transfers") != null) {
-       IdentityLinksTransfers.validateJsonObject(jsonObj.getAsJsonObject("transfers"));
-      }
+     // if (jsonObj.getAsJsonObject("transfers") != null) {
+       //IdentityLinksTransfers.validateJsonObject(jsonObj.getAsJsonObject("transfers"));
+     // }
       // validate the optional field `payment_instruments`
-      if (jsonObj.getAsJsonObject("payment_instruments") != null) {
-       IdentityLinksPaymentInstruments.validateJsonObject(jsonObj.getAsJsonObject("payment_instruments"));
-      }
+     // if (jsonObj.getAsJsonObject("payment_instruments") != null) {
+       //IdentityLinksPaymentInstruments.validateJsonObject(jsonObj.getAsJsonObject("payment_instruments"));
+     // }
       // validate the optional field `associated_identities`
-      if (jsonObj.getAsJsonObject("associated_identities") != null) {
-       IdentityLinksAssociatedIdentities.validateJsonObject(jsonObj.getAsJsonObject("associated_identities"));
-      }
+     // if (jsonObj.getAsJsonObject("associated_identities") != null) {
+       //IdentityLinksAssociatedIdentities.validateJsonObject(jsonObj.getAsJsonObject("associated_identities"));
+     // }
       // validate the optional field `disputes`
-      if (jsonObj.getAsJsonObject("disputes") != null) {
-       IdentityLinksDisputes.validateJsonObject(jsonObj.getAsJsonObject("disputes"));
-      }
+     // if (jsonObj.getAsJsonObject("disputes") != null) {
+       //IdentityLinksDisputes.validateJsonObject(jsonObj.getAsJsonObject("disputes"));
+     // }
       // validate the optional field `application`
-      if (jsonObj.getAsJsonObject("application") != null) {
-       IdentityLinksApplication.validateJsonObject(jsonObj.getAsJsonObject("application"));
-      }
+     // if (jsonObj.getAsJsonObject("application") != null) {
+       //IdentityLinksApplication.validateJsonObject(jsonObj.getAsJsonObject("application"));
+     // }
   }
 
 

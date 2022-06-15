@@ -51,7 +51,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Details needed to process card present transactions.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class CardPresentDetails {
   public static final String SERIALIZED_NAME_APPROVAL_CODE = "approval_code";
   @SerializedName(SERIALIZED_NAME_APPROVAL_CODE)
@@ -356,9 +356,9 @@ public class CardPresentDetails {
         throw new IllegalArgumentException(String.format("Expected the field `brand` to be a primitive type in the JSON string but got `%s`", jsonObj.get("brand").toString()));
       }
       // validate the optional field `emv_data`
-      if (jsonObj.getAsJsonObject("emv_data") != null) {
-       CardPresentDetailsEmvData.validateJsonObject(jsonObj.getAsJsonObject("emv_data"));
-      }
+     // if (jsonObj.getAsJsonObject("emv_data") != null) {
+       //CardPresentDetailsEmvData.validateJsonObject(jsonObj.getAsJsonObject("emv_data"));
+     // }
       if (jsonObj.get("entry_mode") != null && !jsonObj.get("entry_mode").isJsonNull()  && !jsonObj.get("entry_mode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `entry_mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entry_mode").toString()));
       }

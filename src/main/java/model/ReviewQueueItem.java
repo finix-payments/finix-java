@@ -51,14 +51,15 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * ReviewQueueItem
+ * 
  */
+@ApiModel(description = "")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class ReviewQueueItem {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = new HashMap<>();
+  private Map<String, String> tags = null;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -350,6 +351,9 @@ public class ReviewQueueItem {
   }
 
   public ReviewQueueItem putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
     this.tags.put(key, tagsItem);
     return this;
   }
@@ -358,8 +362,8 @@ public class ReviewQueueItem {
    * Key value pair for annotating custom meta data (e.g. order numbers).
    * @return tags
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Key value pair for annotating custom meta data (e.g. order numbers).")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
 
   public Map<String, String> getTags() {
     return tags;
@@ -381,8 +385,8 @@ public class ReviewQueueItem {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "RKxxxxxxxxxxxxxxxxxx", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "RKxxxxxxxxxxxxxxxxxx", value = "")
 
   public String getId() {
     return id;
@@ -404,8 +408,8 @@ public class ReviewQueueItem {
    * Timestamp of when the object was created.
    * @return createdAt
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Timestamp of when the object was created.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Timestamp of when the object was created.")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -427,8 +431,8 @@ public class ReviewQueueItem {
    * Timestamp of when the object was last updated.
    * @return updatedAt
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Timestamp of when the object was last updated.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Timestamp of when the object was last updated.")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -450,8 +454,8 @@ public class ReviewQueueItem {
    * The ID of the resource.
    * @return application
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The ID of the resource.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ID of the resource.")
 
   public String getApplication() {
     return application;
@@ -497,7 +501,7 @@ public class ReviewQueueItem {
    * @return entityId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The ID of the resource.")
+  @ApiModelProperty(value = "The ID of the resource.")
 
   public String getEntityId() {
     return entityId;
@@ -519,8 +523,8 @@ public class ReviewQueueItem {
    * Get entityType
    * @return entityType
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public EntityTypeEnum getEntityType() {
     return entityType;
@@ -542,8 +546,8 @@ public class ReviewQueueItem {
    * Get outcome
    * @return outcome
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public OutcomeEnum getOutcome() {
     return outcome;
@@ -588,8 +592,8 @@ public class ReviewQueueItem {
    * Get reviewType
    * @return reviewType
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public ReviewTypeEnum getReviewType() {
     return reviewType;
@@ -634,8 +638,8 @@ public class ReviewQueueItem {
    * Get links
    * @return links
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public ReviewQueueItemLinks getLinks() {
     return links;
@@ -743,16 +747,6 @@ public class ReviewQueueItem {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("tags");
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("created_at");
-    openapiRequiredFields.add("updated_at");
-    openapiRequiredFields.add("application");
-    openapiRequiredFields.add("entity_id");
-    openapiRequiredFields.add("entity_type");
-    openapiRequiredFields.add("outcome");
-    openapiRequiredFields.add("review_type");
-    openapiRequiredFields.add("_links");
   }
 
  /**
@@ -779,13 +773,6 @@ public class ReviewQueueItem {
         }
       }
       */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : ReviewQueueItem.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()  && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -811,9 +798,9 @@ public class ReviewQueueItem {
         throw new IllegalArgumentException(String.format("Expected the field `reviewed_by` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reviewed_by").toString()));
       }
       // validate the optional field `_links`
-      if (jsonObj.getAsJsonObject("_links") != null) {
-       ReviewQueueItemLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-      }
+     // if (jsonObj.getAsJsonObject("_links") != null) {
+       //ReviewQueueItemLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+     // }
   }
 
 

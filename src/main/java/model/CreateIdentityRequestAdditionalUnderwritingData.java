@@ -51,7 +51,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Additional underwriting data that's required to verify the identity of the merchant.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class CreateIdentityRequestAdditionalUnderwritingData {
   public static final String SERIALIZED_NAME_MERCHANT_AGREEMENT_ACCEPTED = "merchant_agreement_accepted";
   @SerializedName(SERIALIZED_NAME_MERCHANT_AGREEMENT_ACCEPTED)
@@ -631,9 +631,9 @@ public class CreateIdentityRequestAdditionalUnderwritingData {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_agreement_ip_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_agreement_ip_address").toString()));
       }
       // validate the optional field `volume_distribution_by_business_type`
-      if (jsonObj.getAsJsonObject("volume_distribution_by_business_type") != null) {
-       CreateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType.validateJsonObject(jsonObj.getAsJsonObject("volume_distribution_by_business_type"));
-      }
+     // if (jsonObj.getAsJsonObject("volume_distribution_by_business_type") != null) {
+       //CreateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType.validateJsonObject(jsonObj.getAsJsonObject("volume_distribution_by_business_type"));
+     // }
       if (jsonObj.get("credit_check_user_agent") != null && !jsonObj.get("credit_check_user_agent").isJsonNull()  && !jsonObj.get("credit_check_user_agent").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `credit_check_user_agent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("credit_check_user_agent").toString()));
       }
@@ -656,9 +656,9 @@ public class CreateIdentityRequestAdditionalUnderwritingData {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_agreement_user_agent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_agreement_user_agent").toString()));
       }
       // validate the optional field `card_volume_distribution`
-      if (jsonObj.getAsJsonObject("card_volume_distribution") != null) {
-       CreateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution.validateJsonObject(jsonObj.getAsJsonObject("card_volume_distribution"));
-      }
+     // if (jsonObj.getAsJsonObject("card_volume_distribution") != null) {
+       //CreateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution.validateJsonObject(jsonObj.getAsJsonObject("card_volume_distribution"));
+     // }
   }
 
 

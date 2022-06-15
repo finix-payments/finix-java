@@ -23,8 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.ApplicationLinksApplicationProfile;
 import model.ApplicationLinksSelf;
+import model.DeviceLinksMerchant;
 import model.DisputeLinksTransfer;
 
 import com.google.gson.Gson;
@@ -52,11 +52,11 @@ import invoker.JSON;
  */
 @ApiModel(description = "For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class FeeLinks {
   public static final String SERIALIZED_NAME_MERCHANT = "merchant";
   @SerializedName(SERIALIZED_NAME_MERCHANT)
-  private ApplicationLinksApplicationProfile merchant;
+  private DeviceLinksMerchant merchant;
 
   public static final String SERIALIZED_NAME_SELF = "self";
   @SerializedName(SERIALIZED_NAME_SELF)
@@ -69,7 +69,7 @@ public class FeeLinks {
   public FeeLinks() { 
   }
 
-  public FeeLinks merchant(ApplicationLinksApplicationProfile merchant) {
+  public FeeLinks merchant(DeviceLinksMerchant merchant) {
     
     this.merchant = merchant;
     return this;
@@ -82,12 +82,12 @@ public class FeeLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getMerchant() {
+  public DeviceLinksMerchant getMerchant() {
     return merchant;
   }
 
 
-  public void setMerchant(ApplicationLinksApplicationProfile merchant) {
+  public void setMerchant(DeviceLinksMerchant merchant) {
     this.merchant = merchant;
   }
 
@@ -220,17 +220,17 @@ public class FeeLinks {
       }
       */
       // validate the optional field `merchant`
-      if (jsonObj.getAsJsonObject("merchant") != null) {
-       ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("merchant"));
-      }
+     // if (jsonObj.getAsJsonObject("merchant") != null) {
+       //DeviceLinksMerchant.validateJsonObject(jsonObj.getAsJsonObject("merchant"));
+     // }
       // validate the optional field `self`
-      if (jsonObj.getAsJsonObject("self") != null) {
-       ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
-      }
+     // if (jsonObj.getAsJsonObject("self") != null) {
+       //ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
+     // }
       // validate the optional field `transfer`
-      if (jsonObj.getAsJsonObject("transfer") != null) {
-       DisputeLinksTransfer.validateJsonObject(jsonObj.getAsJsonObject("transfer"));
-      }
+     // if (jsonObj.getAsJsonObject("transfer") != null) {
+       //DisputeLinksTransfer.validateJsonObject(jsonObj.getAsJsonObject("transfer"));
+     // }
   }
 
 

@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
-import model.ReserveProfilesListEmbeddedReserveProfiles;
+import model.ReserveProfilesListEmbeddedReserveProfilesInner;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,22 +52,25 @@ import invoker.JSON;
  * ReserveProfilesListEmbedded
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class ReserveProfilesListEmbedded {
   public static final String SERIALIZED_NAME_RESERVE_PROFILES = "reserve_profiles";
   @SerializedName(SERIALIZED_NAME_RESERVE_PROFILES)
-  private Set<ReserveProfilesListEmbeddedReserveProfiles> reserveProfiles = new LinkedHashSet<>();
+  private Set<ReserveProfilesListEmbeddedReserveProfilesInner> reserveProfiles = null;
 
   public ReserveProfilesListEmbedded() { 
   }
 
-  public ReserveProfilesListEmbedded reserveProfiles(Set<ReserveProfilesListEmbeddedReserveProfiles> reserveProfiles) {
+  public ReserveProfilesListEmbedded reserveProfiles(Set<ReserveProfilesListEmbeddedReserveProfilesInner> reserveProfiles) {
     
     this.reserveProfiles = reserveProfiles;
     return this;
   }
 
-  public ReserveProfilesListEmbedded addReserveProfilesItem(ReserveProfilesListEmbeddedReserveProfiles reserveProfilesItem) {
+  public ReserveProfilesListEmbedded addReserveProfilesItem(ReserveProfilesListEmbeddedReserveProfilesInner reserveProfilesItem) {
+    if (this.reserveProfiles == null) {
+      this.reserveProfiles = new LinkedHashSet<>();
+    }
     this.reserveProfiles.add(reserveProfilesItem);
     return this;
   }
@@ -76,15 +79,15 @@ public class ReserveProfilesListEmbedded {
    * Get reserveProfiles
    * @return reserveProfiles
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-  public Set<ReserveProfilesListEmbeddedReserveProfiles> getReserveProfiles() {
+  public Set<ReserveProfilesListEmbeddedReserveProfilesInner> getReserveProfiles() {
     return reserveProfiles;
   }
 
 
-  public void setReserveProfiles(Set<ReserveProfilesListEmbeddedReserveProfiles> reserveProfiles) {
+  public void setReserveProfiles(Set<ReserveProfilesListEmbeddedReserveProfilesInner> reserveProfiles) {
     this.reserveProfiles = reserveProfiles;
   }
 
@@ -138,7 +141,6 @@ public class ReserveProfilesListEmbedded {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("reserve_profiles");
   }
 
  /**
@@ -165,13 +167,6 @@ public class ReserveProfilesListEmbedded {
         }
       }
       */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : ReserveProfilesListEmbedded.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       JsonArray jsonArrayreserveProfiles = jsonObj.getAsJsonArray("reserve_profiles");
       if (jsonArrayreserveProfiles != null) {
         // ensure the json data is an array
@@ -181,7 +176,7 @@ public class ReserveProfilesListEmbedded {
 
         // validate the optional field `reserve_profiles` (array)
         for (int i = 0; i < jsonArrayreserveProfiles.size(); i++) {
-          ReserveProfilesListEmbeddedReserveProfiles.validateJsonObject(jsonArrayreserveProfiles.get(i).getAsJsonObject());
+          ReserveProfilesListEmbeddedReserveProfilesInner.validateJsonObject(jsonArrayreserveProfiles.get(i).getAsJsonObject());
         }
           ;
       }

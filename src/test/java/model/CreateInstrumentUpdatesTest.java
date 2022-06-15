@@ -20,6 +20,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.File;
 import java.io.IOException;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -40,19 +41,19 @@ public class CreateInstrumentUpdatesTest {
     }
 
     /**
-     * Test the property 'merchantId'
+     * Test the property '_file'
      */
     @Test
-    public void merchantIdTest() {
-        // TODO: test merchantId
+    public void _fileTest() {
+        // TODO: test _file
     }
 
     /**
-     * Test the property 'idempotencyId'
+     * Test the property 'request'
      */
     @Test
-    public void idempotencyIdTest() {
-        // TODO: test idempotencyId
+    public void requestTest() {
+        // TODO: test request
     }
 
 }

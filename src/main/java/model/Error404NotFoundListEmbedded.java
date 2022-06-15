@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+import model.Error404NotFoundListEmbeddedErrorsInner;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,22 +51,25 @@ import invoker.JSON;
  * Error404NotFoundListEmbedded
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class Error404NotFoundListEmbedded {
   public static final String SERIALIZED_NAME_ERRORS = "errors";
   @SerializedName(SERIALIZED_NAME_ERRORS)
-  private List<Map<String, Object>> errors = new ArrayList<>();
+  private List<Error404NotFoundListEmbeddedErrorsInner> errors = null;
 
   public Error404NotFoundListEmbedded() { 
   }
 
-  public Error404NotFoundListEmbedded errors(List<Map<String, Object>> errors) {
+  public Error404NotFoundListEmbedded errors(List<Error404NotFoundListEmbeddedErrorsInner> errors) {
     
     this.errors = errors;
     return this;
   }
 
-  public Error404NotFoundListEmbedded addErrorsItem(Map<String, Object> errorsItem) {
+  public Error404NotFoundListEmbedded addErrorsItem(Error404NotFoundListEmbeddedErrorsInner errorsItem) {
+    if (this.errors == null) {
+      this.errors = new ArrayList<>();
+    }
     this.errors.add(errorsItem);
     return this;
   }
@@ -75,15 +78,15 @@ public class Error404NotFoundListEmbedded {
    * Get errors
    * @return errors
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-  public List<Map<String, Object>> getErrors() {
+  public List<Error404NotFoundListEmbeddedErrorsInner> getErrors() {
     return errors;
   }
 
 
-  public void setErrors(List<Map<String, Object>> errors) {
+  public void setErrors(List<Error404NotFoundListEmbeddedErrorsInner> errors) {
     this.errors = errors;
   }
 
@@ -137,7 +140,6 @@ public class Error404NotFoundListEmbedded {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("errors");
   }
 
  /**
@@ -164,13 +166,6 @@ public class Error404NotFoundListEmbedded {
         }
       }
       */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : Error404NotFoundListEmbedded.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       // ensure the json data is an array
       if (jsonObj.get("errors") != null && !jsonObj.get("errors").isJsonNull() && !jsonObj.get("errors").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `errors` to be an array in the JSON string but got `%s`", jsonObj.get("errors").toString()));

@@ -34,6 +34,7 @@ import model.Error404NotFoundList;
 import model.Error406NotAcceptable;
 import model.Error422InvalidFieldList;
 import model.ErrorGeneric;
+import model.UpdateWebhookRequest;
 import model.Webhook;
 import model.WebhooksList;
 
@@ -132,7 +133,7 @@ import javax.ws.rs.core.GenericType;
             }
 
             final String[] localVarContentTypes = {
-        "application/json"
+        "application/hal+json"
             };
             final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
             if (localVarContentType != null) {
@@ -640,7 +641,7 @@ import javax.ws.rs.core.GenericType;
         /**
         * Build call for putWebhook
             * @param webhookId ID of &#x60;Webhook&#x60; object. (required)
-            * @param createWebhookRequest  (optional)
+            * @param updateWebhookRequest  (optional)
         * @param _callback Callback for upload/download progress
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
@@ -654,7 +655,7 @@ import javax.ws.rs.core.GenericType;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call putWebhookCall(String webhookId, CreateWebhookRequest createWebhookRequest, final ApiCallback _callback) throws ApiException {
+        public okhttp3.Call putWebhookCall(String webhookId, UpdateWebhookRequest updateWebhookRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -668,7 +669,7 @@ import javax.ws.rs.core.GenericType;
         basePath = null;
         }
 
-        Object localVarPostBody = createWebhookRequest;
+        Object localVarPostBody = updateWebhookRequest;
 
         // create path and map variables
             String localVarPath = "/webhooks/{webhook_id}"
@@ -689,7 +690,7 @@ import javax.ws.rs.core.GenericType;
             }
 
             final String[] localVarContentTypes = {
-        "application/json"
+        "application/hal+json"
             };
             final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
             if (localVarContentType != null) {
@@ -701,7 +702,7 @@ import javax.ws.rs.core.GenericType;
             }
 
             @SuppressWarnings("rawtypes")
-            private okhttp3.Call putWebhookValidateBeforeCall(String webhookId, CreateWebhookRequest createWebhookRequest, final ApiCallback _callback) throws ApiException {
+            private okhttp3.Call putWebhookValidateBeforeCall(String webhookId, UpdateWebhookRequest updateWebhookRequest, final ApiCallback _callback) throws ApiException {
             
                     // verify the required parameter 'webhookId' is set
                     if (webhookId == null) {
@@ -709,7 +710,7 @@ import javax.ws.rs.core.GenericType;
                     }
             
 
-                okhttp3.Call localVarCall = putWebhookCall(webhookId, createWebhookRequest, _callback);
+                okhttp3.Call localVarCall = putWebhookCall(webhookId, updateWebhookRequest, _callback);
                 return localVarCall;
 
             }
@@ -718,7 +719,7 @@ import javax.ws.rs.core.GenericType;
                 * Update a Webhook
                 * Update an existing &#x60;Webhook&#x60;.
                     * @param webhookId ID of &#x60;Webhook&#x60; object. (required)
-                    * @param createWebhookRequest  (optional)
+                    * @param updateWebhookRequest  (optional)
                     * @return Webhook
                 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                     * @http.response.details
@@ -731,8 +732,8 @@ import javax.ws.rs.core.GenericType;
                             <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     </table>
                 */
-                    public Webhook update(String webhookId, CreateWebhookRequest createWebhookRequest) throws ApiException {
-                ApiResponse<Webhook> localVarResp = putWebhookWithHttpInfo(webhookId, createWebhookRequest);
+                    public Webhook update(String webhookId, UpdateWebhookRequest updateWebhookRequest) throws ApiException {
+                ApiResponse<Webhook> localVarResp = putWebhookWithHttpInfo(webhookId, updateWebhookRequest);
                         return localVarResp.getData();
                     }
 
@@ -740,7 +741,7 @@ import javax.ws.rs.core.GenericType;
             * Update a Webhook
             * Update an existing &#x60;Webhook&#x60;.
                 * @param webhookId ID of &#x60;Webhook&#x60; object. (required)
-                * @param createWebhookRequest  (optional)
+                * @param updateWebhookRequest  (optional)
             * @return ApiResponse&lt;Webhook&gt;
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
@@ -753,8 +754,8 @@ import javax.ws.rs.core.GenericType;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public ApiResponse<Webhook> putWebhookWithHttpInfo(String webhookId, CreateWebhookRequest createWebhookRequest) throws ApiException {
-            okhttp3.Call localVarCall = putWebhookValidateBeforeCall(webhookId, createWebhookRequest, null);
+            public ApiResponse<Webhook> putWebhookWithHttpInfo(String webhookId, UpdateWebhookRequest updateWebhookRequest) throws ApiException {
+            okhttp3.Call localVarCall = putWebhookValidateBeforeCall(webhookId, updateWebhookRequest, null);
                     Type localVarReturnType = new TypeToken<Webhook>(){}.getType();
                     return localVarFinixClient.execute(localVarCall, localVarReturnType);
             }
@@ -763,7 +764,7 @@ import javax.ws.rs.core.GenericType;
             * Update a Webhook (asynchronously)
             * Update an existing &#x60;Webhook&#x60;.
                 * @param webhookId ID of &#x60;Webhook&#x60; object. (required)
-                * @param createWebhookRequest  (optional)
+                * @param updateWebhookRequest  (optional)
             * @param _callback The callback to be executed when the API call finishes
             * @return The request call
             * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -777,9 +778,9 @@ import javax.ws.rs.core.GenericType;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-            public okhttp3.Call putWebhookAsync(String webhookId, CreateWebhookRequest createWebhookRequest, final ApiCallback<Webhook> _callback) throws ApiException {
+            public okhttp3.Call putWebhookAsync(String webhookId, UpdateWebhookRequest updateWebhookRequest, final ApiCallback<Webhook> _callback) throws ApiException {
 
-            okhttp3.Call localVarCall = putWebhookValidateBeforeCall(webhookId, createWebhookRequest, _callback);
+            okhttp3.Call localVarCall = putWebhookValidateBeforeCall(webhookId, updateWebhookRequest, _callback);
         Type localVarReturnType = new TypeToken<Webhook>(){}.getType();
             localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
             return localVarCall;

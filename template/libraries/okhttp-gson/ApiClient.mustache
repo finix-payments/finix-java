@@ -101,6 +101,7 @@ public class FinixClient {
     public FilesApi filesApi;
     public MerchantsApi Merchants;
     public SubscriptionSchedulesApi SubscriptionSchedules;
+    public SettlementsApi Settlements;
     private OkHttpClient httpClient;
     private JSON json;
     private HttpBasicAuth httpBasicAuth = new HttpBasicAuth();
@@ -137,6 +138,7 @@ public class FinixClient {
         filesApi = new FilesApi(this);
         Merchants = new MerchantsApi(this);
         SubscriptionSchedules = new SubscriptionSchedulesApi(this);
+        Settlements = new SettlementsApi(this);
     }
 
 

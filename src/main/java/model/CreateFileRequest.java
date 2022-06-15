@@ -51,7 +51,7 @@ import invoker.JSON;
  * CreateFileRequest
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class CreateFileRequest {
   public static final String SERIALIZED_NAME_DISPLAY_NAME = "display_name";
   @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
@@ -61,9 +61,74 @@ public class CreateFileRequest {
   @SerializedName(SERIALIZED_NAME_LINKED_TO)
   private String linkedTo;
 
+  /**
+   * The type of document. | Available values include: &lt;br&gt;Identity Verification&lt;ul&gt;&lt;li&gt; **DRIVERS\\_LICENSE\\_FRONT**&lt;li&gt;**DRIVERS\\_LICENSE\\_BACK**&lt;li&gt;**IDENTIFICATION\\_CARD\\_FRONT**&lt;li&gt;**IDENTIFICATION\\_CARD\\_BACK**&lt;/ul&gt;Bank account validation&lt;ul&gt;&lt;li&gt;**BANK\\_STATEMENT**&lt;/ul&gt;Business Verification&lt;ul&gt;&lt;li&gt;**TAX\\_DOCUMENT**&lt;li&gt;**BUSINESS\\_REGISTRATION**&lt;li&gt;**BUSINESS\\_ADDRESS\\_VERIFICATION**&lt;/ul&gt;Additional&lt;ul&gt;&lt;li&gt;**OTHER**&lt;li&gt;**PCI\\_DOCUMENT**&lt;li&gt;**PASSPORT**&lt;ul&gt;
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    DRIVERS_LICENSE_FRONT("DRIVERS_LICENSE_FRONT"),
+    
+    DRIVERS_LICENSE_BACK("DRIVERS_LICENSE_BACK"),
+    
+    IDENTIFICATION_CARD_FRONT("IDENTIFICATION_CARD_FRONT"),
+    
+    IDENTIFICATION_CARD_BACK("IDENTIFICATION_CARD_BACK"),
+    
+    BANK_STATEMENT("BANK_STATEMENT"),
+    
+    TAX_DOCUMENT("TAX_DOCUMENT"),
+    
+    BUSINESS_REGISTRATION("BUSINESS_REGISTRATION"),
+    
+    BUSINESS_ADDRESS_VERIFICATION("BUSINESS_ADDRESS_VERIFICATION"),
+    
+    OTHER("OTHER"),
+    
+    PCI_DOCUMENT("PCI_DOCUMENT"),
+    
+    PASSPORT("PASSPORT");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TypeEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  private TypeEnum type;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -118,7 +183,7 @@ public class CreateFileRequest {
   }
 
 
-  public CreateFileRequest type(String type) {
+  public CreateFileRequest type(TypeEnum type) {
     
     this.type = type;
     return this;
@@ -131,12 +196,12 @@ public class CreateFileRequest {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The type of document. | Available values include: <br>Identity Verification<ul><li> **DRIVERS\\_LICENSE\\_FRONT**<li>**DRIVERS\\_LICENSE\\_BACK**<li>**IDENTIFICATION\\_CARD\\_FRONT**<li>**IDENTIFICATION\\_CARD\\_BACK**</ul>Bank account validation<ul><li>**BANK\\_STATEMENT**</ul>Business Verification<ul><li>**TAX\\_DOCUMENT**<li>**BUSINESS\\_REGISTRATION**<li>**BUSINESS\\_ADDRESS\\_VERIFICATION**</ul>Additional<ul><li>**OTHER**<li>**PCI\\_DOCUMENT**<li>**PASSPORT**<ul>")
 
-  public String getType() {
+  public TypeEnum getType() {
     return type;
   }
 
 
-  public void setType(String type) {
+  public void setType(TypeEnum type) {
     this.type = type;
   }
 

@@ -41,7 +41,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @DisplayName("When Running DevicesApiTest")
-@Disabled
+//@Disabled
 public class DisputesApiTest {
     private FinixClient finixClient;
     private final DisputesApi api = new DisputesApi();
@@ -60,7 +60,7 @@ public class DisputesApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-    @Test
+  //  @Test
     public void createDisputeEvidenceTest() throws ApiException {
         String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
         String _file = "/Users/default-admin/Desktop/Finix-Logo.jpg";
@@ -81,10 +81,13 @@ public class DisputesApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    @DisplayName("Get Dispute")
     public void getDisputeTest() throws ApiException {
         String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
         Dispute response = finixClient.Disputes.get(disputeId);
-        // TODO: test validations
+      // System.out.println(response.toJson());
+      assertEquals("DIs7yQRkHDdMYhurzYz72SFk",response.getId(),()->" Should return " + "DIs7yQRkHDdMYhurzYz72SFk" + " but returns " + response.getId());
+
     }
 
     /**
@@ -95,11 +98,13 @@ public class DisputesApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    @DisplayName("Fetch Dispute Evidence")
     public void getDisputeEvidenceTest() throws ApiException {
         String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
         String evidenceId = "DFnA9eVoYxRnxxLKzgcGGxYL";
         DisputeEvidence response = finixClient.Disputes.getDisputeEvidence(disputeId, evidenceId);
-        // TODO: test validations
+        assertEquals("DFnA9eVoYxRnxxLKzgcGGxYL",response.getId(),()->" Should return " + "DFnA9eVoYxRnxxLKzgcGGxYL" + " but returns " + response.getId());
+
     }
 
     /**
@@ -109,7 +114,7 @@ public class DisputesApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-    @Test
+   // @Test
     public void getDisputesAdjustmentsTest() throws ApiException {
         String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
         AdjustmentTransfersList response = api.getDisputesAdjustments(disputeId);
@@ -123,10 +128,10 @@ public class DisputesApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-    @Test
+    //@Test
     public void listApplicationDisputesTest() throws ApiException {
-        String applicationId = "null";
-        DisputesList response = api.listApplicationDisputes(applicationId);
+        String applicationId = null;
+        DisputesList response = finixClient.Disputes.listApplicationDisputes(applicationId);
         // TODO: test validations
     }
 
@@ -138,10 +143,13 @@ public class DisputesApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    @DisplayName("List Dispute Evidence")
     public void listDisputeEvidenceTest() throws ApiException {
         String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
         DisputeEvidenceList response = finixClient.Disputes.listDisputeEvidenceByDeviceId(disputeId);
-        // TODO: test validations
+        System.out.println(response.toJson());
+        assertEquals(20,response.getPage().getLimit().intValue(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit().intValue());
+
     }
 
     /**
@@ -152,6 +160,7 @@ public class DisputesApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    @DisplayName("List Disputes")
     public void listDisputesTest() throws ApiException {
         String sort = null;
         Integer offset = null;
@@ -162,7 +171,7 @@ public class DisputesApiTest {
         String updatedAtGte = null;
         String updatedAtLte = null;
         DisputesList response = finixClient.Disputes.list(sort, offset, limit, id, createdAtGte, createdAtLte, updatedAtGte, updatedAtLte);
-        System.out.println(response.toString());
+        assertEquals(20,response.getPage().getLimit().intValue(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit().intValue());
     }
 
     /**
@@ -172,14 +181,14 @@ public class DisputesApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-    @Test
+   // @Test
     public void listIdentityDisputesTest() throws ApiException {
         String identityId = null;
         Integer limit = null;
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        DisputesList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
+        DisputesList response = finixClient.Disputes.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 
@@ -190,14 +199,14 @@ public class DisputesApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-    @Test
+    //@Test
     public void listTransferDisputesTest() throws ApiException {
         String transferId = null;
         Integer limit = null;
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        DisputesList response = api.listByTransferId(transferId, limit, offset, pageNumber, pageSize);
+        DisputesList response = finixClient.Disputes.listByTransferId(transferId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 

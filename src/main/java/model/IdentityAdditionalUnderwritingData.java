@@ -52,7 +52,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Additional underwriting data that's required to verify the `Identity` of the `Merchant`.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class IdentityAdditionalUnderwritingData {
   public static final String SERIALIZED_NAME_ANNUAL_ACH_VOLUME = "annual_ach_volume";
   @SerializedName(SERIALIZED_NAME_ANNUAL_ACH_VOLUME)
@@ -645,9 +645,9 @@ public class IdentityAdditionalUnderwritingData {
         throw new IllegalArgumentException(String.format("Expected the field `business_description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("business_description").toString()));
       }
       // validate the optional field `card_volume_distribution`
-      if (jsonObj.getAsJsonObject("card_volume_distribution") != null) {
-       IdentityAdditionalUnderwritingDataCardVolumeDistribution.validateJsonObject(jsonObj.getAsJsonObject("card_volume_distribution"));
-      }
+     // if (jsonObj.getAsJsonObject("card_volume_distribution") != null) {
+       //IdentityAdditionalUnderwritingDataCardVolumeDistribution.validateJsonObject(jsonObj.getAsJsonObject("card_volume_distribution"));
+     // }
       if (jsonObj.get("credit_check_ip_address") != null && !jsonObj.get("credit_check_ip_address").isJsonNull()  && !jsonObj.get("credit_check_ip_address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `credit_check_ip_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("credit_check_ip_address").toString()));
       }
@@ -670,9 +670,9 @@ public class IdentityAdditionalUnderwritingData {
         throw new IllegalArgumentException(String.format("Expected the field `refund_policy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refund_policy").toString()));
       }
       // validate the optional field `volume_distribution_by_business_type`
-      if (jsonObj.getAsJsonObject("volume_distribution_by_business_type") != null) {
-       IdentityAdditionalUnderwritingDataVolumeDistributionByBusinessType.validateJsonObject(jsonObj.getAsJsonObject("volume_distribution_by_business_type"));
-      }
+     // if (jsonObj.getAsJsonObject("volume_distribution_by_business_type") != null) {
+       //IdentityAdditionalUnderwritingDataVolumeDistributionByBusinessType.validateJsonObject(jsonObj.getAsJsonObject("volume_distribution_by_business_type"));
+     // }
   }
 
 

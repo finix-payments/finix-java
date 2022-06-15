@@ -25,7 +25,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The sender&#39;s country.
+ * The sender’s country.
  */
 @JsonAdapter(Country.Adapter.class)
 public enum Country {

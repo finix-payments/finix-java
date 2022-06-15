@@ -55,11 +55,11 @@ import invoker.JSON;
  * SettlementEngineSettlementsListEmbeddedSettlements
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-14T15:32:10.087418-05:00[America/Chicago]")
 public class SettlementEngineSettlementsListEmbeddedSettlements {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = new HashMap<>();
+  private Map<String, String> tags = null;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -309,6 +309,9 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
   }
 
   public SettlementEngineSettlementsListEmbeddedSettlements putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
     this.tags.put(key, tagsItem);
     return this;
   }
@@ -317,8 +320,8 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * Key value pair for annotating custom meta data (e.g. order numbers).
    * @return tags
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Key value pair for annotating custom meta data (e.g. order numbers).")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
 
   public Map<String, String> getTags() {
     return tags;
@@ -341,7 +344,7 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The ID of the resource.")
+  @ApiModelProperty(value = "The ID of the resource.")
 
   public String getId() {
     return id;
@@ -363,8 +366,8 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * Timestamp of when the object was created.
    * @return createdAt
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Timestamp of when the object was created.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Timestamp of when the object was created.")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -386,8 +389,8 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * Timestamp of when the object was last updated.
    * @return updatedAt
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Timestamp of when the object was last updated.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Timestamp of when the object was last updated.")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -409,8 +412,8 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * Get adjustmentCreditAmount
    * @return adjustmentCreditAmount
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getAdjustmentCreditAmount() {
     return adjustmentCreditAmount;
@@ -432,8 +435,8 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * Get adjustmentCreditCount
    * @return adjustmentCreditCount
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getAdjustmentCreditCount() {
     return adjustmentCreditCount;
@@ -455,8 +458,8 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * Get adjustmentDebitAmount
    * @return adjustmentDebitAmount
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getAdjustmentDebitAmount() {
     return adjustmentDebitAmount;
@@ -478,8 +481,8 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * Get adjustmentDebitCount
    * @return adjustmentDebitCount
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getAdjustmentDebitCount() {
     return adjustmentDebitCount;
@@ -501,8 +504,8 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * The ID of the resource.
    * @return application
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The ID of the resource.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ID of the resource.")
 
   public String getApplication() {
     return application;
@@ -525,7 +528,7 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * @return autoCloseTime
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
 
   public OffsetDateTime getAutoCloseTime() {
     return autoCloseTime;
@@ -570,8 +573,8 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * Get disputeCreditAmount
    * @return disputeCreditAmount
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getDisputeCreditAmount() {
     return disputeCreditAmount;
@@ -593,8 +596,8 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * Get disputeCreditCount
    * @return disputeCreditCount
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getDisputeCreditCount() {
     return disputeCreditCount;
@@ -616,8 +619,8 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * Get disputeDebitAmount
    * @return disputeDebitAmount
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getDisputeDebitAmount() {
     return disputeDebitAmount;
@@ -639,8 +642,8 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * Get disputeDebitCount
    * @return disputeDebitCount
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getDisputeDebitCount() {
     return disputeDebitCount;
@@ -662,8 +665,8 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * Get exception
    * @return exception
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Boolean getException() {
     return exception;
@@ -685,8 +688,8 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * Get feeCount
    * @return feeCount
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getFeeCount() {
     return feeCount;
@@ -732,7 +735,7 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * @return merchant
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The ID of the resource.")
+  @ApiModelProperty(value = "The ID of the resource.")
 
   public String getMerchant() {
     return merchant;
@@ -754,8 +757,8 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * Get payoutPlan
    * @return payoutPlan
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getPayoutPlan() {
     return payoutPlan;
@@ -777,8 +780,8 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * Get processorType
    * @return processorType
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getProcessorType() {
     return processorType;
@@ -800,8 +803,8 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * Get reverseAmount
    * @return reverseAmount
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getReverseAmount() {
     return reverseAmount;
@@ -823,8 +826,8 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * Get reverseCount
    * @return reverseCount
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getReverseCount() {
     return reverseCount;
@@ -847,7 +850,7 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * @return scheduleType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
 
   public ScheduleTypeEnum getScheduleType() {
     return scheduleType;
@@ -869,8 +872,8 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * Get settlementGroup
    * @return settlementGroup
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getSettlementGroup() {
     return settlementGroup;
@@ -915,8 +918,8 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * Get totalAmount
    * @return totalAmount
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getTotalAmount() {
     return totalAmount;
@@ -938,8 +941,8 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * Get totalFeeAmount
    * @return totalFeeAmount
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getTotalFeeAmount() {
     return totalFeeAmount;
@@ -961,8 +964,8 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * Get transferCreditAmount
    * @return transferCreditAmount
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getTransferCreditAmount() {
     return transferCreditAmount;
@@ -984,8 +987,8 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * Get transferCreditCount
    * @return transferCreditCount
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getTransferCreditCount() {
     return transferCreditCount;
@@ -1007,8 +1010,8 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * Get transferDebitAmount
    * @return transferDebitAmount
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getTransferDebitAmount() {
     return transferDebitAmount;
@@ -1030,8 +1033,8 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * Get transferDebitCount
    * @return transferDebitCount
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getTransferDebitCount() {
     return transferDebitCount;
@@ -1054,7 +1057,7 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * @return windowEnd
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
 
   public OffsetDateTime getWindowEnd() {
     return windowEnd;
@@ -1077,7 +1080,7 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * @return windowStart
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
 
   public OffsetDateTime getWindowStart() {
     return windowStart;
@@ -1099,8 +1102,8 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
    * Get links
    * @return links
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public SettlementEngineSettlementLinks getLinks() {
     return links;
@@ -1274,38 +1277,6 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("tags");
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("created_at");
-    openapiRequiredFields.add("updated_at");
-    openapiRequiredFields.add("adjustment_credit_amount");
-    openapiRequiredFields.add("adjustment_credit_count");
-    openapiRequiredFields.add("adjustment_debit_amount");
-    openapiRequiredFields.add("adjustment_debit_count");
-    openapiRequiredFields.add("application");
-    openapiRequiredFields.add("auto_close_time");
-    openapiRequiredFields.add("dispute_credit_amount");
-    openapiRequiredFields.add("dispute_credit_count");
-    openapiRequiredFields.add("dispute_debit_amount");
-    openapiRequiredFields.add("dispute_debit_count");
-    openapiRequiredFields.add("exception");
-    openapiRequiredFields.add("fee_count");
-    openapiRequiredFields.add("merchant");
-    openapiRequiredFields.add("payout_plan");
-    openapiRequiredFields.add("processor_type");
-    openapiRequiredFields.add("reverse_amount");
-    openapiRequiredFields.add("reverse_count");
-    openapiRequiredFields.add("schedule_type");
-    openapiRequiredFields.add("settlement_group");
-    openapiRequiredFields.add("total_amount");
-    openapiRequiredFields.add("total_fee_amount");
-    openapiRequiredFields.add("transfer_credit_amount");
-    openapiRequiredFields.add("transfer_credit_count");
-    openapiRequiredFields.add("transfer_debit_amount");
-    openapiRequiredFields.add("transfer_debit_count");
-    openapiRequiredFields.add("window_end");
-    openapiRequiredFields.add("window_start");
-    openapiRequiredFields.add("_links");
   }
 
  /**
@@ -1332,13 +1303,6 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
         }
       }
       */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : SettlementEngineSettlementsListEmbeddedSettlements.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()  && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -1367,9 +1331,9 @@ public class SettlementEngineSettlementsListEmbeddedSettlements {
         throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
       // validate the optional field `_links`
-      if (jsonObj.getAsJsonObject("_links") != null) {
-       SettlementEngineSettlementLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-      }
+     // if (jsonObj.getAsJsonObject("_links") != null) {
+       //SettlementEngineSettlementLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+     // }
   }
 
 

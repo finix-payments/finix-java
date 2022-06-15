@@ -55,7 +55,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Details that configure how the `Processor` handles transactions with the processor.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class ProcessorSystemConfig {
   /**
    * Field used by processor to communicate with Finix.
@@ -1747,9 +1747,9 @@ public class ProcessorSystemConfig {
         throw new IllegalArgumentException(String.format("Expected the field `business_application_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("business_application_id").toString()));
       }
       // validate the optional field `configuration_templates`
-      if (jsonObj.getAsJsonObject("configuration_templates") != null) {
-       ProcessorSystemConfigConfigurationTemplates.validateJsonObject(jsonObj.getAsJsonObject("configuration_templates"));
-      }
+     // if (jsonObj.getAsJsonObject("configuration_templates") != null) {
+       //ProcessorSystemConfigConfigurationTemplates.validateJsonObject(jsonObj.getAsJsonObject("configuration_templates"));
+     // }
       // ensure the json data is an array
       if (jsonObj.get("default_currencies") != null && !jsonObj.get("default_currencies").isJsonNull() && !jsonObj.get("default_currencies").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `default_currencies` to be an array in the JSON string but got `%s`", jsonObj.get("default_currencies").toString()));

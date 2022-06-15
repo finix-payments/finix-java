@@ -55,7 +55,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Details that configure how the `Processor` handles transactions.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class ProcessorApplicationConfig {
   public static final String SERIALIZED_NAME_ACH_SETTLEMENT_DELAY_DAYS = "ach_settlement_delay_days";
   @SerializedName(SERIALIZED_NAME_ACH_SETTLEMENT_DELAY_DAYS)
@@ -2654,11 +2654,11 @@ public class ProcessorApplicationConfig {
   }
 
    /**
-   * The sender&#39;s address.
+   * The sender’s address.
    * @return defaultSenderAddress
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The sender's address.")
+  @ApiModelProperty(value = "The sender’s address.")
 
   public String getDefaultSenderAddress() {
     return defaultSenderAddress;
@@ -2746,11 +2746,11 @@ public class ProcessorApplicationConfig {
   }
 
    /**
-   * The sender&#39;s county.
+   * The sender’s county.
    * @return defaultSenderCountyCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The sender's county.")
+  @ApiModelProperty(value = "The sender’s county.")
 
   public String getDefaultSenderCountyCode() {
     return defaultSenderCountyCode;
@@ -2769,11 +2769,11 @@ public class ProcessorApplicationConfig {
   }
 
    /**
-   * The sender&#39;s name.
+   * The sender’s name.
    * @return defaultSenderName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The sender's name.")
+  @ApiModelProperty(value = "The sender’s name.")
 
   public String getDefaultSenderName() {
     return defaultSenderName;
@@ -2815,11 +2815,11 @@ public class ProcessorApplicationConfig {
   }
 
    /**
-   * The sender&#39;s zip code.
+   * The sender’s zip code.
    * @return defaultSenderZipCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The sender's zip code.")
+  @ApiModelProperty(value = "The sender’s zip code.")
 
   public String getDefaultSenderZipCode() {
     return defaultSenderZipCode;
@@ -3080,9 +3080,9 @@ public class ProcessorApplicationConfig {
         throw new IllegalArgumentException(String.format("Expected the field `card_acceptor_terminal_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("card_acceptor_terminal_id").toString()));
       }
       // validate the optional field `configuration_templates`
-      if (jsonObj.getAsJsonObject("configuration_templates") != null) {
-       ProcessorApplicationConfigConfigurationTemplates.validateJsonObject(jsonObj.getAsJsonObject("configuration_templates"));
-      }
+     // if (jsonObj.getAsJsonObject("configuration_templates") != null) {
+       //ProcessorApplicationConfigConfigurationTemplates.validateJsonObject(jsonObj.getAsJsonObject("configuration_templates"));
+     // }
       // ensure the json data is an array
       if (jsonObj.get("default_currencies") != null && !jsonObj.get("default_currencies").isJsonNull() && !jsonObj.get("default_currencies").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `default_currencies` to be an array in the JSON string but got `%s`", jsonObj.get("default_currencies").toString()));

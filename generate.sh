@@ -1,7 +1,8 @@
 openapi-generator generate \
+  --enable-post-process-file \
   -g java \
   --library okhttp-gson \
-  -i finix-java-old.yaml \
+  -i finix-java.yaml \
   -t template \
   -o ${PWD} \
   -p groupId=com.finix \

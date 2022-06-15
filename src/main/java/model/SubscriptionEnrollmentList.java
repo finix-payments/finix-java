@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import model.ApplicationProfilesListPage;
-import model.DisputeEvidenceListLinks;
+import model.DisputeEvidenceLinks;
 import model.SubscriptionEnrollmentListEmbedded;
 
 import com.google.gson.Gson;
@@ -51,7 +51,7 @@ import invoker.JSON;
  * SubscriptionEnrollmentList
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class SubscriptionEnrollmentList {
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
@@ -63,7 +63,7 @@ public class SubscriptionEnrollmentList {
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private DisputeEvidenceListLinks links;
+  private DisputeEvidenceLinks links;
 
   public SubscriptionEnrollmentList() { 
   }
@@ -114,7 +114,7 @@ public class SubscriptionEnrollmentList {
   }
 
 
-  public SubscriptionEnrollmentList links(DisputeEvidenceListLinks links) {
+  public SubscriptionEnrollmentList links(DisputeEvidenceLinks links) {
     
     this.links = links;
     return this;
@@ -127,12 +127,12 @@ public class SubscriptionEnrollmentList {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public DisputeEvidenceListLinks getLinks() {
+  public DisputeEvidenceLinks getLinks() {
     return links;
   }
 
 
-  public void setLinks(DisputeEvidenceListLinks links) {
+  public void setLinks(DisputeEvidenceLinks links) {
     this.links = links;
   }
 
@@ -219,17 +219,17 @@ public class SubscriptionEnrollmentList {
       }
       */
       // validate the optional field `page`
-      if (jsonObj.getAsJsonObject("page") != null) {
-       ApplicationProfilesListPage.validateJsonObject(jsonObj.getAsJsonObject("page"));
-      }
+     // if (jsonObj.getAsJsonObject("page") != null) {
+       //ApplicationProfilesListPage.validateJsonObject(jsonObj.getAsJsonObject("page"));
+     // }
       // validate the optional field `_embedded`
-      if (jsonObj.getAsJsonObject("_embedded") != null) {
-       SubscriptionEnrollmentListEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
-      }
+     // if (jsonObj.getAsJsonObject("_embedded") != null) {
+       //SubscriptionEnrollmentListEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
+     // }
       // validate the optional field `_links`
-      if (jsonObj.getAsJsonObject("_links") != null) {
-       DisputeEvidenceListLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-      }
+     // if (jsonObj.getAsJsonObject("_links") != null) {
+       //DisputeEvidenceLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+     // }
   }
 
 

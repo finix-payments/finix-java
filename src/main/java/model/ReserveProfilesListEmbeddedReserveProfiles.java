@@ -28,6 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import model.ReserveProfilesListEmbeddedLinks;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,11 +54,11 @@ import invoker.JSON;
  * ReserveProfilesListEmbeddedReserveProfiles
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-14T15:32:10.087418-05:00[America/Chicago]")
 public class ReserveProfilesListEmbeddedReserveProfiles {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = new HashMap<>();
+  private Map<String, String> tags = null;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -97,6 +98,9 @@ public class ReserveProfilesListEmbeddedReserveProfiles {
   }
 
   public ReserveProfilesListEmbeddedReserveProfiles putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
     this.tags.put(key, tagsItem);
     return this;
   }
@@ -105,8 +109,8 @@ public class ReserveProfilesListEmbeddedReserveProfiles {
    * Key value pair for annotating custom meta data (e.g. order numbers).
    * @return tags
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Key value pair for annotating custom meta data (e.g. order numbers).")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
 
   public Map<String, String> getTags() {
     return tags;
@@ -129,7 +133,7 @@ public class ReserveProfilesListEmbeddedReserveProfiles {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "The ID of the resource.")
+  @ApiModelProperty(value = "The ID of the resource.")
 
   public String getId() {
     return id;
@@ -151,8 +155,8 @@ public class ReserveProfilesListEmbeddedReserveProfiles {
    * Timestamp of when the object was created.
    * @return createdAt
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Timestamp of when the object was created.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Timestamp of when the object was created.")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -174,8 +178,8 @@ public class ReserveProfilesListEmbeddedReserveProfiles {
    * Timestamp of when the object was last updated.
    * @return updatedAt
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Timestamp of when the object was last updated.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Timestamp of when the object was last updated.")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -197,8 +201,8 @@ public class ReserveProfilesListEmbeddedReserveProfiles {
    * The ID of the resource.
    * @return application
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The ID of the resource.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ID of the resource.")
 
   public String getApplication() {
     return application;
@@ -220,8 +224,8 @@ public class ReserveProfilesListEmbeddedReserveProfiles {
    * Get reserveDays
    * @return reserveDays
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getReserveDays() {
     return reserveDays;
@@ -243,8 +247,8 @@ public class ReserveProfilesListEmbeddedReserveProfiles {
    * Get reservePercentage
    * @return reservePercentage
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getReservePercentage() {
     return reservePercentage;
@@ -266,8 +270,8 @@ public class ReserveProfilesListEmbeddedReserveProfiles {
    * Get links
    * @return links
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public ReserveProfilesListEmbeddedLinks getLinks() {
     return links;
@@ -299,9 +303,20 @@ public class ReserveProfilesListEmbeddedReserveProfiles {
         Objects.equals(this.links, reserveProfilesListEmbeddedReserveProfiles.links);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(tags, id, createdAt, updatedAt, application, reserveDays, reservePercentage, links);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -349,14 +364,6 @@ public class ReserveProfilesListEmbeddedReserveProfiles {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("tags");
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("created_at");
-    openapiRequiredFields.add("updated_at");
-    openapiRequiredFields.add("application");
-    openapiRequiredFields.add("reserve_days");
-    openapiRequiredFields.add("reserve_percentage");
-    openapiRequiredFields.add("_links");
   }
 
  /**
@@ -383,13 +390,6 @@ public class ReserveProfilesListEmbeddedReserveProfiles {
         }
       }
       */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : ReserveProfilesListEmbeddedReserveProfiles.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()  && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -397,9 +397,9 @@ public class ReserveProfilesListEmbeddedReserveProfiles {
         throw new IllegalArgumentException(String.format("Expected the field `application` to be a primitive type in the JSON string but got `%s`", jsonObj.get("application").toString()));
       }
       // validate the optional field `_links`
-      if (jsonObj.getAsJsonObject("_links") != null) {
-       ReserveProfilesListEmbeddedLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-      }
+     // if (jsonObj.getAsJsonObject("_links") != null) {
+       //ReserveProfilesListEmbeddedLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+     // }
   }
 
 

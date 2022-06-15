@@ -58,6 +58,14 @@ public class ConfigurationDetailsTest {
     }
 
     /**
+     * Test the property 'bypassDeviceOnCapture'
+     */
+    @Test
+    public void bypassDeviceOnCaptureTest() {
+        // TODO: test bypassDeviceOnCapture
+    }
+
+    /**
      * Test the property 'cashbackOptions'
      */
     @Test

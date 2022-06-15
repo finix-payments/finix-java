@@ -51,7 +51,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class SubscriptionScheduleLinks {
   public static final String SERIALIZED_NAME_SELF = "self";
   @SerializedName(SERIALIZED_NAME_SELF)
@@ -189,13 +189,13 @@ public class SubscriptionScheduleLinks {
       }
       */
       // validate the optional field `self`
-      if (jsonObj.getAsJsonObject("self") != null) {
-       IdentityLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
-      }
+     // if (jsonObj.getAsJsonObject("self") != null) {
+       //IdentityLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
+     // }
       // validate the optional field `amounts`
-      if (jsonObj.getAsJsonObject("amounts") != null) {
-       SubscriptionScheduleLinksAmounts.validateJsonObject(jsonObj.getAsJsonObject("amounts"));
-      }
+     // if (jsonObj.getAsJsonObject("amounts") != null) {
+       //SubscriptionScheduleLinksAmounts.validateJsonObject(jsonObj.getAsJsonObject("amounts"));
+     // }
   }
 
 

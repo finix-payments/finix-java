@@ -31,7 +31,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @DisplayName("When Running DevicesApiTest")
-@Disabled
 public class DevicesApiTest {
     private FinixClient finixClient;
 
@@ -40,7 +39,7 @@ public class DevicesApiTest {
     @Test
     @BeforeAll
     void contextLoads() {
-        finixClient= new FinixClient("USsRhsHYZGBPnQw8CByJyEQW","8a14c2f9-d94b-4c72-8f5c-a62908e5b30e", Environment.SANDBOX);
+        finixClient= new FinixClient("USjHFGYvecE4LBitYG8KDE2g","b698f403-d9b7-4157-82d8-162cea8c8cc3", Environment.SANDBOX);
         assertEquals(true , finixClient!=null);
 
     }
@@ -53,6 +52,7 @@ public class DevicesApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    @DisplayName("Create a Device")
     public void createMerchantDeviceTest() throws ApiException {
         String merchantId = "MUu56ZGx3Xb6U9gAqKfgNisd";
         CreateDevice createDevice = CreateDevice.builder()
@@ -62,10 +62,11 @@ public class DevicesApiTest {
                 ._configuration(ConfigurationDetails.builder()
                         .allowDebit(true)
                         .promptSignature("NEVER")
+                        .bypassDeviceOnCapture(true)
                         .build())
                 .build();
         Device response = finixClient.Devices.create(merchantId, createDevice);
-        // TODO: test validations
+        assertEquals("MUu56ZGx3Xb6U9gAqKfgNisd",response.getMerchant(),()->"Should return " + "MUu56ZGx3Xb6U9gAqKfgNisd" + " but returns " + response.getMerchant());
     }
 
     /**
@@ -76,10 +77,13 @@ public class DevicesApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    @DisplayName(" Get Device")
     public void getDeviceTest() throws ApiException {
         String deviceId = "DVf2H8sh4LZZC52GTUrwCPPf";
         Device response = finixClient.Devices.get(deviceId);
-        // TODO: test validations
+        System.out.println(response.toJson());
+        assertEquals("MUu56ZGx3Xb6U9gAqKfgNisd",response.getMerchant(),()->"Should return " + "MUu56ZGx3Xb6U9gAqKfgNisd" + " but returns " + response.getMerchant());
+
     }
 
     /**
@@ -89,7 +93,7 @@ public class DevicesApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-    @Test
+    //@Test
     public void putDeviceTest() throws ApiException {
         String deviceId = null;
         Object body = null;

@@ -23,7 +23,10 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.SubscriptionEnrollmentLinksSelf;
+import model.IdentityLinksSelf;
+import model.SubscriptionEnrollmentLinksAmounts;
+import model.SubscriptionEnrollmentLinksMerchant;
+import model.SubscriptionEnrollmentLinksSchedule;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,28 +53,28 @@ import invoker.JSON;
  */
 @ApiModel(description = "For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class SubscriptionEnrollmentLinks {
   public static final String SERIALIZED_NAME_SELF = "self";
   @SerializedName(SERIALIZED_NAME_SELF)
-  private SubscriptionEnrollmentLinksSelf self;
+  private IdentityLinksSelf self;
 
   public static final String SERIALIZED_NAME_MERCHANT = "merchant";
   @SerializedName(SERIALIZED_NAME_MERCHANT)
-  private SubscriptionEnrollmentLinksSelf merchant;
+  private SubscriptionEnrollmentLinksMerchant merchant;
 
   public static final String SERIALIZED_NAME_SCHEDULE = "schedule";
   @SerializedName(SERIALIZED_NAME_SCHEDULE)
-  private SubscriptionEnrollmentLinksSelf schedule;
+  private SubscriptionEnrollmentLinksSchedule schedule;
 
   public static final String SERIALIZED_NAME_AMOUNTS = "amounts";
   @SerializedName(SERIALIZED_NAME_AMOUNTS)
-  private SubscriptionEnrollmentLinksSelf amounts;
+  private SubscriptionEnrollmentLinksAmounts amounts;
 
   public SubscriptionEnrollmentLinks() { 
   }
 
-  public SubscriptionEnrollmentLinks self(SubscriptionEnrollmentLinksSelf self) {
+  public SubscriptionEnrollmentLinks self(IdentityLinksSelf self) {
     
     this.self = self;
     return this;
@@ -81,20 +84,20 @@ public class SubscriptionEnrollmentLinks {
    * Get self
    * @return self
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-  public SubscriptionEnrollmentLinksSelf getSelf() {
+  public IdentityLinksSelf getSelf() {
     return self;
   }
 
 
-  public void setSelf(SubscriptionEnrollmentLinksSelf self) {
+  public void setSelf(IdentityLinksSelf self) {
     this.self = self;
   }
 
 
-  public SubscriptionEnrollmentLinks merchant(SubscriptionEnrollmentLinksSelf merchant) {
+  public SubscriptionEnrollmentLinks merchant(SubscriptionEnrollmentLinksMerchant merchant) {
     
     this.merchant = merchant;
     return this;
@@ -104,20 +107,20 @@ public class SubscriptionEnrollmentLinks {
    * Get merchant
    * @return merchant
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-  public SubscriptionEnrollmentLinksSelf getMerchant() {
+  public SubscriptionEnrollmentLinksMerchant getMerchant() {
     return merchant;
   }
 
 
-  public void setMerchant(SubscriptionEnrollmentLinksSelf merchant) {
+  public void setMerchant(SubscriptionEnrollmentLinksMerchant merchant) {
     this.merchant = merchant;
   }
 
 
-  public SubscriptionEnrollmentLinks schedule(SubscriptionEnrollmentLinksSelf schedule) {
+  public SubscriptionEnrollmentLinks schedule(SubscriptionEnrollmentLinksSchedule schedule) {
     
     this.schedule = schedule;
     return this;
@@ -127,20 +130,20 @@ public class SubscriptionEnrollmentLinks {
    * Get schedule
    * @return schedule
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-  public SubscriptionEnrollmentLinksSelf getSchedule() {
+  public SubscriptionEnrollmentLinksSchedule getSchedule() {
     return schedule;
   }
 
 
-  public void setSchedule(SubscriptionEnrollmentLinksSelf schedule) {
+  public void setSchedule(SubscriptionEnrollmentLinksSchedule schedule) {
     this.schedule = schedule;
   }
 
 
-  public SubscriptionEnrollmentLinks amounts(SubscriptionEnrollmentLinksSelf amounts) {
+  public SubscriptionEnrollmentLinks amounts(SubscriptionEnrollmentLinksAmounts amounts) {
     
     this.amounts = amounts;
     return this;
@@ -150,15 +153,15 @@ public class SubscriptionEnrollmentLinks {
    * Get amounts
    * @return amounts
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-  public SubscriptionEnrollmentLinksSelf getAmounts() {
+  public SubscriptionEnrollmentLinksAmounts getAmounts() {
     return amounts;
   }
 
 
-  public void setAmounts(SubscriptionEnrollmentLinksSelf amounts) {
+  public void setAmounts(SubscriptionEnrollmentLinksAmounts amounts) {
     this.amounts = amounts;
   }
 
@@ -221,10 +224,6 @@ public class SubscriptionEnrollmentLinks {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("self");
-    openapiRequiredFields.add("merchant");
-    openapiRequiredFields.add("schedule");
-    openapiRequiredFields.add("amounts");
   }
 
  /**
@@ -251,29 +250,22 @@ public class SubscriptionEnrollmentLinks {
         }
       }
       */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : SubscriptionEnrollmentLinks.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       // validate the optional field `self`
-      if (jsonObj.getAsJsonObject("self") != null) {
-       SubscriptionEnrollmentLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
-      }
+     // if (jsonObj.getAsJsonObject("self") != null) {
+       //IdentityLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
+     // }
       // validate the optional field `merchant`
-      if (jsonObj.getAsJsonObject("merchant") != null) {
-       SubscriptionEnrollmentLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("merchant"));
-      }
+     // if (jsonObj.getAsJsonObject("merchant") != null) {
+       //SubscriptionEnrollmentLinksMerchant.validateJsonObject(jsonObj.getAsJsonObject("merchant"));
+     // }
       // validate the optional field `schedule`
-      if (jsonObj.getAsJsonObject("schedule") != null) {
-       SubscriptionEnrollmentLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("schedule"));
-      }
+     // if (jsonObj.getAsJsonObject("schedule") != null) {
+       //SubscriptionEnrollmentLinksSchedule.validateJsonObject(jsonObj.getAsJsonObject("schedule"));
+     // }
       // validate the optional field `amounts`
-      if (jsonObj.getAsJsonObject("amounts") != null) {
-       SubscriptionEnrollmentLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("amounts"));
-      }
+     // if (jsonObj.getAsJsonObject("amounts") != null) {
+       //SubscriptionEnrollmentLinksAmounts.validateJsonObject(jsonObj.getAsJsonObject("amounts"));
+     // }
   }
 
 

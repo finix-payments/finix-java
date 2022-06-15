@@ -55,7 +55,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-14T11:20:42.244239-05:00[America/Chicago]")
 public class PaymentInstrumentBankAccountLinks {
   public static final String SERIALIZED_NAME_APPLICATION = "application";
   @SerializedName(SERIALIZED_NAME_APPLICATION)
@@ -313,29 +313,29 @@ public class PaymentInstrumentBankAccountLinks {
       }
       */
       // validate the optional field `application`
-      if (jsonObj.getAsJsonObject("application") != null) {
-       MerchantLinksApplication.validateJsonObject(jsonObj.getAsJsonObject("application"));
-      }
+     // if (jsonObj.getAsJsonObject("application") != null) {
+       //MerchantLinksApplication.validateJsonObject(jsonObj.getAsJsonObject("application"));
+     // }
       // validate the optional field `authorizations`
-      if (jsonObj.getAsJsonObject("authorizations") != null) {
-       PaymentInstrumentBankAccountLinksAuthorizations.validateJsonObject(jsonObj.getAsJsonObject("authorizations"));
-      }
+     // if (jsonObj.getAsJsonObject("authorizations") != null) {
+       //PaymentInstrumentBankAccountLinksAuthorizations.validateJsonObject(jsonObj.getAsJsonObject("authorizations"));
+     // }
       // validate the optional field `identity`
-      if (jsonObj.getAsJsonObject("identity") != null) {
-       MerchantLinksIdentity.validateJsonObject(jsonObj.getAsJsonObject("identity"));
-      }
+     // if (jsonObj.getAsJsonObject("identity") != null) {
+       //MerchantLinksIdentity.validateJsonObject(jsonObj.getAsJsonObject("identity"));
+     // }
       // validate the optional field `self`
-      if (jsonObj.getAsJsonObject("self") != null) {
-       ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
-      }
+     // if (jsonObj.getAsJsonObject("self") != null) {
+       //ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
+     // }
       // validate the optional field `transfers`
-      if (jsonObj.getAsJsonObject("transfers") != null) {
-       PaymentInstrumentBankAccountLinksTransfers.validateJsonObject(jsonObj.getAsJsonObject("transfers"));
-      }
+     // if (jsonObj.getAsJsonObject("transfers") != null) {
+       //PaymentInstrumentBankAccountLinksTransfers.validateJsonObject(jsonObj.getAsJsonObject("transfers"));
+     // }
       // validate the optional field `verifications`
-      if (jsonObj.getAsJsonObject("verifications") != null) {
-       MerchantLinksVerifications.validateJsonObject(jsonObj.getAsJsonObject("verifications"));
-      }
+     // if (jsonObj.getAsJsonObject("verifications") != null) {
+       //MerchantLinksVerifications.validateJsonObject(jsonObj.getAsJsonObject("verifications"));
+     // }
   }
 
 

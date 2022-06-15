@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import model.AdditionalPurchaseDataItemData;
+import model.AdditionalPurchaseDataItemDataInner;
 import model.AdditionalPurchaseDataOrderDate;
 
 import com.google.gson.Gson;
@@ -53,7 +53,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "The additional information about the purchase. Used for Level 2 and Level 3 Processing.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class AdditionalPurchaseData {
   public static final String SERIALIZED_NAME_CUSTOMER_REFERENCE_NUMBER = "customer_reference_number";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_REFERENCE_NUMBER)
@@ -81,7 +81,7 @@ public class AdditionalPurchaseData {
 
   public static final String SERIALIZED_NAME_ITEM_DATA = "item_data";
   @SerializedName(SERIALIZED_NAME_ITEM_DATA)
-  private List<AdditionalPurchaseDataItemData> itemData = null;
+  private List<AdditionalPurchaseDataItemDataInner> itemData = null;
 
   public static final String SERIALIZED_NAME_ORDER_DATE = "order_date";
   @SerializedName(SERIALIZED_NAME_ORDER_DATE)
@@ -244,13 +244,13 @@ public class AdditionalPurchaseData {
   }
 
 
-  public AdditionalPurchaseData itemData(List<AdditionalPurchaseDataItemData> itemData) {
+  public AdditionalPurchaseData itemData(List<AdditionalPurchaseDataItemDataInner> itemData) {
     
     this.itemData = itemData;
     return this;
   }
 
-  public AdditionalPurchaseData addItemDataItem(AdditionalPurchaseDataItemData itemDataItem) {
+  public AdditionalPurchaseData addItemDataItem(AdditionalPurchaseDataItemDataInner itemDataItem) {
     if (this.itemData == null) {
       this.itemData = new ArrayList<>();
     }
@@ -265,12 +265,12 @@ public class AdditionalPurchaseData {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<AdditionalPurchaseDataItemData> getItemData() {
+  public List<AdditionalPurchaseDataItemDataInner> getItemData() {
     return itemData;
   }
 
 
-  public void setItemData(List<AdditionalPurchaseDataItemData> itemData) {
+  public void setItemData(List<AdditionalPurchaseDataItemDataInner> itemData) {
     this.itemData = itemData;
   }
 
@@ -527,14 +527,14 @@ public class AdditionalPurchaseData {
 
         // validate the optional field `item_data` (array)
         for (int i = 0; i < jsonArrayitemData.size(); i++) {
-          AdditionalPurchaseDataItemData.validateJsonObject(jsonArrayitemData.get(i).getAsJsonObject());
+          AdditionalPurchaseDataItemDataInner.validateJsonObject(jsonArrayitemData.get(i).getAsJsonObject());
         }
           ;
       }
       // validate the optional field `order_date`
-      if (jsonObj.getAsJsonObject("order_date") != null) {
-       AdditionalPurchaseDataOrderDate.validateJsonObject(jsonObj.getAsJsonObject("order_date"));
-      }
+     // if (jsonObj.getAsJsonObject("order_date") != null) {
+       //AdditionalPurchaseDataOrderDate.validateJsonObject(jsonObj.getAsJsonObject("order_date"));
+     // }
       if (jsonObj.get("ship_from_postal_code") != null && !jsonObj.get("ship_from_postal_code").isJsonNull()  && !jsonObj.get("ship_from_postal_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ship_from_postal_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ship_from_postal_code").toString()));
       }

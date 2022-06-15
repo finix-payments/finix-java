@@ -134,7 +134,7 @@ import javax.ws.rs.core.GenericType;
             }
 
             final String[] localVarContentTypes = {
-        "application/json"
+        "application/hal+json"
             };
             final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
             if (localVarContentType != null) {
@@ -282,7 +282,7 @@ import javax.ws.rs.core.GenericType;
             }
 
             final String[] localVarContentTypes = {
-        "application/json"
+        "application/hal+json"
             };
             final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
             if (localVarContentType != null) {
@@ -1120,7 +1120,7 @@ import javax.ws.rs.core.GenericType;
             }
 
             final String[] localVarContentTypes = {
-        "application/json"
+        "application/hal+json"
             };
             final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
             if (localVarContentType != null) {
@@ -1147,7 +1147,7 @@ import javax.ws.rs.core.GenericType;
 
                 /**
                 * Update an Identity
-                * Update an existing &#x60;Identity&#x60;.  If you are updating the &#x60;Identity&#x60; of a &#x60;Merchant&#x60; that&#39;s already been onboarded, you need to [verify the merchant again](#operation/createMerchantVerification).
+                * Update an existing &#x60;Identity&#x60;.  If you are updating the &#x60;Identity&#x60; of a &#x60;Merchant&#x60; that’s already been onboarded, you need to [verify the merchant again](#operation/createMerchantVerification).
                     * @param identityId ID of the &#x60;identity&#x60; to fetch (required)
                     * @param updateIdentityRequest  (optional)
                     * @return Identity
@@ -1170,7 +1170,7 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Update an Identity
-            * Update an existing &#x60;Identity&#x60;.  If you are updating the &#x60;Identity&#x60; of a &#x60;Merchant&#x60; that&#39;s already been onboarded, you need to [verify the merchant again](#operation/createMerchantVerification).
+            * Update an existing &#x60;Identity&#x60;.  If you are updating the &#x60;Identity&#x60; of a &#x60;Merchant&#x60; that’s already been onboarded, you need to [verify the merchant again](#operation/createMerchantVerification).
                 * @param identityId ID of the &#x60;identity&#x60; to fetch (required)
                 * @param updateIdentityRequest  (optional)
             * @return ApiResponse&lt;Identity&gt;
@@ -1194,7 +1194,7 @@ import javax.ws.rs.core.GenericType;
 
         /**
             * Update an Identity (asynchronously)
-            * Update an existing &#x60;Identity&#x60;.  If you are updating the &#x60;Identity&#x60; of a &#x60;Merchant&#x60; that&#39;s already been onboarded, you need to [verify the merchant again](#operation/createMerchantVerification).
+            * Update an existing &#x60;Identity&#x60;.  If you are updating the &#x60;Identity&#x60; of a &#x60;Merchant&#x60; that’s already been onboarded, you need to [verify the merchant again](#operation/createMerchantVerification).
                 * @param identityId ID of the &#x60;identity&#x60; to fetch (required)
                 * @param updateIdentityRequest  (optional)
             * @param _callback The callback to be executed when the API call finishes

@@ -51,10 +51,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * SubscriptionAmount
+ * 
  */
+@ApiModel(description = "")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class SubscriptionAmount {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -154,8 +155,8 @@ public class SubscriptionAmount {
    * ID of the &#x60;Subscription Amount&#x60;.
    * @return id
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "ID of the `Subscription Amount`.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ID of the `Subscription Amount`.")
 
   public String getId() {
     return id;
@@ -177,8 +178,8 @@ public class SubscriptionAmount {
    * Timestamp of when the object was created.
    * @return createdAt
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Timestamp of when the object was created.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Timestamp of when the object was created.")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -200,8 +201,8 @@ public class SubscriptionAmount {
    * Timestamp of when the object was last updated.
    * @return updatedAt
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Timestamp of when the object was last updated.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Timestamp of when the object was last updated.")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -223,8 +224,8 @@ public class SubscriptionAmount {
    * &#x60;Subscription Amount&#x60; type. The only type supported as of now is **FEE**.
    * @return amountType
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "FEE", required = true, value = "`Subscription Amount` type. The only type supported as of now is **FEE**.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "FEE", value = "`Subscription Amount` type. The only type supported as of now is **FEE**.")
 
   public AmountTypeEnum getAmountType() {
     return amountType;
@@ -246,8 +247,8 @@ public class SubscriptionAmount {
    * The ID of the &#x60;User&#x60; that created the &#x60;Subscription Amount&#x60;.
    * @return createdBy
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The ID of the `User` that created the `Subscription Amount`.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ID of the `User` that created the `Subscription Amount`.")
 
   public String getCreatedBy() {
     return createdBy;
@@ -269,8 +270,8 @@ public class SubscriptionAmount {
    * Get feeAmountData
    * @return feeAmountData
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public SubscriptionAmountFeeAmountData getFeeAmountData() {
     return feeAmountData;
@@ -292,8 +293,8 @@ public class SubscriptionAmount {
    * Human readable name.
    * @return nickname
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "super important thing", required = true, value = "Human readable name.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "super important thing", value = "Human readable name.")
 
   public String getNickname() {
     return nickname;
@@ -315,8 +316,8 @@ public class SubscriptionAmount {
    * ID of the &#x60;Subscription Schedule&#x60;.
    * @return subscriptionSchedule
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "ID of the `Subscription Schedule`.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ID of the `Subscription Schedule`.")
 
   public String getSubscriptionSchedule() {
     return subscriptionSchedule;
@@ -458,14 +459,6 @@ public class SubscriptionAmount {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("created_at");
-    openapiRequiredFields.add("updated_at");
-    openapiRequiredFields.add("amount_type");
-    openapiRequiredFields.add("created_by");
-    openapiRequiredFields.add("fee_amount_data");
-    openapiRequiredFields.add("nickname");
-    openapiRequiredFields.add("subscription_schedule");
   }
 
  /**
@@ -492,13 +485,6 @@ public class SubscriptionAmount {
         }
       }
       */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : SubscriptionAmount.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()  && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -509,9 +495,9 @@ public class SubscriptionAmount {
         throw new IllegalArgumentException(String.format("Expected the field `created_by` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_by").toString()));
       }
       // validate the optional field `fee_amount_data`
-      if (jsonObj.getAsJsonObject("fee_amount_data") != null) {
-       SubscriptionAmountFeeAmountData.validateJsonObject(jsonObj.getAsJsonObject("fee_amount_data"));
-      }
+     // if (jsonObj.getAsJsonObject("fee_amount_data") != null) {
+       //SubscriptionAmountFeeAmountData.validateJsonObject(jsonObj.getAsJsonObject("fee_amount_data"));
+     // }
       if (jsonObj.get("nickname") != null && !jsonObj.get("nickname").isJsonNull()  && !jsonObj.get("nickname").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `nickname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nickname").toString()));
       }
@@ -519,9 +505,9 @@ public class SubscriptionAmount {
         throw new IllegalArgumentException(String.format("Expected the field `subscription_schedule` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subscription_schedule").toString()));
       }
       // validate the optional field `_links`
-      if (jsonObj.getAsJsonObject("_links") != null) {
-       SubscriptionAmountLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-      }
+     // if (jsonObj.getAsJsonObject("_links") != null) {
+       //SubscriptionAmountLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+     // }
   }
 
 

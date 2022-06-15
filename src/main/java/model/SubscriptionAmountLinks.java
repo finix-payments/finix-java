@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import model.IdentityLinksSelf;
-import model.SubscriptionScheduleLinksAmounts;
+import model.SubscriptionAmountLinksSchedule;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +51,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-09T19:07:27.149649-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-15T16:04:59.372163-05:00[America/Chicago]")
 public class SubscriptionAmountLinks {
   public static final String SERIALIZED_NAME_SELF = "self";
   @SerializedName(SERIALIZED_NAME_SELF)
@@ -59,7 +59,7 @@ public class SubscriptionAmountLinks {
 
   public static final String SERIALIZED_NAME_SCHEDULE = "schedule";
   @SerializedName(SERIALIZED_NAME_SCHEDULE)
-  private SubscriptionScheduleLinksAmounts schedule;
+  private SubscriptionAmountLinksSchedule schedule;
 
   public SubscriptionAmountLinks() { 
   }
@@ -87,7 +87,7 @@ public class SubscriptionAmountLinks {
   }
 
 
-  public SubscriptionAmountLinks schedule(SubscriptionScheduleLinksAmounts schedule) {
+  public SubscriptionAmountLinks schedule(SubscriptionAmountLinksSchedule schedule) {
     
     this.schedule = schedule;
     return this;
@@ -100,12 +100,12 @@ public class SubscriptionAmountLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public SubscriptionScheduleLinksAmounts getSchedule() {
+  public SubscriptionAmountLinksSchedule getSchedule() {
     return schedule;
   }
 
 
-  public void setSchedule(SubscriptionScheduleLinksAmounts schedule) {
+  public void setSchedule(SubscriptionAmountLinksSchedule schedule) {
     this.schedule = schedule;
   }
 
@@ -189,13 +189,13 @@ public class SubscriptionAmountLinks {
       }
       */
       // validate the optional field `self`
-      if (jsonObj.getAsJsonObject("self") != null) {
-       IdentityLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
-      }
+     // if (jsonObj.getAsJsonObject("self") != null) {
+       //IdentityLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
+     // }
       // validate the optional field `schedule`
-      if (jsonObj.getAsJsonObject("schedule") != null) {
-       SubscriptionScheduleLinksAmounts.validateJsonObject(jsonObj.getAsJsonObject("schedule"));
-      }
+     // if (jsonObj.getAsJsonObject("schedule") != null) {
+       //SubscriptionAmountLinksSchedule.validateJsonObject(jsonObj.getAsJsonObject("schedule"));
+     // }
   }
 
 

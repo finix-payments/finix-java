@@ -22,6 +22,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import model.ApplicationLinksApplicationProfile;
+import model.ApplicationLinksSelf;
+import model.ApplicationProfileLinksApplication;
+import model.DisputeLinksTransfer;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
