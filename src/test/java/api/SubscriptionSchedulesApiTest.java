@@ -40,7 +40,6 @@ public class SubscriptionSchedulesApiTest {
     @DisplayName("Finix Client")
     void contextLoads() {
         finixClient= new FinixClient("UStxEci4vXxGDWLQhNvao7YY","25038781-2369-4113-8187-34780e91052e", Environment.SANDBOX);
-        //  System.out.println(finixClient == null);
         assertEquals(true , finixClient!=null);
 
     }

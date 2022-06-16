@@ -35,15 +35,21 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @DisplayName("When Running WebhooksApiTest")
 public class WebhooksApiTest {
-
     private FinixClient finixClient;
-    private final WebhooksApi api = new WebhooksApi();
+    private TestInfo testInfo;
+    private TestReporter testReporter;
+    @BeforeEach
+    void init(TestInfo testInfo, TestReporter testReporter){
+        this.testInfo =testInfo;
+        this.testReporter =testReporter;
+        testReporter.publishEntry("Running "+testInfo.getDisplayName()+ " with tag " + testInfo.getTags());
+    }
+
     @Test
     @BeforeAll
     @DisplayName("Finix Client")
     void contextLoads() {
         finixClient= new FinixClient("USsRhsHYZGBPnQw8CByJyEQW","8a14c2f9-d94b-4c72-8f5c-a62908e5b30e", Environment.SANDBOX);
-        //  System.out.println(finixClient == null);
         assertEquals(true , finixClient!=null);
 
     }
@@ -63,8 +69,8 @@ public class WebhooksApiTest {
                 .url("https://eohzjuj2prziycz.m.pipedream.net")
                 .build();
         Webhook response = finixClient.Webhooks.create(createWebhookRequest);
-        // TODO: test validations
-    }
+        assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
+  }
 
 
     /**
@@ -80,8 +86,8 @@ public class WebhooksApiTest {
     public void getWebhookTest() throws ApiException {
         String webhookId = "WHED2RM5dbNKcHYc3ALxhbW";
         Webhook response = finixClient.Webhooks.get(webhookId);
-        // TODO: test validations
-    }
+        assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
+ }
 
     /**
      * List Application Webhooks
@@ -110,11 +116,9 @@ public class WebhooksApiTest {
     @Test
     @DisplayName("List Webhooks")
     public void listWebhooksTest() throws ApiException {
-        //String id = null;
         WebhooksList response = finixClient.Webhooks.list();
-        System.out.println(response.toString());
-        // TODO: test validations
-    }
+        assertEquals(20,response.getPage().getLimit().intValue(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit().intValue());
+ }
 
 
     /**
@@ -134,7 +138,7 @@ public class WebhooksApiTest {
                 .enabled(false)
                 .build();
         Webhook response = finixClient.Webhooks.update(webhookId, updateWebhookRequest);
-        // TODO: test validations
+        assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
     }
 
 }

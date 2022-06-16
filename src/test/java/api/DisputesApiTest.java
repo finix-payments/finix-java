@@ -44,14 +44,23 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 //@Disabled
 public class DisputesApiTest {
     private FinixClient finixClient;
-    private final DisputesApi api = new DisputesApi();
+    private TestInfo testInfo;
+    private TestReporter testReporter;
+    @BeforeEach
+    void init(TestInfo testInfo, TestReporter testReporter){
+        this.testInfo =testInfo;
+        this.testReporter =testReporter;
+        testReporter.publishEntry("Running "+testInfo.getDisplayName()+ " with tag " + testInfo.getTags());
+    }
 
+    /**
+     * Create a Context Loads
+     */
     @Test
     @BeforeAll
     void contextLoads() {
         finixClient= new FinixClient("USsRhsHYZGBPnQw8CByJyEQW","8a14c2f9-d94b-4c72-8f5c-a62908e5b30e", Environment.SANDBOX);
         assertEquals(true , finixClient!=null);
-
     }
     /**
      * Create Dispute Evidence
@@ -63,11 +72,7 @@ public class DisputesApiTest {
   //  @Test
     public void createDisputeEvidenceTest() throws ApiException {
         String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
-        String _file = "/Users/default-admin/Desktop/Finix-Logo.jpg";
-
-        /*CreateDisputeEvidenceRequest createDisputeEvidenceRequest = CreateDisputeEvidenceRequest.builder()
-                ._file(new File("/Users/default-admin/Desktop/Finix-Logo.jpg"))
-                .build();*/
+        //String _file = "/Users/default-admin/Desktop/Finix-Logo.jpg";
         CreateDisputeEvidenceRequest createDisputeEvidenceRequest = new CreateDisputeEvidenceRequest( new File("/Users/default-admin/Desktop/Finix-Logo.jpg"));
         DisputeEvidence response = finixClient.Disputes.createDisputeEvidence(disputeId, createDisputeEvidenceRequest);
         // TODO: test validations
@@ -85,8 +90,7 @@ public class DisputesApiTest {
     public void getDisputeTest() throws ApiException {
         String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
         Dispute response = finixClient.Disputes.get(disputeId);
-      // System.out.println(response.toJson());
-      assertEquals("DIs7yQRkHDdMYhurzYz72SFk",response.getId(),()->" Should return " + "DIs7yQRkHDdMYhurzYz72SFk" + " but returns " + response.getId());
+        assertEquals("DIs7yQRkHDdMYhurzYz72SFk",response.getId(),()->" Should return " + "DIs7yQRkHDdMYhurzYz72SFk" + " but returns " + response.getId());
 
     }
 
@@ -117,7 +121,7 @@ public class DisputesApiTest {
    // @Test
     public void getDisputesAdjustmentsTest() throws ApiException {
         String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
-        AdjustmentTransfersList response = api.getDisputesAdjustments(disputeId);
+        AdjustmentTransfersList response = finixClient.Disputes.getDisputesAdjustments(disputeId);
         // TODO: test validations
     }
 
@@ -147,7 +151,6 @@ public class DisputesApiTest {
     public void listDisputeEvidenceTest() throws ApiException {
         String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
         DisputeEvidenceList response = finixClient.Disputes.listDisputeEvidenceByDeviceId(disputeId);
-        System.out.println(response.toJson());
         assertEquals(20,response.getPage().getLimit().intValue(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit().intValue());
 
     }

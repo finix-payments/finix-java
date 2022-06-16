@@ -44,7 +44,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PaymentInstrumentsApiTest {
     private FinixClient finixClient;
-    private final PaymentInstrumentsApi api = new PaymentInstrumentsApi();
+    private TestInfo testInfo;
+    private TestReporter testReporter;
+    @BeforeEach
+    void init(TestInfo testInfo, TestReporter testReporter){
+        this.testInfo =testInfo;
+        this.testReporter =testReporter;
+        testReporter.publishEntry("Running "+testInfo.getDisplayName()+ " with tag " + testInfo.getTags());
+    }
+    /**
+     * Create a Context Loads
+     */
     @Test
     @BeforeAll
     void contextLoads() {
@@ -98,11 +108,13 @@ public class PaymentInstrumentsApiTest {
                 .type(CreatePaymentInstrumentRequest.TypeEnum.PAYMENT_CARD)
                 .identity("IDgWxBhfGYLLdkhxx2ddYf9K")
                 .build();
-        PaymentInstrument response = (PaymentInstrument) finixClient.PaymentInstrument.create(createPaymentInstrumentRequest);
-       // System.out.println(response.hashCode());
+        PaymentInstrument response = finixClient.PaymentInstrument.create(createPaymentInstrumentRequest);
+        assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
 
     }
-
+    /**
+     * Create a Bank Account
+     */
     @Test
     @DisplayName("Create a Bank Account")
     public void createBankAccount() throws ApiException{
@@ -118,7 +130,7 @@ public class PaymentInstrumentsApiTest {
                 .identity("IDpYDM7J9n57q849o9E9yNrG")
                 .build();
        PaymentInstrument response =  finixClient.PaymentInstrument.create(createPaymentInstrumentRequest);
-      System.out.println(response.toJson());
+       assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
     }
     /**
      * Create Instrument Updates
@@ -162,7 +174,7 @@ public class PaymentInstrumentsApiTest {
    // @Test
     public void getInstrumentUpdateTest() throws ApiException {
         String instrumentUpdatesId = null;
-        InstrumentUpdates response = api.getInstrumentUpdate(instrumentUpdatesId);
+        InstrumentUpdates response = finixClient.PaymentInstrument.getInstrumentUpdate(instrumentUpdatesId);
         // TODO: test validations
     }
 
@@ -178,7 +190,7 @@ public class PaymentInstrumentsApiTest {
     public void getInstrumentUpdatesTest() throws ApiException {
         String instrumentUpdatesId = "IUp9oSWhWUF31DPrJ8CojQeQ";
         finixClient.PaymentInstrument.getInstrumentUpdates(instrumentUpdatesId);
-        // TODO: test validations
+
     }
 
     /**
@@ -193,7 +205,8 @@ public class PaymentInstrumentsApiTest {
     public void getPaymentInstrumentTest() throws ApiException {
         String paymentInstrumentId = "PI8sdzepdapDehPWKFTcre1m";
         PaymentInstrument response = finixClient.PaymentInstrument.get(paymentInstrumentId);
-        //System.out.println(response.toJson());
+        assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
+
     }
 
     /**
@@ -208,7 +221,7 @@ public class PaymentInstrumentsApiTest {
     public void getPaymentInstrumentCardTest() throws ApiException {
         String paymentInstrumentId = "PIe2YvpcjvoVJ6PzoRPBK137";
         PaymentInstrument response = finixClient.PaymentInstrument.get(paymentInstrumentId);
-      //  System.out.println(response.toJson());
+        assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
     }
 
     /**
@@ -221,7 +234,7 @@ public class PaymentInstrumentsApiTest {
   //  @Test
     public void listApplicationPaymentInstrumentsTest() throws ApiException {
         String applicationId = null;
-        PaymentInstrumentsList response = api.listByApplicationId(applicationId);
+        PaymentInstrumentsList response = finixClient.PaymentInstrument.listByApplicationId(applicationId);
         // TODO: test validations
     }
 
@@ -239,7 +252,7 @@ public class PaymentInstrumentsApiTest {
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        PaymentInstrumentsList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
+        PaymentInstrumentsList response = finixClient.PaymentInstrument.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 
@@ -257,8 +270,7 @@ public class PaymentInstrumentsApiTest {
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        PaymentInstrumentUpdatesList response = api.listUpdatesByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize);
-        // TODO: test validations
+        PaymentInstrumentUpdatesList response = finixClient.PaymentInstrument.listUpdatesByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize);
     }
 
     /**
@@ -288,7 +300,8 @@ public class PaymentInstrumentsApiTest {
         String ownerIdentityId = null;
         String type = null;
         PaymentInstrumentsList response = finixClient.PaymentInstrument.list(limit, offset, pageNumber, pageSize, accountLast4, accountRoutingNumber, application, bin, createdAtGte, createdAtLte, expirationMonth, expirationYear, lastFour, name, ownerIdentityId, type);
-        // TODO: test validations
+        assertEquals("20",response.getPage().getLimit().toString(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit());
+
     }
 
     /**
@@ -327,6 +340,7 @@ public class PaymentInstrumentsApiTest {
                 .request("{\"merchant\":\"MUucec6fHeaWo3VHYoSkUySM\"}")
                 .build();
        InstrumentUpdates response = finixClient.PaymentInstrument.createPaymentInstrumentUpdate(createInstrumentUpdates);
-        // TODO: test validations
+        assertEquals("MUucec6fHeaWo3VHYoSkUySM",response.getMerchant(),()->" Should return " + "MUucec6fHeaWo3VHYoSkUySM" + " but returns " + response.getMerchant());
+
     }
 }

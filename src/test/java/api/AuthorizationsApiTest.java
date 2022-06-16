@@ -19,9 +19,7 @@ import invoker.FinixClient;
 import model.*;
 import org.junit.jupiter.api.*;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -34,8 +32,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DisplayName("When Running AuthorizationsApi")
 public class AuthorizationsApiTest {
     private FinixClient finixClient;
-    private final AuthorizationsApi api = new AuthorizationsApi();
-    public String AuthorizationId;
+    private String AuthorizationId;
+    private TestInfo testInfo;
+    private TestReporter testReporter;
+    @BeforeEach
+    void init(TestInfo testInfo, TestReporter testReporter){
+        this.testInfo =testInfo;
+        this.testReporter =testReporter;
+        testReporter.publishEntry("Running "+testInfo.getDisplayName()+ " with tag " + testInfo.getTags());
+    }
+
+    /**
+     * Create a Context Loads
+     */
     @Test
     @BeforeAll
     void contextLoads() {
@@ -43,8 +52,6 @@ public class AuthorizationsApiTest {
         assertEquals(true , finixClient!=null);
 
     }
-
-
 
     /**
      * Create an Authorization
@@ -69,6 +76,9 @@ public class AuthorizationsApiTest {
         AuthorizationId = response.getId();
         assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getSource());
     }
+    /**
+     * Create an Authorization with 3D Secure
+     */
     @Test
     @DisplayName("Create an Authorization with 3D Secure")
     public void create3DSecureAuthorizationTest() throws ApiException {
@@ -89,6 +99,9 @@ public class AuthorizationsApiTest {
 
     }
 
+    /**
+     * Create an Authorization with Level 2 Processing
+     */
     @Test
     @DisplayName("Create an Authorization with Level 2 Processing")
     public void create2DAuthorizationTest() throws ApiException {
@@ -108,7 +121,9 @@ public class AuthorizationsApiTest {
         assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getSource());
 
     }
-
+    /**
+     * Create an Authorization with Level 3 Processing
+     */
     @Test
     @DisplayName("Create an Authorization with Level 3 Processing")
     public void create3DProcessingAuthorizationTest() throws ApiException {
@@ -259,7 +274,7 @@ public class AuthorizationsApiTest {
         Long offset = null;
         Integer pageNumber = null;
         Integer pageSize = null;
-        AuthorizationsList response = api.listByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize);
+        AuthorizationsList response = finixClient.Authorization.listByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 
@@ -282,6 +297,9 @@ public class AuthorizationsApiTest {
         assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getSource());
 
     }
+    /**
+     * Void an Authorization
+     */
     @Test
     @DisplayName("Void an Authorization")
     public void putVoidAuthorization() throws ApiException{
@@ -292,9 +310,10 @@ public class AuthorizationsApiTest {
         Authorization response = finixClient.Authorization.update(id, updateAuthorizationRequest);
         assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getSource());
 
-
     }
-
+    /**
+     * Capture an Authorization with Level 2/Level 3 Processing
+     */
     @Test
     @DisplayName("Capture an Authorization with Level 2/Level 3 Processing")
     public void CaptureAuthorizationTest() throws ApiException{
@@ -335,11 +354,6 @@ public class AuthorizationsApiTest {
                 .build();
         Authorization response = finixClient.Authorization.update(id, updateAuthorizationRequest);
         assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getSource());
-
-
     }
-
-
-
 
 }

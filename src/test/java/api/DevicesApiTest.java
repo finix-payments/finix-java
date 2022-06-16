@@ -33,15 +33,22 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DisplayName("When Running DevicesApiTest")
 public class DevicesApiTest {
     private FinixClient finixClient;
-
-    private final DevicesApi api = new DevicesApi();
-
+    private TestInfo testInfo;
+    private TestReporter testReporter;
+    @BeforeEach
+    void init(TestInfo testInfo, TestReporter testReporter){
+        this.testInfo =testInfo;
+        this.testReporter =testReporter;
+        testReporter.publishEntry("Running "+testInfo.getDisplayName()+ " with tag " + testInfo.getTags());
+    }
+    /**
+     * Create a Context Loads
+     */
     @Test
     @BeforeAll
     void contextLoads() {
         finixClient= new FinixClient("USjHFGYvecE4LBitYG8KDE2g","b698f403-d9b7-4157-82d8-162cea8c8cc3", Environment.SANDBOX);
         assertEquals(true , finixClient!=null);
-
     }
 
     /**
@@ -81,9 +88,7 @@ public class DevicesApiTest {
     public void getDeviceTest() throws ApiException {
         String deviceId = "DVf2H8sh4LZZC52GTUrwCPPf";
         Device response = finixClient.Devices.get(deviceId);
-        System.out.println(response.toJson());
         assertEquals("MUu56ZGx3Xb6U9gAqKfgNisd",response.getMerchant(),()->"Should return " + "MUu56ZGx3Xb6U9gAqKfgNisd" + " but returns " + response.getMerchant());
-
     }
 
     /**
@@ -97,7 +102,7 @@ public class DevicesApiTest {
     public void putDeviceTest() throws ApiException {
         String deviceId = null;
         Object body = null;
-        Device response = api.update(deviceId, body);
+        Device response = finixClient.Devices.update(deviceId, body);
         // TODO: test validations
     }
 

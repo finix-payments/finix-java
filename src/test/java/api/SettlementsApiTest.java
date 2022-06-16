@@ -43,9 +43,18 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @DisplayName("When Running SettlementsApiTest")
 public class SettlementsApiTest {
-
-    private final SettlementsApi api = new SettlementsApi();
-    public FinixClient finixClient;
+ private FinixClient finixClient;
+    private TestInfo testInfo;
+    private TestReporter testReporter;
+    @BeforeEach
+    void init(TestInfo testInfo, TestReporter testReporter){
+        this.testInfo =testInfo;
+        this.testReporter =testReporter;
+        testReporter.publishEntry("Running "+testInfo.getDisplayName()+ " with tag " + testInfo.getTags());
+    }
+    /**
+     * Create a Context Loads
+     */
     @Test
     @BeforeAll
     @DisplayName("Finix Client")
@@ -65,7 +74,7 @@ public class SettlementsApiTest {
     public void createIdentitySettlementTest() throws ApiException {
         String identityId = null;
         Object body = null;
-        Settlement response = api.create(identityId, body);
+        Settlement response = finixClient.Settlements.create(identityId, body);
         // TODO: test validations
     }
 
@@ -79,7 +88,7 @@ public class SettlementsApiTest {
  //   @Test
     public void createSettlementTest() throws ApiException {
         CreateSettlementRequest createSettlementRequest = null;
-        Settlement response = api.create(createSettlementRequest);
+        Settlement response = finixClient.Settlements.create(createSettlementRequest);
         // TODO: test validations
     }
 
@@ -95,9 +104,8 @@ public class SettlementsApiTest {
     public void getSettlementTest() throws ApiException {
         String settlementId = "STmCc8GbjjX33SdymwNhb9Et";
         Settlement response = finixClient.Settlements.get(settlementId);
-        System.out.println(response.toString());
-        // TODO: test validations
-    }
+        assertEquals("AP3AB2itAWrrrPVS6spvrGYp",response.getApplication(),()->" Should return " + "AP3AB2itAWrrrPVS6spvrGYp" + " but returns " + response.getApplication());
+ }
 
     /**
      * List Settlement Funding Transfers
@@ -111,8 +119,7 @@ public class SettlementsApiTest {
     public void getSettlementFundingTransfersTest() throws ApiException {
         String settlementId = "STmCc8GbjjX33SdymwNhb9Et";
         TransfersList response = finixClient.Settlements.listFundingTransfers(settlementId);
-        System.out.println(response.toString());
-        // TODO: test validations
+        assertEquals("20",response.getPage().getLimit().toString(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit());
     }
 
     /**
@@ -159,8 +166,7 @@ public class SettlementsApiTest {
     public void listSettlementTransfersTest() throws ApiException {
         String settlementId = "STmCc8GbjjX33SdymwNhb9Et";
         TransfersList response = finixClient.Settlements.listBySettlementId(settlementId);
-        System.out.println(response.toString());
-        // TODO: test validations
+        assertEquals("20",response.getPage().getLimit().toString(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit());
     }
 
     /**
@@ -184,8 +190,7 @@ public class SettlementsApiTest {
         String updatedAtLte = null;
         String id = null;
         SettlementsList response = finixClient.Settlements.list(amount, amountLt, amountGt, amountLte, amountGte, createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, id);
-        System.out.println(response.toString());
-        // TODO: test validations
+        assertEquals("20",response.getPage().getLimit().toString(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit());
     }
 
     /**
@@ -199,7 +204,7 @@ public class SettlementsApiTest {
     public void putSettlementTest() throws ApiException {
         String settlementId = null;
         UpdateSettlementRequest updateSettlementRequest = null;
-        Settlement response = api.update(settlementId, updateSettlementRequest);
+        Settlement response = finixClient.Settlements.update(settlementId, updateSettlementRequest);
         // TODO: test validations
     }
 

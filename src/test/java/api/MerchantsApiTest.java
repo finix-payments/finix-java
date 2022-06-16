@@ -58,13 +58,22 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DisplayName("When Running MerchantsApiTest")
 public class MerchantsApiTest {
     private FinixClient finixClient;
-    private final MerchantsApi api = new MerchantsApi();
+    private TestInfo testInfo;
+    private TestReporter testReporter;
+    @BeforeEach
+    void init(TestInfo testInfo, TestReporter testReporter){
+        this.testInfo =testInfo;
+        this.testReporter =testReporter;
+        testReporter.publishEntry("Running "+testInfo.getDisplayName()+ " with tag " + testInfo.getTags());
+    }
 
+    /**
+     * Create a Context Loads
+     */
     @Test
     @BeforeAll
     void contextLoads() {
         finixClient = new FinixClient("UStxEci4vXxGDWLQhNvao7YY", "25038781-2369-4113-8187-34780e91052e", Environment.SANDBOX);
-        // System.out.println(finixClient == null);
         assertEquals(true, finixClient != null);
 
     }
@@ -86,10 +95,7 @@ public class MerchantsApiTest {
                 .tags(Map.of("key_2", "value_2"))
                 .build();
         Merchant response = finixClient.Merchants.create(identityId, createMerchantUnderwritingRequest);
-
-       // System.out.println();
-      //  assertEquals("IDpYDM7J9n57q849o9E9yNrG",response.(),()->"Should return " + "IDpYDM7J9n57q849o9E9yNrG" + " but returns " + response.getIdentity());
-    }
+ }
 
 
     /**
@@ -106,10 +112,15 @@ public class MerchantsApiTest {
         String merchantId = "MUucec6fHeaWo3VHYoSkUySM";
         VerificationForm verificationForm = VerificationForm.builder().build();
         Verification response = finixClient.Merchants.createMerchantVerification(merchantId, verificationForm);
-        // TODO: test validations
     }
 
-
+    @Test
+    @DisplayName("Verify a Merchant By Ketan")
+    public void createMerchantVerificationByKetanTest() throws ApiException {
+        String merchantId = "MU31oiYcWR6Bvx3tqYQ7WEr9";
+        VerificationForm verificationForm = VerificationForm.builder().build();
+        Verification response = finixClient.Merchants.createMerchantVerification(merchantId, verificationForm);
+    }
     /**
      * Get a Merchant
      * <p>
@@ -123,8 +134,8 @@ public class MerchantsApiTest {
     public void getMerchantTest() throws ApiException {
         String merchantId = "MUucec6fHeaWo3VHYoSkUySM";
         Merchant response = finixClient.Merchants.get(merchantId);
-        // TODO: test validations
-    }
+        assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
+ }
 
 
 /**
@@ -178,7 +189,7 @@ public class MerchantsApiTest {
         Integer pageNumber = null;
         Integer pageSize = null;
         VerificationsList response = finixClient.Merchants.listByMerchantId(merchantId, limit, offset, pageNumber, pageSize);
-        // TODO: test validations
+        assertEquals("20",response.getPage().getLimit().toString(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit());
     }
 
     @Test
@@ -210,7 +221,8 @@ public class MerchantsApiTest {
         Integer offset = null;
         Integer limit = null;
         MerchantsList response = finixClient.Merchants.list(id, createdAtGte, createdAtLte, sort, offset, limit);
-        // TODO: test validations
+        assertEquals("20",response.getPage().getLimit().toString(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit());
+
     }
 
 

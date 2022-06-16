@@ -35,7 +35,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TransfersApiTest {
     private FinixClient finixClient;
-    private final TransfersApi api = new TransfersApi();
     private TestInfo testInfo;
     private TestReporter testReporter;
     @BeforeEach
@@ -44,12 +43,14 @@ public class TransfersApiTest {
         this.testReporter =testReporter;
         testReporter.publishEntry("Running "+testInfo.getDisplayName()+ " with tag " + testInfo.getTags());
     }
+    /**
+     * Create a Context Loads
+     */
     @Test
     @BeforeAll
     @DisplayName("Finix Client")
     void contextLoads() {
         finixClient= new FinixClient("USsRhsHYZGBPnQw8CByJyEQW","8a14c2f9-d94b-4c72-8f5c-a62908e5b30e", Environment.SANDBOX);
-        //  System.out.println(finixClient == null);
         assertEquals(true , finixClient!=null);
 
     }
@@ -73,8 +74,10 @@ public class TransfersApiTest {
                 .build();
         Transfer transfer = finixClient.Transfers.create(createTransferRequest);
         assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",transfer.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + transfer.getSource());
-        //System.out.println(transfer.toJson());
     }
+    /**
+     * Create a Sale
+     */
     @Test
     @DisplayName("Create a Sale")
     public void createSaleTest() throws ApiException{
@@ -88,6 +91,9 @@ public class TransfersApiTest {
         Transfer transfer = finixClient.Transfers.create(createTransferRequest);
         assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",transfer.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + transfer.getSource());
     }
+    /**
+     * Debit a Bank Account (ie eCheck)
+     */
     @Test
     @DisplayName("Debit a Bank Account (ie eCheck)")
     public void createDebitBankAccountTest() throws ApiException{
@@ -102,6 +108,9 @@ public class TransfersApiTest {
                 .build();
         Transfer transfer = finixClient.Transfers.create(createTransferRequest);
     }
+    /**
+     * Create a 3D Secure Sale
+     */
     @Test
     @DisplayName("Create a 3D Secure Sale")
     public void create3DSecureSaleTest() throws ApiException{
@@ -118,8 +127,12 @@ public class TransfersApiTest {
                 .amount(92169L)
                 .build();
         Transfer transfer = finixClient.Transfers.create(createTransferRequest);
-       // System.out.println(transfer.toJson());
+        assertEquals("APgPDQrLD52TYvqazjHJJchM", transfer.getApplication(),()-> "Should return "+"APgPDQrLD52TYvqazjHJJchM" + " but returns " +transfer.getApplication());
+
     }
+    /**
+     * Create a Sale with Level 3 Processing
+     */
     @Test
     @DisplayName("Create a Sale with Level 3 Processing")
     public void createSaleLevel3Processing() throws ApiException {
@@ -161,7 +174,12 @@ public class TransfersApiTest {
                 .amount(1000l)
                 .build();
         Transfer resposne = finixClient.Transfers.create(createTransferRequest);
+        assertEquals("APgPDQrLD52TYvqazjHJJchM", resposne.getApplication(),()-> "Should return "+"APgPDQrLD52TYvqazjHJJchM" + " but returns " +resposne.getApplication());
+
     }
+    /**
+     * Create a Sale with Level 2 Processing
+     */
     @Test
     @DisplayName("Create a Sale with Level 2 Processing")
     public void createSaleLebel2ProcessingTest() throws ApiException {
@@ -177,8 +195,8 @@ public class TransfersApiTest {
                 .amount(1000l)
                 .build();
         Transfer transfer = finixClient.Transfers.create(createTransferRequest);
-        //System.out.println(transfer.toJson());
-    }
+        assertEquals("APgPDQrLD52TYvqazjHJJchM", transfer.getApplication(),()-> "Should return "+"APgPDQrLD52TYvqazjHJJchM" + " but returns " +transfer.getApplication());
+ }
     /*@Test
     @DisplayName("lvl")*/
     /**

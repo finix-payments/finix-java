@@ -31,6 +31,7 @@ import java.util.Map;
 
 import static model.CreateFileRequest.TypeEnum.DRIVERS_LICENSE_FRONT;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * API tests for FilesApi
@@ -39,17 +40,25 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DisplayName("When Running FilesApiTest")
 public class FilesApiTest {
     private FinixClient finixClient;
-    private final FilesApi api = new FilesApi();
     private String localFileId;
     private String localExternalLinkId;
+    private TestInfo testInfo;
+    private TestReporter testReporter;
+    @BeforeEach
+    void init(TestInfo testInfo, TestReporter testReporter){
+        this.testInfo =testInfo;
+        this.testReporter =testReporter;
+        testReporter.publishEntry("Running "+testInfo.getDisplayName()+ " with tag " + testInfo.getTags());
+    }
 
-
+    /**
+     * Create a Context Loads
+     */
     @Test
     @BeforeAll
     void contextLoads() {
         finixClient= new FinixClient("USsRhsHYZGBPnQw8CByJyEQW","8a14c2f9-d94b-4c72-8f5c-a62908e5b30e", Environment.SANDBOX);
         assertEquals(true , finixClient!=null);
-
     }
 
     /**
@@ -70,7 +79,8 @@ public class FilesApiTest {
                 .build();
         ExternalLink response = finixClient.filesApi.createExternalLink(fileId, createExternalLinkRequest);
         localExternalLinkId = response.getId();
-    }
+        assertEquals("USsRhsHYZGBPnQw8CByJyEQW",response.getUserId(),()->" Should return " + "USsRhsHYZGBPnQw8CByJyEQW" + " but returns " + response.getUserId());
+ }
 
 
 
@@ -85,9 +95,10 @@ public class FilesApiTest {
     @DisplayName("Download a file")
     public void downloadFileTest() throws ApiException {
         String fileId = "FILE_bJecqoRPasStEPVpvKHtgA";
-        //String output = "finix_file.png";
-       File response = finixClient.filesApi.downloadFile(fileId);
-       // System.out.println(response.toString());
+         File response = finixClient.filesApi.downloadFile(fileId);
+         int size = response.getName().length();
+        assertEquals(size,response.getName().length(),()->" Should return " + size + " but returns " + response.getName().length());
+
     }
 
     /**
@@ -103,7 +114,8 @@ public class FilesApiTest {
         String fileId = localFileId;
         String externalLinkId = localExternalLinkId;
         ExternalLink response = finixClient.filesApi.getExternalLink(fileId, externalLinkId);
-       // System.out.println(localFileId + localExternalLinkId);
+        assertEquals("USsRhsHYZGBPnQw8CByJyEQW",response.getUserId(),()->" Should return " + "USsRhsHYZGBPnQw8CByJyEQW" + " but returns " + response.getUserId());
+
     }
 
     /**
@@ -118,9 +130,7 @@ public class FilesApiTest {
     public void getFileTest() throws ApiException {
         String fileId = "FILE_bJecqoRPasStEPVpvKHtgA";
         ModelFile response = finixClient.filesApi.getFile(fileId);
-        System.out.println(response.toJson());
         assertEquals("FILE_bJecqoRPasStEPVpvKHtgA",response.getId(),()->" Should return " + "FILE_bJecqoRPasStEPVpvKHtgA" + " but returns " + response.getId());
-        System.out.println(localFileId);
     }
 
     /**
@@ -130,7 +140,7 @@ public class FilesApiTest {
      *
      * @throws ApiException if the Api call fails
      */
-   @Test
+    @Test
     @DisplayName("List All External Links")
     public void listExternalLinkTest() throws ApiException {
         String fileId = localFileId;
@@ -143,7 +153,7 @@ public class FilesApiTest {
         String updatedAtGte = null;
         String updatedAtLte = null;
         ExternalLinksList response = finixClient.filesApi.listExternalLink(fileId, sort, offset, limit, id, createdAtGte, createdAtLte, updatedAtGte, updatedAtLte);
-
+        assertEquals(10,response.getPage().getLimit().intValue(),()->" Should return " + "10" + " but returns " + response.getPage().getLimit().intValue());
     }
 
     /**
@@ -165,7 +175,7 @@ public class FilesApiTest {
         String updatedAtGte = null;
         String updatedAtLte = null;
         FilesList response = finixClient.filesApi.listFiles(sort, offset, limit, id, createdAtGte, createdAtLte, updatedAtGte, updatedAtLte);
-        // TODO: test validations
+        assertEquals(10,response.getPage().getLimit().intValue(),()->" Should return " + "10" + " but returns " + response.getPage().getLimit().intValue());
     }
 
     /**
@@ -184,8 +194,7 @@ public class FilesApiTest {
                 ._file(file)
                 .build();
         ModelFile response = finixClient.filesApi.uploadFile(fileId, uploadFileRequest);
-        //System.out.println(response.toJson());
-        // TODO: test validations
+        assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplicationId(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplicationId());
     }
 
     /**
@@ -207,7 +216,7 @@ public class FilesApiTest {
                 .build();
         ModelFile response = finixClient.filesApi.createFiles(createFileRequest);
         localFileId=response.getId();
-        //System.out.println(localFileId);
+        assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplicationId(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplicationId());
     }
 
 }

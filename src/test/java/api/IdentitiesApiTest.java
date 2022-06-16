@@ -35,9 +35,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class IdentitiesApiTest {
     private FinixClient finixClient;
-    private final IdentitiesApi api = new IdentitiesApi();
     private String identity;
-
+    private TestInfo testInfo;
+    private TestReporter testReporter;
+    @BeforeEach
+    void init(TestInfo testInfo, TestReporter testReporter){
+        this.testInfo =testInfo;
+        this.testReporter =testReporter;
+        testReporter.publishEntry("Running "+testInfo.getDisplayName()+ " with tag " + testInfo.getTags());
+    }
+    /**
+     * Create a Context Loads
+     */
     @Test
     @BeforeAll
     void contextLoads() {
@@ -58,13 +67,14 @@ public class IdentitiesApiTest {
         String identityId = "IDpYDM7J9n57q849o9E9yNrG";
         CreateIdentityRequest createIdentityRequest = CreateIdentityRequest.builder()
                 .entity(CreateIdentityRequestEntity.builder()
-
                         .build())
                 .build();
         Identity response = finixClient.Identity.createAssociatedIdentity(identityId, createIdentityRequest);
-        // TODO: test validations
-    }
-
+        assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
+ }
+    /**
+     * Create an Identity for a Buyer
+     */
     @Test
     @DisplayName("Create an Identity for a Buyer")
     public void createBuyerIdentityTest() throws ApiException{
@@ -86,13 +96,11 @@ public class IdentitiesApiTest {
                         .build())
                 .build();
         Identity response = finixClient.Identity.create(createIdentityRequest);
-       // System.out.println(response.toJson());
-        // TODO: test validations
-
+        assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
     }
 
     /**
-     * Create an Identity
+     * Create an Identity for a Merchant
      *
      * Create an &#x60;Identity&#x60; for your merchant or buyer.  Creating &#x60;Identities&#x60; for merchants requires [providing their KYC details](/guides/getting-started/#step-1-create-an-identity-for-a-merchant).  Related Guides: [Getting Started](/guides/getting-started/#step-1-create-an-identity-for-a-merchant), [Onboarding](/guides/onboarding/)
      *
@@ -181,18 +189,18 @@ public class IdentitiesApiTest {
                         .build())
                 .build();
         Identity response = finixClient.Identity.create(createIdentityRequest);
-
         identity = response.getId();
-        System.out.println(identity);
-
+        assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
     }
 
+    /**
+     * Create a Bank Account
+     */
     @Test
     @DisplayName("Create a Bank Account")
     @BeforeEach
     public void createBankAccount() throws ApiException{
-        // Create
-        CreatePaymentInstrumentRequest createPaymentInstrumentRequest =  CreatePaymentInstrumentRequest.builder()
+       CreatePaymentInstrumentRequest createPaymentInstrumentRequest =  CreatePaymentInstrumentRequest.builder()
                 .accountType(CreatePaymentInstrumentRequest.AccountTypeEnum.CHECKING)
                 .name("Alice")
                 .tags(Map.of("Bank Account", "Company Account"))
@@ -203,9 +211,7 @@ public class IdentitiesApiTest {
                 .identity(identity)
                 .build();
         PaymentInstrument response =  finixClient.PaymentInstrument.create(createPaymentInstrumentRequest);
-        //identity = response.getIdentity();
-       // System.out.println(identity);
-
+        assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
     }
 
     /**
@@ -220,8 +226,7 @@ public class IdentitiesApiTest {
     public void getIdentityTest() throws ApiException {
         String identityId = "IDpYDM7J9n57q849o9E9yNrG";
         Identity response = finixClient.Identity.get(identityId);
-      //  System.out.println(response.toJson());
-        // TODO: test validations
+        assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
     }
 
     /**
@@ -234,7 +239,7 @@ public class IdentitiesApiTest {
     //@Test
     public void listApplicationIdentitiesTest() throws ApiException {
         String applicationId = null;
-        IdentitiesList response = api.listByApplicationId(applicationId);
+        IdentitiesList response = finixClient.Identity.listByApplicationId(applicationId);
         // TODO: test validations
     }
 
@@ -262,8 +267,8 @@ public class IdentitiesApiTest {
         String lastName = null;
         String title = null;
         IdentitiesList response = finixClient.Identity.list(sort, offset, limit, id, createdAtGte, createdAtLte, defaultStatementDescriptor, businessName, businessType, email, firstName, lastName, title);
-        // TODO: test validations
-    }
+        assertEquals("20",response.getPage().getLimit().toString(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit());
+ }
 
     /**
      * List Associated Identities
@@ -331,20 +336,21 @@ public class IdentitiesApiTest {
                         .build())
                 .build();
         Identity response = finixClient.Identity.update(identityId, updateIdentityRequest);
-        // TODO: test validations
+        assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
     }
 
+    /**
+     * Provision a Merchant
+     */
     @Test
     @DisplayName("Provision a Merchant")
     public void createIdentityMerchantTest() throws ApiException {
         String identityId = identity;
-        //System.out.println(identityId);
         CreateMerchantUnderwritingRequest createMerchantUnderwritingRequest = CreateMerchantUnderwritingRequest.builder()
                 .processor("DUMMY_V1")
                 .tags(Map.of("key_2", "value_2"))
                 .build();
        Merchant response = finixClient.Merchants.create(identityId, createMerchantUnderwritingRequest);
-       //  assertEquals("IDpYDM7J9n57q849o9E9yNrG",response.(),()->"Should return " + "IDpYDM7J9n57q849o9E9yNrG" + " but returns " + response.getIdentity());
+        assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
     }
-
 }
