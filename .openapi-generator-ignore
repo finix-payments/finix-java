@@ -24,6 +24,7 @@
 
 src/main/java/model/Raw.java
 src/main/java/api/PaymentInstrumentsApi.java
-#src/main/java/api/FilesApi.java
+src/main/java/api/FilesApi.java
+src/main/java/api/DisputesApi.java
 src/main/java/model/AbstractOpenApiSchema.java
 #src/main/

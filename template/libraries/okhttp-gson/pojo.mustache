@@ -443,6 +443,11 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
       {{#requiredVars}}
       {{#-first}}
 
+      /**
+      * EDITED
+      * Commented to ByPass required properties/fields are present in the JSON string
+      */
+
       // check to make sure all required properties/fields are present in the JSON string
       /*for (String requiredField : {{classname}}.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
@@ -485,6 +490,10 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
       {{/isRequired}}
       {{/items.isModel}}
       {{^items.isModel}}
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
       // ensure the json data is an array
       if ({{^isRequired}}jsonObj.get("{{{baseName}}}") != null && !jsonObj.get("{{{baseName}}}").isJsonNull() && {{/isRequired}}!jsonObj.get("{{{baseName}}}").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `{{{baseName}}}` to be an array in the JSON string but got `%s`", jsonObj.get("{{{baseName}}}").toString()));
@@ -493,6 +502,10 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
       {{/isArray}}
       {{^isContainer}}
       {{#isString}}
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
       if ({{^isRequired}}jsonObj.get("{{{baseName}}}") != null && !jsonObj.get("{{{baseName}}}").isJsonNull()  && {{/isRequired}}!jsonObj.get("{{{baseName}}}").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `{{{baseName}}}` to be a primitive type in the JSON string but got `%s`", jsonObj.get("{{{baseName}}}").toString()));
       }
@@ -503,10 +516,15 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
       {{{dataType}}}.validateJsonObject(jsonObj.getAsJsonObject("{{{baseName}}}"));
       {{/isRequired}}
       {{^isRequired}}
+      /**
+      * EDITED
+      * ADDED  statement to for inconsistent null behaviour
+      */
       // validate the optional field `{{{baseName}}}`
      // if (jsonObj.getAsJsonObject("{{{baseName}}}") != null) {
        //{{{dataType}}}.validateJsonObject(jsonObj.getAsJsonObject("{{{baseName}}}"));
      // }
+
       {{/isRequired}}
       {{/isModel}}
       {{/isContainer}}

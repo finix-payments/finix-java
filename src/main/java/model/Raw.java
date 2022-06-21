@@ -50,7 +50,7 @@ import com.google.gson.JsonParseException;
 
 import invoker.JSON;
 
-@lombok.Builder
+//@lombok.Builder
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-14T17:44:07.062584-05:00[America/Chicago]")
 public class Raw extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(Raw.class.getName());

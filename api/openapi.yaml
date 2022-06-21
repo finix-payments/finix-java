@@ -3,7 +3,7 @@ info:
   contact:
     email: support@finixpayments.com
   title: Finix API
-  version: 2018-01-01
+  version: 2022-02-01
 servers:
 - description: Sandbox server to be used for testing and development
   url: https://finix.sandbox-payments-api.com
@@ -44,7 +44,32 @@ paths:
     get:
       description: Return a collection of `application_profiles`.
       operationId: listApplicationProfiles
-      parameters: []
+      parameters:
+      - description: The numbers of items to return
+        example: 10
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Return every resource created after the cursor value.
+        explode: true
+        in: query
+        name: after_cursor
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Return every resource created before the cursor value.
+        explode: true
+        in: query
+        name: before_cursor
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -148,6 +173,7 @@ paths:
       - Application Profiles
       x-internal: false
       x-java-method-name: list
+      x-group-parameters: true
       x-accepts: application/hal+json
   /application_profiles/{application_profile_id}:
     get:
@@ -335,23 +361,21 @@ paths:
         schema:
           type: string
         style: form
-      - description: Specify key to be used for sorting the collection
+      - description: Return every resource created before the cursor value.
         explode: true
         in: query
-        name: sort
+        name: before_cursor
         required: false
         schema:
           type: string
         style: form
-      - description: The number of items to skip before starting to collect the result
-          set
-        example: 20
+      - description: Return every resource created after the cursor value.
         explode: true
         in: query
-        name: offset
+        name: after_cursor
         required: false
         schema:
-          type: integer
+          type: string
         style: form
       - description: The numbers of items to return
         example: 10
@@ -588,6 +612,7 @@ paths:
       tags:
       - Applications
       x-java-method-name: list
+      x-group-parameters: true
       x-accepts: application/hal+json
     post:
       description: "If created successfully, returns a 201 status and adds a location\
@@ -2880,6 +2905,31 @@ paths:
         schema:
           type: string
         style: simple
+      - description: The numbers of items to return
+        example: 10
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Return every resource created after the cursor value.
+        explode: true
+        in: query
+        name: after_cursor
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Return every resource created before the cursor value.
+        explode: true
+        in: query
+        name: before_cursor
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -3045,6 +3095,7 @@ paths:
       tags:
       - Processors
       x-java-method-name: listByApplicationId
+      x-group-parameters: true
       x-accepts: application/hal+json
     post:
       description: "Enable a `Processor` for an `Application`. If created successfully,\
@@ -4245,15 +4296,13 @@ paths:
         schema:
           type: string
         style: form
-      - description: The number of items to skip before starting to collect the result
-          set
-        example: 20
+      - description: Return every resource created before the cursor value.
         explode: true
         in: query
-        name: offset
+        name: before_cursor
         required: false
         schema:
-          type: integer
+          type: string
         style: form
       - description: The numbers of items to return
         example: 10
@@ -4476,6 +4525,14 @@ paths:
         schema:
           type: string
         style: form
+      - description: Return every resource created after the cursor value.
+        explode: true
+        in: query
+        name: after_cursor
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -4621,6 +4678,7 @@ paths:
       tags:
       - Authorizations
       x-java-method-name: list
+      x-group-parameters: true
       x-accepts: application/hal+json
     post:
       description: "Create an `Authorization` to process a transaction.\n\n`Authorizations`\
@@ -5852,6 +5910,7 @@ paths:
       tags:
       - Balance Transfers
       x-internal: false
+      x-group-parameters: true
       x-accepts: application/hal+json
     post:
       description: Create a `balance_transfer`.
@@ -6427,14 +6486,6 @@ paths:
         schema:
           type: integer
         style: form
-      - description: Filter by id
-        explode: true
-        in: query
-        name: id
-        required: false
-        schema:
-          type: string
-        style: form
       - description: Filter where created_at is after the given date.
         explode: true
         in: query
@@ -6595,6 +6646,7 @@ paths:
       tags:
       - Disputes
       x-java-method-name: list
+      x-group-parameters: true
       x-accepts: application/hal+json
   /disputes/{dispute_id}:
     get:
@@ -6725,6 +6777,25 @@ paths:
         schema:
           type: string
         style: simple
+      - description: The numbers of items to return
+        example: 10
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: The number of items to skip before starting to collect the result
+          set
+        example: 20
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          type: integer
+        style: form
       responses:
         "200":
           content:
@@ -6818,7 +6889,8 @@ paths:
       summary: List Dispute Evidence
       tags:
       - Disputes
-      x-java-method-name: listDisputeEvidenceByDeviceId
+      x-java-method-name: listDisputeEvidenceByDisputeId
+      x-group-parameters: true
       x-accepts: application/hal+json
     post:
       description: "Upload dispute evidence for a `Dispute`.\n\nThere are four available\
@@ -7042,6 +7114,32 @@ paths:
     get:
       description: Get all fee profiles
       operationId: listFeeProfiles
+      parameters:
+      - description: Return every resource created after the cursor value.
+        explode: true
+        in: query
+        name: after_cursor
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Return every resource created before the cursor value.
+        explode: true
+        in: query
+        name: before_cursor
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The numbers of items to return
+        example: 10
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
       responses:
         "200":
           content:
@@ -7100,6 +7198,7 @@ paths:
       tags:
       - Fee profiles
       x-java-method-name: list
+      x-group-parameters: true
       x-accepts: application/hal+json
     post:
       description: Create fee profiles
@@ -7268,6 +7367,32 @@ paths:
     get:
       description: Return a collection of `fees`.
       operationId: listFees
+      parameters:
+      - description: The numbers of items to return
+        example: 10
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Return every resource created after the cursor value.
+        explode: true
+        in: query
+        name: after_cursor
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Return every resource created before the cursor value.
+        explode: true
+        in: query
+        name: before_cursor
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -7382,6 +7507,7 @@ paths:
       tags:
       - Fees
       x-java-method-name: list
+      x-group-parameters: true
       x-accepts: application/hal+json
     post:
       description: Create a custom (i.e. one time) `fee`.
@@ -7668,15 +7794,13 @@ paths:
         schema:
           type: string
         style: form
-      - description: The number of items to skip before starting to collect the result
-          set
-        example: 20
+      - description: Return every resource created after the cursor value.
         explode: true
         in: query
-        name: offset
+        name: after_cursor
         required: false
         schema:
-          type: integer
+          type: string
         style: form
       - description: The numbers of items to return
         example: 10
@@ -7773,6 +7897,14 @@ paths:
         required: false
         schema:
           example: ceo
+          type: string
+        style: form
+      - description: Return every resource created before the cursor value.
+        explode: true
+        in: query
+        name: before_cursor
+        required: false
+        schema:
           type: string
         style: form
       responses:
@@ -8636,6 +8768,7 @@ paths:
       tags:
       - Identities
       x-java-method-name: list
+      x-group-parameters: true
       x-accepts: application/hal+json
     post:
       description: "Create an `Identity` for your merchant or buyer.\n\nCreating `Identities`\
@@ -9419,36 +9552,24 @@ paths:
         name: limit
         required: false
         schema:
-          format: int32
-          type: integer
-        style: form
-      - description: The number of items to skip before starting to collect the result
-          set.
-        explode: true
-        in: query
-        name: offset
-        required: false
-        schema:
           format: int64
           type: integer
         style: form
-      - description: The page number to list.
+      - description: Return every resource created after the cursor value.
         explode: true
         in: query
-        name: pageNumber
+        name: after_cursor
         required: false
         schema:
-          format: int32
-          type: integer
+          type: string
         style: form
-      - description: The size of the page.
+      - description: Return every resource created before the cursor value.
         explode: true
         in: query
-        name: pageSize
+        name: before_cursor
         required: false
         schema:
-          format: int32
-          type: integer
+          type: string
         style: form
       responses:
         "200":
@@ -10311,6 +10432,7 @@ paths:
       tags:
       - Identities
       x-java-method-name: listAssocaiatedIdentities
+      x-group-parameters: true
       x-accepts: application/hal+json
     post:
       description: "Create an associated `Identity` for [every owner with 25% or more\
@@ -10598,36 +10720,24 @@ paths:
         name: limit
         required: false
         schema:
-          format: int32
-          type: integer
-        style: form
-      - description: The number of items to skip before starting to collect the result
-          set.
-        explode: true
-        in: query
-        name: offset
-        required: false
-        schema:
           format: int64
           type: integer
         style: form
-      - description: The page number to list.
+      - description: Return every resource created after the cursor value.
         explode: true
         in: query
-        name: pageNumber
+        name: after_cursor
         required: false
         schema:
-          format: int32
-          type: integer
+          type: string
         style: form
-      - description: The size of the page.
+      - description: Return every resource created before the cursor value.
         explode: true
         in: query
-        name: pageSize
+        name: before_cursor
         required: false
         schema:
-          format: int32
-          type: integer
+          type: string
         style: form
       responses:
         "200":
@@ -10795,7 +10905,7 @@ paths:
         name: limit
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The number of items to skip before starting to collect the result
@@ -10814,7 +10924,7 @@ paths:
         name: pageNumber
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The size of the page.
@@ -10823,7 +10933,7 @@ paths:
         name: pageSize
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       responses:
@@ -11218,7 +11328,7 @@ paths:
         name: limit
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The number of items to skip before starting to collect the result
@@ -11237,7 +11347,7 @@ paths:
         name: pageNumber
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The size of the page.
@@ -11246,7 +11356,7 @@ paths:
         name: pageSize
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       responses:
@@ -11409,7 +11519,7 @@ paths:
         name: limit
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The number of items to skip before starting to collect the result
@@ -11428,7 +11538,7 @@ paths:
         name: pageNumber
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The size of the page.
@@ -11437,7 +11547,7 @@ paths:
         name: pageSize
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       responses:
@@ -11646,7 +11756,7 @@ paths:
         name: limit
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The number of items to skip before starting to collect the result
@@ -11665,7 +11775,7 @@ paths:
         name: pageNumber
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The size of the page.
@@ -11674,7 +11784,7 @@ paths:
         name: pageSize
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       responses:
@@ -12020,7 +12130,7 @@ paths:
         name: limit
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The number of items to skip before starting to collect the result
@@ -12039,7 +12149,7 @@ paths:
         name: pageNumber
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The size of the page.
@@ -12048,7 +12158,7 @@ paths:
         name: pageSize
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       responses:
@@ -12480,7 +12590,7 @@ paths:
         name: limit
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The number of items to skip before starting to collect the result
@@ -12499,7 +12609,7 @@ paths:
         name: pageNumber
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The size of the page.
@@ -12508,7 +12618,7 @@ paths:
         name: pageSize
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       responses:
@@ -12519,9 +12629,8 @@ paths:
                 Merchant Verification:
                   value:
                     page:
-                      count: 0
                       limit: 0
-                      offset: 0
+                      next_cursor: VIdikDHXv7x8nWyJg8JZemGx
                     _embedded:
                       verifications:
                       - id: VIdikDHXv7x8nWyJg8JZemGx
@@ -12546,14 +12655,6 @@ paths:
                           merchant:
                             href: https://finix.sandbox-payments-api.com/merchants/MUucec6fHeaWo3VHYoSkUySM
                     _links:
-                      first:
-                        href: string
-                      last:
-                        href: string
-                      next:
-                        href: string
-                      prev:
-                        href: string
                       self:
                         href: string
               schema:
@@ -12638,6 +12739,31 @@ paths:
         schema:
           type: string
         style: form
+      - description: Return every resource created before the cursor value.
+        explode: true
+        in: query
+        name: before_cursor
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Return every resource created after the cursor value.
+        explode: true
+        in: query
+        name: after_cursor
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The numbers of items to return
+        example: 10
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
       responses:
         "200":
           content:
@@ -12696,6 +12822,7 @@ paths:
       tags:
       - Merchant Profiles
       x-java-method-name: list
+      x-group-parameters: true
       x-accepts: application/hal+json
   /merchants:
     get:
@@ -12736,15 +12863,13 @@ paths:
         schema:
           type: string
         style: form
-      - description: The number of items to skip before starting to collect the result
-          set
-        example: 20
+      - description: Return every resource created after the cursor value.
         explode: true
         in: query
-        name: offset
+        name: after_cursor
         required: false
         schema:
-          type: integer
+          type: string
         style: form
       - description: The numbers of items to return
         example: 10
@@ -12754,6 +12879,14 @@ paths:
         required: false
         schema:
           type: integer
+        style: form
+      - description: Return every resource created before the cursor value.
+        explode: true
+        in: query
+        name: before_cursor
+        required: false
+        schema:
+          type: string
         style: form
       responses:
         "200":
@@ -12931,6 +13064,7 @@ paths:
       tags:
       - Merchants
       x-java-method-name: list
+      x-group-parameters: true
       x-accepts: application/hal+json
   /merchant_profiles/{merchant_profile_id}:
     get:
@@ -13698,7 +13832,7 @@ paths:
         name: limit
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The number of items to skip before starting to collect the result
@@ -13717,7 +13851,7 @@ paths:
         name: pageNumber
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The size of the page.
@@ -13726,7 +13860,7 @@ paths:
         name: pageSize
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: ready_to_settle
@@ -13957,36 +14091,24 @@ paths:
         name: limit
         required: false
         schema:
-          format: int32
-          type: integer
-        style: form
-      - description: The number of items to skip before starting to collect the result
-          set.
-        explode: true
-        in: query
-        name: offset
-        required: false
-        schema:
           format: int64
           type: integer
         style: form
-      - description: The page number to list.
+      - description: Return every resource created after the cursor value.
         explode: true
         in: query
-        name: pageNumber
+        name: after_cursor
         required: false
         schema:
-          format: int32
-          type: integer
+          type: string
         style: form
-      - description: The size of the page.
+      - description: Return every resource created before the cursor value.
         explode: true
         in: query
-        name: pageSize
+        name: before_cursor
         required: false
         schema:
-          format: int32
-          type: integer
+          type: string
         style: form
       responses:
         "200":
@@ -13996,9 +14118,8 @@ paths:
                 Merchant Verification:
                   value:
                     page:
-                      count: 0
                       limit: 0
-                      offset: 0
+                      next_cursor: VIdikDHXv7x8nWyJg8JZemGx
                     _embedded:
                       verifications:
                       - id: VIdikDHXv7x8nWyJg8JZemGx
@@ -14023,14 +14144,6 @@ paths:
                           merchant:
                             href: https://finix.sandbox-payments-api.com/merchants/MUucec6fHeaWo3VHYoSkUySM
                     _links:
-                      first:
-                        href: string
-                      last:
-                        href: string
-                      next:
-                        href: string
-                      prev:
-                        href: string
                       self:
                         href: string
               schema:
@@ -14098,9 +14211,10 @@ paths:
               $ref: '#/components/headers/x-request-id'
       summary: List Merchant Verifications
       tags:
-      - Merchants
+      - Verifications
       x-internal: false
       x-java-method-name: listByMerchantId
+      x-group-parameters: true
       x-accepts: application/hal+json
     post:
       description: "Verify a merchant either to reattempt provisioning, or when the\
@@ -14241,33 +14355,13 @@ paths:
         schema:
           type: integer
         style: form
-      - description: The number of items to skip before starting to collect the result
-          set
-        example: 20
+      - description: Return every resource created after the cursor value.
         explode: true
         in: query
-        name: offset
+        name: after_cursor
         required: false
         schema:
-          type: integer
-        style: form
-      - description: The page number to list.
-        explode: true
-        in: query
-        name: pageNumber
-        required: false
-        schema:
-          format: int32
-          type: integer
-        style: form
-      - description: The size of the page.
-        explode: true
-        in: query
-        name: pageSize
-        required: false
-        schema:
-          format: int32
-          type: integer
+          type: string
         style: form
       - description: Filter by the last 4 digits of the account if available.
         explode: true
@@ -14382,6 +14476,14 @@ paths:
           - BANK_ACCOUNT
           - PAYMENT_CARD
           example: BANK_ACCOUNT
+          type: string
+        style: form
+      - description: Return every resource created before the cursor value.
+        explode: true
+        in: query
+        name: before_cursor
+        required: false
+        schema:
           type: string
         style: form
       responses:
@@ -14556,6 +14658,7 @@ paths:
       tags:
       - Payment Instruments
       x-java-method-name: list
+      x-group-parameters: true
       x-accepts: application/hal+json
     post:
       description: "Create a `Payment Instrument` resource using a card or bank account.\n\
@@ -15185,7 +15288,7 @@ paths:
         name: limit
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The number of items to skip before starting to collect the result
@@ -15204,7 +15307,7 @@ paths:
         name: pageNumber
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The size of the page.
@@ -15213,7 +15316,7 @@ paths:
         name: pageSize
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       responses:
@@ -15382,7 +15485,7 @@ paths:
         name: limit
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The number of items to skip before starting to collect the result
@@ -15401,7 +15504,7 @@ paths:
         name: pageNumber
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The size of the page.
@@ -15410,7 +15513,7 @@ paths:
         name: pageSize
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       responses:
@@ -15635,7 +15738,7 @@ paths:
         name: limit
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The number of items to skip before starting to collect the result
@@ -15654,7 +15757,7 @@ paths:
         name: pageNumber
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The size of the page.
@@ -15663,7 +15766,7 @@ paths:
         name: pageSize
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       responses:
@@ -15765,6 +15868,7 @@ paths:
       tags:
       - Payment Instruments
       x-java-method-name: listUpdatesByPaymentInstrumentId
+      x-group-parameters: true
       x-accepts: application/hal+json
   /payment_instruments/{payment_instrument_id}/verifications:
     get:
@@ -15785,7 +15889,7 @@ paths:
         name: limit
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The number of items to skip before starting to collect the result
@@ -15804,7 +15908,7 @@ paths:
         name: pageNumber
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The size of the page.
@@ -15813,7 +15917,7 @@ paths:
         name: pageSize
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       responses:
@@ -15824,9 +15928,8 @@ paths:
                 Merchant Verification:
                   value:
                     page:
-                      count: 0
                       limit: 0
-                      offset: 0
+                      next_cursor: VIdikDHXv7x8nWyJg8JZemGx
                     _embedded:
                       verifications:
                       - id: VIdikDHXv7x8nWyJg8JZemGx
@@ -15851,14 +15954,6 @@ paths:
                           merchant:
                             href: https://finix.sandbox-payments-api.com/merchants/MUucec6fHeaWo3VHYoSkUySM
                     _links:
-                      first:
-                        href: string
-                      last:
-                        href: string
-                      next:
-                        href: string
-                      prev:
-                        href: string
                       self:
                         href: string
               schema:
@@ -16433,6 +16528,31 @@ paths:
         schema:
           type: string
         style: form
+      - description: The numbers of items to return
+        example: 10
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Return every resource created after the cursor value.
+        explode: true
+        in: query
+        name: after_cursor
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Return every resource created before the cursor value.
+        explode: true
+        in: query
+        name: before_cursor
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -16585,6 +16705,7 @@ paths:
       tags:
       - Settlements
       x-java-method-name: list
+      x-group-parameters: true
       x-accepts: application/hal+json
     post:
       description: Create a batch `Settlement`. A `Settlement` is a collection of
@@ -16966,6 +17087,31 @@ paths:
         schema:
           type: string
         style: simple
+      - description: The numbers of items to return
+        example: 10
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Return every resource created after the cursor value.
+        explode: true
+        in: query
+        name: after_cursor
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Return every resource created before the cursor value.
+        explode: true
+        in: query
+        name: before_cursor
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -17165,6 +17311,7 @@ paths:
       tags:
       - Settlements
       x-java-method-name: listFundingTransfers
+      x-group-parameters: true
       x-accepts: application/hal+json
   /settlements/{settlement_id}/transfers:
     delete:
@@ -17281,6 +17428,31 @@ paths:
         schema:
           type: string
         style: simple
+      - description: The numbers of items to return
+        example: 10
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Return every resource created after the cursor value.
+        explode: true
+        in: query
+        name: after_cursor
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Return every resource created before the cursor value.
+        explode: true
+        in: query
+        name: before_cursor
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -17481,6 +17653,7 @@ paths:
       - Settlements
       x-internal: false
       x-java-method-name: listBySettlementId
+      x-group-parameters: true
       x-accepts: application/hal+json
   /transfers:
     get:
@@ -17495,15 +17668,13 @@ paths:
         schema:
           type: string
         style: form
-      - description: The number of items to skip before starting to collect the result
-          set
-        example: 20
+      - description: Return every resource created after the cursor value.
         explode: true
         in: query
-        name: offset
+        name: after_cursor
         required: false
         schema:
-          type: integer
+          type: string
         style: form
       - description: The numbers of items to return
         example: 10
@@ -17759,6 +17930,14 @@ paths:
           example: REVERSAL
           type: string
         style: form
+      - description: Return every resource created before the cursor value.
+        explode: true
+        in: query
+        name: before_cursor
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -17958,6 +18137,7 @@ paths:
       tags:
       - Transfers
       x-java-method-name: list
+      x-group-parameters: true
       x-accepts: application/hal+json
     post:
       description: Create a `Transfer`.
@@ -19875,7 +20055,7 @@ paths:
         name: limit
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The number of items to skip before starting to collect the result
@@ -19894,7 +20074,7 @@ paths:
         name: pageNumber
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The size of the page.
@@ -19903,7 +20083,7 @@ paths:
         name: pageSize
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       responses:
@@ -20066,7 +20246,7 @@ paths:
         name: limit
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The number of items to skip before starting to collect the result
@@ -20085,7 +20265,7 @@ paths:
         name: pageNumber
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The size of the page.
@@ -20094,7 +20274,7 @@ paths:
         name: pageSize
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       responses:
@@ -20317,7 +20497,7 @@ paths:
         name: limit
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The number of items to skip before starting to collect the result
@@ -20336,7 +20516,7 @@ paths:
         name: pageNumber
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       - description: The size of the page.
@@ -20345,7 +20525,7 @@ paths:
         name: pageSize
         required: false
         schema:
-          format: int32
+          format: int64
           type: integer
         style: form
       responses:
@@ -20554,36 +20734,24 @@ paths:
         name: limit
         required: false
         schema:
-          format: int32
-          type: integer
-        style: form
-      - description: The number of items to skip before starting to collect the result
-          set.
-        explode: true
-        in: query
-        name: offset
-        required: false
-        schema:
           format: int64
           type: integer
         style: form
-      - description: The page number to list.
+      - description: Return every resource created after the cursor value.
         explode: true
         in: query
-        name: pageNumber
+        name: after_cursor
         required: false
         schema:
-          format: int32
-          type: integer
+          type: string
         style: form
-      - description: The size of the page.
+      - description: Return every resource created before the cursor value.
         explode: true
         in: query
-        name: pageSize
+        name: before_cursor
         required: false
         schema:
-          format: int32
-          type: integer
+          type: string
         style: form
       responses:
         "200":
@@ -20656,6 +20824,7 @@ paths:
       tags:
       - Transfers
       x-java-method-name: listTransfersReversals
+      x-group-parameters: true
       x-accepts: application/hal+json
     post:
       description: "Reverse a transfer with a `type` of **DEBIT**. This reversal creates\
@@ -21439,6 +21608,7 @@ paths:
       tags:
       - Users
       x-java-method-name: list
+      x-group-parameters: true
       x-accepts: application/hal+json
   /users/{user_id}:
     get:
@@ -21658,9 +21828,8 @@ paths:
                 Merchant Verification:
                   value:
                     page:
-                      count: 0
                       limit: 0
-                      offset: 0
+                      next_cursor: VIdikDHXv7x8nWyJg8JZemGx
                     _embedded:
                       verifications:
                       - id: VIdikDHXv7x8nWyJg8JZemGx
@@ -21685,14 +21854,6 @@ paths:
                           merchant:
                             href: https://finix.sandbox-payments-api.com/merchants/MUucec6fHeaWo3VHYoSkUySM
                     _links:
-                      first:
-                        href: string
-                      last:
-                        href: string
-                      next:
-                        href: string
-                      prev:
-                        href: string
                       self:
                         href: string
               schema:
@@ -21749,6 +21910,7 @@ paths:
       tags:
       - Verifications
       x-java-method-name: list
+      x-group-parameters: true
       x-accepts: application/hal+json
     post:
       description: "Create a `verification` to verify an `Identity` or `Payment Instrument`.\n\
@@ -22081,7 +22243,32 @@ paths:
     get:
       description: Retrieve a list of `Webhook` endpoints.
       operationId: listWebhooks
-      parameters: []
+      parameters:
+      - description: The numbers of items to return
+        example: 10
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Return every resource created after the cursor value.
+        explode: true
+        in: query
+        name: after_cursor
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Return every resource created before the cursor value.
+        explode: true
+        in: query
+        name: before_cursor
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -22140,6 +22327,7 @@ paths:
       tags:
       - Webhooks
       x-java-method-name: list
+      x-group-parameters: true
       x-accepts: application/hal+json
     post:
       description: Create a `Webhook` to specify an endpoint where Finix can send
@@ -23155,6 +23343,7 @@ paths:
       tags:
       - Subscription Schedules
       x-java-method-name: list
+      x-group-parameters: true
       x-accepts: application/hal+json
     post:
       description: Create a `subscription_schedule`.
@@ -23366,6 +23555,31 @@ paths:
         schema:
           type: string
         style: simple
+      - description: The numbers of items to return
+        example: 10
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Return every resource created after the cursor value.
+        explode: true
+        in: query
+        name: after_cursor
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Return every resource created before the cursor value.
+        explode: true
+        in: query
+        name: before_cursor
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -23418,6 +23632,7 @@ paths:
       tags:
       - Subscription Amounts
       x-java-method-name: listBySubscriptionSchedule
+      x-group-parameters: true
       x-accepts: application/hal+json
     patch:
       description: Update a previously created `Subscription Amount`. This creates
@@ -23825,7 +24040,7 @@ paths:
   /subscription/subscription_schedules/{subscription_schedule_id}/subscription_enrollments:
     get:
       description: Retrieve a list of `Subscription Enrollments` for a specific `subscription_schedule`.
-      operationId: listSubscriptionEnrollments
+      operationId: listSubscriptionEnrollmentsInSchedule
       parameters:
       - description: The ID of the `subscription_schedule`.
         explode: false
@@ -23835,6 +24050,31 @@ paths:
         schema:
           type: string
         style: simple
+      - description: The numbers of items to return
+        example: 10
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Return every resource created after the cursor value.
+        explode: true
+        in: query
+        name: after_cursor
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Return every resource created before the cursor value.
+        explode: true
+        in: query
+        name: before_cursor
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -24100,6 +24340,7 @@ paths:
       tags:
       - Subscription Enrollments
       x-java-method-name: listBySubscriptionScheduleId
+      x-group-parameters: true
       x-accepts: application/hal+json
     post:
       description: "Create a `subscription_enrollment`.\n\nA `subscription_enrollment`\
@@ -24210,7 +24451,33 @@ paths:
   /subscription/subscription_enrollments:
     get:
       description: Retrieve a list of `Subscription Enrollments`.
-      operationId: getSubscriptionEnrollments
+      operationId: listSubscriptionEnrollments
+      parameters:
+      - description: The numbers of items to return
+        example: 10
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Return every resource created after the cursor value.
+        explode: true
+        in: query
+        name: after_cursor
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Return every resource created before the cursor value.
+        explode: true
+        in: query
+        name: before_cursor
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -24487,6 +24754,7 @@ paths:
       tags:
       - Subscription Enrollments
       x-java-method-name: get
+      x-group-parameters: true
       x-accepts: application/hal+json
   /subscription/subscription_enrollments/{subscription_enrollment_id}:
     delete:
@@ -24571,7 +24839,7 @@ paths:
       x-accepts: application/hal+json
     get:
       description: Retrieve the details of a `subscription_enrollment`.
-      operationId: get-subscription-subscription_enrollments-id
+      operationId: getSubscriptionSenrollments
       parameters:
       - description: The ID of the `subscription_enrollment`.
         explode: false
@@ -25055,15 +25323,13 @@ paths:
         schema:
           type: string
         style: form
-      - description: The number of items to skip before starting to collect the result
-          set
-        example: 20
+      - description: Return every resource created after the cursor value.
         explode: true
         in: query
-        name: offset
+        name: after_cursor
         required: false
         schema:
-          type: integer
+          type: string
         style: form
       - description: The numbers of items to return
         example: 10
@@ -25112,6 +25378,14 @@ paths:
         explode: true
         in: query
         name: updated_at.lte
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Return every resource created before the cursor value.
+        explode: true
+        in: query
+        name: before_cursor
         required: false
         schema:
           type: string
@@ -25219,6 +25493,8 @@ paths:
       summary: List All Files
       tags:
       - Files
+      x-java-method-name: list
+      x-group-parameters: true
       x-accepts: "application/hal+json,application/vnd.api+json"
     post:
       description: "Before uploading a file, you need to create a `File` resource.\
@@ -25314,6 +25590,7 @@ paths:
       summary: Create a File
       tags:
       - Files
+      x-java-method-name: create
       x-content-type: application/vnd.api+json
       x-accepts: "application/hal+json,application/vnd.api+json"
   /files/{file_id}:
@@ -25417,12 +25694,13 @@ paths:
       summary: Fetch a File
       tags:
       - Files
+      x-java-method-name: get
       x-accepts: "application/hal+json,application/vnd.api+json"
   /files/{file_id}/external_links:
     get:
       description: "List the previously `external_links` for a `File`. For more info,\
         \ see [Uploading files to Finix](/guides/onboarding/uploading-files-to-finix/#create-an-external-link)."
-      operationId: listExternalLink
+      operationId: listExternalLinks
       parameters:
       - description: Your `File` ID.
         explode: false
@@ -25440,15 +25718,13 @@ paths:
         schema:
           type: string
         style: form
-      - description: The number of items to skip before starting to collect the result
-          set
-        example: 20
+      - description: Return every resource created after the cursor value.
         explode: true
         in: query
-        name: offset
+        name: after_cursor
         required: false
         schema:
-          type: integer
+          type: string
         style: form
       - description: The numbers of items to return
         example: 10
@@ -25497,6 +25773,14 @@ paths:
         explode: true
         in: query
         name: updated_at.lte
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Return every resource created before the cursor value.
+        explode: true
+        in: query
+        name: before_cursor
         required: false
         schema:
           type: string
@@ -25579,6 +25863,7 @@ paths:
       summary: List All External Links
       tags:
       - Files
+      x-group-parameters: true
       x-accepts: "application/hal+json,application/vnd.api+json"
     post:
       description: "Create an `external_link` resource to share with users so they\
@@ -26064,7 +26349,7 @@ paths:
         \ in `Disputes`: <ul><li><strong>PLATFORM\\_CREDIT</strong><li><strong>MERCHANT\\\
         _DEBIT</strong><li><strong>MERCHANT\\_CREDIT</strong><li><strong>PLATFORM\\\
         _DEBIT</strong></ul>"
-      operationId: getDisputesAdjustments
+      operationId: listDisputesAdjustments
       parameters:
       - description: ID of the `Dispute` resource.
         explode: false
@@ -26074,6 +26359,25 @@ paths:
         schema:
           type: string
         style: simple
+      - description: The numbers of items to return
+        example: 10
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: The number of items to skip before starting to collect the result
+          set
+        example: 20
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          type: integer
+        style: form
       responses:
         "200":
           content:
@@ -26157,9 +26461,8 @@ paths:
                       self:
                         href: "https://finix.sandbox-payments-api.com/disputes/DIs7yQRkHDdMYhurzYz72SFk/adjustment_transfers?offset=0&limit=20&sort=created_at,desc&sort=id,desc"
                     page:
-                      offset: 0
+                      next_cursor: TRsfZUjgXSCj7k2stZR7APEn
                       limit: 20
-                      count: 2
               schema:
                 $ref: '#/components/schemas/AdjustmentTransfersList'
           description: List of adjustment_transfer objects
@@ -26208,6 +26511,7 @@ paths:
       summary: Fetch Dispute Adjustment Transfers
       tags:
       - Disputes
+      x-group-parameters: true
       x-accepts: application/hal+json
   /instrument_updates/{instrument_updates_id}:
     get:
@@ -26789,6 +27093,24 @@ components:
         - BANK_ACCOUNT
         - PAYMENT_CARD
         example: BANK_ACCOUNT
+        type: string
+      style: form
+    QueryAfterCursor:
+      description: Return every resource created after the cursor value.
+      explode: true
+      in: query
+      name: after_cursor
+      required: false
+      schema:
+        type: string
+      style: form
+    QueryBeforeCursor:
+      description: Return every resource created before the cursor value.
+      explode: true
+      in: query
+      name: before_cursor
+      required: false
+      schema:
         type: string
       style: form
   requestBodies:
@@ -31915,9 +32237,8 @@ components:
             Merchant Verification:
               value:
                 page:
-                  count: 0
                   limit: 0
-                  offset: 0
+                  next_cursor: VIdikDHXv7x8nWyJg8JZemGx
                 _embedded:
                   verifications:
                   - id: VIdikDHXv7x8nWyJg8JZemGx
@@ -31942,14 +32263,6 @@ components:
                       merchant:
                         href: https://finix.sandbox-payments-api.com/merchants/MUucec6fHeaWo3VHYoSkUySM
                 _links:
-                  first:
-                    href: string
-                  last:
-                    href: string
-                  next:
-                    href: string
-                  prev:
-                    href: string
                   self:
                     href: string
           schema:
@@ -33095,9 +33408,8 @@ components:
                   self:
                     href: "https://finix.sandbox-payments-api.com/disputes/DIs7yQRkHDdMYhurzYz72SFk/adjustment_transfers?offset=0&limit=20&sort=created_at,desc&sort=id,desc"
                 page:
-                  offset: 0
+                  next_cursor: TRsfZUjgXSCj7k2stZR7APEn
                   limit: 20
-                  count: 2
           schema:
             $ref: '#/components/schemas/AdjustmentTransfersList'
       description: List of adjustment_transfer objects
@@ -33262,7 +33574,7 @@ components:
     ApplicationProfilesList:
       properties:
         page:
-          $ref: '#/components/schemas/ApplicationProfilesList_page'
+          $ref: '#/components/schemas/PageCursor'
         _embedded:
           $ref: '#/components/schemas/ApplicationProfilesList__embedded'
         _links:
@@ -33272,7 +33584,7 @@ components:
       description: ""
       properties:
         page:
-          $ref: '#/components/schemas/ApplicationProfilesList_page'
+          $ref: '#/components/schemas/PageCursor'
         _embedded:
           $ref: '#/components/schemas/ApplicationsList__embedded'
         _links:
@@ -33483,7 +33795,7 @@ components:
     AuthorizationsList:
       properties:
         page:
-          $ref: '#/components/schemas/ApplicationProfilesList_page'
+          $ref: '#/components/schemas/PageCursor'
         _embedded:
           $ref: '#/components/schemas/AuthorizationsList__embedded'
         _links:
@@ -33926,7 +34238,7 @@ components:
     DisputeEvidenceList:
       properties:
         page:
-          $ref: '#/components/schemas/ApplicationProfilesList_page'
+          $ref: '#/components/schemas/DisputeEvidenceList_page'
         _embedded:
           $ref: '#/components/schemas/DisputeEvidenceList__embedded'
         _links:
@@ -33934,12 +34246,12 @@ components:
       type: object
     DisputesList:
       properties:
-        page:
-          $ref: '#/components/schemas/ApplicationProfilesList_page'
         _embedded:
           $ref: '#/components/schemas/DisputesList__embedded'
         _links:
           $ref: '#/components/schemas/ListLinks'
+        page:
+          $ref: '#/components/schemas/PageCursor'
       type: object
     Error401Unauthorized:
       properties:
@@ -34320,7 +34632,7 @@ components:
     FeeProfilesList:
       properties:
         page:
-          $ref: '#/components/schemas/FeeProfilesList_page'
+          $ref: '#/components/schemas/PageCursor'
         _embedded:
           $ref: '#/components/schemas/FeeProfilesList__embedded'
         _links:
@@ -34336,7 +34648,7 @@ components:
     FeesList:
       properties:
         page:
-          $ref: '#/components/schemas/ApplicationProfilesList_page'
+          $ref: '#/components/schemas/PageCursor'
         _embedded:
           $ref: '#/components/schemas/FeesList__embedded'
         _links:
@@ -34345,7 +34657,7 @@ components:
     IdentitiesList:
       properties:
         page:
-          $ref: '#/components/schemas/ApplicationProfilesList_page'
+          $ref: '#/components/schemas/PageCursor'
         _embedded:
           $ref: '#/components/schemas/IdentitiesList__embedded'
         _links:
@@ -34846,7 +35158,7 @@ components:
     MerchantProfilesList:
       properties:
         page:
-          $ref: '#/components/schemas/FeeProfilesList_page'
+          $ref: '#/components/schemas/PageCursor'
         _embedded:
           $ref: '#/components/schemas/MerchantProfilesList__embedded'
         _links:
@@ -34894,7 +35206,7 @@ components:
     MerchantsList:
       properties:
         page:
-          $ref: '#/components/schemas/ApplicationProfilesList_page'
+          $ref: '#/components/schemas/PageCursor'
         _embedded:
           $ref: '#/components/schemas/MerchantsList__embedded'
         _links:
@@ -34912,12 +35224,12 @@ components:
         type:
           description: Type of `Payment Instrument`.
           enum:
-          - BANK_ACCOUNT
           - PAYMENT_CARD
-          - PAYMENT_CARD_PRESENT
-          - VANTIV_OMNI_TOKEN
           - TOKEN
           - SWIPED_PAYMENT_CARD
+          - VANTIV_OMNI_TOKEN
+          - PAYMENT_CARD_PRESENT
+          - BANK_ACCOUNT
           - VIRTUAL
           type: string
         id:
@@ -34970,12 +35282,12 @@ components:
         instrument_type:
           description: The type of `Payment Instrument`.
           enum:
-          - BANK_ACCOUNT
           - PAYMENT_CARD
-          - PAYMENT_CARD_PRESENT
-          - VANTIV_OMNI_TOKEN
           - TOKEN
           - SWIPED_PAYMENT_CARD
+          - VANTIV_OMNI_TOKEN
+          - PAYMENT_CARD_PRESENT
+          - BANK_ACCOUNT
           - VIRTUAL
           type: string
         masked_account_number:
@@ -35112,8 +35424,8 @@ components:
           description: Type of `Payment Instrument`.
           enum:
           - BANK_ACCOUNT
-          - TOKEN
           - PAYMENT_CARD
+          - TOKEN
           type: string
         identity:
           description: The ID of the resource.
@@ -35207,7 +35519,7 @@ components:
     PaymentInstrumentUpdatesList:
       properties:
         page:
-          $ref: '#/components/schemas/PaymentInstrumentUpdatesList_page'
+          $ref: '#/components/schemas/PageCursor'
         _embedded:
           $ref: '#/components/schemas/PaymentInstrumentUpdatesList__embedded'
         _links:
@@ -35218,7 +35530,7 @@ components:
     PaymentInstrumentsList:
       properties:
         page:
-          $ref: '#/components/schemas/FeeProfilesList_page'
+          $ref: '#/components/schemas/PageCursor'
         _embedded:
           $ref: '#/components/schemas/PaymentInstrumentsList__embedded'
         _links:
@@ -35272,7 +35584,7 @@ components:
     ProcessorsList:
       properties:
         page:
-          $ref: '#/components/schemas/ApplicationProfilesList_page'
+          $ref: '#/components/schemas/PageCursor'
         _embedded:
           $ref: '#/components/schemas/ProcessorsList__embedded'
         _links:
@@ -35317,7 +35629,7 @@ components:
     ReserveProfilesList:
       properties:
         page:
-          $ref: '#/components/schemas/FeeProfilesList_page'
+          $ref: '#/components/schemas/PageCursor'
         _embedded:
           $ref: '#/components/schemas/ReserveProfilesList__embedded'
         _links:
@@ -35413,7 +35725,7 @@ components:
     ReviewQueueItemsList:
       properties:
         page:
-          $ref: '#/components/schemas/FeeProfilesList_page'
+          $ref: '#/components/schemas/PageCursor'
         _embedded:
           $ref: '#/components/schemas/ReviewQueueItemsList__embedded'
         _links:
@@ -35509,7 +35821,7 @@ components:
     RiskProfileRulesList:
       properties:
         page:
-          $ref: '#/components/schemas/FeeProfilesList_page'
+          $ref: '#/components/schemas/PageCursor'
         _embedded:
           $ref: '#/components/schemas/RiskProfileRulesList__embedded'
         _links:
@@ -35518,7 +35830,7 @@ components:
     RiskProfilesList:
       properties:
         page:
-          $ref: '#/components/schemas/FeeProfilesList_page'
+          $ref: '#/components/schemas/PageCursor'
         _embedded:
           $ref: '#/components/schemas/RiskProfilesList__embedded'
         _links:
@@ -35754,7 +36066,7 @@ components:
     SettlementEngineSettlementsList:
       properties:
         page:
-          $ref: '#/components/schemas/FeeProfilesList_page'
+          $ref: '#/components/schemas/PageCursor'
         _embedded:
           $ref: '#/components/schemas/SettlementEngineSettlementsList__embedded'
         _links: {}
@@ -35763,7 +36075,7 @@ components:
       description: ""
       properties:
         page:
-          $ref: '#/components/schemas/ApplicationProfilesList_page'
+          $ref: '#/components/schemas/PageCursor'
         _embedded:
           $ref: '#/components/schemas/SettlementsList__embedded'
         _links:
@@ -36047,7 +36359,7 @@ components:
     TransferReversalsList:
       properties:
         page:
-          $ref: '#/components/schemas/FeeProfilesList_page'
+          $ref: '#/components/schemas/PageCursor'
         _embedded:
           $ref: '#/components/schemas/TransferReversalsList__embedded'
         _links:
@@ -36057,7 +36369,7 @@ components:
       description: ""
       properties:
         page:
-          $ref: '#/components/schemas/TransfersList_page'
+          $ref: '#/components/schemas/PageCursor'
         _embedded:
           $ref: '#/components/schemas/TransfersList__embedded'
         _links:
@@ -36144,7 +36456,7 @@ components:
     UsersList:
       properties:
         page:
-          $ref: '#/components/schemas/ApplicationProfilesList_page'
+          $ref: '#/components/schemas/DisputeEvidenceList_page'
         _embedded:
           $ref: '#/components/schemas/UsersList__embedded'
         _links:
@@ -36160,7 +36472,7 @@ components:
         _links:
           $ref: '#/components/schemas/DisputeEvidence__links'
         page:
-          $ref: '#/components/schemas/Verification_page'
+          $ref: '#/components/schemas/PageCursor'
       type: object
       x-examples:
         example-1:
@@ -36231,7 +36543,7 @@ components:
         _links:
           $ref: '#/components/schemas/ListLinks'
         page:
-          $ref: '#/components/schemas/ApplicationProfilesList_page'
+          $ref: '#/components/schemas/PageCursor'
       type: object
       x-examples:
         example-1:
@@ -36278,9 +36590,8 @@ components:
             self:
               href: "https://finix.sandbox-payments-api.com/merchants/MUucec6fHeaWo3VHYoSkUySM/verifications?offset=0&limit=20&sort=created_at,desc&sort=id,desc"
           page:
-            offset: 0
             limit: 20
-            count: 4
+            next_cursor: VIdikDHXv7x8nWyJg8JZemGx
     Webhook:
       properties:
         id:
@@ -36318,7 +36629,7 @@ components:
       description: '`Webhook` resource.'
       properties:
         page:
-          $ref: '#/components/schemas/WebhooksList_page'
+          $ref: '#/components/schemas/PageCursor'
         _embedded:
           $ref: '#/components/schemas/WebhooksList__embedded'
         _links:
@@ -36599,7 +36910,7 @@ components:
       description: '`Subscription Schedule` resource.'
       properties:
         page:
-          $ref: '#/components/schemas/ApplicationProfilesList_page'
+          $ref: '#/components/schemas/DisputeEvidenceList_page'
         _embedded:
           $ref: '#/components/schemas/SubscriptionSchedulesList__embedded'
         _links:
@@ -37054,7 +37365,7 @@ components:
     SubscriptionAmountList:
       properties:
         page:
-          $ref: '#/components/schemas/ApplicationProfilesList_page'
+          $ref: '#/components/schemas/DisputeEvidenceList_page'
         _embedded:
           $ref: '#/components/schemas/SubscriptionAmountList__embedded'
       title: SubscriptionAmountList
@@ -37181,7 +37492,7 @@ components:
     SubscriptionEnrollmentList:
       properties:
         page:
-          $ref: '#/components/schemas/ApplicationProfilesList_page'
+          $ref: '#/components/schemas/DisputeEvidenceList_page'
         _embedded:
           $ref: '#/components/schemas/SubscriptionEnrollmentList__embedded'
         _links:
@@ -37778,10 +38089,12 @@ components:
           title: tags
           type: object
         destination:
-          description: ID of the `Payment Instrument` where funds will be sent.
-          example: PIxxxxxxxxxxxxxxxxxx
+          description: Choose the value that best applies to the account where funds
+            will get credited.
+          enum:
+          - FOR_BENEFIT_OF_ACCOUNT
+          - OPERATING_ACCOUNT
           nullable: true
-          pattern: "^(PI)[a-zA-Z0-9]{16,32}$"
           type: string
         currency:
           $ref: '#/components/schemas/Currency'
@@ -37792,9 +38105,11 @@ components:
           title: Amount
           type: integer
         source:
-          description: ID of the `Payment Instrument` where funds get debited.
-          example: PIxxxxxxxxxxxxxxxxxx
-          pattern: "^(PI)[a-zA-Z0-9]{16,32}$"
+          description: Choose the value that best applies to the account where funds
+            will get debited.
+          enum:
+          - FOR_BENEFIT_OF_ACCOUNT
+          - OPERATING_ACCOUNT
           type: string
         processor_type:
           description: Pass **LITLE_V1**; `balance_transfers` are only avalible for
@@ -37804,7 +38119,6 @@ components:
       required:
       - amount
       - currency
-      - description
       - processor_type
       - source
       title: CreateBalanceTransferRequest
@@ -37817,10 +38131,10 @@ components:
           tags:
             property1: string
             property2: string
-          destination: PIxxxxxxxxxxxxxxxxxx
+          destination: FOR_BENEFIT_OF_ACCOUNT
           currency: AED
           amount: 0
-          source: PIxxxxxxxxxxxxxxxxxx
+          source: OPERATING_ACCOUNT
           processor_type: LITLE_V1
     BalanceTransfer:
       description: A `balance_transfer` object.
@@ -37912,7 +38226,7 @@ components:
       description: List of `balance_transfer` resources.
       properties:
         page:
-          $ref: '#/components/schemas/ApplicationProfilesList_page'
+          $ref: '#/components/schemas/DisputeEvidenceList_page'
         _embedded:
           $ref: '#/components/schemas/BalanceTransferList__embedded'
         _links:
@@ -38070,42 +38384,11 @@ components:
           type: string
       title: File
       type: object
-      x-examples:
-        example-1:
-          _embedded:
-            files:
-            - id: FILE_7JzsveecuFAJEQ5xdkm9AY
-              status: REQUIRES_UPLOAD
-              created_at: 2022-06-02T17:48:29.93405Z
-              updated_at: 2022-06-02T17:48:29.94519Z
-              linked_type: MERCHANT
-              linked_to: MU2n7BSovtwYsWYZF6rBnnzk
-              display_name: My Drivers License
-              type: DRIVERS_LICENSE_FRONT
-              platform_id: PLm5E6FbtCZ5vjpCaKhq5PwN
-              application_id: APgPDQrLD52TYvqazjHJJchM
-              tags:
-                key_1: value_1
-            - id: FILE_7pBudxCneXRWsLbUegk2Db
-              status: UPLOADED
-              created_at: 2022-04-25T20:20:51.921341Z
-              updated_at: 2022-04-25T20:24:17.664812Z
-              linked_type: MERCHANT
-              linked_to: MU2n7BSovtwYsWYZF6rBnnzk
-              extension: png
-              display_name: My Drivers License
-              type: DRIVERS_LICENSE_FRONT
-              platform_id: PLm5E6FbtCZ5vjpCaKhq5PwN
-              application_id: APgPDQrLD52TYvqazjHJJchM
-              tags:
-                key_1: value_1
-          page:
-            limit: 10
-            next_cursor: FILE_7pBudxCneXRWsLbUegk2Db
+      x-examples: {}
     FilesList:
       properties:
         page:
-          $ref: '#/components/schemas/FilesList_page'
+          $ref: '#/components/schemas/PageCursor'
         _embedded:
           $ref: '#/components/schemas/FilesList__embedded'
         _links:
@@ -38232,7 +38515,7 @@ components:
         _embedded:
           $ref: '#/components/schemas/ExternalLinksList__embedded'
         page:
-          $ref: '#/components/schemas/ApplicationProfilesList_page'
+          $ref: '#/components/schemas/PageCursor'
         _links:
           $ref: '#/components/schemas/ListLinks'
       title: ExternalLinksList
@@ -38390,7 +38673,7 @@ components:
         _links:
           $ref: '#/components/schemas/DisputeEvidence__links'
         page:
-          $ref: '#/components/schemas/Verification_page'
+          $ref: '#/components/schemas/PageCursor'
       type: object
       x-examples:
         example-1:
@@ -38594,6 +38877,1013 @@ components:
       type: string
       x-stoplight:
         id: fylqbqcpw7nuv
+    PageCursor:
+      description: ""
+      properties:
+        limit:
+          description: The number of entries to return.
+          type: integer
+        next_cursor:
+          description: The cursor to use for the next page of results.
+          nullable: true
+          type: string
+      title: PageCursor
+      type: object
+      x-stoplight:
+        id: 8v9on8n2939z2
+    ListApplicationProfilesQueryParams:
+      properties:
+        limit:
+          description: The numbers of items to return
+          type: integer
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
+      type: object
+    ListApplicationsQueryParams:
+      properties:
+        id:
+          description: Filter by id
+          type: string
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+        limit:
+          description: The numbers of items to return
+          type: integer
+      type: object
+    ListApplicationProcessorsQueryParams:
+      properties:
+        limit:
+          description: The numbers of items to return
+          type: integer
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
+      type: object
+    ListAuthorizationsQueryParams:
+      properties:
+        sort:
+          description: Specify key to be used for sorting the collection
+          type: string
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
+        limit:
+          description: The numbers of items to return
+          type: integer
+        idempotency_id:
+          description: Filter by idempotency_id
+          type: string
+        state:
+          description: Filter by Transaction state.
+          type: string
+        created_at.gte:
+          description: Filter where created_at is after the given date.
+          type: string
+        created_at.lte:
+          description: Filter where created_at is before the given date.
+          type: string
+        updated_at.gte:
+          description: Filter where updated_at is after the given date
+          type: string
+        updated_at.lte:
+          description: Filter where updated_at is before the given date
+          type: string
+        is_void:
+          description: Filter by idempotency_id
+          type: string
+        amount:
+          description: Filter by an amount equal to the given value
+          type: integer
+        amount.lt:
+          description: Filter by an amount less than
+          type: integer
+        amount.gt:
+          description: Filter by an amount greater than
+          type: integer
+        amount.lte:
+          description: Filter by an amount less than or equal
+          type: integer
+        amount.gte:
+          description: Filter by an amount greater than or equal
+          type: integer
+        trace_id:
+          description: Filter by trace_id
+          type: string
+        instrument_bin:
+          description: Filter by Bank Identification Number (BIN). The BIN is the
+            first 6 digits of the masked number
+          type: string
+        instrument_account_last4:
+          description: "Filter Transactions by the last 4 digits of the bank account.\
+            \ The bank account last 4 are the last 4 digits of the masked number\t\
+            instrument_account_last4=9444 BIN\t"
+          type: string
+        instrument_brand_type:
+          description: Filter by card brand. Available card brand types can be found
+            in the drop-down
+          type: string
+        merchant_identity_id:
+          description: Filter by Identity ID
+          type: string
+        merchant_identity_name:
+          description: Filter Transactions by Identity name. The name is not case-sensitive
+          type: string
+        instrument_name:
+          description: Filter Transactions by payment instrument name
+          type: string
+        instrument_type:
+          description: "Filter Transactions by payment instrument type. Available\
+            \ instrument types include: Bank Account or Payment Card"
+          type: string
+        merchant_id:
+          description: Filter by Merchant ID
+          type: string
+        merchant_mid:
+          description: Filter by Merchant Identification Number (MID)
+          type: string
+        instrument_card_last4:
+          description: Filter by the payment card last 4 digits
+          type: string
+        merchant_processor_id:
+          description: Filter by Processor ID
+          type: string
+        type:
+          description: Type of the authorization.
+          type: string
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+      type: object
+    ListBalanceTransfersQueryParams:
+      properties:
+        limit:
+          description: The numbers of items to return
+          type: integer
+        offset:
+          description: The number of items to skip before starting to collect the
+            result set
+          type: integer
+        pageNumber:
+          description: The page number to list
+          type: integer
+        pageSize:
+          description: The size of the page
+          type: integer
+        created_at.gte:
+          description: Filter where created_at is after the given date.
+          type: string
+        created_at.lte:
+          description: Filter where created_at is before the given date.
+          type: string
+        updated_at.gte:
+          description: Filter where updated_at is after the given date
+          type: string
+        updated_at.lte:
+          description: Filter where updated_at is before the given date
+          type: string
+        idempotency_id:
+          description: Filter by idempotency_id
+          type: string
+        amount:
+          description: Filter by an amount equal to the given value
+          type: integer
+        description:
+          description: 'Filter by the `description` value '
+          type: string
+        destination:
+          description: Filter by the `Payment Instrument` saved in `destination`
+          type: string
+        external_reference_id:
+          description: Filter by the value saved in `external_reference_id`
+          type: string
+        reference_id:
+          description: Filter by the value saved in `reference_id`
+          type: string
+        source:
+          description: Filter by the `Payment Instrument` saved in `source`
+          type: string
+      type: object
+    ListDisputesQueryParams:
+      properties:
+        sort:
+          description: Specify key to be used for sorting the collection
+          type: string
+        offset:
+          description: The number of items to skip before starting to collect the
+            result set
+          type: integer
+        limit:
+          description: The numbers of items to return
+          type: integer
+        created_at.gte:
+          description: Filter where created_at is after the given date.
+          type: string
+        created_at.lte:
+          description: Filter where created_at is before the given date.
+          type: string
+        updated_at.gte:
+          description: Filter where updated_at is after the given date
+          type: string
+        updated_at.lte:
+          description: Filter where updated_at is before the given date
+          type: string
+      type: object
+    ListDisputeEvidenceQueryParams:
+      properties:
+        limit:
+          description: The numbers of items to return
+          type: integer
+        offset:
+          description: The number of items to skip before starting to collect the
+            result set
+          type: integer
+      type: object
+    ListFeeProfilesQueryParams:
+      properties:
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
+        limit:
+          description: The numbers of items to return
+          type: integer
+      type: object
+    ListFeesQueryParams:
+      properties:
+        limit:
+          description: The numbers of items to return
+          type: integer
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
+      type: object
+    ListIdentitiesQueryParams:
+      properties:
+        sort:
+          description: Specify key to be used for sorting the collection
+          type: string
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+        limit:
+          description: The numbers of items to return
+          type: integer
+        id:
+          description: Filter by id
+          type: string
+        created_at.gte:
+          description: Filter where created_at is after the given date.
+          type: string
+        created_at.lte:
+          description: Filter where created_at is before the given date.
+          type: string
+        default_statement_descriptor:
+          description: Filter by the default_statement_descriptor
+          type: string
+        business_name:
+          description: Filter by the full business name. Partial business names are
+            not supported.
+          type: string
+        business_type:
+          description: Filter by the business type. Partial business types are not
+            supported
+          type: string
+        email:
+          description: Filter by the email address or email domain. Partial emails
+            are not supported.
+          type: string
+        first_name:
+          description: Filter by the first name of the person associated to the Identity.
+          type: string
+        last_name:
+          description: Filter by the last name of the person associated to the identity.
+          type: string
+        title:
+          description: Filter by the title if available.
+          type: string
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
+      type: object
+    ListIdentityAssociatedIdentitiesQueryParams:
+      properties:
+        limit:
+          description: The number of entries to return.
+          type: integer
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
+      type: object
+    ListIdentityAuthorizationsQueryParams:
+      properties:
+        limit:
+          description: The number of entries to return.
+          type: integer
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
+      type: object
+    ListIdentityMerchantsQueryParams:
+      properties:
+        limit:
+          description: The number of entries to return.
+          type: integer
+        offset:
+          description: The number of items to skip before starting to collect the
+            result set.
+          type: integer
+        pageNumber:
+          description: The page number to list.
+          type: integer
+        pageSize:
+          description: The size of the page.
+          type: integer
+      type: object
+    ListIdentityDisputesQueryParams:
+      properties:
+        limit:
+          description: The number of entries to return.
+          type: integer
+        offset:
+          description: The number of items to skip before starting to collect the
+            result set.
+          type: integer
+        pageNumber:
+          description: The page number to list.
+          type: integer
+        pageSize:
+          description: The size of the page.
+          type: integer
+      type: object
+    ListIdentityPaymentInstrumentsQueryParams:
+      properties:
+        limit:
+          description: The number of entries to return.
+          type: integer
+        offset:
+          description: The number of items to skip before starting to collect the
+            result set.
+          type: integer
+        pageNumber:
+          description: The page number to list.
+          type: integer
+        pageSize:
+          description: The size of the page.
+          type: integer
+      type: object
+    ListIdentitySettlementsQueryParams:
+      properties:
+        limit:
+          description: The number of entries to return.
+          type: integer
+        offset:
+          description: The number of items to skip before starting to collect the
+            result set.
+          type: integer
+        pageNumber:
+          description: The page number to list.
+          type: integer
+        pageSize:
+          description: The size of the page.
+          type: integer
+      type: object
+    ListIdentityTransfersQueryParams:
+      properties:
+        limit:
+          description: The number of entries to return.
+          type: integer
+        offset:
+          description: The number of items to skip before starting to collect the
+            result set.
+          type: integer
+        pageNumber:
+          description: The page number to list.
+          type: integer
+        pageSize:
+          description: The size of the page.
+          type: integer
+      type: object
+    ListIdentityVerificationsQueryParams:
+      properties:
+        limit:
+          description: The number of entries to return.
+          type: integer
+        offset:
+          description: The number of items to skip before starting to collect the
+            result set.
+          type: integer
+        pageNumber:
+          description: The page number to list.
+          type: integer
+        pageSize:
+          description: The size of the page.
+          type: integer
+      type: object
+    ListMerchantProfilesQueryParams:
+      properties:
+        id:
+          description: Filter by id
+          type: string
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+        limit:
+          description: The numbers of items to return
+          type: integer
+      type: object
+    ListMerchantsQueryParams:
+      properties:
+        id:
+          description: Filter by id
+          type: string
+        created_at.gte:
+          description: Filter where created_at is after the given date.
+          type: string
+        created_at.lte:
+          description: Filter where created_at is before the given date.
+          type: string
+        sort:
+          description: Specify key to be used for sorting the collection
+          type: string
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+        limit:
+          description: The numbers of items to return
+          type: integer
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
+      type: object
+    ListMerchantTransfersQueryParams:
+      properties:
+        limit:
+          description: The number of entries to return.
+          type: integer
+        offset:
+          description: The number of items to skip before starting to collect the
+            result set.
+          type: integer
+        pageNumber:
+          description: The page number to list.
+          type: integer
+        pageSize:
+          description: The size of the page.
+          type: integer
+        ready_to_settle:
+          description: ready_to_settle
+          type: boolean
+      type: object
+    ListMerchantVerificationsQueryParams:
+      properties:
+        limit:
+          description: The number of entries to return.
+          type: integer
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
+      type: object
+    ListPaymentInstrumentsQueryParams:
+      properties:
+        limit:
+          description: The numbers of items to return
+          type: integer
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+        account_last4:
+          description: Filter by the last 4 digits of the account if available.
+          type: string
+        account_routing_number:
+          description: Filter by the account routing number if available.
+          type: string
+        application:
+          description: Filter by application id
+          type: string
+        bin:
+          description: Filter by Bank Identification Number (BIN). The BIN is the
+            first 6 digits of the masked number
+          type: string
+        created_at.gte:
+          description: Filter where created_at is after the given date.
+          type: string
+        created_at.lte:
+          description: Filter where created_at is before the given date.
+          type: string
+        expiration_month:
+          description: Filter by the expiration month associated with the `Payment
+            Instrument` if applicable. This filter only applies to payment cards.
+          type: string
+        expiration_year:
+          description: Filter by the 4 digit expiration year associated with the Payment
+            Instrument if applicable. This filter only applies to payment cards
+          type: string
+        last_four:
+          description: Filter by the last 4 digits of the Payment Instrument card.
+            This filter only applies to payment cards.
+          type: string
+        name:
+          description: Filter by the name.
+          type: string
+        owner_identity_id:
+          description: Filter by the owner id of the associated identity.
+          type: string
+        type:
+          description: Filter by the payment instrument type.
+          type: string
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
+      type: object
+    ListPaymentInstrumentAuthorizationsQueryParams:
+      properties:
+        limit:
+          description: The number of entries to return.
+          type: integer
+        offset:
+          description: The number of items to skip before starting to collect the
+            result set.
+          type: integer
+        pageNumber:
+          description: The page number to list.
+          type: integer
+        pageSize:
+          description: The size of the page.
+          type: integer
+      type: object
+    ListPaymentInstrumentTransfersQueryParams:
+      properties:
+        limit:
+          description: The number of entries to return.
+          type: integer
+        offset:
+          description: The number of items to skip before starting to collect the
+            result set.
+          type: integer
+        pageNumber:
+          description: The page number to list.
+          type: integer
+        pageSize:
+          description: The size of the page.
+          type: integer
+      type: object
+    ListPaymentInstrumentUpdatesQueryParams:
+      properties:
+        limit:
+          description: The number of entries to return.
+          type: integer
+        offset:
+          description: The number of items to skip before starting to collect the
+            result set.
+          type: integer
+        pageNumber:
+          description: The page number to list.
+          type: integer
+        pageSize:
+          description: The size of the page.
+          type: integer
+      type: object
+    ListPaymentInstrumentVerificationsQueryParams:
+      properties:
+        limit:
+          description: The number of entries to return.
+          type: integer
+        offset:
+          description: The number of items to skip before starting to collect the
+            result set.
+          type: integer
+        pageNumber:
+          description: The page number to list.
+          type: integer
+        pageSize:
+          description: The size of the page.
+          type: integer
+      type: object
+    ListReviewQueueItemsQueryParams:
+      properties:
+        entity_type:
+          description: Filter by entity_type
+          type: string
+        id:
+          description: Filter by outcome
+          type: string
+        application:
+          description: Filter by application id
+          type: string
+      type: object
+    ListSettlementsQueryParams:
+      properties:
+        amount:
+          description: Filter by a total amount equal to the given value
+          type: integer
+        amount.lt:
+          description: Filter by a total amount less than
+          type: integer
+        amount.gt:
+          description: Filter by a total amount greater than
+          type: integer
+        amount.lte:
+          description: Filter by a total amount less than or equal
+          type: integer
+        amount.gte:
+          description: Filter by a total amount greater than or equal
+          type: integer
+        created_at.gte:
+          description: Filter where created_at is after the given date.
+          type: string
+        created_at.lte:
+          description: Filter where created_at is before the given date.
+          type: string
+        updated_at.gte:
+          description: Filter where updated_at is after the given date
+          type: string
+        updated_at.lte:
+          description: Filter where updated_at is before the given date
+          type: string
+        id:
+          description: Filter by id
+          type: string
+        limit:
+          description: The numbers of items to return
+          type: integer
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
+      type: object
+    GetSettlementFundingTransfersQueryParams:
+      properties:
+        limit:
+          description: The numbers of items to return
+          type: integer
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
+      type: object
+    ListSettlementTransfersQueryParams:
+      properties:
+        limit:
+          description: The numbers of items to return
+          type: integer
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
+      type: object
+    ListTransfersQueryParams:
+      properties:
+        sort:
+          description: Specify key to be used for sorting the collection
+          type: string
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+        limit:
+          description: The numbers of items to return
+          type: integer
+        amount:
+          description: Filter by an amount equal to the given value
+          type: integer
+        amount.gte:
+          description: Filter by an amount greater than or equal
+          type: integer
+        amount.gt:
+          description: Filter by an amount greater than
+          type: integer
+        amount.lte:
+          description: Filter by an amount less than or equal
+          type: integer
+        amount.lt:
+          description: Filter by an amount less than
+          type: integer
+        created_at.gte:
+          description: Filter where created_at is after the given date.
+          type: string
+        created_at.lte:
+          description: Filter where created_at is before the given date.
+          type: string
+        idempotency_id:
+          description: Filter by idempotency_id
+          type: string
+        id:
+          description: Filter by id
+          type: string
+        state:
+          description: Filter by Transaction state.
+          type: string
+        ready_to_settle_at.gte:
+          description: Filter by ready_to_settle_at
+          type: string
+        ready_to_settle_at.lte:
+          description: Filter by ready_to_settle_at
+          type: string
+        statement_descriptor:
+          description: Filter by statement_descriptor
+          type: integer
+        trace_id:
+          description: Filter by trace_id
+          type: string
+        updated_at.gte:
+          description: Filter where updated_at is after the given date
+          type: string
+        updated_at.lte:
+          description: Filter where updated_at is before the given date
+          type: string
+        instrument_bin:
+          description: Filter by Bank Identification Number (BIN). The BIN is the
+            first 6 digits of the masked number
+          type: string
+        instrument_account_last4:
+          description: "Filter Transactions by the last 4 digits of the bank account.\
+            \ The bank account last 4 are the last 4 digits of the masked number\t\
+            instrument_account_last4=9444 BIN\t"
+          type: string
+        instrument_brand_type:
+          description: Filter by card brand. Available card brand types can be found
+            in the drop-down
+          type: string
+        merchant_identity_id:
+          description: Filter by Identity ID
+          type: string
+        merchant_identity_name:
+          description: Filter Transactions by Identity name. The name is not case-sensitive
+          type: string
+        instrument_name:
+          description: Filter Transactions by payment instrument name
+          type: string
+        instrument_type:
+          description: "Filter Transactions by payment instrument type. Available\
+            \ instrument types include: Bank Account or Payment Card"
+          type: string
+        merchant_id:
+          description: Filter by Merchant ID
+          type: string
+        merchant_mid:
+          description: Filter by Merchant Identification Number (MID)
+          type: string
+        instrument_card_last4:
+          description: Filter by the payment card last 4 digits
+          type: string
+        merchant_processor_id:
+          description: Filter by Processor ID
+          type: string
+        type:
+          description: "Filter by Transfer type. Available type filters include: All,\
+            \ Debits, Refunds, or Credits."
+          type: string
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
+      type: object
+    ListTransferDisputesQueryParams:
+      properties:
+        limit:
+          description: The number of entries to return.
+          type: integer
+        offset:
+          description: The number of items to skip before starting to collect the
+            result set.
+          type: integer
+        pageNumber:
+          description: The page number to list.
+          type: integer
+        pageSize:
+          description: The size of the page.
+          type: integer
+      type: object
+    ListTransferFeesQueryParams:
+      properties:
+        limit:
+          description: The number of entries to return.
+          type: integer
+        offset:
+          description: The number of items to skip before starting to collect the
+            result set.
+          type: integer
+        pageNumber:
+          description: The page number to list.
+          type: integer
+        pageSize:
+          description: The size of the page.
+          type: integer
+      type: object
+    ListTransferPaymentInstrumentsQueryParams:
+      properties:
+        limit:
+          description: The number of entries to return.
+          type: integer
+        offset:
+          description: The number of items to skip before starting to collect the
+            result set.
+          type: integer
+        pageNumber:
+          description: The page number to list.
+          type: integer
+        pageSize:
+          description: The size of the page.
+          type: integer
+      type: object
+    ListTransferReversalsQueryParams:
+      properties:
+        limit:
+          description: The number of entries to return.
+          type: integer
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
+      type: object
+    ListUsersQueryParams:
+      properties:
+        id:
+          description: Filter by id
+          type: string
+      type: object
+    ListVerificationsQueryParams:
+      properties:
+        id:
+          description: Filter by id
+          type: string
+      type: object
+    ListWebhooksQueryParams:
+      properties:
+        limit:
+          description: The numbers of items to return
+          type: integer
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
+      type: object
+    GetSubscriptionScheduleQueryParams:
+      properties:
+        nickname:
+          description: Filter by the object's `nickname`.
+          type: string
+        type:
+          description: Filter by the object's `subscription_type`.
+          type: string
+      type: object
+    GetSubscriptionSchedulesQueryParams:
+      properties:
+        nickname:
+          description: Filter by the object's `nickname`.
+          type: string
+        type:
+          description: Filter by the object's `type`.
+          type: string
+      type: object
+    ListSubscriptionAmountQueryParams:
+      properties:
+        limit:
+          description: The numbers of items to return
+          type: integer
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
+      type: object
+    ListSubscriptionEnrollmentsInScheduleQueryParams:
+      properties:
+        limit:
+          description: The numbers of items to return
+          type: integer
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
+      type: object
+    ListSubscriptionEnrollmentsQueryParams:
+      properties:
+        limit:
+          description: The numbers of items to return
+          type: integer
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
+      type: object
+    GetSubscriptionSenrollmentsQueryParams:
+      properties:
+        merchant:
+          description: Filter by the objects `merchant` ID.
+          type: string
+      type: object
+    ListFilesQueryParams:
+      properties:
+        sort:
+          description: Specify key to be used for sorting the collection
+          type: string
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+        limit:
+          description: The numbers of items to return
+          type: integer
+        id:
+          description: Filter by id
+          type: string
+        created_at.gte:
+          description: Filter where created_at is after the given date.
+          type: string
+        created_at.lte:
+          description: Filter where created_at is before the given date.
+          type: string
+        updated_at.gte:
+          description: Filter where updated_at is after the given date
+          type: string
+        updated_at.lte:
+          description: Filter where updated_at is before the given date
+          type: string
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
+      type: object
+    ListExternalLinksQueryParams:
+      properties:
+        sort:
+          description: Specify key to be used for sorting the collection
+          type: string
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+        limit:
+          description: The numbers of items to return
+          type: integer
+        id:
+          description: Filter by id
+          type: string
+        created_at.gte:
+          description: Filter where created_at is after the given date.
+          type: string
+        created_at.lte:
+          description: Filter where created_at is before the given date.
+          type: string
+        updated_at.gte:
+          description: Filter where updated_at is after the given date
+          type: string
+        updated_at.lte:
+          description: Filter where updated_at is before the given date
+          type: string
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
+      type: object
+    ListDisputesAdjustmentsQueryParams:
+      properties:
+        limit:
+          description: The numbers of items to return
+          type: integer
+        offset:
+          description: The number of items to skip before starting to collect the
+            result set
+          type: integer
+      type: object
     Application__links_application_profile:
       properties:
         href:
@@ -39064,7 +40354,7 @@ components:
           type: string
         principal_percentage_ownership:
           description: Percentage of company owned by the principal (min 0; max 100).
-          format: int32
+          format: int64
           maximum: 100
           minimum: 0
           type: integer
@@ -39107,20 +40397,6 @@ components:
           $ref: '#/components/schemas/Application__links_application_profile'
         self:
           $ref: '#/components/schemas/Application__links_self'
-      type: object
-    ApplicationProfilesList_page:
-      description: Details the page that's returned.
-      properties:
-        count:
-          description: The number of entries returned.
-          type: integer
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
       type: object
     ApplicationProfilesList__embedded:
       properties:
@@ -39270,7 +40546,7 @@ components:
         input_text:
           type: string
         selection:
-          format: int32
+          format: int64
           type: integer
         signature_data:
           type: string
@@ -39325,6 +40601,20 @@ components:
       properties:
         self:
           $ref: '#/components/schemas/Application__links_self'
+      type: object
+    DisputeEvidenceList_page:
+      description: Details the page that's returned.
+      properties:
+        count:
+          description: The number of entries returned.
+          type: integer
+        limit:
+          description: The number of entries to return.
+          type: integer
+        offset:
+          description: The number of items to skip before starting to collect the
+            result set.
+          type: integer
       type: object
     DisputeEvidenceList__embedded:
       properties:
@@ -39493,15 +40783,6 @@ components:
           $ref: '#/components/schemas/Application__links_self'
         users:
           $ref: '#/components/schemas/Application__links_application_profile'
-      type: object
-    FeeProfilesList_page:
-      properties:
-        count:
-          type: integer
-        limit:
-          type: integer
-        offset:
-          type: integer
       type: object
     FeeProfilesList__embedded:
       properties:
@@ -40805,19 +42086,6 @@ components:
           $ref: '#/components/schemas/Application__links_application_profile'
         verifications:
           $ref: '#/components/schemas/PaymentInstrumentToken__links_verifications'
-      type: object
-    PaymentInstrumentUpdatesList_page:
-      properties:
-        count:
-          type: integer
-        limit:
-          type: integer
-        offset:
-          type: integer
-      required:
-      - count
-      - limit
-      - offset
       type: object
     InstrumentUpdate__links:
       properties:
@@ -43056,15 +44324,15 @@ components:
         encrypted_emv_format:
           description: EMV encryption format provided from integrated encryption devices
             (defaults to **0**).
-          format: int32
+          format: int64
           type: integer
         expiration_month:
           description: Expiration month of the `Payment Instrument` (e.g. 12 for December).
-          format: int32
+          format: int64
           type: integer
         expiration_year:
           description: 4-digit expiration year of the `Payment Instrument`.
-          format: int32
+          format: int64
           type: integer
         first_name:
           description: The first name of the `Payment Instrument` owner.
@@ -43087,20 +44355,6 @@ components:
           minItems: 0
           type: array
           uniqueItems: true
-      type: object
-    TransfersList_page:
-      description: Details the page that's returned.
-      properties:
-        count:
-          description: The number of `transfer` objects returned.
-          type: integer
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
       type: object
     TransfersList__embedded:
       properties:
@@ -43198,20 +44452,6 @@ components:
           nullable: true
           type: string
       type: object
-    Verification_page:
-      description: Details the page that's returned.
-      properties:
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        limit:
-          description: The number of entries to return.
-          type: integer
-        count:
-          description: The number of entries returned.
-          type: integer
-      type: object
     VerificationsList__embedded:
       description: List of `Verifications`.
       properties:
@@ -43221,20 +44461,6 @@ components:
           minItems: 0
           type: array
           uniqueItems: true
-      type: object
-    WebhooksList_page:
-      description: Details the page that's returned.
-      properties:
-        count:
-          description: The number of enteries returned.
-          type: integer
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
       type: object
     WebhooksList__embedded:
       properties:
@@ -43464,20 +44690,9 @@ components:
       description: List of `balance_transfer` objects.
       properties:
         balance_transfers:
-          $ref: '#/components/schemas/BalanceTransfer'
-      type: object
-    FilesList_page:
-      description: Details the page that's returned.
-      properties:
-        count:
-          description: The number of entries returned.
-          type: integer
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of entries to return.
-          type: integer
+          items:
+            $ref: '#/components/schemas/BalanceTransferList'
+          type: array
       type: object
     FilesList__embedded:
       description: The number of items to skip before starting to collect the result
@@ -43628,6 +44843,8 @@ components:
       description: ""
       scheme: basic
       type: http
+x-stoplight:
+  id: c6861590dda46
 x-ignoredHeaderParameters:
 - Accept
 - finix-apiuser-role

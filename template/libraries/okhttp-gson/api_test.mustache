@@ -38,6 +38,11 @@ public class {{classname}}Test {
      *
      {{/notes}}
      * @throws ApiException if the Api call fails
+     *
+     **
+     * EDITED
+     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+     *
      */
     @Test
     public void {{operationId}}Test() throws ApiException {
@@ -49,6 +54,7 @@ public class {{classname}}Test {
                 .{{paramName}}({{paramName}}){{/optionalParams}}
                 .execute();{{/vendorExtensions.x-group-parameters}}
         {{/vendorExtensions.x-streaming}}
+
         {{^vendorExtensions.x-streaming}}
         {{#returnType}}{{{returnType}}} response = {{/returnType}}api.{{#vendorExtensions.x-java-method-name}}{{{.}}}{{/vendorExtensions.x-java-method-name}}{{^vendorExtensions.x-java-method-name}}{{operationId}}{{/vendorExtensions.x-java-method-name}}{{^vendorExtensions.x-group-parameters}}({{#allParams}}{{paramName}}{{^-last}}, {{/-last}}{{/allParams}});{{/vendorExtensions.x-group-parameters}}{{#vendorExtensions.x-group-parameters}}({{#requiredParams}}{{paramName}}{{^-last}}, {{/-last}}{{/requiredParams}}){{#optionalParams}}
                 .{{paramName}}({{paramName}}){{/optionalParams}}

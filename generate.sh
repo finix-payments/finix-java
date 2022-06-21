@@ -17,6 +17,7 @@ openapi-generator generate \
   --global-property model,modelDocs=false \
   --global-property api,apiDocs=false \
   --skip-validate-spec \
+  --type-mappings=integer=Long,int=Long \
   \
   -p invokerPackage=invoker \
   -p apiPackage=api \
