@@ -195,7 +195,6 @@ public class DisputesApiTest {
                 .updatedAtGte(updatedAtGte)
                 .updatedAtLte(updatedAtLte)
                 .build());
-        System.out.println(response.toJson());
         assertEquals(20,response.getPage().getLimit().intValue(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit().intValue());
     }
 
