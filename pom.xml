@@ -6,20 +6,12 @@
     <packaging>jar</packaging>
     <name>finix-java</name>
     <version>0.0.1</version>
-    <!--<url>https://github.com/openapitools/openapi-generator</url>-->
     <url>https://github.com/finix-payments/finix-java</url>
-    <!--<description>OpenAPI Java</description>-->
     <description>Finix Java</description>
-    <!--<scm>
-        <connection>scm:git:git@github.com:openapitools/openapi-generator.git</connection>
-        <developerConnection>scm:git:git@github.com:openapitools/openapi-generator.git</developerConnection>
-        <url>https://github.com/openapitools/openapi-generator</url>
-    </scm>-->
     <scm>
         <connection>scm:git:git@github.com:finix-payments/finix-java.git</connection>
         <developerConnection>scm:git:git@github.com:finix-payments/finix-java.git</developerConnection>
         <url>https://github.com/finix-payments/finix-java/tree/develop</url>
-
     </scm>
 
     <distributionManagement>
@@ -32,7 +24,6 @@
             <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
-
 
     <licenses>
         <license>
