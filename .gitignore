@@ -22,3 +22,6 @@ build
 
 # remove .idea
 git rm --cached -r .idea
+
+# intellij configs
+.idea/
