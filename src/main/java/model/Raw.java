@@ -94,13 +94,13 @@ public class Raw extends AbstractOpenApiSchema {
                 @Override
                 public Raw read(JsonReader in) throws IOException {
                     Object deserialized = null;
-                    JsonObject jsonObject = elementAdapter.read(in).getAsJsonObject();
+                    JsonElement jsonObject = elementAdapter.read(in);//.getAsJsonObject();
 
                     // deserialize Object
                     try {
                         // validate the JSON object to see if any exception is thrown
                         //Object.
-                        validateJsonObject(jsonObject);
+                        //validateJsonObject(jsonObject);
                         log.log(Level.FINER, "Input data matches schema 'Object'");
                         Raw ret = new Raw();
                         ret.setActualInstance(adapterObject.fromJsonTree(jsonObject));
@@ -111,10 +111,10 @@ public class Raw extends AbstractOpenApiSchema {
                     }
 
                     // deserialize String
-                    try {
+                  /*  try {
                         // validate the JSON object to see if any exception is thrown
                         // String.
-                        validateJsonObject(jsonObject);
+                        //validateJsonObject(jsonObject);
                         log.log(Level.FINER, "Input data matches schema 'String'");
                         Raw ret = new Raw();
                         ret.setActualInstance(adapterString.fromJsonTree(jsonObject));
@@ -123,7 +123,7 @@ public class Raw extends AbstractOpenApiSchema {
                         // deserialization failed, continue
                         log.log(Level.FINER, "Input data does not match schema 'String'", e);
                     }
-
+*/
 
                     throw new IOException(String.format("Failed deserialization for Raw: no class matched. JSON: %s", jsonObject.toString()));
                 }

@@ -405,6 +405,11 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    /**
+     * EDITED
+     * Generator FAILS to set localVarFormParams
+     */
+
     localVarFormParams.put("file",createInstrumentUpdatesRequest.getFile());
     localVarFormParams.put("request",createInstrumentUpdatesRequest.getRequest());
 

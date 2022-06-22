@@ -112,11 +112,7 @@ public class SubscriptionEnrollmentsApiTest {
         String beforeCursor = null;
         String sid=null;
         String merchant=null;
-        SubscriptionEnrollmentList response = api.get(ListSubscriptionEnrollmentsQueryParams.builder()
-                .limit(limit)
-                .afterCursor(afterCursor)
-                .beforeCursor(beforeCursor)
-                .build());
+        //SubscriptionEnrollmentList response = api.get(sid, merchant);
         // TODO: test validations
     }
 

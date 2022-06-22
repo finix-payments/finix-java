@@ -93,25 +93,6 @@ public class WebhooksApiTest {
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
     }
 
-    /**
-     * List Application Webhooks
-     *
-     * Return a collection of webhooks, if there are no webhooks, an empty collection will be returned. 
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-    //@Test
-    public void listApplicationWebhooksTest() throws ApiException {
-        String applicationId = null;
-
-        WebhooksList response = finixClient.Webhooks.listByApplicationId(applicationId);
-        // TODO: test validations
-    }
 
     /**
      * List Webhooks
@@ -126,6 +107,7 @@ public class WebhooksApiTest {
      *
      */
     @Test
+    @DisplayName("List Webhooks")
     public void listWebhooksTest() throws ApiException {
         Long limit = null;
         String afterCursor = null;

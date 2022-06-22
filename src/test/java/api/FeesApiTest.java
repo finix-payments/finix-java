@@ -117,7 +117,7 @@ public class FeesApiTest {
         Long pageNumber = null;
         Long pageSize = null;
 
-        TransfersList response = api.listByTransferId(transferId, limit, offset, pageNumber, pageSize);
+        //TransfersList response = api.listByTransferId(transferId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 

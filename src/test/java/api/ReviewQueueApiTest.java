@@ -14,14 +14,7 @@
 package api;
 
 import invoker.ApiException;
-import model.Error401Unauthorized;
-import model.Error403ForbiddenList;
-import model.Error404NotFoundList;
-import model.Error406NotAcceptable;
-import model.Error422InvalidFieldList;
-import model.ErrorGeneric;
-import model.ReviewQueueItem;
-import model.ReviewQueueItemsList;
+import model.*;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -76,7 +69,7 @@ public class ReviewQueueApiTest {
         String id = null;
         String application = null;
 
-        ReviewQueueItemsList response = api.list(entityType, id, application);
+        ReviewQueueItemsList response = api.list(ListReviewQueueItemsQueryParams.builder().build());
         // TODO: test validations
     }
 

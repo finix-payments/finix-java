@@ -166,7 +166,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
             /**
             * Create a Merchant
-            * Create a &#x60;Merchant&#x60; to start the underwriting process for your merchant. &#x60;Merchants&#x60; must be created under an [&#x60;Identity&#x60;](#tag/Identities).  &#x60;Merchant&#x60; resources can have three possible &#x60;onboarding_states&#x60;:  1. **PROVISIONING**: The request is pending (the state may change after two minutes).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**  1. **APPROVED**: The &#x60;Merchant&#x60; has been approved and can begin processing payments.     * &#x60;processing_enabled&#x60;: **True**    * &#x60;settlement_enabled&#x60;: **True**  1. **REJECTED**: The &#x60;Merchant&#x60; was rejected by the processor because of invalid information or it failed a regulatory and/or compliance check (e.g. KYC, OFAC, or MATCH).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**   &gt; Provisioning a &#x60;Merchant&#x60; account is an asynchronous request. We recommend creating a [&#x60;Webhook&#x60;](#tag/Webhooks) to listen for the state change.
+            * Create a &#x60;Merchant&#x60; to start the underwriting process for your merchant. &#x60;Merchants&#x60; must be created under an [&#x60;Identity&#x60;](#tag/Identities).  &gt; A bank account must be associated with the previously created &#x60;Identity&#x60; before a &#x60;Merchant&#x60; can be succefully onboarded and verified.  &#x60;Merchant&#x60; resources can have three possible &#x60;onboarding_states&#x60;:  1. **PROVISIONING**: The request is pending (the state may change after two minutes).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**  1. **APPROVED**: The &#x60;Merchant&#x60; has been approved and can begin processing payments.     * &#x60;processing_enabled&#x60;: **True**    * &#x60;settlement_enabled&#x60;: **True**  1. **REJECTED**: The &#x60;Merchant&#x60; was rejected by the processor because of invalid information or it failed a regulatory and/or compliance check (e.g. KYC, OFAC, or MATCH). Make any changes that are needed, and [try verifying the &#x60;Merchant&#x60; again](#operation/createMerchantVerification).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**   &gt; Provisioning a &#x60;Merchant&#x60; account is an asynchronous request. We recommend creating a [&#x60;Webhook&#x60;](#tag/Webhooks) to listen for the state change.
                 * @param identityId ID of &#x60;Identity&#x60; to fetch. (required)
                 * @param createMerchantUnderwritingRequest  (optional)
                 * @return Merchant
@@ -190,7 +190,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Create a Merchant
-        * Create a &#x60;Merchant&#x60; to start the underwriting process for your merchant. &#x60;Merchants&#x60; must be created under an [&#x60;Identity&#x60;](#tag/Identities).  &#x60;Merchant&#x60; resources can have three possible &#x60;onboarding_states&#x60;:  1. **PROVISIONING**: The request is pending (the state may change after two minutes).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**  1. **APPROVED**: The &#x60;Merchant&#x60; has been approved and can begin processing payments.     * &#x60;processing_enabled&#x60;: **True**    * &#x60;settlement_enabled&#x60;: **True**  1. **REJECTED**: The &#x60;Merchant&#x60; was rejected by the processor because of invalid information or it failed a regulatory and/or compliance check (e.g. KYC, OFAC, or MATCH).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**   &gt; Provisioning a &#x60;Merchant&#x60; account is an asynchronous request. We recommend creating a [&#x60;Webhook&#x60;](#tag/Webhooks) to listen for the state change.
+        * Create a &#x60;Merchant&#x60; to start the underwriting process for your merchant. &#x60;Merchants&#x60; must be created under an [&#x60;Identity&#x60;](#tag/Identities).  &gt; A bank account must be associated with the previously created &#x60;Identity&#x60; before a &#x60;Merchant&#x60; can be succefully onboarded and verified.  &#x60;Merchant&#x60; resources can have three possible &#x60;onboarding_states&#x60;:  1. **PROVISIONING**: The request is pending (the state may change after two minutes).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**  1. **APPROVED**: The &#x60;Merchant&#x60; has been approved and can begin processing payments.     * &#x60;processing_enabled&#x60;: **True**    * &#x60;settlement_enabled&#x60;: **True**  1. **REJECTED**: The &#x60;Merchant&#x60; was rejected by the processor because of invalid information or it failed a regulatory and/or compliance check (e.g. KYC, OFAC, or MATCH). Make any changes that are needed, and [try verifying the &#x60;Merchant&#x60; again](#operation/createMerchantVerification).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**   &gt; Provisioning a &#x60;Merchant&#x60; account is an asynchronous request. We recommend creating a [&#x60;Webhook&#x60;](#tag/Webhooks) to listen for the state change.
             * @param identityId ID of &#x60;Identity&#x60; to fetch. (required)
             * @param createMerchantUnderwritingRequest  (optional)
         * @return ApiResponse&lt;Merchant&gt;
@@ -215,7 +215,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Create a Merchant (asynchronously)
-        * Create a &#x60;Merchant&#x60; to start the underwriting process for your merchant. &#x60;Merchants&#x60; must be created under an [&#x60;Identity&#x60;](#tag/Identities).  &#x60;Merchant&#x60; resources can have three possible &#x60;onboarding_states&#x60;:  1. **PROVISIONING**: The request is pending (the state may change after two minutes).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**  1. **APPROVED**: The &#x60;Merchant&#x60; has been approved and can begin processing payments.     * &#x60;processing_enabled&#x60;: **True**    * &#x60;settlement_enabled&#x60;: **True**  1. **REJECTED**: The &#x60;Merchant&#x60; was rejected by the processor because of invalid information or it failed a regulatory and/or compliance check (e.g. KYC, OFAC, or MATCH).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**   &gt; Provisioning a &#x60;Merchant&#x60; account is an asynchronous request. We recommend creating a [&#x60;Webhook&#x60;](#tag/Webhooks) to listen for the state change.
+        * Create a &#x60;Merchant&#x60; to start the underwriting process for your merchant. &#x60;Merchants&#x60; must be created under an [&#x60;Identity&#x60;](#tag/Identities).  &gt; A bank account must be associated with the previously created &#x60;Identity&#x60; before a &#x60;Merchant&#x60; can be succefully onboarded and verified.  &#x60;Merchant&#x60; resources can have three possible &#x60;onboarding_states&#x60;:  1. **PROVISIONING**: The request is pending (the state may change after two minutes).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**  1. **APPROVED**: The &#x60;Merchant&#x60; has been approved and can begin processing payments.     * &#x60;processing_enabled&#x60;: **True**    * &#x60;settlement_enabled&#x60;: **True**  1. **REJECTED**: The &#x60;Merchant&#x60; was rejected by the processor because of invalid information or it failed a regulatory and/or compliance check (e.g. KYC, OFAC, or MATCH). Make any changes that are needed, and [try verifying the &#x60;Merchant&#x60; again](#operation/createMerchantVerification).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**   &gt; Provisioning a &#x60;Merchant&#x60; account is an asynchronous request. We recommend creating a [&#x60;Webhook&#x60;](#tag/Webhooks) to listen for the state change.
             * @param identityId ID of &#x60;Identity&#x60; to fetch. (required)
             * @param createMerchantUnderwritingRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
@@ -531,324 +531,6 @@ this.localCustomBaseUrl = customBaseUrl;
 
         okhttp3.Call localVarCall = getMerchantValidateBeforeCall(merchantId, _callback);
     Type localVarReturnType = new TypeToken<Merchant>(){}.getType();
-        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-        }
-    /**
-    * Build call for listApplicationMerchants
-        * @param applicationId ID of application to use (required)
-    * @param _callback Callback for upload/download progress
-    * @return Call to execute
-    * @throws ApiException If fail to serialize the request body object
-        * @http.response.details
-        <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                <tr><td> 200 </td><td> List of Merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-        </table>
-    */
-    public okhttp3.Call listApplicationMerchantsCall(String applicationId, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {  };
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
-
-    Object localVarPostBody = null;
-
-    // create path and map variables
-        String localVarPath = "/applications/{application_id}/merchants"
-            .replaceAll("\\{" + "application_id" + "\\}", localVarFinixClient.escapeString(applicationId.toString()));
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-    "application/hal+json"
-        };
-        final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-    
-        };
-        final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
-        return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
-
-        @SuppressWarnings("rawtypes")
-        private okhttp3.Call listApplicationMerchantsValidateBeforeCall(String applicationId, final ApiCallback _callback) throws ApiException {
-        
-                // verify the required parameter 'applicationId' is set
-                if (applicationId == null) {
-                throw new ApiException("Missing the required parameter 'applicationId' when calling listApplicationMerchants(Async)");
-                }
-        
-
-            okhttp3.Call localVarCall = listApplicationMerchantsCall(applicationId, _callback);
-            return localVarCall;
-
-        }
-
-            /**
-            * List Application Merchants
-            * Return a collection of merchants, if there are no merchants, an empty collection will be returned. 
-                * @param applicationId ID of application to use (required)
-                * @return MerchantsList
-            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of Merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                </table>
-            */
-                public MerchantsList listByApplicationId(String applicationId) throws ApiException {
-            ApiResponse<MerchantsList> localVarResp = listApplicationMerchantsWithHttpInfo(applicationId);
-                    return localVarResp.getData();
-                }
-
-    /**
-        * List Application Merchants
-        * Return a collection of merchants, if there are no merchants, an empty collection will be returned. 
-            * @param applicationId ID of application to use (required)
-        * @return ApiResponse&lt;MerchantsList&gt;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public ApiResponse<MerchantsList> listApplicationMerchantsWithHttpInfo(String applicationId) throws ApiException {
-        okhttp3.Call localVarCall = listApplicationMerchantsValidateBeforeCall(applicationId, null);
-                Type localVarReturnType = new TypeToken<MerchantsList>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
-
-    /**
-        * List Application Merchants (asynchronously)
-        * Return a collection of merchants, if there are no merchants, an empty collection will be returned. 
-            * @param applicationId ID of application to use (required)
-        * @param _callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public okhttp3.Call listApplicationMerchantsAsync(String applicationId, final ApiCallback<MerchantsList> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listApplicationMerchantsValidateBeforeCall(applicationId, _callback);
-    Type localVarReturnType = new TypeToken<MerchantsList>(){}.getType();
-        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-        }
-    /**
-    * Build call for listIdentityMerchants
-        * @param identityId ID of &#x60;Identity&#x60; to fetch. (required)
-        * @param limit The number of entries to return. (optional)
-        * @param offset The number of items to skip before starting to collect the result set. (optional)
-        * @param pageNumber The page number to list. (optional)
-        * @param pageSize The size of the page. (optional)
-    * @param _callback Callback for upload/download progress
-    * @return Call to execute
-    * @throws ApiException If fail to serialize the request body object
-        * @http.response.details
-        <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                <tr><td> 200 </td><td> List of Merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-        </table>
-    */
-    public okhttp3.Call listIdentityMerchantsCall(String identityId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {  };
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
-
-    Object localVarPostBody = null;
-
-    // create path and map variables
-        String localVarPath = "/identities/{identity_id}/merchants"
-            .replaceAll("\\{" + "identity_id" + "\\}", localVarFinixClient.escapeString(identityId.toString()));
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-                if (limit != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("limit", limit));
-                }
-
-                if (offset != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("offset", offset));
-                }
-
-                if (pageNumber != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageNumber", pageNumber));
-                }
-
-                if (pageSize != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageSize", pageSize));
-                }
-
-        final String[] localVarAccepts = {
-    "application/hal+json"
-        };
-        final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-    
-        };
-        final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
-        return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
-
-        @SuppressWarnings("rawtypes")
-        private okhttp3.Call listIdentityMerchantsValidateBeforeCall(String identityId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback _callback) throws ApiException {
-        
-                // verify the required parameter 'identityId' is set
-                if (identityId == null) {
-                throw new ApiException("Missing the required parameter 'identityId' when calling listIdentityMerchants(Async)");
-                }
-        
-
-            okhttp3.Call localVarCall = listIdentityMerchantsCall(identityId, limit, offset, pageNumber, pageSize, _callback);
-            return localVarCall;
-
-        }
-
-            /**
-            * List Identity Merchants
-            * Get all merchants associated to this identity
-                * @param identityId ID of &#x60;Identity&#x60; to fetch. (required)
-                * @param limit The number of entries to return. (optional)
-                * @param offset The number of items to skip before starting to collect the result set. (optional)
-                * @param pageNumber The page number to list. (optional)
-                * @param pageSize The size of the page. (optional)
-                * @return MerchantsList
-            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of Merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                </table>
-            */
-                public MerchantsList listByIdentityId(String identityId, Long limit, Long offset, Long pageNumber, Long pageSize) throws ApiException {
-            ApiResponse<MerchantsList> localVarResp = listIdentityMerchantsWithHttpInfo(identityId, limit, offset, pageNumber, pageSize);
-                    return localVarResp.getData();
-                }
-
-    /**
-        * List Identity Merchants
-        * Get all merchants associated to this identity
-            * @param identityId ID of &#x60;Identity&#x60; to fetch. (required)
-            * @param limit The number of entries to return. (optional)
-            * @param offset The number of items to skip before starting to collect the result set. (optional)
-            * @param pageNumber The page number to list. (optional)
-            * @param pageSize The size of the page. (optional)
-        * @return ApiResponse&lt;MerchantsList&gt;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public ApiResponse<MerchantsList> listIdentityMerchantsWithHttpInfo(String identityId, Long limit, Long offset, Long pageNumber, Long pageSize) throws ApiException {
-        okhttp3.Call localVarCall = listIdentityMerchantsValidateBeforeCall(identityId, limit, offset, pageNumber, pageSize, null);
-                Type localVarReturnType = new TypeToken<MerchantsList>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
-
-    /**
-        * List Identity Merchants (asynchronously)
-        * Get all merchants associated to this identity
-            * @param identityId ID of &#x60;Identity&#x60; to fetch. (required)
-            * @param limit The number of entries to return. (optional)
-            * @param offset The number of items to skip before starting to collect the result set. (optional)
-            * @param pageNumber The page number to list. (optional)
-            * @param pageSize The size of the page. (optional)
-        * @param _callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Merchants objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public okhttp3.Call listIdentityMerchantsAsync(String identityId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback<MerchantsList> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listIdentityMerchantsValidateBeforeCall(identityId, limit, offset, pageNumber, pageSize, _callback);
-    Type localVarReturnType = new TypeToken<MerchantsList>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
         }
@@ -1218,7 +900,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
             /**
             * Update a Merchant
-            * Update a &#x60;Merchant&#x60; to change the information saved or enable Level 2/3 processing.
+            * Update a &#x60;Merchant&#x60; to change the &#x60;Identity&#x60; information saved with the underlying processor, or enable Level 2/3 processing.
                 * @param merchantId ID of &#x60;Merchant&#x60;. (required)
                 * @param updateMerchantRequest  (optional)
                 * @return Merchant
@@ -1240,7 +922,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Update a Merchant
-        * Update a &#x60;Merchant&#x60; to change the information saved or enable Level 2/3 processing.
+        * Update a &#x60;Merchant&#x60; to change the &#x60;Identity&#x60; information saved with the underlying processor, or enable Level 2/3 processing.
             * @param merchantId ID of &#x60;Merchant&#x60;. (required)
             * @param updateMerchantRequest  (optional)
         * @return ApiResponse&lt;Merchant&gt;
@@ -1263,7 +945,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Update a Merchant (asynchronously)
-        * Update a &#x60;Merchant&#x60; to change the information saved or enable Level 2/3 processing.
+        * Update a &#x60;Merchant&#x60; to change the &#x60;Identity&#x60; information saved with the underlying processor, or enable Level 2/3 processing.
             * @param merchantId ID of &#x60;Merchant&#x60;. (required)
             * @param updateMerchantRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes

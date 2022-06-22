@@ -58,7 +58,9 @@ import invoker.auth.HttpBearerAuth;
 import invoker.auth.ApiKeyAuth;
 
 /**
- * <p>FinixClient class. Gen 1</p>
+ * <p>FinixClient class.</p>
+ * <p>Edited</p>
+ * <p>Name changed from ApiClient to FinixClient</p>
  */
 public class FinixClient {
 
@@ -101,7 +103,7 @@ public class FinixClient {
     * EDITED
     * Basic constructor for FinixClient
     * To Set BasePath of server
-    *  Api Initialization for FinixClient
+    * Api Initialization for FinixClient
     */
     public FinixClient(String username, String password, Environment environment) {
         init();

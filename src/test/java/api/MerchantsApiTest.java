@@ -47,6 +47,7 @@ public class MerchantsApiTest {
      */
     @Test
     @BeforeAll
+    @DisplayName("Finix Client")
     void contextLoads() {
         finixClient = new FinixClient("UStxEci4vXxGDWLQhNvao7YY", "25038781-2369-4113-8187-34780e91052e", Environment.SANDBOX);
         assertEquals(true, finixClient != null);
@@ -67,10 +68,12 @@ public class MerchantsApiTest {
     //@Test
     @DisplayName("Provision a Merchant")
     public void createMerchantTest() throws ApiException {
+        Map<String,String> localMap = new HashMap<>();
+        localMap.put("key_2", "value_2");
         String identityId = "IDqVFvfhjuzZvA45tTrrTmva";
         CreateMerchantUnderwritingRequest createMerchantUnderwritingRequest = CreateMerchantUnderwritingRequest.builder()
                 .processor("DUMMY_V1")
-                .tags(Map.of("key_2", "value_2"))
+                .tags(localMap)
                 .build();
         Merchant response = finixClient.Merchants.create(identityId, createMerchantUnderwritingRequest);
     }
@@ -131,7 +134,7 @@ public class MerchantsApiTest {
     public void listApplicationMerchantsTest() throws ApiException {
         String applicationId = null;
 
-        MerchantsList response = finixClient.Merchants.listByApplicationId(applicationId);
+       // MerchantsList response = finixClient.Merchants.listByApplicationId(applicationId);
         // TODO: test validations
     }
 
@@ -155,7 +158,7 @@ public class MerchantsApiTest {
         Long pageNumber = null;
         Long pageSize = null;
 
-        MerchantsList response = finixClient.Merchants.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
+        //MerchantsList response = finixClient.Merchants.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 

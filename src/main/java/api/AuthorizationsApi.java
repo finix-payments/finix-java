@@ -159,7 +159,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
             /**
             * Create an Authorization
-            * Create an &#x60;Authorization&#x60; to process a transaction.  &#x60;Authorizations&#x60; can have two possible &#x60;states&#x60;:  - **SUCCEEDED**  - **FAILED**  If the &#x60;Authorization&#x60; has **SUCCEEDED** , it must be captured before &#x60;expires_at&#x60; passes or the funds will be released.  Learn how to prevent duplicate authorizations by passing an [Idempotency ID](#section/Idempotency-Requests) in the payload.
+            * Create an &#x60;Authorization&#x60; to process a transaction.  &#x60;Authorizations&#x60; can have two possible &#x60;states&#x60;:  - **SUCCEEDED**  - **FAILED**  If the &#x60;Authorization&#x60; has **SUCCEEDED** , it must be captured before &#x60;expires_at&#x60; passes or the funds will be released.  Learn how to prevent duplicate authorizations by passing an [Idempotency ID](#section/Idempotency-Requests) in the payload.  - 3D Secure is also available to authenticate transactions. 3D Secure lets you authenticate a transaction by having the cardholder authenticate with their issuing bank. By enabling 3D Secure, you shift the liability of a chargeback from the merchant to the issuing bank. The integration requires a 3D Secure vendor to generate the values needed for &#x60;3d_secure_authentication&#x60;.
                 * @param createAuthorizationRequest  (optional)
                 * @return Authorization
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -183,7 +183,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Create an Authorization
-        * Create an &#x60;Authorization&#x60; to process a transaction.  &#x60;Authorizations&#x60; can have two possible &#x60;states&#x60;:  - **SUCCEEDED**  - **FAILED**  If the &#x60;Authorization&#x60; has **SUCCEEDED** , it must be captured before &#x60;expires_at&#x60; passes or the funds will be released.  Learn how to prevent duplicate authorizations by passing an [Idempotency ID](#section/Idempotency-Requests) in the payload.
+        * Create an &#x60;Authorization&#x60; to process a transaction.  &#x60;Authorizations&#x60; can have two possible &#x60;states&#x60;:  - **SUCCEEDED**  - **FAILED**  If the &#x60;Authorization&#x60; has **SUCCEEDED** , it must be captured before &#x60;expires_at&#x60; passes or the funds will be released.  Learn how to prevent duplicate authorizations by passing an [Idempotency ID](#section/Idempotency-Requests) in the payload.  - 3D Secure is also available to authenticate transactions. 3D Secure lets you authenticate a transaction by having the cardholder authenticate with their issuing bank. By enabling 3D Secure, you shift the liability of a chargeback from the merchant to the issuing bank. The integration requires a 3D Secure vendor to generate the values needed for &#x60;3d_secure_authentication&#x60;.
             * @param createAuthorizationRequest  (optional)
         * @return ApiResponse&lt;Authorization&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -208,7 +208,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Create an Authorization (asynchronously)
-        * Create an &#x60;Authorization&#x60; to process a transaction.  &#x60;Authorizations&#x60; can have two possible &#x60;states&#x60;:  - **SUCCEEDED**  - **FAILED**  If the &#x60;Authorization&#x60; has **SUCCEEDED** , it must be captured before &#x60;expires_at&#x60; passes or the funds will be released.  Learn how to prevent duplicate authorizations by passing an [Idempotency ID](#section/Idempotency-Requests) in the payload.
+        * Create an &#x60;Authorization&#x60; to process a transaction.  &#x60;Authorizations&#x60; can have two possible &#x60;states&#x60;:  - **SUCCEEDED**  - **FAILED**  If the &#x60;Authorization&#x60; has **SUCCEEDED** , it must be captured before &#x60;expires_at&#x60; passes or the funds will be released.  Learn how to prevent duplicate authorizations by passing an [Idempotency ID](#section/Idempotency-Requests) in the payload.  - 3D Secure is also available to authenticate transactions. 3D Secure lets you authenticate a transaction by having the cardholder authenticate with their issuing bank. By enabling 3D Secure, you shift the liability of a chargeback from the merchant to the issuing bank. The integration requires a 3D Secure vendor to generate the values needed for &#x60;3d_secure_authentication&#x60;.
             * @param createAuthorizationRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
@@ -373,149 +373,6 @@ this.localCustomBaseUrl = customBaseUrl;
 
         okhttp3.Call localVarCall = getAuthorizationValidateBeforeCall(authorizationId, _callback);
     Type localVarReturnType = new TypeToken<Authorization>(){}.getType();
-        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-        }
-    /**
-    * Build call for listApplicationAuthorizations
-        * @param applicationId ID of application to use (required)
-    * @param _callback Callback for upload/download progress
-    * @return Call to execute
-    * @throws ApiException If fail to serialize the request body object
-        * @http.response.details
-        <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-        </table>
-    */
-    public okhttp3.Call listApplicationAuthorizationsCall(String applicationId, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {  };
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
-
-    Object localVarPostBody = null;
-
-    // create path and map variables
-        String localVarPath = "/applications/{application_id}/authorizations"
-            .replaceAll("\\{" + "application_id" + "\\}", localVarFinixClient.escapeString(applicationId.toString()));
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-    "application/hal+json"
-        };
-        final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-    
-        };
-        final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
-        return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
-
-        @SuppressWarnings("rawtypes")
-        private okhttp3.Call listApplicationAuthorizationsValidateBeforeCall(String applicationId, final ApiCallback _callback) throws ApiException {
-        
-                // verify the required parameter 'applicationId' is set
-                if (applicationId == null) {
-                throw new ApiException("Missing the required parameter 'applicationId' when calling listApplicationAuthorizations(Async)");
-                }
-        
-
-            okhttp3.Call localVarCall = listApplicationAuthorizationsCall(applicationId, _callback);
-            return localVarCall;
-
-        }
-
-            /**
-            * List Application Authorizations
-            * Return a collection of authorizations, if there are no authorizations, an empty collection will be returned. 
-                * @param applicationId ID of application to use (required)
-                * @return AuthorizationsList
-            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                </table>
-            */
-                public AuthorizationsList listByApplicationId(String applicationId) throws ApiException {
-            ApiResponse<AuthorizationsList> localVarResp = listApplicationAuthorizationsWithHttpInfo(applicationId);
-                    return localVarResp.getData();
-                }
-
-    /**
-        * List Application Authorizations
-        * Return a collection of authorizations, if there are no authorizations, an empty collection will be returned. 
-            * @param applicationId ID of application to use (required)
-        * @return ApiResponse&lt;AuthorizationsList&gt;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public ApiResponse<AuthorizationsList> listApplicationAuthorizationsWithHttpInfo(String applicationId) throws ApiException {
-        okhttp3.Call localVarCall = listApplicationAuthorizationsValidateBeforeCall(applicationId, null);
-                Type localVarReturnType = new TypeToken<AuthorizationsList>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
-
-    /**
-        * List Application Authorizations (asynchronously)
-        * Return a collection of authorizations, if there are no authorizations, an empty collection will be returned. 
-            * @param applicationId ID of application to use (required)
-        * @param _callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public okhttp3.Call listApplicationAuthorizationsAsync(String applicationId, final ApiCallback<AuthorizationsList> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listApplicationAuthorizationsValidateBeforeCall(applicationId, _callback);
-    Type localVarReturnType = new TypeToken<AuthorizationsList>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
         }
@@ -1154,348 +1011,6 @@ this.localCustomBaseUrl = customBaseUrl;
 
     }
     /**
-    * Build call for listIdentityAuthorizations
-        * @param identityId ID of identity to fetch (required)
-        * @param limit The number of entries to return. (optional)
-        * @param afterCursor Return every resource created after the cursor value. (optional)
-        * @param beforeCursor Return every resource created before the cursor value. (optional)
-    * @param _callback Callback for upload/download progress
-    * @return Call to execute
-    * @throws ApiException If fail to serialize the request body object
-        * @http.response.details
-        <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-        </table>
-    */
-    public okhttp3.Call listIdentityAuthorizationsCall(String identityId, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {  };
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
-
-    Object localVarPostBody = null;
-
-    // create path and map variables
-        String localVarPath = "/identities/{identity_id}/authorizations"
-            .replaceAll("\\{" + "identity_id" + "\\}", localVarFinixClient.escapeString(identityId.toString()));
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-                if (limit != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("limit", limit));
-                }
-
-                if (afterCursor != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("after_cursor", afterCursor));
-                }
-
-                if (beforeCursor != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("before_cursor", beforeCursor));
-                }
-
-        final String[] localVarAccepts = {
-    "application/hal+json"
-        };
-        final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-    
-        };
-        final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
-        return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
-
-        @SuppressWarnings("rawtypes")
-        private okhttp3.Call listIdentityAuthorizationsValidateBeforeCall(String identityId, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
-        
-                // verify the required parameter 'identityId' is set
-                if (identityId == null) {
-                throw new ApiException("Missing the required parameter 'identityId' when calling listIdentityAuthorizations(Async)");
-                }
-        
-
-            okhttp3.Call localVarCall = listIdentityAuthorizationsCall(identityId, limit, afterCursor, beforeCursor, _callback);
-            return localVarCall;
-
-        }
-
-            /**
-            * List Identity Authorizations
-            * All authorizations associated to this identity
-                * @param identityId ID of identity to fetch (required)
-                * @param limit The number of entries to return. (optional)
-                * @param afterCursor Return every resource created after the cursor value. (optional)
-                * @param beforeCursor Return every resource created before the cursor value. (optional)
-                * @return AuthorizationsList
-            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                </table>
-            */
-                public AuthorizationsList listByIdentityId(String identityId, Long limit, String afterCursor, String beforeCursor) throws ApiException {
-            ApiResponse<AuthorizationsList> localVarResp = listIdentityAuthorizationsWithHttpInfo(identityId, limit, afterCursor, beforeCursor);
-                    return localVarResp.getData();
-                }
-
-    /**
-        * List Identity Authorizations
-        * All authorizations associated to this identity
-            * @param identityId ID of identity to fetch (required)
-            * @param limit The number of entries to return. (optional)
-            * @param afterCursor Return every resource created after the cursor value. (optional)
-            * @param beforeCursor Return every resource created before the cursor value. (optional)
-        * @return ApiResponse&lt;AuthorizationsList&gt;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public ApiResponse<AuthorizationsList> listIdentityAuthorizationsWithHttpInfo(String identityId, Long limit, String afterCursor, String beforeCursor) throws ApiException {
-        okhttp3.Call localVarCall = listIdentityAuthorizationsValidateBeforeCall(identityId, limit, afterCursor, beforeCursor, null);
-                Type localVarReturnType = new TypeToken<AuthorizationsList>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
-
-    /**
-        * List Identity Authorizations (asynchronously)
-        * All authorizations associated to this identity
-            * @param identityId ID of identity to fetch (required)
-            * @param limit The number of entries to return. (optional)
-            * @param afterCursor Return every resource created after the cursor value. (optional)
-            * @param beforeCursor Return every resource created before the cursor value. (optional)
-        * @param _callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public okhttp3.Call listIdentityAuthorizationsAsync(String identityId, Long limit, String afterCursor, String beforeCursor, final ApiCallback<AuthorizationsList> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listIdentityAuthorizationsValidateBeforeCall(identityId, limit, afterCursor, beforeCursor, _callback);
-    Type localVarReturnType = new TypeToken<AuthorizationsList>(){}.getType();
-        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-        }
-    /**
-    * Build call for listPaymentInstrumentAuthorizations
-        * @param paymentInstrumentId ID of object (required)
-        * @param limit The number of entries to return. (optional)
-        * @param offset The number of items to skip before starting to collect the result set. (optional)
-        * @param pageNumber The page number to list. (optional)
-        * @param pageSize The size of the page. (optional)
-    * @param _callback Callback for upload/download progress
-    * @return Call to execute
-    * @throws ApiException If fail to serialize the request body object
-        * @http.response.details
-        <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-        </table>
-    */
-    public okhttp3.Call listPaymentInstrumentAuthorizationsCall(String paymentInstrumentId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {  };
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
-
-    Object localVarPostBody = null;
-
-    // create path and map variables
-        String localVarPath = "/payment_instruments/{payment_instrument_id}/authorizations"
-            .replaceAll("\\{" + "payment_instrument_id" + "\\}", localVarFinixClient.escapeString(paymentInstrumentId.toString()));
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-                if (limit != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("limit", limit));
-                }
-
-                if (offset != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("offset", offset));
-                }
-
-                if (pageNumber != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageNumber", pageNumber));
-                }
-
-                if (pageSize != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageSize", pageSize));
-                }
-
-        final String[] localVarAccepts = {
-    "application/hal+json"
-        };
-        final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-    
-        };
-        final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
-        return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
-
-        @SuppressWarnings("rawtypes")
-        private okhttp3.Call listPaymentInstrumentAuthorizationsValidateBeforeCall(String paymentInstrumentId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback _callback) throws ApiException {
-        
-                // verify the required parameter 'paymentInstrumentId' is set
-                if (paymentInstrumentId == null) {
-                throw new ApiException("Missing the required parameter 'paymentInstrumentId' when calling listPaymentInstrumentAuthorizations(Async)");
-                }
-        
-
-            okhttp3.Call localVarCall = listPaymentInstrumentAuthorizationsCall(paymentInstrumentId, limit, offset, pageNumber, pageSize, _callback);
-            return localVarCall;
-
-        }
-
-            /**
-            * List Payment Instrument Authorizations
-            * Get list of all the transfers in the payment instrument object
-                * @param paymentInstrumentId ID of object (required)
-                * @param limit The number of entries to return. (optional)
-                * @param offset The number of items to skip before starting to collect the result set. (optional)
-                * @param pageNumber The page number to list. (optional)
-                * @param pageSize The size of the page. (optional)
-                * @return AuthorizationsList
-            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                </table>
-            */
-                public AuthorizationsList listByPaymentInstrumentId(String paymentInstrumentId, Long limit, Long offset, Long pageNumber, Long pageSize) throws ApiException {
-            ApiResponse<AuthorizationsList> localVarResp = listPaymentInstrumentAuthorizationsWithHttpInfo(paymentInstrumentId, limit, offset, pageNumber, pageSize);
-                    return localVarResp.getData();
-                }
-
-    /**
-        * List Payment Instrument Authorizations
-        * Get list of all the transfers in the payment instrument object
-            * @param paymentInstrumentId ID of object (required)
-            * @param limit The number of entries to return. (optional)
-            * @param offset The number of items to skip before starting to collect the result set. (optional)
-            * @param pageNumber The page number to list. (optional)
-            * @param pageSize The size of the page. (optional)
-        * @return ApiResponse&lt;AuthorizationsList&gt;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public ApiResponse<AuthorizationsList> listPaymentInstrumentAuthorizationsWithHttpInfo(String paymentInstrumentId, Long limit, Long offset, Long pageNumber, Long pageSize) throws ApiException {
-        okhttp3.Call localVarCall = listPaymentInstrumentAuthorizationsValidateBeforeCall(paymentInstrumentId, limit, offset, pageNumber, pageSize, null);
-                Type localVarReturnType = new TypeToken<AuthorizationsList>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
-
-    /**
-        * List Payment Instrument Authorizations (asynchronously)
-        * Get list of all the transfers in the payment instrument object
-            * @param paymentInstrumentId ID of object (required)
-            * @param limit The number of entries to return. (optional)
-            * @param offset The number of items to skip before starting to collect the result set. (optional)
-            * @param pageNumber The page number to list. (optional)
-            * @param pageSize The size of the page. (optional)
-        * @param _callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Authorization objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public okhttp3.Call listPaymentInstrumentAuthorizationsAsync(String paymentInstrumentId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback<AuthorizationsList> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listPaymentInstrumentAuthorizationsValidateBeforeCall(paymentInstrumentId, limit, offset, pageNumber, pageSize, _callback);
-    Type localVarReturnType = new TypeToken<AuthorizationsList>(){}.getType();
-        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-        }
-    /**
     * Build call for putAuthorization
         * @param authorizationId ID of authorization to fetch (required)
         * @param updateAuthorizationRequest  (optional)
@@ -1574,7 +1089,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
             /**
             * Update an Authorization
-            * If successful, the transfer field of the &#x60;Authorization&#x60; will contain the ID of the &#x60;Transfer&#x60; resource that&#39;ll move funds.   By default, &#x60;Transfers&#x60; are in a **PENDING** state. The **PENDING** state means the system hasn&#39;t submitted the request to capture funds. Capture requests get submitted via batch request.   Once the &#x60;Authorization&#x60; is updated with a &#x60;capture_amount&#x60; (i.e. *Captured*), the state of the &#x60;Transfer&#x60; will update to **SUCCEEDED**.
+            * If successfully captured, the &#x60;transfer&#x60; field of the &#x60;Authorization&#x60; will contain the ID of the &#x60;Transfer&#x60; resource that&#39;ll move funds.   By default, &#x60;Transfers&#x60; are in a **PENDING** state. The **PENDING** state means the system hasn&#39;t submitted the request to capture funds. Capture requests get submitted via a batch request.   Once the &#x60;Authorization&#x60; is updated with a &#x60;capture_amount&#x60; (i.e. *Captured*), the state of the &#x60;Transfer&#x60; will update to **SUCCEEDED**.  &gt; Voided &#x60;Authorizations&#x60; can&#39;t be captured.
                 * @param authorizationId ID of authorization to fetch (required)
                 * @param updateAuthorizationRequest  (optional)
                 * @return Authorization
@@ -1596,7 +1111,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Update an Authorization
-        * If successful, the transfer field of the &#x60;Authorization&#x60; will contain the ID of the &#x60;Transfer&#x60; resource that&#39;ll move funds.   By default, &#x60;Transfers&#x60; are in a **PENDING** state. The **PENDING** state means the system hasn&#39;t submitted the request to capture funds. Capture requests get submitted via batch request.   Once the &#x60;Authorization&#x60; is updated with a &#x60;capture_amount&#x60; (i.e. *Captured*), the state of the &#x60;Transfer&#x60; will update to **SUCCEEDED**.
+        * If successfully captured, the &#x60;transfer&#x60; field of the &#x60;Authorization&#x60; will contain the ID of the &#x60;Transfer&#x60; resource that&#39;ll move funds.   By default, &#x60;Transfers&#x60; are in a **PENDING** state. The **PENDING** state means the system hasn&#39;t submitted the request to capture funds. Capture requests get submitted via a batch request.   Once the &#x60;Authorization&#x60; is updated with a &#x60;capture_amount&#x60; (i.e. *Captured*), the state of the &#x60;Transfer&#x60; will update to **SUCCEEDED**.  &gt; Voided &#x60;Authorizations&#x60; can&#39;t be captured.
             * @param authorizationId ID of authorization to fetch (required)
             * @param updateAuthorizationRequest  (optional)
         * @return ApiResponse&lt;Authorization&gt;
@@ -1619,7 +1134,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Update an Authorization (asynchronously)
-        * If successful, the transfer field of the &#x60;Authorization&#x60; will contain the ID of the &#x60;Transfer&#x60; resource that&#39;ll move funds.   By default, &#x60;Transfers&#x60; are in a **PENDING** state. The **PENDING** state means the system hasn&#39;t submitted the request to capture funds. Capture requests get submitted via batch request.   Once the &#x60;Authorization&#x60; is updated with a &#x60;capture_amount&#x60; (i.e. *Captured*), the state of the &#x60;Transfer&#x60; will update to **SUCCEEDED**.
+        * If successfully captured, the &#x60;transfer&#x60; field of the &#x60;Authorization&#x60; will contain the ID of the &#x60;Transfer&#x60; resource that&#39;ll move funds.   By default, &#x60;Transfers&#x60; are in a **PENDING** state. The **PENDING** state means the system hasn&#39;t submitted the request to capture funds. Capture requests get submitted via a batch request.   Once the &#x60;Authorization&#x60; is updated with a &#x60;capture_amount&#x60; (i.e. *Captured*), the state of the &#x60;Transfer&#x60; will update to **SUCCEEDED**.  &gt; Voided &#x60;Authorizations&#x60; can&#39;t be captured.
             * @param authorizationId ID of authorization to fetch (required)
             * @param updateAuthorizationRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes

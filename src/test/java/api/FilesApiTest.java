@@ -54,6 +54,7 @@ public class FilesApiTest {
      */
     @Test
     @BeforeAll
+    @DisplayName("Finix Client")
     void contextLoads() {
         finixClient= new FinixClient("USsRhsHYZGBPnQw8CByJyEQW","8a14c2f9-d94b-4c72-8f5c-a62908e5b30e", Environment.SANDBOX);
         assertEquals(true , finixClient!=null);
@@ -100,11 +101,13 @@ public class FilesApiTest {
     @DisplayName("Create a File")
     @BeforeAll
     public void createFilesTest() throws ApiException {
+        Map<String,String> localMap = new HashMap<>();
+        localMap.put("key_1", "value_1");
         CreateFileRequest createFileRequest = CreateFileRequest.builder()
                 .displayName("My Drivers License")
                 .linkedTo("MU2n7BSovtwYsWYZF6rBnnzk")
                 .type(DRIVERS_LICENSE_FRONT)
-                .tags(Map.of("key_1", "value_1"))
+                .tags(localMap)
                 .build();
         ModelFile response = finixClient.filesApi.create(createFileRequest);
         localFileId=response.getId();

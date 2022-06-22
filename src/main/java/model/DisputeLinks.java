@@ -53,7 +53,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-21T11:54:05.123637-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T18:15:18.047423-05:00[America/Chicago]")
 public class DisputeLinks {
   public static final String SERIALIZED_NAME_ADJUSTMENT_TRANSFERS = "adjustment_transfers";
   @SerializedName(SERIALIZED_NAME_ADJUSTMENT_TRANSFERS)

@@ -33,7 +33,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @DisplayName("When Running PaymentInstrumentsApiTest")
-
 public class PaymentInstrumentsApiTest {
     private FinixClient finixClient;
     private TestInfo testInfo;
@@ -49,6 +48,7 @@ public class PaymentInstrumentsApiTest {
      */
     @Test
     @BeforeAll
+    @DisplayName("Finix Client")
     void contextLoads() {
         finixClient= new FinixClient("USsRhsHYZGBPnQw8CByJyEQW","8a14c2f9-d94b-4c72-8f5c-a62908e5b30e", Environment.SANDBOX);
         assertEquals(true , finixClient!=null);
@@ -94,10 +94,12 @@ public class PaymentInstrumentsApiTest {
     @Test
     @DisplayName("Create a Payment Instrument")
     public void createPaymentInstrumentTest() throws ApiException, IOException {
+        Map<String,String> localMap = new HashMap<>();
+        localMap.put("card_name", "Business Card");
         CreatePaymentInstrumentRequest createPaymentInstrumentRequest =  CreatePaymentInstrumentRequest.builder()
                 .name("Amy White")
                 .expirationYear(2029l)
-                .tags(Map.of("card_name", "Business Card"))
+                .tags(localMap)
                 .number("4895142232120006")
                 .expirationMonth(12l)
                 .address(CreatePaymentInstrumentRequestAddress.builder()
@@ -121,11 +123,12 @@ public class PaymentInstrumentsApiTest {
     @Test
     @DisplayName("Create a Bank Account")
     public void createBankAccount() throws ApiException{
-        // Create
+        Map<String,String> localMap = new HashMap<>();
+        localMap.put("Bank Account", "Company Account");
         CreatePaymentInstrumentRequest createPaymentInstrumentRequest =  CreatePaymentInstrumentRequest.builder()
                 .accountType(CreatePaymentInstrumentRequest.AccountTypeEnum.CHECKING)
                 .name("Alice")
-                .tags(Map.of("Bank Account", "Company Account"))
+                .tags(localMap)
                 .country("USA")
                 .bankCode("123123123")
                 .accountNumber("123123123")

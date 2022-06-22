@@ -306,7 +306,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
             /**
-            * Remove a Subscription Amount
+            * Delete a Subscription Amount
             * Delete a previously created &#x60;Subscription Amount&#x60;.
                 * @param subscriptionScheduleId The ID of the &#x60;Subscription Schedule&#x60;. (required)
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -325,7 +325,7 @@ this.localCustomBaseUrl = customBaseUrl;
                 }
 
     /**
-        * Remove a Subscription Amount
+        * Delete a Subscription Amount
         * Delete a previously created &#x60;Subscription Amount&#x60;.
             * @param subscriptionScheduleId The ID of the &#x60;Subscription Schedule&#x60;. (required)
         * @return ApiResponse&lt;Void&gt;
@@ -346,7 +346,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
     /**
-        * Remove a Subscription Amount (asynchronously)
+        * Delete a Subscription Amount (asynchronously)
         * Delete a previously created &#x60;Subscription Amount&#x60;.
             * @param subscriptionScheduleId The ID of the &#x60;Subscription Schedule&#x60;. (required)
         * @param _callback The callback to be executed when the API call finishes

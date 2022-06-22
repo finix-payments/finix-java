@@ -32,7 +32,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @DisplayName("When Running DevicesApiTest")
-//@Disabled
 public class DisputesApiTest {
     private FinixClient finixClient;
     private TestInfo testInfo;
@@ -49,6 +48,7 @@ public class DisputesApiTest {
      */
     @Test
     @BeforeAll
+    @DisplayName("Finix Client")
     void contextLoads() {
         finixClient= new FinixClient("USsRhsHYZGBPnQw8CByJyEQW","8a14c2f9-d94b-4c72-8f5c-a62908e5b30e", Environment.SANDBOX);
         assertEquals(true , finixClient!=null);

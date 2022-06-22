@@ -19,10 +19,7 @@ import invoker.FinixClient;
 import model.*;
 import org.junit.jupiter.api.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -31,8 +28,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @DisplayName("When Running VerificationsApiTest")
-
-@Disabled
 public class VerificationsApiTest {
     private FinixClient finixClient;
     private TestInfo testInfo;
@@ -54,8 +49,6 @@ public class VerificationsApiTest {
         assertEquals(true , finixClient!=null);
 
     }
-    private final VerificationsApi api = new VerificationsApi();
-
     /**
      * Perform a Verification
      *
@@ -68,11 +61,11 @@ public class VerificationsApiTest {
      * Test Function Name Generations from OPENAPI Spec with x-java-method-name
      *
      */
-    @Test
+    //@Test
     public void createVerificationTest() throws ApiException {
         VerificationForm verificationForm = null;
 
-        Verification response = api.create(verificationForm);
+        Verification response = finixClient.Verifications.create(verificationForm);
         // TODO: test validations
     }
 
@@ -88,11 +81,11 @@ public class VerificationsApiTest {
      * Test Function Name Generations from OPENAPI Spec with x-java-method-name
      *
      */
-    @Test
+    //@Test
     public void getVerificationTest() throws ApiException {
-        String verificationId = null;
+        String verificationId = "MU31oiYcWR6Bvx3tqYQ7WEr9";
 
-        Verification response = api.get(verificationId);
+        Verification response = finixClient.Verifications.get(verificationId);
         // TODO: test validations
     }
 
@@ -108,7 +101,7 @@ public class VerificationsApiTest {
      * Test Function Name Generations from OPENAPI Spec with x-java-method-name
      *
      */
-    @Test
+    //@Test
     public void listIdentityVerificationsTest() throws ApiException {
         String identityId = null;
         Long limit = null;
@@ -116,7 +109,7 @@ public class VerificationsApiTest {
         Long pageNumber = null;
         Long pageSize = null;
 
-        VerificationsList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
+       // VerificationsList response = finixClient.Verifications.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 
@@ -132,14 +125,14 @@ public class VerificationsApiTest {
      * Test Function Name Generations from OPENAPI Spec with x-java-method-name
      *
      */
-    @Test
+    //@Test
     public void listMerchantVerificationsTest() throws ApiException {
         String merchantId = null;
         Long limit = null;
         String afterCursor = null;
         String beforeCursor = null;
 
-        VerificationsList response = api.listByMerchantId(merchantId, ListMerchantVerificationsQueryParams.builder()
+        VerificationsList response = finixClient.Verifications.listByMerchantId(merchantId, ListMerchantVerificationsQueryParams.builder()
                 .limit(limit)
                 .afterCursor(afterCursor)
                 .beforeCursor(beforeCursor)
@@ -159,7 +152,7 @@ public class VerificationsApiTest {
      * Test Function Name Generations from OPENAPI Spec with x-java-method-name
      *
      */
-    @Test
+    //@Test
     public void listPaymentInstrumentVerificationsTest() throws ApiException {
         String paymentInstrumentId = null;
         Long limit = null;
@@ -167,7 +160,7 @@ public class VerificationsApiTest {
         Long pageNumber = null;
         Long pageSize = null;
 
-        VerificationsList response = api.listByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize);
+      //  VerificationsList response = finixClient.Verifications.listByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 
@@ -184,13 +177,20 @@ public class VerificationsApiTest {
      *
      */
     @Test
+    @DisplayName("List Verifications")
     public void listVerificationsTest() throws ApiException {
         String id = "MU31oiYcWR6Bvx3tqYQ7WEr9";
 
         VerificationsList response = finixClient.Verifications.list(ListVerificationsQueryParams.builder()
                 .id(id)
                 .build());
-        assertEquals(20,response.getPage().getLimit(),()->"Should return " + "20" + " but returns " + response.getPage().getLimit());
+        //System.out.println(response.getEmbedded().getVerifications().toString());
+        Optional<Verification> verification = response.getEmbedded().getVerifications().stream().findFirst();
+
+       //String rawValue = response.getEmbedded().getVerifications().stream().findFirst().toString();
+        System.out.println(verification.get().getRaw().getString());
+        //RawDummyMerchantUnderwriteResult
+       // assertEquals(20,response.getPage().getLimit(),()->"Should return " + "20" + " but returns " + response.getPage().getLimit());
     }
 
     /**
@@ -205,12 +205,12 @@ public class VerificationsApiTest {
      * Test Function Name Generations from OPENAPI Spec with x-java-method-name
      *
      */
-    @Test
+    //@Test
     public void putVerificationTest() throws ApiException {
         String verificationId = null;
         VerificationForm verificationForm = null;
 
-        Verification response = api.update(verificationId, verificationForm);
+        Verification response = finixClient.Verifications.update(verificationId, verificationForm);
         // TODO: test validations
     }
 

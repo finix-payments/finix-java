@@ -391,7 +391,7 @@ this.localCustomBaseUrl = customBaseUrl;
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
         }
-    private okhttp3.Call listApplicationProcessorsCall(String applicationId, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listApplicationProcessorsCall(String applicationId, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -417,18 +417,6 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-                if (limit != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("limit", limit));
-                }
-
-                if (afterCursor != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("after_cursor", afterCursor));
-                }
-
-                if (beforeCursor != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("before_cursor", beforeCursor));
-                }
-
         final String[] localVarAccepts = {
     "application/hal+json"
         };
@@ -450,7 +438,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call listApplicationProcessorsValidateBeforeCall(String applicationId, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
+        private okhttp3.Call listApplicationProcessorsValidateBeforeCall(String applicationId, final ApiCallback _callback) throws ApiException {
         
                 // verify the required parameter 'applicationId' is set
                 if (applicationId == null) {
@@ -458,21 +446,21 @@ this.localCustomBaseUrl = customBaseUrl;
                 }
         
 
-            okhttp3.Call localVarCall = listApplicationProcessorsCall(applicationId, limit, afterCursor, beforeCursor, _callback);
+            okhttp3.Call localVarCall = listApplicationProcessorsCall(applicationId, _callback);
             return localVarCall;
 
         }
 
 
-    private ApiResponse<ProcessorsList> listApplicationProcessorsWithHttpInfo(String applicationId, Long limit, String afterCursor, String beforeCursor) throws ApiException {
-        okhttp3.Call localVarCall = listApplicationProcessorsValidateBeforeCall(applicationId, limit, afterCursor, beforeCursor, null);
+    private ApiResponse<ProcessorsList> listApplicationProcessorsWithHttpInfo(String applicationId) throws ApiException {
+        okhttp3.Call localVarCall = listApplicationProcessorsValidateBeforeCall(applicationId, null);
                 Type localVarReturnType = new TypeToken<ProcessorsList>(){}.getType();
                 return localVarFinixClient.execute(localVarCall, localVarReturnType);
         }
 
-    private okhttp3.Call listApplicationProcessorsAsync(String applicationId, Long limit, String afterCursor, String beforeCursor, final ApiCallback<ProcessorsList> _callback) throws ApiException {
+    private okhttp3.Call listApplicationProcessorsAsync(String applicationId, final ApiCallback<ProcessorsList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listApplicationProcessorsValidateBeforeCall(applicationId, limit, afterCursor, beforeCursor, _callback);
+        okhttp3.Call localVarCall = listApplicationProcessorsValidateBeforeCall(applicationId, _callback);
     Type localVarReturnType = new TypeToken<ProcessorsList>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -480,43 +468,10 @@ this.localCustomBaseUrl = customBaseUrl;
 
         public class APIlistApplicationProcessorsRequest {
             private final String applicationId;
-            private Long limit;
-            private String afterCursor;
-            private String beforeCursor;
 
         private APIlistApplicationProcessorsRequest(String applicationId) {
             this.applicationId = applicationId;
         }
-
-            /**
-            * Set limit
-            * @param limit The numbers of items to return (optional)
-            * @return APIlistApplicationProcessorsRequest
-            */
-            public APIlistApplicationProcessorsRequest limit(Long limit) {
-            this.limit = limit;
-            return this;
-            }
-
-            /**
-            * Set afterCursor
-            * @param afterCursor Return every resource created after the cursor value. (optional)
-            * @return APIlistApplicationProcessorsRequest
-            */
-            public APIlistApplicationProcessorsRequest afterCursor(String afterCursor) {
-            this.afterCursor = afterCursor;
-            return this;
-            }
-
-            /**
-            * Set beforeCursor
-            * @param beforeCursor Return every resource created before the cursor value. (optional)
-            * @return APIlistApplicationProcessorsRequest
-            */
-            public APIlistApplicationProcessorsRequest beforeCursor(String beforeCursor) {
-            this.beforeCursor = beforeCursor;
-            return this;
-            }
 
         /**
         * Build call for listApplicationProcessors
@@ -534,7 +489,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-        return listApplicationProcessorsCall(applicationId, limit, afterCursor, beforeCursor, _callback);
+        return listApplicationProcessorsCall(applicationId, _callback);
         }
 
         /**
@@ -552,7 +507,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public ProcessorsList execute() throws ApiException {
-    ApiResponse<ProcessorsList> localVarResp = listApplicationProcessorsWithHttpInfo(applicationId, limit, afterCursor, beforeCursor);
+    ApiResponse<ProcessorsList> localVarResp = listApplicationProcessorsWithHttpInfo(applicationId);
             return localVarResp.getData();
         }
 
@@ -571,7 +526,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public ApiResponse<ProcessorsList> executeWithHttpInfo() throws ApiException {
-        return listApplicationProcessorsWithHttpInfo(applicationId, limit, afterCursor, beforeCursor);
+        return listApplicationProcessorsWithHttpInfo(applicationId);
         }
 
         /**
@@ -590,7 +545,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call executeAsync(final ApiCallback<ProcessorsList> _callback) throws ApiException {
-        return listApplicationProcessorsAsync(applicationId, limit, afterCursor, beforeCursor, _callback);
+        return listApplicationProcessorsAsync(applicationId, _callback);
         }
         }
 
@@ -612,163 +567,7 @@ this.localCustomBaseUrl = customBaseUrl;
     public ProcessorsList listByApplicationId(String applicationId,  ListApplicationProcessorsQueryParams listApplicationProcessorsQueryParams) throws ApiException {
 
         APIlistApplicationProcessorsRequest request = new APIlistApplicationProcessorsRequest(applicationId);
-        request.limit(listApplicationProcessorsQueryParams.getLimit());
-        request.afterCursor(listApplicationProcessorsQueryParams.getAfterCursor());
-        request.beforeCursor(listApplicationProcessorsQueryParams.getBeforeCursor());
         return request.execute();
 
     }
-    /**
-    * Build call for updateApplicationProcessor
-        * @param applicationId ID of application to use (required)
-        * @param type Type of &#x60;Processor&#x60;. (required)
-        * @param body  (optional)
-    * @param _callback Callback for upload/download progress
-    * @return Call to execute
-    * @throws ApiException If fail to serialize the request body object
-        * @http.response.details
-        <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                <tr><td> 200 </td><td> Single Processor object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-        </table>
-    */
-    public okhttp3.Call updateApplicationProcessorCall(String applicationId, String type, Object body, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {  };
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
-
-    Object localVarPostBody = body;
-
-    // create path and map variables
-        String localVarPath = "/applications/{application_id}/processors/{type}"
-            .replaceAll("\\{" + "application_id" + "\\}", localVarFinixClient.escapeString(applicationId.toString()))
-            .replaceAll("\\{" + "type" + "\\}", localVarFinixClient.escapeString(type.toString()));
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-    "application/hal+json"
-        };
-        final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-    "application/hal+json"
-        };
-        final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
-        return localVarFinixClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
-
-        @SuppressWarnings("rawtypes")
-        private okhttp3.Call updateApplicationProcessorValidateBeforeCall(String applicationId, String type, Object body, final ApiCallback _callback) throws ApiException {
-        
-                // verify the required parameter 'applicationId' is set
-                if (applicationId == null) {
-                throw new ApiException("Missing the required parameter 'applicationId' when calling updateApplicationProcessor(Async)");
-                }
-        
-                // verify the required parameter 'type' is set
-                if (type == null) {
-                throw new ApiException("Missing the required parameter 'type' when calling updateApplicationProcessor(Async)");
-                }
-        
-
-            okhttp3.Call localVarCall = updateApplicationProcessorCall(applicationId, type, body, _callback);
-            return localVarCall;
-
-        }
-
-            /**
-            * Update Application Processor
-            * Update the processor
-                * @param applicationId ID of application to use (required)
-                * @param type Type of &#x60;Processor&#x60;. (required)
-                * @param body  (optional)
-                * @return Processor
-            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Single Processor object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                </table>
-            */
-                public Processor updateApplicationProcessor(String applicationId, String type, Object body) throws ApiException {
-            ApiResponse<Processor> localVarResp = updateApplicationProcessorWithHttpInfo(applicationId, type, body);
-                    return localVarResp.getData();
-                }
-
-    /**
-        * Update Application Processor
-        * Update the processor
-            * @param applicationId ID of application to use (required)
-            * @param type Type of &#x60;Processor&#x60;. (required)
-            * @param body  (optional)
-        * @return ApiResponse&lt;Processor&gt;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Single Processor object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public ApiResponse<Processor> updateApplicationProcessorWithHttpInfo(String applicationId, String type, Object body) throws ApiException {
-        okhttp3.Call localVarCall = updateApplicationProcessorValidateBeforeCall(applicationId, type, body, null);
-                Type localVarReturnType = new TypeToken<Processor>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
-
-    /**
-        * Update Application Processor (asynchronously)
-        * Update the processor
-            * @param applicationId ID of application to use (required)
-            * @param type Type of &#x60;Processor&#x60;. (required)
-            * @param body  (optional)
-        * @param _callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Single Processor object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public okhttp3.Call updateApplicationProcessorAsync(String applicationId, String type, Object body, final ApiCallback<Processor> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = updateApplicationProcessorValidateBeforeCall(applicationId, type, body, _callback);
-    Type localVarReturnType = new TypeToken<Processor>(){}.getType();
-        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-        }
     }

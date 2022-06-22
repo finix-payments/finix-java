@@ -33,6 +33,7 @@ import model.Error404NotFoundList;
 import model.Error406NotAcceptable;
 import model.TransferReversalsList;
 
+//import model.ListApplicationReversalsQueryParams;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -78,23 +79,7 @@ public void setCustomBaseUrl(String customBaseUrl) {
 this.localCustomBaseUrl = customBaseUrl;
 }
 
-    /**
-    * Build call for listApplicationReversals
-        * @param applicationId ID of application to use (required)
-    * @param _callback Callback for upload/download progress
-    * @return Call to execute
-    * @throws ApiException If fail to serialize the request body object
-        * @http.response.details
-        <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                <tr><td> 200 </td><td> List of reversals </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-        </table>
-    */
-    public okhttp3.Call listApplicationReversalsCall(String applicationId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listApplicationReversalsCall(String applicationId, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -154,31 +139,68 @@ this.localCustomBaseUrl = customBaseUrl;
 
         }
 
-            /**
-            * List Application Reversals
-            * Return a collection of reversals, if there are no reversals, an empty collection will be returned. 
-                * @param applicationId ID of application to use (required)
-                * @return TransferReversalsList
-            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of reversals </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                </table>
-            */
-                public TransferReversalsList listByApplicationId(String applicationId) throws ApiException {
-            ApiResponse<TransferReversalsList> localVarResp = listApplicationReversalsWithHttpInfo(applicationId);
-                    return localVarResp.getData();
-                }
 
-    /**
-        * List Application Reversals
-        * Return a collection of reversals, if there are no reversals, an empty collection will be returned. 
-            * @param applicationId ID of application to use (required)
+    private ApiResponse<TransferReversalsList> listApplicationReversalsWithHttpInfo(String applicationId) throws ApiException {
+        okhttp3.Call localVarCall = listApplicationReversalsValidateBeforeCall(applicationId, null);
+                Type localVarReturnType = new TypeToken<TransferReversalsList>(){}.getType();
+                return localVarFinixClient.execute(localVarCall, localVarReturnType);
+        }
+
+    private okhttp3.Call listApplicationReversalsAsync(String applicationId, final ApiCallback<TransferReversalsList> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listApplicationReversalsValidateBeforeCall(applicationId, _callback);
+    Type localVarReturnType = new TypeToken<TransferReversalsList>(){}.getType();
+        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+        }
+
+        public class APIlistApplicationReversalsRequest {
+            private final String applicationId;
+
+        private APIlistApplicationReversalsRequest(String applicationId) {
+            this.applicationId = applicationId;
+        }
+
+        /**
+        * Build call for listApplicationReversals
+        * @param _callback ApiCallback API callback
+        * @return Call to execute
+        * @throws ApiException If fail to serialize the request body object
+            * @http.response.details
+            <table summary="Response Details" border="1">
+                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                    <tr><td> 200 </td><td> List of reversals </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+            </table>
+        */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+        return listApplicationReversalsCall(applicationId, _callback);
+        }
+
+        /**
+        * Execute listApplicationReversals request
+            * @return TransferReversalsList
+        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+            * @http.response.details
+            <table summary="Response Details" border="1">
+                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                    <tr><td> 200 </td><td> List of reversals </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+            </table>
+        */
+        public TransferReversalsList execute() throws ApiException {
+    ApiResponse<TransferReversalsList> localVarResp = listApplicationReversalsWithHttpInfo(applicationId);
+            return localVarResp.getData();
+        }
+
+        /**
+        * Execute listApplicationReversals request with HTTP info returned
         * @return ApiResponse&lt;TransferReversalsList&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
             * @http.response.details
@@ -191,16 +213,12 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public ApiResponse<TransferReversalsList> listApplicationReversalsWithHttpInfo(String applicationId) throws ApiException {
-        okhttp3.Call localVarCall = listApplicationReversalsValidateBeforeCall(applicationId, null);
-                Type localVarReturnType = new TypeToken<TransferReversalsList>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
+        public ApiResponse<TransferReversalsList> executeWithHttpInfo() throws ApiException {
+        return listApplicationReversalsWithHttpInfo(applicationId);
         }
 
-    /**
-        * List Application Reversals (asynchronously)
-        * Return a collection of reversals, if there are no reversals, an empty collection will be returned. 
-            * @param applicationId ID of application to use (required)
+        /**
+        * Execute listApplicationReversals request (asynchronously)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -214,11 +232,30 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call listApplicationReversalsAsync(String applicationId, final ApiCallback<TransferReversalsList> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listApplicationReversalsValidateBeforeCall(applicationId, _callback);
-    Type localVarReturnType = new TypeToken<TransferReversalsList>(){}.getType();
-        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
+        public okhttp3.Call executeAsync(final ApiCallback<TransferReversalsList> _callback) throws ApiException {
+        return listApplicationReversalsAsync(applicationId, _callback);
         }
+        }
+
+        /**
+        * List Application Reversals
+        * Return a collection of reversals, if there are no reversals, an empty collection will be returned. 
+            * @param applicationId ID of application to use (required)
+        * @return APIlistApplicationReversalsRequest
+            * @http.response.details
+            <table summary="Response Details" border="1">
+                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                    <tr><td> 200 </td><td> List of reversals </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+            </table>
+        */
+   /* public TransferReversalsList listByApplicationId(String applicationId,  ListApplicationReversalsQueryParams listApplicationReversalsQueryParams) throws ApiException {
+
+        APIlistApplicationReversalsRequest request = new APIlistApplicationReversalsRequest(applicationId);
+        return request.execute();
+
+    }*/
     }

@@ -8,7 +8,7 @@ openapi-generator generate \
   -p groupId=com.finix \
   --additional-properties=artifactId=finix-java \
   --additional-properties=artifactVersion=0.0.1 \
-  --additional-properties=url=1.0.0-SNAPSHOT \
+  --additional-properties=url=0.0.1-SNAPSHOT \
   --global-property skipFormModel=false \
   \
   --global-property generateApiTests=true \

@@ -51,7 +51,7 @@ public class ReversalsApiTest {
     public void listApplicationReversalsTest() throws ApiException {
         String applicationId = null;
 
-        TransferReversalsList response = api.listByApplicationId(applicationId);
+      //  TransferReversalsList response = api.listByApplicationId(applicationId);
         // TODO: test validations
     }
 

@@ -68,10 +68,12 @@ public class TransfersApiTest {
     @Test
     @DisplayName("Create a Transfer")
     public void createTransferTest() throws ApiException {
+        Map<String,String> localMap = new HashMap<>();
+        localMap.put("order_number", "21DFASJSAKAS");
         CreateTransferRequest createTransferRequest = CreateTransferRequest.builder()
                 .source("PIe2YvpcjvoVJ6PzoRPBK137")
                 .merchant("MUeDVrf2ahuKc9Eg5TeZugvs")
-                .tags(Map.of("order_number", "21DFASJSAKAS"))
+                .tags(localMap)
                 .currency(Currency.USD)
                 .amount(100L)
                 .processor("DUMMY_V1")
@@ -85,12 +87,14 @@ public class TransfersApiTest {
     @Test
     @DisplayName("Create a Sale")
     public void createSaleTest() throws ApiException{
+        Map<String,String> localMap = new HashMap<>();
+        localMap.put("test", "sale");
         CreateTransferRequest createTransferRequest = CreateTransferRequest.builder()
                 .merchant("MUeDVrf2ahuKc9Eg5TeZugvs")
                 .currency(Currency.USD)
                 .amount(Long.valueOf(662154))
                 .source("PIe2YvpcjvoVJ6PzoRPBK137")
-                .tags(Map.of( "test", "sale"))
+                .tags(localMap)
                 .build();
         Transfer transfer = finixClient.Transfers.create(createTransferRequest);
         assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",transfer.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + transfer.getSource());
@@ -101,11 +105,13 @@ public class TransfersApiTest {
     @Test
     @DisplayName("Debit a Bank Account (ie eCheck)")
     public void createDebitBankAccountTest() throws ApiException{
+        Map<String,String> localMap = new HashMap<>();
+        localMap.put("order_number", "21DFASJSAKAS");
         CreateTransferRequest createTransferRequest = CreateTransferRequest.builder()
                 .fee(603l)
                 .currency(Currency.USD)
                 .merchant("MUeDVrf2ahuKc9Eg5TeZugvs")
-                .tags(Map.of("order_number", "21DFASJSAKAS"))
+                .tags(localMap)
                 .source("PIk3AG7aUSCyNgYpDwCKkwDC")
                 .amount(6031l)
                 .processor("DUMMY_V1")
@@ -118,6 +124,8 @@ public class TransfersApiTest {
     @Test
     @DisplayName("Create a 3D Secure Sale")
     public void create3DSecureSaleTest() throws ApiException{
+        Map<String,String> localMap = new HashMap<>();
+        localMap.put("test", "sale");
         CreateTransferRequest createTransferRequest = CreateTransferRequest.builder()
                 .merchant("MUeDVrf2ahuKc9Eg5TeZugvs")
                 ._3dSecureAuthentication(CreateAuthorizationRequest3dSecureAuthentication.builder()
@@ -126,7 +134,7 @@ public class TransfersApiTest {
                         .transactionId("EaOMucALHQqLAEGAgk")
                         .build())
                 .source("PIe2YvpcjvoVJ6PzoRPBK137")
-                .tags(Map.of("test", "sale"))
+                .tags(localMap)
                 .currency(Currency.USD)
                 .amount(92169L)
                 .build();
@@ -140,6 +148,8 @@ public class TransfersApiTest {
     @Test
     @DisplayName("Create a Sale with Level 3 Processing")
     public void createSaleLevel3Processing() throws ApiException {
+        Map<String,String> localMap = new HashMap<>();
+        localMap.put("test", "sale");
         List<AdditionalPurchaseDataItemDataInner> additionalPurchaseDataItemDataList = new ArrayList<>();
         additionalPurchaseDataItemDataList.add(AdditionalPurchaseDataItemDataInner.builder()
                 .amountIncludingSalesTax(500l)
@@ -173,7 +183,7 @@ public class TransfersApiTest {
                         .shippingAmount(100l)
                         .customsDutyAmount(10l)
                         .build())
-                .tags(Map.of("test", "sale"))
+                .tags(localMap)
                 .currency(Currency.USD)
                 .amount(1000l)
                 .build();
@@ -187,6 +197,8 @@ public class TransfersApiTest {
     @Test
     @DisplayName("Create a Sale with Level 2 Processing")
     public void createSaleLebel2ProcessingTest() throws ApiException {
+        Map<String,String> localMap = new HashMap<>();
+        localMap.put("test", "sale");
         CreateTransferRequest createTransferRequest = CreateTransferRequest.builder()
                 .merchant("MUeDVrf2ahuKc9Eg5TeZugvs")
                 .source("PIe2YvpcjvoVJ6PzoRPBK137")
@@ -194,7 +206,7 @@ public class TransfersApiTest {
                         .customerReferenceNumber("321xyz")
                         .salesTax(200l)
                         .build())
-                .tags(Map.of("test", "sale"))
+                .tags(localMap)
                 .currency(Currency.USD)
                 .amount(1000l)
                 .build();
@@ -216,10 +228,12 @@ public class TransfersApiTest {
     @Test
     @DisplayName("Refund or Reverse a Transfer")
     public void createTransferReversalTest() throws ApiException {
+        Map<String,String> localMap = new HashMap<>();
+        localMap.put("test", "refund");
         String transferId = "TRacB6Q6GcW6yvFUKawSnMEP";
         CreateReversalRequest createReversalRequest = CreateReversalRequest.builder()
                 .refundAmount(100l)
-                .tags(Map.of("test" , "refund"))
+                .tags(localMap)
                 .build();
         Transfer transfer = finixClient.Transfers.createTransferReversal(transferId, createReversalRequest);
         assertEquals(Long.valueOf(100),transfer.getAmount(),()->"Should return " + "100" + " but returns " + transfer.getAmount());
@@ -260,7 +274,7 @@ public class TransfersApiTest {
     public void listApplicationTransfersTest() throws ApiException {
         String applicationId = null;
 
-        TransfersList response = finixClient.Transfers.listByApplicationId(applicationId);
+       // TransfersList response = finixClient.Transfers.listByApplicationId(applicationId, ListApplicationTransfersQueryParams.builder().build());
         // TODO: test validations
     }
 
@@ -284,7 +298,7 @@ public class TransfersApiTest {
         Long pageNumber = null;
         Long pageSize = null;
 
-        TransfersList response = finixClient.Transfers.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
+        //TransfersList response = finixClient.Transfers.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 
@@ -309,7 +323,7 @@ public class TransfersApiTest {
         Long pageSize = null;
         Boolean readyToSettle = null;
 
-        TransfersList response = finixClient.Transfers.listByMerchantId(merchantId, limit, offset, pageNumber, pageSize, readyToSettle);
+       // TransfersList response = finixClient.Transfers.listByMerchantId(merchantId, limit, offset, pageNumber, pageSize, readyToSettle);
         // TODO: test validations
     }
 
@@ -333,7 +347,7 @@ public class TransfersApiTest {
         Long pageNumber = null;
         Long pageSize = null;
 
-        TransfersList response = finixClient.Transfers.listByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize);
+       // TransfersList response = finixClient.Transfers.listByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 
@@ -464,9 +478,11 @@ public class TransfersApiTest {
     @Test
     @DisplayName("Update a Transfer")
     public void updateTest() throws ApiException {
+        Map<String,String> localMap = new HashMap<>();
+        localMap.put("order_number", "12121212");
         String transferId = "TRvtThmhZtk56z6dtCt8hUDR";
         UpdateTransferRequest updateTransferRequest = UpdateTransferRequest.builder()
-                .tags(Map.of("order_number", "12121212"))
+                .tags(localMap)
                 .build();
         Transfer transfer = finixClient.Transfers.update(transferId, updateTransferRequest);
         assertEquals("TRvtThmhZtk56z6dtCt8hUDR",transfer.getId(),()->"Should return " + "TRvtThmhZtk56z6dtCt8hUDR" + " but returns " + transfer.getId());

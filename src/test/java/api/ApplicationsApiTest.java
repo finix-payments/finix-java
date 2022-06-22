@@ -87,7 +87,7 @@ public class ApplicationsApiTest {
     public void getApplicationApplicationProfileTest() throws ApiException {
         String applicationId = null;
 
-        ApplicationProfile response = api.getApplicationProfile(applicationId);
+       // ApplicationProfile response = api.getApplicationProfile(applicationId);
         // TODO: test validations
     }
 

@@ -46,6 +46,7 @@ public class DevicesApiTest {
      */
     @Test
     @BeforeAll
+    @DisplayName("Finix Client")
     void contextLoads() {
         finixClient= new FinixClient("USjHFGYvecE4LBitYG8KDE2g","b698f403-d9b7-4157-82d8-162cea8c8cc3", Environment.SANDBOX);
         assertEquals(true , finixClient!=null);

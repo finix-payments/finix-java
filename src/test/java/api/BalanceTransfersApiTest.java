@@ -40,6 +40,7 @@ public class BalanceTransfersApiTest {
      */
     @Test
     @BeforeAll
+    @DisplayName("Finix Client")
     void contextLoads() {
         finixClient= new FinixClient("USbkjk46XqUTQHN3i2jaVnc1","ac915962-2757-49ea-aeee-10960a408b99", Environment.SANDBOX);
         assertEquals(true , finixClient!=null);
@@ -60,9 +61,11 @@ public class BalanceTransfersApiTest {
     @Test
     @DisplayName("Create a Balance Transfer")
     public void createBalanceTransferTest() throws ApiException {
+        Map<String, String> localMap = new HashMap<>();
+        localMap.put("example", "documentation tag");
         CreateBalanceTransferRequest createBalanceTransferRequest = CreateBalanceTransferRequest.builder()
                 .description("Need to increase buffer given the high number of NSFs on merchant fee debits")
-                .tags(Map.of("example", "documentation tag"))
+                .tags(localMap)
                 .destination(CreateBalanceTransferRequest.DestinationEnum.FOR_BENEFIT_OF_ACCOUNT)
                 .currency(Currency.USD)
                 .amount(4000L)

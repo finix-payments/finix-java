@@ -69,7 +69,7 @@ public class UsersApiTest {
         String identityId = null;
         CreateUserRequest createUserRequest = null;
 
-        User response = api.createMerchantUser(identityId, createUserRequest);
+        //User response = api.createMerchantUser(identityId, createUserRequest);
         // TODO: test validations
     }
 
@@ -109,7 +109,7 @@ public class UsersApiTest {
     public void listApplicationUsersTest() throws ApiException {
         String applicationId = null;
 
-        UsersList response = api.listByApplicationId(applicationId);
+       // UsersList response = api.listByApplicationId(applicationId);
         // TODO: test validations
     }
 
@@ -129,7 +129,7 @@ public class UsersApiTest {
     public void listIdentityUsersTest() throws ApiException {
         String identityId = null;
 
-        UsersList response = api.listByIdentityId(identityId);
+        //UsersList response = api.listByIdentityId(identityId);
         // TODO: test validations
     }
 

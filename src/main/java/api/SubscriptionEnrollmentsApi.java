@@ -307,7 +307,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
             /**
-            * Remove a Subscription Enrollment
+            * Delete a Subscription Enrollment
             * Remove a &#x60;subscription_enrollment&#x60;.
                 * @param subscriptionEnrollmentId The ID of the &#x60;subscription_enrollment&#x60;. (required)
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -326,7 +326,7 @@ this.localCustomBaseUrl = customBaseUrl;
                 }
 
     /**
-        * Remove a Subscription Enrollment
+        * Delete a Subscription Enrollment
         * Remove a &#x60;subscription_enrollment&#x60;.
             * @param subscriptionEnrollmentId The ID of the &#x60;subscription_enrollment&#x60;. (required)
         * @return ApiResponse&lt;Void&gt;
@@ -347,7 +347,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
     /**
-        * Remove a Subscription Enrollment (asynchronously)
+        * Delete a Subscription Enrollment (asynchronously)
         * Remove a &#x60;subscription_enrollment&#x60;.
             * @param subscriptionEnrollmentId The ID of the &#x60;subscription_enrollment&#x60;. (required)
         * @param _callback The callback to be executed when the API call finishes
@@ -370,7 +370,7 @@ this.localCustomBaseUrl = customBaseUrl;
         return localVarCall;
         }
     /**
-    * Build call for getSubscriptionSenrollments
+    * Build call for getSubscriptionEnrollment
         * @param subscriptionEnrollmentId The ID of the &#x60;subscription_enrollment&#x60;. (required)
         * @param merchant Filter by the objects &#x60;merchant&#x60; ID. (optional)
     * @param _callback Callback for upload/download progress
@@ -386,7 +386,7 @@ this.localCustomBaseUrl = customBaseUrl;
                 <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
         </table>
     */
-    public okhttp3.Call getSubscriptionSenrollmentsCall(String subscriptionEnrollmentId, String merchant, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSubscriptionEnrollmentCall(String subscriptionEnrollmentId, String merchant, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -437,15 +437,15 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call getSubscriptionSenrollmentsValidateBeforeCall(String subscriptionEnrollmentId, String merchant, final ApiCallback _callback) throws ApiException {
+        private okhttp3.Call getSubscriptionEnrollmentValidateBeforeCall(String subscriptionEnrollmentId, String merchant, final ApiCallback _callback) throws ApiException {
         
                 // verify the required parameter 'subscriptionEnrollmentId' is set
                 if (subscriptionEnrollmentId == null) {
-                throw new ApiException("Missing the required parameter 'subscriptionEnrollmentId' when calling getSubscriptionSenrollments(Async)");
+                throw new ApiException("Missing the required parameter 'subscriptionEnrollmentId' when calling getSubscriptionEnrollment(Async)");
                 }
         
 
-            okhttp3.Call localVarCall = getSubscriptionSenrollmentsCall(subscriptionEnrollmentId, merchant, _callback);
+            okhttp3.Call localVarCall = getSubscriptionEnrollmentCall(subscriptionEnrollmentId, merchant, _callback);
             return localVarCall;
 
         }
@@ -468,7 +468,7 @@ this.localCustomBaseUrl = customBaseUrl;
                 </table>
             */
                 public SubscriptionEnrollment get(String subscriptionEnrollmentId, String merchant) throws ApiException {
-            ApiResponse<SubscriptionEnrollment> localVarResp = getSubscriptionSenrollmentsWithHttpInfo(subscriptionEnrollmentId, merchant);
+            ApiResponse<SubscriptionEnrollment> localVarResp = getSubscriptionEnrollmentWithHttpInfo(subscriptionEnrollmentId, merchant);
                     return localVarResp.getData();
                 }
 
@@ -489,8 +489,8 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public ApiResponse<SubscriptionEnrollment> getSubscriptionSenrollmentsWithHttpInfo(String subscriptionEnrollmentId, String merchant) throws ApiException {
-        okhttp3.Call localVarCall = getSubscriptionSenrollmentsValidateBeforeCall(subscriptionEnrollmentId, merchant, null);
+        public ApiResponse<SubscriptionEnrollment> getSubscriptionEnrollmentWithHttpInfo(String subscriptionEnrollmentId, String merchant) throws ApiException {
+        okhttp3.Call localVarCall = getSubscriptionEnrollmentValidateBeforeCall(subscriptionEnrollmentId, merchant, null);
                 Type localVarReturnType = new TypeToken<SubscriptionEnrollment>(){}.getType();
                 return localVarFinixClient.execute(localVarCall, localVarReturnType);
         }
@@ -513,14 +513,14 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call getSubscriptionSenrollmentsAsync(String subscriptionEnrollmentId, String merchant, final ApiCallback<SubscriptionEnrollment> _callback) throws ApiException {
+        public okhttp3.Call getSubscriptionEnrollmentAsync(String subscriptionEnrollmentId, String merchant, final ApiCallback<SubscriptionEnrollment> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSubscriptionSenrollmentsValidateBeforeCall(subscriptionEnrollmentId, merchant, _callback);
+        okhttp3.Call localVarCall = getSubscriptionEnrollmentValidateBeforeCall(subscriptionEnrollmentId, merchant, _callback);
     Type localVarReturnType = new TypeToken<SubscriptionEnrollment>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
         }
-    private okhttp3.Call listSubscriptionEnrollmentsCall(Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listSubscriptionEnrollmentsCall(final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -545,18 +545,6 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-                if (limit != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("limit", limit));
-                }
-
-                if (afterCursor != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("after_cursor", afterCursor));
-                }
-
-                if (beforeCursor != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("before_cursor", beforeCursor));
-                }
-
         final String[] localVarAccepts = {
     "application/hal+json"
         };
@@ -578,66 +566,33 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call listSubscriptionEnrollmentsValidateBeforeCall(Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
+        private okhttp3.Call listSubscriptionEnrollmentsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
         
 
-            okhttp3.Call localVarCall = listSubscriptionEnrollmentsCall(limit, afterCursor, beforeCursor, _callback);
+            okhttp3.Call localVarCall = listSubscriptionEnrollmentsCall(_callback);
             return localVarCall;
 
         }
 
 
-    private ApiResponse<SubscriptionEnrollmentList> listSubscriptionEnrollmentsWithHttpInfo(Long limit, String afterCursor, String beforeCursor) throws ApiException {
-        okhttp3.Call localVarCall = listSubscriptionEnrollmentsValidateBeforeCall(limit, afterCursor, beforeCursor, null);
+    private ApiResponse<SubscriptionEnrollmentList> listSubscriptionEnrollmentsWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = listSubscriptionEnrollmentsValidateBeforeCall(null);
                 Type localVarReturnType = new TypeToken<SubscriptionEnrollmentList>(){}.getType();
                 return localVarFinixClient.execute(localVarCall, localVarReturnType);
         }
 
-    private okhttp3.Call listSubscriptionEnrollmentsAsync(Long limit, String afterCursor, String beforeCursor, final ApiCallback<SubscriptionEnrollmentList> _callback) throws ApiException {
+    private okhttp3.Call listSubscriptionEnrollmentsAsync(final ApiCallback<SubscriptionEnrollmentList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listSubscriptionEnrollmentsValidateBeforeCall(limit, afterCursor, beforeCursor, _callback);
+        okhttp3.Call localVarCall = listSubscriptionEnrollmentsValidateBeforeCall(_callback);
     Type localVarReturnType = new TypeToken<SubscriptionEnrollmentList>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
         }
 
         public class APIlistSubscriptionEnrollmentsRequest {
-            private Long limit;
-            private String afterCursor;
-            private String beforeCursor;
 
         private APIlistSubscriptionEnrollmentsRequest() {
         }
-
-            /**
-            * Set limit
-            * @param limit The numbers of items to return (optional)
-            * @return APIlistSubscriptionEnrollmentsRequest
-            */
-            public APIlistSubscriptionEnrollmentsRequest limit(Long limit) {
-            this.limit = limit;
-            return this;
-            }
-
-            /**
-            * Set afterCursor
-            * @param afterCursor Return every resource created after the cursor value. (optional)
-            * @return APIlistSubscriptionEnrollmentsRequest
-            */
-            public APIlistSubscriptionEnrollmentsRequest afterCursor(String afterCursor) {
-            this.afterCursor = afterCursor;
-            return this;
-            }
-
-            /**
-            * Set beforeCursor
-            * @param beforeCursor Return every resource created before the cursor value. (optional)
-            * @return APIlistSubscriptionEnrollmentsRequest
-            */
-            public APIlistSubscriptionEnrollmentsRequest beforeCursor(String beforeCursor) {
-            this.beforeCursor = beforeCursor;
-            return this;
-            }
 
         /**
         * Build call for listSubscriptionEnrollments
@@ -655,7 +610,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-        return listSubscriptionEnrollmentsCall(limit, afterCursor, beforeCursor, _callback);
+        return listSubscriptionEnrollmentsCall(_callback);
         }
 
         /**
@@ -673,7 +628,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public SubscriptionEnrollmentList execute() throws ApiException {
-    ApiResponse<SubscriptionEnrollmentList> localVarResp = listSubscriptionEnrollmentsWithHttpInfo(limit, afterCursor, beforeCursor);
+    ApiResponse<SubscriptionEnrollmentList> localVarResp = listSubscriptionEnrollmentsWithHttpInfo();
             return localVarResp.getData();
         }
 
@@ -692,7 +647,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public ApiResponse<SubscriptionEnrollmentList> executeWithHttpInfo() throws ApiException {
-        return listSubscriptionEnrollmentsWithHttpInfo(limit, afterCursor, beforeCursor);
+        return listSubscriptionEnrollmentsWithHttpInfo();
         }
 
         /**
@@ -711,7 +666,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call executeAsync(final ApiCallback<SubscriptionEnrollmentList> _callback) throws ApiException {
-        return listSubscriptionEnrollmentsAsync(limit, afterCursor, beforeCursor, _callback);
+        return listSubscriptionEnrollmentsAsync(_callback);
         }
         }
 
@@ -729,16 +684,13 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-    public SubscriptionEnrollmentList get( ListSubscriptionEnrollmentsQueryParams listSubscriptionEnrollmentsQueryParams) throws ApiException {
+    public SubscriptionEnrollmentList list( ListSubscriptionEnrollmentsQueryParams listSubscriptionEnrollmentsQueryParams) throws ApiException {
 
         APIlistSubscriptionEnrollmentsRequest request = new APIlistSubscriptionEnrollmentsRequest();
-        request.limit(listSubscriptionEnrollmentsQueryParams.getLimit());
-        request.afterCursor(listSubscriptionEnrollmentsQueryParams.getAfterCursor());
-        request.beforeCursor(listSubscriptionEnrollmentsQueryParams.getBeforeCursor());
         return request.execute();
 
     }
-    private okhttp3.Call listSubscriptionEnrollmentsInScheduleCall(String subscriptionScheduleId, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listSubscriptionEnrollmentsInScheduleCall(String subscriptionScheduleId, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -764,18 +716,6 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-                if (limit != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("limit", limit));
-                }
-
-                if (afterCursor != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("after_cursor", afterCursor));
-                }
-
-                if (beforeCursor != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("before_cursor", beforeCursor));
-                }
-
         final String[] localVarAccepts = {
     "application/hal+json"
         };
@@ -797,7 +737,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call listSubscriptionEnrollmentsInScheduleValidateBeforeCall(String subscriptionScheduleId, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
+        private okhttp3.Call listSubscriptionEnrollmentsInScheduleValidateBeforeCall(String subscriptionScheduleId, final ApiCallback _callback) throws ApiException {
         
                 // verify the required parameter 'subscriptionScheduleId' is set
                 if (subscriptionScheduleId == null) {
@@ -805,21 +745,21 @@ this.localCustomBaseUrl = customBaseUrl;
                 }
         
 
-            okhttp3.Call localVarCall = listSubscriptionEnrollmentsInScheduleCall(subscriptionScheduleId, limit, afterCursor, beforeCursor, _callback);
+            okhttp3.Call localVarCall = listSubscriptionEnrollmentsInScheduleCall(subscriptionScheduleId, _callback);
             return localVarCall;
 
         }
 
 
-    private ApiResponse<SubscriptionEnrollmentList> listSubscriptionEnrollmentsInScheduleWithHttpInfo(String subscriptionScheduleId, Long limit, String afterCursor, String beforeCursor) throws ApiException {
-        okhttp3.Call localVarCall = listSubscriptionEnrollmentsInScheduleValidateBeforeCall(subscriptionScheduleId, limit, afterCursor, beforeCursor, null);
+    private ApiResponse<SubscriptionEnrollmentList> listSubscriptionEnrollmentsInScheduleWithHttpInfo(String subscriptionScheduleId) throws ApiException {
+        okhttp3.Call localVarCall = listSubscriptionEnrollmentsInScheduleValidateBeforeCall(subscriptionScheduleId, null);
                 Type localVarReturnType = new TypeToken<SubscriptionEnrollmentList>(){}.getType();
                 return localVarFinixClient.execute(localVarCall, localVarReturnType);
         }
 
-    private okhttp3.Call listSubscriptionEnrollmentsInScheduleAsync(String subscriptionScheduleId, Long limit, String afterCursor, String beforeCursor, final ApiCallback<SubscriptionEnrollmentList> _callback) throws ApiException {
+    private okhttp3.Call listSubscriptionEnrollmentsInScheduleAsync(String subscriptionScheduleId, final ApiCallback<SubscriptionEnrollmentList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listSubscriptionEnrollmentsInScheduleValidateBeforeCall(subscriptionScheduleId, limit, afterCursor, beforeCursor, _callback);
+        okhttp3.Call localVarCall = listSubscriptionEnrollmentsInScheduleValidateBeforeCall(subscriptionScheduleId, _callback);
     Type localVarReturnType = new TypeToken<SubscriptionEnrollmentList>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -827,43 +767,10 @@ this.localCustomBaseUrl = customBaseUrl;
 
         public class APIlistSubscriptionEnrollmentsInScheduleRequest {
             private final String subscriptionScheduleId;
-            private Long limit;
-            private String afterCursor;
-            private String beforeCursor;
 
         private APIlistSubscriptionEnrollmentsInScheduleRequest(String subscriptionScheduleId) {
             this.subscriptionScheduleId = subscriptionScheduleId;
         }
-
-            /**
-            * Set limit
-            * @param limit The numbers of items to return (optional)
-            * @return APIlistSubscriptionEnrollmentsInScheduleRequest
-            */
-            public APIlistSubscriptionEnrollmentsInScheduleRequest limit(Long limit) {
-            this.limit = limit;
-            return this;
-            }
-
-            /**
-            * Set afterCursor
-            * @param afterCursor Return every resource created after the cursor value. (optional)
-            * @return APIlistSubscriptionEnrollmentsInScheduleRequest
-            */
-            public APIlistSubscriptionEnrollmentsInScheduleRequest afterCursor(String afterCursor) {
-            this.afterCursor = afterCursor;
-            return this;
-            }
-
-            /**
-            * Set beforeCursor
-            * @param beforeCursor Return every resource created before the cursor value. (optional)
-            * @return APIlistSubscriptionEnrollmentsInScheduleRequest
-            */
-            public APIlistSubscriptionEnrollmentsInScheduleRequest beforeCursor(String beforeCursor) {
-            this.beforeCursor = beforeCursor;
-            return this;
-            }
 
         /**
         * Build call for listSubscriptionEnrollmentsInSchedule
@@ -881,7 +788,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-        return listSubscriptionEnrollmentsInScheduleCall(subscriptionScheduleId, limit, afterCursor, beforeCursor, _callback);
+        return listSubscriptionEnrollmentsInScheduleCall(subscriptionScheduleId, _callback);
         }
 
         /**
@@ -899,7 +806,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public SubscriptionEnrollmentList execute() throws ApiException {
-    ApiResponse<SubscriptionEnrollmentList> localVarResp = listSubscriptionEnrollmentsInScheduleWithHttpInfo(subscriptionScheduleId, limit, afterCursor, beforeCursor);
+    ApiResponse<SubscriptionEnrollmentList> localVarResp = listSubscriptionEnrollmentsInScheduleWithHttpInfo(subscriptionScheduleId);
             return localVarResp.getData();
         }
 
@@ -918,7 +825,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public ApiResponse<SubscriptionEnrollmentList> executeWithHttpInfo() throws ApiException {
-        return listSubscriptionEnrollmentsInScheduleWithHttpInfo(subscriptionScheduleId, limit, afterCursor, beforeCursor);
+        return listSubscriptionEnrollmentsInScheduleWithHttpInfo(subscriptionScheduleId);
         }
 
         /**
@@ -937,7 +844,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call executeAsync(final ApiCallback<SubscriptionEnrollmentList> _callback) throws ApiException {
-        return listSubscriptionEnrollmentsInScheduleAsync(subscriptionScheduleId, limit, afterCursor, beforeCursor, _callback);
+        return listSubscriptionEnrollmentsInScheduleAsync(subscriptionScheduleId, _callback);
         }
         }
 
@@ -959,9 +866,6 @@ this.localCustomBaseUrl = customBaseUrl;
     public SubscriptionEnrollmentList listBySubscriptionScheduleId(String subscriptionScheduleId,  ListSubscriptionEnrollmentsInScheduleQueryParams listSubscriptionEnrollmentsInScheduleQueryParams) throws ApiException {
 
         APIlistSubscriptionEnrollmentsInScheduleRequest request = new APIlistSubscriptionEnrollmentsInScheduleRequest(subscriptionScheduleId);
-        request.limit(listSubscriptionEnrollmentsInScheduleQueryParams.getLimit());
-        request.afterCursor(listSubscriptionEnrollmentsInScheduleQueryParams.getAfterCursor());
-        request.beforeCursor(listSubscriptionEnrollmentsInScheduleQueryParams.getBeforeCursor());
         return request.execute();
 
     }

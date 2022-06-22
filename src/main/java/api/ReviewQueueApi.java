@@ -36,6 +36,7 @@ import model.ErrorGeneric;
 import model.ReviewQueueItem;
 import model.ReviewQueueItemsList;
 
+import model.ListReviewQueueItemsQueryParams;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -224,26 +225,7 @@ this.localCustomBaseUrl = customBaseUrl;
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
         }
-    /**
-    * Build call for listReviewQueueItems
-        * @param entityType Filter by entity_type (optional)
-        * @param id Filter by outcome (optional)
-        * @param application Filter by application id (optional)
-    * @param _callback Callback for upload/download progress
-    * @return Call to execute
-    * @throws ApiException If fail to serialize the request body object
-        * @http.response.details
-        <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                <tr><td> 200 </td><td> List of review queue items </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-        </table>
-    */
-    public okhttp3.Call listReviewQueueItemsCall(String entityType, String id, String application, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listReviewQueueItemsCall(String entityType, String id, String application, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -309,36 +291,101 @@ this.localCustomBaseUrl = customBaseUrl;
 
         }
 
-            /**
-            * List Review Queue Items
-            * Get the review_queue object
-                * @param entityType Filter by entity_type (optional)
-                * @param id Filter by outcome (optional)
-                * @param application Filter by application id (optional)
-                * @return ReviewQueueItemsList
-            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of review queue items </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                </table>
-            */
-                public ReviewQueueItemsList list(String entityType, String id, String application) throws ApiException {
-            ApiResponse<ReviewQueueItemsList> localVarResp = listReviewQueueItemsWithHttpInfo(entityType, id, application);
-                    return localVarResp.getData();
-                }
 
-    /**
-        * List Review Queue Items
-        * Get the review_queue object
+    private ApiResponse<ReviewQueueItemsList> listReviewQueueItemsWithHttpInfo(String entityType, String id, String application) throws ApiException {
+        okhttp3.Call localVarCall = listReviewQueueItemsValidateBeforeCall(entityType, id, application, null);
+                Type localVarReturnType = new TypeToken<ReviewQueueItemsList>(){}.getType();
+                return localVarFinixClient.execute(localVarCall, localVarReturnType);
+        }
+
+    private okhttp3.Call listReviewQueueItemsAsync(String entityType, String id, String application, final ApiCallback<ReviewQueueItemsList> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listReviewQueueItemsValidateBeforeCall(entityType, id, application, _callback);
+    Type localVarReturnType = new TypeToken<ReviewQueueItemsList>(){}.getType();
+        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+        }
+
+        public class APIlistReviewQueueItemsRequest {
+            private String entityType;
+            private String id;
+            private String application;
+
+        private APIlistReviewQueueItemsRequest() {
+        }
+
+            /**
+            * Set entityType
             * @param entityType Filter by entity_type (optional)
+            * @return APIlistReviewQueueItemsRequest
+            */
+            public APIlistReviewQueueItemsRequest entityType(String entityType) {
+            this.entityType = entityType;
+            return this;
+            }
+
+            /**
+            * Set id
             * @param id Filter by outcome (optional)
+            * @return APIlistReviewQueueItemsRequest
+            */
+            public APIlistReviewQueueItemsRequest id(String id) {
+            this.id = id;
+            return this;
+            }
+
+            /**
+            * Set application
             * @param application Filter by application id (optional)
+            * @return APIlistReviewQueueItemsRequest
+            */
+            public APIlistReviewQueueItemsRequest application(String application) {
+            this.application = application;
+            return this;
+            }
+
+        /**
+        * Build call for listReviewQueueItems
+        * @param _callback ApiCallback API callback
+        * @return Call to execute
+        * @throws ApiException If fail to serialize the request body object
+            * @http.response.details
+            <table summary="Response Details" border="1">
+                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                    <tr><td> 200 </td><td> List of review queue items </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+            </table>
+        */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+        return listReviewQueueItemsCall(entityType, id, application, _callback);
+        }
+
+        /**
+        * Execute listReviewQueueItems request
+            * @return ReviewQueueItemsList
+        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+            * @http.response.details
+            <table summary="Response Details" border="1">
+                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                    <tr><td> 200 </td><td> List of review queue items </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+            </table>
+        */
+        public ReviewQueueItemsList execute() throws ApiException {
+    ApiResponse<ReviewQueueItemsList> localVarResp = listReviewQueueItemsWithHttpInfo(entityType, id, application);
+            return localVarResp.getData();
+        }
+
+        /**
+        * Execute listReviewQueueItems request with HTTP info returned
         * @return ApiResponse&lt;ReviewQueueItemsList&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
             * @http.response.details
@@ -352,18 +399,12 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public ApiResponse<ReviewQueueItemsList> listReviewQueueItemsWithHttpInfo(String entityType, String id, String application) throws ApiException {
-        okhttp3.Call localVarCall = listReviewQueueItemsValidateBeforeCall(entityType, id, application, null);
-                Type localVarReturnType = new TypeToken<ReviewQueueItemsList>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
+        public ApiResponse<ReviewQueueItemsList> executeWithHttpInfo() throws ApiException {
+        return listReviewQueueItemsWithHttpInfo(entityType, id, application);
         }
 
-    /**
-        * List Review Queue Items (asynchronously)
-        * Get the review_queue object
-            * @param entityType Filter by entity_type (optional)
-            * @param id Filter by outcome (optional)
-            * @param application Filter by application id (optional)
+        /**
+        * Execute listReviewQueueItems request (asynchronously)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -378,13 +419,35 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call listReviewQueueItemsAsync(String entityType, String id, String application, final ApiCallback<ReviewQueueItemsList> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listReviewQueueItemsValidateBeforeCall(entityType, id, application, _callback);
-    Type localVarReturnType = new TypeToken<ReviewQueueItemsList>(){}.getType();
-        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
+        public okhttp3.Call executeAsync(final ApiCallback<ReviewQueueItemsList> _callback) throws ApiException {
+        return listReviewQueueItemsAsync(entityType, id, application, _callback);
         }
+        }
+
+        /**
+        * List Review Queue Items
+        * Get the review_queue object
+        * @return APIlistReviewQueueItemsRequest
+            * @http.response.details
+            <table summary="Response Details" border="1">
+                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                    <tr><td> 200 </td><td> List of review queue items </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+            </table>
+        */
+    public ReviewQueueItemsList list( ListReviewQueueItemsQueryParams listReviewQueueItemsQueryParams) throws ApiException {
+
+        APIlistReviewQueueItemsRequest request = new APIlistReviewQueueItemsRequest();
+        request.entityType(listReviewQueueItemsQueryParams.getEntityType());
+        request.id(listReviewQueueItemsQueryParams.getId());
+        request.application(listReviewQueueItemsQueryParams.getApplication());
+        return request.execute();
+
+    }
     /**
     * Build call for putReviewQueueItem
         * @param reviewQueueItemId ID of object (required)

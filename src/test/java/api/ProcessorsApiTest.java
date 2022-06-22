@@ -118,7 +118,7 @@ public class ProcessorsApiTest {
         String type = null;
         Object body = null;
 
-        Processor response = api.updateApplicationProcessor(applicationId, type, body);
+      //  Processor response = api.updateApplicationProcessor(applicationId, type, body);
         // TODO: test validations
     }
 
