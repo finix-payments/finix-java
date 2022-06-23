@@ -31,7 +31,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @DisplayName("When Running AuthorizationsApi")
-@Disabled
 public class AuthorizationsApiTest {
     public String AuthorizationId;
 

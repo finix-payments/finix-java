@@ -49,7 +49,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "The date the company was founded and registered with the US.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T00:56:13.722393-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T10:10:10.206624-07:00[America/Los_Angeles]")
 public class IdentityEntityIncorporationDate {
   public static final String SERIALIZED_NAME_DAY = "day";
   @SerializedName(SERIALIZED_NAME_DAY)

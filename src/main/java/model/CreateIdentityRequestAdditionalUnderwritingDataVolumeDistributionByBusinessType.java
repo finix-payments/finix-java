@@ -49,7 +49,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Merchant's distribution of credit card volume by business type. Sum of `volume_distribution_by_business_type` must be 100.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T00:56:13.722393-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T10:10:10.206624-07:00[America/Los_Angeles]")
 public class CreateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType {
   public static final String SERIALIZED_NAME_OTHER_VOLUME_PERCENTAGE = "other_volume_percentage";
   @SerializedName(SERIALIZED_NAME_OTHER_VOLUME_PERCENTAGE)

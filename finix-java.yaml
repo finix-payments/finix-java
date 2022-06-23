@@ -66,9 +66,6 @@ tags:
   - name: Merchant Profiles
     description:
       $ref: api-descriptions/tags/merchant-profiles.md
-  - name: Review queue
-    description:
-      $ref: api-descriptions/tags/review-queue.md
   - name: Reversals
     description:
       $ref: api-descriptions/tags/reversals.md
@@ -283,9 +280,6 @@ paths:
         '406':
           $ref: '#/components/responses/Error406NotAcceptable'
       x-java-method-name: update
-  /applications/{application_id}/application_profile:
-    parameters:
-      - $ref: '#/components/parameters/ApplicationId'
   /applications/{application_id}/processors:
     get:
       description: Get all enabled `Processors` for an `Application`.
@@ -365,12 +359,6 @@ paths:
         name: type
         schema:
           type: string
-  /applications/{application_id}/settlements:
-    parameters:
-      - $ref: '#/components/parameters/ApplicationId'
-  /applications/{application_id}/transfers:
-    parameters:
-      - $ref: '#/components/parameters/ApplicationId'
   /applications/{application_id}/users:
     parameters:
       - $ref: '#/components/parameters/ApplicationId'
@@ -402,9 +390,6 @@ paths:
       x-internal: false
       tags:
         - Users
-  /applications/{application_id}/webhooks:
-    parameters:
-      - $ref: '#/components/parameters/ApplicationId'
   /authorizations:
     post:
       tags:
@@ -414,11 +399,7 @@ paths:
         \ the `Authorization` has **SUCCEEDED** , it must be captured before `expires_at`\
         \ passes or the funds will be released.\n\nLearn how to prevent duplicate\
         \ authorizations by passing an [Idempotency ID](#section/Idempotency-Requests)\
-        \ in the payload.\n\n- 3D Secure is also available to authenticate transactions.\
-        \ 3D Secure lets you authenticate a transaction by having the cardholder authenticate\
-        \ with their issuing bank. By enabling 3D Secure, you shift the liability\
-        \ of a chargeback from the merchant to the issuing bank. The integration requires\
-        \ a 3D Secure vendor to generate the values needed for `3d_secure_authentication`."
+        \ in the payload."
       summary: Create an Authorization
       operationId: createAuthorization
       requestBody:
@@ -1204,14 +1185,6 @@ paths:
         name: identity_id
         schema:
           type: string
-  /identities/{identity_id}/authorizations:
-    parameters:
-      - description: ID of identity to fetch
-        required: true
-        in: path
-        name: identity_id
-        schema:
-          type: string
   /identities/{identity_id}/merchants:
     parameters:
       - description: ID of `Identity` to fetch.
@@ -1259,54 +1232,6 @@ paths:
       tags:
         - Merchants
       x-java-method-name: create
-  /identities/{identity_id}/disputes:
-    parameters:
-      - description: ID of identity to fetch
-        required: true
-        in: path
-        name: identity_id
-        schema:
-          type: string
-  /identities/{identity_id}/payment_instruments:
-    parameters:
-      - description: ID of identity to fetch
-        required: true
-        in: path
-        name: identity_id
-        schema:
-          type: string
-  /identities/{identity_id}/settlements:
-    parameters:
-      - description: ID of identity to fetch
-        required: true
-        in: path
-        name: identity_id
-        schema:
-          type: string
-  /identities/{identity_id}/transfers:
-    parameters:
-      - description: ID of identity to fetch
-        required: true
-        in: path
-        name: identity_id
-        schema:
-          type: string
-  /identities/{identity_id}/users:
-    parameters:
-      - description: ID of identity to fetch
-        required: true
-        in: path
-        name: identity_id
-        schema:
-          type: string
-  /identities/{identity_id}/verifications:
-    parameters:
-      - description: ID of identity to fetch
-        required: true
-        in: path
-        name: identity_id
-        schema:
-          type: string
   /merchant_profiles:
     get:
       tags:
@@ -1482,14 +1407,6 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/CreateDeviceRequest'
       x-java-method-name: create
-  /merchants/{merchant_id}/transfers:
-    parameters:
-      - description: ID of object
-        required: true
-        in: path
-        name: merchant_id
-        schema:
-          type: string
   /merchants/{merchant_id}/verifications:
     get:
       description: Get a list of all the `Verifications` in the `Merchant` object.
@@ -1659,22 +1576,6 @@ paths:
         '406':
           $ref: '#/components/responses/Error406NotAcceptable'
       x-java-method-name: update
-  /payment_instruments/{payment_instrument_id}/authorizations:
-    parameters:
-      - description: ID of object
-        required: true
-        in: path
-        name: payment_instrument_id
-        schema:
-          type: string
-  /payment_instruments/{payment_instrument_id}/transfers:
-    parameters:
-      - description: ID of object
-        required: true
-        in: path
-        name: payment_instrument_id
-        schema:
-          type: string
   /payment_instruments/{payment_instrument_id}/updates:
     get:
       tags:
@@ -1768,15 +1669,6 @@ paths:
           $ref: '#/components/responses/ErrorNotFound'
         '406':
           $ref: '#/components/responses/Error406NotAcceptable'
-  /review_queue: {}
-  /review_queue/{review_queue_item_id}:
-    parameters:
-      - description: ID of object
-        required: true
-        in: path
-        name: review_queue_item_id
-        schema:
-          type: string
   /settlements:
     post:
       tags:
@@ -2167,30 +2059,6 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/UpdateTransferRequest'
       x-java-method-name: update
-  /transfers/{transfer_id}/disputes:
-    parameters:
-      - description: ID of object
-        required: true
-        in: path
-        name: transfer_id
-        schema:
-          type: string
-  /transfers/{transfer_id}/fees:
-    parameters:
-      - description: ID of object
-        required: true
-        in: path
-        name: transfer_id
-        schema:
-          type: string
-  /transfers/{transfer_id}/payment_instruments:
-    parameters:
-      - description: ID of object
-        required: true
-        in: path
-        name: transfer_id
-        schema:
-          type: string
   /transfers/{transfer_id}/reversals:
     post:
       tags:
@@ -2396,24 +2264,6 @@ paths:
         name: verification_id
         schema:
           type: string
-    put:
-      tags:
-        - Verifications
-      description: Update an existing `Verification`.
-      summary: Update a Verification
-      operationId: putVerification
-      requestBody:
-        $ref: '#/components/requestBodies/CreateVerificationRequest'
-      responses:
-        '200':
-          $ref: '#/components/responses/Verification'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      x-java-method-name: update
   /webhooks:
     post:
       tags:
@@ -13809,13 +13659,13 @@ components:
         type:
           type: string
           enum:
-            - PAYMENT_CARD
-            - BANK_ACCOUNT
             - VIRTUAL
+            - VANTIV_OMNI_TOKEN
             - TOKEN
             - PAYMENT_CARD_PRESENT
+            - BANK_ACCOUNT
             - SWIPED_PAYMENT_CARD
-            - VANTIV_OMNI_TOKEN
+            - PAYMENT_CARD
           description: Type of `Payment Instrument`.
         id:
           $ref: '#/components/schemas/Id'
@@ -13851,13 +13701,13 @@ components:
         instrument_type:
           type: string
           enum:
-            - PAYMENT_CARD
-            - BANK_ACCOUNT
             - VIRTUAL
+            - VANTIV_OMNI_TOKEN
             - TOKEN
             - PAYMENT_CARD_PRESENT
+            - BANK_ACCOUNT
             - SWIPED_PAYMENT_CARD
-            - VANTIV_OMNI_TOKEN
+            - PAYMENT_CARD
           description: The type of `Payment Instrument`.
         masked_account_number:
           type: string
@@ -14047,9 +13897,9 @@ components:
         type:
           type: string
           enum:
+            - TOKEN
             - PAYMENT_CARD
             - BANK_ACCOUNT
-            - TOKEN
           description: Type of `Payment Instrument`.
         identity:
           $ref: '#/components/schemas/Id'

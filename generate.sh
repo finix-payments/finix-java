@@ -11,11 +11,9 @@ openapi-generator generate \
   --additional-properties=url=0.0.1-SNAPSHOT \
   --global-property skipFormModel=false \
   \
-  --global-property generateApiTests=true \
-  --global-property generateModelTests=false \
   --global-property httpUserAgent=finix-java/0.0.1 \
-  --global-property modelDocs=false \
-  --global-property apiDocs=false \
+  --global-property models,modelTests,modelDocs=false \
+  --global-property apis,apiTests,apiDocs=false \
   --skip-validate-spec \
   --type-mappings=integer=Long,int=Long \
   \
@@ -32,7 +30,6 @@ openapi-generator generate \
 
 mv ./src/main/java/invoker/ApiClient.java ./src/main/java/invoker/FinixClient.java
 rm .travis.yml
-rm README.md
 rm git_push.sh
 #rm -r .idea
 #rm -r gen

@@ -52,7 +52,7 @@ import invoker.JSON;
  * RiskProfileRulesListEmbedded
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T00:56:13.722393-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T10:10:10.206624-07:00[America/Los_Angeles]")
 public class RiskProfileRulesListEmbedded {
   public static final String SERIALIZED_NAME_RISK_PROFILE_RULES = "risk_profile_rules";
   @SerializedName(SERIALIZED_NAME_RISK_PROFILE_RULES)

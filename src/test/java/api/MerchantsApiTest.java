@@ -93,6 +93,8 @@ public class MerchantsApiTest {
         String merchantId = "MUucec6fHeaWo3VHYoSkUySM";
         CreateVerificationRequest verificationForm = CreateVerificationRequest.builder().build();
         Verification response = finixClient.Merchants.createMerchantVerification(merchantId, verificationForm);
+
+        assertEquals(merchantId, response.getMerchant(), ()->"Should return " +merchantId + " but returns "+ response.getMerchant());
     }
 
     /**

@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * API tests for VerificationsApi
@@ -32,7 +33,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @DisplayName("When Running VerificationsApiTest")
 
-@Disabled
 public class VerificationsApiTest {
     private FinixClient finixClient;
     private TestInfo testInfo;
@@ -50,7 +50,7 @@ public class VerificationsApiTest {
     @BeforeAll
     @DisplayName("Finix Client")
     void contextLoads() {
-        finixClient= new FinixClient("USsRhsHYZGBPnQw8CByJyEQW","8a14c2f9-d94b-4c72-8f5c-a62908e5b30e", Environment.SANDBOX);
+        finixClient= new FinixClient("USpumes23XhzHwXqiy9bfX2B","c69d39e3-f9ff-4735-8c3e-abca86441906", Environment.SANDBOX);
         assertEquals(true , finixClient!=null);
 
     }
@@ -69,11 +69,17 @@ public class VerificationsApiTest {
      *
      */
     @Test
+    @DisplayName("Create a Verification with merchant information")
     public void createVerificationTest() throws ApiException {
-        CreateVerificationRequest verificationForm = null;
+        String merchantId = "MU31oiYcWR6Bvx3tqYQ7WEr9";
+        String processor = "DUMMY_V1";
+        CreateVerificationRequest createVerificationRequest = CreateVerificationRequest.builder()
+                .merchant(merchantId)
+                .processor(processor).build();
 
-        Verification response = api.create(verificationForm);
-        // TODO: test validations
+        Verification response = finixClient.Verifications.create(createVerificationRequest);
+
+        assertEquals(merchantId, response.getMerchant(), "Should return "+ merchantId + " but returns " + response.getMerchant());
     }
 
     /**
@@ -90,35 +96,13 @@ public class VerificationsApiTest {
      */
     @Test
     public void getVerificationTest() throws ApiException {
-        String verificationId = null;
+        String verificationId = "VIcrdHd2vBu5RDZJWNGTQihc";
 
-        Verification response = api.get(verificationId);
-        // TODO: test validations
+        Verification response = finixClient.Verifications.get(verificationId);
+
+        assertEquals(verificationId, response.getId(), "Should return " + verificationId + " but returns "+response.getId());
     }
 
-    /**
-     * List Identity Verifications
-     *
-     * All verifications of this identity
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-    @Test
-    public void listIdentityVerificationsTest() throws ApiException {
-        String identityId = null;
-        Long limit = null;
-        Long offset = null;
-        Long pageNumber = null;
-        Long pageSize = null;
-
-//        VerificationsList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
-        // TODO: test validations
-    }
 
     /**
      * List Merchant Verifications
@@ -134,17 +118,12 @@ public class VerificationsApiTest {
      */
     @Test
     public void listMerchantVerificationsTest() throws ApiException {
-        String merchantId = null;
-        Long limit = null;
-        String afterCursor = null;
-        String beforeCursor = null;
+        String merchantId = "MU31oiYcWR6Bvx3tqYQ7WEr9";
 
-        VerificationsList response = api.listByMerchantId(merchantId, ListMerchantVerificationsQueryParams.builder()
-                .limit(limit)
-                .afterCursor(afterCursor)
-                .beforeCursor(beforeCursor)
-                .build());
-        // TODO: test validations
+        VerificationsList verificationsList = finixClient.Verifications.listByMerchantId(merchantId, ListMerchantVerificationsQueryParams.builder().build());
+        Verification verification = verificationsList.getEmbedded().getVerifications().stream().findFirst().get();
+
+        assertEquals(merchantId, verification.getMerchant(), "Should return " + merchantId + " but returns " + verification.getMerchant());
     }
 
 
@@ -162,37 +141,18 @@ public class VerificationsApiTest {
      */
     @Test
     public void listVerificationsTest() throws ApiException {
-        String id = "MU31oiYcWR6Bvx3tqYQ7WEr9";
+        VerificationsList response = finixClient.Verifications.list(ListVerificationsQueryParams.builder().build());
 
-        VerificationsList response = finixClient.Verifications.list(ListVerificationsQueryParams.builder()
-                .id(id)
-                .build());
-
-        String raw = (String) response.getEmbedded().getVerifications().stream().findFirst().get().getRaw();
-//        System.out.println(raw);
-        assertEquals("RawDummyMerchantUnderwriteResult", raw,()->"Should return RawDummyMerchantUnderwriteResult but returns" + raw );
         assertEquals(20,response.getPage().getLimit(),()->"Should return " + "20" + " but returns " + response.getPage().getLimit());
     }
 
-    /**
-     * Update a Verification
-     *
-     * Update an existing &#x60;Verification&#x60;.
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
     @Test
-    public void putVerificationTest() throws ApiException {
-        String verificationId = null;
-        CreateVerificationRequest verificationForm = null;
+    @DisplayName("Test Raw as String")
+    public void checkRawInVerification() throws ApiException{
+        String verificationId = "VIcrdHd2vBu5RDZJWNGTQihc";
+        Verification verification = finixClient.Verifications.get(verificationId);
+        String raw = (String) verification.getRaw();
 
-        Verification response = api.update(verificationId, verificationForm);
-        // TODO: test validations
+        assertEquals("RawDummyMerchantUnderwriteResult", raw,()->"Should return RawDummyMerchantUnderwriteResult but returns" + raw );
     }
-
 }

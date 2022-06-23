@@ -51,7 +51,7 @@ import invoker.JSON;
  * CreateFileRequest
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T00:56:13.722393-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T10:10:10.206624-07:00[America/Los_Angeles]")
 public class CreateFileRequest {
   public static final String SERIALIZED_NAME_DISPLAY_NAME = "display_name";
   @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)

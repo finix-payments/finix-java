@@ -30,3 +30,4 @@ Add the following to your project's pom.xml:
 - Files
 - Settlements
 - Webhooks
+- Verifications

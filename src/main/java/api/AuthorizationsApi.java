@@ -159,7 +159,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
             /**
             * Create an Authorization
-            * Create an &#x60;Authorization&#x60; to process a transaction.  &#x60;Authorizations&#x60; can have two possible &#x60;states&#x60;:  - **SUCCEEDED**  - **FAILED**  If the &#x60;Authorization&#x60; has **SUCCEEDED** , it must be captured before &#x60;expires_at&#x60; passes or the funds will be released.  Learn how to prevent duplicate authorizations by passing an [Idempotency ID](#section/Idempotency-Requests) in the payload.  - 3D Secure is also available to authenticate transactions. 3D Secure lets you authenticate a transaction by having the cardholder authenticate with their issuing bank. By enabling 3D Secure, you shift the liability of a chargeback from the merchant to the issuing bank. The integration requires a 3D Secure vendor to generate the values needed for &#x60;3d_secure_authentication&#x60;.
+            * Create an &#x60;Authorization&#x60; to process a transaction.  &#x60;Authorizations&#x60; can have two possible &#x60;states&#x60;:  - **SUCCEEDED**  - **FAILED**  If the &#x60;Authorization&#x60; has **SUCCEEDED** , it must be captured before &#x60;expires_at&#x60; passes or the funds will be released.  Learn how to prevent duplicate authorizations by passing an [Idempotency ID](#section/Idempotency-Requests) in the payload.
                 * @param createAuthorizationRequest  (optional)
                 * @return Authorization
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -183,7 +183,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Create an Authorization
-        * Create an &#x60;Authorization&#x60; to process a transaction.  &#x60;Authorizations&#x60; can have two possible &#x60;states&#x60;:  - **SUCCEEDED**  - **FAILED**  If the &#x60;Authorization&#x60; has **SUCCEEDED** , it must be captured before &#x60;expires_at&#x60; passes or the funds will be released.  Learn how to prevent duplicate authorizations by passing an [Idempotency ID](#section/Idempotency-Requests) in the payload.  - 3D Secure is also available to authenticate transactions. 3D Secure lets you authenticate a transaction by having the cardholder authenticate with their issuing bank. By enabling 3D Secure, you shift the liability of a chargeback from the merchant to the issuing bank. The integration requires a 3D Secure vendor to generate the values needed for &#x60;3d_secure_authentication&#x60;.
+        * Create an &#x60;Authorization&#x60; to process a transaction.  &#x60;Authorizations&#x60; can have two possible &#x60;states&#x60;:  - **SUCCEEDED**  - **FAILED**  If the &#x60;Authorization&#x60; has **SUCCEEDED** , it must be captured before &#x60;expires_at&#x60; passes or the funds will be released.  Learn how to prevent duplicate authorizations by passing an [Idempotency ID](#section/Idempotency-Requests) in the payload.
             * @param createAuthorizationRequest  (optional)
         * @return ApiResponse&lt;Authorization&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -208,7 +208,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Create an Authorization (asynchronously)
-        * Create an &#x60;Authorization&#x60; to process a transaction.  &#x60;Authorizations&#x60; can have two possible &#x60;states&#x60;:  - **SUCCEEDED**  - **FAILED**  If the &#x60;Authorization&#x60; has **SUCCEEDED** , it must be captured before &#x60;expires_at&#x60; passes or the funds will be released.  Learn how to prevent duplicate authorizations by passing an [Idempotency ID](#section/Idempotency-Requests) in the payload.  - 3D Secure is also available to authenticate transactions. 3D Secure lets you authenticate a transaction by having the cardholder authenticate with their issuing bank. By enabling 3D Secure, you shift the liability of a chargeback from the merchant to the issuing bank. The integration requires a 3D Secure vendor to generate the values needed for &#x60;3d_secure_authentication&#x60;.
+        * Create an &#x60;Authorization&#x60; to process a transaction.  &#x60;Authorizations&#x60; can have two possible &#x60;states&#x60;:  - **SUCCEEDED**  - **FAILED**  If the &#x60;Authorization&#x60; has **SUCCEEDED** , it must be captured before &#x60;expires_at&#x60; passes or the funds will be released.  Learn how to prevent duplicate authorizations by passing an [Idempotency ID](#section/Idempotency-Requests) in the payload.
             * @param createAuthorizationRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
