@@ -5,7 +5,7 @@ This is the official Finix Java library
 ## Installation
 ### Prerequisites
 - Java 1.8+
-- Suggested: You own API credentials.
+- Suggested: Your own API credentials.
     - The tests use the API credentials from our public documentaiton, but you will need your own credentials.
 
 ### Maven

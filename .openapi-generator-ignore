@@ -43,4 +43,4 @@ src/**/ProcessorsApi*.java
 src/**/ReviewQueueApi*.java
 src/**/Subscription*Api*.java
 src/**/UsersApi*.java
-#src/**/DefaultApi*.java
+
