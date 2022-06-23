@@ -33,9 +33,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DisplayName("When Running AuthorizationsApi")
 public class AuthorizationsApiTest {
     public String AuthorizationId;
-
+    private TestInfo testInfo;
+    private TestReporter testReporter;
     private FinixClient finixClient;
-    private final AuthorizationsApi api = new AuthorizationsApi();
+    @BeforeEach
+    void init(TestInfo testInfo, TestReporter testReporter){
+        this.testInfo =testInfo;
+        this.testReporter =testReporter;
+        testReporter.publishEntry("Running "+testInfo.getDisplayName()+ " with tag " + testInfo.getTags());
+    }
     @Test
     @BeforeAll
     void contextLoads() {
@@ -59,12 +65,14 @@ public class AuthorizationsApiTest {
     @AfterEach
     @DisplayName("Create an authorization")
     public void createAuthorizationTest() throws ApiException {
+        Map<String, String> localMap = new HashMap<>();
+        localMap.put("order_number", "21DFASJSAKAS");
         CreateAuthorizationRequest createAuthorizationRequest = CreateAuthorizationRequest.builder()
                 .source("PIe2YvpcjvoVJ6PzoRPBK137")
                 .merchant("MUeDVrf2ahuKc9Eg5TeZugvs")
-                .tags(Map.of("order_number", "21DFASJSAKAS"))
+                .tags(localMap)
                 .currency(Currency.USD)
-                .amount(Long.valueOf(100))
+                .amount(100L)
                 .processor(CreateAuthorizationRequest.ProcessorEnum.DUMMY_V1)
                 .build();
         Authorization response = finixClient.Authorization.create(createAuthorizationRequest);
@@ -79,6 +87,8 @@ public class AuthorizationsApiTest {
     @Test
     @DisplayName("Create an Authorization with 3D Secure")
     public void create3DSecureAuthorizationTest() throws ApiException {
+        Map<String, String> localMap = new HashMap<>();
+        localMap.put("order_number", "21DFASJSAKAS");
         CreateAuthorizationRequest createAuthorizationRequest = CreateAuthorizationRequest.builder()
                 .merchant("MUeDVrf2ahuKc9Eg5TeZugvs")
                 ._3dSecureAuthentication(CreateAuthorizationRequest3dSecureAuthentication.builder()
@@ -87,7 +97,7 @@ public class AuthorizationsApiTest {
                         .transactionId("EaOMucALHQqLAEGAgk")
                         .build())
                 .source("PIe2YvpcjvoVJ6PzoRPBK137")
-                .tags(Map.of("order_number", "21DFASJSAKAS"))
+                .tags(localMap)
                 .currency(Currency.USD)
                 .amount(100L)
                 .build();
@@ -102,6 +112,8 @@ public class AuthorizationsApiTest {
     @Test
     @DisplayName("Create an Authorization with Level 2 Processing")
     public void create2DAuthorizationTest() throws ApiException {
+        Map<String, String> localMap = new HashMap<>();
+        localMap.put("order_number", "21DFASJSAKAS");
         CreateAuthorizationRequest createAuthorizationRequest = CreateAuthorizationRequest.builder()
                 .merchant("MUeDVrf2ahuKc9Eg5TeZugvs")
                 .source("PIe2YvpcjvoVJ6PzoRPBK137")
@@ -109,7 +121,7 @@ public class AuthorizationsApiTest {
                         .customerReferenceNumber("321xyz")
                         .salesTax(200l)
                         .build())
-                .tags(Map.of("order_number", "21DFASJSAKAS"))
+                .tags(localMap)
                 .currency(Currency.USD)
                 .amount(1000L)
                 .processor(CreateAuthorizationRequest.ProcessorEnum.DUMMY_V1)
@@ -124,6 +136,8 @@ public class AuthorizationsApiTest {
     @Test
     @DisplayName("Create an Authorization with Level 3 Processing")
     public void create3DProcessingAuthorizationTest() throws ApiException {
+        Map<String, String> localMap = new HashMap<>();
+        localMap.put("order_number", "21DFASJSAKAS");
         List<AdditionalPurchaseDataItemDataInner> additionalPurchaseDataItemDataList = new ArrayList<>();
         additionalPurchaseDataItemDataList.add(AdditionalPurchaseDataItemDataInner.builder()
                 .amountIncludingSalesTax(500l)
@@ -157,7 +171,7 @@ public class AuthorizationsApiTest {
                         .shippingAmount(100l)
                         .customsDutyAmount(10l)
                         .build())
-                .tags(Map.of("order_number", "21DFASJSAKAS"))
+                .tags(localMap)
                 .currency(Currency.USD)
                 .amount(1000L)
                 .processor(CreateAuthorizationRequest.ProcessorEnum.DUMMY_V1)
@@ -166,7 +180,6 @@ public class AuthorizationsApiTest {
         assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getSource());
 
     }
-
     /**
      * Get an Authorization
      *
@@ -185,27 +198,6 @@ public class AuthorizationsApiTest {
         String authorizationId = "AU9j85tCcnJ7DvkFjNtmZ7g1";
         Authorization response = finixClient.Authorization.get(authorizationId);
         assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getSource());
-    }
-
-    /**
-     * List Application Authorizations
-     *
-     * Return a collection of authorizations, if there are no authorizations, an empty collection will be returned. 
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-    @Test
-    @DisplayName("List Application Authorizations")
-    public void listApplicationAuthorizationsTest() throws ApiException {
-        String applicationId = "APgPDQrLD52TYvqazjHJJchM";
-
-//        AuthorizationsList response = finixClient.Authorization.listByApplicationId(applicationId);
-//        assertEquals(20,response.getPage().getLimit().intValue(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit().intValue());
     }
 
     /**
@@ -285,53 +277,6 @@ public class AuthorizationsApiTest {
                 .afterCursor(afterCursor)
                 .build());
         assertEquals(20,response.getPage().getLimit().intValue(),()->"Should return " + "20" + " but returns " + response.getPage().getLimit());
-    }
-
-    /**
-     * List Identity Authorizations
-     *
-     * All authorizations associated to this identity
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-    //@Test
-    public void listIdentityAuthorizationsTest() throws ApiException {
-        String identityId = null;
-        Long limit = null;
-        String afterCursor = null;
-        String beforeCursor = null;
-
-//        AuthorizationsList response = api.listByIdentityId(identityId, limit, afterCursor, beforeCursor);
-        // TODO: test validations
-    }
-
-    /**
-     * List Payment Instrument Authorizations
-     *
-     * Get list of all the transfers in the payment instrument object
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-    //@Test
-    public void listPaymentInstrumentAuthorizationsTest() throws ApiException {
-        String paymentInstrumentId = null;
-        Long limit = null;
-        Long offset = null;
-        Long pageNumber = null;
-        Long pageSize = null;
-
-//        AuthorizationsList response = api.listByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize);
-        // TODO: test validations
     }
 
     /**

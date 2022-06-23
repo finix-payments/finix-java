@@ -53,46 +53,6 @@ public class SettlementsApiTest {
         assertEquals(true , finixClient!=null);
 
     }
-    /**
-     * Create Settlement on Identity
-     *
-     * Create a settlement
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-   // @Test
-    public void createIdentitySettlementTest() throws ApiException {
-        String identityId = null;
-        Object body = null;
-
-//        Settlement response = finixClient.Settlements.create(identityId, body);
-        // TODO: test validations
-    }
-
-    /**
-     * Create a Batch Settlement
-     *
-     * Create a batch &#x60;Settlement&#x60;. A &#x60;Settlement&#x60; is a collection of **SUCCEEDED** &#x60;Transfers&#x60; that are ready to get paid out to a &#x60;Merchant&#x60;.
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-    //@Test
-    public void createSettlementTest() throws ApiException {
-        CreateSettlementRequest createSettlementRequest = null;
-
-        Settlement response = finixClient.Settlements.create(createSettlementRequest);
-        // TODO: test validations
-    }
 
     /**
      * Get a Settlement
@@ -140,50 +100,6 @@ public class SettlementsApiTest {
                 .beforeCursor(beforeCursor)
                 .build());
         assertEquals("20",response.getPage().getLimit().toString(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit());
-    }
-
-    /**
-     * List Settlements for an Application
-     *
-     * Return a collection of settlements, if there are no settlements, an empty collection will be returned.
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-    //@Test
-    public void listApplicationSettlementsTest() throws ApiException {
-        String applicationId = null;
-
-//        SettlementsList response = finixClient.Settlements.listByApplicationId(applicationId);
-        // TODO: test validations
-    }
-
-    /**
-     * List Identity Settlements
-     *
-     * Get all settlements associated to this identity
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-    //@Test
-    public void listIdentitySettlementsTest() throws ApiException {
-        String identityId = null;
-        Long limit = null;
-        Long offset = null;
-        Long pageNumber = null;
-        Long pageSize = null;
-
-//        SettlementsList response = finixClient.Settlements.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
-        // TODO: test validations
     }
 
     /**
@@ -260,27 +176,6 @@ public class SettlementsApiTest {
     }
 
     /**
-     * Update a Settlement
-     *
-     * Update a &#x60;Settlement&#x60;.
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-    //@Test
-    public void putSettlementTest() throws ApiException {
-        String settlementId = null;
-        UpdateSettlementRequest updateSettlementRequest = null;
-
-        Settlement response = finixClient.Settlements.update(settlementId, updateSettlementRequest);
-        // TODO: test validations
-    }
-
-    /**
      * Remove Settlement Transfers
      *
      * Remove a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.  As long as the &#x60;Settlement&#x60; hasn&#39;t been funded, you can remove the &#x60;Transfer&#x60; or an array of &#x60;Transfers&#x60;, along with its corresponding &#x60;fee&#x60; from a batch &#x60;Settlement&#x60;.   Note: Per the JSON API for deleting a resource, our API doesn&#39;t have a response body when removing a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.
@@ -296,15 +191,16 @@ public class SettlementsApiTest {
     @DisplayName("Remove Settlement Transfers")
     public void removeSettlementTransfersTest() throws ApiException {
         String settlementId = "STmCc8GbjjX33SdymwNhb9Et";
+        List<String> localList = new ArrayList<>();
+        localList.add("TRr61njQxaa7AJf6E1C3QwCc");
         RemoveSettlementTransfer removeSettlementTransfer = RemoveSettlementTransfer.builder()
-                .transfers(List.of("TRr61njQxaa7AJf6E1C3QwCc"))
+                .transfers(localList)
                 .build();
-        try{
+        try {
             finixClient.Settlements.removeTransfersFromSettlement(settlementId, removeSettlementTransfer);
-        }catch (ApiException apiException){
-            assertTrue(apiException.getMessage().contains("Entries ["  + removeSettlementTransfer.getTransfers().get(0)+"] not found in settlement " + settlementId));
+        } catch (ApiException apiException) {
+            assertTrue(apiException.getMessage().contains("Entries [" + removeSettlementTransfer.getTransfers().get(0) + "] not found in settlement " + settlementId));
         }
-
     }
 
 }

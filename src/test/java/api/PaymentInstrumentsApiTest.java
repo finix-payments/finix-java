@@ -54,30 +54,7 @@ public class PaymentInstrumentsApiTest {
         assertEquals(true , finixClient!=null);
 
     }
-    /**
-     * Create an Apple Pay Session
-     *
-     * Create an &#x60;apple_pay_session&#x60; to process Apple Pay transactions on the web.  To create an Apple Pay Session, pass a &#x60;validation_url&#x60; while creating an &#x60;apple_pay_sessions&#x60; resource. Finix returns a &#x60;merchantSession&#x60; object which you can use to create a payment. For more information, see [Apple Pay](guides/payments/alternative-payment-methods/apple-pay/). 
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-    //@Test
-    public void createApplePaySessionTest() throws ApiException {
-        ApplePaySessionRequest applePaySessionRequest = ApplePaySessionRequest.builder()
-                .displayName("Finix Test Merchant")
-                .domain("www.finixtestmerchant.com")
-                .merchantIdentity("IDmULj61C8ke6Y7qQiKENJ7")
-                .validationUrl("https://apple-pay-gateway-cert.apple.com/paymentservices/paymentSession")
-                .build();
 
-        ApplePaySession response = finixClient.PaymentInstrument.createApplePaySession(applePaySessionRequest);
-        // TODO: test validations
-    }
 
     /**
      * Create a Payment Instrument
@@ -140,26 +117,6 @@ public class PaymentInstrumentsApiTest {
     }
 
     /**
-     * Create Instrument Updates
-     *
-     * To update the card details of your customers, create an &#x60;instrument_updates&#x60; resource. Include the &#x60;Payment Instrument&#x60; IDs you want to update in a CSV. For more info, see the guide on using our [Account Updater](//payments/account-updater/).
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-    //@Test
-    public void createPaymentInstrumentUpdateTest() throws ApiException {
-        CreateInstrumentUpdatesRequest createInstrumentUpdatesRequest = null;
-
-        InstrumentUpdates response = finixClient.PaymentInstrument.createPaymentInstrumentUpdate(createInstrumentUpdatesRequest);
-        // TODO: test validations
-    }
-
-    /**
      * Verify a Payment Instrument
      *
      * Verify a &#x60;Payment Instrument&#x60; to determine if it&#39;s elligable for Push To Card transactions.   &gt; Only verify &#x60;Payment Instruments&#x60; for [Push To Card](/guides/push-to-card) customers.
@@ -179,27 +136,7 @@ public class PaymentInstrumentsApiTest {
                 .processor("DUMMY_V1")
                 .build();
         Verification response = finixClient.PaymentInstrument.createPaymentInstrumentVerification(paymentInstrumentId, verificationForm);
-
-    }
-
-    /**
-     * Fetch an Instrument Update
-     *
-     * Fetch a specific &#x60;instrument_update&#x60; from an &#x60;instrument_updates&#x60; resource. For more information, see the guide on using our [Account Updater](/guides/payments/account-updater).
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-    //@Test
-    public void getInstrumentUpdateTest() throws ApiException {
-        String instrumentUpdatesId = null;
-
-        InstrumentUpdates response = finixClient.PaymentInstrument.getInstrumentUpdate(instrumentUpdatesId);
-        // TODO: test validations
+        assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getPaymentInstrument(),()->" Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getPaymentInstrument());
     }
 
     /**
@@ -258,78 +195,6 @@ public class PaymentInstrumentsApiTest {
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
     }
 
-    /**
-     * Payment Instruments
-     *
-     * Get all paymentInstruments of an application.
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-   // @Test
-    public void listApplicationPaymentInstrumentsTest() throws ApiException {
-        String applicationId = null;
-
-        PaymentInstrumentsList response = finixClient.PaymentInstrument.listByApplicationId(applicationId);
-        // TODO: test validations
-    }
-
-    /**
-     * List Identity Payment Instruments
-     *
-     * Get all payment instruments associated to this identity
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-   // @Test
-    public void listIdentityPaymentInstrumentsTest() throws ApiException {
-        String identityId = null;
-        Long limit = null;
-        Long offset = null;
-        Long pageNumber = null;
-        Long pageSize = null;
-
-        PaymentInstrumentsList response = finixClient.PaymentInstrument.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
-        // TODO: test validations
-    }
-
-    /**
-     * List Payment Instrument Updates
-     *
-     * List the updates on a &#x60;Payment Instrument&#x60;.  When using the [account updater](/guides/payments/account-updater), &#x60;Payment Instrument&#x60; details that are updated are represented by an &#x60;Update&#x60;.
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-   // @Test
-    public void listPaymentInstrumentUpdatesTest() throws ApiException {
-        String paymentInstrumentId = null;
-        Long limit = null;
-        Long offset = null;
-        Long pageNumber = null;
-        Long pageSize = null;
-
-        PaymentInstrumentUpdatesList response = finixClient.PaymentInstrument.listUpdatesByPaymentInstrumentId(paymentInstrumentId, ListPaymentInstrumentUpdatesQueryParams.builder()
-                .limit(limit)
-                .offset(offset)
-                .pageNumber(pageNumber)
-                .pageSize(pageSize)
-                .build());
-        // TODO: test validations
-    }
 
     /**
      * List Payment Instruments
@@ -382,29 +247,6 @@ public class PaymentInstrumentsApiTest {
         assertEquals("20",response.getPage().getLimit().toString(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit());
     }
 
-    /**
-     * List Transfer Payment Instruments
-     *
-     * Get list of all the payment instruments in the transfers object
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-    //@Test
-    public void listTransferPaymentInstrumentsTest() throws ApiException {
-        String transferId = null;
-        Long limit = null;
-        Long offset = null;
-        Long pageNumber = null;
-        Long pageSize = null;
-
-        PaymentInstrumentsList response = finixClient.PaymentInstrument.listByTransferId(transferId, limit, offset, pageNumber, pageSize);
-        // TODO: test validations
-    }
 
     /**
      * Update a Payment Instrument

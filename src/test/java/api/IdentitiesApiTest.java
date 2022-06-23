@@ -18,6 +18,8 @@ import invoker.Environment;
 import invoker.FinixClient;
 import model.*;
 import org.junit.jupiter.api.*;
+
+import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -27,7 +29,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @DisplayName("When Running IdentitiesApi")
-
 public class IdentitiesApiTest {
     private FinixClient finixClient;
     private String identity;
@@ -78,8 +79,10 @@ public class IdentitiesApiTest {
     @Test
     @DisplayName("Create an Identity for a Buyer")
     public void createBuyerIdentityTest() throws ApiException{
+        Map<String,String> localMap = new HashMap<>();
+        localMap.put("key", "value");
         CreateIdentityRequest createIdentityRequest = CreateIdentityRequest.builder()
-                .tags(Map.of("key", "value"))
+                .tags(localMap)
                 .entity(CreateIdentityRequestEntity.builder()
                         .phone("7145677613")
                         .firstName("Collen")
@@ -114,6 +117,8 @@ public class IdentitiesApiTest {
     @BeforeAll
     @DisplayName("Create an Identity for a Merchant")
     public void createIdentityTest() throws ApiException {
+        Map<String,String> localMap = new HashMap<>();
+        localMap.put("Studio Rating", "4.7");
         CreateIdentityRequest createIdentityRequest  = CreateIdentityRequest.builder()
                 .additionalUnderwritingData(CreateIdentityRequestAdditionalUnderwritingData.builder()
                         .merchantAgreementAccepted(true)
@@ -143,7 +148,7 @@ public class IdentitiesApiTest {
                                 .ecommercePercentage(60l)
                                 .build())
                         .build())
-                .tags(Map.of("Studio Rating", "4.7"))
+                .tags(localMap)
                 .entity(CreateIdentityRequestEntity.builder()
                         .lastName("Sunkhronos")
                         .maxTransactionAmount(12000000l)
@@ -195,18 +200,19 @@ public class IdentitiesApiTest {
         Identity response = finixClient.Identity.create(createIdentityRequest);
         identity = response.getId();
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
-    }
-    /**
+    }/**
      * Create a Bank Account
      */
     @Test
     @DisplayName("Create a Bank Account")
     @BeforeEach
     public void createBankAccount() throws ApiException{
+        Map<String,String> localMap = new HashMap<>();
+        localMap.put("Bank Account", "Company Account");
         CreatePaymentInstrumentRequest createPaymentInstrumentRequest =  CreatePaymentInstrumentRequest.builder()
                 .accountType(CreatePaymentInstrumentRequest.AccountTypeEnum.CHECKING)
                 .name("Alice")
-                .tags(Map.of("Bank Account", "Company Account"))
+                .tags(localMap)
                 .country("USA")
                 .bankCode("123123123")
                 .accountNumber("123123123")
@@ -237,25 +243,6 @@ public class IdentitiesApiTest {
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
     }
 
-    /**
-     * List Application Identities
-     *
-     * Return a collection of identities, if there are no identities, an empty collection will be returned. 
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-   // @Test
-    public void listApplicationIdentitiesTest() throws ApiException {
-        String applicationId = null;
-
-//        IdentitiesList response = finixClient.Identity.listByApplicationId(applicationId);
-        // TODO: test validations
-    }
 
     /**
      * List Identities
@@ -307,32 +294,6 @@ public class IdentitiesApiTest {
 
     }
 
-    /**
-     * List Associated Identities
-     *
-     * Retrieve a list of &#x60;Associated Identities&#x60; for an &#x60;Identity&#x60;.
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-    //@Test
-    public void listIdentityAssociatedIdentitiesTest() throws ApiException {
-        String identityId = null;
-        Long limit = null;
-        String afterCursor = null;
-        String beforeCursor = null;
-
-        IdentitiesList response = finixClient.Identity.listAssocaiatedIdentities(identityId, ListIdentityAssociatedIdentitiesQueryParams.builder()
-                .limit(limit)
-                .afterCursor(afterCursor)
-                .beforeCursor(beforeCursor)
-                .build());
-        // TODO: test validations
-    }
 
     /**
      * Update an Identity
@@ -349,9 +310,11 @@ public class IdentitiesApiTest {
     @Test
     @DisplayName("Update an Identity")
     public void putIdentityTest() throws ApiException {
+        Map<String,String> localMap = new HashMap<>();
+        localMap.put("key", "value_2");
         String identityId = "IDpYDM7J9n57q849o9E9yNrG";
         UpdateIdentityRequest updateIdentityRequest = UpdateIdentityRequest.builder()
-                .tags(Map.of("key", "value_2"))
+                .tags(localMap)
                 .entity(UpdateIdentityRequestEntity.builder()
                         .businessPhone("+1 (408) 756-4497")
                         .firstName("Bernard")
@@ -389,17 +352,18 @@ public class IdentitiesApiTest {
         Identity response = finixClient.Identity.update(identityId, updateIdentityRequest);
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
     }
-
     /**
      * Provision a Merchant
      */
     @Test
     @DisplayName("Provision a Merchant")
     public void createIdentityMerchantTest() throws ApiException {
+        Map<String,String> localMap = new HashMap<>();
+        localMap.put("key", "value_2");
         String identityId = identity;
         CreateMerchantUnderwritingRequest createMerchantUnderwritingRequest = CreateMerchantUnderwritingRequest.builder()
                 .processor("DUMMY_V1")
-                .tags(Map.of("key_2", "value_2"))
+                .tags(localMap)
                 .build();
         Merchant response = finixClient.Merchants.create(identityId, createMerchantUnderwritingRequest);
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());

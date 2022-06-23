@@ -33,8 +33,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DisplayName("When Running BalanceTransfersApiTest")
 public class BalanceTransfersApiTest {
     private FinixClient finixClient;
-
-    private final BalanceTransfersApi api = new BalanceTransfersApi();
+    private TestInfo testInfo;
+    private TestReporter testReporter;
+    @BeforeEach
+    void init(TestInfo testInfo, TestReporter testReporter){
+        this.testInfo =testInfo;
+        this.testReporter =testReporter;
+        testReporter.publishEntry("Running "+testInfo.getDisplayName()+ " with tag " + testInfo.getTags());
+    }
     /**
      * Create a Context Loads
      */

@@ -94,26 +94,6 @@ public class WebhooksApiTest {
     }
 
     /**
-     * List Application Webhooks
-     *
-     * Return a collection of webhooks, if there are no webhooks, an empty collection will be returned. 
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-    //@Test
-    public void listApplicationWebhooksTest() throws ApiException {
-        String applicationId = null;
-
-//        WebhooksList response = finixClient.Webhooks.listByApplicationId(applicationId);
-        // TODO: test validations
-    }
-
-    /**
      * List Webhooks
      *
      * Retrieve a list of &#x60;Webhook&#x60; endpoints.

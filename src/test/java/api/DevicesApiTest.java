@@ -101,25 +101,4 @@ public class DevicesApiTest {
         assertEquals("MUu56ZGx3Xb6U9gAqKfgNisd",response.getMerchant(),()->"Should return " + "MUu56ZGx3Xb6U9gAqKfgNisd" + " but returns " + response.getMerchant());
     }
 
-    /**
-     * Update a Device
-     *
-     * Update a &#x60;Device&#x60; to activate or deactivate it.
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-   // @Test
-    public void putDeviceTest() throws ApiException {
-        String deviceId = null;
-        Object body = null;
-
-        Device response = finixClient.Devices.update(deviceId, body);
-        // TODO: test validations
-    }
-
 }
