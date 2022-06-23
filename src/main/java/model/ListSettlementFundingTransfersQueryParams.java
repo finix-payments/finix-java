@@ -45,11 +45,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * ListSubscriptionEnrollmentsQueryParams
+ * ListSettlementFundingTransfersQueryParams
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-21T11:54:05.123637-05:00[America/Chicago]")
-public class ListSubscriptionEnrollmentsQueryParams {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T00:56:13.722393-07:00[America/Los_Angeles]")
+public class ListSettlementFundingTransfersQueryParams {
   public static final String SERIALIZED_NAME_LIMIT = "limit";
   @SerializedName(SERIALIZED_NAME_LIMIT)
   private Long limit;
@@ -62,10 +62,10 @@ public class ListSubscriptionEnrollmentsQueryParams {
   @SerializedName(SERIALIZED_NAME_BEFORE_CURSOR)
   private String beforeCursor;
 
-  public ListSubscriptionEnrollmentsQueryParams() { 
+  public ListSettlementFundingTransfersQueryParams() { 
   }
 
-  public ListSubscriptionEnrollmentsQueryParams limit(Long limit) {
+  public ListSettlementFundingTransfersQueryParams limit(Long limit) {
     
     this.limit = limit;
     return this;
@@ -88,7 +88,7 @@ public class ListSubscriptionEnrollmentsQueryParams {
   }
 
 
-  public ListSubscriptionEnrollmentsQueryParams afterCursor(String afterCursor) {
+  public ListSettlementFundingTransfersQueryParams afterCursor(String afterCursor) {
     
     this.afterCursor = afterCursor;
     return this;
@@ -111,7 +111,7 @@ public class ListSubscriptionEnrollmentsQueryParams {
   }
 
 
-  public ListSubscriptionEnrollmentsQueryParams beforeCursor(String beforeCursor) {
+  public ListSettlementFundingTransfersQueryParams beforeCursor(String beforeCursor) {
     
     this.beforeCursor = beforeCursor;
     return this;
@@ -143,10 +143,10 @@ public class ListSubscriptionEnrollmentsQueryParams {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListSubscriptionEnrollmentsQueryParams listSubscriptionEnrollmentsQueryParams = (ListSubscriptionEnrollmentsQueryParams) o;
-    return Objects.equals(this.limit, listSubscriptionEnrollmentsQueryParams.limit) &&
-        Objects.equals(this.afterCursor, listSubscriptionEnrollmentsQueryParams.afterCursor) &&
-        Objects.equals(this.beforeCursor, listSubscriptionEnrollmentsQueryParams.beforeCursor);
+    ListSettlementFundingTransfersQueryParams listSettlementFundingTransfersQueryParams = (ListSettlementFundingTransfersQueryParams) o;
+    return Objects.equals(this.limit, listSettlementFundingTransfersQueryParams.limit) &&
+        Objects.equals(this.afterCursor, listSettlementFundingTransfersQueryParams.afterCursor) &&
+        Objects.equals(this.beforeCursor, listSettlementFundingTransfersQueryParams.beforeCursor);
   }
 
   @Override
@@ -157,7 +157,7 @@ public class ListSubscriptionEnrollmentsQueryParams {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListSubscriptionEnrollmentsQueryParams {\n");
+    sb.append("class ListSettlementFundingTransfersQueryParams {\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    afterCursor: ").append(toIndentedString(afterCursor)).append("\n");
     sb.append("    beforeCursor: ").append(toIndentedString(beforeCursor)).append("\n");
@@ -195,14 +195,14 @@ public class ListSubscriptionEnrollmentsQueryParams {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ListSubscriptionEnrollmentsQueryParams
+  * @throws IOException if the JSON Object is invalid with respect to ListSettlementFundingTransfersQueryParams
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (ListSubscriptionEnrollmentsQueryParams.openapiRequiredFields.isEmpty()) {
+        if (ListSettlementFundingTransfersQueryParams.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ListSubscriptionEnrollmentsQueryParams is not found in the empty JSON string", ListSubscriptionEnrollmentsQueryParams.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ListSettlementFundingTransfersQueryParams is not found in the empty JSON string", ListSettlementFundingTransfersQueryParams.openapiRequiredFields.toString()));
         }
       }
      /* 
@@ -210,8 +210,8 @@ public class ListSubscriptionEnrollmentsQueryParams {
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!ListSubscriptionEnrollmentsQueryParams.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ListSubscriptionEnrollmentsQueryParams` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!ListSettlementFundingTransfersQueryParams.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ListSettlementFundingTransfersQueryParams` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       */
@@ -236,22 +236,22 @@ public class ListSubscriptionEnrollmentsQueryParams {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ListSubscriptionEnrollmentsQueryParams.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ListSubscriptionEnrollmentsQueryParams' and its subtypes
+       if (!ListSettlementFundingTransfersQueryParams.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ListSettlementFundingTransfersQueryParams' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ListSubscriptionEnrollmentsQueryParams> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ListSubscriptionEnrollmentsQueryParams.class));
+       final TypeAdapter<ListSettlementFundingTransfersQueryParams> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ListSettlementFundingTransfersQueryParams.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ListSubscriptionEnrollmentsQueryParams>() {
+       return (TypeAdapter<T>) new TypeAdapter<ListSettlementFundingTransfersQueryParams>() {
            @Override
-           public void write(JsonWriter out, ListSubscriptionEnrollmentsQueryParams value) throws IOException {
+           public void write(JsonWriter out, ListSettlementFundingTransfersQueryParams value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public ListSubscriptionEnrollmentsQueryParams read(JsonReader in) throws IOException {
+           public ListSettlementFundingTransfersQueryParams read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -262,18 +262,18 @@ public class ListSubscriptionEnrollmentsQueryParams {
   }
 
  /**
-  * Create an instance of ListSubscriptionEnrollmentsQueryParams given an JSON string
+  * Create an instance of ListSettlementFundingTransfersQueryParams given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ListSubscriptionEnrollmentsQueryParams
-  * @throws IOException if the JSON string is invalid with respect to ListSubscriptionEnrollmentsQueryParams
+  * @return An instance of ListSettlementFundingTransfersQueryParams
+  * @throws IOException if the JSON string is invalid with respect to ListSettlementFundingTransfersQueryParams
   */
-  public static ListSubscriptionEnrollmentsQueryParams fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ListSubscriptionEnrollmentsQueryParams.class);
+  public static ListSettlementFundingTransfersQueryParams fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ListSettlementFundingTransfersQueryParams.class);
   }
 
  /**
-  * Convert an instance of ListSubscriptionEnrollmentsQueryParams to an JSON string
+  * Convert an instance of ListSettlementFundingTransfersQueryParams to an JSON string
   *
   * @return JSON string
   */

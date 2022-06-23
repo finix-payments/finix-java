@@ -51,7 +51,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Details needed to process card present transactions.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-21T11:54:05.123637-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T00:56:13.722393-07:00[America/Los_Angeles]")
 public class CardPresentDetails {
   public static final String SERIALIZED_NAME_APPROVAL_CODE = "approval_code";
   @SerializedName(SERIALIZED_NAME_APPROVAL_CODE)

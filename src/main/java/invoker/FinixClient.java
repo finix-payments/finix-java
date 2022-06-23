@@ -85,11 +85,9 @@ public class FinixClient {
     public DevicesApi Devices;
     public PaymentInstrumentsApi PaymentInstrument;
     public BalanceTransfersApi BalanceTransfers;
-    public MerchantProfilesApi MerchantProfiles;
     public WebhooksApi Webhooks;
     public FilesApi filesApi;
     public MerchantsApi Merchants;
-    public SubscriptionSchedulesApi SubscriptionSchedules;
     public SettlementsApi Settlements;
     public VerificationsApi Verifications;
     private OkHttpClient httpClient;
@@ -126,7 +124,6 @@ public class FinixClient {
         BalanceTransfers = new BalanceTransfersApi(this);
         filesApi = new FilesApi(this);
         Merchants = new MerchantsApi(this);
-        SubscriptionSchedules = new SubscriptionSchedulesApi(this);
         Settlements = new SettlementsApi(this);
         Verifications = new VerificationsApi(this);
     }

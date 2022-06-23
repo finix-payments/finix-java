@@ -172,7 +172,7 @@ public class PaymentInstrumentsApiTest {
     @DisplayName("Payment instrument verification")
     public void createPaymentInstrumentVerificationTest() throws ApiException {
         String paymentInstrumentId = "PIe2YvpcjvoVJ6PzoRPBK137";
-        VerificationForm verificationForm = VerificationForm.builder()
+        CreateVerificationRequest verificationForm = CreateVerificationRequest.builder()
                 .processor("DUMMY_V1")
                 .build();
         Verification response = finixClient.PaymentInstrument.createPaymentInstrumentVerification(paymentInstrumentId, verificationForm);

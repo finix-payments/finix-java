@@ -29,7 +29,6 @@ import java.util.Map;
 import model.CardPresentDetails;
 import model.Currency;
 import model.FeeType;
-import model.Raw;
 import model.TransferLinks;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;

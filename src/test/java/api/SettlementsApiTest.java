@@ -70,7 +70,7 @@ public class SettlementsApiTest {
         String identityId = null;
         Object body = null;
 
-        Settlement response = finixClient.Settlements.create(identityId, body);
+//        Settlement response = finixClient.Settlements.create(identityId, body);
         // TODO: test validations
     }
 
@@ -134,7 +134,7 @@ public class SettlementsApiTest {
         String afterCursor = null;
         String beforeCursor = null;
 
-        TransfersList response = finixClient.Settlements.listFundingTransfers(settlementId, GetSettlementFundingTransfersQueryParams.builder()
+        TransfersList response = finixClient.Settlements.listFundingTransfers(settlementId, ListSettlementFundingTransfersQueryParams.builder()
                 .limit(limit)
                 .afterCursor(afterCursor)
                 .beforeCursor(beforeCursor)
@@ -158,7 +158,7 @@ public class SettlementsApiTest {
     public void listApplicationSettlementsTest() throws ApiException {
         String applicationId = null;
 
-        SettlementsList response = finixClient.Settlements.listByApplicationId(applicationId);
+//        SettlementsList response = finixClient.Settlements.listByApplicationId(applicationId);
         // TODO: test validations
     }
 
@@ -182,7 +182,7 @@ public class SettlementsApiTest {
         Long pageNumber = null;
         Long pageSize = null;
 
-        SettlementsList response = finixClient.Settlements.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
+//        SettlementsList response = finixClient.Settlements.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 

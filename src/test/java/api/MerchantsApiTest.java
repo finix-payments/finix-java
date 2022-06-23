@@ -91,7 +91,7 @@ public class MerchantsApiTest {
     @DisplayName("Verify a Merchant")
     public void createMerchantVerificationTest() throws ApiException {
         String merchantId = "MUucec6fHeaWo3VHYoSkUySM";
-        VerificationForm verificationForm = VerificationForm.builder().build();
+        CreateVerificationRequest verificationForm = CreateVerificationRequest.builder().build();
         Verification response = finixClient.Merchants.createMerchantVerification(merchantId, verificationForm);
     }
 
@@ -131,7 +131,7 @@ public class MerchantsApiTest {
     public void listApplicationMerchantsTest() throws ApiException {
         String applicationId = null;
 
-        MerchantsList response = finixClient.Merchants.listByApplicationId(applicationId);
+//        MerchantsList response = finixClient.Merchants.listByApplicationId(applicationId);
         // TODO: test validations
     }
 
@@ -155,7 +155,7 @@ public class MerchantsApiTest {
         Long pageNumber = null;
         Long pageSize = null;
 
-        MerchantsList response = finixClient.Merchants.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
+//        MerchantsList response = finixClient.Merchants.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 

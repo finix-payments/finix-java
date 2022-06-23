@@ -48,7 +48,7 @@ import invoker.JSON;
  * CreateProcessorRequestConfig
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-21T11:54:05.123637-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T00:56:13.722393-07:00[America/Los_Angeles]")
 public class CreateProcessorRequestConfig {
   public static final String SERIALIZED_NAME_CAN_DEBIT_BANK_ACCOUNT = "canDebitBankAccount";
   @SerializedName(SERIALIZED_NAME_CAN_DEBIT_BANK_ACCOUNT)

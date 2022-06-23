@@ -40,7 +40,7 @@ import model.SettlementsList;
 import model.TransfersList;
 import model.UpdateSettlementRequest;
 
-import model.GetSettlementFundingTransfersQueryParams;
+import model.ListSettlementFundingTransfersQueryParams;
 import model.ListSettlementTransfersQueryParams;
 import model.ListSettlementsQueryParams;
 
@@ -88,161 +88,6 @@ public void setCustomBaseUrl(String customBaseUrl) {
 this.localCustomBaseUrl = customBaseUrl;
 }
 
-    /**
-    * Build call for createIdentitySettlement
-        * @param identityId ID of identity to fetch (required)
-        * @param body  (optional)
-    * @param _callback Callback for upload/download progress
-    * @return Call to execute
-    * @throws ApiException If fail to serialize the request body object
-        * @http.response.details
-        <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                <tr><td> 201 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 422 </td><td> Merchant identity disabled error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-        </table>
-    */
-    public okhttp3.Call createIdentitySettlementCall(String identityId, Object body, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {  };
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
-
-    Object localVarPostBody = body;
-
-    // create path and map variables
-        String localVarPath = "/identities/{identity_id}/settlements"
-            .replaceAll("\\{" + "identity_id" + "\\}", localVarFinixClient.escapeString(identityId.toString()));
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-    "application/hal+json"
-        };
-        final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-    "application/hal+json"
-        };
-        final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
-        return localVarFinixClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
-
-        @SuppressWarnings("rawtypes")
-        private okhttp3.Call createIdentitySettlementValidateBeforeCall(String identityId, Object body, final ApiCallback _callback) throws ApiException {
-        
-                // verify the required parameter 'identityId' is set
-                if (identityId == null) {
-                throw new ApiException("Missing the required parameter 'identityId' when calling createIdentitySettlement(Async)");
-                }
-        
-
-            okhttp3.Call localVarCall = createIdentitySettlementCall(identityId, body, _callback);
-            return localVarCall;
-
-        }
-
-            /**
-            * Create Settlement on Identity
-            * Create a settlement
-                * @param identityId ID of identity to fetch (required)
-                * @param body  (optional)
-                * @return Settlement
-            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 201 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 422 </td><td> Merchant identity disabled error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                </table>
-            */
-                public Settlement create(String identityId, Object body) throws ApiException {
-            ApiResponse<Settlement> localVarResp = createIdentitySettlementWithHttpInfo(identityId, body);
-                    return localVarResp.getData();
-                }
-
-    /**
-        * Create Settlement on Identity
-        * Create a settlement
-            * @param identityId ID of identity to fetch (required)
-            * @param body  (optional)
-        * @return ApiResponse&lt;Settlement&gt;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 201 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 422 </td><td> Merchant identity disabled error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public ApiResponse<Settlement> createIdentitySettlementWithHttpInfo(String identityId, Object body) throws ApiException {
-        okhttp3.Call localVarCall = createIdentitySettlementValidateBeforeCall(identityId, body, null);
-                Type localVarReturnType = new TypeToken<Settlement>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
-
-    /**
-        * Create Settlement on Identity (asynchronously)
-        * Create a settlement
-            * @param identityId ID of identity to fetch (required)
-            * @param body  (optional)
-        * @param _callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 201 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 422 </td><td> Merchant identity disabled error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public okhttp3.Call createIdentitySettlementAsync(String identityId, Object body, final ApiCallback<Settlement> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = createIdentitySettlementValidateBeforeCall(identityId, body, _callback);
-    Type localVarReturnType = new TypeToken<Settlement>(){}.getType();
-        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-        }
     /**
     * Build call for createSettlement
         * @param createSettlementRequest  (optional)
@@ -523,7 +368,7 @@ this.localCustomBaseUrl = customBaseUrl;
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
         }
-    private okhttp3.Call getSettlementFundingTransfersCall(String settlementId, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listSettlementFundingTransfersCall(String settlementId, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -582,50 +427,50 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call getSettlementFundingTransfersValidateBeforeCall(String settlementId, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
+        private okhttp3.Call listSettlementFundingTransfersValidateBeforeCall(String settlementId, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
         
                 // verify the required parameter 'settlementId' is set
                 if (settlementId == null) {
-                throw new ApiException("Missing the required parameter 'settlementId' when calling getSettlementFundingTransfers(Async)");
+                throw new ApiException("Missing the required parameter 'settlementId' when calling listSettlementFundingTransfers(Async)");
                 }
         
 
-            okhttp3.Call localVarCall = getSettlementFundingTransfersCall(settlementId, limit, afterCursor, beforeCursor, _callback);
+            okhttp3.Call localVarCall = listSettlementFundingTransfersCall(settlementId, limit, afterCursor, beforeCursor, _callback);
             return localVarCall;
 
         }
 
 
-    private ApiResponse<TransfersList> getSettlementFundingTransfersWithHttpInfo(String settlementId, Long limit, String afterCursor, String beforeCursor) throws ApiException {
-        okhttp3.Call localVarCall = getSettlementFundingTransfersValidateBeforeCall(settlementId, limit, afterCursor, beforeCursor, null);
+    private ApiResponse<TransfersList> listSettlementFundingTransfersWithHttpInfo(String settlementId, Long limit, String afterCursor, String beforeCursor) throws ApiException {
+        okhttp3.Call localVarCall = listSettlementFundingTransfersValidateBeforeCall(settlementId, limit, afterCursor, beforeCursor, null);
                 Type localVarReturnType = new TypeToken<TransfersList>(){}.getType();
                 return localVarFinixClient.execute(localVarCall, localVarReturnType);
         }
 
-    private okhttp3.Call getSettlementFundingTransfersAsync(String settlementId, Long limit, String afterCursor, String beforeCursor, final ApiCallback<TransfersList> _callback) throws ApiException {
+    private okhttp3.Call listSettlementFundingTransfersAsync(String settlementId, Long limit, String afterCursor, String beforeCursor, final ApiCallback<TransfersList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSettlementFundingTransfersValidateBeforeCall(settlementId, limit, afterCursor, beforeCursor, _callback);
+        okhttp3.Call localVarCall = listSettlementFundingTransfersValidateBeforeCall(settlementId, limit, afterCursor, beforeCursor, _callback);
     Type localVarReturnType = new TypeToken<TransfersList>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
         }
 
-        public class APIgetSettlementFundingTransfersRequest {
+        public class APIlistSettlementFundingTransfersRequest {
             private final String settlementId;
             private Long limit;
             private String afterCursor;
             private String beforeCursor;
 
-        private APIgetSettlementFundingTransfersRequest(String settlementId) {
+        private APIlistSettlementFundingTransfersRequest(String settlementId) {
             this.settlementId = settlementId;
         }
 
             /**
             * Set limit
             * @param limit The numbers of items to return (optional)
-            * @return APIgetSettlementFundingTransfersRequest
+            * @return APIlistSettlementFundingTransfersRequest
             */
-            public APIgetSettlementFundingTransfersRequest limit(Long limit) {
+            public APIlistSettlementFundingTransfersRequest limit(Long limit) {
             this.limit = limit;
             return this;
             }
@@ -633,9 +478,9 @@ this.localCustomBaseUrl = customBaseUrl;
             /**
             * Set afterCursor
             * @param afterCursor Return every resource created after the cursor value. (optional)
-            * @return APIgetSettlementFundingTransfersRequest
+            * @return APIlistSettlementFundingTransfersRequest
             */
-            public APIgetSettlementFundingTransfersRequest afterCursor(String afterCursor) {
+            public APIlistSettlementFundingTransfersRequest afterCursor(String afterCursor) {
             this.afterCursor = afterCursor;
             return this;
             }
@@ -643,15 +488,15 @@ this.localCustomBaseUrl = customBaseUrl;
             /**
             * Set beforeCursor
             * @param beforeCursor Return every resource created before the cursor value. (optional)
-            * @return APIgetSettlementFundingTransfersRequest
+            * @return APIlistSettlementFundingTransfersRequest
             */
-            public APIgetSettlementFundingTransfersRequest beforeCursor(String beforeCursor) {
+            public APIlistSettlementFundingTransfersRequest beforeCursor(String beforeCursor) {
             this.beforeCursor = beforeCursor;
             return this;
             }
 
         /**
-        * Build call for getSettlementFundingTransfers
+        * Build call for listSettlementFundingTransfers
         * @param _callback ApiCallback API callback
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
@@ -666,11 +511,11 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-        return getSettlementFundingTransfersCall(settlementId, limit, afterCursor, beforeCursor, _callback);
+        return listSettlementFundingTransfersCall(settlementId, limit, afterCursor, beforeCursor, _callback);
         }
 
         /**
-        * Execute getSettlementFundingTransfers request
+        * Execute listSettlementFundingTransfers request
             * @return TransfersList
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
             * @http.response.details
@@ -684,12 +529,12 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public TransfersList execute() throws ApiException {
-    ApiResponse<TransfersList> localVarResp = getSettlementFundingTransfersWithHttpInfo(settlementId, limit, afterCursor, beforeCursor);
+    ApiResponse<TransfersList> localVarResp = listSettlementFundingTransfersWithHttpInfo(settlementId, limit, afterCursor, beforeCursor);
             return localVarResp.getData();
         }
 
         /**
-        * Execute getSettlementFundingTransfers request with HTTP info returned
+        * Execute listSettlementFundingTransfers request with HTTP info returned
         * @return ApiResponse&lt;TransfersList&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
             * @http.response.details
@@ -703,11 +548,11 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public ApiResponse<TransfersList> executeWithHttpInfo() throws ApiException {
-        return getSettlementFundingTransfersWithHttpInfo(settlementId, limit, afterCursor, beforeCursor);
+        return listSettlementFundingTransfersWithHttpInfo(settlementId, limit, afterCursor, beforeCursor);
         }
 
         /**
-        * Execute getSettlementFundingTransfers request (asynchronously)
+        * Execute listSettlementFundingTransfers request (asynchronously)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -722,7 +567,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call executeAsync(final ApiCallback<TransfersList> _callback) throws ApiException {
-        return getSettlementFundingTransfersAsync(settlementId, limit, afterCursor, beforeCursor, _callback);
+        return listSettlementFundingTransfersAsync(settlementId, limit, afterCursor, beforeCursor, _callback);
         }
         }
 
@@ -730,7 +575,7 @@ this.localCustomBaseUrl = customBaseUrl;
         * List Settlement Funding Transfers
         * Retrieve the &#x60;Transfers&#x60; in a &#x60;Settlement&#x60; that have &#x60;type&#x60; **CREDIT**.
             * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
-        * @return APIgetSettlementFundingTransfersRequest
+        * @return APIlistSettlementFundingTransfersRequest
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
@@ -741,333 +586,15 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-    public TransfersList listFundingTransfers(String settlementId,  GetSettlementFundingTransfersQueryParams getSettlementFundingTransfersQueryParams) throws ApiException {
+    public TransfersList listFundingTransfers(String settlementId,  ListSettlementFundingTransfersQueryParams listSettlementFundingTransfersQueryParams) throws ApiException {
 
-        APIgetSettlementFundingTransfersRequest request = new APIgetSettlementFundingTransfersRequest(settlementId);
-        request.limit(getSettlementFundingTransfersQueryParams.getLimit());
-        request.afterCursor(getSettlementFundingTransfersQueryParams.getAfterCursor());
-        request.beforeCursor(getSettlementFundingTransfersQueryParams.getBeforeCursor());
+        APIlistSettlementFundingTransfersRequest request = new APIlistSettlementFundingTransfersRequest(settlementId);
+        request.limit(listSettlementFundingTransfersQueryParams.getLimit());
+        request.afterCursor(listSettlementFundingTransfersQueryParams.getAfterCursor());
+        request.beforeCursor(listSettlementFundingTransfersQueryParams.getBeforeCursor());
         return request.execute();
 
     }
-    /**
-    * Build call for listApplicationSettlements
-        * @param applicationId ID of application to use (required)
-    * @param _callback Callback for upload/download progress
-    * @return Call to execute
-    * @throws ApiException If fail to serialize the request body object
-        * @http.response.details
-        <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                <tr><td> 200 </td><td> List of &#x60;Settlement&#x60; objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-        </table>
-    */
-    public okhttp3.Call listApplicationSettlementsCall(String applicationId, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {  };
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
-
-    Object localVarPostBody = null;
-
-    // create path and map variables
-        String localVarPath = "/applications/{application_id}/settlements"
-            .replaceAll("\\{" + "application_id" + "\\}", localVarFinixClient.escapeString(applicationId.toString()));
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-    "application/hal+json"
-        };
-        final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-    
-        };
-        final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
-        return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
-
-        @SuppressWarnings("rawtypes")
-        private okhttp3.Call listApplicationSettlementsValidateBeforeCall(String applicationId, final ApiCallback _callback) throws ApiException {
-        
-                // verify the required parameter 'applicationId' is set
-                if (applicationId == null) {
-                throw new ApiException("Missing the required parameter 'applicationId' when calling listApplicationSettlements(Async)");
-                }
-        
-
-            okhttp3.Call localVarCall = listApplicationSettlementsCall(applicationId, _callback);
-            return localVarCall;
-
-        }
-
-            /**
-            * List Settlements for an Application
-            * Return a collection of settlements, if there are no settlements, an empty collection will be returned. 
-                * @param applicationId ID of application to use (required)
-                * @return SettlementsList
-            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of &#x60;Settlement&#x60; objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                </table>
-            */
-                public SettlementsList listByApplicationId(String applicationId) throws ApiException {
-            ApiResponse<SettlementsList> localVarResp = listApplicationSettlementsWithHttpInfo(applicationId);
-                    return localVarResp.getData();
-                }
-
-    /**
-        * List Settlements for an Application
-        * Return a collection of settlements, if there are no settlements, an empty collection will be returned. 
-            * @param applicationId ID of application to use (required)
-        * @return ApiResponse&lt;SettlementsList&gt;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of &#x60;Settlement&#x60; objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public ApiResponse<SettlementsList> listApplicationSettlementsWithHttpInfo(String applicationId) throws ApiException {
-        okhttp3.Call localVarCall = listApplicationSettlementsValidateBeforeCall(applicationId, null);
-                Type localVarReturnType = new TypeToken<SettlementsList>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
-
-    /**
-        * List Settlements for an Application (asynchronously)
-        * Return a collection of settlements, if there are no settlements, an empty collection will be returned. 
-            * @param applicationId ID of application to use (required)
-        * @param _callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of &#x60;Settlement&#x60; objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public okhttp3.Call listApplicationSettlementsAsync(String applicationId, final ApiCallback<SettlementsList> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listApplicationSettlementsValidateBeforeCall(applicationId, _callback);
-    Type localVarReturnType = new TypeToken<SettlementsList>(){}.getType();
-        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-        }
-    /**
-    * Build call for listIdentitySettlements
-        * @param identityId ID of identity to fetch (required)
-        * @param limit The number of entries to return. (optional)
-        * @param offset The number of items to skip before starting to collect the result set. (optional)
-        * @param pageNumber The page number to list. (optional)
-        * @param pageSize The size of the page. (optional)
-    * @param _callback Callback for upload/download progress
-    * @return Call to execute
-    * @throws ApiException If fail to serialize the request body object
-        * @http.response.details
-        <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                <tr><td> 200 </td><td> List of &#x60;Settlement&#x60; objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-        </table>
-    */
-    public okhttp3.Call listIdentitySettlementsCall(String identityId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {  };
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
-
-    Object localVarPostBody = null;
-
-    // create path and map variables
-        String localVarPath = "/identities/{identity_id}/settlements"
-            .replaceAll("\\{" + "identity_id" + "\\}", localVarFinixClient.escapeString(identityId.toString()));
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-                if (limit != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("limit", limit));
-                }
-
-                if (offset != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("offset", offset));
-                }
-
-                if (pageNumber != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageNumber", pageNumber));
-                }
-
-                if (pageSize != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageSize", pageSize));
-                }
-
-        final String[] localVarAccepts = {
-    "application/hal+json"
-        };
-        final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-    
-        };
-        final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
-        return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
-
-        @SuppressWarnings("rawtypes")
-        private okhttp3.Call listIdentitySettlementsValidateBeforeCall(String identityId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback _callback) throws ApiException {
-        
-                // verify the required parameter 'identityId' is set
-                if (identityId == null) {
-                throw new ApiException("Missing the required parameter 'identityId' when calling listIdentitySettlements(Async)");
-                }
-        
-
-            okhttp3.Call localVarCall = listIdentitySettlementsCall(identityId, limit, offset, pageNumber, pageSize, _callback);
-            return localVarCall;
-
-        }
-
-            /**
-            * List Identity Settlements
-            * Get all settlements associated to this identity
-                * @param identityId ID of identity to fetch (required)
-                * @param limit The number of entries to return. (optional)
-                * @param offset The number of items to skip before starting to collect the result set. (optional)
-                * @param pageNumber The page number to list. (optional)
-                * @param pageSize The size of the page. (optional)
-                * @return SettlementsList
-            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of &#x60;Settlement&#x60; objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                </table>
-            */
-                public SettlementsList listByIdentityId(String identityId, Long limit, Long offset, Long pageNumber, Long pageSize) throws ApiException {
-            ApiResponse<SettlementsList> localVarResp = listIdentitySettlementsWithHttpInfo(identityId, limit, offset, pageNumber, pageSize);
-                    return localVarResp.getData();
-                }
-
-    /**
-        * List Identity Settlements
-        * Get all settlements associated to this identity
-            * @param identityId ID of identity to fetch (required)
-            * @param limit The number of entries to return. (optional)
-            * @param offset The number of items to skip before starting to collect the result set. (optional)
-            * @param pageNumber The page number to list. (optional)
-            * @param pageSize The size of the page. (optional)
-        * @return ApiResponse&lt;SettlementsList&gt;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of &#x60;Settlement&#x60; objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public ApiResponse<SettlementsList> listIdentitySettlementsWithHttpInfo(String identityId, Long limit, Long offset, Long pageNumber, Long pageSize) throws ApiException {
-        okhttp3.Call localVarCall = listIdentitySettlementsValidateBeforeCall(identityId, limit, offset, pageNumber, pageSize, null);
-                Type localVarReturnType = new TypeToken<SettlementsList>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
-
-    /**
-        * List Identity Settlements (asynchronously)
-        * Get all settlements associated to this identity
-            * @param identityId ID of identity to fetch (required)
-            * @param limit The number of entries to return. (optional)
-            * @param offset The number of items to skip before starting to collect the result set. (optional)
-            * @param pageNumber The page number to list. (optional)
-            * @param pageSize The size of the page. (optional)
-        * @param _callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of &#x60;Settlement&#x60; objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public okhttp3.Call listIdentitySettlementsAsync(String identityId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback<SettlementsList> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listIdentitySettlementsValidateBeforeCall(identityId, limit, offset, pageNumber, pageSize, _callback);
-    Type localVarReturnType = new TypeToken<SettlementsList>(){}.getType();
-        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-        }
     private okhttp3.Call listSettlementTransfersCall(String settlementId, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -1890,8 +1417,8 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
             /**
-            * Remove Settlement Transfers
-            * Remove a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.  As long as the &#x60;Settlement&#x60; hasn&#39;t been funded, you can remove the &#x60;Transfer&#x60; or an array of &#x60;Transfers&#x60;, along with its corresponding &#x60;fee&#x60; from a batch &#x60;Settlement&#x60;.   Note: Per the JSON API for deleting a resource, our API doesn&#39;t have a response body when removing a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.
+            * Delete Settlement Transfers
+            * Remove a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.  As long as the &#x60;Settlement&#x60; hasn&#39;t been funded, you can remove the &#x60;Transfer&#x60; or an array of &#x60;Transfers&#x60;, along with its corresponding &#x60;fee&#x60; from a batch &#x60;Settlement&#x60;.   &gt; Per the JSON API for deleting a resource, our API doesn&#39;t have a response body when removing a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.
                 * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
                 * @param removeSettlementTransfer  (optional)
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1911,8 +1438,8 @@ this.localCustomBaseUrl = customBaseUrl;
                 }
 
     /**
-        * Remove Settlement Transfers
-        * Remove a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.  As long as the &#x60;Settlement&#x60; hasn&#39;t been funded, you can remove the &#x60;Transfer&#x60; or an array of &#x60;Transfers&#x60;, along with its corresponding &#x60;fee&#x60; from a batch &#x60;Settlement&#x60;.   Note: Per the JSON API for deleting a resource, our API doesn&#39;t have a response body when removing a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.
+        * Delete Settlement Transfers
+        * Remove a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.  As long as the &#x60;Settlement&#x60; hasn&#39;t been funded, you can remove the &#x60;Transfer&#x60; or an array of &#x60;Transfers&#x60;, along with its corresponding &#x60;fee&#x60; from a batch &#x60;Settlement&#x60;.   &gt; Per the JSON API for deleting a resource, our API doesn&#39;t have a response body when removing a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.
             * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
             * @param removeSettlementTransfer  (optional)
         * @return ApiResponse&lt;Void&gt;
@@ -1934,8 +1461,8 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
     /**
-        * Remove Settlement Transfers (asynchronously)
-        * Remove a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.  As long as the &#x60;Settlement&#x60; hasn&#39;t been funded, you can remove the &#x60;Transfer&#x60; or an array of &#x60;Transfers&#x60;, along with its corresponding &#x60;fee&#x60; from a batch &#x60;Settlement&#x60;.   Note: Per the JSON API for deleting a resource, our API doesn&#39;t have a response body when removing a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.
+        * Delete Settlement Transfers (asynchronously)
+        * Remove a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.  As long as the &#x60;Settlement&#x60; hasn&#39;t been funded, you can remove the &#x60;Transfer&#x60; or an array of &#x60;Transfers&#x60;, along with its corresponding &#x60;fee&#x60; from a batch &#x60;Settlement&#x60;.   &gt; Per the JSON API for deleting a resource, our API doesn&#39;t have a response body when removing a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.
             * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
             * @param removeSettlementTransfer  (optional)
         * @param _callback The callback to be executed when the API call finishes

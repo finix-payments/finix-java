@@ -260,7 +260,7 @@ public class TransfersApiTest {
     public void listApplicationTransfersTest() throws ApiException {
         String applicationId = null;
 
-        TransfersList response = finixClient.Transfers.listByApplicationId(applicationId);
+//        TransfersList response = finixClient.Transfers.listByApplicationId(applicationId);
         // TODO: test validations
     }
 
@@ -284,7 +284,7 @@ public class TransfersApiTest {
         Long pageNumber = null;
         Long pageSize = null;
 
-        TransfersList response = finixClient.Transfers.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
+//        TransfersList response = finixClient.Transfers.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 
@@ -309,7 +309,7 @@ public class TransfersApiTest {
         Long pageSize = null;
         Boolean readyToSettle = null;
 
-        TransfersList response = finixClient.Transfers.listByMerchantId(merchantId, limit, offset, pageNumber, pageSize, readyToSettle);
+//        TransfersList response = finixClient.Transfers.listByMerchantId(merchantId, limit, offset, pageNumber, pageSize, readyToSettle);
         // TODO: test validations
     }
 
@@ -333,7 +333,7 @@ public class TransfersApiTest {
         Long pageNumber = null;
         Long pageSize = null;
 
-        TransfersList response = finixClient.Transfers.listByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize);
+//        TransfersList response = finixClient.Transfers.listByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 

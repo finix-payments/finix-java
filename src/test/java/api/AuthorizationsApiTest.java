@@ -205,8 +205,8 @@ public class AuthorizationsApiTest {
     public void listApplicationAuthorizationsTest() throws ApiException {
         String applicationId = "APgPDQrLD52TYvqazjHJJchM";
 
-        AuthorizationsList response = finixClient.Authorization.listByApplicationId(applicationId);
-        assertEquals(20,response.getPage().getLimit().intValue(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit().intValue());
+//        AuthorizationsList response = finixClient.Authorization.listByApplicationId(applicationId);
+//        assertEquals(20,response.getPage().getLimit().intValue(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit().intValue());
     }
 
     /**
@@ -307,7 +307,7 @@ public class AuthorizationsApiTest {
         String afterCursor = null;
         String beforeCursor = null;
 
-        AuthorizationsList response = api.listByIdentityId(identityId, limit, afterCursor, beforeCursor);
+//        AuthorizationsList response = api.listByIdentityId(identityId, limit, afterCursor, beforeCursor);
         // TODO: test validations
     }
 
@@ -331,7 +331,7 @@ public class AuthorizationsApiTest {
         Long pageNumber = null;
         Long pageSize = null;
 
-        AuthorizationsList response = api.listByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize);
+//        AuthorizationsList response = api.listByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 

@@ -253,7 +253,7 @@ public class IdentitiesApiTest {
     public void listApplicationIdentitiesTest() throws ApiException {
         String applicationId = null;
 
-        IdentitiesList response = finixClient.Identity.listByApplicationId(applicationId);
+//        IdentitiesList response = finixClient.Identity.listByApplicationId(applicationId);
         // TODO: test validations
     }
 

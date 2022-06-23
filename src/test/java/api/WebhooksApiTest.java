@@ -109,7 +109,7 @@ public class WebhooksApiTest {
     public void listApplicationWebhooksTest() throws ApiException {
         String applicationId = null;
 
-        WebhooksList response = finixClient.Webhooks.listByApplicationId(applicationId);
+//        WebhooksList response = finixClient.Webhooks.listByApplicationId(applicationId);
         // TODO: test validations
     }
 

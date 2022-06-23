@@ -6,12 +6,20 @@
     <packaging>jar</packaging>
     <name>finix-java</name>
     <version>0.0.1</version>
+    <!--<url>https://github.com/openapitools/openapi-generator</url>-->
     <url>https://github.com/finix-payments/finix-java</url>
+    <!--<description>OpenAPI Java</description>-->
     <description>Finix Java</description>
+    <!--<scm>
+        <connection>scm:git:git@github.com:openapitools/openapi-generator.git</connection>
+        <developerConnection>scm:git:git@github.com:openapitools/openapi-generator.git</developerConnection>
+        <url>https://github.com/openapitools/openapi-generator</url>
+    </scm>-->
     <scm>
         <connection>scm:git:git@github.com:finix-payments/finix-java.git</connection>
         <developerConnection>scm:git:git@github.com:finix-payments/finix-java.git</developerConnection>
         <url>https://github.com/finix-payments/finix-java/tree/develop</url>
+
     </scm>
 
     <distributionManagement>
@@ -24,6 +32,7 @@
             <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
+
 
     <licenses>
         <license>
@@ -56,8 +65,8 @@
                         <arg>-Xlint:all</arg>
                         <arg>-J-Xss4m</arg><!-- Compiling the generated JSON.java file may require larger stack size. -->
                     </compilerArgs>
-                    <source>1.9</source>
-                    <target>1.9</target>
+                    <source>9</source>
+                    <target>9</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -245,7 +254,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.5</version>
+                        <version>3.0.1</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
@@ -339,7 +348,7 @@
         </dependency>
     </dependencies>
     <properties>
-        <!--<java.version>1.9</java.version>-->
+        <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <gson-fire-version>1.8.5</gson-fire-version>

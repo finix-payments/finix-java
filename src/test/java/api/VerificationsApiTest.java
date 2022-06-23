@@ -70,7 +70,7 @@ public class VerificationsApiTest {
      */
     @Test
     public void createVerificationTest() throws ApiException {
-        VerificationForm verificationForm = null;
+        CreateVerificationRequest verificationForm = null;
 
         Verification response = api.create(verificationForm);
         // TODO: test validations
@@ -116,7 +116,7 @@ public class VerificationsApiTest {
         Long pageNumber = null;
         Long pageSize = null;
 
-        VerificationsList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
+//        VerificationsList response = api.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 
@@ -147,29 +147,6 @@ public class VerificationsApiTest {
         // TODO: test validations
     }
 
-    /**
-     * List Payment Instrument Verifications
-     *
-     * Get list of all the transfers in a &#x60;Payment Instrument&#x60; object
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-    @Test
-    public void listPaymentInstrumentVerificationsTest() throws ApiException {
-        String paymentInstrumentId = null;
-        Long limit = null;
-        Long offset = null;
-        Long pageNumber = null;
-        Long pageSize = null;
-
-        VerificationsList response = api.listByPaymentInstrumentId(paymentInstrumentId, limit, offset, pageNumber, pageSize);
-        // TODO: test validations
-    }
 
     /**
      * List Verifications
@@ -190,6 +167,10 @@ public class VerificationsApiTest {
         VerificationsList response = finixClient.Verifications.list(ListVerificationsQueryParams.builder()
                 .id(id)
                 .build());
+
+        String raw = (String) response.getEmbedded().getVerifications().stream().findFirst().get().getRaw();
+//        System.out.println(raw);
+        assertEquals("RawDummyMerchantUnderwriteResult", raw,()->"Should return RawDummyMerchantUnderwriteResult but returns" + raw );
         assertEquals(20,response.getPage().getLimit(),()->"Should return " + "20" + " but returns " + response.getPage().getLimit());
     }
 
@@ -208,7 +189,7 @@ public class VerificationsApiTest {
     @Test
     public void putVerificationTest() throws ApiException {
         String verificationId = null;
-        VerificationForm verificationForm = null;
+        CreateVerificationRequest verificationForm = null;
 
         Verification response = api.update(verificationId, verificationForm);
         // TODO: test validations

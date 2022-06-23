@@ -6,6 +6,8 @@ info:
   description:
     $ref: api-descriptions/main.md
   contact:
+    name: Finix
+    url: https://finix.com
     email: support@finixpayments.com
   version: '2022-02-01'
 x-ignoredHeaderParameters:
@@ -282,151 +284,6 @@ paths:
           $ref: '#/components/responses/Error406NotAcceptable'
       x-java-method-name: update
   /applications/{application_id}/application_profile:
-    get:
-      description: Fetch an `application_profile`.
-      summary: Get Application Profile
-      operationId: getApplicationApplicationProfile
-      responses:
-        '200':
-          $ref: '#/components/responses/ApplicationProfile'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      tags:
-        - Applications
-      x-internal: true
-      x-java-method-name: getApplicationProfile
-    parameters:
-      - $ref: '#/components/parameters/ApplicationId'
-  /applications/{application_id}/authorizations:
-    x-internal: true
-    get:
-      description: 'Return a collection of authorizations, if there are no authorizations,
-
-        an empty collection will be returned.
-
-        '
-      summary: List Application Authorizations
-      tags:
-        - Authorizations
-      operationId: listApplicationAuthorizations
-      responses:
-        '200':
-          $ref: '#/components/responses/AuthorizationsList'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      x-internal: true
-      x-java-method-name: listByApplicationId
-    parameters:
-      - $ref: '#/components/parameters/ApplicationId'
-  /applications/{application_id}/disputes:
-    x-internal: true
-    get:
-      description: 'Return a collection of disputes, if there are no disputes, an
-        empty
-
-        collection will be returned.
-
-        '
-      summary: List Application Disputes
-      tags:
-        - Disputes
-      operationId: listApplicationDisputes
-      responses:
-        '200':
-          $ref: '#/components/responses/DisputesList'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      x-internal: true
-    parameters:
-      - $ref: '#/components/parameters/ApplicationId'
-    x-java-method-name: listByApplicationId
-  /applications/{application_id}/identities:
-    x-internal: true
-    get:
-      description: 'Return a collection of identities, if there are no identities,
-        an empty
-
-        collection will be returned.
-
-        '
-      summary: List Application Identities
-      tags:
-        - Identities
-      operationId: listApplicationIdentities
-      responses:
-        '200':
-          $ref: '#/components/responses/IdentitiesList'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      x-internal: true
-      x-java-method-name: listByApplicationId
-    parameters:
-      - $ref: '#/components/parameters/ApplicationId'
-  /applications/{application_id}/merchants:
-    x-internal: true
-    get:
-      description: 'Return a collection of merchants, if there are no merchants, an
-        empty
-
-        collection will be returned.
-
-        '
-      summary: List Application Merchants
-      tags:
-        - Merchants
-      operationId: listApplicationMerchants
-      responses:
-        '200':
-          $ref: '#/components/responses/MerchantsList'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      x-internal: true
-      x-java-method-name: listByApplicationId
-    parameters:
-      - $ref: '#/components/parameters/ApplicationId'
-  /applications/{application_id}/payment_instruments:
-    x-internal: true
-    get:
-      description: Get all paymentInstruments of an application.
-      summary: Payment Instruments
-      tags:
-        - Payment Instruments
-      operationId: listApplicationPaymentInstruments
-      responses:
-        '200':
-          $ref: '#/components/responses/PaymentInstrumentsList'
-      x-internal: true
-      x-java-method-name: listByApplicationId
     parameters:
       - $ref: '#/components/parameters/ApplicationId'
   /applications/{application_id}/processors:
@@ -449,10 +306,6 @@ paths:
         - Processors
       x-java-method-name: listByApplicationId
       x-group-parameters: true
-      parameters:
-        - $ref: '#/components/parameters/QueryLimit'
-        - $ref: '#/components/parameters/QueryAfterCursor'
-        - $ref: '#/components/parameters/QueryBeforeCursor'
     parameters:
       - $ref: '#/components/parameters/ApplicationId'
     post:
@@ -512,121 +365,13 @@ paths:
         name: type
         schema:
           type: string
-    put:
-      tags:
-        - Processors
-      description: Update the processor
-      summary: Update Application Processor
-      operationId: updateApplicationProcessor
-      requestBody:
-        $ref: '#/components/requestBodies/UpdateProcessorRequest'
-      responses:
-        '200':
-          $ref: '#/components/responses/Processor'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      x-internal: true
-  /applications/{application_id}/reversals:
-    x-internal: true
-    get:
-      description: 'Return a collection of reversals, if there are no reversals, an
-        empty
-
-        collection will be returned.
-
-        '
-      summary: List Application Reversals
-      tags:
-        - Reversals
-      operationId: listApplicationReversals
-      responses:
-        '200':
-          $ref: '#/components/responses/TransferReversalsList'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      x-internal: true
-      x-java-method-name: listByApplicationId
-    parameters:
-      - $ref: '#/components/parameters/ApplicationId'
   /applications/{application_id}/settlements:
-    get:
-      description: 'Return a collection of settlements, if there are no settlements,
-        an
-
-        empty collection will be returned.
-
-        '
-      summary: List Settlements for an Application
-      tags:
-        - Settlements
-      operationId: listApplicationSettlements
-      responses:
-        '200':
-          $ref: '#/components/responses/SettlementsList'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      x-internal: true
-      x-java-method-name: listByApplicationId
     parameters:
       - $ref: '#/components/parameters/ApplicationId'
   /applications/{application_id}/transfers:
-    get:
-      description: Get all transfers objects within application
-      summary: List Transfers for an Application
-      tags:
-        - Transfers
-      operationId: listApplicationTransfers
-      responses:
-        '200':
-          $ref: '#/components/responses/TransfersList'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      x-internal: true
-      x-java-method-name: listByApplicationId
     parameters:
       - $ref: '#/components/parameters/ApplicationId'
   /applications/{application_id}/users:
-    get:
-      description: Get  all users of the specific application
-      summary: List Users on an Application
-      tags:
-        - Users
-      operationId: listApplicationUsers
-      responses:
-        '200':
-          $ref: '#/components/responses/UsersList'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      x-internal: true
-      x-java-method-name: listByApplicationId
     parameters:
       - $ref: '#/components/parameters/ApplicationId'
     post:
@@ -658,30 +403,6 @@ paths:
       tags:
         - Users
   /applications/{application_id}/webhooks:
-    get:
-      description: 'Return a collection of webhooks, if there are no webhooks, an
-        empty
-
-        collection will be returned.
-
-        '
-      summary: List Application Webhooks
-      tags:
-        - Webhooks
-      operationId: listApplicationWebhooks
-      responses:
-        '200':
-          $ref: '#/components/responses/WebhooksList'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      x-internal: true
-      x-java-method-name: listByApplicationId
     parameters:
       - $ref: '#/components/parameters/ApplicationId'
   /authorizations:
@@ -693,7 +414,11 @@ paths:
         \ the `Authorization` has **SUCCEEDED** , it must be captured before `expires_at`\
         \ passes or the funds will be released.\n\nLearn how to prevent duplicate\
         \ authorizations by passing an [Idempotency ID](#section/Idempotency-Requests)\
-        \ in the payload."
+        \ in the payload.\n\n- 3D Secure is also available to authenticate transactions.\
+        \ 3D Secure lets you authenticate a transaction by having the cardholder authenticate\
+        \ with their issuing bank. By enabling 3D Secure, you shift the liability\
+        \ of a chargeback from the merchant to the issuing bank. The integration requires\
+        \ a 3D Secure vendor to generate the values needed for `3d_secure_authentication`."
       summary: Create an Authorization
       operationId: createAuthorization
       requestBody:
@@ -850,13 +575,13 @@ paths:
     put:
       tags:
         - Authorizations
-      description: "If successful, the transfer field of the `Authorization` will\
-        \ contain the ID of the `Transfer` resource that'll move funds. \n\nBy default,\
-        \ `Transfers` are in a **PENDING** state. The **PENDING** state means the\
-        \ system hasn't submitted the request to capture funds. Capture requests get\
-        \ submitted via batch request. \n\nOnce the `Authorization` is updated with\
-        \ a `capture_amount` (i.e. *Captured*), the state of the `Transfer` will update\
-        \ to **SUCCEEDED**."
+      description: "If successfully captured, the `transfer` field of the `Authorization`\
+        \ will contain the ID of the `Transfer` resource that'll move funds. \n\n\
+        By default, `Transfers` are in a **PENDING** state. The **PENDING** state\
+        \ means the system hasn't submitted the request to capture funds. Capture\
+        \ requests get submitted via a batch request. \n\nOnce the `Authorization`\
+        \ is updated with a `capture_amount` (i.e. *Captured*), the state of the `Transfer`\
+        \ will update to **SUCCEEDED**.\n\n> Voided `Authorizations` can't be captured."
       summary: Update an Authorization
       operationId: putAuthorization
       requestBody:
@@ -1068,17 +793,17 @@ paths:
     post:
       tags:
         - Disputes
-      description: "Upload dispute evidence for a `Dispute`.\n\nThere are four available\
-        \ values that indicate the state of the evidence upload:\n\n* **PENDING**:\
-        \ The evidence file has not yet been submitted to the `Processor`. No user\
-        \ action is required.\n* **SUCCEEDED**: The evidence file has been successfully\
-        \ sent to the `Processor`. No further user action is required.\n* **CANCELED**:\
-        \ The evidence file upload was not completed due to user action.\n* **FAILED**:\
-        \ An issue occurred. User action is required. Any of the following issues\
-        \ could have occurred:\n    * There was an error in the system and the user\
-        \ should retry uploading their evidence file.\n    * There is an issue with\
-        \ the file and the user should retry uploading a different file.\n    * There\
-        \ is an issue and the user should contact Support.\n"
+      description: "Upload dispute evidence for a `Dispute`.\n\nThere are four values\
+        \ available for `state` that details the status of the evidence upload:\n\n\
+        * **PENDING**: The evidence file has not yet been submitted to the `Processor`.\
+        \ No user action is required.\n* **SUCCEEDED**: The evidence file has been\
+        \ successfully sent to the `Processor`. No further user action is required.\n\
+        * **CANCELED**: The evidence file upload was not completed due to user action.\n\
+        * **FAILED**: An issue occurred. User action is required. Any of the following\
+        \ issues could have occurred:\n    * There was an error in the system and\
+        \ the user should retry uploading their evidence file.\n    * There is an\
+        \ issue with the file and the user should retry uploading a different file.\n\
+        \    * There is an issue and the user should contact Support.\n"
       summary: Create Dispute Evidence
       operationId: createDisputeEvidence
       responses:
@@ -1128,7 +853,9 @@ paths:
     get:
       tags:
         - Disputes
-      description: Retrieve the details of a `Dispute`.
+      description: "Fetch evidence uploaded for a `Dispute`. \n\nIf you don't have\
+        \ the Finix Dashboard available, you can fetch the evidence to review the\
+        \ `status` of the upload to confirm the evidence got sent to the processor."
       summary: Fetch Dispute Evidence
       operationId: getDisputeEvidence
       responses:
@@ -1172,11 +899,11 @@ paths:
         '406':
           $ref: '#/components/responses/Error406NotAcceptable'
       x-java-method-name: list
+      x-group-parameters: true
       parameters:
         - $ref: '#/components/parameters/QueryAfterCursor'
         - $ref: '#/components/parameters/QueryBeforeCursor'
         - $ref: '#/components/parameters/QueryLimit'
-      x-group-parameters: true
     post:
       tags:
         - Fee profiles
@@ -1239,12 +966,12 @@ paths:
           $ref: '#/components/responses/ErrorForbidden403'
         '406':
           $ref: '#/components/responses/Error406NotAcceptable'
-      x-java-method-name: list
-      x-group-parameters: true
       parameters:
         - $ref: '#/components/parameters/QueryLimit'
         - $ref: '#/components/parameters/QueryAfterCursor'
         - $ref: '#/components/parameters/QueryBeforeCursor'
+      x-java-method-name: list
+      x-group-parameters: true
     post:
       summary: Create a One-Time Fee
       tags:
@@ -1478,35 +1205,6 @@ paths:
         schema:
           type: string
   /identities/{identity_id}/authorizations:
-    get:
-      description: All authorizations associated to this identity
-      summary: List Identity Authorizations
-      tags:
-        - Authorizations
-      operationId: listIdentityAuthorizations
-      parameters:
-        - required: false
-          in: query
-          name: limit
-          schema:
-            type: integer
-            format: int64
-          description: The number of entries to return.
-        - $ref: '#/components/parameters/QueryAfterCursor'
-        - $ref: '#/components/parameters/QueryBeforeCursor'
-      responses:
-        '200':
-          $ref: '#/components/responses/AuthorizationsList'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      x-internal: true
-      x-java-method-name: listByIdentityId
     parameters:
       - description: ID of identity to fetch
         required: true
@@ -1515,55 +1213,6 @@ paths:
         schema:
           type: string
   /identities/{identity_id}/merchants:
-    get:
-      description: Get all merchants associated to this identity
-      summary: List Identity Merchants
-      operationId: listIdentityMerchants
-      parameters:
-        - required: false
-          in: query
-          name: limit
-          schema:
-            type: integer
-            format: int64
-          description: The number of entries to return.
-        - required: false
-          in: query
-          name: offset
-          schema:
-            type: integer
-            format: int64
-          description: The number of items to skip before starting to collect the result
-            set.
-        - required: false
-          in: query
-          name: pageNumber
-          schema:
-            type: integer
-            format: int64
-          description: The page number to list.
-        - required: false
-          in: query
-          name: pageSize
-          schema:
-            type: integer
-            format: int64
-          description: The size of the page.
-      responses:
-        '200':
-          $ref: '#/components/responses/MerchantsList'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      tags:
-        - Merchants
-      x-internal: true
-      x-java-method-name: listByIdentityId
     parameters:
       - description: ID of `Identity` to fetch.
         required: true
@@ -1574,17 +1223,20 @@ paths:
     post:
       description: "Create a `Merchant` to start the underwriting process for your\
         \ merchant. `Merchants` must be created under an [`Identity`](#tag/Identities).\n\
-        \n`Merchant` resources can have three possible `onboarding_states`:\n\n1.\
-        \ **PROVISIONING**: The request is pending (the state may change after two\
-        \ minutes).\n    * `processing_enabled`: **False**\n    * `settlement_enabled`:\
-        \ **False**\n\n1. **APPROVED**: The `Merchant` has been approved and can begin\
-        \ processing payments.\n    * `processing_enabled`: **True**\n   * `settlement_enabled`:\
+        \n> A bank account must be associated with the previously created `Identity`\
+        \ before a `Merchant` can be succefully onboarded and verified.\n\n`Merchant`\
+        \ resources can have three possible `onboarding_states`:\n\n1. **PROVISIONING**:\
+        \ The request is pending (the state may change after two minutes).\n    *\
+        \ `processing_enabled`: **False**\n    * `settlement_enabled`: **False**\n\
+        \n1. **APPROVED**: The `Merchant` has been approved and can begin processing\
+        \ payments.\n    * `processing_enabled`: **True**\n   * `settlement_enabled`:\
         \ **True**\n\n1. **REJECTED**: The `Merchant` was rejected by the processor\
         \ because of invalid information or it failed a regulatory and/or compliance\
-        \ check (e.g. KYC, OFAC, or MATCH).\n    * `processing_enabled`: **False**\n\
-        \    * `settlement_enabled`: **False**\n\n\n> Provisioning a `Merchant` account\
-        \ is an asynchronous request. We recommend creating a [`Webhook`](#tag/Webhooks)\
-        \ to listen for the state change."
+        \ check (e.g. KYC, OFAC, or MATCH). Make any changes that are needed, and\
+        \ [try verifying the `Merchant` again](#operation/createMerchantVerification).\n\
+        \    * `processing_enabled`: **False**\n    * `settlement_enabled`: **False**\n\
+        \n\n> Provisioning a `Merchant` account is an asynchronous request. We recommend\
+        \ creating a [`Webhook`](#tag/Webhooks) to listen for the state change."
       summary: Create a Merchant
       operationId: createMerchant
       requestBody:
@@ -1608,55 +1260,6 @@ paths:
         - Merchants
       x-java-method-name: create
   /identities/{identity_id}/disputes:
-    get:
-      description: All disputes associated to this identity
-      summary: List Identity Disputes
-      tags:
-        - Disputes
-      operationId: listIdentityDisputes
-      parameters:
-        - required: false
-          in: query
-          name: limit
-          schema:
-            type: integer
-            format: int64
-          description: The number of entries to return.
-        - required: false
-          in: query
-          name: offset
-          schema:
-            type: integer
-            format: int64
-          description: The number of items to skip before starting to collect the result
-            set.
-        - required: false
-          in: query
-          name: pageNumber
-          schema:
-            type: integer
-            format: int64
-          description: The page number to list.
-        - required: false
-          in: query
-          name: pageSize
-          schema:
-            type: integer
-            format: int64
-          description: The size of the page.
-      responses:
-        '200':
-          $ref: '#/components/responses/DisputesList'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      x-internal: true
-      x-java-method-name: listByIdentityId
     parameters:
       - description: ID of identity to fetch
         required: true
@@ -1665,55 +1268,6 @@ paths:
         schema:
           type: string
   /identities/{identity_id}/payment_instruments:
-    get:
-      description: Get all payment instruments associated to this identity
-      summary: List Identity Payment Instruments
-      tags:
-        - Payment Instruments
-      operationId: listIdentityPaymentInstruments
-      parameters:
-        - required: false
-          in: query
-          name: limit
-          schema:
-            type: integer
-            format: int64
-          description: The number of entries to return.
-        - required: false
-          in: query
-          name: offset
-          schema:
-            type: integer
-            format: int64
-          description: The number of items to skip before starting to collect the result
-            set.
-        - required: false
-          in: query
-          name: pageNumber
-          schema:
-            type: integer
-            format: int64
-          description: The page number to list.
-        - required: false
-          in: query
-          name: pageSize
-          schema:
-            type: integer
-            format: int64
-          description: The size of the page.
-      responses:
-        '200':
-          $ref: '#/components/responses/PaymentInstrumentsList'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      x-internal: true
-      x-java-method-name: listByIdentityId
     parameters:
       - description: ID of identity to fetch
         required: true
@@ -1722,55 +1276,6 @@ paths:
         schema:
           type: string
   /identities/{identity_id}/settlements:
-    get:
-      description: Get all settlements associated to this identity
-      summary: List Identity Settlements
-      tags:
-        - Settlements
-      operationId: listIdentitySettlements
-      parameters:
-        - required: false
-          in: query
-          name: limit
-          schema:
-            type: integer
-            format: int64
-          description: The number of entries to return.
-        - required: false
-          in: query
-          name: offset
-          schema:
-            type: integer
-            format: int64
-          description: The number of items to skip before starting to collect the result
-            set.
-        - required: false
-          in: query
-          name: pageNumber
-          schema:
-            type: integer
-            format: int64
-          description: The page number to list.
-        - required: false
-          in: query
-          name: pageSize
-          schema:
-            type: integer
-            format: int64
-          description: The size of the page.
-      responses:
-        '200':
-          $ref: '#/components/responses/SettlementsList'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      x-internal: true
-      x-java-method-name: listByIdentityId
     parameters:
       - description: ID of identity to fetch
         required: true
@@ -1778,81 +1283,7 @@ paths:
         name: identity_id
         schema:
           type: string
-    post:
-      description: Create a settlement
-      summary: Create Settlement on Identity
-      tags:
-        - Settlements
-      operationId: createIdentitySettlement
-      requestBody:
-        $ref: '#/components/requestBodies/CreateIdentitySettlementRequest'
-      responses:
-        '201':
-          $ref: '#/components/responses/Settlement'
-        '400':
-          $ref: '#/components/responses/ErrorUnprocessableEntity'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-        '422':
-          $ref: '#/components/responses/ErrorMerchantIdentityDisabled'
-      x-internal: true
-      x-java-method-name: create
   /identities/{identity_id}/transfers:
-    get:
-      description: All transfers associated to this identity
-      summary: List Identity Transfers
-      tags:
-        - Transfers
-      operationId: listIdentityTransfers
-      parameters:
-        - required: false
-          in: query
-          name: limit
-          schema:
-            type: integer
-            format: int64
-          description: The number of entries to return.
-        - required: false
-          in: query
-          name: offset
-          schema:
-            type: integer
-            format: int64
-          description: The number of items to skip before starting to collect the result
-            set.
-        - required: false
-          in: query
-          name: pageNumber
-          schema:
-            type: integer
-            format: int64
-          description: The page number to list.
-        - required: false
-          in: query
-          name: pageSize
-          schema:
-            type: integer
-            format: int64
-          description: The size of the page.
-      responses:
-        '200':
-          $ref: '#/components/responses/TransfersList'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      x-internal: true
-      x-java-method-name: listByIdentityId
     parameters:
       - description: ID of identity to fetch
         required: true
@@ -1861,17 +1292,6 @@ paths:
         schema:
           type: string
   /identities/{identity_id}/users:
-    get:
-      description: Get users for an identity
-      summary: Users
-      tags:
-        - Users
-      operationId: listIdentityUsers
-      responses:
-        '200':
-          $ref: '#/components/responses/UsersList'
-      x-internal: true
-      x-java-method-name: listByIdentityId
     parameters:
       - description: ID of identity to fetch
         required: true
@@ -1879,78 +1299,7 @@ paths:
         name: identity_id
         schema:
           type: string
-    post:
-      description: Create a merchant user
-      summary: Create Merchant user
-      tags:
-        - Users
-      operationId: createMerchantUser
-      requestBody:
-        $ref: '#/components/requestBodies/CreateUserRequest'
-      responses:
-        '201':
-          $ref: '#/components/responses/User'
-        '400':
-          $ref: '#/components/responses/ErrorUnprocessableEntity'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-        '422':
-          $ref: '#/components/responses/Error422InvalidField'
-      x-internal: true
   /identities/{identity_id}/verifications:
-    get:
-      tags:
-        - Verifications
-      description: All verifications of this identity
-      summary: List Identity Verifications
-      operationId: listIdentityVerifications
-      parameters:
-        - required: false
-          in: query
-          name: limit
-          schema:
-            type: integer
-            format: int64
-          description: The number of entries to return.
-        - required: false
-          in: query
-          name: offset
-          schema:
-            type: integer
-            format: int64
-          description: The number of items to skip before starting to collect the result
-            set.
-        - required: false
-          in: query
-          name: pageNumber
-          schema:
-            type: integer
-            format: int64
-          description: The page number to list.
-        - required: false
-          in: query
-          name: pageSize
-          schema:
-            type: integer
-            format: int64
-          description: The size of the page.
-      responses:
-        '200':
-          $ref: '#/components/responses/VerificationsList'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      x-internal: true
-      x-java-method-name: listByIdentityId
     parameters:
       - description: ID of identity to fetch
         required: true
@@ -2084,8 +1433,8 @@ paths:
     put:
       tags:
         - Merchants
-      description: Update a `Merchant` to change the information saved or enable Level
-        2/3 processing.
+      description: Update a `Merchant` to change the `Identity` information saved
+        with the underlying processor, or enable Level 2/3 processing.
       summary: Update a Merchant
       operationId: putMerchant
       requestBody:
@@ -2134,61 +1483,6 @@ paths:
         $ref: '#/components/requestBodies/CreateDeviceRequest'
       x-java-method-name: create
   /merchants/{merchant_id}/transfers:
-    get:
-      tags:
-        - Transfers
-      description: Get list of all the tranfers in the merchant object
-      summary: List Merchant Transfers
-      operationId: listMerchantTransfers
-      parameters:
-        - required: false
-          in: query
-          name: limit
-          schema:
-            type: integer
-            format: int64
-          description: The number of entries to return.
-        - required: false
-          in: query
-          name: offset
-          schema:
-            type: integer
-            format: int64
-          description: The number of items to skip before starting to collect the result
-            set.
-        - required: false
-          in: query
-          name: pageNumber
-          schema:
-            type: integer
-            format: int64
-          description: The page number to list.
-        - required: false
-          in: query
-          name: pageSize
-          schema:
-            type: integer
-            format: int64
-          description: The size of the page.
-        - description: ready_to_settle
-          required: false
-          in: query
-          name: ready_to_settle
-          schema:
-            type: boolean
-      responses:
-        '200':
-          $ref: '#/components/responses/TransfersList'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      x-internal: true
-      x-java-method-name: listByMerchantId
     parameters:
       - description: ID of object
         required: true
@@ -2224,9 +1518,9 @@ paths:
           $ref: '#/components/responses/Error406NotAcceptable'
       x-internal: false
       x-java-method-name: listByMerchantId
+      x-group-parameters: true
       tags:
         - Verifications
-      x-group-parameters: true
     parameters:
       - description: ID of `Merchant` object.
         required: true
@@ -2263,8 +1557,13 @@ paths:
       description: 'Create a `Payment Instrument` resource using a card or bank account.
 
 
-        To accept payment detail, review our guide on how to [tokenize cards using
-        hosted fields](/guides/payments/tokenization-with-hosted-fields).'
+        To accept payment details, review our guide on how to [tokenize cards using
+        hosted fields](/guides/payments/tokenization-with-hosted-fields).
+
+
+        > The creation of `Payment Instruments` using cards directly via Finix''s
+        API should only be done for testing purposes. You must use the Hosted Tokenization
+        fields or javascript client to remain out of PCI scope.'
       summary: Create a Payment Instrument
       operationId: createPaymentInstrument
       requestBody:
@@ -2361,55 +1660,6 @@ paths:
           $ref: '#/components/responses/Error406NotAcceptable'
       x-java-method-name: update
   /payment_instruments/{payment_instrument_id}/authorizations:
-    get:
-      description: Get list of all the transfers in the payment instrument object
-      summary: List Payment Instrument Authorizations
-      tags:
-        - Authorizations
-      operationId: listPaymentInstrumentAuthorizations
-      parameters:
-        - required: false
-          in: query
-          name: limit
-          schema:
-            type: integer
-            format: int64
-          description: The number of entries to return.
-        - required: false
-          in: query
-          name: offset
-          schema:
-            type: integer
-            format: int64
-          description: The number of items to skip before starting to collect the result
-            set.
-        - required: false
-          in: query
-          name: pageNumber
-          schema:
-            type: integer
-            format: int64
-          description: The page number to list.
-        - required: false
-          in: query
-          name: pageSize
-          schema:
-            type: integer
-            format: int64
-          description: The size of the page.
-      responses:
-        '200':
-          $ref: '#/components/responses/AuthorizationsList'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      x-internal: true
-      x-java-method-name: listByPaymentInstrumentId
     parameters:
       - description: ID of object
         required: true
@@ -2418,55 +1668,6 @@ paths:
         schema:
           type: string
   /payment_instruments/{payment_instrument_id}/transfers:
-    get:
-      description: Get list of all the transfers in the payment instrument object
-      summary: List Payment Instrument Transfers
-      tags:
-        - Transfers
-      operationId: listPaymentInstrumentTransfers
-      parameters:
-        - required: false
-          in: query
-          name: limit
-          schema:
-            type: integer
-            format: int64
-          description: The number of entries to return.
-        - required: false
-          in: query
-          name: offset
-          schema:
-            type: integer
-            format: int64
-          description: The number of items to skip before starting to collect the result
-            set.
-        - required: false
-          in: query
-          name: pageNumber
-          schema:
-            type: integer
-            format: int64
-          description: The page number to list.
-        - required: false
-          in: query
-          name: pageSize
-          schema:
-            type: integer
-            format: int64
-          description: The size of the page.
-      responses:
-        '200':
-          $ref: '#/components/responses/TransfersList'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      x-internal: true
-      x-java-method-name: listByPaymentInstrumentId
     parameters:
       - description: ID of object
         required: true
@@ -2536,55 +1737,6 @@ paths:
         schema:
           type: string
   /payment_instruments/{payment_instrument_id}/verifications:
-    get:
-      tags:
-        - Verifications
-      description: Get list of all the transfers in a `Payment Instrument` object
-      summary: List Payment Instrument Verifications
-      operationId: listPaymentInstrumentVerifications
-      parameters:
-        - required: false
-          in: query
-          name: limit
-          schema:
-            type: integer
-            format: int64
-          description: The number of entries to return.
-        - required: false
-          in: query
-          name: offset
-          schema:
-            type: integer
-            format: int64
-          description: The number of items to skip before starting to collect the result
-            set.
-        - required: false
-          in: query
-          name: pageNumber
-          schema:
-            type: integer
-            format: int64
-          description: The page number to list.
-        - required: false
-          in: query
-          name: pageSize
-          schema:
-            type: integer
-            format: int64
-          description: The size of the page.
-      responses:
-        '200':
-          $ref: '#/components/responses/VerificationsList'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      x-internal: true
-      x-java-method-name: listByPaymentInstrumentId
     parameters:
       - description: ID of object
         required: true
@@ -2616,52 +1768,8 @@ paths:
           $ref: '#/components/responses/ErrorNotFound'
         '406':
           $ref: '#/components/responses/Error406NotAcceptable'
-  /review_queue:
-    get:
-      tags:
-        - Review queue
-      description: Get the review_queue object
-      summary: List Review Queue Items
-      operationId: listReviewQueueItems
-      parameters:
-        - $ref: '#/components/parameters/QueryEntityTypeFilter'
-        - $ref: '#/components/parameters/QueryOutcomeFilter'
-        - $ref: '#/components/parameters/QueryApplicationFilter'
-      responses:
-        '200':
-          $ref: '#/components/responses/ReviewQueueItemsList'
-        '400':
-          $ref: '#/components/responses/ErrorUnprocessableEntity'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-        '422':
-          $ref: '#/components/responses/Error422InvalidField'
-      x-internal: true
-      x-java-method-name: list
+  /review_queue: {}
   /review_queue/{review_queue_item_id}:
-    get:
-      tags:
-        - Review queue
-      description: Get the review queue item object
-      summary: Show Review Queue Item
-      operationId: getReviewQueueItem
-      responses:
-        '200':
-          $ref: '#/components/responses/ReviewQueueItem'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      x-internal: true
-      x-java-method-name: get
     parameters:
       - description: ID of object
         required: true
@@ -2669,27 +1777,6 @@ paths:
         name: review_queue_item_id
         schema:
           type: string
-    put:
-      tags:
-        - Review queue
-      description: Update a review queue item
-      summary: Put Review Queue Item
-      operationId: putReviewQueueItem
-      requestBody:
-        $ref: '#/components/requestBodies/CreateReviewQueueItemRequest'
-      responses:
-        '200':
-          $ref: '#/components/responses/ReviewQueueItem'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-        '422':
-          $ref: '#/components/responses/Error422InvalidField'
-      x-internal: true
-      x-java-method-name: update
   /settlements:
     post:
       tags:
@@ -2793,7 +1880,7 @@ paths:
         - Settlements
       description: Retrieve the `Transfers` in a `Settlement` that have `type` **CREDIT**.
       summary: List Settlement Funding Transfers
-      operationId: getSettlementFundingTransfers
+      operationId: listSettlementFundingTransfers
       responses:
         '200':
           $ref: '#/components/responses/TransfersList'
@@ -2831,9 +1918,9 @@ paths:
 
 
 
-        Note: Per the JSON API for deleting a resource, our API doesn''t have a response
+        > Per the JSON API for deleting a resource, our API doesn''t have a response
         body when removing a `Transfer` from a `Settlement`.'
-      summary: Remove Settlement Transfers
+      summary: Delete Settlement Transfers
       operationId: removeSettlementTransfers
       responses:
         '204':
@@ -2870,13 +1957,13 @@ paths:
           $ref: '#/components/responses/Error406NotAcceptable'
       x-internal: false
       x-java-method-name: listBySettlementId
+      x-group-parameters: true
       tags:
         - Settlements
       parameters:
         - $ref: '#/components/parameters/QueryLimit'
         - $ref: '#/components/parameters/QueryAfterCursor'
         - $ref: '#/components/parameters/QueryBeforeCursor'
-      x-group-parameters: true
     parameters:
       - description: ID of `Settlement` object.
         required: true
@@ -2888,7 +1975,8 @@ paths:
     post:
       tags:
         - Transfers
-      description: Create a `Transfer`.
+      description: "Create a `Transfer`. \n\n> By default, Finix implements a 3 (business)\
+        \ day delay when debiting bank accounts (i.e. eChecks)."
       summary: Create a Transfer
       operationId: createTransfer
       requestBody:
@@ -3080,55 +2168,6 @@ paths:
         $ref: '#/components/requestBodies/UpdateTransferRequest'
       x-java-method-name: update
   /transfers/{transfer_id}/disputes:
-    get:
-      description: Get list of all the disputes in the transfers object
-      summary: List Tranfer Disputes
-      operationId: listTransferDisputes
-      parameters:
-        - required: false
-          in: query
-          name: limit
-          schema:
-            type: integer
-            format: int64
-          description: The number of entries to return.
-        - required: false
-          in: query
-          name: offset
-          schema:
-            type: integer
-            format: int64
-          description: The number of items to skip before starting to collect the result
-            set.
-        - required: false
-          in: query
-          name: pageNumber
-          schema:
-            type: integer
-            format: int64
-          description: The page number to list.
-        - required: false
-          in: query
-          name: pageSize
-          schema:
-            type: integer
-            format: int64
-          description: The size of the page.
-      responses:
-        '200':
-          $ref: '#/components/responses/DisputesList'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      tags:
-        - Disputes
-      x-internal: true
-      x-java-method-name: listByTransferId
     parameters:
       - description: ID of object
         required: true
@@ -3137,55 +2176,6 @@ paths:
         schema:
           type: string
   /transfers/{transfer_id}/fees:
-    get:
-      tags:
-        - Fees
-      description: Get list of all the fees in the transfers object
-      summary: List Transfer Fees
-      operationId: listTransferFees
-      parameters:
-        - required: false
-          in: query
-          name: limit
-          schema:
-            type: integer
-            format: int64
-          description: The number of entries to return.
-        - required: false
-          in: query
-          name: offset
-          schema:
-            type: integer
-            format: int64
-          description: The number of items to skip before starting to collect the result
-            set.
-        - required: false
-          in: query
-          name: pageNumber
-          schema:
-            type: integer
-            format: int64
-          description: The page number to list.
-        - required: false
-          in: query
-          name: pageSize
-          schema:
-            type: integer
-            format: int64
-          description: The size of the page.
-      responses:
-        '200':
-          $ref: '#/components/responses/TransfersList'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      x-internal: true
-      x-java-method-name: listByTransferId
     parameters:
       - description: ID of object
         required: true
@@ -3194,55 +2184,6 @@ paths:
         schema:
           type: string
   /transfers/{transfer_id}/payment_instruments:
-    get:
-      tags:
-        - Payment Instruments
-      description: Get list of all the payment instruments in the transfers object
-      summary: List Transfer Payment Instruments
-      operationId: listTransferPaymentInstruments
-      parameters:
-        - required: false
-          in: query
-          name: limit
-          schema:
-            type: integer
-            format: int64
-          description: The number of entries to return.
-        - required: false
-          in: query
-          name: offset
-          schema:
-            type: integer
-            format: int64
-          description: The number of items to skip before starting to collect the result
-            set.
-        - required: false
-          in: query
-          name: pageNumber
-          schema:
-            type: integer
-            format: int64
-          description: The page number to list.
-        - required: false
-          in: query
-          name: pageSize
-          schema:
-            type: integer
-            format: int64
-          description: The size of the page.
-      responses:
-        '200':
-          $ref: '#/components/responses/PaymentInstrumentsList'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      x-internal: true
-      x-java-method-name: listByTransferId
     parameters:
       - description: ID of object
         required: true
@@ -3500,7 +2441,7 @@ paths:
     get:
       tags:
         - Webhooks
-      description: Retrieve a list of `Webhook` endpoints.
+      description: Retrieve a list of `Webhooks`.
       summary: List Webhooks
       operationId: listWebhooks
       parameters:
@@ -3626,7 +2567,7 @@ paths:
       summary: List Subscription Schedules
       tags:
         - Subscription Schedules
-      operationId: getSubscriptionSchedules
+      operationId: listSubscriptionSchedules
       description: Retrieve a list of `Subscription Schedules`.
       responses:
         '200':
@@ -3640,6 +2581,7 @@ paths:
         '406':
           $ref: '#/components/responses/Error406NotAcceptable'
       x-java-method-name: list
+      x-group-parameters: true
       parameters:
         - schema:
             type: string
@@ -3651,7 +2593,6 @@ paths:
           in: query
           name: type
           description: Filter by the object's `type`.
-      x-group-parameters: true
     post:
       summary: Create a Subscription Schedule
       tags:
@@ -3729,7 +2670,9 @@ paths:
       x-java-method-name: lcreate
     patch:
       summary: Update Subscription Amount
-      operationId: patchSubscriptionAmount
+      tags:
+        - Subscription Amounts
+      operationId: updateSubscriptionAmount
       responses:
         '200':
           $ref: '#/components/responses/SubscriptionAmount'
@@ -3746,7 +2689,7 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/UpdateSubscriptionAmountRequest'
     delete:
-      summary: Remove a Subscription Amount
+      summary: Delete a Subscription Amount
       operationId: deleteSubscriptionAmount
       responses:
         '204':
@@ -3833,10 +2776,6 @@ paths:
           $ref: '#/components/responses/Error406NotAcceptable'
       operationId: listSubscriptionEnrollmentsInSchedule
       description: Retrieve a list of `Subscription Enrollments` for a specific `subscription_schedule`.
-      parameters:
-        - $ref: '#/components/parameters/QueryLimit'
-        - $ref: '#/components/parameters/QueryAfterCursor'
-        - $ref: '#/components/parameters/QueryBeforeCursor'
       x-java-method-name: listBySubscriptionScheduleId
       x-group-parameters: true
     post:
@@ -3882,11 +2821,7 @@ paths:
           $ref: '#/components/responses/Error406NotAcceptable'
       operationId: listSubscriptionEnrollments
       description: Retrieve a list of `Subscription Enrollments`.
-      parameters:
-        - $ref: '#/components/parameters/QueryLimit'
-        - $ref: '#/components/parameters/QueryAfterCursor'
-        - $ref: '#/components/parameters/QueryBeforeCursor'
-      x-java-method-name: get
+      x-java-method-name: list
       x-group-parameters: true
   /subscription/subscription_enrollments/{subscription_enrollment_id}:
     parameters:
@@ -3931,7 +2866,7 @@ paths:
           $ref: '#/components/responses/ErrorNotFound'
         '406':
           $ref: '#/components/responses/Error406NotAcceptable'
-      operationId: getSubscriptionSenrollments
+      operationId: getSubscriptionEnrollment
       description: Retrieve the details of a `subscription_enrollment`.
       x-java-method-name: get
       parameters:
@@ -3941,7 +2876,7 @@ paths:
           name: merchant
           description: Filter by the objects `merchant` ID.
     delete:
-      summary: Remove a Subscription Enrollment
+      summary: Delete a Subscription Enrollment
       tags:
         - Subscription Enrollments
       responses:
@@ -4043,7 +2978,8 @@ paths:
       description: "Fetch a previously created `instrument_updates` resource as a\
         \ CSV. \n\nTo fetch the `instrument_updates` resource in JSON, add `?format=json`\
         \ to the request endpoint."
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/QueryFormat'
   /files:
     post:
       summary: Create a File
@@ -4380,11 +3316,11 @@ components:
   parameters:
     ApplicationId:
       description: ID of application to use
-      required: true
       in: path
       name: application_id
       schema:
         type: string
+      required: true
     ApplicationProfileId:
       description: ID of application profile to use
       required: true
@@ -4758,6 +3694,15 @@ components:
       schema:
         type: string
       description: Return every resource created before the cursor value.
+    QueryFormat:
+      name: format
+      in: query
+      required: false
+      schema:
+        type: string
+        example: /download?format=json
+      description: Specify the format you'd like to download the response in (JSON
+        is the only other format available for download).
   requestBodies:
     CreateApplicationRequest:
       content:
@@ -5447,7 +4392,7 @@ components:
       content:
         application/hal+json:
           schema:
-            $ref: '#/components/schemas/VerificationForm'
+            $ref: '#/components/schemas/CreateVerificationRequest'
           examples:
             Create a Verification:
               value:
@@ -6246,19 +5191,13 @@ components:
             Card Present Authorization with an EMV Card:
               value:
                 id: AUeEok8811pDqsR1BbxZLbw1
+                application: APeUbTUjvYb1CdPXvNcwW1wP
                 amount: 150
                 tags:
                   order_number: chris123transfer
                 state: SUCCEEDED
-                trace_id: FNXmEM7d6ns8LMMzt61AD8TrR
                 currency: USD
-                application: APeUbTUjvYb1CdPXvNcwW1wP
-                source: PIcW77CfRyBUWJhA231TWXWf
-                destination: null
-                ready_to_settle_at: null
-                fee: 0
-                statement_descriptor: FIN*GOLDS GYM
-                type: DEBIT
+                transfer: null
                 messages: []
                 raw: null
                 card_present_details:
@@ -6270,6 +5209,7 @@ components:
                     cryptogram: TC F8C706E8A0368D15
                     issuer_code_table_index: null
                     pin_verified: false
+                    tags: {}
                   masked_account_number: '************7564'
                   name: 'AARON/CHRISTOPHER W '
                   brand: VISA
@@ -6278,29 +5218,25 @@ components:
                   approval_code: '000036'
                 created_at: '2019-03-11T23:36:42.03Z'
                 updated_at: '2019-03-11T23:36:57.09Z'
-                idempotency_id: null
+                trace_id: FNXmEM7d6ns8LMMzt61AD8TrR
+                source: PIcW77CfRyBUWJhA231TWXWf
                 merchant_identity: IDsbTBawhnLBAVeinRb84vFR
                 device: DVf2H8sh4LZZC52GTUrwCPPf
+                3ds_redirect_url: null
+                is_void: false
+                void_state: UNATTEMPTED
+                expires_at: '2019-03-18T23:36:42.03Z'
+                idempotency_id: null
                 subtype: API
                 _links:
+                  self:
+                    href: https://finix.sandbox-payments-api.com/authorizations/AUeEok8811pDqsR1BbxZLbw1
                   application:
                     href: https://finix.sandbox-payments-api.com/applications/APeUbTUjvYb1CdPXvNcwW1wP
-                  self:
-                    href: https://finix.sandbox-payments-api.com/transfers/TReEok8811pDqsR1BbxZLbw1
-                  payment_instruments:
-                    href: https://finix.sandbox-payments-api.com/transfers/TReEok8811pDqsR1BbxZLbw1/payment_instruments
-                  merchant_identity:
-                    href: https://finix.sandbox-payments-api.com/identities/IDsbTBawhnLBAVeinRb84vFR
                   device:
                     href: https://finix.sandbox-payments-api.com/devices/DVf2H8sh4LZZC52GTUrwCPPf
-                  reversals:
-                    href: https://finix.sandbox-payments-api.com/transfers/TReEok8811pDqsR1BbxZLbw1/reversals
-                  fees:
-                    href: https://finix.sandbox-payments-api.com/transfers/TReEok8811pDqsR1BbxZLbw1/fees
-                  disputes:
-                    href: https://finix.sandbox-payments-api.com/transfers/TReEok8811pDqsR1BbxZLbw1/disputes
-                  source:
-                    href: https://finix.sandbox-payments-api.com/payment_instruments/PIcW77CfRyBUWJhA231TWXWf
+                  merchant_identity:
+                    href: https://finix.sandbox-payments-api.com/identities/IDsbTBawhnLBAVeinRb84vFR
             Card Present Authorization with a Non-EMV Card:
               value:
                 id: AUiJS1VhMy8zpACLoacPFG7m
@@ -13371,6 +12307,7 @@ components:
               type: object
               description: The home address of the merchant's principal control owner.
                 This field is used for identity verification purposes.
+              nullable: true
               properties:
                 line1:
                   type: string
@@ -14873,12 +13810,12 @@ components:
           type: string
           enum:
             - PAYMENT_CARD
-            - TOKEN
-            - SWIPED_PAYMENT_CARD
-            - VANTIV_OMNI_TOKEN
-            - PAYMENT_CARD_PRESENT
             - BANK_ACCOUNT
             - VIRTUAL
+            - TOKEN
+            - PAYMENT_CARD_PRESENT
+            - SWIPED_PAYMENT_CARD
+            - VANTIV_OMNI_TOKEN
           description: Type of `Payment Instrument`.
         id:
           $ref: '#/components/schemas/Id'
@@ -14915,12 +13852,12 @@ components:
           type: string
           enum:
             - PAYMENT_CARD
-            - TOKEN
-            - SWIPED_PAYMENT_CARD
-            - VANTIV_OMNI_TOKEN
-            - PAYMENT_CARD_PRESENT
             - BANK_ACCOUNT
             - VIRTUAL
+            - TOKEN
+            - PAYMENT_CARD_PRESENT
+            - SWIPED_PAYMENT_CARD
+            - VANTIV_OMNI_TOKEN
           description: The type of `Payment Instrument`.
         masked_account_number:
           type: string
@@ -15110,8 +14047,8 @@ components:
         type:
           type: string
           enum:
-            - BANK_ACCOUNT
             - PAYMENT_CARD
+            - BANK_ACCOUNT
             - TOKEN
           description: Type of `Payment Instrument`.
         identity:
@@ -18360,96 +17297,57 @@ components:
           $ref: '#/components/schemas/ListLinks'
     Verification:
       type: object
-      x-examples:
-        example-1:
-          _embedded:
-            verifications:
-              - id: VIco8fUzD9J8wd9Fu31HPPPw
-                application: APgPDQrLD52TYvqazjHJJchM
-                tags:
-                  parent_merchant: MUucec6fHeaWo3VHYoSkUySM
-                messages: []
-                raw: RawDummyMerchantUnderwriteResult
-                processor: DUMMY_V1
-                state: SUCCEEDED
-                created_at: '2022-01-27T07:37:02.22Z'
-                updated_at: '2022-01-27T07:38:01.21Z'
-                trace_id: '0d6eb828-4855-4d11-9c94-0fb032fe0f0e'
-                payment_instrument: null
-                merchant: MUsuBPk1nGQs8rTDTskpSJhE
-                identity: null
-                merchant_identity: null
-                _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/verifications/VIco8fUzD9J8wd9Fu31HPPPw
-                  application:
-                    href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
-                  merchant:
-                    href: https://finix.sandbox-payments-api.com/merchants/MUsuBPk1nGQs8rTDTskpSJhE
-          _links:
-            self:
-              href: https://finix.sandbox-payments-api.com/merchants/MUsuBPk1nGQs8rTDTskpSJhE/verifications?offset=0&limit=20&sort=created_at,desc&sort=id,desc
-          page:
-            offset: 0
-            limit: 20
-            count: 1
       properties:
-        verifications:
+        id:
+          type: string
+          description: The ID of the `Verification` attempt (begins with `VIXXX`).
+        application:
+          type: string
+          description: ID of the `Application` the `Merchant` was created under.
+        tags:
+          $ref: '#/components/schemas/Tags'
+        messages:
           type: array
-          description: '`Verification` resource.'
+          description: Provides additional details about the verification (e.g why
+            it failed). This field is usually **null**.
           items:
             type: object
-            properties:
-              id:
-                type: string
-                description: The ID of the `Verification` attempt (begins with `VIXXX`).
-              application:
-                type: string
-                description: ID of the `Application` the `Merchant` was created under.
-              tags:
-                $ref: '#/components/schemas/Tags'
-              messages:
-                type: array
-                description: Provides additional details about the verification (e.g
-                  why it failed). This field is usually **null**.
-                items:
-                  type: object
-              raw:
-                $ref: '#/components/schemas/Raw'
-              processor:
-                type: string
-                description: Name of the verification processor.
-              state:
-                type: string
-                description: The status of the `Verification` request.
-                enum:
-                  - PENDING
-                  - SUCCEEDED
-                  - FAILED
-              created_at:
-                $ref: '#/components/schemas/CreatedAt'
-              updated_at:
-                $ref: '#/components/schemas/UpdatedAt'
-              trace_id:
-                type: string
-                description: Trace ID of the `Verification`. The processor sends back
-                  the `trace_id` so you can track the verification end-to-end.
-              payment_instrument:
-                type: string
-                description: The `Payment Instrument` that'll be used to settle the
-                  `Merchant's` processed funds.
-                nullable: true
-              merchant:
-                type: string
-                description: ID of the `Merchant` resource.
-              identity:
-                type: string
-                description: ID of the `Identity` that created the `Merchant`.
-                nullable: true
-              merchant_identity:
-                type: string
-                description: ID of the `Identity` associated with the `Merchant`.
-                nullable: true
+        raw:
+          $ref: '#/components/schemas/Raw'
+        processor:
+          type: string
+          description: Name of the verification processor.
+        state:
+          type: string
+          description: The status of the `Verification` request.
+          enum:
+            - PENDING
+            - SUCCEEDED
+            - FAILED
+        created_at:
+          $ref: '#/components/schemas/CreatedAt'
+        updated_at:
+          $ref: '#/components/schemas/UpdatedAt'
+        trace_id:
+          type: string
+          description: Trace ID of the `Verification`. The processor sends back the
+            `trace_id` so you can track the verification end-to-end.
+        payment_instrument:
+          type: string
+          description: The `Payment Instrument` that'll be used to settle the `Merchant's`
+            processed funds.
+          nullable: true
+        merchant:
+          type: string
+          description: ID of the `Merchant` resource.
+        identity:
+          type: string
+          description: ID of the `Identity` that created the `Merchant`.
+          nullable: true
+        merchant_identity:
+          type: string
+          description: ID of the `Identity` associated with the `Merchant`.
+          nullable: true
         _links:
           type: object
           description: For your convenience, every response includes several URLs
@@ -18462,11 +17360,9 @@ components:
               properties:
                 href:
                   type: string
-        page:
-          $ref: '#/components/schemas/PageCursor'
-    VerificationForm:
+    CreateVerificationRequest:
       type: object
-      title: VerificationForm
+      title: CreateVerificationRequest
       x-examples:
         example-1:
           merchant: MUgWbPVvtKbzjKNNGKqdQYV7
@@ -20224,12 +19120,9 @@ components:
     Raw:
       title: Raw
       description: Raw response from the processor
-      anyOf:
-        - type: object
-          nullable: true
-        - type: string
-          nullable: true
       x-examples: {}
+      type: object
+      nullable: true
     IdempotencyId:
       title: IdempotencyId
       type: string
@@ -21238,18 +20131,6 @@ components:
         limit:
           description: The numbers of items to return
           type: integer
-    ListApplicationProcessorsQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The numbers of items to return
-          type: integer
-        after_cursor:
-          description: Return every resource created after the cursor value.
-          type: string
-        before_cursor:
-          description: Return every resource created before the cursor value.
-          type: string
     ListAuthorizationsQueryParams:
       type: object
       properties:
@@ -21513,114 +20394,6 @@ components:
         before_cursor:
           description: Return every resource created before the cursor value.
           type: string
-    ListIdentityAuthorizationsQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        after_cursor:
-          description: Return every resource created after the cursor value.
-          type: string
-        before_cursor:
-          description: Return every resource created before the cursor value.
-          type: string
-    ListIdentityMerchantsQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-    ListIdentityDisputesQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-    ListIdentityPaymentInstrumentsQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-    ListIdentitySettlementsQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-    ListIdentityTransfersQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-    ListIdentityVerificationsQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
     ListMerchantProfilesQueryParams:
       type: object
       properties:
@@ -21660,25 +20433,6 @@ components:
         before_cursor:
           description: Return every resource created before the cursor value.
           type: string
-    ListMerchantTransfersQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-        ready_to_settle:
-          description: ready_to_settle
-          type: boolean
     ListMerchantVerificationsQueryParams:
       type: object
       properties:
@@ -21743,38 +20497,6 @@ components:
         before_cursor:
           description: Return every resource created before the cursor value.
           type: string
-    ListPaymentInstrumentAuthorizationsQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-    ListPaymentInstrumentTransfersQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
     ListPaymentInstrumentUpdatesQueryParams:
       type: object
       properties:
@@ -21791,34 +20513,6 @@ components:
         pageSize:
           description: The size of the page.
           type: integer
-    ListPaymentInstrumentVerificationsQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-    ListReviewQueueItemsQueryParams:
-      type: object
-      properties:
-        entity_type:
-          description: Filter by entity_type
-          type: string
-        id:
-          description: Filter by outcome
-          type: string
-        application:
-          description: Filter by application id
-          type: string
     ListSettlementsQueryParams:
       type: object
       properties:
@@ -21861,7 +20555,7 @@ components:
         before_cursor:
           description: Return every resource created before the cursor value.
           type: string
-    GetSettlementFundingTransfersQueryParams:
+    ListSettlementFundingTransfersQueryParams:
       type: object
       properties:
         limit:
@@ -21990,54 +20684,6 @@ components:
         before_cursor:
           description: Return every resource created before the cursor value.
           type: string
-    ListTransferDisputesQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-    ListTransferFeesQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-    ListTransferPaymentInstrumentsQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
     ListTransferReversalsQueryParams:
       type: object
       properties:
@@ -22074,16 +20720,7 @@ components:
         before_cursor:
           description: Return every resource created before the cursor value.
           type: string
-    GetSubscriptionScheduleQueryParams:
-      type: object
-      properties:
-        nickname:
-          description: Filter by the object's `nickname`.
-          type: string
-        type:
-          description: Filter by the object's `subscription_type`.
-          type: string
-    GetSubscriptionSchedulesQueryParams:
+    ListSubscriptionSchedulesQueryParams:
       type: object
       properties:
         nickname:
@@ -22103,36 +20740,6 @@ components:
           type: string
         before_cursor:
           description: Return every resource created before the cursor value.
-          type: string
-    ListSubscriptionEnrollmentsInScheduleQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The numbers of items to return
-          type: integer
-        after_cursor:
-          description: Return every resource created after the cursor value.
-          type: string
-        before_cursor:
-          description: Return every resource created before the cursor value.
-          type: string
-    ListSubscriptionEnrollmentsQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The numbers of items to return
-          type: integer
-        after_cursor:
-          description: Return every resource created after the cursor value.
-          type: string
-        before_cursor:
-          description: Return every resource created before the cursor value.
-          type: string
-    GetSubscriptionSenrollmentsQueryParams:
-      type: object
-      properties:
-        merchant:
-          description: Filter by the objects `merchant` ID.
           type: string
     ListFilesQueryParams:
       type: object

@@ -26,49 +26,33 @@ import org.junit.jupiter.api.Test;
 
 
 /**
- * Model tests for ListPaymentInstrumentTransfersQueryParams
+ * Model tests for ListSubscriptionSchedulesQueryParams
  */
-public class ListPaymentInstrumentTransfersQueryParamsTest {
-    private final ListPaymentInstrumentTransfersQueryParams model = new ListPaymentInstrumentTransfersQueryParams();
+public class ListSubscriptionSchedulesQueryParamsTest {
+    private final ListSubscriptionSchedulesQueryParams model = new ListSubscriptionSchedulesQueryParams();
 
     /**
-     * Model tests for ListPaymentInstrumentTransfersQueryParams
+     * Model tests for ListSubscriptionSchedulesQueryParams
      */
     @Test
-    public void testListPaymentInstrumentTransfersQueryParams() {
-        // TODO: test ListPaymentInstrumentTransfersQueryParams
+    public void testListSubscriptionSchedulesQueryParams() {
+        // TODO: test ListSubscriptionSchedulesQueryParams
     }
 
     /**
-     * Test the property 'limit'
+     * Test the property 'nickname'
      */
     @Test
-    public void limitTest() {
-        // TODO: test limit
+    public void nicknameTest() {
+        // TODO: test nickname
     }
 
     /**
-     * Test the property 'offset'
+     * Test the property 'type'
      */
     @Test
-    public void offsetTest() {
-        // TODO: test offset
-    }
-
-    /**
-     * Test the property 'pageNumber'
-     */
-    @Test
-    public void pageNumberTest() {
-        // TODO: test pageNumber
-    }
-
-    /**
-     * Test the property 'pageSize'
-     */
-    @Test
-    public void pageSizeTest() {
-        // TODO: test pageSize
+    public void typeTest() {
+        // TODO: test type
     }
 
 }

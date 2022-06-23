@@ -32,7 +32,6 @@ import model.AuthorizationExternalResponsesInner;
 import model.AuthorizationLinks;
 import model.CardPresentDetails;
 import model.Currency;
-import model.Raw;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -60,7 +59,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "A charge authorization")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-21T11:54:05.123637-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T00:56:13.722393-07:00[America/Los_Angeles]")
 public class Authorization {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -136,7 +135,7 @@ public class Authorization {
 
   public static final String SERIALIZED_NAME_RAW = "raw";
   @SerializedName(SERIALIZED_NAME_RAW)
-  private Raw raw;
+  private Object raw;
 
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
@@ -657,25 +656,25 @@ public class Authorization {
   }
 
 
-  public Authorization raw(Raw raw) {
+  public Authorization raw(Object raw) {
     
     this.raw = raw;
     return this;
   }
 
    /**
-   * Get raw
+   * Raw response from the processor
    * @return raw
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Raw response from the processor")
 
-  public Raw getRaw() {
+  public Object getRaw() {
     return raw;
   }
 
 
-  public void setRaw(Raw raw) {
+  public void setRaw(Object raw) {
     this.raw = raw;
   }
 
@@ -1055,15 +1054,6 @@ public class Authorization {
       if (jsonObj.get("messages") != null && !jsonObj.get("messages").isJsonNull() && !jsonObj.get("messages").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `messages` to be an array in the JSON string but got `%s`", jsonObj.get("messages").toString()));
       }
-      /**
-      * EDITED
-      * ADDED  statement to for inconsistent null behaviour
-      */
-      // validate the optional field `raw`
-     // if (jsonObj.getAsJsonObject("raw") != null) {
-       //Raw.validateJsonObject(jsonObj.getAsJsonObject("raw"));
-     // }
-
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour

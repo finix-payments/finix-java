@@ -48,11 +48,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * VerificationForm
+ * CreateVerificationRequest
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-21T11:54:05.123637-05:00[America/Chicago]")
-public class VerificationForm {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T00:56:13.722393-07:00[America/Los_Angeles]")
+public class CreateVerificationRequest {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private Map<String, String> tags = null;
@@ -73,16 +73,16 @@ public class VerificationForm {
   @SerializedName(SERIALIZED_NAME_PROCESSOR)
   private String processor;
 
-  public VerificationForm() { 
+  public CreateVerificationRequest() { 
   }
 
-  public VerificationForm tags(Map<String, String> tags) {
+  public CreateVerificationRequest tags(Map<String, String> tags) {
     
     this.tags = tags;
     return this;
   }
 
-  public VerificationForm putTagsItem(String key, String tagsItem) {
+  public CreateVerificationRequest putTagsItem(String key, String tagsItem) {
     if (this.tags == null) {
       this.tags = new HashMap<>();
     }
@@ -107,7 +107,7 @@ public class VerificationForm {
   }
 
 
-  public VerificationForm identity(String identity) {
+  public CreateVerificationRequest identity(String identity) {
     
     this.identity = identity;
     return this;
@@ -130,7 +130,7 @@ public class VerificationForm {
   }
 
 
-  public VerificationForm instrument(String instrument) {
+  public CreateVerificationRequest instrument(String instrument) {
     
     this.instrument = instrument;
     return this;
@@ -153,7 +153,7 @@ public class VerificationForm {
   }
 
 
-  public VerificationForm merchant(String merchant) {
+  public CreateVerificationRequest merchant(String merchant) {
     
     this.merchant = merchant;
     return this;
@@ -176,7 +176,7 @@ public class VerificationForm {
   }
 
 
-  public VerificationForm processor(String processor) {
+  public CreateVerificationRequest processor(String processor) {
     
     this.processor = processor;
     return this;
@@ -208,12 +208,12 @@ public class VerificationForm {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VerificationForm verificationForm = (VerificationForm) o;
-    return Objects.equals(this.tags, verificationForm.tags) &&
-        Objects.equals(this.identity, verificationForm.identity) &&
-        Objects.equals(this.instrument, verificationForm.instrument) &&
-        Objects.equals(this.merchant, verificationForm.merchant) &&
-        Objects.equals(this.processor, verificationForm.processor);
+    CreateVerificationRequest createVerificationRequest = (CreateVerificationRequest) o;
+    return Objects.equals(this.tags, createVerificationRequest.tags) &&
+        Objects.equals(this.identity, createVerificationRequest.identity) &&
+        Objects.equals(this.instrument, createVerificationRequest.instrument) &&
+        Objects.equals(this.merchant, createVerificationRequest.merchant) &&
+        Objects.equals(this.processor, createVerificationRequest.processor);
   }
 
   @Override
@@ -224,7 +224,7 @@ public class VerificationForm {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VerificationForm {\n");
+    sb.append("class CreateVerificationRequest {\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    identity: ").append(toIndentedString(identity)).append("\n");
     sb.append("    instrument: ").append(toIndentedString(instrument)).append("\n");
@@ -266,14 +266,14 @@ public class VerificationForm {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to VerificationForm
+  * @throws IOException if the JSON Object is invalid with respect to CreateVerificationRequest
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (VerificationForm.openapiRequiredFields.isEmpty()) {
+        if (CreateVerificationRequest.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in VerificationForm is not found in the empty JSON string", VerificationForm.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateVerificationRequest is not found in the empty JSON string", CreateVerificationRequest.openapiRequiredFields.toString()));
         }
       }
      /* 
@@ -281,8 +281,8 @@ public class VerificationForm {
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!VerificationForm.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `VerificationForm` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!CreateVerificationRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateVerificationRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       */
@@ -321,22 +321,22 @@ public class VerificationForm {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!VerificationForm.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'VerificationForm' and its subtypes
+       if (!CreateVerificationRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CreateVerificationRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<VerificationForm> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(VerificationForm.class));
+       final TypeAdapter<CreateVerificationRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CreateVerificationRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<VerificationForm>() {
+       return (TypeAdapter<T>) new TypeAdapter<CreateVerificationRequest>() {
            @Override
-           public void write(JsonWriter out, VerificationForm value) throws IOException {
+           public void write(JsonWriter out, CreateVerificationRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public VerificationForm read(JsonReader in) throws IOException {
+           public CreateVerificationRequest read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -347,18 +347,18 @@ public class VerificationForm {
   }
 
  /**
-  * Create an instance of VerificationForm given an JSON string
+  * Create an instance of CreateVerificationRequest given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of VerificationForm
-  * @throws IOException if the JSON string is invalid with respect to VerificationForm
+  * @return An instance of CreateVerificationRequest
+  * @throws IOException if the JSON string is invalid with respect to CreateVerificationRequest
   */
-  public static VerificationForm fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, VerificationForm.class);
+  public static CreateVerificationRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CreateVerificationRequest.class);
   }
 
  /**
-  * Convert an instance of VerificationForm to an JSON string
+  * Convert an instance of CreateVerificationRequest to an JSON string
   *
   * @return JSON string
   */
