@@ -40,7 +40,7 @@ import model.SettlementsList;
 import model.TransfersList;
 import model.UpdateSettlementRequest;
 
-import model.GetSettlementFundingTransfersQueryParams;
+import model.ListSettlementFundingTransfersQueryParams;
 import model.ListSettlementTransfersQueryParams;
 import model.ListSettlementsQueryParams;
 
@@ -368,7 +368,7 @@ this.localCustomBaseUrl = customBaseUrl;
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
         }
-    private okhttp3.Call getSettlementFundingTransfersCall(String settlementId, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listSettlementFundingTransfersCall(String settlementId, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -427,50 +427,50 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call getSettlementFundingTransfersValidateBeforeCall(String settlementId, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
+        private okhttp3.Call listSettlementFundingTransfersValidateBeforeCall(String settlementId, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
         
                 // verify the required parameter 'settlementId' is set
                 if (settlementId == null) {
-                throw new ApiException("Missing the required parameter 'settlementId' when calling getSettlementFundingTransfers(Async)");
+                throw new ApiException("Missing the required parameter 'settlementId' when calling listSettlementFundingTransfers(Async)");
                 }
         
 
-            okhttp3.Call localVarCall = getSettlementFundingTransfersCall(settlementId, limit, afterCursor, beforeCursor, _callback);
+            okhttp3.Call localVarCall = listSettlementFundingTransfersCall(settlementId, limit, afterCursor, beforeCursor, _callback);
             return localVarCall;
 
         }
 
 
-    private ApiResponse<TransfersList> getSettlementFundingTransfersWithHttpInfo(String settlementId, Long limit, String afterCursor, String beforeCursor) throws ApiException {
-        okhttp3.Call localVarCall = getSettlementFundingTransfersValidateBeforeCall(settlementId, limit, afterCursor, beforeCursor, null);
+    private ApiResponse<TransfersList> listSettlementFundingTransfersWithHttpInfo(String settlementId, Long limit, String afterCursor, String beforeCursor) throws ApiException {
+        okhttp3.Call localVarCall = listSettlementFundingTransfersValidateBeforeCall(settlementId, limit, afterCursor, beforeCursor, null);
                 Type localVarReturnType = new TypeToken<TransfersList>(){}.getType();
                 return localVarFinixClient.execute(localVarCall, localVarReturnType);
         }
 
-    private okhttp3.Call getSettlementFundingTransfersAsync(String settlementId, Long limit, String afterCursor, String beforeCursor, final ApiCallback<TransfersList> _callback) throws ApiException {
+    private okhttp3.Call listSettlementFundingTransfersAsync(String settlementId, Long limit, String afterCursor, String beforeCursor, final ApiCallback<TransfersList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSettlementFundingTransfersValidateBeforeCall(settlementId, limit, afterCursor, beforeCursor, _callback);
+        okhttp3.Call localVarCall = listSettlementFundingTransfersValidateBeforeCall(settlementId, limit, afterCursor, beforeCursor, _callback);
     Type localVarReturnType = new TypeToken<TransfersList>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
         }
 
-        public class APIgetSettlementFundingTransfersRequest {
+        public class APIlistSettlementFundingTransfersRequest {
             private final String settlementId;
             private Long limit;
             private String afterCursor;
             private String beforeCursor;
 
-        private APIgetSettlementFundingTransfersRequest(String settlementId) {
+        private APIlistSettlementFundingTransfersRequest(String settlementId) {
             this.settlementId = settlementId;
         }
 
             /**
             * Set limit
             * @param limit The numbers of items to return (optional)
-            * @return APIgetSettlementFundingTransfersRequest
+            * @return APIlistSettlementFundingTransfersRequest
             */
-            public APIgetSettlementFundingTransfersRequest limit(Long limit) {
+            public APIlistSettlementFundingTransfersRequest limit(Long limit) {
             this.limit = limit;
             return this;
             }
@@ -478,9 +478,9 @@ this.localCustomBaseUrl = customBaseUrl;
             /**
             * Set afterCursor
             * @param afterCursor Return every resource created after the cursor value. (optional)
-            * @return APIgetSettlementFundingTransfersRequest
+            * @return APIlistSettlementFundingTransfersRequest
             */
-            public APIgetSettlementFundingTransfersRequest afterCursor(String afterCursor) {
+            public APIlistSettlementFundingTransfersRequest afterCursor(String afterCursor) {
             this.afterCursor = afterCursor;
             return this;
             }
@@ -488,15 +488,15 @@ this.localCustomBaseUrl = customBaseUrl;
             /**
             * Set beforeCursor
             * @param beforeCursor Return every resource created before the cursor value. (optional)
-            * @return APIgetSettlementFundingTransfersRequest
+            * @return APIlistSettlementFundingTransfersRequest
             */
-            public APIgetSettlementFundingTransfersRequest beforeCursor(String beforeCursor) {
+            public APIlistSettlementFundingTransfersRequest beforeCursor(String beforeCursor) {
             this.beforeCursor = beforeCursor;
             return this;
             }
 
         /**
-        * Build call for getSettlementFundingTransfers
+        * Build call for listSettlementFundingTransfers
         * @param _callback ApiCallback API callback
         * @return Call to execute
         * @throws ApiException If fail to serialize the request body object
@@ -511,11 +511,11 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-        return getSettlementFundingTransfersCall(settlementId, limit, afterCursor, beforeCursor, _callback);
+        return listSettlementFundingTransfersCall(settlementId, limit, afterCursor, beforeCursor, _callback);
         }
 
         /**
-        * Execute getSettlementFundingTransfers request
+        * Execute listSettlementFundingTransfers request
             * @return TransfersList
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
             * @http.response.details
@@ -529,12 +529,12 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public TransfersList execute() throws ApiException {
-    ApiResponse<TransfersList> localVarResp = getSettlementFundingTransfersWithHttpInfo(settlementId, limit, afterCursor, beforeCursor);
+    ApiResponse<TransfersList> localVarResp = listSettlementFundingTransfersWithHttpInfo(settlementId, limit, afterCursor, beforeCursor);
             return localVarResp.getData();
         }
 
         /**
-        * Execute getSettlementFundingTransfers request with HTTP info returned
+        * Execute listSettlementFundingTransfers request with HTTP info returned
         * @return ApiResponse&lt;TransfersList&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
             * @http.response.details
@@ -548,11 +548,11 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public ApiResponse<TransfersList> executeWithHttpInfo() throws ApiException {
-        return getSettlementFundingTransfersWithHttpInfo(settlementId, limit, afterCursor, beforeCursor);
+        return listSettlementFundingTransfersWithHttpInfo(settlementId, limit, afterCursor, beforeCursor);
         }
 
         /**
-        * Execute getSettlementFundingTransfers request (asynchronously)
+        * Execute listSettlementFundingTransfers request (asynchronously)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -567,7 +567,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call executeAsync(final ApiCallback<TransfersList> _callback) throws ApiException {
-        return getSettlementFundingTransfersAsync(settlementId, limit, afterCursor, beforeCursor, _callback);
+        return listSettlementFundingTransfersAsync(settlementId, limit, afterCursor, beforeCursor, _callback);
         }
         }
 
@@ -575,7 +575,7 @@ this.localCustomBaseUrl = customBaseUrl;
         * List Settlement Funding Transfers
         * Retrieve the &#x60;Transfers&#x60; in a &#x60;Settlement&#x60; that have &#x60;type&#x60; **CREDIT**.
             * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
-        * @return APIgetSettlementFundingTransfersRequest
+        * @return APIlistSettlementFundingTransfersRequest
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
@@ -586,12 +586,12 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-    public TransfersList listFundingTransfers(String settlementId,  GetSettlementFundingTransfersQueryParams getSettlementFundingTransfersQueryParams) throws ApiException {
+    public TransfersList listFundingTransfers(String settlementId,  ListSettlementFundingTransfersQueryParams listSettlementFundingTransfersQueryParams) throws ApiException {
 
-        APIgetSettlementFundingTransfersRequest request = new APIgetSettlementFundingTransfersRequest(settlementId);
-        request.limit(getSettlementFundingTransfersQueryParams.getLimit());
-        request.afterCursor(getSettlementFundingTransfersQueryParams.getAfterCursor());
-        request.beforeCursor(getSettlementFundingTransfersQueryParams.getBeforeCursor());
+        APIlistSettlementFundingTransfersRequest request = new APIlistSettlementFundingTransfersRequest(settlementId);
+        request.limit(listSettlementFundingTransfersQueryParams.getLimit());
+        request.afterCursor(listSettlementFundingTransfersQueryParams.getAfterCursor());
+        request.beforeCursor(listSettlementFundingTransfersQueryParams.getBeforeCursor());
         return request.execute();
 
     }

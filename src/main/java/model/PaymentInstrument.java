@@ -57,7 +57,7 @@ import invoker.JSON;
  * PaymentInstrument
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T18:15:18.047423-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T00:56:13.722393-07:00[America/Los_Angeles]")
 public class PaymentInstrument {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -68,19 +68,19 @@ public class PaymentInstrument {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
-    PAYMENT_CARD_PRESENT("PAYMENT_CARD_PRESENT"),
+    PAYMENT_CARD("PAYMENT_CARD"),
+    
+    BANK_ACCOUNT("BANK_ACCOUNT"),
     
     VIRTUAL("VIRTUAL"),
     
-    SWIPED_PAYMENT_CARD("SWIPED_PAYMENT_CARD"),
-    
     TOKEN("TOKEN"),
     
-    VANTIV_OMNI_TOKEN("VANTIV_OMNI_TOKEN"),
+    PAYMENT_CARD_PRESENT("PAYMENT_CARD_PRESENT"),
     
-    PAYMENT_CARD("PAYMENT_CARD"),
+    SWIPED_PAYMENT_CARD("SWIPED_PAYMENT_CARD"),
     
-    BANK_ACCOUNT("BANK_ACCOUNT");
+    VANTIV_OMNI_TOKEN("VANTIV_OMNI_TOKEN");
 
     private String value;
 
@@ -220,19 +220,19 @@ public class PaymentInstrument {
    */
   @JsonAdapter(InstrumentTypeEnum.Adapter.class)
   public enum InstrumentTypeEnum {
-    PAYMENT_CARD_PRESENT("PAYMENT_CARD_PRESENT"),
+    PAYMENT_CARD("PAYMENT_CARD"),
+    
+    BANK_ACCOUNT("BANK_ACCOUNT"),
     
     VIRTUAL("VIRTUAL"),
     
-    SWIPED_PAYMENT_CARD("SWIPED_PAYMENT_CARD"),
-    
     TOKEN("TOKEN"),
     
-    VANTIV_OMNI_TOKEN("VANTIV_OMNI_TOKEN"),
+    PAYMENT_CARD_PRESENT("PAYMENT_CARD_PRESENT"),
     
-    PAYMENT_CARD("PAYMENT_CARD"),
+    SWIPED_PAYMENT_CARD("SWIPED_PAYMENT_CARD"),
     
-    BANK_ACCOUNT("BANK_ACCOUNT");
+    VANTIV_OMNI_TOKEN("VANTIV_OMNI_TOKEN");
 
     private String value;
 

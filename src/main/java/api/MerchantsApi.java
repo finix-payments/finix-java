@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import model.CreateMerchantUnderwritingRequest;
+import model.CreateVerificationRequest;
 import model.Error401Unauthorized;
 import model.Error403ForbiddenList;
 import model.Error404NotFoundList;
@@ -37,7 +38,6 @@ import model.Merchant;
 import model.MerchantsList;
 import model.UpdateMerchantRequest;
 import model.Verification;
-import model.VerificationForm;
 
 import model.ListMerchantsQueryParams;
 
@@ -243,7 +243,7 @@ this.localCustomBaseUrl = customBaseUrl;
     /**
     * Build call for createMerchantVerification
         * @param merchantId ID of &#x60;Merchant&#x60; object. (required)
-        * @param verificationForm  (optional)
+        * @param createVerificationRequest  (optional)
     * @param _callback Callback for upload/download progress
     * @return Call to execute
     * @throws ApiException If fail to serialize the request body object
@@ -258,7 +258,7 @@ this.localCustomBaseUrl = customBaseUrl;
                 <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
         </table>
     */
-    public okhttp3.Call createMerchantVerificationCall(String merchantId, VerificationForm verificationForm, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createMerchantVerificationCall(String merchantId, CreateVerificationRequest createVerificationRequest, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -272,7 +272,7 @@ this.localCustomBaseUrl = customBaseUrl;
     basePath = null;
     }
 
-    Object localVarPostBody = verificationForm;
+    Object localVarPostBody = createVerificationRequest;
 
     // create path and map variables
         String localVarPath = "/merchants/{merchant_id}/verifications"
@@ -305,7 +305,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call createMerchantVerificationValidateBeforeCall(String merchantId, VerificationForm verificationForm, final ApiCallback _callback) throws ApiException {
+        private okhttp3.Call createMerchantVerificationValidateBeforeCall(String merchantId, CreateVerificationRequest createVerificationRequest, final ApiCallback _callback) throws ApiException {
         
                 // verify the required parameter 'merchantId' is set
                 if (merchantId == null) {
@@ -313,7 +313,7 @@ this.localCustomBaseUrl = customBaseUrl;
                 }
         
 
-            okhttp3.Call localVarCall = createMerchantVerificationCall(merchantId, verificationForm, _callback);
+            okhttp3.Call localVarCall = createMerchantVerificationCall(merchantId, createVerificationRequest, _callback);
             return localVarCall;
 
         }
@@ -322,7 +322,7 @@ this.localCustomBaseUrl = customBaseUrl;
             * Verify a Merchant
             * Verify a merchant either to reattempt provisioning, or when the merchant&#39;s &#x60;Identity&#x60; was updated.
                 * @param merchantId ID of &#x60;Merchant&#x60; object. (required)
-                * @param verificationForm  (optional)
+                * @param createVerificationRequest  (optional)
                 * @return Verification
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
@@ -336,8 +336,8 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-                public Verification createMerchantVerification(String merchantId, VerificationForm verificationForm) throws ApiException {
-            ApiResponse<Verification> localVarResp = createMerchantVerificationWithHttpInfo(merchantId, verificationForm);
+                public Verification createMerchantVerification(String merchantId, CreateVerificationRequest createVerificationRequest) throws ApiException {
+            ApiResponse<Verification> localVarResp = createMerchantVerificationWithHttpInfo(merchantId, createVerificationRequest);
                     return localVarResp.getData();
                 }
 
@@ -345,7 +345,7 @@ this.localCustomBaseUrl = customBaseUrl;
         * Verify a Merchant
         * Verify a merchant either to reattempt provisioning, or when the merchant&#39;s &#x60;Identity&#x60; was updated.
             * @param merchantId ID of &#x60;Merchant&#x60; object. (required)
-            * @param verificationForm  (optional)
+            * @param createVerificationRequest  (optional)
         * @return ApiResponse&lt;Verification&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
             * @http.response.details
@@ -359,8 +359,8 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public ApiResponse<Verification> createMerchantVerificationWithHttpInfo(String merchantId, VerificationForm verificationForm) throws ApiException {
-        okhttp3.Call localVarCall = createMerchantVerificationValidateBeforeCall(merchantId, verificationForm, null);
+        public ApiResponse<Verification> createMerchantVerificationWithHttpInfo(String merchantId, CreateVerificationRequest createVerificationRequest) throws ApiException {
+        okhttp3.Call localVarCall = createMerchantVerificationValidateBeforeCall(merchantId, createVerificationRequest, null);
                 Type localVarReturnType = new TypeToken<Verification>(){}.getType();
                 return localVarFinixClient.execute(localVarCall, localVarReturnType);
         }
@@ -369,7 +369,7 @@ this.localCustomBaseUrl = customBaseUrl;
         * Verify a Merchant (asynchronously)
         * Verify a merchant either to reattempt provisioning, or when the merchant&#39;s &#x60;Identity&#x60; was updated.
             * @param merchantId ID of &#x60;Merchant&#x60; object. (required)
-            * @param verificationForm  (optional)
+            * @param createVerificationRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -384,9 +384,9 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call createMerchantVerificationAsync(String merchantId, VerificationForm verificationForm, final ApiCallback<Verification> _callback) throws ApiException {
+        public okhttp3.Call createMerchantVerificationAsync(String merchantId, CreateVerificationRequest createVerificationRequest, final ApiCallback<Verification> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createMerchantVerificationValidateBeforeCall(merchantId, verificationForm, _callback);
+        okhttp3.Call localVarCall = createMerchantVerificationValidateBeforeCall(merchantId, createVerificationRequest, _callback);
     Type localVarReturnType = new TypeToken<Verification>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

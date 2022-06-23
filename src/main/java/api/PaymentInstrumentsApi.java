@@ -41,7 +41,7 @@ import model.PaymentInstrument;
 import model.PaymentInstrumentUpdatesList;
 import model.PaymentInstrumentsList;
 import model.Verification;
-import model.VerificationForm;
+import model.CreateVerificationRequest;
 
 import model.ListPaymentInstrumentUpdatesQueryParams;
 import model.ListPaymentInstrumentsQueryParams;
@@ -512,7 +512,7 @@ this.localCustomBaseUrl = customBaseUrl;
     /**
     * Build call for createPaymentInstrumentVerification
         * @param paymentInstrumentId ID of object (required)
-        * @param verificationForm  (optional)
+        * @param CreateVerificationRequest  (optional)
     * @param _callback Callback for upload/download progress
     * @return Call to execute
     * @throws ApiException If fail to serialize the request body object
@@ -527,7 +527,7 @@ this.localCustomBaseUrl = customBaseUrl;
                 <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
         </table>
     */
-    public okhttp3.Call createPaymentInstrumentVerificationCall(String paymentInstrumentId, VerificationForm verificationForm, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createPaymentInstrumentVerificationCall(String paymentInstrumentId, CreateVerificationRequest CreateVerificationRequest, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -541,7 +541,7 @@ this.localCustomBaseUrl = customBaseUrl;
     basePath = null;
     }
 
-    Object localVarPostBody = verificationForm;
+    Object localVarPostBody = CreateVerificationRequest;
 
     // create path and map variables
         String localVarPath = "/payment_instruments/{payment_instrument_id}/verifications"
@@ -574,7 +574,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call createPaymentInstrumentVerificationValidateBeforeCall(String paymentInstrumentId, VerificationForm verificationForm, final ApiCallback _callback) throws ApiException {
+        private okhttp3.Call createPaymentInstrumentVerificationValidateBeforeCall(String paymentInstrumentId, CreateVerificationRequest CreateVerificationRequest, final ApiCallback _callback) throws ApiException {
         
                 // verify the required parameter 'paymentInstrumentId' is set
                 if (paymentInstrumentId == null) {
@@ -582,7 +582,7 @@ this.localCustomBaseUrl = customBaseUrl;
                 }
         
 
-            okhttp3.Call localVarCall = createPaymentInstrumentVerificationCall(paymentInstrumentId, verificationForm, _callback);
+            okhttp3.Call localVarCall = createPaymentInstrumentVerificationCall(paymentInstrumentId, CreateVerificationRequest, _callback);
             return localVarCall;
 
         }
@@ -591,7 +591,7 @@ this.localCustomBaseUrl = customBaseUrl;
             * Verify a Payment Instrument
             * Verify a &#x60;Payment Instrument&#x60; to determine if it&#39;s elligable for Push To Card transactions.   &gt; Only verify &#x60;Payment Instruments&#x60; for [Push To Card](/guides/push-to-card) customers.
                 * @param paymentInstrumentId ID of object (required)
-                * @param verificationForm  (optional)
+                * @param CreateVerificationRequest  (optional)
                 * @return Verification
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
@@ -605,8 +605,8 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-                public Verification createPaymentInstrumentVerification(String paymentInstrumentId, VerificationForm verificationForm) throws ApiException {
-            ApiResponse<Verification> localVarResp = createPaymentInstrumentVerificationWithHttpInfo(paymentInstrumentId, verificationForm);
+                public Verification createPaymentInstrumentVerification(String paymentInstrumentId, CreateVerificationRequest CreateVerificationRequest) throws ApiException {
+            ApiResponse<Verification> localVarResp = createPaymentInstrumentVerificationWithHttpInfo(paymentInstrumentId, CreateVerificationRequest);
                     return localVarResp.getData();
                 }
 
@@ -614,7 +614,7 @@ this.localCustomBaseUrl = customBaseUrl;
         * Verify a Payment Instrument
         * Verify a &#x60;Payment Instrument&#x60; to determine if it&#39;s elligable for Push To Card transactions.   &gt; Only verify &#x60;Payment Instruments&#x60; for [Push To Card](/guides/push-to-card) customers.
             * @param paymentInstrumentId ID of object (required)
-            * @param verificationForm  (optional)
+            * @param CreateVerificationRequest  (optional)
         * @return ApiResponse&lt;Verification&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
             * @http.response.details
@@ -628,8 +628,8 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public ApiResponse<Verification> createPaymentInstrumentVerificationWithHttpInfo(String paymentInstrumentId, VerificationForm verificationForm) throws ApiException {
-        okhttp3.Call localVarCall = createPaymentInstrumentVerificationValidateBeforeCall(paymentInstrumentId, verificationForm, null);
+        public ApiResponse<Verification> createPaymentInstrumentVerificationWithHttpInfo(String paymentInstrumentId, CreateVerificationRequest CreateVerificationRequest) throws ApiException {
+        okhttp3.Call localVarCall = createPaymentInstrumentVerificationValidateBeforeCall(paymentInstrumentId, CreateVerificationRequest, null);
                 Type localVarReturnType = new TypeToken<Verification>(){}.getType();
                 return localVarFinixClient.execute(localVarCall, localVarReturnType);
         }
@@ -638,7 +638,7 @@ this.localCustomBaseUrl = customBaseUrl;
         * Verify a Payment Instrument (asynchronously)
         * Verify a &#x60;Payment Instrument&#x60; to determine if it&#39;s elligable for Push To Card transactions.   &gt; Only verify &#x60;Payment Instruments&#x60; for [Push To Card](/guides/push-to-card) customers.
             * @param paymentInstrumentId ID of object (required)
-            * @param verificationForm  (optional)
+            * @param CreateVerificationRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -653,9 +653,9 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call createPaymentInstrumentVerificationAsync(String paymentInstrumentId, VerificationForm verificationForm, final ApiCallback<Verification> _callback) throws ApiException {
+        public okhttp3.Call createPaymentInstrumentVerificationAsync(String paymentInstrumentId, CreateVerificationRequest CreateVerificationRequest, final ApiCallback<Verification> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createPaymentInstrumentVerificationValidateBeforeCall(paymentInstrumentId, verificationForm, _callback);
+        okhttp3.Call localVarCall = createPaymentInstrumentVerificationValidateBeforeCall(paymentInstrumentId, CreateVerificationRequest, _callback);
     Type localVarReturnType = new TypeToken<Verification>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

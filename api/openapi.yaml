@@ -1284,6 +1284,7 @@ paths:
       - Applications
       x-java-method-name: update
       x-accepts: application/hal+json
+  /applications/{application_id}/application_profile: {}
   /applications/{application_id}/processors:
     get:
       description: Get all enabled `Processors` for an `Application`.
@@ -1712,6 +1713,8 @@ paths:
       tags:
       - Processors
       x-accepts: application/hal+json
+  /applications/{application_id}/settlements: {}
+  /applications/{application_id}/transfers: {}
   /applications/{application_id}/users:
     post:
       description: |-
@@ -1835,6 +1838,7 @@ paths:
       x-internal: false
       x-content-type: application/hal+json
       x-accepts: application/hal+json
+  /applications/{application_id}/webhooks: {}
   /authorizations:
     get:
       description: 'Retrieve a list of `Authorizations`. '
@@ -8232,6 +8236,7 @@ paths:
       x-java-method-name: createAssociatedIdentity
       x-content-type: application/hal+json
       x-accepts: application/hal+json
+  /identities/{identity_id}/authorizations: {}
   /identities/{identity_id}/merchants:
     post:
       description: "Create a `Merchant` to start the underwriting process for your\
@@ -8444,6 +8449,12 @@ paths:
       x-java-method-name: create
       x-content-type: application/hal+json
       x-accepts: application/hal+json
+  /identities/{identity_id}/disputes: {}
+  /identities/{identity_id}/payment_instruments: {}
+  /identities/{identity_id}/settlements: {}
+  /identities/{identity_id}/transfers: {}
+  /identities/{identity_id}/users: {}
+  /identities/{identity_id}/verifications: {}
   /merchant_profiles:
     get:
       description: Get list of all the merchant_profiles objects
@@ -9531,6 +9542,7 @@ paths:
       x-java-method-name: create
       x-content-type: application/hal+json
       x-accepts: application/hal+json
+  /merchants/{merchant_id}/transfers: {}
   /merchants/{merchant_id}/verifications:
     get:
       description: Get a list of all the `Verifications` in the `Merchant` object.
@@ -10731,6 +10743,8 @@ paths:
       x-java-method-name: update
       x-content-type: application/hal+json
       x-accepts: application/hal+json
+  /payment_instruments/{payment_instrument_id}/authorizations: {}
+  /payment_instruments/{payment_instrument_id}/transfers: {}
   /payment_instruments/{payment_instrument_id}/updates:
     get:
       description: "List the updates on a `Payment Instrument`.\n\nWhen using the\
@@ -11013,6 +11027,7 @@ paths:
       x-content-type: application/hal+json
       x-accepts: application/hal+json
   /review_queue: {}
+  /review_queue/{review_queue_item_id}: {}
   /settlements:
     get:
       description: Retrieve a list of `Settlements`.
@@ -11649,7 +11664,7 @@ paths:
   /settlements/{settlement_id}/funding_transfers:
     get:
       description: Retrieve the `Transfers` in a `Settlement` that have `type` **CREDIT**.
-      operationId: getSettlementFundingTransfers
+      operationId: listSettlementFundingTransfers
       parameters:
       - description: ID of `Settlement` object.
         explode: false
@@ -14609,6 +14624,9 @@ paths:
       x-java-method-name: update
       x-content-type: application/hal+json
       x-accepts: application/hal+json
+  /transfers/{transfer_id}/disputes: {}
+  /transfers/{transfer_id}/fees: {}
+  /transfers/{transfer_id}/payment_instruments: {}
   /transfers/{transfer_id}/reversals:
     get:
       description: Retrieve a list of reversals for a `Transfer`.
@@ -16799,7 +16817,7 @@ paths:
   /subscription/subscription_schedules:
     get:
       description: Retrieve a list of `Subscription Schedules`.
-      operationId: getSubscriptionSchedules
+      operationId: listSubscriptionSchedules
       parameters:
       - description: Filter by the object's `nickname`.
         explode: true
@@ -17531,7 +17549,7 @@ paths:
     patch:
       description: Update a previously created `Subscription Amount`. This creates
         a new `Subscription Amount` resource.
-      operationId: patchSubscriptionAmount
+      operationId: updateSubscriptionAmount
       parameters:
       - description: The ID of the `Subscription Schedule`.
         explode: false
@@ -17625,6 +17643,8 @@ paths:
             x-request-id:
               $ref: '#/components/headers/x-request-id'
       summary: Update Subscription Amount
+      tags:
+      - Subscription Amounts
       x-content-type: application/hal+json
       x-accepts: application/hal+json
     post:
@@ -21673,7 +21693,7 @@ components:
                 tags:
                   card_name: Business_Card
           schema:
-            $ref: '#/components/schemas/VerificationForm'
+            $ref: '#/components/schemas/CreateVerificationRequest'
     CreateWebhookRequest:
       content:
         application/hal+json:
@@ -27614,7 +27634,11 @@ components:
             type: string
           type: array
         raw:
-          $ref: '#/components/schemas/Raw'
+          description: Raw response from the processor
+          nullable: true
+          title: Raw
+          type: object
+          x-examples: {}
         source:
           description: ID of the `Payment Instrument` where funds get debited.
           example: PIxxxxxxxxxxxxxxxxxx
@@ -29079,13 +29103,13 @@ components:
         type:
           description: Type of `Payment Instrument`.
           enum:
-          - PAYMENT_CARD_PRESENT
-          - VIRTUAL
-          - SWIPED_PAYMENT_CARD
-          - TOKEN
-          - VANTIV_OMNI_TOKEN
           - PAYMENT_CARD
           - BANK_ACCOUNT
+          - VIRTUAL
+          - TOKEN
+          - PAYMENT_CARD_PRESENT
+          - SWIPED_PAYMENT_CARD
+          - VANTIV_OMNI_TOKEN
           type: string
         id:
           description: The ID of the resource.
@@ -29137,13 +29161,13 @@ components:
         instrument_type:
           description: The type of `Payment Instrument`.
           enum:
-          - PAYMENT_CARD_PRESENT
-          - VIRTUAL
-          - SWIPED_PAYMENT_CARD
-          - TOKEN
-          - VANTIV_OMNI_TOKEN
           - PAYMENT_CARD
           - BANK_ACCOUNT
+          - VIRTUAL
+          - TOKEN
+          - PAYMENT_CARD_PRESENT
+          - SWIPED_PAYMENT_CARD
+          - VANTIV_OMNI_TOKEN
           type: string
         masked_account_number:
           description: The last 4 digits of the account number used to create the
@@ -29278,9 +29302,9 @@ components:
         type:
           description: Type of `Payment Instrument`.
           enum:
-          - TOKEN
           - PAYMENT_CARD
           - BANK_ACCOUNT
+          - TOKEN
           type: string
         identity:
           description: The ID of the resource.
@@ -30029,7 +30053,11 @@ components:
           title: Messages
           type: array
         raw:
-          $ref: '#/components/schemas/Raw'
+          description: Raw response from the processor
+          nullable: true
+          title: Raw
+          type: object
+          x-examples: {}
         ready_to_settle_at:
           description: Timestamp of when the `Transfer` is ready to be settled at.
           format: date-time
@@ -30339,7 +30367,11 @@ components:
             type: object
           type: array
         raw:
-          $ref: '#/components/schemas/Raw'
+          description: Raw response from the processor
+          nullable: true
+          title: Raw
+          type: object
+          x-examples: {}
         processor:
           description: Name of the verification processor.
           type: string
@@ -30383,7 +30415,7 @@ components:
         _links:
           $ref: '#/components/schemas/DisputeEvidence__links'
       type: object
-    VerificationForm:
+    CreateVerificationRequest:
       properties:
         tags:
           additionalProperties:
@@ -30405,7 +30437,7 @@ components:
         processor:
           description: Name of the `Verification` processor.
           type: string
-      title: VerificationForm
+      title: CreateVerificationRequest
       type: object
       x-examples:
         example-1:
@@ -31934,13 +31966,10 @@ components:
       title: FeeType
       type: string
     Raw:
-      anyOf:
-      - nullable: true
-        type: object
-      - nullable: true
-        type: string
       description: Raw response from the processor
+      nullable: true
       title: Raw
+      type: object
       x-examples: {}
     IdempotencyId:
       description: "ID to [idempotently](#section/Idempotency-Requests) identifty\
@@ -32797,18 +32826,6 @@ components:
           description: The numbers of items to return
           type: integer
       type: object
-    ListApplicationAuthorizationsQueryParams:
-      properties:
-        limit:
-          description: The numbers of items to return
-          type: integer
-        after_cursor:
-          description: Return every resource created after the cursor value.
-          type: string
-        before_cursor:
-          description: Return every resource created before the cursor value.
-          type: string
-      type: object
     ListAuthorizationsQueryParams:
       properties:
         sort:
@@ -33072,114 +33089,6 @@ components:
           description: Return every resource created before the cursor value.
           type: string
       type: object
-    ListIdentityAuthorizationsQueryParams:
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        after_cursor:
-          description: Return every resource created after the cursor value.
-          type: string
-        before_cursor:
-          description: Return every resource created before the cursor value.
-          type: string
-      type: object
-    ListIdentityMerchantsQueryParams:
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-      type: object
-    ListIdentityDisputesQueryParams:
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-      type: object
-    ListIdentityPaymentInstrumentsQueryParams:
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-      type: object
-    ListIdentitySettlementsQueryParams:
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-      type: object
-    ListIdentityTransfersQueryParams:
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-      type: object
-    ListIdentityVerificationsQueryParams:
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-      type: object
     ListMerchantProfilesQueryParams:
       properties:
         id:
@@ -33218,25 +33127,6 @@ components:
         before_cursor:
           description: Return every resource created before the cursor value.
           type: string
-      type: object
-    ListMerchantTransfersQueryParams:
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-        ready_to_settle:
-          description: ready_to_settle
-          type: boolean
       type: object
     ListMerchantVerificationsQueryParams:
       properties:
@@ -33302,38 +33192,6 @@ components:
           description: Return every resource created before the cursor value.
           type: string
       type: object
-    ListPaymentInstrumentAuthorizationsQueryParams:
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-      type: object
-    ListPaymentInstrumentTransfersQueryParams:
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-      type: object
     ListPaymentInstrumentUpdatesQueryParams:
       properties:
         limit:
@@ -33349,34 +33207,6 @@ components:
         pageSize:
           description: The size of the page.
           type: integer
-      type: object
-    ListPaymentInstrumentVerificationsQueryParams:
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-      type: object
-    ListReviewQueueItemsQueryParams:
-      properties:
-        entity_type:
-          description: Filter by entity_type
-          type: string
-        id:
-          description: Filter by outcome
-          type: string
-        application:
-          description: Filter by application id
-          type: string
       type: object
     ListSettlementsQueryParams:
       properties:
@@ -33410,6 +33240,18 @@ components:
         id:
           description: Filter by id
           type: string
+        limit:
+          description: The numbers of items to return
+          type: integer
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
+      type: object
+    ListSettlementFundingTransfersQueryParams:
+      properties:
         limit:
           description: The numbers of items to return
           type: integer
@@ -33537,54 +33379,6 @@ components:
           description: Return every resource created before the cursor value.
           type: string
       type: object
-    ListTransferDisputesQueryParams:
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-      type: object
-    ListTransferFeesQueryParams:
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-      type: object
-    ListTransferPaymentInstrumentsQueryParams:
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-      type: object
     ListTransferReversalsQueryParams:
       properties:
         limit:
@@ -33619,6 +33413,15 @@ components:
           type: string
         before_cursor:
           description: Return every resource created before the cursor value.
+          type: string
+      type: object
+    ListSubscriptionSchedulesQueryParams:
+      properties:
+        nickname:
+          description: Filter by the object's `nickname`.
+          type: string
+        type:
+          description: Filter by the object's `type`.
           type: string
       type: object
     ListSubscriptionAmountQueryParams:

@@ -30,7 +30,6 @@ import model.AuthorizationExternalResponsesInner;
 import model.AuthorizationLinks;
 import model.CardPresentDetails;
 import model.Currency;
-import model.Raw;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;

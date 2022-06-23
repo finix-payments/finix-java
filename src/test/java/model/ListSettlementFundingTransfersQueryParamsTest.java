@@ -26,17 +26,17 @@ import org.junit.jupiter.api.Test;
 
 
 /**
- * Model tests for GetSettlementFundingTransfersQueryParams
+ * Model tests for ListSettlementFundingTransfersQueryParams
  */
-public class GetSettlementFundingTransfersQueryParamsTest {
-    private final GetSettlementFundingTransfersQueryParams model = new GetSettlementFundingTransfersQueryParams();
+public class ListSettlementFundingTransfersQueryParamsTest {
+    private final ListSettlementFundingTransfersQueryParams model = new ListSettlementFundingTransfersQueryParams();
 
     /**
-     * Model tests for GetSettlementFundingTransfersQueryParams
+     * Model tests for ListSettlementFundingTransfersQueryParams
      */
     @Test
-    public void testGetSettlementFundingTransfersQueryParams() {
-        // TODO: test GetSettlementFundingTransfersQueryParams
+    public void testListSettlementFundingTransfersQueryParams() {
+        // TODO: test ListSettlementFundingTransfersQueryParams
     }
 
     /**

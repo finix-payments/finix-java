@@ -21,54 +21,65 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 
 /**
- * Model tests for ListIdentitySettlementsQueryParams
+ * Model tests for CreateVerificationRequest
  */
-public class ListIdentitySettlementsQueryParamsTest {
-    private final ListIdentitySettlementsQueryParams model = new ListIdentitySettlementsQueryParams();
+public class CreateVerificationRequestTest {
+    private final CreateVerificationRequest model = new CreateVerificationRequest();
 
     /**
-     * Model tests for ListIdentitySettlementsQueryParams
+     * Model tests for CreateVerificationRequest
      */
     @Test
-    public void testListIdentitySettlementsQueryParams() {
-        // TODO: test ListIdentitySettlementsQueryParams
+    public void testCreateVerificationRequest() {
+        // TODO: test CreateVerificationRequest
     }
 
     /**
-     * Test the property 'limit'
+     * Test the property 'tags'
      */
     @Test
-    public void limitTest() {
-        // TODO: test limit
+    public void tagsTest() {
+        // TODO: test tags
     }
 
     /**
-     * Test the property 'offset'
+     * Test the property 'identity'
      */
     @Test
-    public void offsetTest() {
-        // TODO: test offset
+    public void identityTest() {
+        // TODO: test identity
     }
 
     /**
-     * Test the property 'pageNumber'
+     * Test the property 'instrument'
      */
     @Test
-    public void pageNumberTest() {
-        // TODO: test pageNumber
+    public void instrumentTest() {
+        // TODO: test instrument
     }
 
     /**
-     * Test the property 'pageSize'
+     * Test the property 'merchant'
      */
     @Test
-    public void pageSizeTest() {
-        // TODO: test pageSize
+    public void merchantTest() {
+        // TODO: test merchant
+    }
+
+    /**
+     * Test the property 'processor'
+     */
+    @Test
+    public void processorTest() {
+        // TODO: test processor
     }
 
 }

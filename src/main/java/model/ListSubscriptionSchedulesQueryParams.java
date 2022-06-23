@@ -45,11 +45,11 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * GetSubscriptionSchedulesQueryParams
+ * ListSubscriptionSchedulesQueryParams
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-22T15:43:11.178938-05:00[America/Chicago]")
-public class GetSubscriptionSchedulesQueryParams {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T00:56:13.722393-07:00[America/Los_Angeles]")
+public class ListSubscriptionSchedulesQueryParams {
   public static final String SERIALIZED_NAME_NICKNAME = "nickname";
   @SerializedName(SERIALIZED_NAME_NICKNAME)
   private String nickname;
@@ -58,10 +58,10 @@ public class GetSubscriptionSchedulesQueryParams {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
-  public GetSubscriptionSchedulesQueryParams() { 
+  public ListSubscriptionSchedulesQueryParams() { 
   }
 
-  public GetSubscriptionSchedulesQueryParams nickname(String nickname) {
+  public ListSubscriptionSchedulesQueryParams nickname(String nickname) {
     
     this.nickname = nickname;
     return this;
@@ -84,7 +84,7 @@ public class GetSubscriptionSchedulesQueryParams {
   }
 
 
-  public GetSubscriptionSchedulesQueryParams type(String type) {
+  public ListSubscriptionSchedulesQueryParams type(String type) {
     
     this.type = type;
     return this;
@@ -116,9 +116,9 @@ public class GetSubscriptionSchedulesQueryParams {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetSubscriptionSchedulesQueryParams getSubscriptionSchedulesQueryParams = (GetSubscriptionSchedulesQueryParams) o;
-    return Objects.equals(this.nickname, getSubscriptionSchedulesQueryParams.nickname) &&
-        Objects.equals(this.type, getSubscriptionSchedulesQueryParams.type);
+    ListSubscriptionSchedulesQueryParams listSubscriptionSchedulesQueryParams = (ListSubscriptionSchedulesQueryParams) o;
+    return Objects.equals(this.nickname, listSubscriptionSchedulesQueryParams.nickname) &&
+        Objects.equals(this.type, listSubscriptionSchedulesQueryParams.type);
   }
 
   @Override
@@ -129,7 +129,7 @@ public class GetSubscriptionSchedulesQueryParams {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetSubscriptionSchedulesQueryParams {\n");
+    sb.append("class ListSubscriptionSchedulesQueryParams {\n");
     sb.append("    nickname: ").append(toIndentedString(nickname)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
@@ -165,14 +165,14 @@ public class GetSubscriptionSchedulesQueryParams {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GetSubscriptionSchedulesQueryParams
+  * @throws IOException if the JSON Object is invalid with respect to ListSubscriptionSchedulesQueryParams
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (GetSubscriptionSchedulesQueryParams.openapiRequiredFields.isEmpty()) {
+        if (ListSubscriptionSchedulesQueryParams.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetSubscriptionSchedulesQueryParams is not found in the empty JSON string", GetSubscriptionSchedulesQueryParams.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ListSubscriptionSchedulesQueryParams is not found in the empty JSON string", ListSubscriptionSchedulesQueryParams.openapiRequiredFields.toString()));
         }
       }
      /* 
@@ -180,8 +180,8 @@ public class GetSubscriptionSchedulesQueryParams {
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!GetSubscriptionSchedulesQueryParams.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetSubscriptionSchedulesQueryParams` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!ListSubscriptionSchedulesQueryParams.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ListSubscriptionSchedulesQueryParams` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       */
@@ -206,22 +206,22 @@ public class GetSubscriptionSchedulesQueryParams {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!GetSubscriptionSchedulesQueryParams.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GetSubscriptionSchedulesQueryParams' and its subtypes
+       if (!ListSubscriptionSchedulesQueryParams.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ListSubscriptionSchedulesQueryParams' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<GetSubscriptionSchedulesQueryParams> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(GetSubscriptionSchedulesQueryParams.class));
+       final TypeAdapter<ListSubscriptionSchedulesQueryParams> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ListSubscriptionSchedulesQueryParams.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<GetSubscriptionSchedulesQueryParams>() {
+       return (TypeAdapter<T>) new TypeAdapter<ListSubscriptionSchedulesQueryParams>() {
            @Override
-           public void write(JsonWriter out, GetSubscriptionSchedulesQueryParams value) throws IOException {
+           public void write(JsonWriter out, ListSubscriptionSchedulesQueryParams value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public GetSubscriptionSchedulesQueryParams read(JsonReader in) throws IOException {
+           public ListSubscriptionSchedulesQueryParams read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -232,18 +232,18 @@ public class GetSubscriptionSchedulesQueryParams {
   }
 
  /**
-  * Create an instance of GetSubscriptionSchedulesQueryParams given an JSON string
+  * Create an instance of ListSubscriptionSchedulesQueryParams given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of GetSubscriptionSchedulesQueryParams
-  * @throws IOException if the JSON string is invalid with respect to GetSubscriptionSchedulesQueryParams
+  * @return An instance of ListSubscriptionSchedulesQueryParams
+  * @throws IOException if the JSON string is invalid with respect to ListSubscriptionSchedulesQueryParams
   */
-  public static GetSubscriptionSchedulesQueryParams fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GetSubscriptionSchedulesQueryParams.class);
+  public static ListSubscriptionSchedulesQueryParams fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ListSubscriptionSchedulesQueryParams.class);
   }
 
  /**
-  * Convert an instance of GetSubscriptionSchedulesQueryParams to an JSON string
+  * Convert an instance of ListSubscriptionSchedulesQueryParams to an JSON string
   *
   * @return JSON string
   */

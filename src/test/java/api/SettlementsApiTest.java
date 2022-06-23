@@ -67,9 +67,10 @@ public class SettlementsApiTest {
      */
    // @Test
     public void createIdentitySettlementTest() throws ApiException {
+        String identityId = null;
+        Object body = null;
 
-
-        Settlement response = finixClient.Settlements.create(CreateSettlementRequest.builder().build());
+//        Settlement response = finixClient.Settlements.create(identityId, body);
         // TODO: test validations
     }
 
@@ -133,7 +134,7 @@ public class SettlementsApiTest {
         String afterCursor = null;
         String beforeCursor = null;
 
-        TransfersList response = finixClient.Settlements.listFundingTransfers(settlementId, GetSettlementFundingTransfersQueryParams.builder()
+        TransfersList response = finixClient.Settlements.listFundingTransfers(settlementId, ListSettlementFundingTransfersQueryParams.builder()
                 .limit(limit)
                 .afterCursor(afterCursor)
                 .beforeCursor(beforeCursor)
@@ -157,7 +158,7 @@ public class SettlementsApiTest {
     public void listApplicationSettlementsTest() throws ApiException {
         String applicationId = null;
 
-       // SettlementsList response = finixClient.Settlements.listByApplicationId(applicationId);
+//        SettlementsList response = finixClient.Settlements.listByApplicationId(applicationId);
         // TODO: test validations
     }
 
@@ -181,7 +182,7 @@ public class SettlementsApiTest {
         Long pageNumber = null;
         Long pageSize = null;
 
-        //SettlementsList response = finixClient.Settlements.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
+//        SettlementsList response = finixClient.Settlements.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
         // TODO: test validations
     }
 
@@ -198,7 +199,6 @@ public class SettlementsApiTest {
      *
      */
     @Test
-    @DisplayName("List Settlement Transfers")
     public void listSettlementTransfersTest() throws ApiException {
         String settlementId = "STmCc8GbjjX33SdymwNhb9Et";
         Long limit = null;
@@ -226,7 +226,6 @@ public class SettlementsApiTest {
      *
      */
     @Test
-    @DisplayName("List Settlement")
     public void listSettlementsTest() throws ApiException {
         Long amount = null;
         Long amountLt = null;
@@ -297,10 +296,8 @@ public class SettlementsApiTest {
     @DisplayName("Remove Settlement Transfers")
     public void removeSettlementTransfersTest() throws ApiException {
         String settlementId = "STmCc8GbjjX33SdymwNhb9Et";
-        List<String> localList = new ArrayList<>();
-        localList.add("TRr61njQxaa7AJf6E1C3QwCc");
         RemoveSettlementTransfer removeSettlementTransfer = RemoveSettlementTransfer.builder()
-                .transfers(localList)
+                .transfers(List.of("TRr61njQxaa7AJf6E1C3QwCc"))
                 .build();
         try{
             finixClient.Settlements.removeTransfersFromSettlement(settlementId, removeSettlementTransfer);

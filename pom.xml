@@ -6,7 +6,9 @@
     <packaging>jar</packaging>
     <name>finix-java</name>
     <version>0.0.1</version>
+    <!--<url>https://github.com/openapitools/openapi-generator</url>-->
     <url>https://github.com/finix-payments/finix-java</url>
+    <!--<description>OpenAPI Java</description>-->
     <description>Finix Java</description>
     <!--<scm>
         <connection>scm:git:git@github.com:openapitools/openapi-generator.git</connection>
@@ -17,6 +19,7 @@
         <connection>scm:git:git@github.com:finix-payments/finix-java.git</connection>
         <developerConnection>scm:git:git@github.com:finix-payments/finix-java.git</developerConnection>
         <url>https://github.com/finix-payments/finix-java/tree/develop</url>
+
     </scm>
 
     <distributionManagement>
@@ -33,17 +36,18 @@
 
     <licenses>
         <license>
-            <name>MIT</name>
-            <url>https://choosealicense.com/licenses/mit/</url>
+            <name>Unlicense</name>
+            <url>http://unlicense.org</url>
+            <distribution>repo</distribution>
         </license>
     </licenses>
-    <!--Edited Manually-->
+
     <developers>
         <developer>
-            <name>Finix</name>
-            <email>support@finixpayments.com</email>
-            <organization>Finix</organization>
-            <organizationUrl>https://finix.com</organizationUrl>
+            <name>OpenAPI-Generator Contributors</name>
+            <email>team@openapitools.org</email>
+            <organization>OpenAPITools.org</organization>
+            <organizationUrl>http://openapitools.org</organizationUrl>
         </developer>
     </developers>
 
@@ -61,6 +65,8 @@
                         <arg>-Xlint:all</arg>
                         <arg>-J-Xss4m</arg><!-- Compiling the generated JSON.java file may require larger stack size. -->
                     </compilerArgs>
+                    <source>9</source>
+                    <target>9</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -248,7 +254,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.5</version>
+                        <version>3.0.1</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>

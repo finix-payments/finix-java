@@ -283,6 +283,9 @@ paths:
         '406':
           $ref: '#/components/responses/Error406NotAcceptable'
       x-java-method-name: update
+  /applications/{application_id}/application_profile:
+    parameters:
+      - $ref: '#/components/parameters/ApplicationId'
   /applications/{application_id}/processors:
     get:
       description: Get all enabled `Processors` for an `Application`.
@@ -362,6 +365,12 @@ paths:
         name: type
         schema:
           type: string
+  /applications/{application_id}/settlements:
+    parameters:
+      - $ref: '#/components/parameters/ApplicationId'
+  /applications/{application_id}/transfers:
+    parameters:
+      - $ref: '#/components/parameters/ApplicationId'
   /applications/{application_id}/users:
     parameters:
       - $ref: '#/components/parameters/ApplicationId'
@@ -393,6 +402,9 @@ paths:
       x-internal: false
       tags:
         - Users
+  /applications/{application_id}/webhooks:
+    parameters:
+      - $ref: '#/components/parameters/ApplicationId'
   /authorizations:
     post:
       tags:
@@ -1192,6 +1204,14 @@ paths:
         name: identity_id
         schema:
           type: string
+  /identities/{identity_id}/authorizations:
+    parameters:
+      - description: ID of identity to fetch
+        required: true
+        in: path
+        name: identity_id
+        schema:
+          type: string
   /identities/{identity_id}/merchants:
     parameters:
       - description: ID of `Identity` to fetch.
@@ -1239,6 +1259,54 @@ paths:
       tags:
         - Merchants
       x-java-method-name: create
+  /identities/{identity_id}/disputes:
+    parameters:
+      - description: ID of identity to fetch
+        required: true
+        in: path
+        name: identity_id
+        schema:
+          type: string
+  /identities/{identity_id}/payment_instruments:
+    parameters:
+      - description: ID of identity to fetch
+        required: true
+        in: path
+        name: identity_id
+        schema:
+          type: string
+  /identities/{identity_id}/settlements:
+    parameters:
+      - description: ID of identity to fetch
+        required: true
+        in: path
+        name: identity_id
+        schema:
+          type: string
+  /identities/{identity_id}/transfers:
+    parameters:
+      - description: ID of identity to fetch
+        required: true
+        in: path
+        name: identity_id
+        schema:
+          type: string
+  /identities/{identity_id}/users:
+    parameters:
+      - description: ID of identity to fetch
+        required: true
+        in: path
+        name: identity_id
+        schema:
+          type: string
+  /identities/{identity_id}/verifications:
+    parameters:
+      - description: ID of identity to fetch
+        required: true
+        in: path
+        name: identity_id
+        schema:
+          type: string
   /merchant_profiles:
     get:
       tags:
@@ -1414,6 +1482,14 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/CreateDeviceRequest'
       x-java-method-name: create
+  /merchants/{merchant_id}/transfers:
+    parameters:
+      - description: ID of object
+        required: true
+        in: path
+        name: merchant_id
+        schema:
+          type: string
   /merchants/{merchant_id}/verifications:
     get:
       description: Get a list of all the `Verifications` in the `Merchant` object.
@@ -1583,6 +1659,22 @@ paths:
         '406':
           $ref: '#/components/responses/Error406NotAcceptable'
       x-java-method-name: update
+  /payment_instruments/{payment_instrument_id}/authorizations:
+    parameters:
+      - description: ID of object
+        required: true
+        in: path
+        name: payment_instrument_id
+        schema:
+          type: string
+  /payment_instruments/{payment_instrument_id}/transfers:
+    parameters:
+      - description: ID of object
+        required: true
+        in: path
+        name: payment_instrument_id
+        schema:
+          type: string
   /payment_instruments/{payment_instrument_id}/updates:
     get:
       tags:
@@ -1677,6 +1769,14 @@ paths:
         '406':
           $ref: '#/components/responses/Error406NotAcceptable'
   /review_queue: {}
+  /review_queue/{review_queue_item_id}:
+    parameters:
+      - description: ID of object
+        required: true
+        in: path
+        name: review_queue_item_id
+        schema:
+          type: string
   /settlements:
     post:
       tags:
@@ -1780,7 +1880,7 @@ paths:
         - Settlements
       description: Retrieve the `Transfers` in a `Settlement` that have `type` **CREDIT**.
       summary: List Settlement Funding Transfers
-      operationId: getSettlementFundingTransfers
+      operationId: listSettlementFundingTransfers
       responses:
         '200':
           $ref: '#/components/responses/TransfersList'
@@ -2067,6 +2167,30 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/UpdateTransferRequest'
       x-java-method-name: update
+  /transfers/{transfer_id}/disputes:
+    parameters:
+      - description: ID of object
+        required: true
+        in: path
+        name: transfer_id
+        schema:
+          type: string
+  /transfers/{transfer_id}/fees:
+    parameters:
+      - description: ID of object
+        required: true
+        in: path
+        name: transfer_id
+        schema:
+          type: string
+  /transfers/{transfer_id}/payment_instruments:
+    parameters:
+      - description: ID of object
+        required: true
+        in: path
+        name: transfer_id
+        schema:
+          type: string
   /transfers/{transfer_id}/reversals:
     post:
       tags:
@@ -2443,7 +2567,7 @@ paths:
       summary: List Subscription Schedules
       tags:
         - Subscription Schedules
-      operationId: getSubscriptionSchedules
+      operationId: listSubscriptionSchedules
       description: Retrieve a list of `Subscription Schedules`.
       responses:
         '200':
@@ -2546,7 +2670,9 @@ paths:
       x-java-method-name: lcreate
     patch:
       summary: Update Subscription Amount
-      operationId: patchSubscriptionAmount
+      tags:
+        - Subscription Amounts
+      operationId: updateSubscriptionAmount
       responses:
         '200':
           $ref: '#/components/responses/SubscriptionAmount'
@@ -4266,7 +4392,7 @@ components:
       content:
         application/hal+json:
           schema:
-            $ref: '#/components/schemas/VerificationForm'
+            $ref: '#/components/schemas/CreateVerificationRequest'
           examples:
             Create a Verification:
               value:
@@ -13683,13 +13809,13 @@ components:
         type:
           type: string
           enum:
-            - PAYMENT_CARD_PRESENT
-            - VIRTUAL
-            - SWIPED_PAYMENT_CARD
-            - TOKEN
-            - VANTIV_OMNI_TOKEN
             - PAYMENT_CARD
             - BANK_ACCOUNT
+            - VIRTUAL
+            - TOKEN
+            - PAYMENT_CARD_PRESENT
+            - SWIPED_PAYMENT_CARD
+            - VANTIV_OMNI_TOKEN
           description: Type of `Payment Instrument`.
         id:
           $ref: '#/components/schemas/Id'
@@ -13725,13 +13851,13 @@ components:
         instrument_type:
           type: string
           enum:
-            - PAYMENT_CARD_PRESENT
-            - VIRTUAL
-            - SWIPED_PAYMENT_CARD
-            - TOKEN
-            - VANTIV_OMNI_TOKEN
             - PAYMENT_CARD
             - BANK_ACCOUNT
+            - VIRTUAL
+            - TOKEN
+            - PAYMENT_CARD_PRESENT
+            - SWIPED_PAYMENT_CARD
+            - VANTIV_OMNI_TOKEN
           description: The type of `Payment Instrument`.
         masked_account_number:
           type: string
@@ -13921,9 +14047,9 @@ components:
         type:
           type: string
           enum:
-            - TOKEN
             - PAYMENT_CARD
             - BANK_ACCOUNT
+            - TOKEN
           description: Type of `Payment Instrument`.
         identity:
           $ref: '#/components/schemas/Id'
@@ -17234,9 +17360,9 @@ components:
               properties:
                 href:
                   type: string
-    VerificationForm:
+    CreateVerificationRequest:
       type: object
-      title: VerificationForm
+      title: CreateVerificationRequest
       x-examples:
         example-1:
           merchant: MUgWbPVvtKbzjKNNGKqdQYV7
@@ -18994,12 +19120,9 @@ components:
     Raw:
       title: Raw
       description: Raw response from the processor
-      anyOf:
-        - type: object
-          nullable: true
-        - type: string
-          nullable: true
       x-examples: {}
+      type: object
+      nullable: true
     IdempotencyId:
       title: IdempotencyId
       type: string
@@ -20008,18 +20131,6 @@ components:
         limit:
           description: The numbers of items to return
           type: integer
-    ListApplicationAuthorizationsQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The numbers of items to return
-          type: integer
-        after_cursor:
-          description: Return every resource created after the cursor value.
-          type: string
-        before_cursor:
-          description: Return every resource created before the cursor value.
-          type: string
     ListAuthorizationsQueryParams:
       type: object
       properties:
@@ -20283,114 +20394,6 @@ components:
         before_cursor:
           description: Return every resource created before the cursor value.
           type: string
-    ListIdentityAuthorizationsQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        after_cursor:
-          description: Return every resource created after the cursor value.
-          type: string
-        before_cursor:
-          description: Return every resource created before the cursor value.
-          type: string
-    ListIdentityMerchantsQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-    ListIdentityDisputesQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-    ListIdentityPaymentInstrumentsQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-    ListIdentitySettlementsQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-    ListIdentityTransfersQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-    ListIdentityVerificationsQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
     ListMerchantProfilesQueryParams:
       type: object
       properties:
@@ -20430,25 +20433,6 @@ components:
         before_cursor:
           description: Return every resource created before the cursor value.
           type: string
-    ListMerchantTransfersQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-        ready_to_settle:
-          description: ready_to_settle
-          type: boolean
     ListMerchantVerificationsQueryParams:
       type: object
       properties:
@@ -20513,38 +20497,6 @@ components:
         before_cursor:
           description: Return every resource created before the cursor value.
           type: string
-    ListPaymentInstrumentAuthorizationsQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-    ListPaymentInstrumentTransfersQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
     ListPaymentInstrumentUpdatesQueryParams:
       type: object
       properties:
@@ -20561,34 +20513,6 @@ components:
         pageSize:
           description: The size of the page.
           type: integer
-    ListPaymentInstrumentVerificationsQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-    ListReviewQueueItemsQueryParams:
-      type: object
-      properties:
-        entity_type:
-          description: Filter by entity_type
-          type: string
-        id:
-          description: Filter by outcome
-          type: string
-        application:
-          description: Filter by application id
-          type: string
     ListSettlementsQueryParams:
       type: object
       properties:
@@ -20622,6 +20546,18 @@ components:
         id:
           description: Filter by id
           type: string
+        limit:
+          description: The numbers of items to return
+          type: integer
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
+    ListSettlementFundingTransfersQueryParams:
+      type: object
+      properties:
         limit:
           description: The numbers of items to return
           type: integer
@@ -20748,54 +20684,6 @@ components:
         before_cursor:
           description: Return every resource created before the cursor value.
           type: string
-    ListTransferDisputesQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-    ListTransferFeesQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
-    ListTransferPaymentInstrumentsQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
     ListTransferReversalsQueryParams:
       type: object
       properties:
@@ -20831,6 +20719,15 @@ components:
           type: string
         before_cursor:
           description: Return every resource created before the cursor value.
+          type: string
+    ListSubscriptionSchedulesQueryParams:
+      type: object
+      properties:
+        nickname:
+          description: Filter by the object's `nickname`.
+          type: string
+        type:
+          description: Filter by the object's `type`.
           type: string
     ListSubscriptionAmountQueryParams:
       type: object

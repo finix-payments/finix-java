@@ -19,5 +19,4 @@ hs_err_pid*
 target
 .gradle
 build
-# Ignore .idea dir to push @git
-.idea
+.idea/

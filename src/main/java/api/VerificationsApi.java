@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import model.CreateVerificationRequest;
 import model.Error401Unauthorized;
 import model.Error403ForbiddenList;
 import model.Error404NotFoundList;
@@ -34,7 +35,6 @@ import model.Error406NotAcceptable;
 import model.Error422InvalidFieldList;
 import model.ErrorGeneric;
 import model.Verification;
-import model.VerificationForm;
 import model.VerificationsList;
 
 import model.ListMerchantVerificationsQueryParams;
@@ -86,7 +86,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
     * Build call for createVerification
-        * @param verificationForm  (optional)
+        * @param createVerificationRequest  (optional)
     * @param _callback Callback for upload/download progress
     * @return Call to execute
     * @throws ApiException If fail to serialize the request body object
@@ -101,7 +101,7 @@ this.localCustomBaseUrl = customBaseUrl;
                 <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
         </table>
     */
-    public okhttp3.Call createVerificationCall(VerificationForm verificationForm, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createVerificationCall(CreateVerificationRequest createVerificationRequest, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -115,7 +115,7 @@ this.localCustomBaseUrl = customBaseUrl;
     basePath = null;
     }
 
-    Object localVarPostBody = verificationForm;
+    Object localVarPostBody = createVerificationRequest;
 
     // create path and map variables
         String localVarPath = "/verifications";
@@ -147,10 +147,10 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call createVerificationValidateBeforeCall(VerificationForm verificationForm, final ApiCallback _callback) throws ApiException {
+        private okhttp3.Call createVerificationValidateBeforeCall(CreateVerificationRequest createVerificationRequest, final ApiCallback _callback) throws ApiException {
         
 
-            okhttp3.Call localVarCall = createVerificationCall(verificationForm, _callback);
+            okhttp3.Call localVarCall = createVerificationCall(createVerificationRequest, _callback);
             return localVarCall;
 
         }
@@ -158,7 +158,7 @@ this.localCustomBaseUrl = customBaseUrl;
             /**
             * Perform a Verification
             * Create a &#x60;verification&#x60; to verify an &#x60;Identity&#x60; or &#x60;Payment Instrument&#x60;.  Verifications can also be created directly on the resources you want to verify: - &#x60;POST /merchants/{id}/verifications&#x60; - &#x60;POST /payment_instruments/{id}/verifications&#x60;
-                * @param verificationForm  (optional)
+                * @param createVerificationRequest  (optional)
                 * @return Verification
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
@@ -172,15 +172,15 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-                public Verification create(VerificationForm verificationForm) throws ApiException {
-            ApiResponse<Verification> localVarResp = createVerificationWithHttpInfo(verificationForm);
+                public Verification create(CreateVerificationRequest createVerificationRequest) throws ApiException {
+            ApiResponse<Verification> localVarResp = createVerificationWithHttpInfo(createVerificationRequest);
                     return localVarResp.getData();
                 }
 
     /**
         * Perform a Verification
         * Create a &#x60;verification&#x60; to verify an &#x60;Identity&#x60; or &#x60;Payment Instrument&#x60;.  Verifications can also be created directly on the resources you want to verify: - &#x60;POST /merchants/{id}/verifications&#x60; - &#x60;POST /payment_instruments/{id}/verifications&#x60;
-            * @param verificationForm  (optional)
+            * @param createVerificationRequest  (optional)
         * @return ApiResponse&lt;Verification&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
             * @http.response.details
@@ -194,8 +194,8 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public ApiResponse<Verification> createVerificationWithHttpInfo(VerificationForm verificationForm) throws ApiException {
-        okhttp3.Call localVarCall = createVerificationValidateBeforeCall(verificationForm, null);
+        public ApiResponse<Verification> createVerificationWithHttpInfo(CreateVerificationRequest createVerificationRequest) throws ApiException {
+        okhttp3.Call localVarCall = createVerificationValidateBeforeCall(createVerificationRequest, null);
                 Type localVarReturnType = new TypeToken<Verification>(){}.getType();
                 return localVarFinixClient.execute(localVarCall, localVarReturnType);
         }
@@ -203,7 +203,7 @@ this.localCustomBaseUrl = customBaseUrl;
     /**
         * Perform a Verification (asynchronously)
         * Create a &#x60;verification&#x60; to verify an &#x60;Identity&#x60; or &#x60;Payment Instrument&#x60;.  Verifications can also be created directly on the resources you want to verify: - &#x60;POST /merchants/{id}/verifications&#x60; - &#x60;POST /payment_instruments/{id}/verifications&#x60;
-            * @param verificationForm  (optional)
+            * @param createVerificationRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -218,9 +218,9 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call createVerificationAsync(VerificationForm verificationForm, final ApiCallback<Verification> _callback) throws ApiException {
+        public okhttp3.Call createVerificationAsync(CreateVerificationRequest createVerificationRequest, final ApiCallback<Verification> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createVerificationValidateBeforeCall(verificationForm, _callback);
+        okhttp3.Call localVarCall = createVerificationValidateBeforeCall(createVerificationRequest, _callback);
     Type localVarReturnType = new TypeToken<Verification>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -779,7 +779,7 @@ this.localCustomBaseUrl = customBaseUrl;
     /**
     * Build call for putVerification
         * @param verificationId ID of &#x60;Verification&#x60; object. (required)
-        * @param verificationForm  (optional)
+        * @param createVerificationRequest  (optional)
     * @param _callback Callback for upload/download progress
     * @return Call to execute
     * @throws ApiException If fail to serialize the request body object
@@ -792,7 +792,7 @@ this.localCustomBaseUrl = customBaseUrl;
                 <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
         </table>
     */
-    public okhttp3.Call putVerificationCall(String verificationId, VerificationForm verificationForm, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call putVerificationCall(String verificationId, CreateVerificationRequest createVerificationRequest, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -806,7 +806,7 @@ this.localCustomBaseUrl = customBaseUrl;
     basePath = null;
     }
 
-    Object localVarPostBody = verificationForm;
+    Object localVarPostBody = createVerificationRequest;
 
     // create path and map variables
         String localVarPath = "/verifications/{verification_id}"
@@ -839,7 +839,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call putVerificationValidateBeforeCall(String verificationId, VerificationForm verificationForm, final ApiCallback _callback) throws ApiException {
+        private okhttp3.Call putVerificationValidateBeforeCall(String verificationId, CreateVerificationRequest createVerificationRequest, final ApiCallback _callback) throws ApiException {
         
                 // verify the required parameter 'verificationId' is set
                 if (verificationId == null) {
@@ -847,7 +847,7 @@ this.localCustomBaseUrl = customBaseUrl;
                 }
         
 
-            okhttp3.Call localVarCall = putVerificationCall(verificationId, verificationForm, _callback);
+            okhttp3.Call localVarCall = putVerificationCall(verificationId, createVerificationRequest, _callback);
             return localVarCall;
 
         }
@@ -856,7 +856,7 @@ this.localCustomBaseUrl = customBaseUrl;
             * Update a Verification
             * Update an existing &#x60;Verification&#x60;.
                 * @param verificationId ID of &#x60;Verification&#x60; object. (required)
-                * @param verificationForm  (optional)
+                * @param createVerificationRequest  (optional)
                 * @return Verification
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
@@ -868,8 +868,8 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-                public Verification update(String verificationId, VerificationForm verificationForm) throws ApiException {
-            ApiResponse<Verification> localVarResp = putVerificationWithHttpInfo(verificationId, verificationForm);
+                public Verification update(String verificationId, CreateVerificationRequest createVerificationRequest) throws ApiException {
+            ApiResponse<Verification> localVarResp = putVerificationWithHttpInfo(verificationId, createVerificationRequest);
                     return localVarResp.getData();
                 }
 
@@ -877,7 +877,7 @@ this.localCustomBaseUrl = customBaseUrl;
         * Update a Verification
         * Update an existing &#x60;Verification&#x60;.
             * @param verificationId ID of &#x60;Verification&#x60; object. (required)
-            * @param verificationForm  (optional)
+            * @param createVerificationRequest  (optional)
         * @return ApiResponse&lt;Verification&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
             * @http.response.details
@@ -889,8 +889,8 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public ApiResponse<Verification> putVerificationWithHttpInfo(String verificationId, VerificationForm verificationForm) throws ApiException {
-        okhttp3.Call localVarCall = putVerificationValidateBeforeCall(verificationId, verificationForm, null);
+        public ApiResponse<Verification> putVerificationWithHttpInfo(String verificationId, CreateVerificationRequest createVerificationRequest) throws ApiException {
+        okhttp3.Call localVarCall = putVerificationValidateBeforeCall(verificationId, createVerificationRequest, null);
                 Type localVarReturnType = new TypeToken<Verification>(){}.getType();
                 return localVarFinixClient.execute(localVarCall, localVarReturnType);
         }
@@ -899,7 +899,7 @@ this.localCustomBaseUrl = customBaseUrl;
         * Update a Verification (asynchronously)
         * Update an existing &#x60;Verification&#x60;.
             * @param verificationId ID of &#x60;Verification&#x60; object. (required)
-            * @param verificationForm  (optional)
+            * @param createVerificationRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -912,9 +912,9 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call putVerificationAsync(String verificationId, VerificationForm verificationForm, final ApiCallback<Verification> _callback) throws ApiException {
+        public okhttp3.Call putVerificationAsync(String verificationId, CreateVerificationRequest createVerificationRequest, final ApiCallback<Verification> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = putVerificationValidateBeforeCall(verificationId, verificationForm, _callback);
+        okhttp3.Call localVarCall = putVerificationValidateBeforeCall(verificationId, createVerificationRequest, _callback);
     Type localVarReturnType = new TypeToken<Verification>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
