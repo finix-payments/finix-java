@@ -21,6 +21,7 @@ import org.junit.jupiter.api.*;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * API tests for IdentitiesApi
@@ -237,25 +238,6 @@ public class IdentitiesApiTest {
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
     }
 
-    /**
-     * List Application Identities
-     *
-     * Return a collection of identities, if there are no identities, an empty collection will be returned. 
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-   // @Test
-    public void listApplicationIdentitiesTest() throws ApiException {
-        String applicationId = null;
-
-//        IdentitiesList response = finixClient.Identity.listByApplicationId(applicationId);
-        // TODO: test validations
-    }
 
     /**
      * List Identities
@@ -319,19 +301,14 @@ public class IdentitiesApiTest {
      * Test Function Name Generations from OPENAPI Spec with x-java-method-name
      *
      */
-    //@Test
+    @Test
+    @DisplayName("List Associated Identities")
     public void listIdentityAssociatedIdentitiesTest() throws ApiException {
-        String identityId = null;
-        Long limit = null;
-        String afterCursor = null;
-        String beforeCursor = null;
+        String identityId = "IDpYDM7J9n57q849o9E9yNrG";
 
-        IdentitiesList response = finixClient.Identity.listAssocaiatedIdentities(identityId, ListIdentityAssociatedIdentitiesQueryParams.builder()
-                .limit(limit)
-                .afterCursor(afterCursor)
-                .beforeCursor(beforeCursor)
-                .build());
-        // TODO: test validations
+        IdentitiesList response = finixClient.Identity.listAssocaiatedIdentities(identityId, ListIdentityAssociatedIdentitiesQueryParams.builder().build());
+        Integer count = response.getEmbedded().getIdentities().size();
+        assertTrue(count >= 1, "Should have 1 or more identities returned");
     }
 
     /**
@@ -403,6 +380,22 @@ public class IdentitiesApiTest {
                 .build();
         Merchant response = finixClient.Merchants.create(identityId, createMerchantUnderwritingRequest);
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
+    }
+
+
+    /**
+     * Verify an Identity
+     * @throws ApiException
+     */
+    @Test
+    @DisplayName("Verify an Identity")
+    public void createIdentityVerificationTest() throws ApiException {
+        String identityId = "IDpYDM7J9n57q849o9E9yNrG";
+        CreateVerificationRequest verificationForm = CreateVerificationRequest.builder()
+                .processor("DUMMY_V1").build();
+        Verification response = finixClient.Identity.createIdentityVerification(identityId, verificationForm);
+
+        assertEquals(identityId, response.getIdentity(), ()->"Should return " +identityId + " but returns "+ response.getIdentity());
     }
 
 }

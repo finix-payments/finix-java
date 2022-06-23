@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * API tests for PaymentInstrumentsApi
@@ -76,7 +77,7 @@ public class PaymentInstrumentsApiTest {
                 .build();
 
         ApplePaySession response = finixClient.PaymentInstrument.createApplePaySession(applePaySessionRequest);
-        // TODO: test validations
+        assertTrue(response.getId() instanceof String, "Response should return id with type of String but returns " + response.getId().getClass());
     }
 
     /**
@@ -153,10 +154,15 @@ public class PaymentInstrumentsApiTest {
      */
     //@Test
     public void createPaymentInstrumentUpdateTest() throws ApiException {
-        CreateInstrumentUpdatesRequest createInstrumentUpdatesRequest = null;
-
-        InstrumentUpdates response = finixClient.PaymentInstrument.createPaymentInstrumentUpdate(createInstrumentUpdatesRequest);
-        // TODO: test validations
+        String paymentInstrumentId = "IUp9oSWhWUF31DPrJ8CojQeQ";
+        File file = new File("Finix-Logo.jpg");
+        //String request = "{ merchant_id: MUucec6fHeaWo3VHYoSkUySM,  idempotency_id:123xyz testing }";
+        CreateInstrumentUpdatesRequest createInstrumentUpdates = CreateInstrumentUpdatesRequest.builder()
+                ._file(file)
+                .request("{\"merchant\":\"MUucec6fHeaWo3VHYoSkUySM\"}")
+                .build();
+        InstrumentUpdates response = finixClient.PaymentInstrument.createPaymentInstrumentUpdate(createInstrumentUpdates);
+        assertEquals("MUucec6fHeaWo3VHYoSkUySM",response.getMerchant(),()->" Should return " + "MUucec6fHeaWo3VHYoSkUySM" + " but returns " + response.getMerchant());
     }
 
     /**
@@ -258,78 +264,8 @@ public class PaymentInstrumentsApiTest {
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
     }
 
-    /**
-     * Payment Instruments
-     *
-     * Get all paymentInstruments of an application.
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-   // @Test
-    public void listApplicationPaymentInstrumentsTest() throws ApiException {
-        String applicationId = null;
 
-        PaymentInstrumentsList response = finixClient.PaymentInstrument.listByApplicationId(applicationId);
-        // TODO: test validations
-    }
 
-    /**
-     * List Identity Payment Instruments
-     *
-     * Get all payment instruments associated to this identity
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-   // @Test
-    public void listIdentityPaymentInstrumentsTest() throws ApiException {
-        String identityId = null;
-        Long limit = null;
-        Long offset = null;
-        Long pageNumber = null;
-        Long pageSize = null;
-
-        PaymentInstrumentsList response = finixClient.PaymentInstrument.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
-        // TODO: test validations
-    }
-
-    /**
-     * List Payment Instrument Updates
-     *
-     * List the updates on a &#x60;Payment Instrument&#x60;.  When using the [account updater](/guides/payments/account-updater), &#x60;Payment Instrument&#x60; details that are updated are represented by an &#x60;Update&#x60;.
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-   // @Test
-    public void listPaymentInstrumentUpdatesTest() throws ApiException {
-        String paymentInstrumentId = null;
-        Long limit = null;
-        Long offset = null;
-        Long pageNumber = null;
-        Long pageSize = null;
-
-        PaymentInstrumentUpdatesList response = finixClient.PaymentInstrument.listUpdatesByPaymentInstrumentId(paymentInstrumentId, ListPaymentInstrumentUpdatesQueryParams.builder()
-                .limit(limit)
-                .offset(offset)
-                .pageNumber(pageNumber)
-                .pageSize(pageSize)
-                .build());
-        // TODO: test validations
-    }
 
     /**
      * List Payment Instruments
@@ -420,10 +356,9 @@ public class PaymentInstrumentsApiTest {
      */
     @Test
     @DisplayName("Update a Payment Instrument")
-    public void putPaymentInstrumentTest() throws ApiException, IOException {
+    public void updatePaymentInstrumentTest() throws ApiException, IOException {
         String paymentInstrumentId = "IUp9oSWhWUF31DPrJ8CojQeQ";
-        File file = new File("Finix-Logo.jpg");
-        //String request = "{ merchant_id: MUucec6fHeaWo3VHYoSkUySM,  idempotency_id:123xyz testing }";
+        UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest = Up
         CreateInstrumentUpdatesRequest createInstrumentUpdates = CreateInstrumentUpdatesRequest.builder()
                 ._file(file)
                 .request("{\"merchant\":\"MUucec6fHeaWo3VHYoSkUySM\"}")

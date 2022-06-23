@@ -244,25 +244,6 @@ public class TransfersApiTest {
         assertEquals("TRvtThmhZtk56z6dtCt8hUDR", transfer.getId(),()-> "Should return "+"TRvtThmhZtk56z6dtCt8hUDR" + " but returns " +transfer.getId());
     }
 
-    /**
-     * List Transfers for an Application
-     *
-     * Get all transfers objects within application
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-   // @Test
-    public void listApplicationTransfersTest() throws ApiException {
-        String applicationId = null;
-
-//        TransfersList response = finixClient.Transfers.listByApplicationId(applicationId);
-        // TODO: test validations
-    }
 
     /**
      * List Identity Transfers
@@ -356,11 +337,7 @@ public class TransfersApiTest {
         String afterCursor = null;
         String beforeCursor = null;
 
-        TransfersList response = finixClient.Transfers.listTransfersReversals(transferId, ListTransferReversalsQueryParams.builder()
-                .limit(limit)
-                .afterCursor(afterCursor)
-                .beforeCursor(beforeCursor)
-                .build());
+        TransfersList response = finixClient.Transfers.listTransfersReversals(transferId, ListTransferReversalsQueryParams.builder().build());
         // TODO: test validations
     }
 

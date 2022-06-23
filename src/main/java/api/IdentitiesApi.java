@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import model.CreateIdentityRequest;
+import model.CreateVerificationRequest;
 import model.Error401Unauthorized;
 import model.Error403ForbiddenList;
 import model.Error404NotFoundList;
@@ -36,6 +37,7 @@ import model.ErrorGeneric;
 import model.IdentitiesList;
 import model.Identity;
 import model.UpdateIdentityRequest;
+import model.Verification;
 
 import model.ListIdentitiesQueryParams;
 import model.ListIdentityAssociatedIdentitiesQueryParams;
@@ -369,6 +371,157 @@ this.localCustomBaseUrl = customBaseUrl;
 
         okhttp3.Call localVarCall = createIdentityValidateBeforeCall(createIdentityRequest, _callback);
     Type localVarReturnType = new TypeToken<Identity>(){}.getType();
+        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+        }
+    /**
+    * Build call for createIdentityVerification
+        * @param identityId ID of identity to fetch (required)
+        * @param createVerificationRequest  (optional)
+    * @param _callback Callback for upload/download progress
+    * @return Call to execute
+    * @throws ApiException If fail to serialize the request body object
+        * @http.response.details
+        <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                <tr><td> 201 </td><td> Single Verification object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+        </table>
+    */
+    public okhttp3.Call createIdentityVerificationCall(String identityId, CreateVerificationRequest createVerificationRequest, final ApiCallback _callback) throws ApiException {
+    String basePath = null;
+    // Operation Servers
+    String[] localBasePaths = new String[] {  };
+
+    // Determine Base Path to Use
+    if (localCustomBaseUrl != null){
+    basePath = localCustomBaseUrl;
+    } else if ( localBasePaths.length > 0 ) {
+    basePath = localBasePaths[localHostIndex];
+    } else {
+    basePath = null;
+    }
+
+    Object localVarPostBody = createVerificationRequest;
+
+    // create path and map variables
+        String localVarPath = "/identities/{identity_id}/verifications"
+            .replaceAll("\\{" + "identity_id" + "\\}", localVarFinixClient.escapeString(identityId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+    "application/hal+json"
+        };
+        final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+        localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+    "application/hal+json"
+        };
+        final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BasicAuth" };
+        return localVarFinixClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        }
+
+        @SuppressWarnings("rawtypes")
+        private okhttp3.Call createIdentityVerificationValidateBeforeCall(String identityId, CreateVerificationRequest createVerificationRequest, final ApiCallback _callback) throws ApiException {
+        
+                // verify the required parameter 'identityId' is set
+                if (identityId == null) {
+                throw new ApiException("Missing the required parameter 'identityId' when calling createIdentityVerification(Async)");
+                }
+        
+
+            okhttp3.Call localVarCall = createIdentityVerificationCall(identityId, createVerificationRequest, _callback);
+            return localVarCall;
+
+        }
+
+            /**
+            * Verify an Identity
+            * Verify an identity
+                * @param identityId ID of identity to fetch (required)
+                * @param createVerificationRequest  (optional)
+                * @return Verification
+            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+                * @http.response.details
+                <table summary="Response Details" border="1">
+                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                        <tr><td> 201 </td><td> Single Verification object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                </table>
+            */
+                public Verification createIdentityVerification(String identityId, CreateVerificationRequest createVerificationRequest) throws ApiException {
+            ApiResponse<Verification> localVarResp = createIdentityVerificationWithHttpInfo(identityId, createVerificationRequest);
+                    return localVarResp.getData();
+                }
+
+    /**
+        * Verify an Identity
+        * Verify an identity
+            * @param identityId ID of identity to fetch (required)
+            * @param createVerificationRequest  (optional)
+        * @return ApiResponse&lt;Verification&gt;
+        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+            * @http.response.details
+            <table summary="Response Details" border="1">
+                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                    <tr><td> 201 </td><td> Single Verification object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+            </table>
+        */
+        public ApiResponse<Verification> createIdentityVerificationWithHttpInfo(String identityId, CreateVerificationRequest createVerificationRequest) throws ApiException {
+        okhttp3.Call localVarCall = createIdentityVerificationValidateBeforeCall(identityId, createVerificationRequest, null);
+                Type localVarReturnType = new TypeToken<Verification>(){}.getType();
+                return localVarFinixClient.execute(localVarCall, localVarReturnType);
+        }
+
+    /**
+        * Verify an Identity (asynchronously)
+        * Verify an identity
+            * @param identityId ID of identity to fetch (required)
+            * @param createVerificationRequest  (optional)
+        * @param _callback The callback to be executed when the API call finishes
+        * @return The request call
+        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+            * @http.response.details
+            <table summary="Response Details" border="1">
+                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                    <tr><td> 201 </td><td> Single Verification object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+            </table>
+        */
+        public okhttp3.Call createIdentityVerificationAsync(String identityId, CreateVerificationRequest createVerificationRequest, final ApiCallback<Verification> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createIdentityVerificationValidateBeforeCall(identityId, createVerificationRequest, _callback);
+    Type localVarReturnType = new TypeToken<Verification>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
         }

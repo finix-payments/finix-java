@@ -1232,6 +1232,35 @@ paths:
       tags:
         - Merchants
       x-java-method-name: create
+  /identities/{identity_id}/verifications:
+    parameters:
+      - description: ID of identity to fetch
+        required: true
+        in: path
+        name: identity_id
+        schema:
+          type: string
+    post:
+      summary: Verify an Identity
+      operationId: createIdentityVerification
+      responses:
+        '201':
+          $ref: '#/components/responses/Verification'
+        '400':
+          $ref: '#/components/responses/ErrorUnprocessableEntity'
+        '401':
+          $ref: '#/components/responses/ErrorUnauthorized'
+        '403':
+          $ref: '#/components/responses/ErrorForbidden403'
+        '404':
+          $ref: '#/components/responses/ErrorNotFound'
+        '406':
+          $ref: '#/components/responses/Error406NotAcceptable'
+      description: Verify an identity
+      requestBody:
+        $ref: '#/components/requestBodies/CreateVerificationRequest'
+      tags:
+        - Identities
   /merchant_profiles:
     get:
       tags:
@@ -13659,13 +13688,13 @@ components:
         type:
           type: string
           enum:
-            - VIRTUAL
-            - VANTIV_OMNI_TOKEN
-            - TOKEN
-            - PAYMENT_CARD_PRESENT
             - BANK_ACCOUNT
-            - SWIPED_PAYMENT_CARD
+            - TOKEN
+            - VANTIV_OMNI_TOKEN
             - PAYMENT_CARD
+            - PAYMENT_CARD_PRESENT
+            - SWIPED_PAYMENT_CARD
+            - VIRTUAL
           description: Type of `Payment Instrument`.
         id:
           $ref: '#/components/schemas/Id'
@@ -13701,13 +13730,13 @@ components:
         instrument_type:
           type: string
           enum:
-            - VIRTUAL
-            - VANTIV_OMNI_TOKEN
-            - TOKEN
-            - PAYMENT_CARD_PRESENT
             - BANK_ACCOUNT
-            - SWIPED_PAYMENT_CARD
+            - TOKEN
+            - VANTIV_OMNI_TOKEN
             - PAYMENT_CARD
+            - PAYMENT_CARD_PRESENT
+            - SWIPED_PAYMENT_CARD
+            - VIRTUAL
           description: The type of `Payment Instrument`.
         masked_account_number:
           type: string
@@ -13898,8 +13927,8 @@ components:
           type: string
           enum:
             - TOKEN
-            - PAYMENT_CARD
             - BANK_ACCOUNT
+            - PAYMENT_CARD
           description: Type of `Payment Instrument`.
         identity:
           $ref: '#/components/schemas/Id'
