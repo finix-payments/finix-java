@@ -142,7 +142,6 @@ public class VerificationsApiTest {
     @Test
     public void listVerificationsTest() throws ApiException {
         VerificationsList response = finixClient.Verifications.list(ListVerificationsQueryParams.builder().build());
-
         assertEquals(20,response.getPage().getLimit(),()->"Should return " + "20" + " but returns " + response.getPage().getLimit());
     }
 
@@ -152,7 +151,6 @@ public class VerificationsApiTest {
         String verificationId = "VIcrdHd2vBu5RDZJWNGTQihc";
         Verification verification = finixClient.Verifications.get(verificationId);
         String raw = (String) verification.getRaw();
-
         assertEquals("RawDummyMerchantUnderwriteResult", raw,()->"Should return RawDummyMerchantUnderwriteResult but returns" + raw );
     }
 }

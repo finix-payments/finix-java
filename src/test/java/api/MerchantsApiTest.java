@@ -52,28 +52,6 @@ public class MerchantsApiTest {
         assertEquals(true, finixClient != null);
 
     }
-    /**
-     * Create a Merchant
-     *
-     * Create a &#x60;Merchant&#x60; to start the underwriting process for your merchant. &#x60;Merchants&#x60; must be created under an [&#x60;Identity&#x60;](#tag/Identities).  &#x60;Merchant&#x60; resources can have three possible &#x60;onboarding_states&#x60;:  1. **PROVISIONING**: The request is pending (the state may change after two minutes).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**  1. **APPROVED**: The &#x60;Merchant&#x60; has been approved and can begin processing payments.     * &#x60;processing_enabled&#x60;: **True**    * &#x60;settlement_enabled&#x60;: **True**  1. **REJECTED**: The &#x60;Merchant&#x60; was rejected by the processor because of invalid information or it failed a regulatory and/or compliance check (e.g. KYC, OFAC, or MATCH).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**   &gt; Provisioning a &#x60;Merchant&#x60; account is an asynchronous request. We recommend creating a [&#x60;Webhook&#x60;](#tag/Webhooks) to listen for the state change.
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-    //@Test
-    @DisplayName("Provision a Merchant")
-    public void createMerchantTest() throws ApiException {
-        String identityId = "IDqVFvfhjuzZvA45tTrrTmva";
-        CreateMerchantUnderwritingRequest createMerchantUnderwritingRequest = CreateMerchantUnderwritingRequest.builder()
-                .processor("DUMMY_V1")
-                .tags(Map.of("key_2", "value_2"))
-                .build();
-        Merchant response = finixClient.Merchants.create(identityId, createMerchantUnderwritingRequest);
-    }
 
     /**
      * Verify a Merchant
@@ -115,50 +93,6 @@ public class MerchantsApiTest {
         String merchantId = "MUucec6fHeaWo3VHYoSkUySM";
         Merchant response = finixClient.Merchants.get(merchantId);
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
-    }
-
-    /**
-     * List Application Merchants
-     *
-     * Return a collection of merchants, if there are no merchants, an empty collection will be returned. 
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-    //@Test
-    public void listApplicationMerchantsTest() throws ApiException {
-        String applicationId = null;
-
-//        MerchantsList response = finixClient.Merchants.listByApplicationId(applicationId);
-        // TODO: test validations
-    }
-
-    /**
-     * List Identity Merchants
-     *
-     * Get all merchants associated to this identity
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-    //@Test
-    public void listIdentityMerchantsTest() throws ApiException {
-        String identityId = null;
-        Long limit = null;
-        Long offset = null;
-        Long pageNumber = null;
-        Long pageSize = null;
-
-//        MerchantsList response = finixClient.Merchants.listByIdentityId(identityId, limit, offset, pageNumber, pageSize);
-        // TODO: test validations
     }
 
 

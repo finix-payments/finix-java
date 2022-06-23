@@ -4,6 +4,7 @@ apply plugin: 'java'
 apply plugin: 'com.diffplug.spotless'
 
 group = 'com.finix'
+archivesBaseName = 'finix-java'
 version = '0.0.1'
 
 buildscript {
@@ -20,8 +21,14 @@ buildscript {
 repositories {
     mavenCentral()
 }
+repositories {
+    maven {
+        url "https://repo1.maven.org/maven2"
+    }
+}
 sourceSets {
     main.java.srcDirs = ['src/main/java']
+    test.java.srcDirs = ['src/test/java']
 }
 
 if(hasProperty('target') && target == 'android') {
@@ -82,6 +89,7 @@ if(hasProperty('target') && target == 'android') {
 
     apply plugin: 'java'
     apply plugin: 'maven-publish'
+    apply plugin: 'signing'
 
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
@@ -95,10 +103,71 @@ if(hasProperty('target') && target == 'android') {
         }
     }
 
+    task javadocJar(type: Jar) {
+        classifier = 'javadoc'
+        from javadoc
+    }
+
+    task sourcesJar(type: Jar) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+    }
+
     task execute(type:JavaExec) {
        main = System.getProperty('mainClass')
        classpath = sourceSets.main.runtimeClasspath
     }
+    artifacts {
+        archives javadocJar, sourcesJar
+    }
+    signing {
+        sign configurations.archives
+    }
+   /* uploadArchives {
+        repositories {
+            mavenDeployer {
+                //beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+                repository(url: "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                    authentication(userName: ossrhUsername, password: ossrhPassword)
+                }
+
+                snapshotRepository(url: "https://s01.oss.sonatype.org/content/repositories/snapshots/") {
+                    authentication(userName: ossrhUsername, password: ossrhPassword)
+                }
+
+                pom.project {
+                    name 'finix-java'
+                    packaging 'jar'
+                    // optionally artifactId can be defined here
+                    description 'finx-java'
+                    url 'https://finix.com'
+
+                    scm {
+                        connection 'scm:git:git@github.com:finix-payments/finix-java.git'
+                        developerConnection 'scm:git:git@github.com:finix-payments/finix-java.git'
+                        url 'https://github.com/finix-payments/finix-java/tree/develop'
+                    }
+
+                    licenses {
+                        license {
+                            name 'MIT'
+                            url 'https://choosealicense.com/licenses/mit/'
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id 'Finix'
+                            name 'Finix'
+                            email 'support@finixpayments.com'
+                        }
+                    }
+                }
+            }
+        }
+    }*/
+
 }
 
 ext {
@@ -118,13 +187,22 @@ dependencies {
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
     implementation "jakarta.annotation:jakarta.annotation-api:$jakarta_annotation_version"
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
     testImplementation 'org.mockito:mockito-core:3.12.4'
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
 }
 
 javadoc {
     options.tags = [ "http.response.details:a:Http Response Details" ]
 }
 
+test {
+    useJUnitPlatform()
+}
+//sonatype
+
+//sonatype ends here
 // Use spotless plugin to automatically format code, remove unused import, etc
 // To apply changes directly to the file, run `gradlew spotlessApply`
 // Ref: https://github.com/diffplug/spotless/tree/main/plugin-gradle
