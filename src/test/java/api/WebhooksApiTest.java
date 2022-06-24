@@ -66,6 +66,7 @@ public class WebhooksApiTest {
      */
     @Test
     @DisplayName("Create a Webhook")
+    @BeforeAll
     public void createWebhookTest() throws ApiException {
         CreateWebhookRequest createWebhookRequest = CreateWebhookRequest.builder()
                 .url("https://eohzjuj2prziycz.m.pipedream.net")
