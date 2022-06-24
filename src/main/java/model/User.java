@@ -54,7 +54,7 @@ import invoker.JSON;
  * User
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T17:56:51.765155-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
 public class User {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -95,7 +95,9 @@ public class User {
     
     PARTNER("ROLE_PARTNER"),
     
-    MERCHANT("ROLE_MERCHANT");
+    MERCHANT("ROLE_MERCHANT"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -112,13 +114,32 @@ public class User {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static RoleEnum fromValue(String value) {
-      for (RoleEnum b : RoleEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (RoleEnum b : RoleEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        RoleEnum unknownDefault = RoleEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<RoleEnum> {

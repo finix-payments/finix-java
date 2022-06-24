@@ -54,7 +54,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Create a `balance_transfer` resource.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T17:56:51.765155-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
 public class CreateBalanceTransferRequest {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -71,7 +71,9 @@ public class CreateBalanceTransferRequest {
   public enum DestinationEnum {
     FOR_BENEFIT_OF_ACCOUNT("FOR_BENEFIT_OF_ACCOUNT"),
     
-    OPERATING_ACCOUNT("OPERATING_ACCOUNT");
+    OPERATING_ACCOUNT("OPERATING_ACCOUNT"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -88,13 +90,35 @@ public class CreateBalanceTransferRequest {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static DestinationEnum fromValue(String value) {
-      for (DestinationEnum b : DestinationEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (DestinationEnum b : DestinationEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      return null;
+
+        if (value.equals(null) && value.length() == 0) {
+            return null;
+        }
+        DestinationEnum unknownDefault = DestinationEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<DestinationEnum> {
@@ -130,7 +154,9 @@ public class CreateBalanceTransferRequest {
   public enum SourceEnum {
     FOR_BENEFIT_OF_ACCOUNT("FOR_BENEFIT_OF_ACCOUNT"),
     
-    OPERATING_ACCOUNT("OPERATING_ACCOUNT");
+    OPERATING_ACCOUNT("OPERATING_ACCOUNT"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -147,13 +173,32 @@ public class CreateBalanceTransferRequest {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static SourceEnum fromValue(String value) {
-      for (SourceEnum b : SourceEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (SourceEnum b : SourceEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        SourceEnum unknownDefault = SourceEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<SourceEnum> {

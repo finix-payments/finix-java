@@ -204,6 +204,21 @@ public class PaymentInstrumentsApiTest {
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
     }
 
+    /**
+     * Fetch a Apple payment instrument
+     *
+     * Retrieve the details of a &#x60;Payment Instrument&#x60;.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    @DisplayName("Fetch a Apple payment instrument")
+    public void getApplePayPaymentInstrumentTest() throws ApiException {
+        String paymentInstrumentId = "PI4gTM3twQ5XyXfM4rTuFvpo";
+        PaymentInstrument response = finixClient.PaymentInstruments.get(paymentInstrumentId);
+        assertEquals(response.getType(), PaymentInstrument.TypeEnum.UNKNOWN_DEFAULT,()->" Should return UNKOWN_DEFAULT but returns " + response.getType());
+    }
+
 
     /**
      * List Payment Instruments

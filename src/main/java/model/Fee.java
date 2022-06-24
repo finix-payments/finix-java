@@ -56,7 +56,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "An out of flow `fee` that is added to a `settlement`.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T17:56:51.765155-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
 public class Fee {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -95,7 +95,9 @@ public class Fee {
     
     APPLICATION_FEE("APPLICATION_FEE"),
     
-    PLATFORM_FEE("PLATFORM_FEE");
+    PLATFORM_FEE("PLATFORM_FEE"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -112,13 +114,32 @@ public class Fee {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static FeeSubtypeEnum fromValue(String value) {
-      for (FeeSubtypeEnum b : FeeSubtypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (FeeSubtypeEnum b : FeeSubtypeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        FeeSubtypeEnum unknownDefault = FeeSubtypeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<FeeSubtypeEnum> {
@@ -236,7 +257,9 @@ public class Fee {
     
     ANCILLARY_FIXED_FEE_SECONDARY("ANCILLARY_FIXED_FEE_SECONDARY"),
     
-    SETTLEMENT_V2_TRANSFER("SETTLEMENT_V2_TRANSFER");
+    SETTLEMENT_V2_TRANSFER("SETTLEMENT_V2_TRANSFER"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -253,13 +276,32 @@ public class Fee {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static FeeTypeEnum fromValue(String value) {
-      for (FeeTypeEnum b : FeeTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (FeeTypeEnum b : FeeTypeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        FeeTypeEnum unknownDefault = FeeTypeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<FeeTypeEnum> {
@@ -295,7 +337,9 @@ public class Fee {
     
     SUBSCRIPTION("SUBSCRIPTION"),
     
-    TRANSFER("TRANSFER");
+    TRANSFER("TRANSFER"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -312,13 +356,32 @@ public class Fee {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static LinkedTypeEnum fromValue(String value) {
-      for (LinkedTypeEnum b : LinkedTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (LinkedTypeEnum b : LinkedTypeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        LinkedTypeEnum unknownDefault = LinkedTypeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<LinkedTypeEnum> {

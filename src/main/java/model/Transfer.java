@@ -59,7 +59,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T17:56:51.765155-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
 public class Transfer {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -86,7 +86,9 @@ public class Transfer {
     
     SETTLEMENT("SETTLEMENT"),
     
-    UNKNOWN("UNKNOWN");
+    UNKNOWN("UNKNOWN"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -103,13 +105,32 @@ public class Transfer {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (TypeEnum b : TypeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        TypeEnum unknownDefault = TypeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<TypeEnum> {
@@ -215,7 +236,9 @@ public class Transfer {
     
     SUCCEEDED("SUCCEEDED"),
     
-    UNKNOWN("UNKNOWN");
+    UNKNOWN("UNKNOWN"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -232,13 +255,32 @@ public class Transfer {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static StateEnum fromValue(String value) {
-      for (StateEnum b : StateEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (StateEnum b : StateEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        StateEnum unknownDefault = StateEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<StateEnum> {
@@ -304,7 +346,9 @@ public class Transfer {
     
     SPLIT_PAYOUT_ADJUSTMENT("SPLIT_PAYOUT_ADJUSTMENT"),
     
-    SYSTEM("SYSTEM");
+    SYSTEM("SYSTEM"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -321,13 +365,32 @@ public class Transfer {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static SubtypeEnum fromValue(String value) {
-      for (SubtypeEnum b : SubtypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (SubtypeEnum b : SubtypeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        SubtypeEnum unknownDefault = SubtypeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<SubtypeEnum> {

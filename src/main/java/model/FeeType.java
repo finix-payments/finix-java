@@ -121,7 +121,9 @@ public enum FeeType {
   
   ANCILLARY_FIXED_FEE_SECONDARY("ANCILLARY_FIXED_FEE_SECONDARY"),
   
-  SETTLEMENT_V2_TRANSFER("SETTLEMENT_V2_TRANSFER");
+  SETTLEMENT_V2_TRANSFER("SETTLEMENT_V2_TRANSFER"),
+  
+  UNKNOWN_DEFAULT("unknown_default_open_api");
 
   private String value;
 
@@ -138,14 +140,32 @@ public enum FeeType {
     return String.valueOf(value);
   }
 
-  public static FeeType fromValue(String value) {
-    for (FeeType b : FeeType.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
+    public static FeeType fromValue(String value) {
+        for (FeeType b : FeeType.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
+        }
+        FeeType unknownDefault = FeeType.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
+   }
 
   public static class Adapter extends TypeAdapter<FeeType> {
     @Override

@@ -54,7 +54,7 @@ import invoker.JSON;
  * FeeProfile
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T17:56:51.765155-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
 public class FeeProfile {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -219,7 +219,9 @@ public class FeeProfile {
   public enum RoundingModeEnum {
     TRANSACTION("TRANSACTION"),
     
-    AGGREGATE("AGGREGATE");
+    AGGREGATE("AGGREGATE"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -236,13 +238,32 @@ public class FeeProfile {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static RoundingModeEnum fromValue(String value) {
-      for (RoundingModeEnum b : RoundingModeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (RoundingModeEnum b : RoundingModeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        RoundingModeEnum unknownDefault = RoundingModeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<RoundingModeEnum> {

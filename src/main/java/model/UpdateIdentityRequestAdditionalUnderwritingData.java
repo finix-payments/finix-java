@@ -51,7 +51,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Additional underwriting data that's required to verify the identity of the merchant.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T17:56:51.765155-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
 public class UpdateIdentityRequestAdditionalUnderwritingData {
   public static final String SERIALIZED_NAME_MERCHANT_AGREEMENT_ACCEPTED = "merchant_agreement_accepted";
   @SerializedName(SERIALIZED_NAME_MERCHANT_AGREEMENT_ACCEPTED)
@@ -86,7 +86,9 @@ public class UpdateIdentityRequestAdditionalUnderwritingData {
     
     MERCHANDISE_EXCHANGE_ONLY("MERCHANDISE_EXCHANGE_ONLY"),
     
-    WITHIN_30_DAYS_OTHER("WITHIN_30_DAYS OTHER");
+    WITHIN_30_DAYS_OTHER("WITHIN_30_DAYS OTHER"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -103,13 +105,32 @@ public class UpdateIdentityRequestAdditionalUnderwritingData {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static RefundPolicyEnum fromValue(String value) {
-      for (RefundPolicyEnum b : RefundPolicyEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (RefundPolicyEnum b : RefundPolicyEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        RefundPolicyEnum unknownDefault = RefundPolicyEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<RefundPolicyEnum> {

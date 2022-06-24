@@ -50,14 +50,16 @@ import invoker.JSON;
  * Error402PaymentRequiredEmbeddedErrorsInner
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T17:56:51.765155-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
 public class Error402PaymentRequiredEmbeddedErrorsInner {
   /**
    * Gets or Sets code
    */
   @JsonAdapter(CodeEnum.Adapter.class)
   public enum CodeEnum {
-    CALL_ISSUER("CALL_ISSUER");
+    CALL_ISSUER("CALL_ISSUER"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -74,13 +76,32 @@ public class Error402PaymentRequiredEmbeddedErrorsInner {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static CodeEnum fromValue(String value) {
-      for (CodeEnum b : CodeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (CodeEnum b : CodeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        CodeEnum unknownDefault = CodeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<CodeEnum> {
@@ -110,7 +131,9 @@ public class Error402PaymentRequiredEmbeddedErrorsInner {
    */
   @JsonAdapter(MessageEnum.Adapter.class)
   public enum MessageEnum {
-    PLEASE_CONTACT_CARD_ISSUER_FOR_MORE_INFORMATION_("Please contact card issuer for more information.");
+    PLEASE_CONTACT_CARD_ISSUER_FOR_MORE_INFORMATION_("Please contact card issuer for more information."),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -127,13 +150,32 @@ public class Error402PaymentRequiredEmbeddedErrorsInner {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static MessageEnum fromValue(String value) {
-      for (MessageEnum b : MessageEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (MessageEnum b : MessageEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        MessageEnum unknownDefault = MessageEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<MessageEnum> {

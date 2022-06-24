@@ -55,7 +55,7 @@ import invoker.JSON;
  * SettlementEngineSettlement
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T17:56:51.765155-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
 public class SettlementEngineSettlement {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -158,7 +158,9 @@ public class SettlementEngineSettlement {
     
     MONTHLY("MONTHLY"),
     
-    CONTINUOUS("CONTINUOUS");
+    CONTINUOUS("CONTINUOUS"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -175,13 +177,35 @@ public class SettlementEngineSettlement {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static ScheduleTypeEnum fromValue(String value) {
-      for (ScheduleTypeEnum b : ScheduleTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (ScheduleTypeEnum b : ScheduleTypeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      return null;
+
+        if (value.equals(null) && value.length() == 0) {
+            return null;
+        }
+        ScheduleTypeEnum unknownDefault = ScheduleTypeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<ScheduleTypeEnum> {
@@ -219,7 +243,9 @@ public class SettlementEngineSettlement {
     
     PENDING("PENDING"),
     
-    STAGED("STAGED");
+    STAGED("STAGED"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -236,13 +262,32 @@ public class SettlementEngineSettlement {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static StatusEnum fromValue(String value) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (StatusEnum b : StatusEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        StatusEnum unknownDefault = StatusEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<StatusEnum> {

@@ -55,7 +55,7 @@ import invoker.JSON;
  * Merchant
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T17:56:51.765155-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
 public class Merchant {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -154,7 +154,9 @@ public class Merchant {
     
     APPROVED("APPROVED"),
     
-    REJECTED("REJECTED");
+    REJECTED("REJECTED"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -171,13 +173,32 @@ public class Merchant {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static OnboardingStateEnum fromValue(String value) {
-      for (OnboardingStateEnum b : OnboardingStateEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (OnboardingStateEnum b : OnboardingStateEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        OnboardingStateEnum unknownDefault = OnboardingStateEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<OnboardingStateEnum> {

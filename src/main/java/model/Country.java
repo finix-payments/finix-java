@@ -526,7 +526,9 @@ public enum Country {
   
   ZMB("ZMB"),
   
-  ZWE("ZWE");
+  ZWE("ZWE"),
+  
+  UNKNOWN_DEFAULT("unknown_default_open_api");
 
   private String value;
 
@@ -543,14 +545,35 @@ public enum Country {
     return String.valueOf(value);
   }
 
-  public static Country fromValue(String value) {
-    for (Country b : Country.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
     }
-    return null;
-  }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
+    public static Country fromValue(String value) {
+        for (Country b : Country.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
+        }
+        if (value.equals(null) && value.length() == 0) {
+            return null;
+        }
+        Country unknownDefault = Country.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
+   }
 
   public static class Adapter extends TypeAdapter<Country> {
     @Override

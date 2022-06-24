@@ -46,16 +46,43 @@
       return String.valueOf(value);
     }
 
+    {{#enumUnknownDefaultCase}}
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+    {{/enumUnknownDefaultCase}}
+
 {{#jackson}}
     @JsonCreator
 {{/jackson}}
     public static {{{datatypeWithEnum}}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}} fromValue({{{dataType}}} value) {
-      for ({{{datatypeWithEnum}}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}} b : {{{datatypeWithEnum}}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}}.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for ({{{datatypeWithEnum}}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}} b : {{{datatypeWithEnum}}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}}.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      {{#isNullable}}return null;{{/isNullable}}{{^isNullable}}throw new IllegalArgumentException("Unexpected value '" + value + "'");{{/isNullable}}
+
+  {{#enumUnknownDefaultCase}}
+        {{#isNullable}}
+        if (value.equals(null) && value.length() == 0) {
+            return null;
+        }
+        {{/isNullable}}
+        {{{datatypeWithEnum}}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}} unknownDefault = {{{datatypeWithEnum}}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}}.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        {{/enumUnknownDefaultCase}}{{^enumUnknownDefaultCase}}{{#isNullable}}return null;{{/isNullable}}throw new IllegalArgumentException("Unexpected value '" + value + "'");{{/enumUnknownDefaultCase}}
     }
 {{#gson}}
 

@@ -54,7 +54,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Underwriting data that's required to verify the identity of the merchant.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T17:56:51.765155-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
 public class UpdateIdentityRequestEntity {
   public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
   @SerializedName(SERIALIZED_NAME_LAST_NAME)
@@ -147,7 +147,9 @@ public class UpdateIdentityRequestEntity {
     
     INTERNATIONAL_ORGANIZATION("INTERNATIONAL_ORGANIZATION"),
     
-    GOVERNMENT_AGENCY("GOVERNMENT_AGENCY");
+    GOVERNMENT_AGENCY("GOVERNMENT_AGENCY"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -164,13 +166,32 @@ public class UpdateIdentityRequestEntity {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static BusinessTypeEnum fromValue(String value) {
-      for (BusinessTypeEnum b : BusinessTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (BusinessTypeEnum b : BusinessTypeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        BusinessTypeEnum unknownDefault = BusinessTypeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<BusinessTypeEnum> {

@@ -55,7 +55,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Details that configure how the `Processor` handles transactions.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T17:56:51.765155-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
 public class ProcessorApplicationConfig {
   public static final String SERIALIZED_NAME_ACH_SETTLEMENT_DELAY_DAYS = "ach_settlement_delay_days";
   @SerializedName(SERIALIZED_NAME_ACH_SETTLEMENT_DELAY_DAYS)
@@ -104,7 +104,9 @@ public class ProcessorApplicationConfig {
     
     TU("TU"),
     
-    WT("WT");
+    WT("WT"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -121,13 +123,32 @@ public class ProcessorApplicationConfig {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static AllowedBusinessApplicationIdsEnum fromValue(String value) {
-      for (AllowedBusinessApplicationIdsEnum b : AllowedBusinessApplicationIdsEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (AllowedBusinessApplicationIdsEnum b : AllowedBusinessApplicationIdsEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        AllowedBusinessApplicationIdsEnum unknownDefault = AllowedBusinessApplicationIdsEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<AllowedBusinessApplicationIdsEnum> {
@@ -2129,7 +2150,9 @@ public class ProcessorApplicationConfig {
     
     _9702("9702"),
     
-    _9950("9950");
+    _9950("9950"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -2146,13 +2169,32 @@ public class ProcessorApplicationConfig {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static DefaultMccEnum fromValue(String value) {
-      for (DefaultMccEnum b : DefaultMccEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (DefaultMccEnum b : DefaultMccEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        DefaultMccEnum unknownDefault = DefaultMccEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<DefaultMccEnum> {
@@ -2224,7 +2266,9 @@ public class ProcessorApplicationConfig {
     
     _7("7"),
     
-    _8("8");
+    _8("8"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -2241,13 +2285,32 @@ public class ProcessorApplicationConfig {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static MotoEciindicatorEnum fromValue(String value) {
-      for (MotoEciindicatorEnum b : MotoEciindicatorEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (MotoEciindicatorEnum b : MotoEciindicatorEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        MotoEciindicatorEnum unknownDefault = MotoEciindicatorEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<MotoEciindicatorEnum> {
@@ -2305,7 +2368,9 @@ public class ProcessorApplicationConfig {
     
     _91("91"),
     
-    _95("95");
+    _95("95"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -2322,13 +2387,32 @@ public class ProcessorApplicationConfig {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static PanEntryModeEnum fromValue(String value) {
-      for (PanEntryModeEnum b : PanEntryModeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (PanEntryModeEnum b : PanEntryModeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        PanEntryModeEnum unknownDefault = PanEntryModeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<PanEntryModeEnum> {
@@ -2376,7 +2460,9 @@ public class ProcessorApplicationConfig {
     
     _71("71"),
     
-    _73("73");
+    _73("73"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -2393,13 +2479,32 @@ public class ProcessorApplicationConfig {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static PosConditionCodeEnum fromValue(String value) {
-      for (PosConditionCodeEnum b : PosConditionCodeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (PosConditionCodeEnum b : PosConditionCodeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        PosConditionCodeEnum unknownDefault = PosConditionCodeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<PosConditionCodeEnum> {

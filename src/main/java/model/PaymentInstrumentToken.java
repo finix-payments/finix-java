@@ -55,7 +55,7 @@ import invoker.JSON;
  * PaymentInstrumentToken
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T17:56:51.765155-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
 public class PaymentInstrumentToken {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -66,7 +66,9 @@ public class PaymentInstrumentToken {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
-    TOKEN("TOKEN");
+    TOKEN("TOKEN"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -83,13 +85,32 @@ public class PaymentInstrumentToken {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (TypeEnum b : TypeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        TypeEnum unknownDefault = TypeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<TypeEnum> {
@@ -143,7 +164,9 @@ public class PaymentInstrumentToken {
    */
   @JsonAdapter(InstrumentTypeEnum.Adapter.class)
   public enum InstrumentTypeEnum {
-    TOKEN("TOKEN");
+    TOKEN("TOKEN"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -160,13 +183,32 @@ public class PaymentInstrumentToken {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static InstrumentTypeEnum fromValue(String value) {
-      for (InstrumentTypeEnum b : InstrumentTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (InstrumentTypeEnum b : InstrumentTypeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        InstrumentTypeEnum unknownDefault = InstrumentTypeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<InstrumentTypeEnum> {
@@ -194,7 +236,9 @@ public class PaymentInstrumentToken {
   public enum PayloadTypeEnum {
     SOURCE("SOURCE"),
     
-    DESTINATION("DESTINATION");
+    DESTINATION("DESTINATION"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -211,13 +255,32 @@ public class PaymentInstrumentToken {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static PayloadTypeEnum fromValue(String value) {
-      for (PayloadTypeEnum b : PayloadTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (PayloadTypeEnum b : PayloadTypeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        PayloadTypeEnum unknownDefault = PayloadTypeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<PayloadTypeEnum> {

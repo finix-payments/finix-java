@@ -386,7 +386,9 @@ public enum Currency {
   
   ZMW("ZMW"),
   
-  ZWL("ZWL");
+  ZWL("ZWL"),
+  
+  UNKNOWN_DEFAULT("unknown_default_open_api");
 
   private String value;
 
@@ -403,14 +405,32 @@ public enum Currency {
     return String.valueOf(value);
   }
 
-  public static Currency fromValue(String value) {
-    for (Currency b : Currency.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
+    public static Currency fromValue(String value) {
+        for (Currency b : Currency.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
+        }
+        Currency unknownDefault = Currency.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
+   }
 
   public static class Adapter extends TypeAdapter<Currency> {
     @Override

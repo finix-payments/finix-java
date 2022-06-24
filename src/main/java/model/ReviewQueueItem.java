@@ -55,7 +55,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T17:56:51.765155-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
 public class ReviewQueueItem {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -96,7 +96,9 @@ public class ReviewQueueItem {
     
     SETTLEMENT("SETTLEMENT"),
     
-    SETTLEMENT_V2("SETTLEMENT_V2");
+    SETTLEMENT_V2("SETTLEMENT_V2"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -113,13 +115,32 @@ public class ReviewQueueItem {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static EntityTypeEnum fromValue(String value) {
-      for (EntityTypeEnum b : EntityTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (EntityTypeEnum b : EntityTypeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        EntityTypeEnum unknownDefault = EntityTypeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<EntityTypeEnum> {
@@ -149,7 +170,9 @@ public class ReviewQueueItem {
     
     REJECTED("REJECTED"),
     
-    ACCEPTED("ACCEPTED");
+    ACCEPTED("ACCEPTED"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -166,13 +189,32 @@ public class ReviewQueueItem {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static OutcomeEnum fromValue(String value) {
-      for (OutcomeEnum b : OutcomeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (OutcomeEnum b : OutcomeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        OutcomeEnum unknownDefault = OutcomeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<OutcomeEnum> {
@@ -232,7 +274,9 @@ public class ReviewQueueItem {
     
     VANTIV_V1("VANTIV_V1"),
     
-    VISA_V1("VISA_V1");
+    VISA_V1("VISA_V1"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -249,13 +293,35 @@ public class ReviewQueueItem {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static ProcessorTypeEnum fromValue(String value) {
-      for (ProcessorTypeEnum b : ProcessorTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (ProcessorTypeEnum b : ProcessorTypeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      return null;
+
+        if (value.equals(null) && value.length() == 0) {
+            return null;
+        }
+        ProcessorTypeEnum unknownDefault = ProcessorTypeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<ProcessorTypeEnum> {
@@ -289,7 +355,9 @@ public class ReviewQueueItem {
     
     VERIFIED("VERIFIED"),
     
-    TRANSFER_LIMIT_EXCEEDED("TRANSFER_LIMIT_EXCEEDED");
+    TRANSFER_LIMIT_EXCEEDED("TRANSFER_LIMIT_EXCEEDED"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -306,13 +374,32 @@ public class ReviewQueueItem {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static ReviewTypeEnum fromValue(String value) {
-      for (ReviewTypeEnum b : ReviewTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (ReviewTypeEnum b : ReviewTypeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        ReviewTypeEnum unknownDefault = ReviewTypeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<ReviewTypeEnum> {

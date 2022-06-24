@@ -54,7 +54,7 @@ import invoker.JSON;
  * CreateFeeRequest
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T17:56:51.765155-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
 public class CreateFeeRequest {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -77,7 +77,9 @@ public class CreateFeeRequest {
    */
   @JsonAdapter(FeeSubtypeEnum.Adapter.class)
   public enum FeeSubtypeEnum {
-    CUSTOM("CUSTOM");
+    CUSTOM("CUSTOM"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -94,13 +96,32 @@ public class CreateFeeRequest {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static FeeSubtypeEnum fromValue(String value) {
-      for (FeeSubtypeEnum b : FeeSubtypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (FeeSubtypeEnum b : FeeSubtypeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        FeeSubtypeEnum unknownDefault = FeeSubtypeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<FeeSubtypeEnum> {
@@ -140,7 +161,9 @@ public class CreateFeeRequest {
     
     SUBSCRIPTION("SUBSCRIPTION"),
     
-    TRANSFER("TRANSFER");
+    TRANSFER("TRANSFER"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -157,13 +180,32 @@ public class CreateFeeRequest {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static LinkedTypeEnum fromValue(String value) {
-      for (LinkedTypeEnum b : LinkedTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (LinkedTypeEnum b : LinkedTypeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        LinkedTypeEnum unknownDefault = LinkedTypeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<LinkedTypeEnum> {

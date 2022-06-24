@@ -55,14 +55,16 @@ import invoker.JSON;
  */
 @ApiModel(description = "")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T17:56:51.765155-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
 public class CreateSubscriptionScheduleRequest {
   /**
    * Subscription Schedule type. For subscriptions, the type is **FEE**.
    */
   @JsonAdapter(LineItemTypeEnum.Adapter.class)
   public enum LineItemTypeEnum {
-    FEE("FEE");
+    FEE("FEE"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -79,13 +81,32 @@ public class CreateSubscriptionScheduleRequest {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static LineItemTypeEnum fromValue(String value) {
-      for (LineItemTypeEnum b : LineItemTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (LineItemTypeEnum b : LineItemTypeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        LineItemTypeEnum unknownDefault = LineItemTypeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<LineItemTypeEnum> {
@@ -127,7 +148,9 @@ public class CreateSubscriptionScheduleRequest {
     
     PERIODIC_MONTHLY("PERIODIC_MONTHLY"),
     
-    PERIODIC_YEARLY("PERIODIC_YEARLY");
+    PERIODIC_YEARLY("PERIODIC_YEARLY"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -144,13 +167,32 @@ public class CreateSubscriptionScheduleRequest {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static SubscriptionTypeEnum fromValue(String value) {
-      for (SubscriptionTypeEnum b : SubscriptionTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (SubscriptionTypeEnum b : SubscriptionTypeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        SubscriptionTypeEnum unknownDefault = SubscriptionTypeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<SubscriptionTypeEnum> {

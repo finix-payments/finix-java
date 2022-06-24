@@ -55,14 +55,16 @@ import invoker.JSON;
  */
 @ApiModel(description = "Details that configure how the `Processor` handles transactions with the processor.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T17:56:51.765155-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
 public class ProcessorSystemConfig {
   /**
    * Field used by processor to communicate with Finix.
    */
   @JsonAdapter(CLASSKEYIDENTIFIEREnum.Adapter.class)
   public enum CLASSKEYIDENTIFIEREnum {
-    IO_FINIX_VISA_DIRECT_CLIENT_VISASYSTEMCONFIG("io.finix.visa.direct.client.VisaSystemConfig");
+    IO_FINIX_VISA_DIRECT_CLIENT_VISASYSTEMCONFIG("io.finix.visa.direct.client.VisaSystemConfig"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -79,13 +81,32 @@ public class ProcessorSystemConfig {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static CLASSKEYIDENTIFIEREnum fromValue(String value) {
-      for (CLASSKEYIDENTIFIEREnum b : CLASSKEYIDENTIFIEREnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (CLASSKEYIDENTIFIEREnum b : CLASSKEYIDENTIFIEREnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        CLASSKEYIDENTIFIEREnum unknownDefault = CLASSKEYIDENTIFIEREnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<CLASSKEYIDENTIFIEREnum> {
@@ -607,7 +628,9 @@ public class ProcessorSystemConfig {
     
     _887("887"),
     
-    _894("894");
+    _894("894"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -624,13 +647,32 @@ public class ProcessorSystemConfig {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static AcquirerCountryCodeEnum fromValue(String value) {
-      for (AcquirerCountryCodeEnum b : AcquirerCountryCodeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (AcquirerCountryCodeEnum b : AcquirerCountryCodeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        AcquirerCountryCodeEnum unknownDefault = AcquirerCountryCodeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<AcquirerCountryCodeEnum> {
@@ -754,7 +796,9 @@ public class ProcessorSystemConfig {
     
     _05("05"),
     
-    _06("06");
+    _06("06"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -771,13 +815,32 @@ public class ProcessorSystemConfig {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static SourceOfFundsEnum fromValue(String value) {
-      for (SourceOfFundsEnum b : SourceOfFundsEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (SourceOfFundsEnum b : SourceOfFundsEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        SourceOfFundsEnum unknownDefault = SourceOfFundsEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<SourceOfFundsEnum> {

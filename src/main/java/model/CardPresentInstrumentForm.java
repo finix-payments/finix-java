@@ -50,7 +50,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Details the `Payment Instrument` that the `Transfer` debits or credits. ")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T17:56:51.765155-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
 public class CardPresentInstrumentForm {
   /**
    * The type of &#x60;Payment Instrument&#x60;.
@@ -69,7 +69,9 @@ public class CardPresentInstrumentForm {
     
     PAYMENT_CARD("PAYMENT_CARD"),
     
-    VANTIV_OMNI_TOKEN("VANTIV_OMNI_TOKEN");
+    VANTIV_OMNI_TOKEN("VANTIV_OMNI_TOKEN"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -86,13 +88,32 @@ public class CardPresentInstrumentForm {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (TypeEnum b : TypeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        TypeEnum unknownDefault = TypeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<TypeEnum> {
@@ -120,7 +141,9 @@ public class CardPresentInstrumentForm {
   public enum AvailableAccountTypeEnum {
     BALANCE("BALANCE"),
     
-    LEDGERED("LEDGERED");
+    LEDGERED("LEDGERED"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -137,13 +160,32 @@ public class CardPresentInstrumentForm {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static AvailableAccountTypeEnum fromValue(String value) {
-      for (AvailableAccountTypeEnum b : AvailableAccountTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (AvailableAccountTypeEnum b : AvailableAccountTypeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        AvailableAccountTypeEnum unknownDefault = AvailableAccountTypeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<AvailableAccountTypeEnum> {

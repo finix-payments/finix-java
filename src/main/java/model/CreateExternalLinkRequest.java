@@ -51,7 +51,7 @@ import invoker.JSON;
  * CreateExternalLinkRequest
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T17:56:51.765155-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
 public class CreateExternalLinkRequest {
   /**
    * &lt;ul&gt;&lt;li&gt;Set to &lt;strong&gt;UPLOAD&lt;/strong&gt; to create a link that can be used to upload files to Finix.&lt;li&gt;Set to &lt;strong&gt;DOWNLOAD&lt;/strong&gt; to create a link where the uploaded file can be downloaded from.&lt;li&gt;Set to &lt;strong&gt;VIEW&lt;/strong&gt; to create a link that displays the file in browser.
@@ -62,7 +62,9 @@ public class CreateExternalLinkRequest {
     
     DOWNLOAD("DOWNLOAD"),
     
-    VIEW("VIEW");
+    VIEW("VIEW"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -79,13 +81,32 @@ public class CreateExternalLinkRequest {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (TypeEnum b : TypeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+        TypeEnum unknownDefault = TypeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<TypeEnum> {

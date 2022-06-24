@@ -58,7 +58,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Create a `transfer`.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T17:56:51.765155-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
 public class CreateTransferRequest {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -103,7 +103,9 @@ public class CreateTransferRequest {
   public enum GatewayEnum {
     CLOUD_V1("TRIPOS_CLOUD_V1"),
     
-    MOBILE_V1("TRIPOS_MOBILE_V1");
+    MOBILE_V1("TRIPOS_MOBILE_V1"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -120,13 +122,35 @@ public class CreateTransferRequest {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static GatewayEnum fromValue(String value) {
-      for (GatewayEnum b : GatewayEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (GatewayEnum b : GatewayEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      return null;
+
+        if (value.equals(null) && value.length() == 0) {
+            return null;
+        }
+        GatewayEnum unknownDefault = GatewayEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<GatewayEnum> {
@@ -178,7 +202,9 @@ public class CreateTransferRequest {
     
     DIGITAL_WALLET("DIGITAL_WALLET"),
     
-    CHIP_ENTRY("CHIP_ENTRY");
+    CHIP_ENTRY("CHIP_ENTRY"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -195,13 +221,35 @@ public class CreateTransferRequest {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static InputMethodEnum fromValue(String value) {
-      for (InputMethodEnum b : InputMethodEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (InputMethodEnum b : InputMethodEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      return null;
+
+        if (value.equals(null) && value.length() == 0) {
+            return null;
+        }
+        InputMethodEnum unknownDefault = InputMethodEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<InputMethodEnum> {
@@ -249,7 +297,9 @@ public class CreateTransferRequest {
     
     MERCHANT_CREDIT_ADJUSTMENT("MERCHANT_CREDIT_ADJUSTMENT"),
     
-    MERCHANT_DEBIT_ADJUSTMENT("MERCHANT_DEBIT_ADJUSTMENT");
+    MERCHANT_DEBIT_ADJUSTMENT("MERCHANT_DEBIT_ADJUSTMENT"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
@@ -266,13 +316,35 @@ public class CreateTransferRequest {
       return String.valueOf(value);
     }
 
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
     public static OperationKeyEnum fromValue(String value) {
-      for (OperationKeyEnum b : OperationKeyEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+        for (OperationKeyEnum b : OperationKeyEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
         }
-      }
-      return null;
+
+        if (value.equals(null) && value.length() == 0) {
+            return null;
+        }
+        OperationKeyEnum unknownDefault = OperationKeyEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
     }
 
     public static class Adapter extends TypeAdapter<OperationKeyEnum> {
