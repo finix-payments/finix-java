@@ -33,6 +33,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DisplayName("When Running WebhooksApiTest")
 public class WebhooksApiTest {
     private FinixClient finixClient;
+    private String webhookId;
     private TestInfo testInfo;
     private TestReporter testReporter;
     @BeforeEach
@@ -70,6 +71,7 @@ public class WebhooksApiTest {
                 .url("https://eohzjuj2prziycz.m.pipedream.net")
                 .build();
         Webhook response = finixClient.Webhooks.create(createWebhookRequest);
+        webhookId = response.getId();
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
     }
 
@@ -133,8 +135,8 @@ public class WebhooksApiTest {
      */
     @Test
     @DisplayName("Update a Webhook")
+    @AfterAll
     public void putWebhookTest() throws ApiException {
-        String webhookId = "WHED2RM5dbNKcHYc3ALxhbW";
         UpdateWebhookRequest updateWebhookRequest = UpdateWebhookRequest.builder()
                 .url("https://eohzjuj2prziycz.m.pipedream.net")
                 .enabled(false)
