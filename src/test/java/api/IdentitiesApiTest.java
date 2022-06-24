@@ -400,13 +400,13 @@ public class IdentitiesApiTest {
      * @throws ApiException
      */
     @Test
+    @AfterAll
     @DisplayName("Verify an Identity")
     public void createIdentityVerificationTest() throws ApiException {
-        String identityId = "IDpYDM7J9n57q849o9E9yNrG";
+        String identityId = identity;
         CreateVerificationRequest verificationForm = CreateVerificationRequest.builder()
                 .processor("DUMMY_V1").build();
         Verification response = finixClient.Identities.createIdentityVerification(identityId, verificationForm);
-
         assertEquals(identityId, response.getIdentity(), ()->"Should return " +identityId + " but returns "+ response.getIdentity());
     }
 

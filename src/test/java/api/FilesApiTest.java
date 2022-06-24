@@ -73,7 +73,7 @@ public class FilesApiTest {
      */
     @Test
     @DisplayName("Create an External Link")
-    @BeforeEach
+    @AfterAll
     public void createExternalLinkTest() throws ApiException {
         String fileId = localFileId;
         CreateExternalLinkRequest createExternalLinkRequest = CreateExternalLinkRequest.builder()
