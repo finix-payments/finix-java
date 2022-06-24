@@ -131,8 +131,9 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-    "application/vnd.api+json", "application/hal+json"
+            "application/vnd.api+json"
         };
+
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
         localVarHeaderParams.put("Accept", localVarAccept);
@@ -276,8 +277,9 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-    "application/vnd.api+json", "application/hal+json"
+            "application/vnd.api+json"
         };
+
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
         localVarHeaderParams.put("Accept", localVarAccept);
@@ -412,14 +414,11 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-    /**
-     * EDITED
-     * Generator generates extra string to set localVarAccepts "application/hal+json"
-     * "application/hal+json" REMOVED
-     */
+
         final String[] localVarAccepts = {
-    "application/octet-stream"
+            "application/octet-stream"
         };
+
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
         localVarHeaderParams.put("Accept", localVarAccept);
@@ -563,8 +562,9 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-    "application/vnd.api+json", "application/hal+json"
+            "application/vnd.api+json"
         };
+
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
         localVarHeaderParams.put("Accept", localVarAccept);
@@ -714,8 +714,9 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-    "application/vnd.api+json", "application/hal+json"
+            "application/vnd.api+json"
         };
+
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
         localVarHeaderParams.put("Accept", localVarAccept);
@@ -877,8 +878,9 @@ this.localCustomBaseUrl = customBaseUrl;
                 }
 
         final String[] localVarAccepts = {
-    "application/vnd.api+json", "application/hal+json"
+            "application/vnd.api+json"
         };
+
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
         localVarHeaderParams.put("Accept", localVarAccept);
@@ -1199,8 +1201,9 @@ this.localCustomBaseUrl = customBaseUrl;
                 }
 
         final String[] localVarAccepts = {
-    "application/vnd.api+json", "application/hal+json"
+            "application/vnd.api+json"
         };
+
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
         localVarHeaderParams.put("Accept", localVarAccept);
@@ -1493,14 +1496,12 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-    /**
-     * EDITED
-     * Generator FAILS to set localVarFormParams which fails to set MULTIPART
-     */
-    localVarFormParams.put("file",uploadFileRequest.getFile());
+
+        localVarFormParams.put("file",uploadFileRequest.getFile());
         final String[] localVarAccepts = {
-    "application/vnd.api+json", "application/hal+json"
+            "application/vnd.api+json"
         };
+
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
         localVarHeaderParams.put("Accept", localVarAccept);
