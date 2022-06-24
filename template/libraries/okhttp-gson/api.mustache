@@ -201,8 +201,9 @@ this.localCustomBaseUrl = customBaseUrl;
 
     {{/dynamicOperations}}
         final String[] localVarAccepts = {
-    {{#produces}}"{{{mediaType}}}"{{^-last}}, {{/-last}}{{/produces}}
+            "{{#produces.0}}{{{mediaType}}}{{/produces.0}}"
         };
+
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
         localVarHeaderParams.put("Accept", localVarAccept);

@@ -33,6 +33,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DisplayName("When Running MerchantsApiTest")
 public class MerchantsApiTest {
     private FinixClient finixClient;
+    private String merchantId;
     private TestInfo testInfo;
     private TestReporter testReporter;
     @BeforeEach
@@ -53,27 +54,8 @@ public class MerchantsApiTest {
 
     }
 
-    /**
-     * Verify a Merchant
-     *
-     * Verify a merchant either to reattempt provisioning, or when the merchant&#39;s &#x60;Identity&#x60; was updated.
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-    @Test
-    @DisplayName("Verify a Merchant")
-    public void createMerchantVerificationTest() throws ApiException {
-        String merchantId = "MUucec6fHeaWo3VHYoSkUySM";
-        CreateVerificationRequest verificationForm = CreateVerificationRequest.builder().build();
-        Verification response = finixClient.Merchants.createMerchantVerification(merchantId, verificationForm);
 
-        assertEquals(merchantId, response.getMerchant(), ()->"Should return " +merchantId + " but returns "+ response.getMerchant());
-    }
+
 
     /**
      * Get a Merchant
@@ -151,7 +133,7 @@ public class MerchantsApiTest {
                 .levelTwoLevelThreeDataEnabled(true)
                 .build();
         Merchant response = finixClient.Merchants.update(merchantId, updateMerchantRequest);
-        // TODO: test validations
+        assertEquals(true, response.getLevelTwoLevelThreeDataEnabled(), "Level 2/3 should be enabled but instead is "+ response.getLevelTwoLevelThreeDataEnabled());
     }
 
 }

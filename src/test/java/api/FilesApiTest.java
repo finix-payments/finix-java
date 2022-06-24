@@ -80,7 +80,7 @@ public class FilesApiTest {
                 .type(CreateExternalLinkRequest.TypeEnum.UPLOAD)
                 .duration(15l)
                 .build();
-        ExternalLink response = finixClient.filesApi.createExternalLink(fileId, createExternalLinkRequest);
+        ExternalLink response = finixClient.Files.createExternalLink(fileId, createExternalLinkRequest);
         localExternalLinkId = response.getId();
         assertEquals("USsRhsHYZGBPnQw8CByJyEQW",response.getUserId(),()->" Should return " + "USsRhsHYZGBPnQw8CByJyEQW" + " but returns " + response.getUserId());
     }
@@ -109,7 +109,7 @@ public class FilesApiTest {
                 .type(DRIVERS_LICENSE_FRONT)
                 .tags(localMap)
                 .build();
-        ModelFile response = finixClient.filesApi.create(createFileRequest);
+        ModelFile response = finixClient.Files.create(createFileRequest);
         localFileId=response.getId();
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplicationId(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplicationId());
     }
@@ -130,7 +130,7 @@ public class FilesApiTest {
     @DisplayName("Download a file")
     public void downloadFileTest() throws ApiException {
         String fileId = "FILE_bJecqoRPasStEPVpvKHtgA";
-        File response = finixClient.filesApi.downloadFile(fileId);
+        File response = finixClient.Files.downloadFile(fileId);
         int size = response.getName().length();
         assertEquals(size,response.getName().length(),()->" Should return " + size + " but returns " + response.getName().length());
 
@@ -153,7 +153,7 @@ public class FilesApiTest {
     public void getExternalLinkTest() throws ApiException {
         String fileId = localFileId;
         String externalLinkId = localExternalLinkId;
-        ExternalLink response = finixClient.filesApi.getExternalLink(fileId, externalLinkId);
+        ExternalLink response = finixClient.Files.getExternalLink(fileId, externalLinkId);
         assertEquals("USsRhsHYZGBPnQw8CByJyEQW",response.getUserId(),()->" Should return " + "USsRhsHYZGBPnQw8CByJyEQW" + " but returns " + response.getUserId());
 
     }
@@ -174,7 +174,7 @@ public class FilesApiTest {
     @DisplayName("Fetch a File")
     public void getFileTest() throws ApiException {
         String fileId = "FILE_bJecqoRPasStEPVpvKHtgA";
-        ModelFile response = finixClient.filesApi.get(fileId);
+        ModelFile response = finixClient.Files.get(fileId);
         assertEquals("FILE_bJecqoRPasStEPVpvKHtgA",response.getId(),()->" Should return " + "FILE_bJecqoRPasStEPVpvKHtgA" + " but returns " + response.getId());
     }
 
@@ -204,7 +204,7 @@ public class FilesApiTest {
         String updatedAtLte = null;
         String beforeCursor = null;
 
-        ExternalLinksList response = finixClient.filesApi.listExternalLinks(fileId, ListExternalLinksQueryParams.builder()
+        ExternalLinksList response = finixClient.Files.listExternalLinks(fileId, ListExternalLinksQueryParams.builder()
                 .sort(sort)
                 .afterCursor(afterCursor)
                 .limit(limit)
@@ -244,7 +244,7 @@ public class FilesApiTest {
         String updatedAtLte = null;
         String beforeCursor = null;
 
-        FilesList response = finixClient.filesApi.list(ListFilesQueryParams.builder()
+        FilesList response = finixClient.Files.list(ListFilesQueryParams.builder()
                 .sort(sort)
                 .afterCursor(afterCursor)
                 .limit(limit)
@@ -278,7 +278,7 @@ public class FilesApiTest {
         UploadFileRequest uploadFileRequest = UploadFileRequest.builder()
                 ._file(file)
                 .build();
-        ModelFile response = finixClient.filesApi.uploadFile(fileId, uploadFileRequest);
+        ModelFile response = finixClient.Files.uploadFile(fileId, uploadFileRequest);
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplicationId(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplicationId());
     }
 

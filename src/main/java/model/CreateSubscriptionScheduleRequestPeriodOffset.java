@@ -50,7 +50,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Specifies when the Fee is charged. This field is null for **FIXED_TIME_INTERVAL** subscription schedules")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T13:37:23.846763-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T17:56:51.765155-07:00[America/Los_Angeles]")
 public class CreateSubscriptionScheduleRequestPeriodOffset {
   public static final String SERIALIZED_NAME_DAY = "day";
   @SerializedName(SERIALIZED_NAME_DAY)

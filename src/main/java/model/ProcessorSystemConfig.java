@@ -55,7 +55,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Details that configure how the `Processor` handles transactions with the processor.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T13:37:23.846763-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T17:56:51.765155-07:00[America/Los_Angeles]")
 public class ProcessorSystemConfig {
   /**
    * Field used by processor to communicate with Finix.

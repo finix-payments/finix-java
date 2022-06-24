@@ -56,6 +56,7 @@ public class PaymentInstrumentsApiTest {
 
     }
     /**
+     * SKIPPING: don't have a working example
      * Create an Apple Pay Session
      *
      * Create an &#x60;apple_pay_session&#x60; to process Apple Pay transactions on the web.  To create an Apple Pay Session, pass a &#x60;validation_url&#x60; while creating an &#x60;apple_pay_sessions&#x60; resource. Finix returns a &#x60;merchantSession&#x60; object which you can use to create a payment. For more information, see [Apple Pay](guides/payments/alternative-payment-methods/apple-pay/). 
@@ -76,7 +77,8 @@ public class PaymentInstrumentsApiTest {
                 .validationUrl("https://apple-pay-gateway-cert.apple.com/paymentservices/paymentSession")
                 .build();
 
-        ApplePaySession response = finixClient.PaymentInstrument.createApplePaySession(applePaySessionRequest);
+        FinixClient tempClient = new FinixClient("USsRhsHYZGBPnQw8CByJyEQW","8a14c2f9-d94b-4c72-8f5c-a62908e5b30e", Environment.SANDBOX);
+        ApplePaySession response = tempClient.PaymentInstruments.createApplePaySession(applePaySessionRequest);
         assertTrue(response.getId() instanceof String, "Response should return id with type of String but returns " + response.getId().getClass());
     }
 
@@ -114,7 +116,7 @@ public class PaymentInstrumentsApiTest {
                 .type(CreatePaymentInstrumentRequest.TypeEnum.PAYMENT_CARD)
                 .identity("IDgWxBhfGYLLdkhxx2ddYf9K")
                 .build();
-        PaymentInstrument response = finixClient.PaymentInstrument.create(createPaymentInstrumentRequest);
+        PaymentInstrument response = finixClient.PaymentInstruments.create(createPaymentInstrumentRequest);
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
 
     }
@@ -136,34 +138,10 @@ public class PaymentInstrumentsApiTest {
                 .type(CreatePaymentInstrumentRequest.TypeEnum.BANK_ACCOUNT)
                 .identity("IDpYDM7J9n57q849o9E9yNrG")
                 .build();
-        PaymentInstrument response =  finixClient.PaymentInstrument.create(createPaymentInstrumentRequest);
+        PaymentInstrument response =  finixClient.PaymentInstruments.create(createPaymentInstrumentRequest);
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
     }
 
-    /**
-     * Create Instrument Updates
-     *
-     * To update the card details of your customers, create an &#x60;instrument_updates&#x60; resource. Include the &#x60;Payment Instrument&#x60; IDs you want to update in a CSV. For more info, see the guide on using our [Account Updater](//payments/account-updater/).
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-    //@Test
-    public void createPaymentInstrumentUpdateTest() throws ApiException {
-        String paymentInstrumentId = "IUp9oSWhWUF31DPrJ8CojQeQ";
-        File file = new File("Finix-Logo.jpg");
-        //String request = "{ merchant_id: MUucec6fHeaWo3VHYoSkUySM,  idempotency_id:123xyz testing }";
-        CreateInstrumentUpdatesRequest createInstrumentUpdates = CreateInstrumentUpdatesRequest.builder()
-                ._file(file)
-                .request("{\"merchant\":\"MUucec6fHeaWo3VHYoSkUySM\"}")
-                .build();
-        InstrumentUpdates response = finixClient.PaymentInstrument.createPaymentInstrumentUpdate(createInstrumentUpdates);
-        assertEquals("MUucec6fHeaWo3VHYoSkUySM",response.getMerchant(),()->" Should return " + "MUucec6fHeaWo3VHYoSkUySM" + " but returns " + response.getMerchant());
-    }
 
     /**
      * Verify a Payment Instrument
@@ -184,29 +162,11 @@ public class PaymentInstrumentsApiTest {
         CreateVerificationRequest verificationForm = CreateVerificationRequest.builder()
                 .processor("DUMMY_V1")
                 .build();
-        Verification response = finixClient.PaymentInstrument.createPaymentInstrumentVerification(paymentInstrumentId, verificationForm);
+        Verification response = finixClient.PaymentInstruments.createPaymentInstrumentVerification(paymentInstrumentId, verificationForm);
         assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getPaymentInstrument(),()->" Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getPaymentInstrument());
     }
 
-    /**
-     * Download Instrument Updates
-     *
-     * Fetch a previously created &#x60;instrument_updates&#x60; resource as a CSV.   To fetch the &#x60;instrument_updates&#x60; resource in JSON, add &#x60;?format&#x3D;json&#x60; to the request endpoint.
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-    @Test
-    @DisplayName("Fetch an Instrument Update")
-    public void getInstrumentUpdatesTest() throws ApiException {
-        String instrumentUpdatesId = "IUp9oSWhWUF31DPrJ8CojQeQ";
-        finixClient.PaymentInstrument.getInstrumentUpdates(instrumentUpdatesId);
 
-    }
 
     /**
      * Get a Payment Instrument
@@ -224,7 +184,7 @@ public class PaymentInstrumentsApiTest {
     @DisplayName("Fetch a Bank Account")
     public void getPaymentInstrumentTest() throws ApiException {
         String paymentInstrumentId = "PI8sdzepdapDehPWKFTcre1m";
-        PaymentInstrument response = finixClient.PaymentInstrument.get(paymentInstrumentId);
+        PaymentInstrument response = finixClient.PaymentInstruments.get(paymentInstrumentId);
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
 
     }
@@ -240,7 +200,7 @@ public class PaymentInstrumentsApiTest {
     @DisplayName("Fetch a Payment Card")
     public void getPaymentInstrumentCardTest() throws ApiException {
         String paymentInstrumentId = "PIe2YvpcjvoVJ6PzoRPBK137";
-        PaymentInstrument response = finixClient.PaymentInstrument.get(paymentInstrumentId);
+        PaymentInstrument response = finixClient.PaymentInstruments.get(paymentInstrumentId);
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
     }
 
@@ -276,7 +236,7 @@ public class PaymentInstrumentsApiTest {
         String type = null;
         String beforeCursor = null;
 
-        PaymentInstrumentsList response = finixClient.PaymentInstrument.list(ListPaymentInstrumentsQueryParams.builder()
+        PaymentInstrumentsList response = finixClient.PaymentInstruments.list(ListPaymentInstrumentsQueryParams.builder()
                 .limit(limit)
                 .afterCursor(afterCursor)
                 .accountLast4(accountLast4)
@@ -312,14 +272,13 @@ public class PaymentInstrumentsApiTest {
     @Test
     @DisplayName("Update a Payment Instrument")
     public void updatePaymentInstrumentTest() throws ApiException, IOException {
-        String paymentInstrumentId = "IUp9oSWhWUF31DPrJ8CojQeQ";
-        UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest = new UpdatePaymentInstrumentRequest
-        CreateInstrumentUpdatesRequest createInstrumentUpdates = CreateInstrumentUpdatesRequest.builder()
-                ._file(file)
-                .request("{\"merchant\":\"MUucec6fHeaWo3VHYoSkUySM\"}")
+        String paymentInstrumentId = "PIe2YvpcjvoVJ6PzoRPBK137";
+        UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest = UpdatePaymentInstrumentRequest.builder()
+                .name("Amy Whites")
                 .build();
-        InstrumentUpdates response = finixClient.PaymentInstrument.createPaymentInstrumentUpdate(createInstrumentUpdates);
-        assertEquals("MUucec6fHeaWo3VHYoSkUySM",response.getMerchant(),()->" Should return " + "MUucec6fHeaWo3VHYoSkUySM" + " but returns " + response.getMerchant());
+
+        PaymentInstrument response = finixClient.PaymentInstruments.update(paymentInstrumentId, updatePaymentInstrumentRequest);
+        assertEquals(paymentInstrumentId,response.getId(),()->" Should return " + paymentInstrumentId + " but returns " + response.getId());
 
     }
 

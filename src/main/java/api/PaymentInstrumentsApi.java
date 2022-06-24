@@ -29,21 +29,18 @@ import java.io.IOException;
 
 import model.ApplePaySession;
 import model.ApplePaySessionRequest;
-import model.CreateInstrumentUpdatesRequest;
 import model.CreatePaymentInstrumentRequest;
+import model.CreateVerificationRequest;
 import model.Error401Unauthorized;
 import model.Error403ForbiddenList;
 import model.Error404NotFoundList;
 import model.Error406NotAcceptable;
 import model.ErrorGeneric;
-import model.InstrumentUpdates;
 import model.PaymentInstrument;
-import model.PaymentInstrumentUpdatesList;
 import model.PaymentInstrumentsList;
+import model.UpdatePaymentInstrumentRequest;
 import model.Verification;
-import model.CreateVerificationRequest;
 
-import model.ListPaymentInstrumentUpdatesQueryParams;
 import model.ListPaymentInstrumentsQueryParams;
 
 import java.lang.reflect.Type;
@@ -132,8 +129,9 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-    "application/hal+json"
+            "application/hal+json"
         };
+
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
         localVarHeaderParams.put("Accept", localVarAccept);
@@ -269,8 +267,9 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-    "application/hal+json"
+            "application/hal+json"
         };
+
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
         localVarHeaderParams.put("Accept", localVarAccept);
@@ -299,7 +298,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
             /**
             * Create a Payment Instrument
-            * Create a &#x60;Payment Instrument&#x60; resource using a card or bank account.  To accept payment detail, review our guide on how to [tokenize cards using hosted fields](/guides/payments/tokenization-with-hosted-fields).
+            * Create a &#x60;Payment Instrument&#x60; resource using a card or bank account.  To accept payment details, review our guide on how to [tokenize cards using hosted fields](/guides/payments/tokenization-with-hosted-fields).  &gt; The creation of &#x60;Payment Instruments&#x60; using cards directly via Finix&#39;s API should only be done for testing purposes. You must use the Hosted Tokenization fields or javascript client to remain out of PCI scope.
                 * @param createPaymentInstrumentRequest  (optional)
                 * @return PaymentInstrument
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -320,7 +319,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Create a Payment Instrument
-        * Create a &#x60;Payment Instrument&#x60; resource using a card or bank account.  To accept payment detail, review our guide on how to [tokenize cards using hosted fields](/guides/payments/tokenization-with-hosted-fields).
+        * Create a &#x60;Payment Instrument&#x60; resource using a card or bank account.  To accept payment details, review our guide on how to [tokenize cards using hosted fields](/guides/payments/tokenization-with-hosted-fields).  &gt; The creation of &#x60;Payment Instruments&#x60; using cards directly via Finix&#39;s API should only be done for testing purposes. You must use the Hosted Tokenization fields or javascript client to remain out of PCI scope.
             * @param createPaymentInstrumentRequest  (optional)
         * @return ApiResponse&lt;PaymentInstrument&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -342,7 +341,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Create a Payment Instrument (asynchronously)
-        * Create a &#x60;Payment Instrument&#x60; resource using a card or bank account.  To accept payment detail, review our guide on how to [tokenize cards using hosted fields](/guides/payments/tokenization-with-hosted-fields).
+        * Create a &#x60;Payment Instrument&#x60; resource using a card or bank account.  To accept payment details, review our guide on how to [tokenize cards using hosted fields](/guides/payments/tokenization-with-hosted-fields).  &gt; The creation of &#x60;Payment Instruments&#x60; using cards directly via Finix&#39;s API should only be done for testing purposes. You must use the Hosted Tokenization fields or javascript client to remain out of PCI scope.
             * @param createPaymentInstrumentRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
@@ -365,154 +364,9 @@ this.localCustomBaseUrl = customBaseUrl;
         return localVarCall;
         }
     /**
-    * Build call for createPaymentInstrumentUpdate
-        * @param createInstrumentUpdatesRequest  (optional)
-    * @param _callback Callback for upload/download progress
-    * @return Call to execute
-    * @throws ApiException If fail to serialize the request body object
-        * @http.response.details
-        <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                <tr><td> 200 </td><td> Single instrument_update object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-        </table>
-    */
-    public okhttp3.Call createPaymentInstrumentUpdateCall(CreateInstrumentUpdatesRequest createInstrumentUpdatesRequest, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {  };
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
-
-    Object localVarPostBody = createInstrumentUpdatesRequest;
-
-    // create path and map variables
-        String localVarPath = "/instrument_updates";
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    /**
-     * EDITED
-     * Generator FAILS to set localVarFormParams
-     */
-
-    localVarFormParams.put("file",createInstrumentUpdatesRequest.getFile());
-    localVarFormParams.put("request",createInstrumentUpdatesRequest.getRequest());
-
-        final String[] localVarAccepts = {
-    "application/hal+json"
-        };
-        final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-    "multipart/form-data"
-        };
-        final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
-        return localVarFinixClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
-
-        @SuppressWarnings("rawtypes")
-        private okhttp3.Call createPaymentInstrumentUpdateValidateBeforeCall(CreateInstrumentUpdatesRequest createInstrumentUpdatesRequest, final ApiCallback _callback) throws ApiException {
-        
-
-            okhttp3.Call localVarCall = createPaymentInstrumentUpdateCall(createInstrumentUpdatesRequest, _callback);
-            return localVarCall;
-
-        }
-
-            /**
-            * Create Instrument Updates
-            * To update the card details of your customers, create an &#x60;instrument_updates&#x60; resource. Include the &#x60;Payment Instrument&#x60; IDs you want to update in a CSV. For more info, see the guide on using our [Account Updater](//payments/account-updater/).
-                * @param createInstrumentUpdatesRequest  (optional)
-                * @return InstrumentUpdates
-            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Single instrument_update object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                </table>
-            */
-                public InstrumentUpdates createPaymentInstrumentUpdate(CreateInstrumentUpdatesRequest createInstrumentUpdatesRequest) throws ApiException {
-            ApiResponse<InstrumentUpdates> localVarResp = createPaymentInstrumentUpdateWithHttpInfo(createInstrumentUpdatesRequest);
-                    return localVarResp.getData();
-                }
-
-    /**
-        * Create Instrument Updates
-        * To update the card details of your customers, create an &#x60;instrument_updates&#x60; resource. Include the &#x60;Payment Instrument&#x60; IDs you want to update in a CSV. For more info, see the guide on using our [Account Updater](//payments/account-updater/).
-            * @param createInstrumentUpdatesRequest  (optional)
-        * @return ApiResponse&lt;InstrumentUpdates&gt;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Single instrument_update object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public ApiResponse<InstrumentUpdates> createPaymentInstrumentUpdateWithHttpInfo(CreateInstrumentUpdatesRequest createInstrumentUpdatesRequest) throws ApiException {
-        okhttp3.Call localVarCall = createPaymentInstrumentUpdateValidateBeforeCall(createInstrumentUpdatesRequest, null);
-                Type localVarReturnType = new TypeToken<InstrumentUpdates>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
-
-    /**
-        * Create Instrument Updates (asynchronously)
-        * To update the card details of your customers, create an &#x60;instrument_updates&#x60; resource. Include the &#x60;Payment Instrument&#x60; IDs you want to update in a CSV. For more info, see the guide on using our [Account Updater](//payments/account-updater/).
-            * @param createInstrumentUpdatesRequest  (optional)
-        * @param _callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Single instrument_update object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public okhttp3.Call createPaymentInstrumentUpdateAsync(CreateInstrumentUpdatesRequest createInstrumentUpdatesRequest, final ApiCallback<InstrumentUpdates> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = createPaymentInstrumentUpdateValidateBeforeCall(createInstrumentUpdatesRequest, _callback);
-    Type localVarReturnType = new TypeToken<InstrumentUpdates>(){}.getType();
-        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-        }
-    /**
     * Build call for createPaymentInstrumentVerification
         * @param paymentInstrumentId ID of object (required)
-        * @param CreateVerificationRequest  (optional)
+        * @param createVerificationRequest  (optional)
     * @param _callback Callback for upload/download progress
     * @return Call to execute
     * @throws ApiException If fail to serialize the request body object
@@ -527,7 +381,7 @@ this.localCustomBaseUrl = customBaseUrl;
                 <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
         </table>
     */
-    public okhttp3.Call createPaymentInstrumentVerificationCall(String paymentInstrumentId, CreateVerificationRequest CreateVerificationRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createPaymentInstrumentVerificationCall(String paymentInstrumentId, CreateVerificationRequest createVerificationRequest, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -541,7 +395,7 @@ this.localCustomBaseUrl = customBaseUrl;
     basePath = null;
     }
 
-    Object localVarPostBody = CreateVerificationRequest;
+    Object localVarPostBody = createVerificationRequest;
 
     // create path and map variables
         String localVarPath = "/payment_instruments/{payment_instrument_id}/verifications"
@@ -554,8 +408,9 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-    "application/hal+json"
+            "application/hal+json"
         };
+
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
         localVarHeaderParams.put("Accept", localVarAccept);
@@ -574,7 +429,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call createPaymentInstrumentVerificationValidateBeforeCall(String paymentInstrumentId, CreateVerificationRequest CreateVerificationRequest, final ApiCallback _callback) throws ApiException {
+        private okhttp3.Call createPaymentInstrumentVerificationValidateBeforeCall(String paymentInstrumentId, CreateVerificationRequest createVerificationRequest, final ApiCallback _callback) throws ApiException {
         
                 // verify the required parameter 'paymentInstrumentId' is set
                 if (paymentInstrumentId == null) {
@@ -582,7 +437,7 @@ this.localCustomBaseUrl = customBaseUrl;
                 }
         
 
-            okhttp3.Call localVarCall = createPaymentInstrumentVerificationCall(paymentInstrumentId, CreateVerificationRequest, _callback);
+            okhttp3.Call localVarCall = createPaymentInstrumentVerificationCall(paymentInstrumentId, createVerificationRequest, _callback);
             return localVarCall;
 
         }
@@ -591,7 +446,7 @@ this.localCustomBaseUrl = customBaseUrl;
             * Verify a Payment Instrument
             * Verify a &#x60;Payment Instrument&#x60; to determine if it&#39;s elligable for Push To Card transactions.   &gt; Only verify &#x60;Payment Instruments&#x60; for [Push To Card](/guides/push-to-card) customers.
                 * @param paymentInstrumentId ID of object (required)
-                * @param CreateVerificationRequest  (optional)
+                * @param createVerificationRequest  (optional)
                 * @return Verification
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
@@ -605,8 +460,8 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-                public Verification createPaymentInstrumentVerification(String paymentInstrumentId, CreateVerificationRequest CreateVerificationRequest) throws ApiException {
-            ApiResponse<Verification> localVarResp = createPaymentInstrumentVerificationWithHttpInfo(paymentInstrumentId, CreateVerificationRequest);
+                public Verification createPaymentInstrumentVerification(String paymentInstrumentId, CreateVerificationRequest createVerificationRequest) throws ApiException {
+            ApiResponse<Verification> localVarResp = createPaymentInstrumentVerificationWithHttpInfo(paymentInstrumentId, createVerificationRequest);
                     return localVarResp.getData();
                 }
 
@@ -614,7 +469,7 @@ this.localCustomBaseUrl = customBaseUrl;
         * Verify a Payment Instrument
         * Verify a &#x60;Payment Instrument&#x60; to determine if it&#39;s elligable for Push To Card transactions.   &gt; Only verify &#x60;Payment Instruments&#x60; for [Push To Card](/guides/push-to-card) customers.
             * @param paymentInstrumentId ID of object (required)
-            * @param CreateVerificationRequest  (optional)
+            * @param createVerificationRequest  (optional)
         * @return ApiResponse&lt;Verification&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
             * @http.response.details
@@ -628,8 +483,8 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public ApiResponse<Verification> createPaymentInstrumentVerificationWithHttpInfo(String paymentInstrumentId, CreateVerificationRequest CreateVerificationRequest) throws ApiException {
-        okhttp3.Call localVarCall = createPaymentInstrumentVerificationValidateBeforeCall(paymentInstrumentId, CreateVerificationRequest, null);
+        public ApiResponse<Verification> createPaymentInstrumentVerificationWithHttpInfo(String paymentInstrumentId, CreateVerificationRequest createVerificationRequest) throws ApiException {
+        okhttp3.Call localVarCall = createPaymentInstrumentVerificationValidateBeforeCall(paymentInstrumentId, createVerificationRequest, null);
                 Type localVarReturnType = new TypeToken<Verification>(){}.getType();
                 return localVarFinixClient.execute(localVarCall, localVarReturnType);
         }
@@ -638,7 +493,7 @@ this.localCustomBaseUrl = customBaseUrl;
         * Verify a Payment Instrument (asynchronously)
         * Verify a &#x60;Payment Instrument&#x60; to determine if it&#39;s elligable for Push To Card transactions.   &gt; Only verify &#x60;Payment Instruments&#x60; for [Push To Card](/guides/push-to-card) customers.
             * @param paymentInstrumentId ID of object (required)
-            * @param CreateVerificationRequest  (optional)
+            * @param createVerificationRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -653,293 +508,11 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call createPaymentInstrumentVerificationAsync(String paymentInstrumentId, CreateVerificationRequest CreateVerificationRequest, final ApiCallback<Verification> _callback) throws ApiException {
+        public okhttp3.Call createPaymentInstrumentVerificationAsync(String paymentInstrumentId, CreateVerificationRequest createVerificationRequest, final ApiCallback<Verification> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createPaymentInstrumentVerificationValidateBeforeCall(paymentInstrumentId, CreateVerificationRequest, _callback);
+        okhttp3.Call localVarCall = createPaymentInstrumentVerificationValidateBeforeCall(paymentInstrumentId, createVerificationRequest, _callback);
     Type localVarReturnType = new TypeToken<Verification>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-        }
-    /**
-    * Build call for getInstrumentUpdate
-        * @param instrumentUpdatesId  (required)
-    * @param _callback Callback for upload/download progress
-    * @return Call to execute
-    * @throws ApiException If fail to serialize the request body object
-        * @http.response.details
-        <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                <tr><td> 200 </td><td> Single instrument_update object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-        </table>
-    */
-    public okhttp3.Call getInstrumentUpdateCall(String instrumentUpdatesId, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {  };
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
-
-    Object localVarPostBody = null;
-
-    // create path and map variables
-        String localVarPath = "/instrument_updates/{instrument_updates_id}"
-            .replaceAll("\\{" + "instrument_updates_id" + "\\}", localVarFinixClient.escapeString(instrumentUpdatesId.toString()));
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-    "application/hal+json"
-        };
-        final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-    
-        };
-        final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
-        return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
-
-        @SuppressWarnings("rawtypes")
-        private okhttp3.Call getInstrumentUpdateValidateBeforeCall(String instrumentUpdatesId, final ApiCallback _callback) throws ApiException {
-        
-                // verify the required parameter 'instrumentUpdatesId' is set
-                if (instrumentUpdatesId == null) {
-                throw new ApiException("Missing the required parameter 'instrumentUpdatesId' when calling getInstrumentUpdate(Async)");
-                }
-        
-
-            okhttp3.Call localVarCall = getInstrumentUpdateCall(instrumentUpdatesId, _callback);
-            return localVarCall;
-
-        }
-
-            /**
-            * Fetch an Instrument Update
-            * Fetch a specific &#x60;instrument_update&#x60; from an &#x60;instrument_updates&#x60; resource. For more information, see the guide on using our [Account Updater](/guides/payments/account-updater).
-                * @param instrumentUpdatesId  (required)
-                * @return InstrumentUpdates
-            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Single instrument_update object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                </table>
-            */
-                public InstrumentUpdates getInstrumentUpdate(String instrumentUpdatesId) throws ApiException {
-            ApiResponse<InstrumentUpdates> localVarResp = getInstrumentUpdateWithHttpInfo(instrumentUpdatesId);
-                    return localVarResp.getData();
-                }
-
-    /**
-        * Fetch an Instrument Update
-        * Fetch a specific &#x60;instrument_update&#x60; from an &#x60;instrument_updates&#x60; resource. For more information, see the guide on using our [Account Updater](/guides/payments/account-updater).
-            * @param instrumentUpdatesId  (required)
-        * @return ApiResponse&lt;InstrumentUpdates&gt;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Single instrument_update object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public ApiResponse<InstrumentUpdates> getInstrumentUpdateWithHttpInfo(String instrumentUpdatesId) throws ApiException {
-        okhttp3.Call localVarCall = getInstrumentUpdateValidateBeforeCall(instrumentUpdatesId, null);
-                Type localVarReturnType = new TypeToken<InstrumentUpdates>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
-
-    /**
-        * Fetch an Instrument Update (asynchronously)
-        * Fetch a specific &#x60;instrument_update&#x60; from an &#x60;instrument_updates&#x60; resource. For more information, see the guide on using our [Account Updater](/guides/payments/account-updater).
-            * @param instrumentUpdatesId  (required)
-        * @param _callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Single instrument_update object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public okhttp3.Call getInstrumentUpdateAsync(String instrumentUpdatesId, final ApiCallback<InstrumentUpdates> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getInstrumentUpdateValidateBeforeCall(instrumentUpdatesId, _callback);
-    Type localVarReturnType = new TypeToken<InstrumentUpdates>(){}.getType();
-        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-        }
-    /**
-    * Build call for getInstrumentUpdates
-        * @param instrumentUpdatesId The ID of the &#x60;instrument_updates&#x60; resource. This ID was returned when initially creating the &#x60;instrument_updates&#x60; object. (required)
-    * @param _callback Callback for upload/download progress
-    * @return Call to execute
-    * @throws ApiException If fail to serialize the request body object
-        * @http.response.details
-        <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                <tr><td> 200 </td><td> The updated &#x60;Payment Instruments&#x60; will be returned in the following comma seperated format:  payment\\_instrument\\_original, | payment\\_instrument_new, |result --------------------------- | ---------------------- | ----- PIlkNdfZibF8a7Prd2teGB1 | PI3aQGaCM5nDMjqyTXcbUJzR| CARD\\_EXPIRATION_UPDATED PIJPXW0HZ9lpO1nb6sog5DiX  | PIdBHpy7BBSxd2z81VdKpVbT | CARD\\_NOT\\_FOUND PI0ovZAS9yfEtgDrZnMaiLvi   | PIhXS0jXNTmklyVk91EsohuZ | CONTACT\\_CARDHOLDER PInOrrKY3G1U33hGYTQJ8cIY |  | CLOSED\\_ACCOUNT PIlkAOt5kTVhuuxxbmOi9qn |  | INVALID\\_CARD PIiRLbbG4i5daypWNzIrq2xD   |  | NO\\_CHANGE\\_FOUND PIy5llZGt6VxlDqbcTgATqeH     |    | UNKNOWN </td><td>  -  </td></tr>
-                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-        </table>
-    */
-    public okhttp3.Call getInstrumentUpdatesCall(String instrumentUpdatesId, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {  };
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
-
-    Object localVarPostBody = null;
-
-    // create path and map variables
-        String localVarPath = "/instrument_updates/{instrument_updates_id}/download"
-            .replaceAll("\\{" + "instrument_updates_id" + "\\}", localVarFinixClient.escapeString(instrumentUpdatesId.toString()));
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-    "application/hal+json"
-        };
-        final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-    
-        };
-        final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
-        return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
-
-        @SuppressWarnings("rawtypes")
-        private okhttp3.Call getInstrumentUpdatesValidateBeforeCall(String instrumentUpdatesId, final ApiCallback _callback) throws ApiException {
-        
-                // verify the required parameter 'instrumentUpdatesId' is set
-                if (instrumentUpdatesId == null) {
-                throw new ApiException("Missing the required parameter 'instrumentUpdatesId' when calling getInstrumentUpdates(Async)");
-                }
-        
-
-            okhttp3.Call localVarCall = getInstrumentUpdatesCall(instrumentUpdatesId, _callback);
-            return localVarCall;
-
-        }
-
-            /**
-            * Download Instrument Updates
-            * Fetch a previously created &#x60;instrument_updates&#x60; resource as a CSV.   To fetch the &#x60;instrument_updates&#x60; resource in JSON, add &#x60;?format&#x3D;json&#x60; to the request endpoint.
-                * @param instrumentUpdatesId The ID of the &#x60;instrument_updates&#x60; resource. This ID was returned when initially creating the &#x60;instrument_updates&#x60; object. (required)
-            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> The updated &#x60;Payment Instruments&#x60; will be returned in the following comma seperated format:  payment\\_instrument\\_original, | payment\\_instrument_new, |result --------------------------- | ---------------------- | ----- PIlkNdfZibF8a7Prd2teGB1 | PI3aQGaCM5nDMjqyTXcbUJzR| CARD\\_EXPIRATION_UPDATED PIJPXW0HZ9lpO1nb6sog5DiX  | PIdBHpy7BBSxd2z81VdKpVbT | CARD\\_NOT\\_FOUND PI0ovZAS9yfEtgDrZnMaiLvi   | PIhXS0jXNTmklyVk91EsohuZ | CONTACT\\_CARDHOLDER PInOrrKY3G1U33hGYTQJ8cIY |  | CLOSED\\_ACCOUNT PIlkAOt5kTVhuuxxbmOi9qn |  | INVALID\\_CARD PIiRLbbG4i5daypWNzIrq2xD   |  | NO\\_CHANGE\\_FOUND PIy5llZGt6VxlDqbcTgATqeH     |    | UNKNOWN </td><td>  -  </td></tr>
-                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                </table>
-            */
-                public void getInstrumentUpdates(String instrumentUpdatesId) throws ApiException {
-            getInstrumentUpdatesWithHttpInfo(instrumentUpdatesId);
-                }
-
-    /**
-        * Download Instrument Updates
-        * Fetch a previously created &#x60;instrument_updates&#x60; resource as a CSV.   To fetch the &#x60;instrument_updates&#x60; resource in JSON, add &#x60;?format&#x3D;json&#x60; to the request endpoint.
-            * @param instrumentUpdatesId The ID of the &#x60;instrument_updates&#x60; resource. This ID was returned when initially creating the &#x60;instrument_updates&#x60; object. (required)
-        * @return ApiResponse&lt;Void&gt;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> The updated &#x60;Payment Instruments&#x60; will be returned in the following comma seperated format:  payment\\_instrument\\_original, | payment\\_instrument_new, |result --------------------------- | ---------------------- | ----- PIlkNdfZibF8a7Prd2teGB1 | PI3aQGaCM5nDMjqyTXcbUJzR| CARD\\_EXPIRATION_UPDATED PIJPXW0HZ9lpO1nb6sog5DiX  | PIdBHpy7BBSxd2z81VdKpVbT | CARD\\_NOT\\_FOUND PI0ovZAS9yfEtgDrZnMaiLvi   | PIhXS0jXNTmklyVk91EsohuZ | CONTACT\\_CARDHOLDER PInOrrKY3G1U33hGYTQJ8cIY |  | CLOSED\\_ACCOUNT PIlkAOt5kTVhuuxxbmOi9qn |  | INVALID\\_CARD PIiRLbbG4i5daypWNzIrq2xD   |  | NO\\_CHANGE\\_FOUND PIy5llZGt6VxlDqbcTgATqeH     |    | UNKNOWN </td><td>  -  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public ApiResponse<Void> getInstrumentUpdatesWithHttpInfo(String instrumentUpdatesId) throws ApiException {
-        okhttp3.Call localVarCall = getInstrumentUpdatesValidateBeforeCall(instrumentUpdatesId, null);
-            return localVarFinixClient.execute(localVarCall);
-        }
-
-    /**
-        * Download Instrument Updates (asynchronously)
-        * Fetch a previously created &#x60;instrument_updates&#x60; resource as a CSV.   To fetch the &#x60;instrument_updates&#x60; resource in JSON, add &#x60;?format&#x3D;json&#x60; to the request endpoint.
-            * @param instrumentUpdatesId The ID of the &#x60;instrument_updates&#x60; resource. This ID was returned when initially creating the &#x60;instrument_updates&#x60; object. (required)
-        * @param _callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> The updated &#x60;Payment Instruments&#x60; will be returned in the following comma seperated format:  payment\\_instrument\\_original, | payment\\_instrument_new, |result --------------------------- | ---------------------- | ----- PIlkNdfZibF8a7Prd2teGB1 | PI3aQGaCM5nDMjqyTXcbUJzR| CARD\\_EXPIRATION_UPDATED PIJPXW0HZ9lpO1nb6sog5DiX  | PIdBHpy7BBSxd2z81VdKpVbT | CARD\\_NOT\\_FOUND PI0ovZAS9yfEtgDrZnMaiLvi   | PIhXS0jXNTmklyVk91EsohuZ | CONTACT\\_CARDHOLDER PInOrrKY3G1U33hGYTQJ8cIY |  | CLOSED\\_ACCOUNT PIlkAOt5kTVhuuxxbmOi9qn |  | INVALID\\_CARD PIiRLbbG4i5daypWNzIrq2xD   |  | NO\\_CHANGE\\_FOUND PIy5llZGt6VxlDqbcTgATqeH     |    | UNKNOWN </td><td>  -  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public okhttp3.Call getInstrumentUpdatesAsync(String instrumentUpdatesId, final ApiCallback<Void> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getInstrumentUpdatesValidateBeforeCall(instrumentUpdatesId, _callback);
-    localVarFinixClient.executeAsync(localVarCall, _callback);
         return localVarCall;
         }
     /**
@@ -985,8 +558,9 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-    "application/hal+json"
+            "application/hal+json"
         };
+
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
         localVarHeaderParams.put("Accept", localVarAccept);
@@ -1085,551 +659,6 @@ this.localCustomBaseUrl = customBaseUrl;
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
         }
-    /**
-    * Build call for listApplicationPaymentInstruments
-        * @param applicationId ID of application to use (required)
-    * @param _callback Callback for upload/download progress
-    * @return Call to execute
-    * @throws ApiException If fail to serialize the request body object
-        * @http.response.details
-        <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                <tr><td> 200 </td><td> List of Payment Instrument objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-        </table>
-    */
-    public okhttp3.Call listApplicationPaymentInstrumentsCall(String applicationId, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {  };
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
-
-    Object localVarPostBody = null;
-
-    // create path and map variables
-        String localVarPath = "/applications/{application_id}/payment_instruments"
-            .replaceAll("\\{" + "application_id" + "\\}", localVarFinixClient.escapeString(applicationId.toString()));
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-    "application/hal+json"
-        };
-        final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-    
-        };
-        final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
-        return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
-
-        @SuppressWarnings("rawtypes")
-        private okhttp3.Call listApplicationPaymentInstrumentsValidateBeforeCall(String applicationId, final ApiCallback _callback) throws ApiException {
-        
-                // verify the required parameter 'applicationId' is set
-                if (applicationId == null) {
-                throw new ApiException("Missing the required parameter 'applicationId' when calling listApplicationPaymentInstruments(Async)");
-                }
-        
-
-            okhttp3.Call localVarCall = listApplicationPaymentInstrumentsCall(applicationId, _callback);
-            return localVarCall;
-
-        }
-
-            /**
-            * Payment Instruments
-            * Get all paymentInstruments of an application.
-                * @param applicationId ID of application to use (required)
-                * @return PaymentInstrumentsList
-            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of Payment Instrument objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                </table>
-            */
-                public PaymentInstrumentsList listByApplicationId(String applicationId) throws ApiException {
-            ApiResponse<PaymentInstrumentsList> localVarResp = listApplicationPaymentInstrumentsWithHttpInfo(applicationId);
-                    return localVarResp.getData();
-                }
-
-    /**
-        * Payment Instruments
-        * Get all paymentInstruments of an application.
-            * @param applicationId ID of application to use (required)
-        * @return ApiResponse&lt;PaymentInstrumentsList&gt;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Payment Instrument objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public ApiResponse<PaymentInstrumentsList> listApplicationPaymentInstrumentsWithHttpInfo(String applicationId) throws ApiException {
-        okhttp3.Call localVarCall = listApplicationPaymentInstrumentsValidateBeforeCall(applicationId, null);
-                Type localVarReturnType = new TypeToken<PaymentInstrumentsList>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
-
-    /**
-        * Payment Instruments (asynchronously)
-        * Get all paymentInstruments of an application.
-            * @param applicationId ID of application to use (required)
-        * @param _callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Payment Instrument objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public okhttp3.Call listApplicationPaymentInstrumentsAsync(String applicationId, final ApiCallback<PaymentInstrumentsList> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listApplicationPaymentInstrumentsValidateBeforeCall(applicationId, _callback);
-    Type localVarReturnType = new TypeToken<PaymentInstrumentsList>(){}.getType();
-        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-        }
-    /**
-    * Build call for listIdentityPaymentInstruments
-        * @param identityId ID of identity to fetch (required)
-        * @param limit The number of entries to return. (optional)
-        * @param offset The number of items to skip before starting to collect the result set. (optional)
-        * @param pageNumber The page number to list. (optional)
-        * @param pageSize The size of the page. (optional)
-    * @param _callback Callback for upload/download progress
-    * @return Call to execute
-    * @throws ApiException If fail to serialize the request body object
-        * @http.response.details
-        <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                <tr><td> 200 </td><td> List of Payment Instrument objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-        </table>
-    */
-    public okhttp3.Call listIdentityPaymentInstrumentsCall(String identityId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {  };
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
-
-    Object localVarPostBody = null;
-
-    // create path and map variables
-        String localVarPath = "/identities/{identity_id}/payment_instruments"
-            .replaceAll("\\{" + "identity_id" + "\\}", localVarFinixClient.escapeString(identityId.toString()));
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-                if (limit != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("limit", limit));
-                }
-
-                if (offset != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("offset", offset));
-                }
-
-                if (pageNumber != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageNumber", pageNumber));
-                }
-
-                if (pageSize != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageSize", pageSize));
-                }
-
-        final String[] localVarAccepts = {
-    "application/hal+json"
-        };
-        final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-    
-        };
-        final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
-        return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
-
-        @SuppressWarnings("rawtypes")
-        private okhttp3.Call listIdentityPaymentInstrumentsValidateBeforeCall(String identityId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback _callback) throws ApiException {
-        
-                // verify the required parameter 'identityId' is set
-                if (identityId == null) {
-                throw new ApiException("Missing the required parameter 'identityId' when calling listIdentityPaymentInstruments(Async)");
-                }
-        
-
-            okhttp3.Call localVarCall = listIdentityPaymentInstrumentsCall(identityId, limit, offset, pageNumber, pageSize, _callback);
-            return localVarCall;
-
-        }
-
-            /**
-            * List Identity Payment Instruments
-            * Get all payment instruments associated to this identity
-                * @param identityId ID of identity to fetch (required)
-                * @param limit The number of entries to return. (optional)
-                * @param offset The number of items to skip before starting to collect the result set. (optional)
-                * @param pageNumber The page number to list. (optional)
-                * @param pageSize The size of the page. (optional)
-                * @return PaymentInstrumentsList
-            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of Payment Instrument objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                </table>
-            */
-                public PaymentInstrumentsList listByIdentityId(String identityId, Long limit, Long offset, Long pageNumber, Long pageSize) throws ApiException {
-            ApiResponse<PaymentInstrumentsList> localVarResp = listIdentityPaymentInstrumentsWithHttpInfo(identityId, limit, offset, pageNumber, pageSize);
-                    return localVarResp.getData();
-                }
-
-    /**
-        * List Identity Payment Instruments
-        * Get all payment instruments associated to this identity
-            * @param identityId ID of identity to fetch (required)
-            * @param limit The number of entries to return. (optional)
-            * @param offset The number of items to skip before starting to collect the result set. (optional)
-            * @param pageNumber The page number to list. (optional)
-            * @param pageSize The size of the page. (optional)
-        * @return ApiResponse&lt;PaymentInstrumentsList&gt;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Payment Instrument objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public ApiResponse<PaymentInstrumentsList> listIdentityPaymentInstrumentsWithHttpInfo(String identityId, Long limit, Long offset, Long pageNumber, Long pageSize) throws ApiException {
-        okhttp3.Call localVarCall = listIdentityPaymentInstrumentsValidateBeforeCall(identityId, limit, offset, pageNumber, pageSize, null);
-                Type localVarReturnType = new TypeToken<PaymentInstrumentsList>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
-
-    /**
-        * List Identity Payment Instruments (asynchronously)
-        * Get all payment instruments associated to this identity
-            * @param identityId ID of identity to fetch (required)
-            * @param limit The number of entries to return. (optional)
-            * @param offset The number of items to skip before starting to collect the result set. (optional)
-            * @param pageNumber The page number to list. (optional)
-            * @param pageSize The size of the page. (optional)
-        * @param _callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Payment Instrument objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public okhttp3.Call listIdentityPaymentInstrumentsAsync(String identityId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback<PaymentInstrumentsList> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listIdentityPaymentInstrumentsValidateBeforeCall(identityId, limit, offset, pageNumber, pageSize, _callback);
-    Type localVarReturnType = new TypeToken<PaymentInstrumentsList>(){}.getType();
-        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-        }
-    private okhttp3.Call listPaymentInstrumentUpdatesCall(String paymentInstrumentId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {  };
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
-
-    Object localVarPostBody = null;
-
-    // create path and map variables
-        String localVarPath = "/payment_instruments/{payment_instrument_id}/updates"
-            .replaceAll("\\{" + "payment_instrument_id" + "\\}", localVarFinixClient.escapeString(paymentInstrumentId.toString()));
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-                if (limit != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("limit", limit));
-                }
-
-                if (offset != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("offset", offset));
-                }
-
-                if (pageNumber != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageNumber", pageNumber));
-                }
-
-                if (pageSize != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageSize", pageSize));
-                }
-
-        final String[] localVarAccepts = {
-    "application/hal+json"
-        };
-        final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-    
-        };
-        final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
-        return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
-
-        @SuppressWarnings("rawtypes")
-        private okhttp3.Call listPaymentInstrumentUpdatesValidateBeforeCall(String paymentInstrumentId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback _callback) throws ApiException {
-        
-                // verify the required parameter 'paymentInstrumentId' is set
-                if (paymentInstrumentId == null) {
-                throw new ApiException("Missing the required parameter 'paymentInstrumentId' when calling listPaymentInstrumentUpdates(Async)");
-                }
-        
-
-            okhttp3.Call localVarCall = listPaymentInstrumentUpdatesCall(paymentInstrumentId, limit, offset, pageNumber, pageSize, _callback);
-            return localVarCall;
-
-        }
-
-
-    private ApiResponse<PaymentInstrumentUpdatesList> listPaymentInstrumentUpdatesWithHttpInfo(String paymentInstrumentId, Long limit, Long offset, Long pageNumber, Long pageSize) throws ApiException {
-        okhttp3.Call localVarCall = listPaymentInstrumentUpdatesValidateBeforeCall(paymentInstrumentId, limit, offset, pageNumber, pageSize, null);
-                Type localVarReturnType = new TypeToken<PaymentInstrumentUpdatesList>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
-
-    private okhttp3.Call listPaymentInstrumentUpdatesAsync(String paymentInstrumentId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback<PaymentInstrumentUpdatesList> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listPaymentInstrumentUpdatesValidateBeforeCall(paymentInstrumentId, limit, offset, pageNumber, pageSize, _callback);
-    Type localVarReturnType = new TypeToken<PaymentInstrumentUpdatesList>(){}.getType();
-        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-        }
-
-        public class APIlistPaymentInstrumentUpdatesRequest {
-            private final String paymentInstrumentId;
-            private Long limit;
-            private Long offset;
-            private Long pageNumber;
-            private Long pageSize;
-
-        private APIlistPaymentInstrumentUpdatesRequest(String paymentInstrumentId) {
-            this.paymentInstrumentId = paymentInstrumentId;
-        }
-
-            /**
-            * Set limit
-            * @param limit The number of entries to return. (optional)
-            * @return APIlistPaymentInstrumentUpdatesRequest
-            */
-            public APIlistPaymentInstrumentUpdatesRequest limit(Long limit) {
-            this.limit = limit;
-            return this;
-            }
-
-            /**
-            * Set offset
-            * @param offset The number of items to skip before starting to collect the result set. (optional)
-            * @return APIlistPaymentInstrumentUpdatesRequest
-            */
-            public APIlistPaymentInstrumentUpdatesRequest offset(Long offset) {
-            this.offset = offset;
-            return this;
-            }
-
-            /**
-            * Set pageNumber
-            * @param pageNumber The page number to list. (optional)
-            * @return APIlistPaymentInstrumentUpdatesRequest
-            */
-            public APIlistPaymentInstrumentUpdatesRequest pageNumber(Long pageNumber) {
-            this.pageNumber = pageNumber;
-            return this;
-            }
-
-            /**
-            * Set pageSize
-            * @param pageSize The size of the page. (optional)
-            * @return APIlistPaymentInstrumentUpdatesRequest
-            */
-            public APIlistPaymentInstrumentUpdatesRequest pageSize(Long pageSize) {
-            this.pageSize = pageSize;
-            return this;
-            }
-
-        /**
-        * Build call for listPaymentInstrumentUpdates
-        * @param _callback ApiCallback API callback
-        * @return Call to execute
-        * @throws ApiException If fail to serialize the request body object
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Update objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-        return listPaymentInstrumentUpdatesCall(paymentInstrumentId, limit, offset, pageNumber, pageSize, _callback);
-        }
-
-        /**
-        * Execute listPaymentInstrumentUpdates request
-            * @return PaymentInstrumentUpdatesList
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Update objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public PaymentInstrumentUpdatesList execute() throws ApiException {
-    ApiResponse<PaymentInstrumentUpdatesList> localVarResp = listPaymentInstrumentUpdatesWithHttpInfo(paymentInstrumentId, limit, offset, pageNumber, pageSize);
-            return localVarResp.getData();
-        }
-
-        /**
-        * Execute listPaymentInstrumentUpdates request with HTTP info returned
-        * @return ApiResponse&lt;PaymentInstrumentUpdatesList&gt;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Update objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public ApiResponse<PaymentInstrumentUpdatesList> executeWithHttpInfo() throws ApiException {
-        return listPaymentInstrumentUpdatesWithHttpInfo(paymentInstrumentId, limit, offset, pageNumber, pageSize);
-        }
-
-        /**
-        * Execute listPaymentInstrumentUpdates request (asynchronously)
-        * @param _callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Update objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public okhttp3.Call executeAsync(final ApiCallback<PaymentInstrumentUpdatesList> _callback) throws ApiException {
-        return listPaymentInstrumentUpdatesAsync(paymentInstrumentId, limit, offset, pageNumber, pageSize, _callback);
-        }
-        }
-
-        /**
-        * List Payment Instrument Updates
-        * List the updates on a &#x60;Payment Instrument&#x60;.  When using the [account updater](/guides/payments/account-updater), &#x60;Payment Instrument&#x60; details that are updated are represented by an &#x60;Update&#x60;.
-            * @param paymentInstrumentId ID of object (required)
-        * @return APIlistPaymentInstrumentUpdatesRequest
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Update objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-    public PaymentInstrumentUpdatesList listUpdatesByPaymentInstrumentId(String paymentInstrumentId,  ListPaymentInstrumentUpdatesQueryParams listPaymentInstrumentUpdatesQueryParams) throws ApiException {
-
-        APIlistPaymentInstrumentUpdatesRequest request = new APIlistPaymentInstrumentUpdatesRequest(paymentInstrumentId);
-        request.limit(listPaymentInstrumentUpdatesQueryParams.getLimit());
-        request.offset(listPaymentInstrumentUpdatesQueryParams.getOffset());
-        request.pageNumber(listPaymentInstrumentUpdatesQueryParams.getPageNumber());
-        request.pageSize(listPaymentInstrumentUpdatesQueryParams.getPageSize());
-        return request.execute();
-
-    }
     private okhttp3.Call listPaymentInstrumentsCall(Long limit, String afterCursor, String accountLast4, String accountRoutingNumber, String application, String bin, String createdAtGte, String createdAtLte, String expirationMonth, String expirationYear, String lastFour, String name, String ownerIdentityId, String type, String beforeCursor, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -1716,8 +745,9 @@ this.localCustomBaseUrl = customBaseUrl;
                 }
 
         final String[] localVarAccepts = {
-    "application/hal+json"
+            "application/hal+json"
         };
+
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
         localVarHeaderParams.put("Accept", localVarAccept);
@@ -2036,184 +1066,9 @@ this.localCustomBaseUrl = customBaseUrl;
 
     }
     /**
-    * Build call for listTransferPaymentInstruments
-        * @param transferId ID of object (required)
-        * @param limit The number of entries to return. (optional)
-        * @param offset The number of items to skip before starting to collect the result set. (optional)
-        * @param pageNumber The page number to list. (optional)
-        * @param pageSize The size of the page. (optional)
-    * @param _callback Callback for upload/download progress
-    * @return Call to execute
-    * @throws ApiException If fail to serialize the request body object
-        * @http.response.details
-        <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                <tr><td> 200 </td><td> List of Payment Instrument objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-        </table>
-    */
-    public okhttp3.Call listTransferPaymentInstrumentsCall(String transferId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {  };
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
-
-    Object localVarPostBody = null;
-
-    // create path and map variables
-        String localVarPath = "/transfers/{transfer_id}/payment_instruments"
-            .replaceAll("\\{" + "transfer_id" + "\\}", localVarFinixClient.escapeString(transferId.toString()));
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-                if (limit != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("limit", limit));
-                }
-
-                if (offset != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("offset", offset));
-                }
-
-                if (pageNumber != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageNumber", pageNumber));
-                }
-
-                if (pageSize != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageSize", pageSize));
-                }
-
-        final String[] localVarAccepts = {
-    "application/hal+json"
-        };
-        final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-    
-        };
-        final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
-        return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
-
-        @SuppressWarnings("rawtypes")
-        private okhttp3.Call listTransferPaymentInstrumentsValidateBeforeCall(String transferId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback _callback) throws ApiException {
-        
-                // verify the required parameter 'transferId' is set
-                if (transferId == null) {
-                throw new ApiException("Missing the required parameter 'transferId' when calling listTransferPaymentInstruments(Async)");
-                }
-        
-
-            okhttp3.Call localVarCall = listTransferPaymentInstrumentsCall(transferId, limit, offset, pageNumber, pageSize, _callback);
-            return localVarCall;
-
-        }
-
-            /**
-            * List Transfer Payment Instruments
-            * Get list of all the payment instruments in the transfers object
-                * @param transferId ID of object (required)
-                * @param limit The number of entries to return. (optional)
-                * @param offset The number of items to skip before starting to collect the result set. (optional)
-                * @param pageNumber The page number to list. (optional)
-                * @param pageSize The size of the page. (optional)
-                * @return PaymentInstrumentsList
-            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of Payment Instrument objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                </table>
-            */
-                public PaymentInstrumentsList listByTransferId(String transferId, Long limit, Long offset, Long pageNumber, Long pageSize) throws ApiException {
-            ApiResponse<PaymentInstrumentsList> localVarResp = listTransferPaymentInstrumentsWithHttpInfo(transferId, limit, offset, pageNumber, pageSize);
-                    return localVarResp.getData();
-                }
-
-    /**
-        * List Transfer Payment Instruments
-        * Get list of all the payment instruments in the transfers object
-            * @param transferId ID of object (required)
-            * @param limit The number of entries to return. (optional)
-            * @param offset The number of items to skip before starting to collect the result set. (optional)
-            * @param pageNumber The page number to list. (optional)
-            * @param pageSize The size of the page. (optional)
-        * @return ApiResponse&lt;PaymentInstrumentsList&gt;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Payment Instrument objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public ApiResponse<PaymentInstrumentsList> listTransferPaymentInstrumentsWithHttpInfo(String transferId, Long limit, Long offset, Long pageNumber, Long pageSize) throws ApiException {
-        okhttp3.Call localVarCall = listTransferPaymentInstrumentsValidateBeforeCall(transferId, limit, offset, pageNumber, pageSize, null);
-                Type localVarReturnType = new TypeToken<PaymentInstrumentsList>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
-
-    /**
-        * List Transfer Payment Instruments (asynchronously)
-        * Get list of all the payment instruments in the transfers object
-            * @param transferId ID of object (required)
-            * @param limit The number of entries to return. (optional)
-            * @param offset The number of items to skip before starting to collect the result set. (optional)
-            * @param pageNumber The page number to list. (optional)
-            * @param pageSize The size of the page. (optional)
-        * @param _callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Payment Instrument objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public okhttp3.Call listTransferPaymentInstrumentsAsync(String transferId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback<PaymentInstrumentsList> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listTransferPaymentInstrumentsValidateBeforeCall(transferId, limit, offset, pageNumber, pageSize, _callback);
-    Type localVarReturnType = new TypeToken<PaymentInstrumentsList>(){}.getType();
-        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-        }
-    /**
-    * Build call for putPaymentInstrument
+    * Build call for updatePaymentInstrument
         * @param paymentInstrumentId ID of object (required)
-        * @param body  (optional)
+        * @param updatePaymentInstrumentRequest  (optional)
     * @param _callback Callback for upload/download progress
     * @return Call to execute
     * @throws ApiException If fail to serialize the request body object
@@ -2227,7 +1082,7 @@ this.localCustomBaseUrl = customBaseUrl;
                 <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
         </table>
     */
-    public okhttp3.Call putPaymentInstrumentCall(String paymentInstrumentId, Object body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updatePaymentInstrumentCall(String paymentInstrumentId, UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -2241,7 +1096,7 @@ this.localCustomBaseUrl = customBaseUrl;
     basePath = null;
     }
 
-    Object localVarPostBody = body;
+    Object localVarPostBody = updatePaymentInstrumentRequest;
 
     // create path and map variables
         String localVarPath = "/payment_instruments/{payment_instrument_id}"
@@ -2254,8 +1109,9 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-    "application/hal+json"
+            "application/hal+json"
         };
+
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
         localVarHeaderParams.put("Accept", localVarAccept);
@@ -2274,15 +1130,15 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call putPaymentInstrumentValidateBeforeCall(String paymentInstrumentId, Object body, final ApiCallback _callback) throws ApiException {
+        private okhttp3.Call updatePaymentInstrumentValidateBeforeCall(String paymentInstrumentId, UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest, final ApiCallback _callback) throws ApiException {
         
                 // verify the required parameter 'paymentInstrumentId' is set
                 if (paymentInstrumentId == null) {
-                throw new ApiException("Missing the required parameter 'paymentInstrumentId' when calling putPaymentInstrument(Async)");
+                throw new ApiException("Missing the required parameter 'paymentInstrumentId' when calling updatePaymentInstrument(Async)");
                 }
         
 
-            okhttp3.Call localVarCall = putPaymentInstrumentCall(paymentInstrumentId, body, _callback);
+            okhttp3.Call localVarCall = updatePaymentInstrumentCall(paymentInstrumentId, updatePaymentInstrumentRequest, _callback);
             return localVarCall;
 
         }
@@ -2291,7 +1147,7 @@ this.localCustomBaseUrl = customBaseUrl;
             * Update a Payment Instrument
             * Update a &#x60;Payment Instrument&#x60;.
                 * @param paymentInstrumentId ID of object (required)
-                * @param body  (optional)
+                * @param updatePaymentInstrumentRequest  (optional)
                 * @return PaymentInstrument
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
@@ -2304,8 +1160,8 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-                public PaymentInstrument update(String paymentInstrumentId, Object body) throws ApiException {
-            ApiResponse<PaymentInstrument> localVarResp = putPaymentInstrumentWithHttpInfo(paymentInstrumentId, body);
+                public PaymentInstrument update(String paymentInstrumentId, UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest) throws ApiException {
+            ApiResponse<PaymentInstrument> localVarResp = updatePaymentInstrumentWithHttpInfo(paymentInstrumentId, updatePaymentInstrumentRequest);
                     return localVarResp.getData();
                 }
 
@@ -2313,7 +1169,7 @@ this.localCustomBaseUrl = customBaseUrl;
         * Update a Payment Instrument
         * Update a &#x60;Payment Instrument&#x60;.
             * @param paymentInstrumentId ID of object (required)
-            * @param body  (optional)
+            * @param updatePaymentInstrumentRequest  (optional)
         * @return ApiResponse&lt;PaymentInstrument&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
             * @http.response.details
@@ -2326,8 +1182,8 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public ApiResponse<PaymentInstrument> putPaymentInstrumentWithHttpInfo(String paymentInstrumentId, Object body) throws ApiException {
-        okhttp3.Call localVarCall = putPaymentInstrumentValidateBeforeCall(paymentInstrumentId, body, null);
+        public ApiResponse<PaymentInstrument> updatePaymentInstrumentWithHttpInfo(String paymentInstrumentId, UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest) throws ApiException {
+        okhttp3.Call localVarCall = updatePaymentInstrumentValidateBeforeCall(paymentInstrumentId, updatePaymentInstrumentRequest, null);
                 Type localVarReturnType = new TypeToken<PaymentInstrument>(){}.getType();
                 return localVarFinixClient.execute(localVarCall, localVarReturnType);
         }
@@ -2336,7 +1192,7 @@ this.localCustomBaseUrl = customBaseUrl;
         * Update a Payment Instrument (asynchronously)
         * Update a &#x60;Payment Instrument&#x60;.
             * @param paymentInstrumentId ID of object (required)
-            * @param body  (optional)
+            * @param updatePaymentInstrumentRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2350,9 +1206,9 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call putPaymentInstrumentAsync(String paymentInstrumentId, Object body, final ApiCallback<PaymentInstrument> _callback) throws ApiException {
+        public okhttp3.Call updatePaymentInstrumentAsync(String paymentInstrumentId, UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest, final ApiCallback<PaymentInstrument> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = putPaymentInstrumentValidateBeforeCall(paymentInstrumentId, body, _callback);
+        okhttp3.Call localVarCall = updatePaymentInstrumentValidateBeforeCall(paymentInstrumentId, updatePaymentInstrumentRequest, _callback);
     Type localVarReturnType = new TypeToken<PaymentInstrument>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

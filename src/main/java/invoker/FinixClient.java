@@ -50,7 +50,6 @@ import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import api.TransfersApi;
 
 import invoker.auth.Authentication;
 import invoker.auth.HttpBasicAuth;
@@ -81,17 +80,18 @@ public class FinixClient {
     private boolean verifyingSsl;
     private KeyManager[] keyManagers;
     public TransfersApi Transfers;
-    public AuthorizationsApi Authorization;
-    public IdentitiesApi Identity;
+    public AuthorizationsApi Authorizations;
+    public IdentitiesApi Identities;
     public DisputesApi Disputes;
     public DevicesApi Devices;
-    public PaymentInstrumentsApi PaymentInstrument;
+    public PaymentInstrumentsApi PaymentInstruments;
     public BalanceTransfersApi BalanceTransfers;
     public WebhooksApi Webhooks;
-    public FilesApi filesApi;
+    public FilesApi Files;
     public MerchantsApi Merchants;
     public SettlementsApi Settlements;
     public VerificationsApi Verifications;
+    public InstrumentUpdatesApi InstrumentUpdates;
     private OkHttpClient httpClient;
     private JSON json;
     private HttpBasicAuth httpBasicAuth = new HttpBasicAuth();
@@ -117,17 +117,18 @@ public class FinixClient {
         this.basePath = "https://finix.sandbox-payments-api.com";}else{
         this.basePath = "https://finix.sandbox-payments-api1.com";}
         Transfers = new TransfersApi(this);
-        PaymentInstrument = new PaymentInstrumentsApi(this);
-        Authorization = new AuthorizationsApi(this);
-        Identity = new IdentitiesApi(this);
+        PaymentInstruments = new PaymentInstrumentsApi(this);
+        Authorizations = new AuthorizationsApi(this);
+        Identities = new IdentitiesApi(this);
         Disputes = new DisputesApi(this);
         Devices = new DevicesApi(this);
         Webhooks = new WebhooksApi(this);
         BalanceTransfers = new BalanceTransfersApi(this);
-        filesApi = new FilesApi(this);
+        Files = new FilesApi(this);
         Merchants = new MerchantsApi(this);
         Settlements = new SettlementsApi(this);
         Verifications = new VerificationsApi(this);
+        InstrumentUpdates = new InstrumentUpdatesApi(this);
     }
 
 
@@ -995,9 +996,9 @@ public class FinixClient {
         }
 
         if (tempFolderPath == null)
-            return Files.createTempFile(prefix, suffix).toFile();
+            return java.nio.file.Files.createTempFile(prefix, suffix).toFile();
         else
-            return Files.createTempFile(Paths.get(tempFolderPath), prefix, suffix).toFile();
+            return java.nio.file.Files.createTempFile(Paths.get(tempFolderPath), prefix, suffix).toFile();
     }
 
     /**

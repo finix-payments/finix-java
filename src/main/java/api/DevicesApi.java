@@ -125,8 +125,9 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-    "application/hal+json"
+            "application/hal+json"
         };
+
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
         localVarHeaderParams.put("Accept", localVarAccept);
@@ -274,8 +275,9 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-    "application/hal+json"
+            "application/hal+json"
         };
+
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
         localVarHeaderParams.put("Accept", localVarAccept);
@@ -418,8 +420,9 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-    "application/hal+json"
+            "application/hal+json"
         };
+
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
         localVarHeaderParams.put("Accept", localVarAccept);

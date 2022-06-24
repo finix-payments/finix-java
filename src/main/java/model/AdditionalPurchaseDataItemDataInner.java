@@ -48,7 +48,7 @@ import invoker.JSON;
  * AdditionalPurchaseDataItemDataInner
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T13:37:23.846763-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T17:56:51.765155-07:00[America/Los_Angeles]")
 public class AdditionalPurchaseDataItemDataInner {
   public static final String SERIALIZED_NAME_AMOUNT_EXCLUDING_SALES_TAX = "amount_excluding_sales_tax";
   @SerializedName(SERIALIZED_NAME_AMOUNT_EXCLUDING_SALES_TAX)

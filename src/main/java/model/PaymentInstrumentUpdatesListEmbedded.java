@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
-import model.InstrumentUpdate;
+import model.InstrumentUpdate1;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,22 +52,22 @@ import invoker.JSON;
  * PaymentInstrumentUpdatesListEmbedded
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T13:37:23.846763-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T17:56:51.765155-07:00[America/Los_Angeles]")
 public class PaymentInstrumentUpdatesListEmbedded {
   public static final String SERIALIZED_NAME_UPDATES = "updates";
   @SerializedName(SERIALIZED_NAME_UPDATES)
-  private Set<InstrumentUpdate> updates = new LinkedHashSet<>();
+  private Set<InstrumentUpdate1> updates = new LinkedHashSet<>();
 
   public PaymentInstrumentUpdatesListEmbedded() { 
   }
 
-  public PaymentInstrumentUpdatesListEmbedded updates(Set<InstrumentUpdate> updates) {
+  public PaymentInstrumentUpdatesListEmbedded updates(Set<InstrumentUpdate1> updates) {
     
     this.updates = updates;
     return this;
   }
 
-  public PaymentInstrumentUpdatesListEmbedded addUpdatesItem(InstrumentUpdate updatesItem) {
+  public PaymentInstrumentUpdatesListEmbedded addUpdatesItem(InstrumentUpdate1 updatesItem) {
     this.updates.add(updatesItem);
     return this;
   }
@@ -79,12 +79,12 @@ public class PaymentInstrumentUpdatesListEmbedded {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public Set<InstrumentUpdate> getUpdates() {
+  public Set<InstrumentUpdate1> getUpdates() {
     return updates;
   }
 
 
-  public void setUpdates(Set<InstrumentUpdate> updates) {
+  public void setUpdates(Set<InstrumentUpdate1> updates) {
     this.updates = updates;
   }
 
@@ -186,7 +186,7 @@ public class PaymentInstrumentUpdatesListEmbedded {
 
         // validate the optional field `updates` (array)
         for (int i = 0; i < jsonArrayupdates.size(); i++) {
-          InstrumentUpdate.validateJsonObject(jsonArrayupdates.get(i).getAsJsonObject());
+          InstrumentUpdate1.validateJsonObject(jsonArrayupdates.get(i).getAsJsonObject());
         }
           ;
       }

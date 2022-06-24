@@ -97,6 +97,9 @@ tags:
   - name: Subscription Enrollments
     description:
       $ref: api-descriptions/tags/subscription-enrollments.md
+  - name: Instrument Updates
+    description:
+      $ref: api-descriptions/tags/instrument-updates.md
 x-tagGroups:
   - name: MAIN RESOURCES
     tags:
@@ -112,6 +115,7 @@ x-tagGroups:
       - Verifications
       - Fees
       - Users
+      - Instrument Updates
   - name: CORE-PAYFAC RESOURCES
     tags:
       - Applications
@@ -1590,7 +1594,7 @@ paths:
         - Payment Instruments
       description: Update a `Payment Instrument`.
       summary: Update a Payment Instrument
-      operationId: putPaymentInstrument
+      operationId: updatePaymentInstrument
       requestBody:
         $ref: '#/components/requestBodies/UpdatePaymentInstrumentRequest'
       responses:
@@ -1605,67 +1609,6 @@ paths:
         '406':
           $ref: '#/components/responses/Error406NotAcceptable'
       x-java-method-name: update
-  /payment_instruments/{payment_instrument_id}/updates:
-    get:
-      tags:
-        - Payment Instruments
-      description: 'List the updates on a `Payment Instrument`.
-
-
-        When using the [account updater](/guides/payments/account-updater), `Payment
-        Instrument` details that are updated are represented by an `Update`.'
-      summary: List Payment Instrument Updates
-      operationId: listPaymentInstrumentUpdates
-      parameters:
-        - required: false
-          in: query
-          name: limit
-          schema:
-            type: integer
-            format: int64
-          description: The number of entries to return.
-        - required: false
-          in: query
-          name: offset
-          schema:
-            type: integer
-            format: int64
-          description: The number of items to skip before starting to collect the result
-            set.
-        - required: false
-          in: query
-          name: pageNumber
-          schema:
-            type: integer
-            format: int64
-          description: The page number to list.
-        - required: false
-          in: query
-          name: pageSize
-          schema:
-            type: integer
-            format: int64
-          description: The size of the page.
-      responses:
-        '200':
-          $ref: '#/components/responses/PaymentInstrumentUpdatesList'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      x-java-method-name: listUpdatesByPaymentInstrumentId
-      x-group-parameters: true
-    parameters:
-      - description: ID of object
-        required: true
-        in: path
-        name: payment_instrument_id
-        schema:
-          type: string
   /payment_instruments/{payment_instrument_id}/verifications:
     parameters:
       - description: ID of object
@@ -2804,7 +2747,7 @@ paths:
       operationId: createPaymentInstrumentUpdate
       responses:
         '200':
-          $ref: '#/components/responses/InstrumentUpdates'
+          $ref: '#/components/responses/InstrumentUpdate'
         '400':
           $ref: '#/components/responses/ErrorUnprocessableEntity'
         '401':
@@ -2817,10 +2760,11 @@ paths:
         resource. Include the `Payment Instrument` IDs you want to update in a CSV.
         For more info, see the guide on using our [Account Updater](//payments/account-updater/).
       requestBody:
-        $ref: '#/components/requestBodies/CreateInstrumentUpdatesRequest'
-      tags:
-        - Payment Instruments
+        $ref: '#/components/requestBodies/CreateInstrumentUpdateRequest'
       parameters: []
+      tags:
+        - Instrument Updates
+      x-java-method-name: create
   /instrument_updates/{instrument_updates_id}/download:
     parameters:
       - schema:
@@ -2833,7 +2777,7 @@ paths:
     get:
       summary: Download Instrument Updates
       tags:
-        - Payment Instruments
+        - Instrument Updates
       responses:
         '200':
           description: "The updated `Payment Instruments` will be returned in the\
@@ -2845,6 +2789,11 @@ paths:
             \ | CONTACT\\_CARDHOLDER\nPInOrrKY3G1U33hGYTQJ8cIY |  | CLOSED\\_ACCOUNT\n\
             PIlkAOt5kTVhuuxxbmOi9qn |  | INVALID\\_CARD\nPIiRLbbG4i5daypWNzIrq2xD\
             \   |  | NO\\_CHANGE\\_FOUND\nPIy5llZGt6VxlDqbcTgATqeH     | \t  | UNKNOWN"
+          content:
+            application/json:
+              schema:
+                type: string
+                format: binary
         '401':
           $ref: '#/components/responses/ErrorUnauthorized'
         '403':
@@ -2853,12 +2802,14 @@ paths:
           $ref: '#/components/responses/ErrorNotFound'
         '406':
           $ref: '#/components/responses/Error406NotAcceptable'
-      operationId: getInstrumentUpdates
+      operationId: downloadInstrumentUpdate
       description: "Fetch a previously created `instrument_updates` resource as a\
         \ CSV. \n\nTo fetch the `instrument_updates` resource in JSON, add `?format=json`\
         \ to the request endpoint."
       parameters:
         - $ref: '#/components/parameters/QueryFormat'
+      x-group-parameters: true
+      x-java-method-name: download
   /files:
     post:
       summary: Create a File
@@ -3159,10 +3110,10 @@ paths:
     get:
       summary: Fetch an Instrument Update
       tags:
-        - Payment Instruments
+        - Instrument Updates
       responses:
         '200':
-          $ref: '#/components/responses/InstrumentUpdates'
+          $ref: '#/components/responses/InstrumentUpdate'
         '401':
           $ref: '#/components/responses/ErrorUnauthorized'
         '403':
@@ -3174,6 +3125,7 @@ paths:
       operationId: getInstrumentUpdate
       description: Fetch a specific `instrument_update` from an `instrument_updates`
         resource. For more information, see the guide on using our [Account Updater](/guides/payments/account-updater).
+      x-java-method-name: get
 components:
   headers:
     date:
@@ -4418,7 +4370,7 @@ components:
       content:
         application/hal+json:
           schema:
-            type: object
+            $ref: '#/components/schemas/UpdatePaymentInstrumentRequest'
           examples:
             Update Name:
               value:
@@ -4453,11 +4405,11 @@ components:
         application/hal+json:
           schema:
             $ref: '#/components/schemas/CreateBalanceTransferRequest'
-    CreateInstrumentUpdatesRequest:
+    CreateInstrumentUpdateRequest:
       content:
         multipart/form-data:
           schema:
-            $ref: '#/components/schemas/CreateInstrumentUpdatesRequest'
+            $ref: '#/components/schemas/CreateInstrumentUpdateRequest'
           examples:
             Instrument Update request:
               value:
@@ -9508,12 +9460,12 @@ components:
           $ref: '#/components/headers/date'
         x-request-id:
           $ref: '#/components/headers/x-request-id'
-    InstrumentUpdates:
+    InstrumentUpdate:
       description: Single instrument_update object
       content:
         application/hal+json:
           schema:
-            $ref: '#/components/schemas/InstrumentUpdates'
+            $ref: '#/components/schemas/InstrumentUpdate'
           examples:
             instrument_update:
               value:
@@ -9874,6 +9826,20 @@ components:
       description: Example response
       content:
         application/octet-stream:
+          schema:
+            $ref: '#/components/schemas/FileDownload'
+    InstrumentUpdateDownload:
+      description: "The updated `Payment Instruments` will be returned in the following\
+        \ comma seperated format:\n\npayment\\_instrument\\_original,\t| payment\\\
+        _instrument_new, |result\n--------------------------- | ----------------------\
+        \ | -----\nPIlkNdfZibF8a7Prd2teGB1 | PI3aQGaCM5nDMjqyTXcbUJzR| CARD\\_EXPIRATION_UPDATED\n\
+        PIJPXW0HZ9lpO1nb6sog5DiX  | PIdBHpy7BBSxd2z81VdKpVbT | CARD\\_NOT\\_FOUND\n\
+        PI0ovZAS9yfEtgDrZnMaiLvi   | PIhXS0jXNTmklyVk91EsohuZ | CONTACT\\_CARDHOLDER\n\
+        PInOrrKY3G1U33hGYTQJ8cIY |  | CLOSED\\_ACCOUNT\nPIlkAOt5kTVhuuxxbmOi9qn |\
+        \  | INVALID\\_CARD\nPIiRLbbG4i5daypWNzIrq2xD   |  | NO\\_CHANGE\\_FOUND\n\
+        PIy5llZGt6VxlDqbcTgATqeH     | \t  | UNKNOWN"
+      content:
+        application/json:
           schema:
             $ref: '#/components/schemas/FileDownload'
   schemas:
@@ -11584,6 +11550,8 @@ components:
       title: ''
     Error422InvalidFieldList:
       type: object
+      description: Invalid field
+      title: ''
       properties:
         total:
           type: integer
@@ -11613,8 +11581,6 @@ components:
                         properties:
                           href:
                             type: string
-      description: Invalid field
-      title: ''
     Fee:
       type: object
       title: Fee
@@ -13688,12 +13654,12 @@ components:
         type:
           type: string
           enum:
+            - VANTIV_OMNI_TOKEN
             - BANK_ACCOUNT
             - TOKEN
-            - VANTIV_OMNI_TOKEN
             - PAYMENT_CARD
-            - PAYMENT_CARD_PRESENT
             - SWIPED_PAYMENT_CARD
+            - PAYMENT_CARD_PRESENT
             - VIRTUAL
           description: Type of `Payment Instrument`.
         id:
@@ -13730,12 +13696,12 @@ components:
         instrument_type:
           type: string
           enum:
+            - VANTIV_OMNI_TOKEN
             - BANK_ACCOUNT
             - TOKEN
-            - VANTIV_OMNI_TOKEN
             - PAYMENT_CARD
-            - PAYMENT_CARD_PRESENT
             - SWIPED_PAYMENT_CARD
+            - PAYMENT_CARD_PRESENT
             - VIRTUAL
           description: The type of `Payment Instrument`.
         masked_account_number:
@@ -13886,6 +13852,78 @@ components:
       x-examples: {}
       title: ''
       type: object
+      properties:
+        name:
+          type: string
+          description: The name of the bank account or card owner.
+        expiration_year:
+          type: integer
+          description: The 4-digit expiration year of the card.
+        tags:
+          $ref: '#/components/schemas/Tags'
+        number:
+          type: string
+          description: The card or bank account number (no dashes in between numbers).
+        expiration_month:
+          type: integer
+          description: The expiration month of the card (e.g. 12 for December).
+        address:
+          type: object
+          description: The address of the bank account or card owner.
+          properties:
+            city:
+              type: string
+              description: City (max 20 characters).
+            region:
+              type: string
+              description: 2-letter State code.
+            postal_code:
+              type: string
+              description: Zip or Postal code (max 7 characters).
+            line1:
+              type: string
+              description: First line of the address (max 35 characters).
+            country:
+              type: string
+              description: 3 Letter country code (e.g. USA).
+        security_code:
+          type: string
+          description: The 3-4 digit security code of the card (i.e. CVV code).
+        type:
+          type: string
+          enum:
+            - TOKEN
+            - BANK_ACCOUNT
+            - PAYMENT_CARD
+          description: Type of `Payment Instrument`.
+        identity:
+          $ref: '#/components/schemas/Id'
+        third_party_token:
+          type: string
+        account_number:
+          type: string
+          description: The bank account number (no dashes in between numbers).
+        account_type:
+          type: string
+          description: The type of bank account.
+          enum:
+            - CHECKING
+            - SAVINGS
+            - CORPORATE
+            - CORP_SAVINGS
+        bank_code:
+          type: string
+          description: The routing number of the bank account.
+        country:
+          type: string
+          description: 3 Letter country code (e.g. USA).
+        token:
+          type: string
+    UpdatePaymentInstrumentRequest:
+      x-examples: {}
+      title: ''
+      type: object
+      description: ''
       properties:
         name:
           type: string
@@ -19168,7 +19206,7 @@ components:
                 $ref: '#/components/schemas/BalanceTransferList'
         _links:
           $ref: '#/components/schemas/ListLinks'
-    CreateInstrumentUpdatesRequest:
+    CreateInstrumentUpdateRequest:
       type: object
       x-examples: {}
       title: ''
@@ -19190,7 +19228,7 @@ components:
             with this `instrument_update` resource.'
           example: '{"merchant":"MUucec6fHeaWo3VHYoSkUySM",  "idempotency_id":"123xyz"
             }'
-    InstrumentUpdates:
+    InstrumentUpdate:
       title: InstrumentUpdates
       x-stoplight:
         id: si3taxhzmp9fu
@@ -19983,6 +20021,19 @@ components:
           description: The cursor to use for the next page of results.
           nullable: true
       description: ''
+    FailureCode:
+      title: FailureCode
+      x-stoplight:
+        id: lo8jqmipa7376
+      type: string
+      description: The code of the failure so the decline can be handled programmatically.
+    FailureMessage:
+      title: FailureMessage
+      x-stoplight:
+        id: cgilf858039yi
+      type: string
+      description: A human-readable description of why the transaction was declined.
+        This will also include a suggestion on how to complete the payment.
     ListApplicationProfilesQueryParams:
       type: object
       properties:
@@ -20376,22 +20427,6 @@ components:
         before_cursor:
           description: Return every resource created before the cursor value.
           type: string
-    ListPaymentInstrumentUpdatesQueryParams:
-      type: object
-      properties:
-        limit:
-          description: The number of entries to return.
-          type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set.
-          type: integer
-        pageNumber:
-          description: The page number to list.
-          type: integer
-        pageSize:
-          description: The size of the page.
-          type: integer
     ListSettlementsQueryParams:
       type: object
       properties:
@@ -20619,6 +20654,13 @@ components:
           type: string
         before_cursor:
           description: Return every resource created before the cursor value.
+          type: string
+    DownloadInstrumentUpdateQueryParams:
+      type: object
+      properties:
+        format:
+          description: Specify the format you'd like to download the response in (JSON
+            is the only other format available for download).
           type: string
     ListFilesQueryParams:
       type: object
