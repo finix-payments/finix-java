@@ -112,10 +112,8 @@ public class FinixClient {
         authentications.put("BasicAuth", httpBasicAuth);
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
+        FinixClient finixClient = environment.equals(Environment.SANDBOX) ? setBasePath("https://finix.sandbox-payments-api.com") : setBasePath("https://finix.live-payments-api.com");
         Transfers = new TransfersApi(this);
-        if(environment.equals(Environment.SANDBOX)){
-        this.basePath = "https://finix.sandbox-payments-api.com";}else{
-        this.basePath = "https://finix.sandbox-payments-api1.com";}
         Transfers = new TransfersApi(this);
         PaymentInstruments = new PaymentInstrumentsApi(this);
         Authorizations = new AuthorizationsApi(this);

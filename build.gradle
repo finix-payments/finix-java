@@ -123,50 +123,6 @@ if(hasProperty('target') && target == 'android') {
     signing {
         sign configurations.archives
     }
-   /* uploadArchives {
-        repositories {
-            mavenDeployer {
-                //beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-                repository(url: "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/") {
-                    authentication(userName: ossrhUsername, password: ossrhPassword)
-                }
-
-                snapshotRepository(url: "https://s01.oss.sonatype.org/content/repositories/snapshots/") {
-                    authentication(userName: ossrhUsername, password: ossrhPassword)
-                }
-
-                pom.project {
-                    name 'finix-java'
-                    packaging 'jar'
-                    // optionally artifactId can be defined here
-                    description 'finx-java'
-                    url 'https://finix.com'
-
-                    scm {
-                        connection 'scm:git:git@github.com:finix-payments/finix-java.git'
-                        developerConnection 'scm:git:git@github.com:finix-payments/finix-java.git'
-                        url 'https://github.com/finix-payments/finix-java/tree/develop'
-                    }
-
-                    licenses {
-                        license {
-                            name 'MIT'
-                            url 'https://choosealicense.com/licenses/mit/'
-                        }
-                    }
-
-                    developers {
-                        developer {
-                            id 'Finix'
-                            name 'Finix'
-                            email 'support@finixpayments.com'
-                        }
-                    }
-                }
-            }
-        }
-    }*/
 
 }
 
@@ -200,9 +156,6 @@ javadoc {
 test {
     useJUnitPlatform()
 }
-//sonatype
-
-//sonatype ends here
 // Use spotless plugin to automatically format code, remove unused import, etc
 // To apply changes directly to the file, run `gradlew spotlessApply`
 // Ref: https://github.com/diffplug/spotless/tree/main/plugin-gradle
