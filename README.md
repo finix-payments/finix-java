@@ -19,6 +19,13 @@ Add the following to your project's pom.xml:
 </dependency>
 ```
 
+### Gradle
+
+Add the following to your project's build.gradle
+```
+implementation 'com.finix:finix-java:0.0.1'
+```
+
 ## Using the Library
 ### Initialization
 Provide your api username and password as well as the environment you are interacting with.
