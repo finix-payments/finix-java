@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * API tests for DisputesApi
@@ -118,24 +119,6 @@ public class DisputesApiTest {
 
     }
 
-    /**
-     * List Application Disputes
-     *
-     * Return a collection of disputes, if there are no disputes, an empty collection will be returned. 
-     *
-     * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
-     */
-    @Test
-    @DisplayName("List Application Disputes")
-    public void listApplicationDisputesTest() throws ApiException {
-        String applicationId = "APgPDQrLD52TYvqazjHJJchM";
-        DisputesList response = finixClient.Disputes.listApplicationDisputes(applicationId);
-    }
 
     /**
      * List Dispute Evidence
@@ -153,13 +136,13 @@ public class DisputesApiTest {
     @DisplayName("List Dispute Evidence")
     public void listDisputeEvidenceTest() throws ApiException {
         String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
-        Long limit = null;
-        Long offset = null;
+        Long limit = 20L;
 
         DisputeEvidenceList response = finixClient.Disputes.listDisputeEvidenceByDisputeId(disputeId, ListDisputeEvidenceQueryParams.builder()
                 .limit(limit)
-                .offset(offset)
                 .build());
+        assertTrue(response.getPage() != null);
+        assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());
         assertEquals(20,response.getPage().getLimit().intValue(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit().intValue());
     }
 
@@ -211,7 +194,7 @@ public class DisputesApiTest {
      *
      */
     @Test
-    @DisplayName("Fetch Dispute Adjustment Transfers")
+    @DisplayName("List Dispute Adjustment Transfers")
     public void listDisputesAdjustmentsTest() throws ApiException {
         String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
         Long limit = null;
@@ -221,7 +204,9 @@ public class DisputesApiTest {
                 .limit(limit)
                 .offset(offset)
                 .build());
-        assertEquals(20,response.getPage().getLimit().intValue(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit().intValue());
+        assertTrue(response.getPage() != null);
+        assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());
+//        assertEquals(20,response.getPage().getLimit().intValue(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit().intValue());
     }
 
 }

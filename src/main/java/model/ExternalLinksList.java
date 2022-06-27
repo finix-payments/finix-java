@@ -51,7 +51,7 @@ import invoker.JSON;
  * ExternalLinksList
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
 public class ExternalLinksList {
   public static final String SERIALIZED_NAME_EMBEDDED = "_embedded";
   @SerializedName(SERIALIZED_NAME_EMBEDDED)
@@ -234,15 +234,6 @@ public class ExternalLinksList {
       // validate the optional field `page`
      // if (jsonObj.getAsJsonObject("page") != null) {
        //PageCursor.validateJsonObject(jsonObj.getAsJsonObject("page"));
-     // }
-
-      /**
-      * EDITED
-      * ADDED  statement to for inconsistent null behaviour
-      */
-      // validate the optional field `_links`
-     // if (jsonObj.getAsJsonObject("_links") != null) {
-       //ListLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
      // }
 
   }

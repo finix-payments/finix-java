@@ -142,7 +142,9 @@ public class VerificationsApiTest {
     @Test
     public void listVerificationsTest() throws ApiException {
         VerificationsList response = finixClient.Verifications.list(ListVerificationsQueryParams.builder().build());
-        assertEquals(20,response.getPage().getLimit(),()->"Should return " + "20" + " but returns " + response.getPage().getLimit());
+        assertTrue(response.getPage() != null);
+        assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());
+//        assertEquals(20,response.getPage().getLimit(),()->"Should return " + "20" + " but returns " + response.getPage().getLimit());
     }
 
     @Test

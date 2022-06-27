@@ -28,6 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import model.ApplicationLinks;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,7 +54,7 @@ import invoker.JSON;
  * Application
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
 public class Application {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -102,6 +103,229 @@ public class Application {
   public static final String SERIALIZED_NAME_SETTLEMENT_ENABLED = "settlement_enabled";
   @SerializedName(SERIALIZED_NAME_SETTLEMENT_ENABLED)
   private Boolean settlementEnabled;
+
+  /**
+   * Gets or Sets settlementFundingIdentifier
+   */
+  @JsonAdapter(SettlementFundingIdentifierEnum.Adapter.class)
+  public enum SettlementFundingIdentifierEnum {
+    UNSET("UNSET"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
+
+    private String value;
+
+    SettlementFundingIdentifierEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
+    public static SettlementFundingIdentifierEnum fromValue(String value) {
+        for (SettlementFundingIdentifierEnum b : SettlementFundingIdentifierEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
+        }
+
+        if (value.equals(null) && value.length() == 0) {
+            return null;
+        }
+        SettlementFundingIdentifierEnum unknownDefault = SettlementFundingIdentifierEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
+    }
+
+    public static class Adapter extends TypeAdapter<SettlementFundingIdentifierEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SettlementFundingIdentifierEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SettlementFundingIdentifierEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return SettlementFundingIdentifierEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_SETTLEMENT_FUNDING_IDENTIFIER = "settlement_funding_identifier";
+  @SerializedName(SERIALIZED_NAME_SETTLEMENT_FUNDING_IDENTIFIER)
+  private SettlementFundingIdentifierEnum settlementFundingIdentifier;
+
+  /**
+   * Gets or Sets readyToSettleUpon
+   */
+  @JsonAdapter(ReadyToSettleUponEnum.Adapter.class)
+  public enum ReadyToSettleUponEnum {
+    RECONCILIATION("RECONCILIATION"),
+    
+    SUCCESSFUL_CAPTURE("SUCCESSFUL_CAPTURE"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
+
+    private String value;
+
+    ReadyToSettleUponEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
+    public static ReadyToSettleUponEnum fromValue(String value) {
+        for (ReadyToSettleUponEnum b : ReadyToSettleUponEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
+        }
+
+        if (value.equals(null) && value.length() == 0) {
+            return null;
+        }
+        ReadyToSettleUponEnum unknownDefault = ReadyToSettleUponEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
+    }
+
+    public static class Adapter extends TypeAdapter<ReadyToSettleUponEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ReadyToSettleUponEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ReadyToSettleUponEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return ReadyToSettleUponEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_READY_TO_SETTLE_UPON = "ready_to_settle_upon";
+  @SerializedName(SERIALIZED_NAME_READY_TO_SETTLE_UPON)
+  private ReadyToSettleUponEnum readyToSettleUpon;
+
+  /**
+   * Gets or Sets feeReadyToSettleUpon
+   */
+  @JsonAdapter(FeeReadyToSettleUponEnum.Adapter.class)
+  public enum FeeReadyToSettleUponEnum {
+    RECONCILIATION("RECONCILIATION"),
+    
+    SUCCESSFUL_CAPTURE("SUCCESSFUL_CAPTURE"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
+
+    private String value;
+
+    FeeReadyToSettleUponEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
+    public static FeeReadyToSettleUponEnum fromValue(String value) {
+        for (FeeReadyToSettleUponEnum b : FeeReadyToSettleUponEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
+        }
+
+        if (value.equals(null) && value.length() == 0) {
+            return null;
+        }
+        FeeReadyToSettleUponEnum unknownDefault = FeeReadyToSettleUponEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
+    }
+
+    public static class Adapter extends TypeAdapter<FeeReadyToSettleUponEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final FeeReadyToSettleUponEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public FeeReadyToSettleUponEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return FeeReadyToSettleUponEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_FEE_READY_TO_SETTLE_UPON = "fee_ready_to_settle_upon";
+  @SerializedName(SERIALIZED_NAME_FEE_READY_TO_SETTLE_UPON)
+  private FeeReadyToSettleUponEnum feeReadyToSettleUpon;
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
@@ -394,6 +618,75 @@ public class Application {
   }
 
 
+  public Application settlementFundingIdentifier(SettlementFundingIdentifierEnum settlementFundingIdentifier) {
+    
+    this.settlementFundingIdentifier = settlementFundingIdentifier;
+    return this;
+  }
+
+   /**
+   * Get settlementFundingIdentifier
+   * @return settlementFundingIdentifier
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SettlementFundingIdentifierEnum getSettlementFundingIdentifier() {
+    return settlementFundingIdentifier;
+  }
+
+
+  public void setSettlementFundingIdentifier(SettlementFundingIdentifierEnum settlementFundingIdentifier) {
+    this.settlementFundingIdentifier = settlementFundingIdentifier;
+  }
+
+
+  public Application readyToSettleUpon(ReadyToSettleUponEnum readyToSettleUpon) {
+    
+    this.readyToSettleUpon = readyToSettleUpon;
+    return this;
+  }
+
+   /**
+   * Get readyToSettleUpon
+   * @return readyToSettleUpon
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ReadyToSettleUponEnum getReadyToSettleUpon() {
+    return readyToSettleUpon;
+  }
+
+
+  public void setReadyToSettleUpon(ReadyToSettleUponEnum readyToSettleUpon) {
+    this.readyToSettleUpon = readyToSettleUpon;
+  }
+
+
+  public Application feeReadyToSettleUpon(FeeReadyToSettleUponEnum feeReadyToSettleUpon) {
+    
+    this.feeReadyToSettleUpon = feeReadyToSettleUpon;
+    return this;
+  }
+
+   /**
+   * Get feeReadyToSettleUpon
+   * @return feeReadyToSettleUpon
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public FeeReadyToSettleUponEnum getFeeReadyToSettleUpon() {
+    return feeReadyToSettleUpon;
+  }
+
+
+  public void setFeeReadyToSettleUpon(FeeReadyToSettleUponEnum feeReadyToSettleUpon) {
+    this.feeReadyToSettleUpon = feeReadyToSettleUpon;
+  }
+
+
   public Application links(ApplicationLinks links) {
     
     this.links = links;
@@ -439,12 +732,26 @@ public class Application {
         Objects.equals(this.owner, application.owner) &&
         Objects.equals(this.processingEnabled, application.processingEnabled) &&
         Objects.equals(this.settlementEnabled, application.settlementEnabled) &&
+        Objects.equals(this.settlementFundingIdentifier, application.settlementFundingIdentifier) &&
+        Objects.equals(this.readyToSettleUpon, application.readyToSettleUpon) &&
+        Objects.equals(this.feeReadyToSettleUpon, application.feeReadyToSettleUpon) &&
         Objects.equals(this.links, application.links);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, id, createdAt, updatedAt, cardCvvRequired, cardExpirationDateRequired, creatingTransferFromReportEnabled, enabled, name, owner, processingEnabled, settlementEnabled, links);
+    return Objects.hash(tags, id, createdAt, updatedAt, cardCvvRequired, cardExpirationDateRequired, creatingTransferFromReportEnabled, enabled, name, owner, processingEnabled, settlementEnabled, settlementFundingIdentifier, readyToSettleUpon, feeReadyToSettleUpon, links);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -463,6 +770,9 @@ public class Application {
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    processingEnabled: ").append(toIndentedString(processingEnabled)).append("\n");
     sb.append("    settlementEnabled: ").append(toIndentedString(settlementEnabled)).append("\n");
+    sb.append("    settlementFundingIdentifier: ").append(toIndentedString(settlementFundingIdentifier)).append("\n");
+    sb.append("    readyToSettleUpon: ").append(toIndentedString(readyToSettleUpon)).append("\n");
+    sb.append("    feeReadyToSettleUpon: ").append(toIndentedString(feeReadyToSettleUpon)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -498,6 +808,9 @@ public class Application {
     openapiFields.add("owner");
     openapiFields.add("processing_enabled");
     openapiFields.add("settlement_enabled");
+    openapiFields.add("settlement_funding_identifier");
+    openapiFields.add("ready_to_settle_upon");
+    openapiFields.add("fee_ready_to_settle_upon");
     openapiFields.add("_links");
 
     // a set of required properties/fields (JSON key names)
@@ -548,6 +861,27 @@ public class Application {
       */
       if (jsonObj.get("owner") != null && !jsonObj.get("owner").isJsonNull()  && !jsonObj.get("owner").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("settlement_funding_identifier") != null && !jsonObj.get("settlement_funding_identifier").isJsonNull()  && !jsonObj.get("settlement_funding_identifier").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `settlement_funding_identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("settlement_funding_identifier").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("ready_to_settle_upon") != null && !jsonObj.get("ready_to_settle_upon").isJsonNull()  && !jsonObj.get("ready_to_settle_upon").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ready_to_settle_upon` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ready_to_settle_upon").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("fee_ready_to_settle_upon") != null && !jsonObj.get("fee_ready_to_settle_upon").isJsonNull()  && !jsonObj.get("fee_ready_to_settle_upon").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fee_ready_to_settle_upon` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_ready_to_settle_upon").toString()));
       }
       /**
       * EDITED

@@ -48,7 +48,7 @@ import invoker.JSON;
  * ApplePaySessionRequest
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
 public class ApplePaySessionRequest {
   public static final String SERIALIZED_NAME_DISPLAY_NAME = "display_name";
   @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
@@ -145,11 +145,11 @@ public class ApplePaySessionRequest {
   }
 
    /**
-   * A validation URL that will be provided by the Apple SDK front-end for every payment.
+   * A unique validation URL that will be provided by the Apple SDK front-end for every payment.
    * @return validationUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A validation URL that will be provided by the Apple SDK front-end for every payment.")
+  @ApiModelProperty(value = "A unique validation URL that will be provided by the Apple SDK front-end for every payment.")
 
   public String getValidationUrl() {
     return validationUrl;

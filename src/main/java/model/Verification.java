@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import model.DisputeEvidenceLinks;
+import model.VerificationLinks;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -55,7 +55,7 @@ import invoker.JSON;
  * Verification
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
 public class Verification {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -185,7 +185,7 @@ public class Verification {
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private DisputeEvidenceLinks links;
+  private VerificationLinks links;
 
   public Verification() { 
   }
@@ -528,7 +528,7 @@ public class Verification {
   }
 
 
-  public Verification links(DisputeEvidenceLinks links) {
+  public Verification links(VerificationLinks links) {
     
     this.links = links;
     return this;
@@ -541,12 +541,12 @@ public class Verification {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public DisputeEvidenceLinks getLinks() {
+  public VerificationLinks getLinks() {
     return links;
   }
 
 
-  public void setLinks(DisputeEvidenceLinks links) {
+  public void setLinks(VerificationLinks links) {
     this.links = links;
   }
 
@@ -750,15 +750,6 @@ public class Verification {
       if (jsonObj.get("merchant_identity") != null && !jsonObj.get("merchant_identity").isJsonNull()  && !jsonObj.get("merchant_identity").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_identity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_identity").toString()));
       }
-      /**
-      * EDITED
-      * ADDED  statement to for inconsistent null behaviour
-      */
-      // validate the optional field `_links`
-     // if (jsonObj.getAsJsonObject("_links") != null) {
-       //DisputeEvidenceLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-     // }
-
   }
 
 

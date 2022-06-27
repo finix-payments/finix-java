@@ -585,7 +585,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     }
     /**
-    * Build call for putWebhook
+    * Build call for updateWebhook
         * @param webhookId ID of &#x60;Webhook&#x60; object. (required)
         * @param updateWebhookRequest  (optional)
     * @param _callback Callback for upload/download progress
@@ -601,7 +601,7 @@ this.localCustomBaseUrl = customBaseUrl;
                 <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
         </table>
     */
-    public okhttp3.Call putWebhookCall(String webhookId, UpdateWebhookRequest updateWebhookRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateWebhookCall(String webhookId, UpdateWebhookRequest updateWebhookRequest, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -649,15 +649,15 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call putWebhookValidateBeforeCall(String webhookId, UpdateWebhookRequest updateWebhookRequest, final ApiCallback _callback) throws ApiException {
+        private okhttp3.Call updateWebhookValidateBeforeCall(String webhookId, UpdateWebhookRequest updateWebhookRequest, final ApiCallback _callback) throws ApiException {
         
                 // verify the required parameter 'webhookId' is set
                 if (webhookId == null) {
-                throw new ApiException("Missing the required parameter 'webhookId' when calling putWebhook(Async)");
+                throw new ApiException("Missing the required parameter 'webhookId' when calling updateWebhook(Async)");
                 }
         
 
-            okhttp3.Call localVarCall = putWebhookCall(webhookId, updateWebhookRequest, _callback);
+            okhttp3.Call localVarCall = updateWebhookCall(webhookId, updateWebhookRequest, _callback);
             return localVarCall;
 
         }
@@ -680,7 +680,7 @@ this.localCustomBaseUrl = customBaseUrl;
                 </table>
             */
                 public Webhook update(String webhookId, UpdateWebhookRequest updateWebhookRequest) throws ApiException {
-            ApiResponse<Webhook> localVarResp = putWebhookWithHttpInfo(webhookId, updateWebhookRequest);
+            ApiResponse<Webhook> localVarResp = updateWebhookWithHttpInfo(webhookId, updateWebhookRequest);
                     return localVarResp.getData();
                 }
 
@@ -701,8 +701,8 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public ApiResponse<Webhook> putWebhookWithHttpInfo(String webhookId, UpdateWebhookRequest updateWebhookRequest) throws ApiException {
-        okhttp3.Call localVarCall = putWebhookValidateBeforeCall(webhookId, updateWebhookRequest, null);
+        public ApiResponse<Webhook> updateWebhookWithHttpInfo(String webhookId, UpdateWebhookRequest updateWebhookRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateWebhookValidateBeforeCall(webhookId, updateWebhookRequest, null);
                 Type localVarReturnType = new TypeToken<Webhook>(){}.getType();
                 return localVarFinixClient.execute(localVarCall, localVarReturnType);
         }
@@ -725,9 +725,9 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call putWebhookAsync(String webhookId, UpdateWebhookRequest updateWebhookRequest, final ApiCallback<Webhook> _callback) throws ApiException {
+        public okhttp3.Call updateWebhookAsync(String webhookId, UpdateWebhookRequest updateWebhookRequest, final ApiCallback<Webhook> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = putWebhookValidateBeforeCall(webhookId, updateWebhookRequest, _callback);
+        okhttp3.Call localVarCall = updateWebhookValidateBeforeCall(webhookId, updateWebhookRequest, _callback);
     Type localVarReturnType = new TypeToken<Webhook>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

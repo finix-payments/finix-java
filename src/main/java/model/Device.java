@@ -57,7 +57,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "`Device` resource.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
 public class Device {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -390,11 +390,11 @@ public class Device {
   }
 
    /**
-   * Please select one of the following values which will let Finix know the type of device being used:&lt;ul&gt;&lt;li&gt;BBPOS&lt;li&gt;MX915&lt;li&gt;MX925&lt;li&gt;IPP320&lt;li&gt;IPP350&lt;li&gt;ISC250&lt;li&gt;ISC480&lt;li&gt;ISMP4&lt;li&gt;LANE\\_3000&lt;li&gt;&lt;li&gt;ANDROID
+   * Please select one of the following values which will let Finix know the type of device being used:&lt;ul&gt;&lt;li&gt;BBPOS&lt;li&gt;MX915&lt;li&gt;MX925&lt;li&gt;IPP320&lt;li&gt;IPP350&lt;li&gt;ISC250&lt;li&gt;ISC480&lt;li&gt;ISMP4&lt;li&gt;LANE\\_3000&lt;li&gt;ANDROID
    * @return model
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Please select one of the following values which will let Finix know the type of device being used:<ul><li>BBPOS<li>MX915<li>MX925<li>IPP320<li>IPP350<li>ISC250<li>ISC480<li>ISMP4<li>LANE\\_3000<li><li>ANDROID")
+  @ApiModelProperty(value = "Please select one of the following values which will let Finix know the type of device being used:<ul><li>BBPOS<li>MX915<li>MX925<li>IPP320<li>IPP350<li>ISC250<li>ISC480<li>ISMP4<li>LANE\\_3000<li>ANDROID")
 
   public String getModel() {
     return model;

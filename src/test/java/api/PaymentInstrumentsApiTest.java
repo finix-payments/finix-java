@@ -36,6 +36,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @DisplayName("When Running PaymentInstrumentsApiTest")
 public class PaymentInstrumentsApiTest {
     private FinixClient finixClient;
+    private String paymentInstrumentId;
     private TestInfo testInfo;
     private TestReporter testReporter;
     @BeforeEach
@@ -117,6 +118,7 @@ public class PaymentInstrumentsApiTest {
                 .identity("IDgWxBhfGYLLdkhxx2ddYf9K")
                 .build();
         PaymentInstrument response = finixClient.PaymentInstruments.create(createPaymentInstrumentRequest);
+        paymentInstrumentId = response.getId();
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
 
     }
@@ -157,13 +159,14 @@ public class PaymentInstrumentsApiTest {
      */
     @Test
     @DisplayName("Payment instrument verification")
+    @AfterAll
     public void createPaymentInstrumentVerificationTest() throws ApiException {
-        String paymentInstrumentId = "PIe2YvpcjvoVJ6PzoRPBK137";
+//        String paymentInstrumentId = "PIe2YvpcjvoVJ6PzoRPBK137";
         CreateVerificationRequest verificationForm = CreateVerificationRequest.builder()
                 .processor("DUMMY_V1")
                 .build();
         Verification response = finixClient.PaymentInstruments.createPaymentInstrumentVerification(paymentInstrumentId, verificationForm);
-        assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getPaymentInstrument(),()->" Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getPaymentInstrument());
+        assertEquals(paymentInstrumentId,response.getPaymentInstrument(),()->" Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getPaymentInstrument());
     }
 
 
@@ -268,7 +271,10 @@ public class PaymentInstrumentsApiTest {
                 .type(type)
                 .beforeCursor(beforeCursor)
                 .build());
-        assertEquals("20",response.getPage().getLimit().toString(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit());
+        assertTrue(response.getPage() != null);
+        assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());
+        assertTrue(response.getEmbedded().getPaymentInstruments().size() >= 1);
+//        assertEquals("20",response.getPage().getLimit().toString(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit());
     }
 
 

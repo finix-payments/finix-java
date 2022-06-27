@@ -49,7 +49,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Information used to configure how the `Device` handles transactions.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
 public class DeviceConfigDetails {
   public static final String SERIALIZED_NAME_ALLOW_DEBIT = "allow_debit";
   @SerializedName(SERIALIZED_NAME_ALLOW_DEBIT)
@@ -74,6 +74,10 @@ public class DeviceConfigDetails {
   public static final String SERIALIZED_NAME_SIGNATURE_THRESHOLD_AMOUNT = "signature_threshold_amount";
   @SerializedName(SERIALIZED_NAME_SIGNATURE_THRESHOLD_AMOUNT)
   private Long signatureThresholdAmount;
+
+  public static final String SERIALIZED_NAME_BYPASS_DEVICE_ON_CAPTURE = "bypass_device_on_capture";
+  @SerializedName(SERIALIZED_NAME_BYPASS_DEVICE_ON_CAPTURE)
+  private Boolean bypassDeviceOnCapture;
 
   public DeviceConfigDetails() { 
   }
@@ -216,6 +220,29 @@ public class DeviceConfigDetails {
   }
 
 
+  public DeviceConfigDetails bypassDeviceOnCapture(Boolean bypassDeviceOnCapture) {
+    
+    this.bypassDeviceOnCapture = bypassDeviceOnCapture;
+    return this;
+  }
+
+   /**
+   * Sets whether or not the device will be used to capture transactions. This field must be set to true (defaults to false).
+   * @return bypassDeviceOnCapture
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Sets whether or not the device will be used to capture transactions. This field must be set to true (defaults to false).")
+
+  public Boolean getBypassDeviceOnCapture() {
+    return bypassDeviceOnCapture;
+  }
+
+
+  public void setBypassDeviceOnCapture(Boolean bypassDeviceOnCapture) {
+    this.bypassDeviceOnCapture = bypassDeviceOnCapture;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -231,12 +258,13 @@ public class DeviceConfigDetails {
         Objects.equals(this.promptAmountConfirmation, deviceConfigDetails.promptAmountConfirmation) &&
         Objects.equals(this.promptManualEntry, deviceConfigDetails.promptManualEntry) &&
         Objects.equals(this.promptSignature, deviceConfigDetails.promptSignature) &&
-        Objects.equals(this.signatureThresholdAmount, deviceConfigDetails.signatureThresholdAmount);
+        Objects.equals(this.signatureThresholdAmount, deviceConfigDetails.signatureThresholdAmount) &&
+        Objects.equals(this.bypassDeviceOnCapture, deviceConfigDetails.bypassDeviceOnCapture);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowDebit, checkForDuplicateTransactions, promptAmountConfirmation, promptManualEntry, promptSignature, signatureThresholdAmount);
+    return Objects.hash(allowDebit, checkForDuplicateTransactions, promptAmountConfirmation, promptManualEntry, promptSignature, signatureThresholdAmount, bypassDeviceOnCapture);
   }
 
   @Override
@@ -249,6 +277,7 @@ public class DeviceConfigDetails {
     sb.append("    promptManualEntry: ").append(toIndentedString(promptManualEntry)).append("\n");
     sb.append("    promptSignature: ").append(toIndentedString(promptSignature)).append("\n");
     sb.append("    signatureThresholdAmount: ").append(toIndentedString(signatureThresholdAmount)).append("\n");
+    sb.append("    bypassDeviceOnCapture: ").append(toIndentedString(bypassDeviceOnCapture)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -277,6 +306,7 @@ public class DeviceConfigDetails {
     openapiFields.add("prompt_manual_entry");
     openapiFields.add("prompt_signature");
     openapiFields.add("signature_threshold_amount");
+    openapiFields.add("bypass_device_on_capture");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

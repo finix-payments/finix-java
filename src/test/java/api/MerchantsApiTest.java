@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * API tests for MerchantsApi
@@ -110,7 +111,9 @@ public class MerchantsApiTest {
                 .limit(limit)
                 .beforeCursor(beforeCursor)
                 .build());
-        assertEquals("20",response.getPage().getLimit().toString(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit());
+        assertTrue(response.getPage() != null);
+        assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());
+//        assertEquals("20",response.getPage().getLimit().toString(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit());
     }
 
     /**

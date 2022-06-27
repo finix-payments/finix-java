@@ -54,7 +54,7 @@ import invoker.JSON;
  * CreateFeeRequest
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
 public class CreateFeeRequest {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -226,9 +226,17 @@ public class CreateFeeRequest {
   @SerializedName(SERIALIZED_NAME_LINKED_TYPE)
   private LinkedTypeEnum linkedType;
 
-  public static final String SERIALIZED_NAME_MERCHANT = "merchant";
-  @SerializedName(SERIALIZED_NAME_MERCHANT)
-  private String merchant;
+  public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
+  private String merchantId;
+
+  public static final String SERIALIZED_NAME_LABEL = "label";
+  @SerializedName(SERIALIZED_NAME_LABEL)
+  private String label;
+
+  public static final String SERIALIZED_NAME_SETTLEMENT_DELAY_DAYS = "settlement_delay_days";
+  @SerializedName(SERIALIZED_NAME_SETTLEMENT_DELAY_DAYS)
+  private Long settlementDelayDays;
 
   public CreateFeeRequest() { 
   }
@@ -425,26 +433,72 @@ public class CreateFeeRequest {
   }
 
 
-  public CreateFeeRequest merchant(String merchant) {
+  public CreateFeeRequest merchantId(String merchantId) {
     
-    this.merchant = merchant;
+    this.merchantId = merchantId;
     return this;
   }
 
    /**
    * The ID of the resource.
-   * @return merchant
+   * @return merchantId
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The ID of the resource.")
 
-  public String getMerchant() {
-    return merchant;
+  public String getMerchantId() {
+    return merchantId;
   }
 
 
-  public void setMerchant(String merchant) {
-    this.merchant = merchant;
+  public void setMerchantId(String merchantId) {
+    this.merchantId = merchantId;
+  }
+
+
+  public CreateFeeRequest label(String label) {
+    
+    this.label = label;
+    return this;
+  }
+
+   /**
+   * The display name of the Fee that can be used for filtering purposes.
+   * @return label
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The display name of the Fee that can be used for filtering purposes.")
+
+  public String getLabel() {
+    return label;
+  }
+
+
+  public void setLabel(String label) {
+    this.label = label;
+  }
+
+
+  public CreateFeeRequest settlementDelayDays(Long settlementDelayDays) {
+    
+    this.settlementDelayDays = settlementDelayDays;
+    return this;
+  }
+
+   /**
+   * Delays in days, when the fee will be submitted for settlement.
+   * @return settlementDelayDays
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Delays in days, when the fee will be submitted for settlement.")
+
+  public Long getSettlementDelayDays() {
+    return settlementDelayDays;
+  }
+
+
+  public void setSettlementDelayDays(Long settlementDelayDays) {
+    this.settlementDelayDays = settlementDelayDays;
   }
 
 
@@ -466,7 +520,9 @@ public class CreateFeeRequest {
         Objects.equals(this.feeType, createFeeRequest.feeType) &&
         Objects.equals(this.linkedId, createFeeRequest.linkedId) &&
         Objects.equals(this.linkedType, createFeeRequest.linkedType) &&
-        Objects.equals(this.merchant, createFeeRequest.merchant);
+        Objects.equals(this.merchantId, createFeeRequest.merchantId) &&
+        Objects.equals(this.label, createFeeRequest.label) &&
+        Objects.equals(this.settlementDelayDays, createFeeRequest.settlementDelayDays);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -475,7 +531,7 @@ public class CreateFeeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, amount, currency, displayName, feeSubtype, feeType, linkedId, linkedType, merchant);
+    return Objects.hash(tags, amount, currency, displayName, feeSubtype, feeType, linkedId, linkedType, merchantId, label, settlementDelayDays);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -497,7 +553,9 @@ public class CreateFeeRequest {
     sb.append("    feeType: ").append(toIndentedString(feeType)).append("\n");
     sb.append("    linkedId: ").append(toIndentedString(linkedId)).append("\n");
     sb.append("    linkedType: ").append(toIndentedString(linkedType)).append("\n");
-    sb.append("    merchant: ").append(toIndentedString(merchant)).append("\n");
+    sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
+    sb.append("    label: ").append(toIndentedString(label)).append("\n");
+    sb.append("    settlementDelayDays: ").append(toIndentedString(settlementDelayDays)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -528,7 +586,9 @@ public class CreateFeeRequest {
     openapiFields.add("fee_type");
     openapiFields.add("linked_id");
     openapiFields.add("linked_type");
-    openapiFields.add("merchant");
+    openapiFields.add("merchant_id");
+    openapiFields.add("label");
+    openapiFields.add("settlement_delay_days");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -606,8 +666,15 @@ public class CreateFeeRequest {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("merchant") != null && !jsonObj.get("merchant").isJsonNull()  && !jsonObj.get("merchant").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `merchant` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant").toString()));
+      if (jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonNull()  && !jsonObj.get("merchant_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("label") != null && !jsonObj.get("label").isJsonNull()  && !jsonObj.get("label").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `label` to be a primitive type in the JSON string but got `%s`", jsonObj.get("label").toString()));
       }
   }
 

@@ -92,6 +92,9 @@ public class FinixClient {
     public SettlementsApi Settlements;
     public VerificationsApi Verifications;
     public InstrumentUpdatesApi InstrumentUpdates;
+    public FeeProfilesApi FeeProfiles;
+    public MerchantProfilesApi MerchantProfiles;
+
     private OkHttpClient httpClient;
     private JSON json;
     private HttpBasicAuth httpBasicAuth = new HttpBasicAuth();
@@ -112,21 +115,11 @@ public class FinixClient {
         authentications.put("BasicAuth", httpBasicAuth);
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
-        FinixClient finixClient = environment.equals(Environment.SANDBOX) ? setBasePath("https://finix.sandbox-payments-api.com") : setBasePath("https://finix.live-payments-api.com");
-        Transfers = new TransfersApi(this);
-        Transfers = new TransfersApi(this);
-        PaymentInstruments = new PaymentInstrumentsApi(this);
-        Authorizations = new AuthorizationsApi(this);
-        Identities = new IdentitiesApi(this);
-        Disputes = new DisputesApi(this);
-        Devices = new DevicesApi(this);
-        Webhooks = new WebhooksApi(this);
-        BalanceTransfers = new BalanceTransfersApi(this);
-        Files = new FilesApi(this);
-        Merchants = new MerchantsApi(this);
-        Settlements = new SettlementsApi(this);
-        Verifications = new VerificationsApi(this);
-        InstrumentUpdates = new InstrumentUpdatesApi(this);
+        if (environment.equals(Environment.PRODUCTION)){
+            setBasePath("https://finix.live-payments-api.com");
+        } else {
+            setBasePath("https://finix.sandbox-payments-api.com");
+        }
     }
 
 
@@ -183,6 +176,27 @@ public class FinixClient {
         setUserAgent("finix-java/0.0.1");
 
         authentications = new HashMap<String, Authentication>();
+
+        // Add APIs to client for ease of interaction.
+        Transfers = new TransfersApi(this);
+        Transfers = new TransfersApi(this);
+        PaymentInstruments = new PaymentInstrumentsApi(this);
+        Authorizations = new AuthorizationsApi(this);
+        Identities = new IdentitiesApi(this);
+        Disputes = new DisputesApi(this);
+        Devices = new DevicesApi(this);
+        Webhooks = new WebhooksApi(this);
+        BalanceTransfers = new BalanceTransfersApi(this);
+        Files = new FilesApi(this);
+        Merchants = new MerchantsApi(this);
+        Settlements = new SettlementsApi(this);
+        Verifications = new VerificationsApi(this);
+        InstrumentUpdates = new InstrumentUpdatesApi(this);
+        FeeProfiles = new FeeProfilesApi(this);
+        MerchantProfiles = new MerchantProfilesApi(this);
+
+        // Finix API Version
+        addDefaultHeader("Finix-Version","2022-02-01");
     }
 
     /**

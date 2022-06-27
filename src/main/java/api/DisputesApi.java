@@ -128,14 +128,12 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-    /**
-     * EDITED
-     * Generator FAILS to set localVarFormParams which fails to set MULTIPART
-     */
+
         localVarFormParams.put("file",createDisputeEvidenceRequest.getFile());
         final String[] localVarAccepts = {
-    "application/hal+json"
+            "application/hal+json"
         };
+
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
         localVarHeaderParams.put("Accept", localVarAccept);
@@ -169,7 +167,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
             /**
             * Create Dispute Evidence
-            * Upload dispute evidence for a &#x60;Dispute&#x60;.  There are four available values that indicate the state of the evidence upload:  * **PENDING**: The evidence file has not yet been submitted to the &#x60;Processor&#x60;. No user action is required. * **SUCCEEDED**: The evidence file has been successfully sent to the &#x60;Processor&#x60;. No further user action is required. * **CANCELED**: The evidence file upload was not completed due to user action. * **FAILED**: An issue occurred. User action is required. Any of the following issues could have occurred:     * There was an error in the system and the user should retry uploading their evidence file.     * There is an issue with the file and the user should retry uploading a different file.     * There is an issue and the user should contact Support. 
+            * Upload dispute evidence for a &#x60;Dispute&#x60;.  There are four values available for &#x60;state&#x60; that details the status of the evidence upload:  * **PENDING**: The evidence file has not yet been submitted to the &#x60;Processor&#x60;. No user action is required. * **SUCCEEDED**: The evidence file has been successfully sent to the &#x60;Processor&#x60;. No further user action is required. * **CANCELED**: The evidence file upload was not completed due to user action. * **FAILED**: An issue occurred. User action is required. Any of the following issues could have occurred:     * There was an error in the system and the user should retry uploading their evidence file.     * There is an issue with the file and the user should retry uploading a different file.     * There is an issue and the user should contact Support. 
                 * @param disputeId ID of &#x60;Dispute&#x60; to mange evidence for. (required)
                 * @param createDisputeEvidenceRequest  (optional)
                 * @return DisputeEvidence
@@ -191,7 +189,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Create Dispute Evidence
-        * Upload dispute evidence for a &#x60;Dispute&#x60;.  There are four available values that indicate the state of the evidence upload:  * **PENDING**: The evidence file has not yet been submitted to the &#x60;Processor&#x60;. No user action is required. * **SUCCEEDED**: The evidence file has been successfully sent to the &#x60;Processor&#x60;. No further user action is required. * **CANCELED**: The evidence file upload was not completed due to user action. * **FAILED**: An issue occurred. User action is required. Any of the following issues could have occurred:     * There was an error in the system and the user should retry uploading their evidence file.     * There is an issue with the file and the user should retry uploading a different file.     * There is an issue and the user should contact Support. 
+        * Upload dispute evidence for a &#x60;Dispute&#x60;.  There are four values available for &#x60;state&#x60; that details the status of the evidence upload:  * **PENDING**: The evidence file has not yet been submitted to the &#x60;Processor&#x60;. No user action is required. * **SUCCEEDED**: The evidence file has been successfully sent to the &#x60;Processor&#x60;. No further user action is required. * **CANCELED**: The evidence file upload was not completed due to user action. * **FAILED**: An issue occurred. User action is required. Any of the following issues could have occurred:     * There was an error in the system and the user should retry uploading their evidence file.     * There is an issue with the file and the user should retry uploading a different file.     * There is an issue and the user should contact Support. 
             * @param disputeId ID of &#x60;Dispute&#x60; to mange evidence for. (required)
             * @param createDisputeEvidenceRequest  (optional)
         * @return ApiResponse&lt;DisputeEvidence&gt;
@@ -214,7 +212,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Create Dispute Evidence (asynchronously)
-        * Upload dispute evidence for a &#x60;Dispute&#x60;.  There are four available values that indicate the state of the evidence upload:  * **PENDING**: The evidence file has not yet been submitted to the &#x60;Processor&#x60;. No user action is required. * **SUCCEEDED**: The evidence file has been successfully sent to the &#x60;Processor&#x60;. No further user action is required. * **CANCELED**: The evidence file upload was not completed due to user action. * **FAILED**: An issue occurred. User action is required. Any of the following issues could have occurred:     * There was an error in the system and the user should retry uploading their evidence file.     * There is an issue with the file and the user should retry uploading a different file.     * There is an issue and the user should contact Support. 
+        * Upload dispute evidence for a &#x60;Dispute&#x60;.  There are four values available for &#x60;state&#x60; that details the status of the evidence upload:  * **PENDING**: The evidence file has not yet been submitted to the &#x60;Processor&#x60;. No user action is required. * **SUCCEEDED**: The evidence file has been successfully sent to the &#x60;Processor&#x60;. No further user action is required. * **CANCELED**: The evidence file upload was not completed due to user action. * **FAILED**: An issue occurred. User action is required. Any of the following issues could have occurred:     * There was an error in the system and the user should retry uploading their evidence file.     * There is an issue with the file and the user should retry uploading a different file.     * There is an issue and the user should contact Support. 
             * @param disputeId ID of &#x60;Dispute&#x60; to mange evidence for. (required)
             * @param createDisputeEvidenceRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
@@ -280,8 +278,9 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-    "application/hal+json"
+            "application/hal+json"
         };
+
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
         localVarHeaderParams.put("Accept", localVarAccept);
@@ -425,8 +424,9 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-    "application/hal+json"
+            "application/hal+json"
         };
+
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
         localVarHeaderParams.put("Accept", localVarAccept);
@@ -465,7 +465,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
             /**
             * Fetch Dispute Evidence
-            * Retrieve the details of a &#x60;Dispute&#x60;.
+            * Fetch evidence uploaded for a &#x60;Dispute&#x60;.   If you don&#39;t have the Finix Dashboard available, you can fetch the evidence to review the &#x60;status&#x60; of the upload to confirm the evidence got sent to the processor.
                 * @param disputeId ID of &#x60;Dispute&#x60; to fetch evidence for. (required)
                 * @param evidenceId ID of &#x60;evidence&#x60; to fetch. (required)
                 * @return DisputeEvidence
@@ -487,7 +487,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Fetch Dispute Evidence
-        * Retrieve the details of a &#x60;Dispute&#x60;.
+        * Fetch evidence uploaded for a &#x60;Dispute&#x60;.   If you don&#39;t have the Finix Dashboard available, you can fetch the evidence to review the &#x60;status&#x60; of the upload to confirm the evidence got sent to the processor.
             * @param disputeId ID of &#x60;Dispute&#x60; to fetch evidence for. (required)
             * @param evidenceId ID of &#x60;evidence&#x60; to fetch. (required)
         * @return ApiResponse&lt;DisputeEvidence&gt;
@@ -510,7 +510,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Fetch Dispute Evidence (asynchronously)
-        * Retrieve the details of a &#x60;Dispute&#x60;.
+        * Fetch evidence uploaded for a &#x60;Dispute&#x60;.   If you don&#39;t have the Finix Dashboard available, you can fetch the evidence to review the &#x60;status&#x60; of the upload to confirm the evidence got sent to the processor.
             * @param disputeId ID of &#x60;Dispute&#x60; to fetch evidence for. (required)
             * @param evidenceId ID of &#x60;evidence&#x60; to fetch. (required)
         * @param _callback The callback to be executed when the API call finishes
@@ -533,150 +533,7 @@ this.localCustomBaseUrl = customBaseUrl;
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
         }
-    /**
-    * Build call for listApplicationDisputes
-        * @param applicationId ID of application to use (required)
-    * @param _callback Callback for upload/download progress
-    * @return Call to execute
-    * @throws ApiException If fail to serialize the request body object
-        * @http.response.details
-        <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                <tr><td> 200 </td><td> List of Disputes </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-        </table>
-    */
-    public okhttp3.Call listApplicationDisputesCall(String applicationId, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {  };
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
-
-    Object localVarPostBody = null;
-
-    // create path and map variables
-        String localVarPath = "/applications/{application_id}/disputes"
-            .replaceAll("\\{" + "application_id" + "\\}", localVarFinixClient.escapeString(applicationId.toString()));
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-    "application/hal+json"
-        };
-        final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-    
-        };
-        final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
-        return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
-
-        @SuppressWarnings("rawtypes")
-        private okhttp3.Call listApplicationDisputesValidateBeforeCall(String applicationId, final ApiCallback _callback) throws ApiException {
-        
-                // verify the required parameter 'applicationId' is set
-                if (applicationId == null) {
-                throw new ApiException("Missing the required parameter 'applicationId' when calling listApplicationDisputes(Async)");
-                }
-        
-
-            okhttp3.Call localVarCall = listApplicationDisputesCall(applicationId, _callback);
-            return localVarCall;
-
-        }
-
-            /**
-            * List Application Disputes
-            * Return a collection of disputes, if there are no disputes, an empty collection will be returned. 
-                * @param applicationId ID of application to use (required)
-                * @return DisputesList
-            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of Disputes </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                </table>
-            */
-                public DisputesList listApplicationDisputes(String applicationId) throws ApiException {
-            ApiResponse<DisputesList> localVarResp = listApplicationDisputesWithHttpInfo(applicationId);
-                    return localVarResp.getData();
-                }
-
-    /**
-        * List Application Disputes
-        * Return a collection of disputes, if there are no disputes, an empty collection will be returned. 
-            * @param applicationId ID of application to use (required)
-        * @return ApiResponse&lt;DisputesList&gt;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Disputes </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public ApiResponse<DisputesList> listApplicationDisputesWithHttpInfo(String applicationId) throws ApiException {
-        okhttp3.Call localVarCall = listApplicationDisputesValidateBeforeCall(applicationId, null);
-                Type localVarReturnType = new TypeToken<DisputesList>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
-
-    /**
-        * List Application Disputes (asynchronously)
-        * Return a collection of disputes, if there are no disputes, an empty collection will be returned. 
-            * @param applicationId ID of application to use (required)
-        * @param _callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Disputes </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public okhttp3.Call listApplicationDisputesAsync(String applicationId, final ApiCallback<DisputesList> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listApplicationDisputesValidateBeforeCall(applicationId, _callback);
-    Type localVarReturnType = new TypeToken<DisputesList>(){}.getType();
-        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-        }
-    private okhttp3.Call listDisputeEvidenceCall(String disputeId, Long limit, Long offset, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listDisputeEvidenceCall(String disputeId, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -706,13 +563,18 @@ this.localCustomBaseUrl = customBaseUrl;
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("limit", limit));
                 }
 
-                if (offset != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("offset", offset));
+                if (afterCursor != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("after_cursor", afterCursor));
+                }
+
+                if (beforeCursor != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("before_cursor", beforeCursor));
                 }
 
         final String[] localVarAccepts = {
-    "application/hal+json"
+            "application/hal+json"
         };
+
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
         localVarHeaderParams.put("Accept", localVarAccept);
@@ -731,7 +593,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call listDisputeEvidenceValidateBeforeCall(String disputeId, Long limit, Long offset, final ApiCallback _callback) throws ApiException {
+        private okhttp3.Call listDisputeEvidenceValidateBeforeCall(String disputeId, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
         
                 // verify the required parameter 'disputeId' is set
                 if (disputeId == null) {
@@ -739,21 +601,21 @@ this.localCustomBaseUrl = customBaseUrl;
                 }
         
 
-            okhttp3.Call localVarCall = listDisputeEvidenceCall(disputeId, limit, offset, _callback);
+            okhttp3.Call localVarCall = listDisputeEvidenceCall(disputeId, limit, afterCursor, beforeCursor, _callback);
             return localVarCall;
 
         }
 
 
-    private ApiResponse<DisputeEvidenceList> listDisputeEvidenceWithHttpInfo(String disputeId, Long limit, Long offset) throws ApiException {
-        okhttp3.Call localVarCall = listDisputeEvidenceValidateBeforeCall(disputeId, limit, offset, null);
+    private ApiResponse<DisputeEvidenceList> listDisputeEvidenceWithHttpInfo(String disputeId, Long limit, String afterCursor, String beforeCursor) throws ApiException {
+        okhttp3.Call localVarCall = listDisputeEvidenceValidateBeforeCall(disputeId, limit, afterCursor, beforeCursor, null);
                 Type localVarReturnType = new TypeToken<DisputeEvidenceList>(){}.getType();
                 return localVarFinixClient.execute(localVarCall, localVarReturnType);
         }
 
-    private okhttp3.Call listDisputeEvidenceAsync(String disputeId, Long limit, Long offset, final ApiCallback<DisputeEvidenceList> _callback) throws ApiException {
+    private okhttp3.Call listDisputeEvidenceAsync(String disputeId, Long limit, String afterCursor, String beforeCursor, final ApiCallback<DisputeEvidenceList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listDisputeEvidenceValidateBeforeCall(disputeId, limit, offset, _callback);
+        okhttp3.Call localVarCall = listDisputeEvidenceValidateBeforeCall(disputeId, limit, afterCursor, beforeCursor, _callback);
     Type localVarReturnType = new TypeToken<DisputeEvidenceList>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -762,7 +624,8 @@ this.localCustomBaseUrl = customBaseUrl;
         public class APIlistDisputeEvidenceRequest {
             private final String disputeId;
             private Long limit;
-            private Long offset;
+            private String afterCursor;
+            private String beforeCursor;
 
         private APIlistDisputeEvidenceRequest(String disputeId) {
             this.disputeId = disputeId;
@@ -779,12 +642,22 @@ this.localCustomBaseUrl = customBaseUrl;
             }
 
             /**
-            * Set offset
-            * @param offset The number of items to skip before starting to collect the result set (optional)
+            * Set afterCursor
+            * @param afterCursor Return every resource created after the cursor value. (optional)
             * @return APIlistDisputeEvidenceRequest
             */
-            public APIlistDisputeEvidenceRequest offset(Long offset) {
-            this.offset = offset;
+            public APIlistDisputeEvidenceRequest afterCursor(String afterCursor) {
+            this.afterCursor = afterCursor;
+            return this;
+            }
+
+            /**
+            * Set beforeCursor
+            * @param beforeCursor Return every resource created before the cursor value. (optional)
+            * @return APIlistDisputeEvidenceRequest
+            */
+            public APIlistDisputeEvidenceRequest beforeCursor(String beforeCursor) {
+            this.beforeCursor = beforeCursor;
             return this;
             }
 
@@ -804,7 +677,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-        return listDisputeEvidenceCall(disputeId, limit, offset, _callback);
+        return listDisputeEvidenceCall(disputeId, limit, afterCursor, beforeCursor, _callback);
         }
 
         /**
@@ -822,7 +695,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public DisputeEvidenceList execute() throws ApiException {
-    ApiResponse<DisputeEvidenceList> localVarResp = listDisputeEvidenceWithHttpInfo(disputeId, limit, offset);
+    ApiResponse<DisputeEvidenceList> localVarResp = listDisputeEvidenceWithHttpInfo(disputeId, limit, afterCursor, beforeCursor);
             return localVarResp.getData();
         }
 
@@ -841,7 +714,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public ApiResponse<DisputeEvidenceList> executeWithHttpInfo() throws ApiException {
-        return listDisputeEvidenceWithHttpInfo(disputeId, limit, offset);
+        return listDisputeEvidenceWithHttpInfo(disputeId, limit, afterCursor, beforeCursor);
         }
 
         /**
@@ -860,7 +733,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call executeAsync(final ApiCallback<DisputeEvidenceList> _callback) throws ApiException {
-        return listDisputeEvidenceAsync(disputeId, limit, offset, _callback);
+        return listDisputeEvidenceAsync(disputeId, limit, afterCursor, beforeCursor, _callback);
         }
         }
 
@@ -883,7 +756,8 @@ this.localCustomBaseUrl = customBaseUrl;
 
         APIlistDisputeEvidenceRequest request = new APIlistDisputeEvidenceRequest(disputeId);
         request.limit(listDisputeEvidenceQueryParams.getLimit());
-        request.offset(listDisputeEvidenceQueryParams.getOffset());
+        request.afterCursor(listDisputeEvidenceQueryParams.getAfterCursor());
+        request.beforeCursor(listDisputeEvidenceQueryParams.getBeforeCursor());
         return request.execute();
 
     }
@@ -941,8 +815,9 @@ this.localCustomBaseUrl = customBaseUrl;
                 }
 
         final String[] localVarAccepts = {
-    "application/hal+json"
+            "application/hal+json"
         };
+
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
         localVarHeaderParams.put("Accept", localVarAccept);
@@ -1199,8 +1074,9 @@ this.localCustomBaseUrl = customBaseUrl;
                 }
 
         final String[] localVarAccepts = {
-    "application/hal+json"
+            "application/hal+json"
         };
+
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
         localVarHeaderParams.put("Accept", localVarAccept);
@@ -1375,354 +1251,4 @@ this.localCustomBaseUrl = customBaseUrl;
         return request.execute();
 
     }
-    /**
-    * Build call for listIdentityDisputes
-        * @param identityId ID of identity to fetch (required)
-        * @param limit The number of entries to return. (optional)
-        * @param offset The number of items to skip before starting to collect the result set. (optional)
-        * @param pageNumber The page number to list. (optional)
-        * @param pageSize The size of the page. (optional)
-    * @param _callback Callback for upload/download progress
-    * @return Call to execute
-    * @throws ApiException If fail to serialize the request body object
-        * @http.response.details
-        <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                <tr><td> 200 </td><td> List of Disputes </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-        </table>
-    */
-    public okhttp3.Call listIdentityDisputesCall(String identityId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {  };
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
-
-    Object localVarPostBody = null;
-
-    // create path and map variables
-        String localVarPath = "/identities/{identity_id}/disputes"
-            .replaceAll("\\{" + "identity_id" + "\\}", localVarFinixClient.escapeString(identityId.toString()));
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-                if (limit != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("limit", limit));
-                }
-
-                if (offset != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("offset", offset));
-                }
-
-                if (pageNumber != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageNumber", pageNumber));
-                }
-
-                if (pageSize != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageSize", pageSize));
-                }
-
-        final String[] localVarAccepts = {
-    "application/hal+json"
-        };
-        final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-    
-        };
-        final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
-        return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
-
-        @SuppressWarnings("rawtypes")
-        private okhttp3.Call listIdentityDisputesValidateBeforeCall(String identityId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback _callback) throws ApiException {
-        
-                // verify the required parameter 'identityId' is set
-                if (identityId == null) {
-                throw new ApiException("Missing the required parameter 'identityId' when calling listIdentityDisputes(Async)");
-                }
-        
-
-            okhttp3.Call localVarCall = listIdentityDisputesCall(identityId, limit, offset, pageNumber, pageSize, _callback);
-            return localVarCall;
-
-        }
-
-            /**
-            * List Identity Disputes
-            * All disputes associated to this identity
-                * @param identityId ID of identity to fetch (required)
-                * @param limit The number of entries to return. (optional)
-                * @param offset The number of items to skip before starting to collect the result set. (optional)
-                * @param pageNumber The page number to list. (optional)
-                * @param pageSize The size of the page. (optional)
-                * @return DisputesList
-            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of Disputes </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                </table>
-            */
-                public DisputesList listByIdentityId(String identityId, Long limit, Long offset, Long pageNumber, Long pageSize) throws ApiException {
-            ApiResponse<DisputesList> localVarResp = listIdentityDisputesWithHttpInfo(identityId, limit, offset, pageNumber, pageSize);
-                    return localVarResp.getData();
-                }
-
-    /**
-        * List Identity Disputes
-        * All disputes associated to this identity
-            * @param identityId ID of identity to fetch (required)
-            * @param limit The number of entries to return. (optional)
-            * @param offset The number of items to skip before starting to collect the result set. (optional)
-            * @param pageNumber The page number to list. (optional)
-            * @param pageSize The size of the page. (optional)
-        * @return ApiResponse&lt;DisputesList&gt;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Disputes </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public ApiResponse<DisputesList> listIdentityDisputesWithHttpInfo(String identityId, Long limit, Long offset, Long pageNumber, Long pageSize) throws ApiException {
-        okhttp3.Call localVarCall = listIdentityDisputesValidateBeforeCall(identityId, limit, offset, pageNumber, pageSize, null);
-                Type localVarReturnType = new TypeToken<DisputesList>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
-
-    /**
-        * List Identity Disputes (asynchronously)
-        * All disputes associated to this identity
-            * @param identityId ID of identity to fetch (required)
-            * @param limit The number of entries to return. (optional)
-            * @param offset The number of items to skip before starting to collect the result set. (optional)
-            * @param pageNumber The page number to list. (optional)
-            * @param pageSize The size of the page. (optional)
-        * @param _callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Disputes </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public okhttp3.Call listIdentityDisputesAsync(String identityId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback<DisputesList> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listIdentityDisputesValidateBeforeCall(identityId, limit, offset, pageNumber, pageSize, _callback);
-    Type localVarReturnType = new TypeToken<DisputesList>(){}.getType();
-        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-        }
-    /**
-    * Build call for listTransferDisputes
-        * @param transferId ID of object (required)
-        * @param limit The number of entries to return. (optional)
-        * @param offset The number of items to skip before starting to collect the result set. (optional)
-        * @param pageNumber The page number to list. (optional)
-        * @param pageSize The size of the page. (optional)
-    * @param _callback Callback for upload/download progress
-    * @return Call to execute
-    * @throws ApiException If fail to serialize the request body object
-        * @http.response.details
-        <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                <tr><td> 200 </td><td> List of Disputes </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-        </table>
-    */
-    public okhttp3.Call listTransferDisputesCall(String transferId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {  };
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
-
-    Object localVarPostBody = null;
-
-    // create path and map variables
-        String localVarPath = "/transfers/{transfer_id}/disputes"
-            .replaceAll("\\{" + "transfer_id" + "\\}", localVarFinixClient.escapeString(transferId.toString()));
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-                if (limit != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("limit", limit));
-                }
-
-                if (offset != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("offset", offset));
-                }
-
-                if (pageNumber != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageNumber", pageNumber));
-                }
-
-                if (pageSize != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageSize", pageSize));
-                }
-
-        final String[] localVarAccepts = {
-    "application/hal+json"
-        };
-        final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-    
-        };
-        final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
-        return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
-
-        @SuppressWarnings("rawtypes")
-        private okhttp3.Call listTransferDisputesValidateBeforeCall(String transferId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback _callback) throws ApiException {
-        
-                // verify the required parameter 'transferId' is set
-                if (transferId == null) {
-                throw new ApiException("Missing the required parameter 'transferId' when calling listTransferDisputes(Async)");
-                }
-        
-
-            okhttp3.Call localVarCall = listTransferDisputesCall(transferId, limit, offset, pageNumber, pageSize, _callback);
-            return localVarCall;
-
-        }
-
-            /**
-            * List Tranfer Disputes
-            * Get list of all the disputes in the transfers object
-                * @param transferId ID of object (required)
-                * @param limit The number of entries to return. (optional)
-                * @param offset The number of items to skip before starting to collect the result set. (optional)
-                * @param pageNumber The page number to list. (optional)
-                * @param pageSize The size of the page. (optional)
-                * @return DisputesList
-            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> List of Disputes </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                </table>
-            */
-                public DisputesList listByTransferId(String transferId, Long limit, Long offset, Long pageNumber, Long pageSize) throws ApiException {
-            ApiResponse<DisputesList> localVarResp = listTransferDisputesWithHttpInfo(transferId, limit, offset, pageNumber, pageSize);
-                    return localVarResp.getData();
-                }
-
-    /**
-        * List Tranfer Disputes
-        * Get list of all the disputes in the transfers object
-            * @param transferId ID of object (required)
-            * @param limit The number of entries to return. (optional)
-            * @param offset The number of items to skip before starting to collect the result set. (optional)
-            * @param pageNumber The page number to list. (optional)
-            * @param pageSize The size of the page. (optional)
-        * @return ApiResponse&lt;DisputesList&gt;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Disputes </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public ApiResponse<DisputesList> listTransferDisputesWithHttpInfo(String transferId, Long limit, Long offset, Long pageNumber, Long pageSize) throws ApiException {
-        okhttp3.Call localVarCall = listTransferDisputesValidateBeforeCall(transferId, limit, offset, pageNumber, pageSize, null);
-                Type localVarReturnType = new TypeToken<DisputesList>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
-
-    /**
-        * List Tranfer Disputes (asynchronously)
-        * Get list of all the disputes in the transfers object
-            * @param transferId ID of object (required)
-            * @param limit The number of entries to return. (optional)
-            * @param offset The number of items to skip before starting to collect the result set. (optional)
-            * @param pageNumber The page number to list. (optional)
-            * @param pageSize The size of the page. (optional)
-        * @param _callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Disputes </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public okhttp3.Call listTransferDisputesAsync(String transferId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback<DisputesList> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listTransferDisputesValidateBeforeCall(transferId, limit, offset, pageNumber, pageSize, _callback);
-    Type localVarReturnType = new TypeToken<DisputesList>(){}.getType();
-        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-        }
     }

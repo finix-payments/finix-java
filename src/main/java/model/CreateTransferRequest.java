@@ -58,7 +58,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Create a `transfer`.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
 public class CreateTransferRequest {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -380,6 +380,10 @@ public class CreateTransferRequest {
   public static final String SERIALIZED_NAME_STATEMENT_DESCRIPTOR = "statement_descriptor";
   @SerializedName(SERIALIZED_NAME_STATEMENT_DESCRIPTOR)
   private String statementDescriptor;
+
+  public static final String SERIALIZED_NAME_FRAUD_SESSION_ID = "fraud_session_id";
+  @SerializedName(SERIALIZED_NAME_FRAUD_SESSION_ID)
+  private String fraudSessionId;
 
   public static final String SERIALIZED_NAME_ADDITIONAL_PURCHASE_DATA = "additional_purchase_data";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_PURCHASE_DATA)
@@ -864,6 +868,29 @@ public class CreateTransferRequest {
   }
 
 
+  public CreateTransferRequest fraudSessionId(String fraudSessionId) {
+    
+    this.fraudSessionId = fraudSessionId;
+    return this;
+  }
+
+   /**
+   * The &#x60;fraud_session_session&#x60; ID you want to review for fraud. For more info, see [Fraud Detection](/docs/guides/payments/fraud-detection/).
+   * @return fraudSessionId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The `fraud_session_session` ID you want to review for fraud. For more info, see [Fraud Detection](/docs/guides/payments/fraud-detection/).")
+
+  public String getFraudSessionId() {
+    return fraudSessionId;
+  }
+
+
+  public void setFraudSessionId(String fraudSessionId) {
+    this.fraudSessionId = fraudSessionId;
+  }
+
+
   public CreateTransferRequest additionalPurchaseData(AdditionalPurchaseData additionalPurchaseData) {
     
     this.additionalPurchaseData = additionalPurchaseData;
@@ -917,6 +944,7 @@ public class CreateTransferRequest {
         Objects.equals(this.processor, createTransferRequest.processor) &&
         Objects.equals(this.source, createTransferRequest.source) &&
         Objects.equals(this.statementDescriptor, createTransferRequest.statementDescriptor) &&
+        Objects.equals(this.fraudSessionId, createTransferRequest.fraudSessionId) &&
         Objects.equals(this.additionalPurchaseData, createTransferRequest.additionalPurchaseData);
   }
 
@@ -926,7 +954,7 @@ public class CreateTransferRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, adjustmentRequest, amount, configOverride, currency, destination, device, deviceConfiguration, fee, gateway, _3dSecureAuthentication, idempotencyId, inputMethod, merchant, merchantIdentity, operationKey, paymentInstrument, processor, source, statementDescriptor, additionalPurchaseData);
+    return Objects.hash(tags, adjustmentRequest, amount, configOverride, currency, destination, device, deviceConfiguration, fee, gateway, _3dSecureAuthentication, idempotencyId, inputMethod, merchant, merchantIdentity, operationKey, paymentInstrument, processor, source, statementDescriptor, fraudSessionId, additionalPurchaseData);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -960,6 +988,7 @@ public class CreateTransferRequest {
     sb.append("    processor: ").append(toIndentedString(processor)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    statementDescriptor: ").append(toIndentedString(statementDescriptor)).append("\n");
+    sb.append("    fraudSessionId: ").append(toIndentedString(fraudSessionId)).append("\n");
     sb.append("    additionalPurchaseData: ").append(toIndentedString(additionalPurchaseData)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1003,6 +1032,7 @@ public class CreateTransferRequest {
     openapiFields.add("processor");
     openapiFields.add("source");
     openapiFields.add("statement_descriptor");
+    openapiFields.add("fraud_session_id");
     openapiFields.add("additional_purchase_data");
 
     // a set of required properties/fields (JSON key names)
@@ -1136,6 +1166,13 @@ public class CreateTransferRequest {
       */
       if (jsonObj.get("statement_descriptor") != null && !jsonObj.get("statement_descriptor").isJsonNull()  && !jsonObj.get("statement_descriptor").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `statement_descriptor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("statement_descriptor").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("fraud_session_id") != null && !jsonObj.get("fraud_session_id").isJsonNull()  && !jsonObj.get("fraud_session_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fraud_session_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fraud_session_id").toString()));
       }
       /**
       * EDITED

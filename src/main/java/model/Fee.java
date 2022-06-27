@@ -56,7 +56,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "An out of flow `fee` that is added to a `settlement`.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
 public class Fee {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -406,6 +406,10 @@ public class Fee {
   @SerializedName(SERIALIZED_NAME_MERCHANT)
   private String merchant;
 
+  public static final String SERIALIZED_NAME_LABEL = "label";
+  @SerializedName(SERIALIZED_NAME_LABEL)
+  private String label;
+
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
   private FeeLinks links;
@@ -697,6 +701,29 @@ public class Fee {
   }
 
 
+  public Fee label(String label) {
+    
+    this.label = label;
+    return this;
+  }
+
+   /**
+   * Get label
+   * @return label
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLabel() {
+    return label;
+  }
+
+
+  public void setLabel(String label) {
+    this.label = label;
+  }
+
+
   public Fee links(FeeLinks links) {
     
     this.links = links;
@@ -742,6 +769,7 @@ public class Fee {
         Objects.equals(this.linkedId, fee.linkedId) &&
         Objects.equals(this.linkedType, fee.linkedType) &&
         Objects.equals(this.merchant, fee.merchant) &&
+        Objects.equals(this.label, fee.label) &&
         Objects.equals(this.links, fee.links);
   }
 
@@ -751,7 +779,7 @@ public class Fee {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, id, createdAt, updatedAt, amount, currency, displayName, feeSubtype, feeType, linkedId, linkedType, merchant, links);
+    return Objects.hash(tags, id, createdAt, updatedAt, amount, currency, displayName, feeSubtype, feeType, linkedId, linkedType, merchant, label, links);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -777,6 +805,7 @@ public class Fee {
     sb.append("    linkedId: ").append(toIndentedString(linkedId)).append("\n");
     sb.append("    linkedType: ").append(toIndentedString(linkedType)).append("\n");
     sb.append("    merchant: ").append(toIndentedString(merchant)).append("\n");
+    sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -812,6 +841,7 @@ public class Fee {
     openapiFields.add("linked_id");
     openapiFields.add("linked_type");
     openapiFields.add("merchant");
+    openapiFields.add("label");
     openapiFields.add("_links");
 
     // a set of required properties/fields (JSON key names)
@@ -890,6 +920,13 @@ public class Fee {
       */
       if (jsonObj.get("merchant") != null && !jsonObj.get("merchant").isJsonNull()  && !jsonObj.get("merchant").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("label") != null && !jsonObj.get("label").isJsonNull()  && !jsonObj.get("label").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `label` to be a primitive type in the JSON string but got `%s`", jsonObj.get("label").toString()));
       }
       /**
       * EDITED

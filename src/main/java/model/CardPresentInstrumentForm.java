@@ -50,7 +50,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Details the `Payment Instrument` that the `Transfer` debits or credits. ")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
 public class CardPresentInstrumentForm {
   /**
    * The type of &#x60;Payment Instrument&#x60;.

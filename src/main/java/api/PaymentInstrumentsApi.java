@@ -160,7 +160,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
             /**
             * Create an Apple Pay Session
-            * Create an &#x60;apple_pay_session&#x60; to process Apple Pay transactions on the web.  To create an Apple Pay Session, pass a &#x60;validation_url&#x60; while creating an &#x60;apple_pay_sessions&#x60; resource. Finix returns a &#x60;merchantSession&#x60; object which you can use to create a payment. For more information, see [Apple Pay](guides/payments/alternative-payment-methods/apple-pay/). 
+            * Create an &#x60;apple_pay_session&#x60; to process Apple Pay transactions on the web.  To create an Apple Pay Session, pass the unique &#x60;validation_url&#x60; (provided by Apple) while creating an &#x60;apple_pay_sessions&#x60; resource. Finix returns a &#x60;merchantSession&#x60; object that you can use to create a payment. For more information, see [Apple Pay](/docs/guides/payments/alternative-payment-methods/apple-pay/).
                 * @param applePaySessionRequest  (optional)
                 * @return ApplePaySession
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -181,7 +181,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Create an Apple Pay Session
-        * Create an &#x60;apple_pay_session&#x60; to process Apple Pay transactions on the web.  To create an Apple Pay Session, pass a &#x60;validation_url&#x60; while creating an &#x60;apple_pay_sessions&#x60; resource. Finix returns a &#x60;merchantSession&#x60; object which you can use to create a payment. For more information, see [Apple Pay](guides/payments/alternative-payment-methods/apple-pay/). 
+        * Create an &#x60;apple_pay_session&#x60; to process Apple Pay transactions on the web.  To create an Apple Pay Session, pass the unique &#x60;validation_url&#x60; (provided by Apple) while creating an &#x60;apple_pay_sessions&#x60; resource. Finix returns a &#x60;merchantSession&#x60; object that you can use to create a payment. For more information, see [Apple Pay](/docs/guides/payments/alternative-payment-methods/apple-pay/).
             * @param applePaySessionRequest  (optional)
         * @return ApiResponse&lt;ApplePaySession&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -203,7 +203,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Create an Apple Pay Session (asynchronously)
-        * Create an &#x60;apple_pay_session&#x60; to process Apple Pay transactions on the web.  To create an Apple Pay Session, pass a &#x60;validation_url&#x60; while creating an &#x60;apple_pay_sessions&#x60; resource. Finix returns a &#x60;merchantSession&#x60; object which you can use to create a payment. For more information, see [Apple Pay](guides/payments/alternative-payment-methods/apple-pay/). 
+        * Create an &#x60;apple_pay_session&#x60; to process Apple Pay transactions on the web.  To create an Apple Pay Session, pass the unique &#x60;validation_url&#x60; (provided by Apple) while creating an &#x60;apple_pay_sessions&#x60; resource. Finix returns a &#x60;merchantSession&#x60; object that you can use to create a payment. For more information, see [Apple Pay](/docs/guides/payments/alternative-payment-methods/apple-pay/).
             * @param applePaySessionRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call

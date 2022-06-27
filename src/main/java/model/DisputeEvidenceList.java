@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import model.DisputeEvidenceLinks;
 import model.DisputeEvidenceListEmbedded;
-import model.DisputeEvidenceListPage;
+import model.PageCursor;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,11 +51,11 @@ import invoker.JSON;
  * DisputeEvidenceList
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
 public class DisputeEvidenceList {
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
-  private DisputeEvidenceListPage page;
+  private PageCursor page;
 
   public static final String SERIALIZED_NAME_EMBEDDED = "_embedded";
   @SerializedName(SERIALIZED_NAME_EMBEDDED)
@@ -68,7 +68,7 @@ public class DisputeEvidenceList {
   public DisputeEvidenceList() { 
   }
 
-  public DisputeEvidenceList page(DisputeEvidenceListPage page) {
+  public DisputeEvidenceList page(PageCursor page) {
     
     this.page = page;
     return this;
@@ -81,12 +81,12 @@ public class DisputeEvidenceList {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public DisputeEvidenceListPage getPage() {
+  public PageCursor getPage() {
     return page;
   }
 
 
-  public void setPage(DisputeEvidenceListPage page) {
+  public void setPage(PageCursor page) {
     this.page = page;
   }
 
@@ -224,7 +224,7 @@ public class DisputeEvidenceList {
       */
       // validate the optional field `page`
      // if (jsonObj.getAsJsonObject("page") != null) {
-       //DisputeEvidenceListPage.validateJsonObject(jsonObj.getAsJsonObject("page"));
+       //PageCursor.validateJsonObject(jsonObj.getAsJsonObject("page"));
      // }
 
       /**

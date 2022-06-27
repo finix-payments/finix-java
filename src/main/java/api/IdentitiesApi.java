@@ -311,7 +311,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
             /**
             * Create an Identity
-            * Create an &#x60;Identity&#x60; for your merchant or buyer.  Creating &#x60;Identities&#x60; for merchants requires [providing their KYC details](/guides/getting-started/#step-1-create-an-identity-for-a-merchant).  Related Guides: [Getting Started](/guides/getting-started/#step-1-create-an-identity-for-a-merchant), [Onboarding](/guides/onboarding/)
+            * Create an &#x60;Identity&#x60; for your merchant or buyer.  Creating &#x60;Identities&#x60; for merchants requires they provide [KYC details](/docs/guides/getting-stared/).  Related Guides: [Getting Started](/docs/guides/getting-started/), [Onboarding](/docs/guides/onboarding/)
                 * @param createIdentityRequest  (optional)
                 * @return Identity
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -332,7 +332,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Create an Identity
-        * Create an &#x60;Identity&#x60; for your merchant or buyer.  Creating &#x60;Identities&#x60; for merchants requires [providing their KYC details](/guides/getting-started/#step-1-create-an-identity-for-a-merchant).  Related Guides: [Getting Started](/guides/getting-started/#step-1-create-an-identity-for-a-merchant), [Onboarding](/guides/onboarding/)
+        * Create an &#x60;Identity&#x60; for your merchant or buyer.  Creating &#x60;Identities&#x60; for merchants requires they provide [KYC details](/docs/guides/getting-stared/).  Related Guides: [Getting Started](/docs/guides/getting-started/), [Onboarding](/docs/guides/onboarding/)
             * @param createIdentityRequest  (optional)
         * @return ApiResponse&lt;Identity&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -354,7 +354,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Create an Identity (asynchronously)
-        * Create an &#x60;Identity&#x60; for your merchant or buyer.  Creating &#x60;Identities&#x60; for merchants requires [providing their KYC details](/guides/getting-started/#step-1-create-an-identity-for-a-merchant).  Related Guides: [Getting Started](/guides/getting-started/#step-1-create-an-identity-for-a-merchant), [Onboarding](/guides/onboarding/)
+        * Create an &#x60;Identity&#x60; for your merchant or buyer.  Creating &#x60;Identities&#x60; for merchants requires they provide [KYC details](/docs/guides/getting-stared/).  Related Guides: [Getting Started](/docs/guides/getting-started/), [Onboarding](/docs/guides/onboarding/)
             * @param createIdentityRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
@@ -457,7 +457,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
             /**
             * Verify an Identity
-            * Verify an identity
+            * Verify an &#x60;Identity&#x60;.
                 * @param identityId ID of identity to fetch (required)
                 * @param createVerificationRequest  (optional)
                 * @return Verification
@@ -480,7 +480,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Verify an Identity
-        * Verify an identity
+        * Verify an &#x60;Identity&#x60;.
             * @param identityId ID of identity to fetch (required)
             * @param createVerificationRequest  (optional)
         * @return ApiResponse&lt;Verification&gt;
@@ -504,7 +504,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Verify an Identity (asynchronously)
-        * Verify an identity
+        * Verify an &#x60;Identity&#x60;.
             * @param identityId ID of identity to fetch (required)
             * @param createVerificationRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
@@ -1296,7 +1296,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     }
     /**
-    * Build call for putIdentity
+    * Build call for updateIdentity
         * @param identityId ID of the &#x60;identity&#x60; to fetch (required)
         * @param updateIdentityRequest  (optional)
     * @param _callback Callback for upload/download progress
@@ -1313,7 +1313,7 @@ this.localCustomBaseUrl = customBaseUrl;
                 <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
         </table>
     */
-    public okhttp3.Call putIdentityCall(String identityId, UpdateIdentityRequest updateIdentityRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateIdentityCall(String identityId, UpdateIdentityRequest updateIdentityRequest, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -1361,15 +1361,15 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call putIdentityValidateBeforeCall(String identityId, UpdateIdentityRequest updateIdentityRequest, final ApiCallback _callback) throws ApiException {
+        private okhttp3.Call updateIdentityValidateBeforeCall(String identityId, UpdateIdentityRequest updateIdentityRequest, final ApiCallback _callback) throws ApiException {
         
                 // verify the required parameter 'identityId' is set
                 if (identityId == null) {
-                throw new ApiException("Missing the required parameter 'identityId' when calling putIdentity(Async)");
+                throw new ApiException("Missing the required parameter 'identityId' when calling updateIdentity(Async)");
                 }
         
 
-            okhttp3.Call localVarCall = putIdentityCall(identityId, updateIdentityRequest, _callback);
+            okhttp3.Call localVarCall = updateIdentityCall(identityId, updateIdentityRequest, _callback);
             return localVarCall;
 
         }
@@ -1393,7 +1393,7 @@ this.localCustomBaseUrl = customBaseUrl;
                 </table>
             */
                 public Identity update(String identityId, UpdateIdentityRequest updateIdentityRequest) throws ApiException {
-            ApiResponse<Identity> localVarResp = putIdentityWithHttpInfo(identityId, updateIdentityRequest);
+            ApiResponse<Identity> localVarResp = updateIdentityWithHttpInfo(identityId, updateIdentityRequest);
                     return localVarResp.getData();
                 }
 
@@ -1415,8 +1415,8 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public ApiResponse<Identity> putIdentityWithHttpInfo(String identityId, UpdateIdentityRequest updateIdentityRequest) throws ApiException {
-        okhttp3.Call localVarCall = putIdentityValidateBeforeCall(identityId, updateIdentityRequest, null);
+        public ApiResponse<Identity> updateIdentityWithHttpInfo(String identityId, UpdateIdentityRequest updateIdentityRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateIdentityValidateBeforeCall(identityId, updateIdentityRequest, null);
                 Type localVarReturnType = new TypeToken<Identity>(){}.getType();
                 return localVarFinixClient.execute(localVarCall, localVarReturnType);
         }
@@ -1440,9 +1440,9 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call putIdentityAsync(String identityId, UpdateIdentityRequest updateIdentityRequest, final ApiCallback<Identity> _callback) throws ApiException {
+        public okhttp3.Call updateIdentityAsync(String identityId, UpdateIdentityRequest updateIdentityRequest, final ApiCallback<Identity> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = putIdentityValidateBeforeCall(identityId, updateIdentityRequest, _callback);
+        okhttp3.Call localVarCall = updateIdentityValidateBeforeCall(identityId, updateIdentityRequest, _callback);
     Type localVarReturnType = new TypeToken<Identity>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

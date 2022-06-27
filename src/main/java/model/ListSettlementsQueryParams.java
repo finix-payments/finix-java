@@ -48,28 +48,8 @@ import invoker.JSON;
  * ListSettlementsQueryParams
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
 public class ListSettlementsQueryParams {
-  public static final String SERIALIZED_NAME_AMOUNT = "amount";
-  @SerializedName(SERIALIZED_NAME_AMOUNT)
-  private Long amount;
-
-  public static final String SERIALIZED_NAME_AMOUNT_LT = "amount.lt";
-  @SerializedName(SERIALIZED_NAME_AMOUNT_LT)
-  private Long amountLt;
-
-  public static final String SERIALIZED_NAME_AMOUNT_GT = "amount.gt";
-  @SerializedName(SERIALIZED_NAME_AMOUNT_GT)
-  private Long amountGt;
-
-  public static final String SERIALIZED_NAME_AMOUNT_LTE = "amount.lte";
-  @SerializedName(SERIALIZED_NAME_AMOUNT_LTE)
-  private Long amountLte;
-
-  public static final String SERIALIZED_NAME_AMOUNT_GTE = "amount.gte";
-  @SerializedName(SERIALIZED_NAME_AMOUNT_GTE)
-  private Long amountGte;
-
   public static final String SERIALIZED_NAME_CREATED_AT_GTE = "created_at.gte";
   @SerializedName(SERIALIZED_NAME_CREATED_AT_GTE)
   private String createdAtGte;
@@ -104,121 +84,6 @@ public class ListSettlementsQueryParams {
 
   public ListSettlementsQueryParams() { 
   }
-
-  public ListSettlementsQueryParams amount(Long amount) {
-    
-    this.amount = amount;
-    return this;
-  }
-
-   /**
-   * Filter by a total amount equal to the given value
-   * @return amount
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by a total amount equal to the given value")
-
-  public Long getAmount() {
-    return amount;
-  }
-
-
-  public void setAmount(Long amount) {
-    this.amount = amount;
-  }
-
-
-  public ListSettlementsQueryParams amountLt(Long amountLt) {
-    
-    this.amountLt = amountLt;
-    return this;
-  }
-
-   /**
-   * Filter by a total amount less than
-   * @return amountLt
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by a total amount less than")
-
-  public Long getAmountLt() {
-    return amountLt;
-  }
-
-
-  public void setAmountLt(Long amountLt) {
-    this.amountLt = amountLt;
-  }
-
-
-  public ListSettlementsQueryParams amountGt(Long amountGt) {
-    
-    this.amountGt = amountGt;
-    return this;
-  }
-
-   /**
-   * Filter by a total amount greater than
-   * @return amountGt
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by a total amount greater than")
-
-  public Long getAmountGt() {
-    return amountGt;
-  }
-
-
-  public void setAmountGt(Long amountGt) {
-    this.amountGt = amountGt;
-  }
-
-
-  public ListSettlementsQueryParams amountLte(Long amountLte) {
-    
-    this.amountLte = amountLte;
-    return this;
-  }
-
-   /**
-   * Filter by a total amount less than or equal
-   * @return amountLte
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by a total amount less than or equal")
-
-  public Long getAmountLte() {
-    return amountLte;
-  }
-
-
-  public void setAmountLte(Long amountLte) {
-    this.amountLte = amountLte;
-  }
-
-
-  public ListSettlementsQueryParams amountGte(Long amountGte) {
-    
-    this.amountGte = amountGte;
-    return this;
-  }
-
-   /**
-   * Filter by a total amount greater than or equal
-   * @return amountGte
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by a total amount greater than or equal")
-
-  public Long getAmountGte() {
-    return amountGte;
-  }
-
-
-  public void setAmountGte(Long amountGte) {
-    this.amountGte = amountGte;
-  }
-
 
   public ListSettlementsQueryParams createdAtGte(String createdAtGte) {
     
@@ -414,12 +279,7 @@ public class ListSettlementsQueryParams {
       return false;
     }
     ListSettlementsQueryParams listSettlementsQueryParams = (ListSettlementsQueryParams) o;
-    return Objects.equals(this.amount, listSettlementsQueryParams.amount) &&
-        Objects.equals(this.amountLt, listSettlementsQueryParams.amountLt) &&
-        Objects.equals(this.amountGt, listSettlementsQueryParams.amountGt) &&
-        Objects.equals(this.amountLte, listSettlementsQueryParams.amountLte) &&
-        Objects.equals(this.amountGte, listSettlementsQueryParams.amountGte) &&
-        Objects.equals(this.createdAtGte, listSettlementsQueryParams.createdAtGte) &&
+    return Objects.equals(this.createdAtGte, listSettlementsQueryParams.createdAtGte) &&
         Objects.equals(this.createdAtLte, listSettlementsQueryParams.createdAtLte) &&
         Objects.equals(this.updatedAtGte, listSettlementsQueryParams.updatedAtGte) &&
         Objects.equals(this.updatedAtLte, listSettlementsQueryParams.updatedAtLte) &&
@@ -431,18 +291,13 @@ public class ListSettlementsQueryParams {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, amountLt, amountGt, amountLte, amountGte, createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, id, limit, afterCursor, beforeCursor);
+    return Objects.hash(createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, id, limit, afterCursor, beforeCursor);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListSettlementsQueryParams {\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    amountLt: ").append(toIndentedString(amountLt)).append("\n");
-    sb.append("    amountGt: ").append(toIndentedString(amountGt)).append("\n");
-    sb.append("    amountLte: ").append(toIndentedString(amountLte)).append("\n");
-    sb.append("    amountGte: ").append(toIndentedString(amountGte)).append("\n");
     sb.append("    createdAtGte: ").append(toIndentedString(createdAtGte)).append("\n");
     sb.append("    createdAtLte: ").append(toIndentedString(createdAtLte)).append("\n");
     sb.append("    updatedAtGte: ").append(toIndentedString(updatedAtGte)).append("\n");
@@ -473,11 +328,6 @@ public class ListSettlementsQueryParams {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("amount");
-    openapiFields.add("amount.lt");
-    openapiFields.add("amount.gt");
-    openapiFields.add("amount.lte");
-    openapiFields.add("amount.gte");
     openapiFields.add("created_at.gte");
     openapiFields.add("created_at.lte");
     openapiFields.add("updated_at.gte");

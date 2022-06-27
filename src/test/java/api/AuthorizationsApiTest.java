@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * API tests for AuthorizationsApi
@@ -276,7 +277,9 @@ public class AuthorizationsApiTest {
                 .type(type)
                 .afterCursor(afterCursor)
                 .build());
-        assertEquals(20,response.getPage().getLimit().intValue(),()->"Should return " + "20" + " but returns " + response.getPage().getLimit());
+        assertTrue(response.getPage() != null);
+        assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());
+//        assertEquals(20,response.getPage().getLimit().intValue(),()->"Should return " + "20" + " but returns " + response.getPage().getLimit());
     }
 
     /**

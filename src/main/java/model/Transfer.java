@@ -59,7 +59,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
 public class Transfer {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -1032,11 +1032,11 @@ public class Transfer {
   }
 
    /**
-   * When a transfer is declined. This is the code of the failure so the decline can be handled programmatically.
+   * The code of the failure so the decline can be handled programmatically. For more info on how to handle the failure, see [Failure Codes](/docs/guides/developers/errors/#failure-codes).
    * @return failureCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "When a transfer is declined. This is the code of the failure so the decline can be handled programmatically.")
+  @ApiModelProperty(value = "The code of the failure so the decline can be handled programmatically. For more info on how to handle the failure, see [Failure Codes](/docs/guides/developers/errors/#failure-codes).")
 
   public String getFailureCode() {
     return failureCode;
@@ -1390,15 +1390,6 @@ public class Transfer {
       if (jsonObj.get("failure_message") != null && !jsonObj.get("failure_message").isJsonNull()  && !jsonObj.get("failure_message").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `failure_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failure_message").toString()));
       }
-      /**
-      * EDITED
-      * ADDED  statement to for inconsistent null behaviour
-      */
-      // validate the optional field `_links`
-     // if (jsonObj.getAsJsonObject("_links") != null) {
-       //TransferLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-     // }
-
   }
 
 

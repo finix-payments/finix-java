@@ -32,9 +32,9 @@ src/main/java/api/InstrumentUpdatesApi.java
 # Not currently supported for library
 src/**/ApplicationsApi*.java
 src/**/ApplicationProfilesApi*.java
-src/**/FeeProfilesApi*.java
+# src/**/FeeProfilesApi*.java
 src/**/FeesApi*.java
-src/**/MerchantProfilesApi*.java
+# src/**/MerchantProfilesApi*.java
 src/**/PaymentInstrumentsP2CApi*.java
 src/**/ProcessorsApi*.java
 src/**/ReviewQueueApi*.java

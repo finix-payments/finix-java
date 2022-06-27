@@ -116,6 +116,8 @@ x-tagGroups:
       - Fees
       - Users
       - Instrument Updates
+      - Merchant Profiles
+      - Fee Profiles
   - name: CORE-PAYFAC RESOURCES
     tags:
       - Applications
@@ -156,7 +158,7 @@ paths:
     get:
       tags:
         - Application Profiles
-      description: Find an existing application profile by id
+      description: Find an existing `application_profile` by ID.
       summary: Get Application Profile
       operationId: getApplicationProfile
       responses:
@@ -178,7 +180,7 @@ paths:
         - Application Profiles
       description: Update an existing `application_profile`.
       summary: Update Application Profile
-      operationId: putApplicationProfile
+      operationId: updateApplicationProfile
       requestBody:
         $ref: '#/components/requestBodies/UpdateApplicationProfileRequest'
       responses:
@@ -245,6 +247,11 @@ paths:
           $ref: '#/components/responses/Error406NotAcceptable'
       x-java-method-name: list
       x-group-parameters: true
+      x-codeSamples:
+        - lang: cURL
+          label: 'curl: list Applications'
+          source: "curl https://finix.sandbox-payments-api.com/applications/APmuwPBaW8pVcwb4vCTHQH32\
+          \ \\\n  -H \"Content-Type: application/vnd.json+api\" \\\n  -u USimz3zSq5R2PqiEBXY6rSiJ:8bacba32-9550-48ff-b567-fe7648947041\n"
   /applications/{application_id}:
     get:
       tags:
@@ -271,7 +278,7 @@ paths:
         - Applications
       description: Update an existing `Application`.
       summary: Update an Application
-      operationId: putApplication
+      operationId: updateApplication
       responses:
         '200':
           $ref: '#/components/responses/Application'
@@ -568,7 +575,7 @@ paths:
         \ is updated with a `capture_amount` (i.e. *Captured*), the state of the `Transfer`\
         \ will update to **SUCCEEDED**.\n\n> Voided `Authorizations` can't be captured."
       summary: Update an Authorization
-      operationId: putAuthorization
+      operationId: updateAuthorization
       requestBody:
         $ref: '#/components/requestBodies/UpdateAuthorizationRequest'
       responses:
@@ -707,7 +714,7 @@ paths:
         - Devices
       description: Update a `Device` to activate or deactivate it.
       summary: Update a Device
-      operationId: putDevice
+      operationId: updateDevice
       requestBody:
         $ref: '#/components/requestBodies/UpdateDeviceRequest'
       responses:
@@ -826,7 +833,8 @@ paths:
       x-group-parameters: true
       parameters:
         - $ref: '#/components/parameters/QueryLimit'
-        - $ref: '#/components/parameters/QueryOffset'
+        - $ref: '#/components/parameters/QueryAfterCursor'
+        - $ref: '#/components/parameters/QueryBeforeCursor'
     parameters:
       - description: ID of `Dispute` to mange evidence for.
         required: true
@@ -1023,11 +1031,10 @@ paths:
       description: 'Create an `Identity` for your merchant or buyer.
 
 
-        Creating `Identities` for merchants requires [providing their KYC details](/guides/getting-started/#step-1-create-an-identity-for-a-merchant).
+        Creating `Identities` for merchants requires they provide [KYC details](/docs/guides/getting-stared/).
 
 
-        Related Guides: [Getting Started](/guides/getting-started/#step-1-create-an-identity-for-a-merchant),
-        [Onboarding](/guides/onboarding/)'
+        Related Guides: [Getting Started](/docs/guides/getting-started/), [Onboarding](/docs/guides/onboarding/)'
       summary: Create an Identity
       operationId: createIdentity
       requestBody:
@@ -1111,7 +1118,7 @@ paths:
         \ of a `Merchant` that\u2019s already been onboarded, you need to [verify\
         \ the merchant again](#operation/createMerchantVerification)."
       summary: Update an Identity
-      operationId: putIdentity
+      operationId: updateIdentity
       requestBody:
         $ref: '#/components/requestBodies/UpdateIdentityRequest'
       responses:
@@ -1260,7 +1267,7 @@ paths:
           $ref: '#/components/responses/ErrorNotFound'
         '406':
           $ref: '#/components/responses/Error406NotAcceptable'
-      description: Verify an identity
+      description: Verify an `Identity`.
       requestBody:
         $ref: '#/components/requestBodies/CreateVerificationRequest'
       tags:
@@ -1269,11 +1276,10 @@ paths:
     get:
       tags:
         - Merchant Profiles
-      description: Get list of all the merchant_profiles objects
+      description: Retrieve a list of merchant_profiles.
       summary: List Merchant Profiles
       operationId: listMerchantProfiles
       parameters:
-        - $ref: '#/components/parameters/QueryIdFilter'
         - $ref: '#/components/parameters/QueryBeforeCursor'
         - $ref: '#/components/parameters/QueryAfterCursor'
         - $ref: '#/components/parameters/QueryLimit'
@@ -1322,7 +1328,7 @@ paths:
     get:
       tags:
         - Merchant Profiles
-      description: Get the merchant profile object
+      description: Retrieve the details of a merchant profile.
       summary: Show Merchant Profile
       operationId: getMerchantProfile
       responses:
@@ -1348,10 +1354,10 @@ paths:
       tags:
         - Merchant Profiles
       description: Update a merchant profile
-      summary: Put Merchant Profile
-      operationId: putMerchantProfile
+      summary: Update a Merchant Profile
+      operationId: updateMerchantProfile
       requestBody:
-        $ref: '#/components/requestBodies/CreateMerchantProfileRequest'
+        $ref: '#/components/requestBodies/UpdateMerchantProfileRequest'
       responses:
         '200':
           $ref: '#/components/responses/MerchantProfile'
@@ -1361,7 +1367,8 @@ paths:
           $ref: '#/components/responses/ErrorForbidden403'
         '406':
           $ref: '#/components/responses/Error406NotAcceptable'
-      x-java-method-name: create
+      x-java-method-name: update
+      x-internal: false
   /merchants/{merchant_id}:
     get:
       tags:
@@ -1394,7 +1401,7 @@ paths:
       description: Update a `Merchant` to change the `Identity` information saved
         with the underlying processor, or enable Level 2/3 processing.
       summary: Update a Merchant
-      operationId: putMerchant
+      operationId: updateMerchant
       requestBody:
         $ref: '#/components/requestBodies/UpdateMerchantRequest'
       responses:
@@ -1670,11 +1677,6 @@ paths:
       summary: List Settlements
       operationId: listSettlements
       parameters:
-        - $ref: '#/components/parameters/QueryTotalAmountFilter'
-        - $ref: '#/components/parameters/QueryTotalAmountLtFilter'
-        - $ref: '#/components/parameters/QueryTotalAmountGtFilter'
-        - $ref: '#/components/parameters/QueryTotalAmountLteFilter'
-        - $ref: '#/components/parameters/QueryTotalAmountGteFilter'
         - $ref: '#/components/parameters/QueryCreatedAtGteFilter'
         - $ref: '#/components/parameters/QueryCreatedAtLteFilter'
         - $ref: '#/components/parameters/QueryUpdatedAtGteFilter'
@@ -1725,7 +1727,7 @@ paths:
         - Settlements
       description: Update a `Settlement`.
       summary: Update a Settlement
-      operationId: putSettlement
+      operationId: updateSettlement
       responses:
         '200':
           $ref: '#/components/responses/Settlement'
@@ -1820,7 +1822,7 @@ paths:
         '406':
           $ref: '#/components/responses/Error406NotAcceptable'
       x-internal: false
-      x-java-method-name: listBySettlementId
+      x-java-method-name: listTransfersBySettlementId
       x-group-parameters: true
       tags:
         - Settlements
@@ -2148,7 +2150,7 @@ paths:
         - Users
       description: You can update the `User` with new tags or to disable the `User`.
       summary: Update User
-      operationId: putUser
+      operationId: updateUser
       responses:
         '200':
           $ref: '#/components/responses/User'
@@ -2312,7 +2314,7 @@ paths:
         - Webhooks
       description: Update an existing `Webhook`.
       summary: Update a Webhook
-      operationId: putWebhook
+      operationId: updateWebhook
       requestBody:
         $ref: '#/components/requestBodies/UpdateWebhookRequest'
       responses:
@@ -2379,7 +2381,7 @@ paths:
           $ref: '#/components/responses/ErrorNotFound'
         '406':
           $ref: '#/components/responses/Error406NotAcceptable'
-      operationId: putSubscriptionSchedules
+      operationId: updateSubscriptionSchedules
       requestBody:
         $ref: '#/components/requestBodies/UpdateSubscriptionScheduleRequest'
       description: Update the details of a `subscription_schedule`.
@@ -2490,44 +2492,7 @@ paths:
         The `Subscription Amount` is the amount to be charged to a `Merchant`. The
         `Subscription Amount` must be associated to a `Subscription Schedule`.'
       x-java-method-name: lcreate
-    patch:
-      summary: Update Subscription Amount
-      tags:
-        - Subscription Amounts
-      operationId: updateSubscriptionAmount
-      responses:
-        '200':
-          $ref: '#/components/responses/SubscriptionAmount'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      description: Update a previously created `Subscription Amount`. This creates
-        a new `Subscription Amount` resource.
-      requestBody:
-        $ref: '#/components/requestBodies/UpdateSubscriptionAmountRequest'
-    delete:
-      summary: Delete a Subscription Amount
-      operationId: deleteSubscriptionAmount
-      responses:
-        '204':
-          $ref: '#/components/responses/NoContent'
-        '401':
-          $ref: '#/components/responses/ErrorUnauthorized'
-        '403':
-          $ref: '#/components/responses/ErrorForbidden403'
-        '404':
-          $ref: '#/components/responses/ErrorNotFound'
-        '406':
-          $ref: '#/components/responses/Error406NotAcceptable'
-      description: Delete a previously created `Subscription Amount`.
-      tags:
-        - Subscription Amounts
-  /subscription/subscription_amounts/{subscription_amount_id}:
+  /subscription/subscription_schedules/{subscription_schedule_id}/subscription_amounts/{subscription_amount_id}:
     parameters:
       - schema:
           type: string
@@ -2535,6 +2500,12 @@ paths:
         in: path
         required: true
         description: The ID of the `Subscription Amount`.
+      - schema:
+          type: string
+        name: subscription_schedule_id
+        in: path
+        required: true
+        description: The ID of the `Subscription Schedule`.
     get:
       summary: Get a Subscription Amount
       tags:
@@ -2553,10 +2524,9 @@ paths:
       operationId: getSubscriptionAmount
       description: Retrieve the details of a `subscription_amount`.
       x-java-method-name: get
-    put:
+    patch:
       summary: Update a Subscription Amount
-      tags:
-        - Subscription Amounts
+      operationId: patchSubscriptionAmount
       responses:
         '200':
           $ref: '#/components/responses/SubscriptionAmount'
@@ -2568,11 +2538,28 @@ paths:
           $ref: '#/components/responses/ErrorNotFound'
         '406':
           $ref: '#/components/responses/Error406NotAcceptable'
-      operationId: putSubscriptionAmount
+      tags:
+        - Subscription Amounts
+      description: Update the details of a `subscription_amount`.
       requestBody:
         $ref: '#/components/requestBodies/UpdateSubscriptionAmountRequest'
-      description: Update the details of a `subscription_amount`.
-      x-java-method-name: update
+    delete:
+      summary: Delete a Subscription Amount
+      operationId: deleteSubscriptionAmount
+      responses:
+        '204':
+          description: No Content
+        '401':
+          $ref: '#/components/responses/ErrorNotFound'
+        '403':
+          $ref: '#/components/responses/ErrorForbidden403'
+        '404':
+          $ref: '#/components/responses/ErrorUnauthorized'
+        '406':
+          $ref: '#/components/responses/Error406NotAcceptable'
+      tags:
+        - Subscription Amounts
+      description: Delete a previously created `Subscription Amount`.
   /subscription/subscription_schedules/{subscription_schedule_id}/subscription_enrollments:
     parameters:
       - schema:
@@ -2758,7 +2745,7 @@ paths:
           $ref: '#/components/responses/Error406NotAcceptable'
       description: To update the card details of your customers, create an `instrument_updates`
         resource. Include the `Payment Instrument` IDs you want to update in a CSV.
-        For more info, see the guide on using our [Account Updater](//payments/account-updater/).
+        For more info, the following guide on using our [Account Updater](/docs/guides/payments/account-updater/).
       requestBody:
         $ref: '#/components/requestBodies/CreateInstrumentUpdateRequest'
       parameters: []
@@ -2826,7 +2813,7 @@ paths:
         '406':
           $ref: '#/components/responses/Error406NotAcceptable'
       description: "Before uploading a file, you need to create a `File` resource.\
-        \ \n\nOnce created, you can [upload](#operations/uploadFile) your file to\
+        \ \n\nOnce created, you can [upload](/#operation/uploadFile) your file to\
         \ the new `File` resource."
       requestBody:
         $ref: '#/components/requestBodies/CreateFileRequest'
@@ -2941,13 +2928,11 @@ paths:
           $ref: '#/components/responses/ErrorNotFound'
         '406':
           $ref: '#/components/responses/Error406NotAcceptable'
-      description: 'Create an `external_link` resource to share with users so they
-        can upload files directly from their browser. For more info, see [Uploading
-        files to Finix](/guides/onboarding/uploading-files-to-finix/#create-an-external-link).
-
-
-        Once created, you can upload the user''s file to the `external_link` resource:
-        [Upload files to External Link](#operation/uploadExternalLink)'
+      description: "Create an `external_link` resource to share with users so they\
+        \ can upload files directly from their browser. For more info, see [Uploading\
+        \ files to Finix](/docs/guides/onboarding/uploading-files-to-finix/). \n\n\
+        Once created, you can request the user to upload a file to the `external_link`\
+        \ resource: [Upload files to External Link](#operation/uploadExternalLink)"
       requestBody:
         $ref: '#/components/requestBodies/CreateExternalLinkRequest'
       tags:
@@ -3062,9 +3047,10 @@ paths:
         on the web.
 
 
-        To create an Apple Pay Session, pass a `validation_url` while creating an
-        `apple_pay_sessions` resource. Finix returns a `merchantSession` object which
-        you can use to create a payment. For more information, see [Apple Pay](guides/payments/alternative-payment-methods/apple-pay/). '
+        To create an Apple Pay Session, pass the unique `validation_url` (provided
+        by Apple) while creating an `apple_pay_sessions` resource. Finix returns a
+        `merchantSession` object that you can use to create a payment. For more information,
+        see [Apple Pay](/docs/guides/payments/alternative-payment-methods/apple-pay/).'
   /disputes/{dispute_id}/adjustment_transfers:
     parameters:
       - schema:
@@ -3104,6 +3090,7 @@ paths:
     parameters:
       - schema:
           type: string
+        description: The Id of the instrument update.
         name: instrument_updates_id
         in: path
         required: true
@@ -3576,110 +3563,6 @@ components:
                   business_tax_id: '123456789'
                   email: user@example.org
                   tax_id: '123456789'
-            Create an Application for X:
-              value:
-                tags: {}
-                entity:
-                  title: string
-                  amex_mid: string
-                  annual_card_volume: 0
-                  business_address:
-                    city: string
-                    country: ABW
-                    line1: string
-                    line2: string
-                    postal_code: string
-                    region: string
-                  business_name: string
-                  business_phone: string
-                  business_tax_id: string
-                  business_type: INDIVIDUAL_SOLE_PROPRIETORSHIP
-                  default_statement_descriptor: string
-                  discover_mid: string
-                  dob:
-                    year: 0
-                    day: 0
-                    month: 0
-                  doing_business_as: string
-                  email: string
-                  first_name: string
-                  has_accepted_credit_cards_previously: true
-                  incorporation_date:
-                    year: 0
-                    day: 0
-                    month: 0
-                  last_name: string
-                  max_transaction_amount: 0
-                  mcc: string
-                  ownership_type: PRIVATE
-                  personal_address:
-                    city: string
-                    country: ABW
-                    line1: string
-                    line2: string
-                    postal_code: string
-                    region: string
-                  phone: string
-                  principal_percentage_ownership: 0
-                  short_business_name: string
-                  tax_authority: string
-                  tax_id: string
-                  url: string
-                max_transaction_amount: 0
-                name: string
-                user: USxxxxxxxxxxxxxxxxxx
-            Create an Application for Y:
-              value:
-                tags: {}
-                entity:
-                  title: string
-                  amex_mid: string
-                  annual_card_volume: 0
-                  business_address:
-                    city: string
-                    country: ABW
-                    line1: string
-                    line2: string
-                    postal_code: string
-                    region: string
-                  business_name: string
-                  business_phone: string
-                  business_tax_id: string
-                  business_type: INDIVIDUAL_SOLE_PROPRIETORSHIP
-                  default_statement_descriptor: string
-                  discover_mid: string
-                  dob:
-                    year: 0
-                    day: 0
-                    month: 0
-                  doing_business_as: string
-                  email: string
-                  first_name: string
-                  has_accepted_credit_cards_previously: true
-                  incorporation_date:
-                    year: 0
-                    day: 0
-                    month: 0
-                  last_name: string
-                  max_transaction_amount: 0
-                  mcc: string
-                  ownership_type: PRIVATE
-                  personal_address:
-                    city: string
-                    country: ABW
-                    line1: string
-                    line2: string
-                    postal_code: string
-                    region: string
-                  phone: string
-                  principal_percentage_ownership: 0
-                  short_business_name: string
-                  tax_authority: string
-                  tax_id: string
-                  url: string
-                max_transaction_amount: 0
-                name: string
-                user: USxxxxxxxxxxxxxxxxxx
     UpdateApplicationProfileRequest:
       content:
         application/hal+json:
@@ -3959,11 +3842,20 @@ components:
         application/hal+json:
           schema:
             type: object
-    CreateMerchantProfileRequest:
+    UpdateMerchantProfileRequest:
       content:
         application/hal+json:
           schema:
             type: object
+            properties:
+              tags:
+                $ref: '#/components/schemas/Tags'
+              fee_profile:
+                type: string
+                description: Id of the fee_profile.
+              risk_profile:
+                type: string
+                description: Id of the risk_profile.
     CreateMerchantUnderwritingRequest:
       content:
         application/hal+json:
@@ -4022,6 +3914,14 @@ components:
                 token: TKiMxe323RE5Dq3wLVtG8kSW
                 type: TOKEN
                 identity: IDpYDM7J9n57q849o9E9yNrG
+            Create Apple Pay Web Payment Instrument:
+              value:
+                identity: IDgWxBhfGYLLdkhxx2ddYf9K
+                merchant_identity: IDpYDM7J9n57q849o9E9yNrG
+                name: John Smith
+                third_party_token: '{"token":{"paymentMethod":{"network":"barcode","type":"credit","displayName":""},"transactionIdentifier":"AE514ADAA44E9C3A0A862C7E4EDEE43C422556FA4748B045F1764860557E8EE6","paymentData":{"data":"IOg9H5\/hdpccvHZ03ESJwlJXFlmcnI18WXTSOHOPA82ewYoWVyEMiy63HCsdejXsHIR8a+N\/5aR24OeJrkxheck2AAl5o1LLJ7jL+75scnf7Z55uQmtVyKITTkH22LrC6E6SgMnXaefJYOTUcG1Veqb\/dXtpPzqaKACEKDkbVivpDk+A2iX5PLROFTMRgmb9a0HYwHOnVGQzXwiHkX1g6f1R4rILUyMaQ5qLxCplE1t\/guEYmkGBtOb\/v8+GRDTl8YrC1tOe\/cs4aQm4cAKJktFQUTbfAApNFBnKI06mtCM7e7qRna\/YON3gyci035jA7Zq4kBMo7rQB8puGH6dDqB\/KsPS6Ps+w688+rqEKz16YUJ\/LMCOzzBM6bCTOS6eouB1eCh3SJdm\/lmY=","signature":"MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCAMIID4zCCA4igAwIBAgIITDBBSVGdVDYwCgYIKoZIzj0EAwIwejEuMCwGA1UEAwwlQXBwbGUgQXBwbGljYXRpb24gSW50ZWdyYXRpb24gQ0EgLSBHMzEmMCQGA1UECwwdQXBwbGUgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkxEzARBgNVBAoMCkFwcGxlIEluYy4xCzAJBgNVBAYTAlVTMB4XDTE5MDUxODAxMzI1N1oXDTI0MDUxNjAxMzI1N1owXzElMCMGA1UEAwwcZWNjLXNtcC1icm9rZXItc2lnbl9VQzQtUFJPRDEUMBIGA1UECwwLaU9TIFN5c3RlbXMxEzARBgNVBAoMCkFwcGxlIEluYy4xCzAJBgNVBAYTAlVTMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEwhV37evWx7Ihj2jdcJChIY3HsL1vLCg9hGCV2Ur0pUEbg0IO2BHzQH6DMx8cVMP36zIg1rrV1O\/0komJPnwPE6OCAhEwggINMAwGA1UdEwEB\/wQCMAAwHwYDVR0jBBgwFoAUI\/JJxE+T5O8n5sT2KGw\/orv9LkswRQYIKwYBBQUHAQEEOTA3MDUGCCsGAQUFBzABhilodHRwOi8vb2NzcC5hcHBsZS5jb20vb2NzcDA0LWFwcGxlYWljYTMwMjCCAR0GA1UdIASCARQwggEQMIIBDAYJKoZIhvdjZAUBMIH+MIHDBggrBgEFBQcCAjCBtgyBs1JlbGlhbmNlIG9uIHRoaXMgY2VydGlmaWNhdGUgYnkgYW55IHBhcnR5IGFzc3VtZXMgYWNjZXB0YW5jZSBvZiB0aGUgdGhlbiBhcHBsaWNhYmxlIHN0YW5kYXJkIHRlcm1zIGFuZCBjb25kaXRpb25zIG9mIHVzZSwgY2VydGlmaWNhdGUgcG9saWN5IGFuZCBjZXJ0aWZpY2F0aW9uIHByYWN0aWNlIHN0YXRlbWVudHMuMDYGCCsGAQUFBwIBFipodHRwOi8vd3d3LmFwcGxlLmNvbS9jZXJ0aWZpY2F0ZWF1dGhvcml0eS8wNAYDVR0fBC0wKzApoCegJYYjaHR0cDovL2NybC5hcHBsZS5jb20vYXBwbGVhaWNhMy5jcmwwHQYDVR0OBBYEFJRX22\/VdIGGiYl2L35XhQfnm1gkMA4GA1UdDwEB\/wQEAwIHgDAPBgkqhkiG92NkBh0EAgUAMAoGCCqGSM49BAMCA0kAMEYCIQC+CVcf5x4ec1tV5a+stMcv60RfMBhSIsclEAK2Hr1vVQIhANGLNQpd1t1usXRgNbEess6Hz6Pmr2y9g4CJDcgs3apjMIIC7jCCAnWgAwIBAgIISW0vvzqY2pcwCgYIKoZIzj0EAwIwZzEbMBkGA1UEAwwSQXBwbGUgUm9vdCBDQSAtIEczMSYwJAYDVQQLDB1BcHBsZSBDZXJ0aWZpY2F0aW9uIEF1dGhvcml0eTETMBEGA1UECgwKQXBwbGUgSW5jLjELMAkGA1UEBhMCVVMwHhcNMTQwNTA2MjM0NjMwWhcNMjkwNTA2MjM0NjMwWjB6MS4wLAYDVQQDDCVBcHBsZSBBcHBsaWNhdGlvbiBJbnRlZ3JhdGlvbiBDQSAtIEczMSYwJAYDVQQLDB1BcHBsZSBDZXJ0aWZpY2F0aW9uIEF1dGhvcml0eTETMBEGA1UECgwKQXBwbGUgSW5jLjELMAkGA1UEBhMCVVMwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAATwFxGEGddkhdUaXiWBB3bogKLv3nuuTeCN\/EuT4TNW1WZbNa4i0Jd2DSJOe7oI\/XYXzojLdrtmcL7I6CmE\/1RFo4H3MIH0MEYGCCsGAQUFBwEBBDowODA2BggrBgEFBQcwAYYqaHR0cDovL29jc3AuYXBwbGUuY29tL29jc3AwNC1hcHBsZXJvb3RjYWczMB0GA1UdDgQWBBQj8knET5Pk7yfmxPYobD+iu\/0uSzAPBgNVHRMBAf8EBTADAQH\/MB8GA1UdIwQYMBaAFLuw3qFYM4iapIqZ3r6966\/ayySrMDcGA1UdHwQwMC4wLKAqoCiGJmh0dHA6Ly9jcmwuYXBwbGUuY29tL2FwcGxlcm9vdGNhZzMuY3JsMA4GA1UdDwEB\/wQEAwIBBjAQBgoqhkiG92NkBgIOBAIFADAKBggqhkjOPQQDAgNnADBkAjA6z3KDURaZsYb7NcNWymK\/9Bft2Q91TaKOvvGcgV5Ct4n4mPebWZ+Y1UENj53pwv4CMDIt1UQhsKMFd2xd8zg7kGf9F3wsIW2WT8ZyaYISb1T4en0bmcubCYkhYQaZDwmSHQAAMYIBjDCCAYgCAQEwgYYwejEuMCwGA1UEAwwlQXBwbGUgQXBwbGljYXRpb24gSW50ZWdyYXRpb24gQ0EgLSBHMzEmMCQGA1UECwwdQXBwbGUgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkxEzARBgNVBAoMCkFwcGxlIEluYy4xCzAJBgNVBAYTAlVTAghMMEFJUZ1UNjANBglghkgBZQMEAgEFAKCBlTAYBgkqhkiG9w0BCQMxCwYJKoZIhvcNAQcBMBwGCSqGSIb3DQEJBTEPFw0yMjA0MDExODE2MjJaMCoGCSqGSIb3DQEJNDEdMBswDQYJYIZIAWUDBAIBBQChCgYIKoZIzj0EAwIwLwYJKoZIhvcNAQkEMSIEINpyGxYyGbl1Kj57wU\/3PijxngHUcidFy9jukG9sccOHMAoGCCqGSM49BAMCBEcwRQIhAPHvbeAIDmJKf2YGS5xcCoySSeCeFf6ThUsKE3UIPWBJAiBQIZZu4wTlZn7R16N+2iTfvuvzJKgeSv8rAs3YM6z56AAAAAAAAA==","header":{"publicKeyHash":"eOvce9ya55opFC5EXVWlLwzZRVDEY3Hgakf3+C+0zkc=","ephemeralPublicKey":"MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE3VnkF5JR9cWuYoeT68dUNp\/2\/jGaOiid19UfCV9rEkcPomrzFWEZw\/dN1uU9RTblnrIQPajFj4R2ZKIpYIlkgA==","transactionId":"ae514adaa44e9c3a0a862c7e4edee43c422556fa4748b045f1764860557e8ee6"},"version":"EC_v1"}}}'
+                type: APPLE_PAY
+      description: ''
     CreateProcessorRequest:
       content:
         application/hal+json:
@@ -4277,13 +4177,18 @@ components:
       content:
         application/hal+json:
           schema:
-            $ref: '#/components/schemas/UpdateSubscriptionAmountRequest'
+            $ref: '#/components/schemas/CreateSubscriptionAmountRequest'
           examples:
             Update a Subscription Amount:
               value:
                 amount_type: FEE
-                amount: 5000
-                nickname: NEW_POS_INSTALLMENT_FEE
+                fee_amount_data:
+                  currency: USD
+                  amount: 2500
+                  label: POS_INSTALLMENT_FEE
+                nickname: POS_INSTALLMENT_FEE
+                tags:
+                  order_number: '124'
     CreateSubscriptionScheduleRequest:
       content:
         application/hal+json:
@@ -4413,8 +4318,9 @@ components:
           examples:
             Instrument Update request:
               value:
-                merchant: MUucec6fHeaWo3VHYoSkUySM
-                idempotency_id: 123xyz testing
+                request: '{"merchant": "MUucec6fHeaWo3VHYoSkUySM","idempotency_id":
+                  "123xyz testing"}'
+      description: ''
     CreateFileRequest:
       content:
         application/vnd.api+json:
@@ -4532,96 +4438,6 @@ components:
                     href: https://finix.sandbox-payments-api.com/applications/APmuwPBaW8pVcwb4vCTHQH32/payment_instruments
                   application_profile:
                     href: https://finix.sandbox-payments-api.com/applications/APmuwPBaW8pVcwb4vCTHQH32/application_profile
-            Created Application X:
-              value:
-                tags: {}
-                id: APxxxxxxxxxxxxxxxxxx
-                created_at: '2019-08-24T14:15:22Z'
-                updated_at: '2019-08-24T14:15:22Z'
-                card_cvv_required: true
-                card_expiration_date_required: true
-                creating_transfer_from_report_enabled: true
-                enabled: true
-                name: string
-                owner: IDxxxxxxxxxxxxxxxxxx
-                processing_enabled: true
-                settlement_enabled: true
-                _links:
-                  application_profile:
-                    href: string
-                  authorizations:
-                    href: string
-                  disputes:
-                    href: string
-                  identities:
-                    href: string
-                  merchants:
-                    href: string
-                  owner_identity:
-                    href: string
-                  payment_instruments:
-                    href: string
-                  processors:
-                    href: string
-                  reversals:
-                    href: string
-                  self:
-                    href: string
-                  settlements:
-                    href: string
-                  tokens:
-                    href: string
-                  transfers:
-                    href: string
-                  users:
-                    href: string
-                  webhooks:
-                    href: string
-            Created Application Y:
-              value:
-                tags: {}
-                id: APxxxxxxxxxxxxxxxxxx
-                created_at: '2019-08-24T14:15:22Z'
-                updated_at: '2019-08-24T14:15:22Z'
-                card_cvv_required: true
-                card_expiration_date_required: true
-                creating_transfer_from_report_enabled: true
-                enabled: true
-                name: string
-                owner: IDxxxxxxxxxxxxxxxxxx
-                processing_enabled: true
-                settlement_enabled: true
-                _links:
-                  application_profile:
-                    href: string
-                  authorizations:
-                    href: string
-                  disputes:
-                    href: string
-                  identities:
-                    href: string
-                  merchants:
-                    href: string
-                  owner_identity:
-                    href: string
-                  payment_instruments:
-                    href: string
-                  processors:
-                    href: string
-                  reversals:
-                    href: string
-                  self:
-                    href: string
-                  settlements:
-                    href: string
-                  tokens:
-                    href: string
-                  transfers:
-                    href: string
-                  users:
-                    href: string
-                  webhooks:
-                    href: string
       headers:
         finix-apiuser-role:
           $ref: '#/components/headers/finix-apiuser-role'
@@ -4684,14 +4500,9 @@ components:
                 _links:
                   self:
                     href: https://finix.sandbox-payments-api.com/application_profiles?offset=0&limit=20&sort=created_at,desc&sort=id,desc
-                  next:
-                    href: https://finix.sandbox-payments-api.com/application_profiles?offset=20&limit=20&sort=created_at,desc&sort=id,desc
-                  last:
-                    href: https://finix.sandbox-payments-api.com/application_profiles?offset=110280&limit=20&sort=created_at,desc&sort=id,desc
                 page:
-                  offset: 0
+                  next_cursor: PPc931nKUintrvYY98itsM9M
                   limit: 20
-                  count: 110296
       headers:
         finix-apiuser-role:
           $ref: '#/components/headers/finix-apiuser-role'
@@ -4854,12 +4665,9 @@ components:
                     href: https://finix.sandbox-payments-api.com/applications?offset=0&limit=20&sort=created_at,desc&sort=id,desc
                   next:
                     href: https://finix.sandbox-payments-api.com/applications?offset=20&limit=20&sort=created_at,desc&sort=id,desc
-                  last:
-                    href: https://finix.sandbox-payments-api.com/applications?offset=110400&limit=20&sort=created_at,desc&sort=id,desc
                 page:
-                  offset: 0
+                  next_cursor: APoUsWg49wfXomJTGnvuKZeT
                   limit: 20
-                  count: 110402
       headers:
         finix-apiuser-role:
           $ref: '#/components/headers/finix-apiuser-role'
@@ -4896,6 +4704,8 @@ components:
                 void_state: UNATTEMPTED
                 expires_at: '2022-02-03T07:37:19.16Z'
                 idempotency_id: null
+                failure_code: null
+                failure_message: null
                 _links:
                   self:
                     href: https://finix.sandbox-payments-api.com/authorizations/AUvAZfiEH7irXZf49P7o8P1r
@@ -4925,6 +4735,8 @@ components:
                 void_state: UNATTEMPTED
                 expires_at: '2022-02-03T07:37:19.95Z'
                 idempotency_id: null
+                failure_code: null
+                failure_message: null
                 _links:
                   self:
                     href: https://finix.sandbox-payments-api.com/authorizations/AU27TBqkcCQn94aSVyTvRyrn
@@ -4954,6 +4766,8 @@ components:
                 void_state: UNATTEMPTED
                 expires_at: '2022-02-03T07:37:20.68Z'
                 idempotency_id: null
+                failure_code: null
+                failure_message: null
                 _links:
                   self:
                     href: https://finix.sandbox-payments-api.com/authorizations/AUq2Xz5VS46U4hzzhX9WJCxx
@@ -4983,6 +4797,8 @@ components:
                 void_state: UNATTEMPTED
                 expires_at: '2022-02-03T07:37:21.55Z'
                 idempotency_id: null
+                failure_code: null
+                failure_message: null
                 _links:
                   self:
                     href: https://finix.sandbox-payments-api.com/authorizations/AUsQsCLRp9ENxrh563w1zZHi
@@ -5012,6 +4828,8 @@ components:
                 void_state: PENDING
                 expires_at: '2022-02-03T07:37:28.10Z'
                 idempotency_id: null
+                failure_code: null
+                failure_message: null
                 _links:
                   self:
                     href: https://finix.sandbox-payments-api.com/authorizations/AU2UkcVZU94rNqonfcLGZRSJ
@@ -5058,7 +4876,9 @@ components:
                 void_state: UNATTEMPTED
                 expires_at: '2019-03-18T23:36:42.03Z'
                 idempotency_id: null
-                subtype: API
+                failure_code: null
+                failure_message: null
+                sub_type: API
                 _links:
                   self:
                     href: https://finix.sandbox-payments-api.com/authorizations/AUeEok8811pDqsR1BbxZLbw1
@@ -5097,6 +4917,8 @@ components:
                 is_void: false
                 expires_at: '2019-03-08T03:37:10.10Z'
                 idempotency_id: null
+                failure_code: null
+                failure_message: null
                 _links:
                   self:
                     href: https://finix.sandbox-payments-api.com/authorizations/AUiJS1VhMy8zpACLoacPFG7m
@@ -5186,13 +5008,10 @@ components:
                   self:
                     href: https://finix.sandbox-payments-api.com/authorizations/?offset=0&limit=20&sort=created_at,desc&sort=id,desc
                   next:
-                    href: https://finix.sandbox-payments-api.com/authorizations/?offset=20&limit=20&sort=created_at,desc&sort=id,desc
-                  last:
-                    href: https://finix.sandbox-payments-api.com/authorizations/?offset=80&limit=20&sort=created_at,desc&sort=id,desc
+                    href: https://finix.sandbox-payments-api.com/authorizations/?next_curosr=AUq4AYbftfv7SVgvXRw7tHgW&limit=20&sort=created_at,desc&sort=id,desc
                 page:
-                  offset: 0
+                  next_cursor: AUq4AYbftfv7SVgvXRw7tHgW
                   limit: 20
-                  count: 95
       headers:
         finix-apiuser-role:
           $ref: '#/components/headers/finix-apiuser-role'
@@ -5453,8 +5272,7 @@ components:
               value:
                 page:
                   count: 0
-                  limit: 0
-                  offset: 0
+                  next_cursor: null
                 _embedded:
                   evidences:
                     - tags:
@@ -5547,11 +5365,10 @@ components:
                           href: https://finix.sandbox-payments-api.com/disputes/DItDftgrrkhcyFLzZiUFxn6Y/adjustment_transfers
                 _links:
                   self:
-                    href: https://finix.sandbox-payments-api.com/disputes/?offset=0&limit=20&sort=created_at,desc&sort=id,desc
+                    href: https://finix.sandbox-payments-api.com/disputes/?limit=20&sort=created_at,desc&sort=id,desc
                 page:
-                  offset: 0
+                  next_cursor: DItDftgrrkhcyFLzZiUFxn6Y
                   limit: 20
-                  count: 10
       headers:
         finix-apiuser-role:
           $ref: '#/components/headers/finix-apiuser-role'
@@ -6612,11 +6429,10 @@ components:
                           href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
                 _links:
                   self:
-                    href: https://finix.sandbox-payments-api.com/identities?offset=0&limit=20&sort=created_at,desc&sort=id,desc
+                    href: https://finix.sandbox-payments-api.com/identities?&limit=20&sort=created_at,desc&sort=id,desc
                 page:
-                  offset: 0
+                  next_cursor: IDuquemzE7UkUJioGJfVKBKt
                   limit: 20
-                  count: 11
       headers:
         finix-apiuser-role:
           $ref: '#/components/headers/finix-apiuser-role'
@@ -7017,11 +6833,10 @@ components:
                           href: https://finix.sandbox-payments-api.com/verifications/VI7nPHu84MA8iXoRVFwvD5Xm
                 _links:
                   self:
-                    href: https://finix.sandbox-payments-api.com/merchants/?offset=0&limit=20&sort=created_at,desc&sort=id,desc
+                    href: https://finix.sandbox-payments-api.com/merchants/?limit=20&sort=created_at,desc&sort=id,desc
                 page:
-                  offset: 0
+                  next_cursor: MUucec6fHeaWo3VHYoSkUySM
                   limit: 20
-                  count: 19
       headers:
         finix-apiuser-role:
           $ref: '#/components/headers/finix-apiuser-role'
@@ -7337,15 +7152,12 @@ components:
                           href: https://finix.sandbox-payments-api.com/identities/ID5tbVBQ1HGma8p2miV53wdD
                 _links:
                   self:
-                    href: https://finix.sandbox-payments-api.com/payment_instruments?offset=0&limit=20&sort=created_at,desc&sort=id,desc
+                    href: https://finix.sandbox-payments-api.com/payment_instruments?limit=20&sort=created_at,desc&sort=id,desc
                   next:
-                    href: https://finix.sandbox-payments-api.com/payment_instruments?offset=20&limit=20&sort=created_at,desc&sort=id,desc
-                  last:
-                    href: https://finix.sandbox-payments-api.com/payment_instruments?offset=180&limit=20&sort=created_at,desc&sort=id,desc
+                    href: https://finix.sandbox-payments-api.com/payment_instruments?next_cursor=PIg5nW4pnnfHeuNf4eMk9d7C&limit=20&sort=created_at,desc&sort=id,desc
                 page:
-                  offset: 0
+                  next_cursor: PIg5nW4pnnfHeuNf4eMk9d7C
                   limit: 20
-                  count: 183
       headers:
         finix-apiuser-role:
           $ref: '#/components/headers/finix-apiuser-role'
@@ -7482,11 +7294,10 @@ components:
                           href: https://finix.sandbox-payments-api.com/applications/AP3AB2itAWrrrPVS6spvrGYp
                 _links:
                   self:
-                    href: https://finix.sandbox-payments-api.com/applications/AP3AB2itAWrrrPVS6spvrGYp/processors?offset=0&limit=20&sort=created_at,desc&sort=id,desc
+                    href: https://finix.sandbox-payments-api.com/applications/AP3AB2itAWrrrPVS6spvrGYp/processors
                 page:
-                  offset: 0
-                  limit: 20
-                  count: 5
+                  limit: 100
+                  next_cursor: null
       headers:
         finix-apiuser-role:
           $ref: '#/components/headers/finix-apiuser-role'
@@ -7784,15 +7595,12 @@ components:
                           href: https://finix.sandbox-payments-api.com/settlements/STuqotawQEt9m7GtPHGiKeCW/transfers?type=dispute
                 _links:
                   self:
-                    href: https://finix.sandbox-payments-api.com/settlements/?offset=0&limit=20&sort=created_at,desc&sort=id,desc
+                    href: https://finix.sandbox-payments-api.com/settlements
                   next:
-                    href: https://finix.sandbox-payments-api.com/settlements/?offset=20&limit=20&sort=created_at,desc&sort=id,desc
-                  last:
-                    href: https://finix.sandbox-payments-api.com/settlements/?offset=320&limit=20&sort=created_at,desc&sort=id,desc
+                    href: https://finix.sandbox-payments-api.com/settlements?after_cursor=SToxk3Lm1PFLL7ZQDJBLqbxQ
                 page:
-                  offset: 0
                   limit: 20
-                  count: 336
+                  next_cursor: SToxk3Lm1PFLL7ZQDJBLqbxQ
       headers:
         finix-apiuser-role:
           $ref: '#/components/headers/finix-apiuser-role'
@@ -8491,11 +8299,12 @@ components:
                           href: https://finix.sandbox-payments-api.com/fee_profiles/FPpKrHcHGiaDo3skhteaWitW
                 _links:
                   self:
-                    href: https://finix.sandbox-payments-api.com/settlements/STrBCyCMxF2XzCcy9S9biPbd/transfers?offset=0&limit=20&sort=created_at,desc&sort=id,desc
+                    href: https://finix.sandbox-payments-api.com/transfers
+                  next:
+                    href: https://finix.sandbox-payments-api.com/transfers?after_cursor=TR6M2hPEbxf9Nr8RXjfmuPH2
                 page:
-                  offset: 0
+                  next_cursor: TR6M2hPEbxf9Nr8RXjfmuPH2
                   limit: 20
-                  count: 3
       headers:
         finix-apiuser-role:
           $ref: '#/components/headers/finix-apiuser-role'
@@ -9203,7 +9012,7 @@ components:
                         amounts:
                           href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_bpdSWMpjwqv8w6HqDKNWfo/subscription_amounts
                     - id: SUBSCHEDULE_bnzrtYxdGkobVSb9MqYB28
-                      created_at: '2022-01-13T00:04:07.95Z'
+                      created_at: '2022-01-13T00:04:08.95Z'
                       updated_at: '2022-01-13T00:04:07.95Z'
                       created_by: UStxEci4vXxGDWLQhNvao7YY
                       fixed_time_interval_offset: null
@@ -9419,13 +9228,9 @@ components:
                       subscription_type: PERIODIC_YEARLY
                       tags: {}
                       _links:
-                        self:
-                          href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_5CWerip6qpb6eJnrENqDcD
                         amounts:
                           href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_5CWerip6qpb6eJnrENqDcD/subscription_amounts
                 _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules?offset=0&limit=20&sort=created_at,desc&sort=id,desc
                   next:
                     href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules?offset=20&limit=20&sort=created_at,desc&sort=id,desc
                   last:
@@ -9523,36 +9328,141 @@ components:
           examples:
             List of Files:
               value:
-                page:
-                  count: 0
-                  limit: 0
-                  offset: 0
                 _embedded:
                   files:
-                    - id: FILE_7pBudxCneXRWsLbUegk2Db
+                    - id: FILE_aRmZsRVSwcCX4D5YsKT2po
                       status: UPLOADED
-                      created_at: '2022-04-25T20:20:51.921341Z'
-                      updated_at: '2022-04-25T20:24:17.664812Z'
+                      created_at: '2022-05-23T17:18:06.876484Z'
+                      updated_at: '2022-05-23T17:18:42.256164Z'
                       linked_type: MERCHANT
-                      linked_to: MU2n7BSovtwYsWYZF6rBnnzk
-                      extension: png
-                      display_name: John Drivers License
+                      linked_to: MUbbHSsD4wVqeRUAChKUSWUp
+                      extension: jpg
+                      display_name: My Drivers License
+                      type: DRIVERS_LICENSE_FRONT
+                      platform_id: PLbDQTEq73EP3Y4cH2mqC79R
+                      application_id: APj9Gw6wRhpbaHJM1QtZakqH
+                      tags: {}
+                      identity_id: null
+                    - id: FILE_NoT7dDubHtbmEVCuY4BS6
+                      status: UPLOADED
+                      created_at: '2022-05-11T21:05:02.692726Z'
+                      updated_at: '2022-05-11T21:05:16.710033Z'
+                      linked_type: MERCHANT
+                      linked_to: MUvq9viguGbYQyjRv4bev6jb
+                      extension: jpg
+                      display_name: Driver License Back
                       type: DRIVERS_LICENSE_BACK
-                      platform_id: PLm5E6FbtCZ5vjpCaKhq5PwN
-                      application_id: APgPDQrLD52TYvqazjHJJchM
-                      tags:
-                        key_1: value_1
-                _links:
-                  first:
-                    href: string
-                  last:
-                    href: string
-                  next:
-                    href: string
-                  prev:
-                    href: string
-                  self:
-                    href: string
+                      platform_id: PLbDQTEq73EP3Y4cH2mqC79R
+                      application_id: APj9Gw6wRhpbaHJM1QtZakqH
+                      tags: {}
+                      identity_id: null
+                    - id: FILE_ueH23FN2QAFKSTLdsn29WM
+                      status: UPLOADED
+                      created_at: '2022-05-11T21:04:05.961178Z'
+                      updated_at: '2022-05-11T21:04:59.926384Z'
+                      linked_type: MERCHANT
+                      linked_to: MUvq9viguGbYQyjRv4bev6jb
+                      extension: jpg
+                      display_name: Driver License Front
+                      type: DRIVERS_LICENSE_FRONT
+                      platform_id: PLbDQTEq73EP3Y4cH2mqC79R
+                      application_id: APj9Gw6wRhpbaHJM1QtZakqH
+                      tags: {}
+                      identity_id: null
+                    - id: FILE_iZ815nV4rGZxnpJ8MJ8mu3
+                      status: INVALID
+                      created_at: '2022-05-03T20:35:28.454644Z'
+                      updated_at: '2022-05-03T20:36:06.932028Z'
+                      linked_type: MERCHANT
+                      linked_to: MUbbHSsD4wVqeRUAChKUSWUp
+                      extension: null
+                      display_name: My Drivers License
+                      type: IDENTIFICATION_CARD_BACK
+                      platform_id: PLbDQTEq73EP3Y4cH2mqC79R
+                      application_id: APj9Gw6wRhpbaHJM1QtZakqH
+                      tags: {}
+                      identity_id: null
+                    - id: FILE_rUN71sr2x5CMEcz6dw8sqc
+                      status: INVALID
+                      created_at: '2022-05-03T20:30:06.636335Z'
+                      updated_at: '2022-05-03T20:30:23.087997Z'
+                      linked_type: MERCHANT
+                      linked_to: MUbbHSsD4wVqeRUAChKUSWUp
+                      extension: null
+                      display_name: My Drivers License
+                      type: BANK_STATEMENT
+                      platform_id: PLbDQTEq73EP3Y4cH2mqC79R
+                      application_id: APj9Gw6wRhpbaHJM1QtZakqH
+                      tags: {}
+                      identity_id: null
+                    - id: FILE_f9WpLvqTq6Bkpu6SyCKzuE
+                      status: INVALID
+                      created_at: '2022-05-03T20:27:26.91157Z'
+                      updated_at: '2022-05-03T20:27:40.607099Z'
+                      linked_type: MERCHANT
+                      linked_to: MUbbHSsD4wVqeRUAChKUSWUp
+                      extension: null
+                      display_name: My Drivers License
+                      type: PASSPORT
+                      platform_id: PLbDQTEq73EP3Y4cH2mqC79R
+                      application_id: APj9Gw6wRhpbaHJM1QtZakqH
+                      tags: {}
+                      identity_id: null
+                    - id: FILE_aKQFmzqGXnn778SQ2sdX6U
+                      status: INVALID
+                      created_at: '2022-05-03T20:26:27.154557Z'
+                      updated_at: '2022-05-03T20:26:41.263177Z'
+                      linked_type: MERCHANT
+                      linked_to: MUbbHSsD4wVqeRUAChKUSWUp
+                      extension: null
+                      display_name: My Drivers License
+                      type: DRIVERS_LICENSE_FRONT
+                      platform_id: PLbDQTEq73EP3Y4cH2mqC79R
+                      application_id: APj9Gw6wRhpbaHJM1QtZakqH
+                      tags: {}
+                      identity_id: null
+                    - id: FILE_6tnVVEJso3DVkY3s4zYj3s
+                      status: INVALID
+                      created_at: '2022-05-03T20:25:28.952093Z'
+                      updated_at: '2022-05-03T20:25:43.885587Z'
+                      linked_type: MERCHANT
+                      linked_to: MUbbHSsD4wVqeRUAChKUSWUp
+                      extension: null
+                      display_name: My Drivers License
+                      type: PCI_DOCUMENT
+                      platform_id: PLbDQTEq73EP3Y4cH2mqC79R
+                      application_id: APj9Gw6wRhpbaHJM1QtZakqH
+                      tags: {}
+                      identity_id: null
+                    - id: FILE_oSNEbXokQxpd8Wjwu4Yxof
+                      status: INVALID
+                      created_at: '2022-05-03T20:22:15.914195Z'
+                      updated_at: '2022-05-03T20:22:30.813932Z'
+                      linked_type: MERCHANT
+                      linked_to: MUbbHSsD4wVqeRUAChKUSWUp
+                      extension: null
+                      display_name: My Drivers License
+                      type: DRIVERS_LICENSE_FRONT
+                      platform_id: PLbDQTEq73EP3Y4cH2mqC79R
+                      application_id: APj9Gw6wRhpbaHJM1QtZakqH
+                      tags: {}
+                      identity_id: null
+                    - id: FILE_epWgpnUEZrETnamkChkTDu
+                      status: INVALID
+                      created_at: '2022-05-03T20:20:07.340786Z'
+                      updated_at: '2022-05-03T20:20:21.829517Z'
+                      linked_type: MERCHANT
+                      linked_to: MUbbHSsD4wVqeRUAChKUSWUp
+                      extension: null
+                      display_name: My Drivers License
+                      type: DRIVERS_LICENSE_FRONT
+                      platform_id: PLbDQTEq73EP3Y4cH2mqC79R
+                      application_id: APj9Gw6wRhpbaHJM1QtZakqH
+                      tags: {}
+                      identity_id: null
+                page:
+                  limit: 10
+                  next_cursor: FILE_epWgpnUEZrETnamkChkTDu
       headers:
         finix-apiuser-role:
           $ref: '#/components/headers/finix-apiuser-role'
@@ -9890,6 +9800,23 @@ components:
         settlement_enabled:
           type: boolean
           description: 'Details if settlement processing is enabled for the `Application`. '
+        settlement_funding_identifier:
+          type: string
+          enum:
+            - UNSET
+          nullable: true
+        ready_to_settle_upon:
+          type: string
+          enum:
+            - RECONCILIATION
+            - SUCCESSFUL_CAPTURE
+          nullable: true
+        fee_ready_to_settle_upon:
+          type: string
+          enum:
+            - RECONCILIATION
+            - SUCCESSFUL_CAPTURE
+          nullable: true
         _links:
           type: object
           description: For your convenience, every response includes several URLs
@@ -9972,6 +9899,7 @@ components:
               properties:
                 href:
                   type: string
+      title: ''
     CreateApplicationRequest:
       type: object
       x-examples: {}
@@ -10617,6 +10545,14 @@ components:
           $ref: '#/components/schemas/Id'
         additional_purchase_data:
           $ref: '#/components/schemas/AdditionalPurchaseData'
+        fraud_session_id:
+          $ref: '#/components/schemas/FraudSessionID'
+        sub_type:
+          $ref: '#/components/schemas/SubTypeTransfer'
+        operation_key:
+          $ref: '#/components/schemas/OperationKey'
+        device:
+          $ref: '#/components/schemas/Id'
         3d_secure_authentication:
           type: object
           description: The 3D secure information for an authorization.
@@ -10641,12 +10577,6 @@ components:
           required:
             - cardholder_authentication
             - electronic_commerce_indicator
-        operation_key:
-          type: string
-          description: 'Describes the operation to be performed in the transaction.
-
-            - **CARD\_PRESENT\_AUTHORIZATION**: When making in-person payment with
-            EMV card.'
       required:
         - amount
         - currency
@@ -10713,6 +10643,10 @@ components:
           type: string
           description: A randomly generated value that'll be associated with the request.
           nullable: true
+        failure_code:
+          $ref: '#/components/schemas/FailureCode'
+        failure_message:
+          $ref: '#/components/schemas/FailureMessage'
         is_void:
           type: boolean
           description: Details if the `Authorization` is void.
@@ -10756,6 +10690,8 @@ components:
         void_state:
           type: string
           description: Details if the `Authorization` has been voided.
+        sub_type:
+          $ref: '#/components/schemas/SubTypeTransfer'
         _links:
           type: object
           description: For your convenience, every response includes several URLs
@@ -11073,6 +11009,10 @@ components:
               format: int64
               description: The threshold to prompt a signature when `prompt_signature`
                 is set to **AMOUNT** (defaults to 0).
+            bypass_device_on_capture:
+              type: boolean
+              description: Sets whether or not the device will be used to capture
+                transactions. This field must be set to true (defaults to false).
         connection:
           type: string
           description: Details if the `Device` is connected and online.
@@ -11103,7 +11043,7 @@ components:
         model:
           type: string
           description: Please select one of the following values which will let Finix
-            know the type of device being used:<ul><li>BBPOS<li>MX915<li>MX925<li>IPP320<li>IPP350<li>ISC250<li>ISC480<li>ISMP4<li>LANE\_3000<li><li>ANDROID
+            know the type of device being used:<ul><li>BBPOS<li>MX915<li>MX925<li>IPP320<li>IPP350<li>ISC250<li>ISC480<li>ISMP4<li>LANE\_3000<li>ANDROID
         name:
           type: string
           description: Name of the `Device`.
@@ -11306,19 +11246,7 @@ components:
       type: object
       properties:
         page:
-          type: object
-          description: Details the page that's returned.
-          properties:
-            count:
-              type: integer
-              description: The number of entries returned.
-            limit:
-              type: integer
-              description: The number of entries to return.
-            offset:
-              type: integer
-              description: The number of items to skip before starting to collect
-                the result set.
+          $ref: '#/components/schemas/PageCursor'
         _embedded:
           type: object
           properties:
@@ -11340,6 +11268,7 @@ components:
               properties:
                 href:
                   type: string
+      title: ''
     DisputesList:
       type: object
       properties:
@@ -11679,6 +11608,9 @@ components:
         merchant:
           type: string
           description: The `Merchant` ID that the fee is being debited from.
+        label:
+          type: string
+          nullable: true
         _links:
           type: object
           description: For your convenience, every response includes several URLs
@@ -11735,8 +11667,17 @@ components:
             - SUBSCRIPTION
             - TRANSFER
           description: The type of entity the fee is linked to (**null** by default).
-        merchant:
+        merchant_id:
           $ref: '#/components/schemas/Id'
+        label:
+          type: string
+          description: The display name of the Fee that can be used for filtering
+            purposes.
+          nullable: true
+        settlement_delay_days:
+          type: integer
+          description: Delays in days, when the fee will be submitted for settlement.
+          nullable: true
       required:
         - amount
         - currency
@@ -11947,7 +11888,7 @@ components:
       type: object
       properties:
         page:
-          $ref: '#/components/schemas/PageCursor'
+          $ref: '#/components/schemas/PageOffset'
         _embedded:
           type: object
           properties:
@@ -13469,10 +13410,6 @@ components:
           description: The ID of the resource.
         fee_profile:
           $ref: '#/components/schemas/Id'
-        reserve_profile:
-          type: string
-          example: SPxxxxxxxxxxxxxxxxxx
-          pattern: ^(SP)[a-zA-Z0-9]{16,32}$
         risk_profile:
           $ref: '#/components/schemas/Id'
         _links:
@@ -13492,33 +13429,13 @@ components:
               properties:
                 href:
                   type: string
-            owner_identity:
-              type: object
-              properties:
-                href:
-                  type: string
-            processors:
-              type: object
-              properties:
-                href:
-                  type: string
-            reserve_profile:
-              type: object
-              properties:
-                href:
-                  type: string
-            risk_profile:
-              type: object
-              properties:
-                href:
-                  type: string
             self:
               type: object
               description: Link to the resource that was used in the request.
               properties:
                 href:
                   type: string
-            users:
+            risk_profile:
               type: object
               properties:
                 href:
@@ -13533,71 +13450,8 @@ components:
           properties:
             merchant_profiles:
               type: array
-              minItems: 0
-              uniqueItems: true
               items:
-                type: object
-                properties:
-                  tags:
-                    $ref: '#/components/schemas/Tags'
-                  id:
-                    $ref: '#/components/schemas/Id'
-                  created_at:
-                    $ref: '#/components/schemas/CreatedAt'
-                  updated_at:
-                    $ref: '#/components/schemas/UpdatedAt'
-                  application:
-                    type: string
-                    description: The ID of the resource.
-                  fee_profile:
-                    $ref: '#/components/schemas/Id'
-                  reserve_profile:
-                    $ref: '#/components/schemas/Id'
-                  risk_profile:
-                    $ref: '#/components/schemas/Id'
-                  _links:
-                    type: object
-                    properties:
-                      application:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-                      fee_profile:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-                      owner_identity:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-                      processors:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-                      reserve_profile:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-                      risk_profile:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-                      self:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-                      users:
-                        type: object
-                        properties:
-                          href:
-                            type: string
+                $ref: '#/components/schemas/MerchantProfile'
         _links:
           $ref: '#/components/schemas/ListLinks'
     CreateMerchantUnderwritingRequest:
@@ -13625,10 +13479,43 @@ components:
       properties:
         tags:
           $ref: '#/components/schemas/Tags'
+        processing_enabled:
+          type: boolean
+          description: Details if transaction processing is enabled for the `Merchant`.
+        settlement_enabled:
+          type: boolean
+          description: Details if settlement processing is enabled for the `Merchant`.
+        gross_settlement_enabled:
+          type: boolean
+          description: Set to **true** to enable gross settlements.
+        creating_transfer_from_report_enabled:
+          type: boolean
+          description: Set to **true** to automatically create `Transfers` once settlement
+            reports get generated.
+        card_expiration_date_required:
+          type: boolean
+          description: Set to **true** to require the card's expiration date.
+        card_cvv_required:
+          type: boolean
+          description: Set to **true** to require the card's CVV code.
+        merchant_name:
+          type: string
+          description: The legal name saved in the `Merchant` resource.
+        settlement_funding_identifier:
+          type: string
+          description: Include addtional information (like the MID) when submitting
+            funding `Tranfers` to processors.
+        ready_to_settle_upon:
+          type: string
+          description: Details how `Authorizations` captured by the `Merchant` are
+            settled.
+        fee_ready_to_settle_upon:
+          type: string
+          description: Details how the `Merchant` settles fees.
         level_two_level_three_data_enabled:
           type: boolean
-          description: Set to True to enable Merchant for Level 2 and Level 3 processing.
-            Default value is false.
+          description: Set to **true** to enable the `Merchant` for Level 2 and Level
+            3 processing. Default value is **false**.
     MerchantsList:
       type: object
       properties:
@@ -13655,12 +13542,12 @@ components:
           type: string
           enum:
             - VANTIV_OMNI_TOKEN
-            - BANK_ACCOUNT
-            - TOKEN
+            - PAYMENT_CARD_PRESENT
             - PAYMENT_CARD
             - SWIPED_PAYMENT_CARD
-            - PAYMENT_CARD_PRESENT
             - VIRTUAL
+            - BANK_ACCOUNT
+            - TOKEN
           description: Type of `Payment Instrument`.
         id:
           $ref: '#/components/schemas/Id'
@@ -13697,12 +13584,12 @@ components:
           type: string
           enum:
             - VANTIV_OMNI_TOKEN
-            - BANK_ACCOUNT
-            - TOKEN
+            - PAYMENT_CARD_PRESENT
             - PAYMENT_CARD
             - SWIPED_PAYMENT_CARD
-            - PAYMENT_CARD_PRESENT
             - VIRTUAL
+            - BANK_ACCOUNT
+            - TOKEN
           description: The type of `Payment Instrument`.
         masked_account_number:
           type: string
@@ -13892,14 +13779,17 @@ components:
         type:
           type: string
           enum:
-            - TOKEN
-            - BANK_ACCOUNT
             - PAYMENT_CARD
+            - TOKEN
+            - APPLE_PAY
+            - BANK_ACCOUNT
           description: Type of `Payment Instrument`.
         identity:
           $ref: '#/components/schemas/Id'
         third_party_token:
           type: string
+        merchant_identity:
+          $ref: '#/components/schemas/Id'
         account_number:
           type: string
           description: The bank account number (no dashes in between numbers).
@@ -13964,9 +13854,9 @@ components:
         type:
           type: string
           enum:
+            - PAYMENT_CARD
             - TOKEN
             - BANK_ACCOUNT
-            - PAYMENT_CARD
           description: Type of `Payment Instrument`.
         identity:
           $ref: '#/components/schemas/Id'
@@ -14069,7 +13959,7 @@ components:
       type: object
       properties:
         page:
-          $ref: '#/components/schemas/PageCursor'
+          $ref: '#/components/schemas/PageOffset'
         _embedded:
           type: object
           properties:
@@ -14117,9 +14007,6 @@ components:
                       end-to-end.
                   _links:
                     type: object
-                    required:
-                      - payment_instrument
-                      - self
                     properties:
                       application:
                         type: object
@@ -14136,6 +14023,9 @@ components:
                         properties:
                           href:
                             type: string
+                    required:
+                      - payment_instrument
+                      - self
                 required:
                   - id
                   - created_at
@@ -14149,9 +14039,11 @@ components:
           required:
             - updates
         _links:
-          $ref: '#/components/schemas/ListLinks'
+          additionalProperties: true
+          type: object
       required:
         - page
+      description: ''
     PaymentInstrumentsList:
       type: object
       properties:
@@ -16792,17 +16684,12 @@ components:
           description: Details if the Transfer will be settled externally by card
             processors.
         failure_code:
-          type: string
-          description: When a transfer is declined. This is the code of the failure
-            so the decline can be handled programmatically.
-          nullable: true
+          $ref: '#/components/schemas/FailureCode'
         failure_message:
-          type: string
-          description: A human-readable description of why the transaction was declined.
-            This will also include a suggestion on how to complete the payment.
-          nullable: true
+          $ref: '#/components/schemas/FailureMessage'
         _links:
           type: object
+          additionalProperties: true
           description: For your convenience, every response includes several URLs
             which link to resources relevant to the request. You can use these `_links`
             to make your follow-up requests and quickly access relevant IDs.
@@ -17069,6 +16956,8 @@ components:
           description: The description of the transaction that appears on the buyer's
             bank or card statement.
           nullable: true
+        fraud_session_id:
+          $ref: '#/components/schemas/FraudSessionID'
         additional_purchase_data:
           $ref: '#/components/schemas/AdditionalPurchaseData'
     TransferReversalsList:
@@ -17267,6 +17156,7 @@ components:
           nullable: true
         _links:
           type: object
+          additionalProperties: true
           description: For your convenience, every response includes several URLs
             which link to resources relevant to the request. You can use these `_links`
             to make your follow-up requests and quickly access relevant IDs.
@@ -17473,11 +17363,17 @@ components:
       type: object
       properties:
         refund_amount:
-          type: integer
-          description: The amount of the refund in cents. It must be equal to or less
-            than the amount of the original `Transfer`.
+          $ref: '#/components/schemas/Amount'
         tags:
           $ref: '#/components/schemas/Tags'
+        device:
+          $ref: '#/components/schemas/Id'
+        currency:
+          $ref: '#/components/schemas/Currency'
+        operation_key:
+          $ref: '#/components/schemas/OperationKey'
+        amount:
+          $ref: '#/components/schemas/Amount'
     CreateWebhookRequest:
       title: WebhookCreate
       type: object
@@ -17727,361 +17623,7 @@ components:
     SubscriptionSchedulesList:
       title: SubscriptionSchedulesList
       type: object
-      x-examples:
-        List of subscription schedules:
-          _embedded:
-            subscription_schedules:
-              - id: SUBSCHEDULE_uANjZPtZGzh4MK6aFFzbC8
-                created_at: '2022-01-27T07:44:06.18Z'
-                updated_at: '2022-01-27T07:44:06.18Z'
-                created_by: UStxEci4vXxGDWLQhNvao7YY
-                fixed_time_interval_offset: null
-                line_item_type: FEE
-                nickname: Monthly_Subscription_Schedule
-                period_offset:
-                  day: 1
-                  month: null
-                subscription_type: PERIODIC_MONTHLY
-                tags: {}
-                _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_uANjZPtZGzh4MK6aFFzbC8
-                  amounts:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_uANjZPtZGzh4MK6aFFzbC8/subscription_amounts
-              - id: SUBSCHEDULE_uzbKGz4eHynQrn5ekkEAru
-                created_at: '2022-01-27T07:44:05.81Z'
-                updated_at: '2022-01-27T07:44:05.81Z'
-                created_by: UStxEci4vXxGDWLQhNvao7YY
-                fixed_time_interval_offset: null
-                line_item_type: FEE
-                nickname: Yearly_Subscription_Schedule
-                period_offset:
-                  day: 5
-                  month: 1
-                subscription_type: PERIODIC_YEARLY
-                tags: {}
-                _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_uzbKGz4eHynQrn5ekkEAru
-                  amounts:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_uzbKGz4eHynQrn5ekkEAru/subscription_amounts
-              - id: SUBSCHEDULE_uxsUJrgbQZEXsWm9toq6gZ
-                created_at: '2022-01-27T07:44:05.40Z'
-                updated_at: '2022-01-27T07:44:05.40Z'
-                created_by: UStxEci4vXxGDWLQhNvao7YY
-                fixed_time_interval_offset:
-                  hourly_interval: 24
-                  interval_count: 4
-                line_item_type: FEE
-                nickname: Fixed_Time_Subscription_Schedule
-                period_offset: null
-                subscription_type: FIXED_TIME_INTERVAL
-                tags: {}
-                _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_uxsUJrgbQZEXsWm9toq6gZ
-                  amounts:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_uxsUJrgbQZEXsWm9toq6gZ/subscription_amounts
-              - id: SUBSCHEDULE_kY8fuHfsoXWopwskSYKjzE
-                created_at: '2022-01-26T23:35:23.12Z'
-                updated_at: '2022-01-26T23:35:23.12Z'
-                created_by: UStxEci4vXxGDWLQhNvao7YY
-                fixed_time_interval_offset: null
-                line_item_type: FEE
-                nickname: Monthly_Subscription_Schedule
-                period_offset:
-                  day: 1
-                  month: null
-                subscription_type: PERIODIC_MONTHLY
-                tags: {}
-                _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_kY8fuHfsoXWopwskSYKjzE
-                  amounts:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_kY8fuHfsoXWopwskSYKjzE/subscription_amounts
-              - id: SUBSCHEDULE_kWiytjpEw7gnphwpW4nPSL
-                created_at: '2022-01-26T23:35:22.70Z'
-                updated_at: '2022-01-26T23:35:22.70Z'
-                created_by: UStxEci4vXxGDWLQhNvao7YY
-                fixed_time_interval_offset: null
-                line_item_type: FEE
-                nickname: Yearly_Subscription_Schedule
-                period_offset:
-                  day: 5
-                  month: 1
-                subscription_type: PERIODIC_YEARLY
-                tags: {}
-                _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_kWiytjpEw7gnphwpW4nPSL
-                  amounts:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_kWiytjpEw7gnphwpW4nPSL/subscription_amounts
-              - id: SUBSCHEDULE_kUvyQgikZkbg6p2vd6U9of
-                created_at: '2022-01-26T23:35:22.28Z'
-                updated_at: '2022-01-26T23:35:22.28Z'
-                created_by: UStxEci4vXxGDWLQhNvao7YY
-                fixed_time_interval_offset:
-                  hourly_interval: 24
-                  interval_count: 4
-                line_item_type: FEE
-                nickname: Fixed_Time_Subscription_Schedule
-                period_offset: null
-                subscription_type: FIXED_TIME_INTERVAL
-                tags: {}
-                _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_kUvyQgikZkbg6p2vd6U9of
-                  amounts:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_kUvyQgikZkbg6p2vd6U9of/subscription_amounts
-              - id: SUBSCHEDULE_bpdSWMpjwqv8w6HqDKNWfo
-                created_at: '2022-01-13T00:04:08.33Z'
-                updated_at: '2022-01-13T00:04:08.33Z'
-                created_by: UStxEci4vXxGDWLQhNvao7YY
-                fixed_time_interval_offset: null
-                line_item_type: FEE
-                nickname: Monthly_Subscription_Schedule
-                period_offset:
-                  day: 1
-                  month: null
-                subscription_type: PERIODIC_MONTHLY
-                tags: {}
-                _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_bpdSWMpjwqv8w6HqDKNWfo
-                  amounts:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_bpdSWMpjwqv8w6HqDKNWfo/subscription_amounts
-              - id: SUBSCHEDULE_bnzrtYxdGkobVSb9MqYB28
-                created_at: '2022-01-13T00:04:07.95Z'
-                updated_at: '2022-01-13T00:04:07.95Z'
-                created_by: UStxEci4vXxGDWLQhNvao7YY
-                fixed_time_interval_offset: null
-                line_item_type: FEE
-                nickname: Yearly_Subscription_Schedule
-                period_offset:
-                  day: 5
-                  month: 1
-                subscription_type: PERIODIC_YEARLY
-                tags: {}
-                _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_bnzrtYxdGkobVSb9MqYB28
-                  amounts:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_bnzrtYxdGkobVSb9MqYB28/subscription_amounts
-              - id: SUBSCHEDULE_bkXRUUeuN8AfR3RVNUn4vS
-                created_at: '2022-01-13T00:04:07.57Z'
-                updated_at: '2022-01-13T00:04:07.57Z'
-                created_by: UStxEci4vXxGDWLQhNvao7YY
-                fixed_time_interval_offset:
-                  hourly_interval: 24
-                  interval_count: 4
-                line_item_type: FEE
-                nickname: Fixed_Time_Subscription_Schedule
-                period_offset: null
-                subscription_type: FIXED_TIME_INTERVAL
-                tags: {}
-                _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_bkXRUUeuN8AfR3RVNUn4vS
-                  amounts:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_bkXRUUeuN8AfR3RVNUn4vS/subscription_amounts
-              - id: SUBSCHEDULE_qik2T8iPqHfqDpW67mniow
-                created_at: '2022-01-12T22:41:23.20Z'
-                updated_at: '2022-01-12T22:41:23.20Z'
-                created_by: UStxEci4vXxGDWLQhNvao7YY
-                fixed_time_interval_offset: null
-                line_item_type: FEE
-                nickname: Monthly_Subscription_Schedule
-                period_offset:
-                  day: 1
-                  month: null
-                subscription_type: PERIODIC_MONTHLY
-                tags: {}
-                _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_qik2T8iPqHfqDpW67mniow
-                  amounts:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_qik2T8iPqHfqDpW67mniow/subscription_amounts
-              - id: SUBSCHEDULE_qgBf9p8v3CMuDUWMGcKd8h
-                created_at: '2022-01-12T22:41:22.80Z'
-                updated_at: '2022-01-12T22:41:22.80Z'
-                created_by: UStxEci4vXxGDWLQhNvao7YY
-                fixed_time_interval_offset: null
-                line_item_type: FEE
-                nickname: Yearly_Subscription_Schedule
-                period_offset:
-                  day: 5
-                  month: 1
-                subscription_type: PERIODIC_YEARLY
-                tags: {}
-                _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_qgBf9p8v3CMuDUWMGcKd8h
-                  amounts:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_qgBf9p8v3CMuDUWMGcKd8h/subscription_amounts
-              - id: SUBSCHEDULE_qeY8pHJiCo7e2fqmHyqKDV
-                created_at: '2022-01-12T22:41:22.42Z'
-                updated_at: '2022-01-12T22:41:22.42Z'
-                created_by: UStxEci4vXxGDWLQhNvao7YY
-                fixed_time_interval_offset:
-                  hourly_interval: 24
-                  interval_count: 4
-                line_item_type: FEE
-                nickname: Fixed_Time_Subscription_Schedule
-                period_offset: null
-                subscription_type: FIXED_TIME_INTERVAL
-                tags: {}
-                _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_qeY8pHJiCo7e2fqmHyqKDV
-                  amounts:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_qeY8pHJiCo7e2fqmHyqKDV/subscription_amounts
-              - id: SUBSCHEDULE_f5TJFaSEbknvduAEg9gaE2
-                created_at: '2022-01-08T00:53:51.15Z'
-                updated_at: '2022-01-08T00:53:51.15Z'
-                created_by: UStxEci4vXxGDWLQhNvao7YY
-                fixed_time_interval_offset: null
-                line_item_type: FEE
-                nickname: Monthly_Subscription_Schedule
-                period_offset:
-                  day: 1
-                  month: null
-                subscription_type: PERIODIC_MONTHLY
-                tags: {}
-                _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_f5TJFaSEbknvduAEg9gaE2
-                  amounts:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_f5TJFaSEbknvduAEg9gaE2/subscription_amounts
-              - id: SUBSCHEDULE_f4h5bprCWao72AYAnS89ht
-                created_at: '2022-01-08T00:53:50.77Z'
-                updated_at: '2022-01-08T00:53:50.77Z'
-                created_by: UStxEci4vXxGDWLQhNvao7YY
-                fixed_time_interval_offset: null
-                line_item_type: FEE
-                nickname: Yearly_Subscription_Schedule
-                period_offset:
-                  day: 5
-                  month: 1
-                subscription_type: PERIODIC_YEARLY
-                tags: {}
-                _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_f4h5bprCWao72AYAnS89ht
-                  amounts:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_f4h5bprCWao72AYAnS89ht/subscription_amounts
-              - id: SUBSCHEDULE_f2CiEiZTqGju1TsCn1cesT
-                created_at: '2022-01-08T00:53:50.39Z'
-                updated_at: '2022-01-08T00:53:50.39Z'
-                created_by: UStxEci4vXxGDWLQhNvao7YY
-                fixed_time_interval_offset:
-                  hourly_interval: 24
-                  interval_count: 4
-                line_item_type: FEE
-                nickname: Fixed_Time_Subscription_Schedule
-                period_offset: null
-                subscription_type: FIXED_TIME_INTERVAL
-                tags: {}
-                _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_f2CiEiZTqGju1TsCn1cesT
-                  amounts:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_f2CiEiZTqGju1TsCn1cesT/subscription_amounts
-              - id: SUBSCHEDULE_7BVRFS8nAyBJ2h9qa5DSds
-                created_at: '2022-01-07T18:39:55.90Z'
-                updated_at: '2022-01-07T18:39:55.90Z'
-                created_by: UStxEci4vXxGDWLQhNvao7YY
-                fixed_time_interval_offset: null
-                line_item_type: FEE
-                nickname: Monthly_Subscription_Schedule
-                period_offset:
-                  day: 1
-                  month: null
-                subscription_type: PERIODIC_MONTHLY
-                tags: {}
-                _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_7BVRFS8nAyBJ2h9qa5DSds
-                  amounts:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_7BVRFS8nAyBJ2h9qa5DSds/subscription_amounts
-              - id: SUBSCHEDULE_7AhAXfoxykb8z3pEXPdUaK
-                created_at: '2022-01-07T18:39:55.52Z'
-                updated_at: '2022-01-07T18:39:55.52Z'
-                created_by: UStxEci4vXxGDWLQhNvao7YY
-                fixed_time_interval_offset: null
-                line_item_type: FEE
-                nickname: Yearly_Subscription_Schedule
-                period_offset:
-                  day: 5
-                  month: 1
-                subscription_type: PERIODIC_YEARLY
-                tags: {}
-                _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_7AhAXfoxykb8z3pEXPdUaK
-                  amounts:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_7AhAXfoxykb8z3pEXPdUaK/subscription_amounts
-              - id: SUBSCHEDULE_7yDCdvjYL4gbKYmLxAUEHE
-                created_at: '2022-01-07T18:39:55.13Z'
-                updated_at: '2022-01-07T18:39:55.13Z'
-                created_by: UStxEci4vXxGDWLQhNvao7YY
-                fixed_time_interval_offset:
-                  hourly_interval: 24
-                  interval_count: 4
-                line_item_type: FEE
-                nickname: Fixed_Time_Subscription_Schedule
-                period_offset: null
-                subscription_type: FIXED_TIME_INTERVAL
-                tags: {}
-                _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_7yDCdvjYL4gbKYmLxAUEHE
-                  amounts:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_7yDCdvjYL4gbKYmLxAUEHE/subscription_amounts
-              - id: SUBSCHEDULE_5EwwTEScKDyMPo54mLzZwC
-                created_at: '2022-01-06T02:19:59.44Z'
-                updated_at: '2022-01-06T02:19:59.44Z'
-                created_by: UStxEci4vXxGDWLQhNvao7YY
-                fixed_time_interval_offset: null
-                line_item_type: FEE
-                nickname: Monthly_Subscription_Schedule
-                period_offset:
-                  day: 1
-                  month: null
-                subscription_type: PERIODIC_MONTHLY
-                tags: {}
-                _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_5EwwTEScKDyMPo54mLzZwC
-                  amounts:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_5EwwTEScKDyMPo54mLzZwC/subscription_amounts
-              - id: SUBSCHEDULE_5CWerip6qpb6eJnrENqDcD
-                created_at: '2022-01-06T02:19:59.07Z'
-                updated_at: '2022-01-06T02:19:59.07Z'
-                created_by: UStxEci4vXxGDWLQhNvao7YY
-                fixed_time_interval_offset: null
-                line_item_type: FEE
-                nickname: Yearly_Subscription_Schedule
-                period_offset:
-                  day: 5
-                  month: 1
-                subscription_type: PERIODIC_YEARLY
-                tags: {}
-                _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_5CWerip6qpb6eJnrENqDcD
-                  amounts:
-                    href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules/SUBSCHEDULE_5CWerip6qpb6eJnrENqDcD/subscription_amounts
-          _links:
-            self:
-              href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules?offset=0&limit=20&sort=created_at,desc&sort=id,desc
-            next:
-              href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules?offset=20&limit=20&sort=created_at,desc&sort=id,desc
-            last:
-              href: https://finix.sandbox-payments-api.com/subscription/subscription_schedules?offset=20&limit=20&sort=created_at,desc&sort=id,desc
-          page:
-            offset: 0
-            limit: 20
-            count: 30
+      x-examples: {}
       description: '`Subscription Schedule` resource.'
       properties:
         page:
@@ -18264,13 +17806,7 @@ components:
         - nickname
         - tags
     UpdateSubscriptionAmountRequest:
-      title: SubscriptionAmountUpdate
-      type: object
-      description: The ID of the `Subscription Amount`.
-      properties:
-        id:
-          type: string
-          description: The ID of the `Subscription Amount`.
+      $ref: '#/components/schemas/CreateSubscriptionAmountRequest'
     SubscriptionAmountList:
       title: SubscriptionAmountList
       type: object
@@ -18410,7 +17946,6 @@ components:
         started_at:
           type: string
           minLength: 1
-          format: date-time
           description: When the `subscription_enrollment` will begin in **DateTime**
             format. The start date must be a future date.
         nickname:
@@ -18947,20 +18482,15 @@ components:
       nullable: true
     ListLinks:
       title: ListLinks
+      additionalProperties: true
       type: object
       description: For your convenience, every response includes several URLs which
         link to resources relevant to the request. You can use these `_links` to make
         your follow-up requests and quickly access relevant IDs.
       properties:
-        first:
+        next:
           type: object
-          description: Link to the first entry that was returned.
-          properties:
-            href:
-              type: string
-        last:
-          type: object
-          description: Link to the previous page of entries that were returned.
+          description: Link to the next page of entries.
           properties:
             href:
               type: string
@@ -19463,6 +18993,10 @@ components:
           description: <ul><li>If <strong>TRUE</strong> the link has expired<br><li>If
             <strong>FALSE</strong>, the link is active and files can still be uploaded
             or downloaded from the link.
+        duration:
+          type: integer
+          description: If configured, how long the link is active for (in minutes).
+          nullable: true
     ExternalLinksList:
       title: ExternalLinksList
       x-stoplight:
@@ -19672,6 +19206,7 @@ components:
           domain: www.finixtestmerchant.com
           merchant_identity: IDmULj61C8ke6Y7qQiKENJ7
           validation_url: https://apple-pay-gateway-cert.apple.com/paymentservices/paymentSession
+      title: ApplePaySessionRequest
       properties:
         display_name:
           type: string
@@ -19686,9 +19221,8 @@ components:
             with Apple Pay through our registration API.
         validation_url:
           type: string
-          description: A validation URL that will be provided by the Apple SDK front-end
-            for every payment.
-      title: ApplePaySessionRequest
+          description: A unique validation URL that will be provided by the Apple
+            SDK front-end for every payment.
     ApplePaySession:
       type: object
       x-examples:
@@ -19728,87 +19262,7 @@ components:
       title: ApplePaySession
     AdjustmentTransfersList:
       type: object
-      x-examples:
-        example-1:
-          _embedded:
-            transfers:
-              - id: TRrqiR7x5zwUPV5SpPSbKH8B
-                amount: 888888
-                tags: {}
-                state: SUCCEEDED
-                trace_id: c14d481c-60eb-4338-8331-9f34b3445710
-                currency: USD
-                application: APgPDQrLD52TYvqazjHJJchM
-                source: null
-                destination: null
-                ready_to_settle_at: '2022-01-27T07:43:03.91Z'
-                externally_funded: 'FALSE'
-                fee: 0
-                statement_descriptor: null
-                type: DISPUTE
-                messages: []
-                raw: null
-                created_at: '2022-01-27T07:43:03.94Z'
-                updated_at: '2022-01-27T07:43:03.48Z'
-                idempotency_id: null
-                merchant_identity: IDddHpRqwf2VsH2XB1fmLfhM
-                subtype: PLATFORM_CREDIT
-                _links:
-                  application:
-                    href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
-                  self:
-                    href: https://finix.sandbox-payments-api.com/transfers/TRrqiR7x5zwUPV5SpPSbKH8B
-                  merchant_identity:
-                    href: https://finix.sandbox-payments-api.com/identities/IDddHpRqwf2VsH2XB1fmLfhM
-                  payment_instruments:
-                    href: https://finix.sandbox-payments-api.com/transfers/TRrqiR7x5zwUPV5SpPSbKH8B/payment_instruments
-                  disputed_transfer:
-                    href: https://finix.sandbox-payments-api.com/transfers/TRrqiR7x5zwUPV5SpPSbKH8B/disputed_transfer
-                  fee_profile:
-                    href: https://finix.sandbox-payments-api.com/fee_profiles/FPvCQUcnsueN3Bc3zR1qCBG8
-              - id: TRsfZUjgXSCj7k2stZR7APEn
-                amount: 888888
-                tags: {}
-                state: SUCCEEDED
-                trace_id: '08cb6b23-d177-47fb-b941-1bb7b8d78f70'
-                currency: USD
-                application: APgPDQrLD52TYvqazjHJJchM
-                source: null
-                destination: PIe2YvpcjvoVJ6PzoRPBK137
-                ready_to_settle_at: '2022-01-27T07:43:03.76Z'
-                externally_funded: 'FALSE'
-                fee: 0
-                statement_descriptor: null
-                type: DISPUTE
-                messages: []
-                raw: null
-                created_at: '2022-01-27T07:43:03.77Z'
-                updated_at: '2022-01-27T07:43:03.48Z'
-                idempotency_id: null
-                merchant_identity: IDpYDM7J9n57q849o9E9yNrG
-                subtype: MERCHANT_DEBIT
-                _links:
-                  application:
-                    href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
-                  self:
-                    href: https://finix.sandbox-payments-api.com/transfers/TRsfZUjgXSCj7k2stZR7APEn
-                  merchant_identity:
-                    href: https://finix.sandbox-payments-api.com/identities/IDpYDM7J9n57q849o9E9yNrG
-                  payment_instruments:
-                    href: https://finix.sandbox-payments-api.com/transfers/TRsfZUjgXSCj7k2stZR7APEn/payment_instruments
-                  disputed_transfer:
-                    href: https://finix.sandbox-payments-api.com/transfers/TRsfZUjgXSCj7k2stZR7APEn/disputed_transfer
-                  destination:
-                    href: https://finix.sandbox-payments-api.com/payment_instruments/PIe2YvpcjvoVJ6PzoRPBK137
-                  fee_profile:
-                    href: https://finix.sandbox-payments-api.com/fee_profiles/FPq6PQ9pHsab66fKMmjQ7jb5
-          _links:
-            self:
-              href: https://finix.sandbox-payments-api.com/disputes/DIs7yQRkHDdMYhurzYz72SFk/adjustment_transfers?offset=0&limit=20&sort=created_at,desc&sort=id,desc
-          page:
-            offset: 0
-            limit: 20
-            count: 2
+      x-examples: {}
       properties:
         _embedded:
           type: object
@@ -20027,6 +19481,8 @@ components:
         id: lo8jqmipa7376
       type: string
       description: The code of the failure so the decline can be handled programmatically.
+        For more info on how to handle the failure, see [Failure Codes](/docs/guides/developers/errors/#failure-codes).
+      nullable: true
     FailureMessage:
       title: FailureMessage
       x-stoplight:
@@ -20034,6 +19490,72 @@ components:
       type: string
       description: A human-readable description of why the transaction was declined.
         This will also include a suggestion on how to complete the payment.
+      nullable: true
+    FraudSessionID:
+      title: FraudSessionID
+      x-stoplight:
+        id: x00www7a3mlv6
+      type: string
+      description: The `fraud_session_session` ID you want to review for fraud. For
+        more info, see [Fraud Detection](/docs/guides/payments/fraud-detection/).
+    OperationKey:
+      type: string
+      title: OperationKey
+      x-stoplight:
+        id: mkamr5b4a6hd5
+      enum:
+        - PUSH_TO_CARD
+        - PULL_FROM_CARD
+        - CARD_PRESENT_DEBIT
+        - CARD_PRESENT_UNREFERENCED_REFUND
+        - SALE
+        - UNREFERENCED_REFUND
+        - MERCHANT_CREDIT_ADJUSTMENT
+        - MERCHANT_DEBIT_ADJUSTMENT
+        - CARD_PRESENT_AUTHORIZATION
+      description: Details the operation that'll be performed in the transaction.
+      nullable: true
+    PageOffset:
+      title: PageOffset
+      x-stoplight:
+        id: 5l7dajuhlor26
+      type: object
+      properties:
+        count:
+          type: integer
+          description: The number of entries returned.
+        limit:
+          type: integer
+          description: The number of entries to return.
+        offset:
+          type: integer
+          description: The number of items to skip before starting to collect the
+            result set.
+    SubTypeTransfer:
+      title: SubTypeTransfer
+      x-stoplight:
+        id: 2qbkukuj5e20b
+      type: string
+      enum:
+        - API
+        - APPLICATION_FEE
+        - DISPUTE
+        - MERCHANT_CREDIT
+        - MERCHANT_CREDIT_ADJUSTMENT
+        - MERCHANT_DEBIT
+        - MERCHANT_DEBIT_ADJUSTMENT
+        - PLATFORM_CREDIT
+        - PLATFORM_CREDIT_ADJUSTMENT
+        - PLATFORM_DEBIT
+        - PLATFORM_DEBIT_ADJUSTMENT
+        - PLATFORM_FEE
+        - SETTLEMENT_MERCHANT
+        - SETTLEMENT_NOOP
+        - SETTLEMENT_PARTNER
+        - SETTLEMENT_PLATFORM
+        - SPLIT_PAYOUT
+        - SPLIT_PAYOUT_ADJUSTMENT
+        - SYSTEM
     ListApplicationProfilesQueryParams:
       type: object
       properties:
@@ -20236,10 +19758,12 @@ components:
         limit:
           description: The numbers of items to return
           type: integer
-        offset:
-          description: The number of items to skip before starting to collect the
-            result set
-          type: integer
+        after_cursor:
+          description: Return every resource created after the cursor value.
+          type: string
+        before_cursor:
+          description: Return every resource created before the cursor value.
+          type: string
     ListFeeProfilesQueryParams:
       type: object
       properties:
@@ -20327,9 +19851,6 @@ components:
     ListMerchantProfilesQueryParams:
       type: object
       properties:
-        id:
-          description: Filter by id
-          type: string
         before_cursor:
           description: Return every resource created before the cursor value.
           type: string
@@ -20430,21 +19951,6 @@ components:
     ListSettlementsQueryParams:
       type: object
       properties:
-        amount:
-          description: Filter by a total amount equal to the given value
-          type: integer
-        amount.lt:
-          description: Filter by a total amount less than
-          type: integer
-        amount.gt:
-          description: Filter by a total amount greater than
-          type: integer
-        amount.lte:
-          description: Filter by a total amount less than or equal
-          type: integer
-        amount.gte:
-          description: Filter by a total amount greater than or equal
-          type: integer
         created_at.gte:
           description: Filter where created_at is after the given date.
           type: string

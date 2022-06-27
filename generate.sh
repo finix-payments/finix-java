@@ -14,7 +14,7 @@ openapi-generator generate \
   \
   --global-property httpUserAgent=finix-java/0.0.1 \
   --global-property models,modelTests=false,modelDocs=false \
-  --global-property apis,apiDocs=false \
+  --global-property apis,apiTests,apiDocs=false \
   --skip-validate-spec \
   --type-mappings=integer=Long,int=Long \
   \

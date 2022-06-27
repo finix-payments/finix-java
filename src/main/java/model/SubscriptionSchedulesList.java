@@ -23,9 +23,9 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.DisputeEvidenceListPage;
 import model.SubscriptionSchedulesListEmbedded;
 import model.SubscriptionSchedulesListLinks;
+import model.UsersListPage;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,11 +52,11 @@ import invoker.JSON;
  */
 @ApiModel(description = "`Subscription Schedule` resource.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
 public class SubscriptionSchedulesList {
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
-  private DisputeEvidenceListPage page;
+  private UsersListPage page;
 
   public static final String SERIALIZED_NAME_EMBEDDED = "_embedded";
   @SerializedName(SERIALIZED_NAME_EMBEDDED)
@@ -69,7 +69,7 @@ public class SubscriptionSchedulesList {
   public SubscriptionSchedulesList() { 
   }
 
-  public SubscriptionSchedulesList page(DisputeEvidenceListPage page) {
+  public SubscriptionSchedulesList page(UsersListPage page) {
     
     this.page = page;
     return this;
@@ -82,12 +82,12 @@ public class SubscriptionSchedulesList {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public DisputeEvidenceListPage getPage() {
+  public UsersListPage getPage() {
     return page;
   }
 
 
-  public void setPage(DisputeEvidenceListPage page) {
+  public void setPage(UsersListPage page) {
     this.page = page;
   }
 
@@ -225,7 +225,7 @@ public class SubscriptionSchedulesList {
       */
       // validate the optional field `page`
      // if (jsonObj.getAsJsonObject("page") != null) {
-       //DisputeEvidenceListPage.validateJsonObject(jsonObj.getAsJsonObject("page"));
+       //UsersListPage.validateJsonObject(jsonObj.getAsJsonObject("page"));
      // }
 
       /**

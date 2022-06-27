@@ -817,7 +817,7 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-    public TransfersList listBySettlementId(String settlementId,  ListSettlementTransfersQueryParams listSettlementTransfersQueryParams) throws ApiException {
+    public TransfersList listTransfersBySettlementId(String settlementId,  ListSettlementTransfersQueryParams listSettlementTransfersQueryParams) throws ApiException {
 
         APIlistSettlementTransfersRequest request = new APIlistSettlementTransfersRequest(settlementId);
         request.limit(listSettlementTransfersQueryParams.getLimit());
@@ -826,7 +826,7 @@ this.localCustomBaseUrl = customBaseUrl;
         return request.execute();
 
     }
-    private okhttp3.Call listSettlementsCall(Long amount, Long amountLt, Long amountGt, Long amountLte, Long amountGte, String createdAtGte, String createdAtLte, String updatedAtGte, String updatedAtLte, String id, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listSettlementsCall(String createdAtGte, String createdAtLte, String updatedAtGte, String updatedAtLte, String id, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -850,26 +850,6 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-                if (amount != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("amount", amount));
-                }
-
-                if (amountLt != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("amount.lt", amountLt));
-                }
-
-                if (amountGt != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("amount.gt", amountGt));
-                }
-
-                if (amountLte != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("amount.lte", amountLte));
-                }
-
-                if (amountGte != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("amount.gte", amountGte));
-                }
 
                 if (createdAtGte != null) {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("created_at.gte", createdAtGte));
@@ -925,35 +905,30 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call listSettlementsValidateBeforeCall(Long amount, Long amountLt, Long amountGt, Long amountLte, Long amountGte, String createdAtGte, String createdAtLte, String updatedAtGte, String updatedAtLte, String id, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
+        private okhttp3.Call listSettlementsValidateBeforeCall(String createdAtGte, String createdAtLte, String updatedAtGte, String updatedAtLte, String id, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
         
 
-            okhttp3.Call localVarCall = listSettlementsCall(amount, amountLt, amountGt, amountLte, amountGte, createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, id, limit, afterCursor, beforeCursor, _callback);
+            okhttp3.Call localVarCall = listSettlementsCall(createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, id, limit, afterCursor, beforeCursor, _callback);
             return localVarCall;
 
         }
 
 
-    private ApiResponse<SettlementsList> listSettlementsWithHttpInfo(Long amount, Long amountLt, Long amountGt, Long amountLte, Long amountGte, String createdAtGte, String createdAtLte, String updatedAtGte, String updatedAtLte, String id, Long limit, String afterCursor, String beforeCursor) throws ApiException {
-        okhttp3.Call localVarCall = listSettlementsValidateBeforeCall(amount, amountLt, amountGt, amountLte, amountGte, createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, id, limit, afterCursor, beforeCursor, null);
+    private ApiResponse<SettlementsList> listSettlementsWithHttpInfo(String createdAtGte, String createdAtLte, String updatedAtGte, String updatedAtLte, String id, Long limit, String afterCursor, String beforeCursor) throws ApiException {
+        okhttp3.Call localVarCall = listSettlementsValidateBeforeCall(createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, id, limit, afterCursor, beforeCursor, null);
                 Type localVarReturnType = new TypeToken<SettlementsList>(){}.getType();
                 return localVarFinixClient.execute(localVarCall, localVarReturnType);
         }
 
-    private okhttp3.Call listSettlementsAsync(Long amount, Long amountLt, Long amountGt, Long amountLte, Long amountGte, String createdAtGte, String createdAtLte, String updatedAtGte, String updatedAtLte, String id, Long limit, String afterCursor, String beforeCursor, final ApiCallback<SettlementsList> _callback) throws ApiException {
+    private okhttp3.Call listSettlementsAsync(String createdAtGte, String createdAtLte, String updatedAtGte, String updatedAtLte, String id, Long limit, String afterCursor, String beforeCursor, final ApiCallback<SettlementsList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listSettlementsValidateBeforeCall(amount, amountLt, amountGt, amountLte, amountGte, createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, id, limit, afterCursor, beforeCursor, _callback);
+        okhttp3.Call localVarCall = listSettlementsValidateBeforeCall(createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, id, limit, afterCursor, beforeCursor, _callback);
     Type localVarReturnType = new TypeToken<SettlementsList>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
         }
 
         public class APIlistSettlementsRequest {
-            private Long amount;
-            private Long amountLt;
-            private Long amountGt;
-            private Long amountLte;
-            private Long amountGte;
             private String createdAtGte;
             private String createdAtLte;
             private String updatedAtGte;
@@ -965,56 +940,6 @@ this.localCustomBaseUrl = customBaseUrl;
 
         private APIlistSettlementsRequest() {
         }
-
-            /**
-            * Set amount
-            * @param amount Filter by a total amount equal to the given value (optional)
-            * @return APIlistSettlementsRequest
-            */
-            public APIlistSettlementsRequest amount(Long amount) {
-            this.amount = amount;
-            return this;
-            }
-
-            /**
-            * Set amountLt
-            * @param amountLt Filter by a total amount less than (optional)
-            * @return APIlistSettlementsRequest
-            */
-            public APIlistSettlementsRequest amountLt(Long amountLt) {
-            this.amountLt = amountLt;
-            return this;
-            }
-
-            /**
-            * Set amountGt
-            * @param amountGt Filter by a total amount greater than (optional)
-            * @return APIlistSettlementsRequest
-            */
-            public APIlistSettlementsRequest amountGt(Long amountGt) {
-            this.amountGt = amountGt;
-            return this;
-            }
-
-            /**
-            * Set amountLte
-            * @param amountLte Filter by a total amount less than or equal (optional)
-            * @return APIlistSettlementsRequest
-            */
-            public APIlistSettlementsRequest amountLte(Long amountLte) {
-            this.amountLte = amountLte;
-            return this;
-            }
-
-            /**
-            * Set amountGte
-            * @param amountGte Filter by a total amount greater than or equal (optional)
-            * @return APIlistSettlementsRequest
-            */
-            public APIlistSettlementsRequest amountGte(Long amountGte) {
-            this.amountGte = amountGte;
-            return this;
-            }
 
             /**
             * Set createdAtGte
@@ -1111,7 +1036,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-        return listSettlementsCall(amount, amountLt, amountGt, amountLte, amountGte, createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, id, limit, afterCursor, beforeCursor, _callback);
+        return listSettlementsCall(createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, id, limit, afterCursor, beforeCursor, _callback);
         }
 
         /**
@@ -1128,7 +1053,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public SettlementsList execute() throws ApiException {
-    ApiResponse<SettlementsList> localVarResp = listSettlementsWithHttpInfo(amount, amountLt, amountGt, amountLte, amountGte, createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, id, limit, afterCursor, beforeCursor);
+    ApiResponse<SettlementsList> localVarResp = listSettlementsWithHttpInfo(createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, id, limit, afterCursor, beforeCursor);
             return localVarResp.getData();
         }
 
@@ -1146,7 +1071,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public ApiResponse<SettlementsList> executeWithHttpInfo() throws ApiException {
-        return listSettlementsWithHttpInfo(amount, amountLt, amountGt, amountLte, amountGte, createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, id, limit, afterCursor, beforeCursor);
+        return listSettlementsWithHttpInfo(createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, id, limit, afterCursor, beforeCursor);
         }
 
         /**
@@ -1164,7 +1089,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call executeAsync(final ApiCallback<SettlementsList> _callback) throws ApiException {
-        return listSettlementsAsync(amount, amountLt, amountGt, amountLte, amountGte, createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, id, limit, afterCursor, beforeCursor, _callback);
+        return listSettlementsAsync(createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, id, limit, afterCursor, beforeCursor, _callback);
         }
         }
 
@@ -1184,11 +1109,6 @@ this.localCustomBaseUrl = customBaseUrl;
     public SettlementsList list( ListSettlementsQueryParams listSettlementsQueryParams) throws ApiException {
 
         APIlistSettlementsRequest request = new APIlistSettlementsRequest();
-        request.amount(listSettlementsQueryParams.getAmount());
-        request.amountLt(listSettlementsQueryParams.getAmountLt());
-        request.amountGt(listSettlementsQueryParams.getAmountGt());
-        request.amountLte(listSettlementsQueryParams.getAmountLte());
-        request.amountGte(listSettlementsQueryParams.getAmountGte());
         request.createdAtGte(listSettlementsQueryParams.getCreatedAtGte());
         request.createdAtLte(listSettlementsQueryParams.getCreatedAtLte());
         request.updatedAtGte(listSettlementsQueryParams.getUpdatedAtGte());
@@ -1200,150 +1120,6 @@ this.localCustomBaseUrl = customBaseUrl;
         return request.execute();
 
     }
-    /**
-    * Build call for putSettlement
-        * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
-        * @param updateSettlementRequest  (optional)
-    * @param _callback Callback for upload/download progress
-    * @return Call to execute
-    * @throws ApiException If fail to serialize the request body object
-        * @http.response.details
-        <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                <tr><td> 200 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-        </table>
-    */
-    public okhttp3.Call putSettlementCall(String settlementId, UpdateSettlementRequest updateSettlementRequest, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {  };
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
-
-    Object localVarPostBody = updateSettlementRequest;
-
-    // create path and map variables
-        String localVarPath = "/settlements/{settlement_id}"
-            .replaceAll("\\{" + "settlement_id" + "\\}", localVarFinixClient.escapeString(settlementId.toString()));
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/hal+json"
-        };
-
-        final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-    "application/hal+json"
-        };
-        final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
-        return localVarFinixClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
-
-        @SuppressWarnings("rawtypes")
-        private okhttp3.Call putSettlementValidateBeforeCall(String settlementId, UpdateSettlementRequest updateSettlementRequest, final ApiCallback _callback) throws ApiException {
-        
-                // verify the required parameter 'settlementId' is set
-                if (settlementId == null) {
-                throw new ApiException("Missing the required parameter 'settlementId' when calling putSettlement(Async)");
-                }
-        
-
-            okhttp3.Call localVarCall = putSettlementCall(settlementId, updateSettlementRequest, _callback);
-            return localVarCall;
-
-        }
-
-            /**
-            * Update a Settlement
-            * Update a &#x60;Settlement&#x60;.
-                * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
-                * @param updateSettlementRequest  (optional)
-                * @return Settlement
-            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                </table>
-            */
-                public Settlement update(String settlementId, UpdateSettlementRequest updateSettlementRequest) throws ApiException {
-            ApiResponse<Settlement> localVarResp = putSettlementWithHttpInfo(settlementId, updateSettlementRequest);
-                    return localVarResp.getData();
-                }
-
-    /**
-        * Update a Settlement
-        * Update a &#x60;Settlement&#x60;.
-            * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
-            * @param updateSettlementRequest  (optional)
-        * @return ApiResponse&lt;Settlement&gt;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public ApiResponse<Settlement> putSettlementWithHttpInfo(String settlementId, UpdateSettlementRequest updateSettlementRequest) throws ApiException {
-        okhttp3.Call localVarCall = putSettlementValidateBeforeCall(settlementId, updateSettlementRequest, null);
-                Type localVarReturnType = new TypeToken<Settlement>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
-
-    /**
-        * Update a Settlement (asynchronously)
-        * Update a &#x60;Settlement&#x60;.
-            * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
-            * @param updateSettlementRequest  (optional)
-        * @param _callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public okhttp3.Call putSettlementAsync(String settlementId, UpdateSettlementRequest updateSettlementRequest, final ApiCallback<Settlement> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = putSettlementValidateBeforeCall(settlementId, updateSettlementRequest, _callback);
-    Type localVarReturnType = new TypeToken<Settlement>(){}.getType();
-        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-        }
     /**
     * Build call for removeSettlementTransfers
         * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
@@ -1490,6 +1266,150 @@ this.localCustomBaseUrl = customBaseUrl;
 
         okhttp3.Call localVarCall = removeSettlementTransfersValidateBeforeCall(settlementId, removeSettlementTransfer, _callback);
     localVarFinixClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+        }
+    /**
+    * Build call for updateSettlement
+        * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
+        * @param updateSettlementRequest  (optional)
+    * @param _callback Callback for upload/download progress
+    * @return Call to execute
+    * @throws ApiException If fail to serialize the request body object
+        * @http.response.details
+        <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                <tr><td> 200 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+        </table>
+    */
+    public okhttp3.Call updateSettlementCall(String settlementId, UpdateSettlementRequest updateSettlementRequest, final ApiCallback _callback) throws ApiException {
+    String basePath = null;
+    // Operation Servers
+    String[] localBasePaths = new String[] {  };
+
+    // Determine Base Path to Use
+    if (localCustomBaseUrl != null){
+    basePath = localCustomBaseUrl;
+    } else if ( localBasePaths.length > 0 ) {
+    basePath = localBasePaths[localHostIndex];
+    } else {
+    basePath = null;
+    }
+
+    Object localVarPostBody = updateSettlementRequest;
+
+    // create path and map variables
+        String localVarPath = "/settlements/{settlement_id}"
+            .replaceAll("\\{" + "settlement_id" + "\\}", localVarFinixClient.escapeString(settlementId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/hal+json"
+        };
+
+        final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+        localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+    "application/hal+json"
+        };
+        final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BasicAuth" };
+        return localVarFinixClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        }
+
+        @SuppressWarnings("rawtypes")
+        private okhttp3.Call updateSettlementValidateBeforeCall(String settlementId, UpdateSettlementRequest updateSettlementRequest, final ApiCallback _callback) throws ApiException {
+        
+                // verify the required parameter 'settlementId' is set
+                if (settlementId == null) {
+                throw new ApiException("Missing the required parameter 'settlementId' when calling updateSettlement(Async)");
+                }
+        
+
+            okhttp3.Call localVarCall = updateSettlementCall(settlementId, updateSettlementRequest, _callback);
+            return localVarCall;
+
+        }
+
+            /**
+            * Update a Settlement
+            * Update a &#x60;Settlement&#x60;.
+                * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
+                * @param updateSettlementRequest  (optional)
+                * @return Settlement
+            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+                * @http.response.details
+                <table summary="Response Details" border="1">
+                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                        <tr><td> 200 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                </table>
+            */
+                public Settlement update(String settlementId, UpdateSettlementRequest updateSettlementRequest) throws ApiException {
+            ApiResponse<Settlement> localVarResp = updateSettlementWithHttpInfo(settlementId, updateSettlementRequest);
+                    return localVarResp.getData();
+                }
+
+    /**
+        * Update a Settlement
+        * Update a &#x60;Settlement&#x60;.
+            * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
+            * @param updateSettlementRequest  (optional)
+        * @return ApiResponse&lt;Settlement&gt;
+        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+            * @http.response.details
+            <table summary="Response Details" border="1">
+                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                    <tr><td> 200 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+            </table>
+        */
+        public ApiResponse<Settlement> updateSettlementWithHttpInfo(String settlementId, UpdateSettlementRequest updateSettlementRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateSettlementValidateBeforeCall(settlementId, updateSettlementRequest, null);
+                Type localVarReturnType = new TypeToken<Settlement>(){}.getType();
+                return localVarFinixClient.execute(localVarCall, localVarReturnType);
+        }
+
+    /**
+        * Update a Settlement (asynchronously)
+        * Update a &#x60;Settlement&#x60;.
+            * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
+            * @param updateSettlementRequest  (optional)
+        * @param _callback The callback to be executed when the API call finishes
+        * @return The request call
+        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+            * @http.response.details
+            <table summary="Response Details" border="1">
+                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                    <tr><td> 200 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+            </table>
+        */
+        public okhttp3.Call updateSettlementAsync(String settlementId, UpdateSettlementRequest updateSettlementRequest, final ApiCallback<Settlement> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateSettlementValidateBeforeCall(settlementId, updateSettlementRequest, _callback);
+    Type localVarReturnType = new TypeToken<Settlement>(){}.getType();
+        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
         }
     }

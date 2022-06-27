@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,7 +52,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
 public class CreateSubscriptionEnrollmentRequest {
   public static final String SERIALIZED_NAME_MERCHANT = "merchant";
   @SerializedName(SERIALIZED_NAME_MERCHANT)
@@ -61,7 +60,7 @@ public class CreateSubscriptionEnrollmentRequest {
 
   public static final String SERIALIZED_NAME_STARTED_AT = "started_at";
   @SerializedName(SERIALIZED_NAME_STARTED_AT)
-  private OffsetDateTime startedAt;
+  private String startedAt;
 
   public static final String SERIALIZED_NAME_NICKNAME = "nickname";
   @SerializedName(SERIALIZED_NAME_NICKNAME)
@@ -97,7 +96,7 @@ public class CreateSubscriptionEnrollmentRequest {
   }
 
 
-  public CreateSubscriptionEnrollmentRequest startedAt(OffsetDateTime startedAt) {
+  public CreateSubscriptionEnrollmentRequest startedAt(String startedAt) {
     
     this.startedAt = startedAt;
     return this;
@@ -110,12 +109,12 @@ public class CreateSubscriptionEnrollmentRequest {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "When the `subscription_enrollment` will begin in **DateTime** format. The start date must be a future date.")
 
-  public OffsetDateTime getStartedAt() {
+  public String getStartedAt() {
     return startedAt;
   }
 
 
-  public void setStartedAt(OffsetDateTime startedAt) {
+  public void setStartedAt(String startedAt) {
     this.startedAt = startedAt;
   }
 
@@ -279,6 +278,13 @@ public class CreateSubscriptionEnrollmentRequest {
       */
       if (jsonObj.get("merchant") != null && !jsonObj.get("merchant").isJsonNull()  && !jsonObj.get("merchant").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("started_at") != null && !jsonObj.get("started_at").isJsonNull()  && !jsonObj.get("started_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `started_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("started_at").toString()));
       }
       /**
       * EDITED

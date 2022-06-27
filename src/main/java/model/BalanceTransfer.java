@@ -55,7 +55,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "A `balance_transfer` object.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
 public class BalanceTransfer {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -694,15 +694,6 @@ public class BalanceTransfer {
       if (jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()  && !jsonObj.get("state").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
       }
-      /**
-      * EDITED
-      * ADDED  statement to for inconsistent null behaviour
-      */
-      // validate the optional field `_links`
-     // if (jsonObj.getAsJsonObject("_links") != null) {
-       //ListLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-     // }
-
   }
 
 

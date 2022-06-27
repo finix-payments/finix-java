@@ -90,15 +90,12 @@ public class SettlementsApiTest {
     @DisplayName("List Funding Transfers in a Batch Settlement")
     public void getSettlementFundingTransfersTest() throws ApiException {
         String settlementId = "STmCc8GbjjX33SdymwNhb9Et";
-        Long limit = null;
-        String afterCursor = null;
-        String beforeCursor = null;
+        Long limit = 20L;
 
         TransfersList response = finixClient.Settlements.listFundingTransfers(settlementId, ListSettlementFundingTransfersQueryParams.builder()
                 .limit(limit)
-                .afterCursor(afterCursor)
-                .beforeCursor(beforeCursor)
                 .build());
+        assertTrue(response.getPage().getNextCursor() == null || (response.getPage().getNextCursor() instanceof String));
         assertEquals("20",response.getPage().getLimit().toString(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit());
     }
 
@@ -117,15 +114,13 @@ public class SettlementsApiTest {
     @Test
     public void listSettlementTransfersTest() throws ApiException {
         String settlementId = "STmCc8GbjjX33SdymwNhb9Et";
-        Long limit = null;
-        String afterCursor = null;
-        String beforeCursor = null;
+        Long limit = 20L;
 
-        TransfersList response = finixClient.Settlements.listBySettlementId(settlementId, ListSettlementTransfersQueryParams.builder()
+        TransfersList response = finixClient.Settlements.listTransfersBySettlementId(settlementId, ListSettlementTransfersQueryParams.builder()
                 .limit(limit)
-                .afterCursor(afterCursor)
-                .beforeCursor(beforeCursor)
                 .build());
+        assertTrue(response.getPage() != null);
+        assertTrue(response.getPage().getNextCursor() == null || (response.getPage().getNextCursor() instanceof String));
         assertEquals("20",response.getPage().getLimit().toString(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit());
     }
 
@@ -142,37 +137,13 @@ public class SettlementsApiTest {
      *
      */
     @Test
+    @DisplayName("List Settlements")
     public void listSettlementsTest() throws ApiException {
-        Long amount = null;
-        Long amountLt = null;
-        Long amountGt = null;
-        Long amountLte = null;
-        Long amountGte = null;
-        String createdAtGte = null;
-        String createdAtLte = null;
-        String updatedAtGte = null;
-        String updatedAtLte = null;
-        String id = null;
-        Long limit = null;
-        String afterCursor = null;
-        String beforeCursor = null;
-
         SettlementsList response = finixClient.Settlements.list(ListSettlementsQueryParams.builder()
-                .amount(amount)
-                .amountLt(amountLt)
-                .amountGt(amountGt)
-                .amountLte(amountLte)
-                .amountGte(amountGte)
-                .createdAtGte(createdAtGte)
-                .createdAtLte(createdAtLte)
-                .updatedAtGte(updatedAtGte)
-                .updatedAtLte(updatedAtLte)
-                .id(id)
-                .limit(limit)
-                .afterCursor(afterCursor)
-                .beforeCursor(beforeCursor)
                 .build());
-        assertEquals("20",response.getPage().getLimit().toString(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit());
+        assertTrue(response.getPage() != null);
+        assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());
+//        assertEquals("20",response.getPage().getLimit().toString(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit());
     }
 
     /**

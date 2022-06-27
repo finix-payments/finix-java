@@ -1014,7 +1014,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     }
     /**
-    * Build call for putAuthorization
+    * Build call for updateAuthorization
         * @param authorizationId ID of authorization to fetch (required)
         * @param updateAuthorizationRequest  (optional)
     * @param _callback Callback for upload/download progress
@@ -1030,7 +1030,7 @@ this.localCustomBaseUrl = customBaseUrl;
                 <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
         </table>
     */
-    public okhttp3.Call putAuthorizationCall(String authorizationId, UpdateAuthorizationRequest updateAuthorizationRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateAuthorizationCall(String authorizationId, UpdateAuthorizationRequest updateAuthorizationRequest, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -1078,15 +1078,15 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call putAuthorizationValidateBeforeCall(String authorizationId, UpdateAuthorizationRequest updateAuthorizationRequest, final ApiCallback _callback) throws ApiException {
+        private okhttp3.Call updateAuthorizationValidateBeforeCall(String authorizationId, UpdateAuthorizationRequest updateAuthorizationRequest, final ApiCallback _callback) throws ApiException {
         
                 // verify the required parameter 'authorizationId' is set
                 if (authorizationId == null) {
-                throw new ApiException("Missing the required parameter 'authorizationId' when calling putAuthorization(Async)");
+                throw new ApiException("Missing the required parameter 'authorizationId' when calling updateAuthorization(Async)");
                 }
         
 
-            okhttp3.Call localVarCall = putAuthorizationCall(authorizationId, updateAuthorizationRequest, _callback);
+            okhttp3.Call localVarCall = updateAuthorizationCall(authorizationId, updateAuthorizationRequest, _callback);
             return localVarCall;
 
         }
@@ -1109,7 +1109,7 @@ this.localCustomBaseUrl = customBaseUrl;
                 </table>
             */
                 public Authorization update(String authorizationId, UpdateAuthorizationRequest updateAuthorizationRequest) throws ApiException {
-            ApiResponse<Authorization> localVarResp = putAuthorizationWithHttpInfo(authorizationId, updateAuthorizationRequest);
+            ApiResponse<Authorization> localVarResp = updateAuthorizationWithHttpInfo(authorizationId, updateAuthorizationRequest);
                     return localVarResp.getData();
                 }
 
@@ -1130,8 +1130,8 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public ApiResponse<Authorization> putAuthorizationWithHttpInfo(String authorizationId, UpdateAuthorizationRequest updateAuthorizationRequest) throws ApiException {
-        okhttp3.Call localVarCall = putAuthorizationValidateBeforeCall(authorizationId, updateAuthorizationRequest, null);
+        public ApiResponse<Authorization> updateAuthorizationWithHttpInfo(String authorizationId, UpdateAuthorizationRequest updateAuthorizationRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateAuthorizationValidateBeforeCall(authorizationId, updateAuthorizationRequest, null);
                 Type localVarReturnType = new TypeToken<Authorization>(){}.getType();
                 return localVarFinixClient.execute(localVarCall, localVarReturnType);
         }
@@ -1154,9 +1154,9 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call putAuthorizationAsync(String authorizationId, UpdateAuthorizationRequest updateAuthorizationRequest, final ApiCallback<Authorization> _callback) throws ApiException {
+        public okhttp3.Call updateAuthorizationAsync(String authorizationId, UpdateAuthorizationRequest updateAuthorizationRequest, final ApiCallback<Authorization> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = putAuthorizationValidateBeforeCall(authorizationId, updateAuthorizationRequest, _callback);
+        okhttp3.Call localVarCall = updateAuthorizationValidateBeforeCall(authorizationId, updateAuthorizationRequest, _callback);
     Type localVarReturnType = new TypeToken<Authorization>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

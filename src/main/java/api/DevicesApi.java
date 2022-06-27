@@ -377,7 +377,7 @@ this.localCustomBaseUrl = customBaseUrl;
         return localVarCall;
         }
     /**
-    * Build call for putDevice
+    * Build call for updateDevice
         * @param deviceId ID of the &#x60;Device&#x60;. (required)
         * @param body  (optional)
     * @param _callback Callback for upload/download progress
@@ -393,7 +393,7 @@ this.localCustomBaseUrl = customBaseUrl;
                 <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
         </table>
     */
-    public okhttp3.Call putDeviceCall(String deviceId, Object body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateDeviceCall(String deviceId, Object body, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -441,15 +441,15 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call putDeviceValidateBeforeCall(String deviceId, Object body, final ApiCallback _callback) throws ApiException {
+        private okhttp3.Call updateDeviceValidateBeforeCall(String deviceId, Object body, final ApiCallback _callback) throws ApiException {
         
                 // verify the required parameter 'deviceId' is set
                 if (deviceId == null) {
-                throw new ApiException("Missing the required parameter 'deviceId' when calling putDevice(Async)");
+                throw new ApiException("Missing the required parameter 'deviceId' when calling updateDevice(Async)");
                 }
         
 
-            okhttp3.Call localVarCall = putDeviceCall(deviceId, body, _callback);
+            okhttp3.Call localVarCall = updateDeviceCall(deviceId, body, _callback);
             return localVarCall;
 
         }
@@ -472,7 +472,7 @@ this.localCustomBaseUrl = customBaseUrl;
                 </table>
             */
                 public Device update(String deviceId, Object body) throws ApiException {
-            ApiResponse<Device> localVarResp = putDeviceWithHttpInfo(deviceId, body);
+            ApiResponse<Device> localVarResp = updateDeviceWithHttpInfo(deviceId, body);
                     return localVarResp.getData();
                 }
 
@@ -493,8 +493,8 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public ApiResponse<Device> putDeviceWithHttpInfo(String deviceId, Object body) throws ApiException {
-        okhttp3.Call localVarCall = putDeviceValidateBeforeCall(deviceId, body, null);
+        public ApiResponse<Device> updateDeviceWithHttpInfo(String deviceId, Object body) throws ApiException {
+        okhttp3.Call localVarCall = updateDeviceValidateBeforeCall(deviceId, body, null);
                 Type localVarReturnType = new TypeToken<Device>(){}.getType();
                 return localVarFinixClient.execute(localVarCall, localVarReturnType);
         }
@@ -517,9 +517,9 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call putDeviceAsync(String deviceId, Object body, final ApiCallback<Device> _callback) throws ApiException {
+        public okhttp3.Call updateDeviceAsync(String deviceId, Object body, final ApiCallback<Device> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = putDeviceValidateBeforeCall(deviceId, body, _callback);
+        okhttp3.Call localVarCall = updateDeviceValidateBeforeCall(deviceId, body, _callback);
     Type localVarReturnType = new TypeToken<Device>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -53,7 +53,7 @@ import invoker.JSON;
  * CreatePaymentInstrumentRequest
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
 public class CreatePaymentInstrumentRequest {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -88,11 +88,13 @@ public class CreatePaymentInstrumentRequest {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
+    PAYMENT_CARD("PAYMENT_CARD"),
+    
     TOKEN("TOKEN"),
     
-    BANK_ACCOUNT("BANK_ACCOUNT"),
+    APPLE_PAY("APPLE_PAY"),
     
-    PAYMENT_CARD("PAYMENT_CARD"),
+    BANK_ACCOUNT("BANK_ACCOUNT"),
     
     UNKNOWN_DEFAULT("unknown_default_open_api");
 
@@ -164,6 +166,10 @@ public class CreatePaymentInstrumentRequest {
   public static final String SERIALIZED_NAME_THIRD_PARTY_TOKEN = "third_party_token";
   @SerializedName(SERIALIZED_NAME_THIRD_PARTY_TOKEN)
   private String thirdPartyToken;
+
+  public static final String SERIALIZED_NAME_MERCHANT_IDENTITY = "merchant_identity";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_IDENTITY)
+  private String merchantIdentity;
 
   public static final String SERIALIZED_NAME_ACCOUNT_NUMBER = "account_number";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_NUMBER)
@@ -498,6 +504,29 @@ public class CreatePaymentInstrumentRequest {
   }
 
 
+  public CreatePaymentInstrumentRequest merchantIdentity(String merchantIdentity) {
+    
+    this.merchantIdentity = merchantIdentity;
+    return this;
+  }
+
+   /**
+   * The ID of the resource.
+   * @return merchantIdentity
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ID of the resource.")
+
+  public String getMerchantIdentity() {
+    return merchantIdentity;
+  }
+
+
+  public void setMerchantIdentity(String merchantIdentity) {
+    this.merchantIdentity = merchantIdentity;
+  }
+
+
   public CreatePaymentInstrumentRequest accountNumber(String accountNumber) {
     
     this.accountNumber = accountNumber;
@@ -633,6 +662,7 @@ public class CreatePaymentInstrumentRequest {
         Objects.equals(this.type, createPaymentInstrumentRequest.type) &&
         Objects.equals(this.identity, createPaymentInstrumentRequest.identity) &&
         Objects.equals(this.thirdPartyToken, createPaymentInstrumentRequest.thirdPartyToken) &&
+        Objects.equals(this.merchantIdentity, createPaymentInstrumentRequest.merchantIdentity) &&
         Objects.equals(this.accountNumber, createPaymentInstrumentRequest.accountNumber) &&
         Objects.equals(this.accountType, createPaymentInstrumentRequest.accountType) &&
         Objects.equals(this.bankCode, createPaymentInstrumentRequest.bankCode) &&
@@ -646,7 +676,7 @@ public class CreatePaymentInstrumentRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, expirationYear, tags, number, expirationMonth, address, securityCode, type, identity, thirdPartyToken, accountNumber, accountType, bankCode, country, token);
+    return Objects.hash(name, expirationYear, tags, number, expirationMonth, address, securityCode, type, identity, thirdPartyToken, merchantIdentity, accountNumber, accountType, bankCode, country, token);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -670,6 +700,7 @@ public class CreatePaymentInstrumentRequest {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    identity: ").append(toIndentedString(identity)).append("\n");
     sb.append("    thirdPartyToken: ").append(toIndentedString(thirdPartyToken)).append("\n");
+    sb.append("    merchantIdentity: ").append(toIndentedString(merchantIdentity)).append("\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
     sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
@@ -707,6 +738,7 @@ public class CreatePaymentInstrumentRequest {
     openapiFields.add("type");
     openapiFields.add("identity");
     openapiFields.add("third_party_token");
+    openapiFields.add("merchant_identity");
     openapiFields.add("account_number");
     openapiFields.add("account_type");
     openapiFields.add("bank_code");
@@ -791,6 +823,13 @@ public class CreatePaymentInstrumentRequest {
       */
       if (jsonObj.get("third_party_token") != null && !jsonObj.get("third_party_token").isJsonNull()  && !jsonObj.get("third_party_token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `third_party_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("third_party_token").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("merchant_identity") != null && !jsonObj.get("merchant_identity").isJsonNull()  && !jsonObj.get("merchant_identity").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_identity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_identity").toString()));
       }
       /**
       * EDITED

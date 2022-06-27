@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import model.FeesListEmbedded;
 import model.ListLinks;
-import model.PageCursor;
+import model.PageOffset;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,11 +51,11 @@ import invoker.JSON;
  * FeesList
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
 public class FeesList {
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
-  private PageCursor page;
+  private PageOffset page;
 
   public static final String SERIALIZED_NAME_EMBEDDED = "_embedded";
   @SerializedName(SERIALIZED_NAME_EMBEDDED)
@@ -68,7 +68,7 @@ public class FeesList {
   public FeesList() { 
   }
 
-  public FeesList page(PageCursor page) {
+  public FeesList page(PageOffset page) {
     
     this.page = page;
     return this;
@@ -81,12 +81,12 @@ public class FeesList {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public PageCursor getPage() {
+  public PageOffset getPage() {
     return page;
   }
 
 
-  public void setPage(PageCursor page) {
+  public void setPage(PageOffset page) {
     this.page = page;
   }
 
@@ -224,7 +224,7 @@ public class FeesList {
       */
       // validate the optional field `page`
      // if (jsonObj.getAsJsonObject("page") != null) {
-       //PageCursor.validateJsonObject(jsonObj.getAsJsonObject("page"));
+       //PageOffset.validateJsonObject(jsonObj.getAsJsonObject("page"));
      // }
 
       /**
@@ -234,15 +234,6 @@ public class FeesList {
       // validate the optional field `_embedded`
      // if (jsonObj.getAsJsonObject("_embedded") != null) {
        //FeesListEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
-     // }
-
-      /**
-      * EDITED
-      * ADDED  statement to for inconsistent null behaviour
-      */
-      // validate the optional field `_links`
-     // if (jsonObj.getAsJsonObject("_links") != null) {
-       //ListLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
      // }
 
   }

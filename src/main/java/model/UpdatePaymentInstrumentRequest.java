@@ -54,7 +54,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
 public class UpdatePaymentInstrumentRequest {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -89,11 +89,11 @@ public class UpdatePaymentInstrumentRequest {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
+    PAYMENT_CARD("PAYMENT_CARD"),
+    
     TOKEN("TOKEN"),
     
     BANK_ACCOUNT("BANK_ACCOUNT"),
-    
-    PAYMENT_CARD("PAYMENT_CARD"),
     
     UNKNOWN_DEFAULT("unknown_default_open_api");
 

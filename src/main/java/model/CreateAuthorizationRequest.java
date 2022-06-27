@@ -29,6 +29,8 @@ import java.util.Map;
 import model.AdditionalPurchaseData;
 import model.CreateAuthorizationRequest3dSecureAuthentication;
 import model.Currency;
+import model.OperationKey;
+import model.SubTypeTransfer;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -56,7 +58,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Create an `Authorization` resource.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
 public class CreateAuthorizationRequest {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -194,13 +196,25 @@ public class CreateAuthorizationRequest {
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_PURCHASE_DATA)
   private AdditionalPurchaseData additionalPurchaseData;
 
-  public static final String SERIALIZED_NAME_3D_SECURE_AUTHENTICATION = "3d_secure_authentication";
-  @SerializedName(SERIALIZED_NAME_3D_SECURE_AUTHENTICATION)
-  private CreateAuthorizationRequest3dSecureAuthentication _3dSecureAuthentication;
+  public static final String SERIALIZED_NAME_FRAUD_SESSION_ID = "fraud_session_id";
+  @SerializedName(SERIALIZED_NAME_FRAUD_SESSION_ID)
+  private String fraudSessionId;
+
+  public static final String SERIALIZED_NAME_SUB_TYPE = "sub_type";
+  @SerializedName(SERIALIZED_NAME_SUB_TYPE)
+  private SubTypeTransfer subType;
 
   public static final String SERIALIZED_NAME_OPERATION_KEY = "operation_key";
   @SerializedName(SERIALIZED_NAME_OPERATION_KEY)
-  private String operationKey;
+  private OperationKey operationKey;
+
+  public static final String SERIALIZED_NAME_DEVICE = "device";
+  @SerializedName(SERIALIZED_NAME_DEVICE)
+  private String device;
+
+  public static final String SERIALIZED_NAME_3D_SECURE_AUTHENTICATION = "3d_secure_authentication";
+  @SerializedName(SERIALIZED_NAME_3D_SECURE_AUTHENTICATION)
+  private CreateAuthorizationRequest3dSecureAuthentication _3dSecureAuthentication;
 
   public CreateAuthorizationRequest() { 
   }
@@ -420,6 +434,98 @@ public class CreateAuthorizationRequest {
   }
 
 
+  public CreateAuthorizationRequest fraudSessionId(String fraudSessionId) {
+    
+    this.fraudSessionId = fraudSessionId;
+    return this;
+  }
+
+   /**
+   * The &#x60;fraud_session_session&#x60; ID you want to review for fraud. For more info, see [Fraud Detection](/docs/guides/payments/fraud-detection/).
+   * @return fraudSessionId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The `fraud_session_session` ID you want to review for fraud. For more info, see [Fraud Detection](/docs/guides/payments/fraud-detection/).")
+
+  public String getFraudSessionId() {
+    return fraudSessionId;
+  }
+
+
+  public void setFraudSessionId(String fraudSessionId) {
+    this.fraudSessionId = fraudSessionId;
+  }
+
+
+  public CreateAuthorizationRequest subType(SubTypeTransfer subType) {
+    
+    this.subType = subType;
+    return this;
+  }
+
+   /**
+   * Get subType
+   * @return subType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SubTypeTransfer getSubType() {
+    return subType;
+  }
+
+
+  public void setSubType(SubTypeTransfer subType) {
+    this.subType = subType;
+  }
+
+
+  public CreateAuthorizationRequest operationKey(OperationKey operationKey) {
+    
+    this.operationKey = operationKey;
+    return this;
+  }
+
+   /**
+   * Get operationKey
+   * @return operationKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OperationKey getOperationKey() {
+    return operationKey;
+  }
+
+
+  public void setOperationKey(OperationKey operationKey) {
+    this.operationKey = operationKey;
+  }
+
+
+  public CreateAuthorizationRequest device(String device) {
+    
+    this.device = device;
+    return this;
+  }
+
+   /**
+   * The ID of the resource.
+   * @return device
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ID of the resource.")
+
+  public String getDevice() {
+    return device;
+  }
+
+
+  public void setDevice(String device) {
+    this.device = device;
+  }
+
+
   public CreateAuthorizationRequest _3dSecureAuthentication(CreateAuthorizationRequest3dSecureAuthentication _3dSecureAuthentication) {
     
     this._3dSecureAuthentication = _3dSecureAuthentication;
@@ -443,29 +549,6 @@ public class CreateAuthorizationRequest {
   }
 
 
-  public CreateAuthorizationRequest operationKey(String operationKey) {
-    
-    this.operationKey = operationKey;
-    return this;
-  }
-
-   /**
-   * Describes the operation to be performed in the transaction. - **CARD\\_PRESENT\\_AUTHORIZATION**: When making in-person payment with EMV card.
-   * @return operationKey
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Describes the operation to be performed in the transaction. - **CARD\\_PRESENT\\_AUTHORIZATION**: When making in-person payment with EMV card.")
-
-  public String getOperationKey() {
-    return operationKey;
-  }
-
-
-  public void setOperationKey(String operationKey) {
-    this.operationKey = operationKey;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -485,8 +568,11 @@ public class CreateAuthorizationRequest {
         Objects.equals(this.processor, createAuthorizationRequest.processor) &&
         Objects.equals(this.source, createAuthorizationRequest.source) &&
         Objects.equals(this.additionalPurchaseData, createAuthorizationRequest.additionalPurchaseData) &&
-        Objects.equals(this._3dSecureAuthentication, createAuthorizationRequest._3dSecureAuthentication) &&
-        Objects.equals(this.operationKey, createAuthorizationRequest.operationKey);
+        Objects.equals(this.fraudSessionId, createAuthorizationRequest.fraudSessionId) &&
+        Objects.equals(this.subType, createAuthorizationRequest.subType) &&
+        Objects.equals(this.operationKey, createAuthorizationRequest.operationKey) &&
+        Objects.equals(this.device, createAuthorizationRequest.device) &&
+        Objects.equals(this._3dSecureAuthentication, createAuthorizationRequest._3dSecureAuthentication);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -495,7 +581,7 @@ public class CreateAuthorizationRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, amount, currency, idempotencyId, merchant, merchantIdentity, processor, source, additionalPurchaseData, _3dSecureAuthentication, operationKey);
+    return Objects.hash(tags, amount, currency, idempotencyId, merchant, merchantIdentity, processor, source, additionalPurchaseData, fraudSessionId, subType, operationKey, device, _3dSecureAuthentication);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -518,8 +604,11 @@ public class CreateAuthorizationRequest {
     sb.append("    processor: ").append(toIndentedString(processor)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    additionalPurchaseData: ").append(toIndentedString(additionalPurchaseData)).append("\n");
-    sb.append("    _3dSecureAuthentication: ").append(toIndentedString(_3dSecureAuthentication)).append("\n");
+    sb.append("    fraudSessionId: ").append(toIndentedString(fraudSessionId)).append("\n");
+    sb.append("    subType: ").append(toIndentedString(subType)).append("\n");
     sb.append("    operationKey: ").append(toIndentedString(operationKey)).append("\n");
+    sb.append("    device: ").append(toIndentedString(device)).append("\n");
+    sb.append("    _3dSecureAuthentication: ").append(toIndentedString(_3dSecureAuthentication)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -551,8 +640,11 @@ public class CreateAuthorizationRequest {
     openapiFields.add("processor");
     openapiFields.add("source");
     openapiFields.add("additional_purchase_data");
-    openapiFields.add("3d_secure_authentication");
+    openapiFields.add("fraud_session_id");
+    openapiFields.add("sub_type");
     openapiFields.add("operation_key");
+    openapiFields.add("device");
+    openapiFields.add("3d_secure_authentication");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -642,6 +734,20 @@ public class CreateAuthorizationRequest {
 
       /**
       * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("fraud_session_id") != null && !jsonObj.get("fraud_session_id").isJsonNull()  && !jsonObj.get("fraud_session_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fraud_session_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fraud_session_id").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("device") != null && !jsonObj.get("device").isJsonNull()  && !jsonObj.get("device").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `device` to be a primitive type in the JSON string but got `%s`", jsonObj.get("device").toString()));
+      }
+      /**
+      * EDITED
       * ADDED  statement to for inconsistent null behaviour
       */
       // validate the optional field `3d_secure_authentication`
@@ -649,13 +755,6 @@ public class CreateAuthorizationRequest {
        //CreateAuthorizationRequest3dSecureAuthentication.validateJsonObject(jsonObj.getAsJsonObject("3d_secure_authentication"));
      // }
 
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("operation_key") != null && !jsonObj.get("operation_key").isJsonNull()  && !jsonObj.get("operation_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `operation_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation_key").toString()));
-      }
   }
 
 

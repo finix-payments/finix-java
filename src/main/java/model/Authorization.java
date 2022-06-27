@@ -32,6 +32,7 @@ import model.AuthorizationExternalResponsesInner;
 import model.AuthorizationLinks;
 import model.CardPresentDetails;
 import model.Currency;
+import model.SubTypeTransfer;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -59,7 +60,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "A charge authorization")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
 public class Authorization {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -116,6 +117,14 @@ public class Authorization {
   public static final String SERIALIZED_NAME_IDEMPOTENCY_ID = "idempotency_id";
   @SerializedName(SERIALIZED_NAME_IDEMPOTENCY_ID)
   private String idempotencyId;
+
+  public static final String SERIALIZED_NAME_FAILURE_CODE = "failure_code";
+  @SerializedName(SERIALIZED_NAME_FAILURE_CODE)
+  private String failureCode;
+
+  public static final String SERIALIZED_NAME_FAILURE_MESSAGE = "failure_message";
+  @SerializedName(SERIALIZED_NAME_FAILURE_MESSAGE)
+  private String failureMessage;
 
   public static final String SERIALIZED_NAME_IS_VOID = "is_void";
   @SerializedName(SERIALIZED_NAME_IS_VOID)
@@ -230,6 +239,10 @@ public class Authorization {
   public static final String SERIALIZED_NAME_VOID_STATE = "void_state";
   @SerializedName(SERIALIZED_NAME_VOID_STATE)
   private String voidState;
+
+  public static final String SERIALIZED_NAME_SUB_TYPE = "sub_type";
+  @SerializedName(SERIALIZED_NAME_SUB_TYPE)
+  private SubTypeTransfer subType;
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
@@ -577,6 +590,52 @@ public class Authorization {
   }
 
 
+  public Authorization failureCode(String failureCode) {
+    
+    this.failureCode = failureCode;
+    return this;
+  }
+
+   /**
+   * The code of the failure so the decline can be handled programmatically. For more info on how to handle the failure, see [Failure Codes](/docs/guides/developers/errors/#failure-codes).
+   * @return failureCode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The code of the failure so the decline can be handled programmatically. For more info on how to handle the failure, see [Failure Codes](/docs/guides/developers/errors/#failure-codes).")
+
+  public String getFailureCode() {
+    return failureCode;
+  }
+
+
+  public void setFailureCode(String failureCode) {
+    this.failureCode = failureCode;
+  }
+
+
+  public Authorization failureMessage(String failureMessage) {
+    
+    this.failureMessage = failureMessage;
+    return this;
+  }
+
+   /**
+   * A human-readable description of why the transaction was declined. This will also include a suggestion on how to complete the payment.
+   * @return failureMessage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A human-readable description of why the transaction was declined. This will also include a suggestion on how to complete the payment.")
+
+  public String getFailureMessage() {
+    return failureMessage;
+  }
+
+
+  public void setFailureMessage(String failureMessage) {
+    this.failureMessage = failureMessage;
+  }
+
+
   public Authorization isVoid(Boolean isVoid) {
     
     this.isVoid = isVoid;
@@ -815,6 +874,29 @@ public class Authorization {
   }
 
 
+  public Authorization subType(SubTypeTransfer subType) {
+    
+    this.subType = subType;
+    return this;
+  }
+
+   /**
+   * Get subType
+   * @return subType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SubTypeTransfer getSubType() {
+    return subType;
+  }
+
+
+  public void setSubType(SubTypeTransfer subType) {
+    this.subType = subType;
+  }
+
+
   public Authorization links(AuthorizationLinks links) {
     
     this.links = links;
@@ -862,6 +944,8 @@ public class Authorization {
         Objects.equals(this.expiresAt, authorization.expiresAt) &&
         Objects.equals(this.externalResponses, authorization.externalResponses) &&
         Objects.equals(this.idempotencyId, authorization.idempotencyId) &&
+        Objects.equals(this.failureCode, authorization.failureCode) &&
+        Objects.equals(this.failureMessage, authorization.failureMessage) &&
         Objects.equals(this.isVoid, authorization.isVoid) &&
         Objects.equals(this.merchantIdentity, authorization.merchantIdentity) &&
         Objects.equals(this.merchant, authorization.merchant) &&
@@ -872,6 +956,7 @@ public class Authorization {
         Objects.equals(this.traceId, authorization.traceId) &&
         Objects.equals(this.transfer, authorization.transfer) &&
         Objects.equals(this.voidState, authorization.voidState) &&
+        Objects.equals(this.subType, authorization.subType) &&
         Objects.equals(this.links, authorization.links);
   }
 
@@ -881,7 +966,7 @@ public class Authorization {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, id, createdAt, updatedAt, _3dsRedirectUrl, amount, application, cardPresentDetails, captureAmount, currency, device, expiresAt, externalResponses, idempotencyId, isVoid, merchantIdentity, merchant, messages, raw, source, state, traceId, transfer, voidState, links);
+    return Objects.hash(tags, id, createdAt, updatedAt, _3dsRedirectUrl, amount, application, cardPresentDetails, captureAmount, currency, device, expiresAt, externalResponses, idempotencyId, failureCode, failureMessage, isVoid, merchantIdentity, merchant, messages, raw, source, state, traceId, transfer, voidState, subType, links);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -909,6 +994,8 @@ public class Authorization {
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    externalResponses: ").append(toIndentedString(externalResponses)).append("\n");
     sb.append("    idempotencyId: ").append(toIndentedString(idempotencyId)).append("\n");
+    sb.append("    failureCode: ").append(toIndentedString(failureCode)).append("\n");
+    sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
     sb.append("    isVoid: ").append(toIndentedString(isVoid)).append("\n");
     sb.append("    merchantIdentity: ").append(toIndentedString(merchantIdentity)).append("\n");
     sb.append("    merchant: ").append(toIndentedString(merchant)).append("\n");
@@ -919,6 +1006,7 @@ public class Authorization {
     sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
     sb.append("    transfer: ").append(toIndentedString(transfer)).append("\n");
     sb.append("    voidState: ").append(toIndentedString(voidState)).append("\n");
+    sb.append("    subType: ").append(toIndentedString(subType)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -956,6 +1044,8 @@ public class Authorization {
     openapiFields.add("expires_at");
     openapiFields.add("external_responses");
     openapiFields.add("idempotency_id");
+    openapiFields.add("failure_code");
+    openapiFields.add("failure_message");
     openapiFields.add("is_void");
     openapiFields.add("merchant_identity");
     openapiFields.add("merchant");
@@ -966,6 +1056,7 @@ public class Authorization {
     openapiFields.add("trace_id");
     openapiFields.add("transfer");
     openapiFields.add("void_state");
+    openapiFields.add("sub_type");
     openapiFields.add("_links");
 
     // a set of required properties/fields (JSON key names)
@@ -1052,6 +1143,20 @@ public class Authorization {
       */
       if (jsonObj.get("idempotency_id") != null && !jsonObj.get("idempotency_id").isJsonNull()  && !jsonObj.get("idempotency_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `idempotency_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("idempotency_id").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("failure_code") != null && !jsonObj.get("failure_code").isJsonNull()  && !jsonObj.get("failure_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `failure_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failure_code").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("failure_message") != null && !jsonObj.get("failure_message").isJsonNull()  && !jsonObj.get("failure_message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `failure_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failure_message").toString()));
       }
       /**
       * EDITED

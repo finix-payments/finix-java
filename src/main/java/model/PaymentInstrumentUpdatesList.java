@@ -23,8 +23,10 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.ListLinks;
-import model.PageCursor;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import model.PageOffset;
 import model.PaymentInstrumentUpdatesListEmbedded;
 
 import com.google.gson.Gson;
@@ -48,14 +50,15 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * PaymentInstrumentUpdatesList
+ * 
  */
+@ApiModel(description = "")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
 public class PaymentInstrumentUpdatesList {
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
-  private PageCursor page;
+  private PageOffset page;
 
   public static final String SERIALIZED_NAME_EMBEDDED = "_embedded";
   @SerializedName(SERIALIZED_NAME_EMBEDDED)
@@ -63,12 +66,12 @@ public class PaymentInstrumentUpdatesList {
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private ListLinks links;
+  private Map<String, Object> links = null;
 
   public PaymentInstrumentUpdatesList() { 
   }
 
-  public PaymentInstrumentUpdatesList page(PageCursor page) {
+  public PaymentInstrumentUpdatesList page(PageOffset page) {
     
     this.page = page;
     return this;
@@ -81,12 +84,12 @@ public class PaymentInstrumentUpdatesList {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public PageCursor getPage() {
+  public PageOffset getPage() {
     return page;
   }
 
 
-  public void setPage(PageCursor page) {
+  public void setPage(PageOffset page) {
     this.page = page;
   }
 
@@ -114,9 +117,17 @@ public class PaymentInstrumentUpdatesList {
   }
 
 
-  public PaymentInstrumentUpdatesList links(ListLinks links) {
+  public PaymentInstrumentUpdatesList links(Map<String, Object> links) {
     
     this.links = links;
+    return this;
+  }
+
+  public PaymentInstrumentUpdatesList putLinksItem(String key, Object linksItem) {
+    if (this.links == null) {
+      this.links = new HashMap<>();
+    }
+    this.links.put(key, linksItem);
     return this;
   }
 
@@ -127,12 +138,12 @@ public class PaymentInstrumentUpdatesList {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ListLinks getLinks() {
+  public Map<String, Object> getLinks() {
     return links;
   }
 
 
-  public void setLinks(ListLinks links) {
+  public void setLinks(Map<String, Object> links) {
     this.links = links;
   }
 
@@ -237,7 +248,7 @@ public class PaymentInstrumentUpdatesList {
       */
       // validate the optional field `page`
      // if (jsonObj.getAsJsonObject("page") != null) {
-       //PageCursor.validateJsonObject(jsonObj.getAsJsonObject("page"));
+       //PageOffset.validateJsonObject(jsonObj.getAsJsonObject("page"));
      // }
 
       /**
@@ -247,15 +258,6 @@ public class PaymentInstrumentUpdatesList {
       // validate the optional field `_embedded`
      // if (jsonObj.getAsJsonObject("_embedded") != null) {
        //PaymentInstrumentUpdatesListEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
-     // }
-
-      /**
-      * EDITED
-      * ADDED  statement to for inconsistent null behaviour
-      */
-      // validate the optional field `_links`
-     // if (jsonObj.getAsJsonObject("_links") != null) {
-       //ListLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
      // }
 
   }

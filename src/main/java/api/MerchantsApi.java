@@ -826,7 +826,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     }
     /**
-    * Build call for putMerchant
+    * Build call for updateMerchant
         * @param merchantId ID of &#x60;Merchant&#x60;. (required)
         * @param updateMerchantRequest  (optional)
     * @param _callback Callback for upload/download progress
@@ -842,7 +842,7 @@ this.localCustomBaseUrl = customBaseUrl;
                 <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
         </table>
     */
-    public okhttp3.Call putMerchantCall(String merchantId, UpdateMerchantRequest updateMerchantRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateMerchantCall(String merchantId, UpdateMerchantRequest updateMerchantRequest, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -890,15 +890,15 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call putMerchantValidateBeforeCall(String merchantId, UpdateMerchantRequest updateMerchantRequest, final ApiCallback _callback) throws ApiException {
+        private okhttp3.Call updateMerchantValidateBeforeCall(String merchantId, UpdateMerchantRequest updateMerchantRequest, final ApiCallback _callback) throws ApiException {
         
                 // verify the required parameter 'merchantId' is set
                 if (merchantId == null) {
-                throw new ApiException("Missing the required parameter 'merchantId' when calling putMerchant(Async)");
+                throw new ApiException("Missing the required parameter 'merchantId' when calling updateMerchant(Async)");
                 }
         
 
-            okhttp3.Call localVarCall = putMerchantCall(merchantId, updateMerchantRequest, _callback);
+            okhttp3.Call localVarCall = updateMerchantCall(merchantId, updateMerchantRequest, _callback);
             return localVarCall;
 
         }
@@ -921,7 +921,7 @@ this.localCustomBaseUrl = customBaseUrl;
                 </table>
             */
                 public Merchant update(String merchantId, UpdateMerchantRequest updateMerchantRequest) throws ApiException {
-            ApiResponse<Merchant> localVarResp = putMerchantWithHttpInfo(merchantId, updateMerchantRequest);
+            ApiResponse<Merchant> localVarResp = updateMerchantWithHttpInfo(merchantId, updateMerchantRequest);
                     return localVarResp.getData();
                 }
 
@@ -942,8 +942,8 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public ApiResponse<Merchant> putMerchantWithHttpInfo(String merchantId, UpdateMerchantRequest updateMerchantRequest) throws ApiException {
-        okhttp3.Call localVarCall = putMerchantValidateBeforeCall(merchantId, updateMerchantRequest, null);
+        public ApiResponse<Merchant> updateMerchantWithHttpInfo(String merchantId, UpdateMerchantRequest updateMerchantRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateMerchantValidateBeforeCall(merchantId, updateMerchantRequest, null);
                 Type localVarReturnType = new TypeToken<Merchant>(){}.getType();
                 return localVarFinixClient.execute(localVarCall, localVarReturnType);
         }
@@ -966,9 +966,9 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call putMerchantAsync(String merchantId, UpdateMerchantRequest updateMerchantRequest, final ApiCallback<Merchant> _callback) throws ApiException {
+        public okhttp3.Call updateMerchantAsync(String merchantId, UpdateMerchantRequest updateMerchantRequest, final ApiCallback<Merchant> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = putMerchantValidateBeforeCall(merchantId, updateMerchantRequest, _callback);
+        okhttp3.Call localVarCall = updateMerchantValidateBeforeCall(merchantId, updateMerchantRequest, _callback);
     Type localVarReturnType = new TypeToken<Merchant>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

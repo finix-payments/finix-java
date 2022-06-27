@@ -26,6 +26,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import model.Currency;
+import model.OperationKey;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +54,7 @@ import invoker.JSON;
  * CreateReversalRequest
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
 public class CreateReversalRequest {
   public static final String SERIALIZED_NAME_REFUND_AMOUNT = "refund_amount";
   @SerializedName(SERIALIZED_NAME_REFUND_AMOUNT)
@@ -60,6 +63,22 @@ public class CreateReversalRequest {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private Map<String, String> tags = null;
+
+  public static final String SERIALIZED_NAME_DEVICE = "device";
+  @SerializedName(SERIALIZED_NAME_DEVICE)
+  private String device;
+
+  public static final String SERIALIZED_NAME_CURRENCY = "currency";
+  @SerializedName(SERIALIZED_NAME_CURRENCY)
+  private Currency currency;
+
+  public static final String SERIALIZED_NAME_OPERATION_KEY = "operation_key";
+  @SerializedName(SERIALIZED_NAME_OPERATION_KEY)
+  private OperationKey operationKey;
+
+  public static final String SERIALIZED_NAME_AMOUNT = "amount";
+  @SerializedName(SERIALIZED_NAME_AMOUNT)
+  private Long amount;
 
   public CreateReversalRequest() { 
   }
@@ -71,11 +90,11 @@ public class CreateReversalRequest {
   }
 
    /**
-   * The amount of the refund in cents. It must be equal to or less than the amount of the original &#x60;Transfer&#x60;.
+   * The total amount that will be debited in cents (e.g. 100 cents to debit $1.00).
    * @return refundAmount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The amount of the refund in cents. It must be equal to or less than the amount of the original `Transfer`.")
+  @ApiModelProperty(value = "The total amount that will be debited in cents (e.g. 100 cents to debit $1.00).")
 
   public Long getRefundAmount() {
     return refundAmount;
@@ -118,6 +137,98 @@ public class CreateReversalRequest {
   }
 
 
+  public CreateReversalRequest device(String device) {
+    
+    this.device = device;
+    return this;
+  }
+
+   /**
+   * The ID of the resource.
+   * @return device
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ID of the resource.")
+
+  public String getDevice() {
+    return device;
+  }
+
+
+  public void setDevice(String device) {
+    this.device = device;
+  }
+
+
+  public CreateReversalRequest currency(Currency currency) {
+    
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * Get currency
+   * @return currency
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Currency getCurrency() {
+    return currency;
+  }
+
+
+  public void setCurrency(Currency currency) {
+    this.currency = currency;
+  }
+
+
+  public CreateReversalRequest operationKey(OperationKey operationKey) {
+    
+    this.operationKey = operationKey;
+    return this;
+  }
+
+   /**
+   * Get operationKey
+   * @return operationKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OperationKey getOperationKey() {
+    return operationKey;
+  }
+
+
+  public void setOperationKey(OperationKey operationKey) {
+    this.operationKey = operationKey;
+  }
+
+
+  public CreateReversalRequest amount(Long amount) {
+    
+    this.amount = amount;
+    return this;
+  }
+
+   /**
+   * The total amount that will be debited in cents (e.g. 100 cents to debit $1.00).
+   * @return amount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The total amount that will be debited in cents (e.g. 100 cents to debit $1.00).")
+
+  public Long getAmount() {
+    return amount;
+  }
+
+
+  public void setAmount(Long amount) {
+    this.amount = amount;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -129,12 +240,27 @@ public class CreateReversalRequest {
     }
     CreateReversalRequest createReversalRequest = (CreateReversalRequest) o;
     return Objects.equals(this.refundAmount, createReversalRequest.refundAmount) &&
-        Objects.equals(this.tags, createReversalRequest.tags);
+        Objects.equals(this.tags, createReversalRequest.tags) &&
+        Objects.equals(this.device, createReversalRequest.device) &&
+        Objects.equals(this.currency, createReversalRequest.currency) &&
+        Objects.equals(this.operationKey, createReversalRequest.operationKey) &&
+        Objects.equals(this.amount, createReversalRequest.amount);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(refundAmount, tags);
+    return Objects.hash(refundAmount, tags, device, currency, operationKey, amount);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -143,6 +269,10 @@ public class CreateReversalRequest {
     sb.append("class CreateReversalRequest {\n");
     sb.append("    refundAmount: ").append(toIndentedString(refundAmount)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    device: ").append(toIndentedString(device)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    operationKey: ").append(toIndentedString(operationKey)).append("\n");
+    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -167,6 +297,10 @@ public class CreateReversalRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("refund_amount");
     openapiFields.add("tags");
+    openapiFields.add("device");
+    openapiFields.add("currency");
+    openapiFields.add("operation_key");
+    openapiFields.add("amount");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -196,6 +330,13 @@ public class CreateReversalRequest {
         }
       }
       */
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("device") != null && !jsonObj.get("device").isJsonNull()  && !jsonObj.get("device").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `device` to be a primitive type in the JSON string but got `%s`", jsonObj.get("device").toString()));
+      }
   }
 
 

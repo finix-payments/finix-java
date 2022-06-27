@@ -52,7 +52,7 @@ import invoker.JSON;
  * FeeProfilesListEmbedded
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
 public class FeeProfilesListEmbedded {
   public static final String SERIALIZED_NAME_FEE_PROFILES = "fee_profiles";
   @SerializedName(SERIALIZED_NAME_FEE_PROFILES)

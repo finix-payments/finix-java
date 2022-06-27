@@ -27,6 +27,7 @@ import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,7 +53,7 @@ import invoker.JSON;
  * ExternalLink
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-24T13:03:18.088665-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
 public class ExternalLink {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -89,6 +90,10 @@ public class ExternalLink {
   public static final String SERIALIZED_NAME_EXPIRED = "expired";
   @SerializedName(SERIALIZED_NAME_EXPIRED)
   private Boolean expired;
+
+  public static final String SERIALIZED_NAME_DURATION = "duration";
+  @SerializedName(SERIALIZED_NAME_DURATION)
+  private Long duration;
 
   public ExternalLink() { 
   }
@@ -308,6 +313,29 @@ public class ExternalLink {
   }
 
 
+  public ExternalLink duration(Long duration) {
+    
+    this.duration = duration;
+    return this;
+  }
+
+   /**
+   * If configured, how long the link is active for (in minutes).
+   * @return duration
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If configured, how long the link is active for (in minutes).")
+
+  public Long getDuration() {
+    return duration;
+  }
+
+
+  public void setDuration(Long duration) {
+    this.duration = duration;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -326,12 +354,24 @@ public class ExternalLink {
         Objects.equals(this.userId, externalLink.userId) &&
         Objects.equals(this.fileId, externalLink.fileId) &&
         Objects.equals(this.tags, externalLink.tags) &&
-        Objects.equals(this.expired, externalLink.expired);
+        Objects.equals(this.expired, externalLink.expired) &&
+        Objects.equals(this.duration, externalLink.duration);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdAt, url, type, expiresAt, userId, fileId, tags, expired);
+    return Objects.hash(id, createdAt, url, type, expiresAt, userId, fileId, tags, expired, duration);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -347,6 +387,7 @@ public class ExternalLink {
     sb.append("    fileId: ").append(toIndentedString(fileId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    expired: ").append(toIndentedString(expired)).append("\n");
+    sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -378,6 +419,7 @@ public class ExternalLink {
     openapiFields.add("file_id");
     openapiFields.add("tags");
     openapiFields.add("expired");
+    openapiFields.add("duration");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
