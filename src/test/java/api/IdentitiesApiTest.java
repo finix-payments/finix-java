@@ -424,11 +424,10 @@ public class IdentitiesApiTest {
      */
     @Test
     @DisplayName("Verify a Merchant")
-    @AfterAll
     public void createMerchantVerificationTest() throws ApiException {
-       CreateVerificationRequest verificationForm = CreateVerificationRequest.builder().build();
-        Verification response = finixClient.Merchants.createMerchantVerification(merchantId, verificationForm);
-        assertEquals(merchantId, response.getMerchant(), ()->"Should return " +merchantId + " but returns "+ response.getMerchant());
+      CreateVerificationRequest verificationForm = CreateVerificationRequest.builder().build();
+      Verification response = finixClient.Merchants.createMerchantVerification(merchantId, verificationForm);
+      assertEquals(merchantId, response.getMerchant(), ()->"Should return " +merchantId + " but returns "+ response.getMerchant());
     }
 
 }
