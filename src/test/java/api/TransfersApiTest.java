@@ -37,6 +37,7 @@ public class TransfersApiTest {
     private FinixClient finixClient;
     private TestInfo testInfo;
     private TestReporter testReporter;
+
     @BeforeEach
     void init(TestInfo testInfo, TestReporter testReporter){
         this.testInfo =testInfo;
@@ -52,7 +53,6 @@ public class TransfersApiTest {
     void contextLoads() {
         finixClient= new FinixClient("USsRhsHYZGBPnQw8CByJyEQW","8a14c2f9-d94b-4c72-8f5c-a62908e5b30e", Environment.SANDBOX);
         assertEquals(true , finixClient!=null);
-
     }
     /**
      * Create a Transfer
@@ -257,7 +257,6 @@ public class TransfersApiTest {
         assertEquals("TRvtThmhZtk56z6dtCt8hUDR", transfer.getId(),()-> "Should return "+"TRvtThmhZtk56z6dtCt8hUDR" + " but returns " +transfer.getId());
     }
 
-
     /**
      * List Reversals on a Transfer
      *
@@ -270,9 +269,10 @@ public class TransfersApiTest {
      * Test Function Name Generations from OPENAPI Spec with x-java-method-name
      *
      */
-    //@Test
+    @Test
+    @DisplayName("List Reversals on a Transfer")
     public void listTransferReversalsTest() throws ApiException {
-        String transferId = null;
+        String transferId = "TRvtThmhZtk56z6dtCt8hUDR";
         Long limit = null;
         String afterCursor = null;
         String beforeCursor = null;
@@ -282,7 +282,8 @@ public class TransfersApiTest {
                 .afterCursor(afterCursor)
                 .beforeCursor(beforeCursor)
                 .build());
-        // TODO: test validations
+        assertTrue(response.getPage() != null);
+        assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());
     }
 
     /**
@@ -369,7 +370,6 @@ public class TransfersApiTest {
                 .build());
         assertTrue(response.getPage() != null);
         assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());
-//        assertEquals(20,response.getPage().getLimit(),()->"Should return " + "20" + " but returns " + response.getPage().getLimit());
     }
 
     /**
@@ -396,5 +396,4 @@ public class TransfersApiTest {
         Transfer transfer = finixClient.Transfers.update(transferId, updateTransferRequest);
         assertEquals("TRvtThmhZtk56z6dtCt8hUDR",transfer.getId(),()->"Should return " + "TRvtThmhZtk56z6dtCt8hUDR" + " but returns " + transfer.getId());
     }
-
 }

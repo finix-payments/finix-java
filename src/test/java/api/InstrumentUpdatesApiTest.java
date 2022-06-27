@@ -52,7 +52,6 @@ public class InstrumentUpdatesApiTest {
     void contextLoads() {
         finixClient= new FinixClient("USsRhsHYZGBPnQw8CByJyEQW","8a14c2f9-d94b-4c72-8f5c-a62908e5b30e", Environment.SANDBOX);
         assertEquals(true , finixClient!=null);
-
     }
 
     /**
@@ -68,14 +67,13 @@ public class InstrumentUpdatesApiTest {
      *
      */
     @Test
+    @DisplayName("Download Instrument Updates")
     public void downloadInstrumentUpdatesTest() throws ApiException {
         String format = null;
-
         String instrumentUpdateId = "IUp9oSWhWUF31DPrJ8CojQeQ";
         File response = finixClient.InstrumentUpdates.download(instrumentUpdateId, DownloadInstrumentUpdateQueryParams.builder().build());
         int size = response.getName().length();
         assertTrue(response.length()> 0,()->" Should return a file with content length more than 0 but returns " + response.length());
-
     }
 
     /**
@@ -95,7 +93,6 @@ public class InstrumentUpdatesApiTest {
     public void getInstrumentUpdatesTest() throws ApiException {
         String instrumentUpdatesId = "IUp9oSWhWUF31DPrJ8CojQeQ";
         InstrumentUpdate update = finixClient.InstrumentUpdates.get(instrumentUpdatesId);
-
         assertEquals(instrumentUpdatesId, update.getId(), "Should return " + instrumentUpdatesId + " but returns " + update.getId());
     }
 
@@ -110,9 +107,4 @@ public class InstrumentUpdatesApiTest {
                 .build());
         assertEquals("MUucec6fHeaWo3VHYoSkUySM",instrumentupdate.getMerchant(),()->" Should return " + "MUucec6fHeaWo3VHYoSkUySM" + " but returns " + instrumentupdate.getMerchant());
     }
-
-
-
-
-
 }

@@ -50,7 +50,6 @@ public class BalanceTransfersApiTest {
     void contextLoads() {
         finixClient= new FinixClient("USbkjk46XqUTQHN3i2jaVnc1","ac915962-2757-49ea-aeee-10960a408b99", Environment.SANDBOX);
         assertEquals(true , finixClient!=null);
-
     }
     /**
      * Create a Balance Transfer
@@ -100,7 +99,6 @@ public class BalanceTransfersApiTest {
         String balanceTransfersId = "BT_v3KQqgpDPqskH8VH6isFyz";
         BalanceTransfer response = finixClient.BalanceTransfers.getBalanceTransfers(balanceTransfersId);
         assertEquals(CreateBalanceTransferRequest.SourceEnum.OPERATING_ACCOUNT.toString(),response.getSource(),()->"Should return " + "OPERATING_ACCOUNT" + " but returns " + response.getSource());
-
     }
 
     /**
@@ -153,5 +151,4 @@ public class BalanceTransfersApiTest {
                 .build());
         assertEquals(20,response.getPage().getLimit().intValue(),()->"Should return " + "20" + " but returns " + response.getPage().getLimit());
     }
-
 }

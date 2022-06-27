@@ -53,7 +53,6 @@ public class MerchantProfilesApiTest {
     void contextLoads() {
         finixClient= new FinixClient("USimz3zSq5R2PqiEBXY6rSiJ","8bacba32-9550-48ff-b567-fe7648947041", Environment.SANDBOX);
         assertEquals(true , finixClient!=null);
-
     }
     /**
      * Show Merchant Profile
@@ -71,7 +70,6 @@ public class MerchantProfilesApiTest {
     @DisplayName("Fetch a merchant profile")
     public void getMerchantProfileTest() throws ApiException {
         String merchantProfileId = "MP7dqAPFRBM8gN9hb3Guumif";
-
         MerchantProfile response = finixClient.MerchantProfiles.get(merchantProfileId);
         assertEquals(merchantProfileId, response.getId(), "Response should return merchant profile id of "+merchantProfileId+" but returns "+response.getId());
     }
@@ -92,7 +90,6 @@ public class MerchantProfilesApiTest {
     @DisplayName("Fetch a list of merchant profiles")
     public void listMerchantProfilesTest() throws ApiException {
         Long limit = 20L;
-
         MerchantProfilesList response = finixClient.MerchantProfiles.list(ListMerchantProfilesQueryParams.builder()
                 .limit(limit)
                 .build());
@@ -112,10 +109,10 @@ public class MerchantProfilesApiTest {
      *
      */
     @Test
+    @DisplayName("Put Merchant Profile")
     public void putMerchantProfileTest() throws ApiException {
         String merchantProfileId = "MP7dqAPFRBM8gN9hb3Guumif";
         String riskProfileId = "RP7akGm3WVYf9Z7omCeeCpgB";
-
         MerchantProfile response = finixClient.MerchantProfiles.update(merchantProfileId, UpdateMerchantProfileRequest.builder()
                 .riskProfile(riskProfileId)
                 .build());

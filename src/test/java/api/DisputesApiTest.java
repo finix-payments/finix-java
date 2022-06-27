@@ -94,7 +94,6 @@ public class DisputesApiTest {
         String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
         Dispute response = finixClient.Disputes.get(disputeId);
         assertEquals("DIs7yQRkHDdMYhurzYz72SFk",response.getId(),()->" Should return " + "DIs7yQRkHDdMYhurzYz72SFk" + " but returns " + response.getId());
-
     }
 
     /**
@@ -116,7 +115,6 @@ public class DisputesApiTest {
         String evidenceId = "DFnA9eVoYxRnxxLKzgcGGxYL";
         DisputeEvidence response = finixClient.Disputes.getDisputeEvidence(disputeId, evidenceId);
         assertEquals("DFnA9eVoYxRnxxLKzgcGGxYL",response.getId(),()->" Should return " + "DFnA9eVoYxRnxxLKzgcGGxYL" + " but returns " + response.getId());
-
     }
 
 
@@ -137,7 +135,6 @@ public class DisputesApiTest {
     public void listDisputeEvidenceTest() throws ApiException {
         String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
         Long limit = 20L;
-
         DisputeEvidenceList response = finixClient.Disputes.listDisputeEvidenceByDisputeId(disputeId, ListDisputeEvidenceQueryParams.builder()
                 .limit(limit)
                 .build());
@@ -206,7 +203,5 @@ public class DisputesApiTest {
                 .build());
         assertTrue(response.getPage() != null);
         assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());
-//        assertEquals(20,response.getPage().getLimit().intValue(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit().intValue());
-    }
-
+   }
 }

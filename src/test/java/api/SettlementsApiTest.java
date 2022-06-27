@@ -51,7 +51,6 @@ public class SettlementsApiTest {
     void contextLoads() {
         finixClient = new FinixClient("USpumes23XhzHwXqiy9bfX2B", "c69d39e3-f9ff-4735-8c3e-abca86441906", Environment.SANDBOX);
         assertEquals(true , finixClient!=null);
-
     }
 
     /**
@@ -91,7 +90,6 @@ public class SettlementsApiTest {
     public void getSettlementFundingTransfersTest() throws ApiException {
         String settlementId = "STmCc8GbjjX33SdymwNhb9Et";
         Long limit = 20L;
-
         TransfersList response = finixClient.Settlements.listFundingTransfers(settlementId, ListSettlementFundingTransfersQueryParams.builder()
                 .limit(limit)
                 .build());
@@ -112,10 +110,10 @@ public class SettlementsApiTest {
      *
      */
     @Test
+    @DisplayName("List Settlement Transfers")
     public void listSettlementTransfersTest() throws ApiException {
         String settlementId = "STmCc8GbjjX33SdymwNhb9Et";
         Long limit = 20L;
-
         TransfersList response = finixClient.Settlements.listTransfersBySettlementId(settlementId, ListSettlementTransfersQueryParams.builder()
                 .limit(limit)
                 .build());
@@ -143,7 +141,6 @@ public class SettlementsApiTest {
                 .build());
         assertTrue(response.getPage() != null);
         assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());
-//        assertEquals("20",response.getPage().getLimit().toString(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit());
     }
 
     /**

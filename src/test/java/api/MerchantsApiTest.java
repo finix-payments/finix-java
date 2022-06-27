@@ -49,10 +49,10 @@ public class MerchantsApiTest {
      */
     @Test
     @BeforeAll
+    @DisplayName("Finix Client")
     void contextLoads() {
         finixClient = new FinixClient("UStxEci4vXxGDWLQhNvao7YY", "25038781-2369-4113-8187-34780e91052e", Environment.SANDBOX);
         assertEquals(true, finixClient != null);
-
     }
 
 
@@ -113,7 +113,6 @@ public class MerchantsApiTest {
                 .build());
         assertTrue(response.getPage() != null);
         assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());
-//        assertEquals("20",response.getPage().getLimit().toString(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit());
     }
 
     /**

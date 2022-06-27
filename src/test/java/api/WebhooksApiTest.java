@@ -109,6 +109,7 @@ public class WebhooksApiTest {
      *
      */
     @Test
+    @DisplayName("List Webhooks")
     public void listWebhooksTest() throws ApiException {
         Long limit = null;
         String afterCursor = null;

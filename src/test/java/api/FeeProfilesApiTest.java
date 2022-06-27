@@ -52,7 +52,6 @@ public class FeeProfilesApiTest {
     void contextLoads() {
         finixClient= new FinixClient("USimz3zSq5R2PqiEBXY6rSiJ","8bacba32-9550-48ff-b567-fe7648947041", Environment.SANDBOX);
         assertEquals(true , finixClient!=null);
-
     }
     /**
      * Create a Fee Profile
@@ -72,7 +71,6 @@ public class FeeProfilesApiTest {
     public void createFeeProfileTest() throws ApiException {
         Map<String,String> localMap = new HashMap<>();
         localMap.put("app pricing", "simple");
-
         CreateFeeProfileRequest createFeeProfileRequest = CreateFeeProfileRequest.builder()
                 .achFixedFee(30L)
                 .basisPoints(200L)
@@ -83,11 +81,9 @@ public class FeeProfilesApiTest {
                 .achBasisPoints(300L)
                 .build();
         FeeProfile response = finixClient.FeeProfiles.create(createFeeProfileRequest);
-
         feeProfileId = response.getId();
         assertEquals(response.getAchBasisPoints(), 300L, "Response should return ach_basis_points with value of 300 but returns" + response.getAchBasisPoints() );
         assertEquals(response.getApplication(), "APmuwPBaW8pVcwb4vCTHQH32", "Response should return application of 'APmuwPBaW8pVcwb4vCTHQH32' but returns" + response.getApplication() );
-
     }
 
     /**
@@ -106,9 +102,7 @@ public class FeeProfilesApiTest {
     @DisplayName("Fetch a Fee Profile")
     @Order(2)
     public void getFeeProfileTest() throws ApiException {
-
         FeeProfile response = finixClient.FeeProfiles.get(feeProfileId);
-
         assertEquals(response.getId(), feeProfileId, "Response should return fee profile id of "+ feeProfileId + " but returns "+ response.getId());
     }
 
@@ -125,15 +119,12 @@ public class FeeProfilesApiTest {
      *
      */
     @Test
+    @DisplayName("List Fee Profiles")
     public void listFeeProfilesTest() throws ApiException {
         Long limit = 20L;
-
         FeeProfilesList response = finixClient.FeeProfiles.list(ListFeeProfilesQueryParams.builder()
                 .limit(limit)
                 .build());
-
         assertEquals(response.getPage().getLimit(), limit, "Response should return page limit of "+limit+" but returns "+response.getPage().getLimit());
-        // TODO: test validations
     }
-
 }

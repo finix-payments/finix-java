@@ -52,10 +52,7 @@ public class VerificationsApiTest {
     void contextLoads() {
         finixClient= new FinixClient("USpumes23XhzHwXqiy9bfX2B","c69d39e3-f9ff-4735-8c3e-abca86441906", Environment.SANDBOX);
         assertEquals(true , finixClient!=null);
-
     }
-    private final VerificationsApi api = new VerificationsApi();
-
     /**
      * Perform a Verification
      *
@@ -76,9 +73,7 @@ public class VerificationsApiTest {
         CreateVerificationRequest createVerificationRequest = CreateVerificationRequest.builder()
                 .merchant(merchantId)
                 .processor(processor).build();
-
         Verification response = finixClient.Verifications.create(createVerificationRequest);
-
         assertEquals(merchantId, response.getMerchant(), "Should return "+ merchantId + " but returns " + response.getMerchant());
     }
 
@@ -95,14 +90,12 @@ public class VerificationsApiTest {
      *
      */
     @Test
+    @DisplayName("Get a Verification")
     public void getVerificationTest() throws ApiException {
         String verificationId = "VIcrdHd2vBu5RDZJWNGTQihc";
-
         Verification response = finixClient.Verifications.get(verificationId);
-
         assertEquals(verificationId, response.getId(), "Should return " + verificationId + " but returns "+response.getId());
     }
-
 
     /**
      * List Merchant Verifications
@@ -117,15 +110,13 @@ public class VerificationsApiTest {
      *
      */
     @Test
+    @DisplayName("List Merchant Verifications")
     public void listMerchantVerificationsTest() throws ApiException {
         String merchantId = "MU31oiYcWR6Bvx3tqYQ7WEr9";
-
         VerificationsList verificationsList = finixClient.Verifications.listByMerchantId(merchantId, ListMerchantVerificationsQueryParams.builder().build());
         Verification verification = verificationsList.getEmbedded().getVerifications().stream().findFirst().get();
-
         assertEquals(merchantId, verification.getMerchant(), "Should return " + merchantId + " but returns " + verification.getMerchant());
     }
-
 
     /**
      * List Verifications
@@ -140,13 +131,16 @@ public class VerificationsApiTest {
      *
      */
     @Test
+    @DisplayName("List Verifications")
     public void listVerificationsTest() throws ApiException {
         VerificationsList response = finixClient.Verifications.list(ListVerificationsQueryParams.builder().build());
         assertTrue(response.getPage() != null);
         assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());
-//        assertEquals(20,response.getPage().getLimit(),()->"Should return " + "20" + " but returns " + response.getPage().getLimit());
     }
 
+    /**
+     * Test Raw as String
+     */
     @Test
     @DisplayName("Test Raw as String")
     public void checkRawInVerification() throws ApiException{

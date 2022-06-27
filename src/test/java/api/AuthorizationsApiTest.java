@@ -45,10 +45,10 @@ public class AuthorizationsApiTest {
     }
     @Test
     @BeforeAll
+    @DisplayName("Finix Client")
     void contextLoads() {
         finixClient= new FinixClient("USsRhsHYZGBPnQw8CByJyEQW","8a14c2f9-d94b-4c72-8f5c-a62908e5b30e", Environment.SANDBOX);
         assertEquals(true , finixClient!=null);
-
     }
     /**
      * Create an Authorization
@@ -79,7 +79,6 @@ public class AuthorizationsApiTest {
         Authorization response = finixClient.Authorizations.create(createAuthorizationRequest);
         AuthorizationId = response.getId();
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
-
     }
 
     /**
@@ -104,7 +103,6 @@ public class AuthorizationsApiTest {
                 .build();
         Authorization response = finixClient.Authorizations.create(createAuthorizationRequest);
         assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getSource());
-
     }
 
     /**
@@ -129,7 +127,6 @@ public class AuthorizationsApiTest {
                 .build();
         Authorization response = finixClient.Authorizations.create(createAuthorizationRequest);
         assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getSource());
-
     }
     /**
      * Create an Authorization with Level 3 Processing
@@ -179,7 +176,6 @@ public class AuthorizationsApiTest {
                 .build();
         Authorization response = finixClient.Authorizations.create(createAuthorizationRequest);
         assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getSource());
-
     }
     /**
      * Get an Authorization
@@ -279,8 +275,7 @@ public class AuthorizationsApiTest {
                 .build());
         assertTrue(response.getPage() != null);
         assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());
-//        assertEquals(20,response.getPage().getLimit().intValue(),()->"Should return " + "20" + " but returns " + response.getPage().getLimit());
-    }
+  }
 
     /**
      * Update an Authorization
@@ -304,7 +299,6 @@ public class AuthorizationsApiTest {
                 .build();
         Authorization response = finixClient.Authorizations.update(authorizationId, updateAuthorizationRequest);
         assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getSource());
-
     }
     /**
      * Void an Authorization
@@ -318,7 +312,6 @@ public class AuthorizationsApiTest {
                 .build();
         Authorization response = finixClient.Authorizations.update(id, updateAuthorizationRequest);
         assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getSource());
-
     }
     /**
      * Capture an Authorization with Level 2/Level 3 Processing

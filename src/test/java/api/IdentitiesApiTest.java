@@ -47,10 +47,10 @@ public class IdentitiesApiTest {
      */
     @Test
     @BeforeAll
+    @DisplayName("Finix Client")
     void contextLoads() {
         finixClient= new FinixClient("USsRhsHYZGBPnQw8CByJyEQW","8a14c2f9-d94b-4c72-8f5c-a62908e5b30e", Environment.SANDBOX);
         assertEquals(true , finixClient!=null);
-
     }
     /**
      * Create an Associated Identity
@@ -295,9 +295,7 @@ public class IdentitiesApiTest {
                 .build());
         assertTrue(response.getPage() != null);
         assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());
-//        assertEquals("20",response.getPage().getLimit().toString(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit());
-
-    }
+   }
 
     /**
      * List Associated Identities
@@ -428,10 +426,8 @@ public class IdentitiesApiTest {
     @DisplayName("Verify a Merchant")
     @AfterAll
     public void createMerchantVerificationTest() throws ApiException {
-//        String merchantId = "MUucec6fHeaWo3VHYoSkUySM";
-        CreateVerificationRequest verificationForm = CreateVerificationRequest.builder().build();
+       CreateVerificationRequest verificationForm = CreateVerificationRequest.builder().build();
         Verification response = finixClient.Merchants.createMerchantVerification(merchantId, verificationForm);
-
         assertEquals(merchantId, response.getMerchant(), ()->"Should return " +merchantId + " but returns "+ response.getMerchant());
     }
 

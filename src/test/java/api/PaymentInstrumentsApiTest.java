@@ -97,6 +97,7 @@ public class PaymentInstrumentsApiTest {
      */
     @Test
     @DisplayName("Create a Payment Instrument")
+    @BeforeEach
     public void createPaymentInstrumentTest() throws ApiException, IOException {
         Map<String,String> localMap = new HashMap<>();
         localMap.put("card_name", "Business Card");
@@ -161,8 +162,7 @@ public class PaymentInstrumentsApiTest {
     @DisplayName("Payment instrument verification")
     @AfterAll
     public void createPaymentInstrumentVerificationTest() throws ApiException {
-//        String paymentInstrumentId = "PIe2YvpcjvoVJ6PzoRPBK137";
-        CreateVerificationRequest verificationForm = CreateVerificationRequest.builder()
+       CreateVerificationRequest verificationForm = CreateVerificationRequest.builder()
                 .processor("DUMMY_V1")
                 .build();
         Verification response = finixClient.PaymentInstruments.createPaymentInstrumentVerification(paymentInstrumentId, verificationForm);
@@ -189,7 +189,6 @@ public class PaymentInstrumentsApiTest {
         String paymentInstrumentId = "PI8sdzepdapDehPWKFTcre1m";
         PaymentInstrument response = finixClient.PaymentInstruments.get(paymentInstrumentId);
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
-
     }
 
     /**
@@ -274,7 +273,6 @@ public class PaymentInstrumentsApiTest {
         assertTrue(response.getPage() != null);
         assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());
         assertTrue(response.getEmbedded().getPaymentInstruments().size() >= 1);
-//        assertEquals("20",response.getPage().getLimit().toString(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit());
     }
 
 
@@ -297,10 +295,8 @@ public class PaymentInstrumentsApiTest {
         UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest = UpdatePaymentInstrumentRequest.builder()
                 .name("Amy Whites")
                 .build();
-
         PaymentInstrument response = finixClient.PaymentInstruments.update(paymentInstrumentId, updatePaymentInstrumentRequest);
         assertEquals(paymentInstrumentId,response.getId(),()->" Should return " + paymentInstrumentId + " but returns " + response.getId());
 
     }
-
 }

@@ -133,7 +133,6 @@ public class FilesApiTest {
         File response = finixClient.Files.downloadFile(fileId);
         int size = response.getName().length();
         assertEquals(size,response.getName().length(),()->" Should return " + size + " but returns " + response.getName().length());
-
     }
 
     /**
@@ -155,7 +154,6 @@ public class FilesApiTest {
         String externalLinkId = localExternalLinkId;
         ExternalLink response = finixClient.Files.getExternalLink(fileId, externalLinkId);
         assertEquals("USsRhsHYZGBPnQw8CByJyEQW",response.getUserId(),()->" Should return " + "USsRhsHYZGBPnQw8CByJyEQW" + " but returns " + response.getUserId());
-
     }
 
     /**
@@ -216,7 +214,6 @@ public class FilesApiTest {
                 .beforeCursor(beforeCursor)
                 .build());
         assertEquals(10,response.getPage().getLimit().intValue(),()->" Should return " + "10" + " but returns " + response.getPage().getLimit().intValue());
-
     }
 
     /**
