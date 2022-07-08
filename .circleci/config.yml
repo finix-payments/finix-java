@@ -66,7 +66,7 @@ jobs:
           command: |
             mvn compile
             mvn package
-            mvn deploy $Drepo.id=${ID} -Drepo.username=${NEXUS_USER} -Drepo.password=${NEXUS_PASSWORD}
+            mvn -$Drepo.id=${ID} -Drepo.username=${NEXUS_USER} -Drepo.password=${NEXUS_PASSWORD} deploy
           working_directory: ~/project
       - run:
           name: Show jar files
