@@ -57,9 +57,6 @@ jobs:
   assemble:
     docker:
       - image: cimg/openjdk:11.0
-        auth:
-          username: $username
-          password: $password # context / project UI env-var reference
     resource_class: medium
 
     steps:
@@ -69,7 +66,7 @@ jobs:
           command: |
             mvn compile
             mvn package
-            mvn deploy
+            mvn deploy -Drepo.login=$username -Drepo.pwd=$password
           working_directory: ~/project
       - run:
           name: Show jar files
