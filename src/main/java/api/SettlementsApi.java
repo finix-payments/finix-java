@@ -175,6 +175,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Settlement create(CreateSettlementRequest createSettlementRequest) throws ApiException {
             ApiResponse<Settlement> localVarResp = createSettlementWithHttpInfo(createSettlementRequest);
                     return localVarResp.getData();
@@ -319,6 +323,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Settlement get(String settlementId) throws ApiException {
             ApiResponse<Settlement> localVarResp = getSettlementWithHttpInfo(settlementId);
                     return localVarResp.getData();
@@ -589,6 +597,10 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
+    /**
+    * EDITED
+    * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+    */
     public TransfersList listFundingTransfers(String settlementId,  ListSettlementFundingTransfersQueryParams listSettlementFundingTransfersQueryParams) throws ApiException {
 
         APIlistSettlementFundingTransfersRequest request = new APIlistSettlementFundingTransfersRequest(settlementId);
@@ -817,6 +829,10 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
+    /**
+    * EDITED
+    * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+    */
     public TransfersList listTransfersBySettlementId(String settlementId,  ListSettlementTransfersQueryParams listSettlementTransfersQueryParams) throws ApiException {
 
         APIlistSettlementTransfersRequest request = new APIlistSettlementTransfersRequest(settlementId);
@@ -1106,6 +1122,10 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
+    /**
+    * EDITED
+    * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+    */
     public SettlementsList list( ListSettlementsQueryParams listSettlementsQueryParams) throws ApiException {
 
         APIlistSettlementsRequest request = new APIlistSettlementsRequest();
@@ -1216,6 +1236,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public void removeTransfersFromSettlement(String settlementId, RemoveSettlementTransfer removeSettlementTransfer) throws ApiException {
             removeSettlementTransfersWithHttpInfo(settlementId, removeSettlementTransfer);
                 }
@@ -1361,6 +1385,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Settlement update(String settlementId, UpdateSettlementRequest updateSettlementRequest) throws ApiException {
             ApiResponse<Settlement> localVarResp = updateSettlementWithHttpInfo(settlementId, updateSettlementRequest);
                     return localVarResp.getData();

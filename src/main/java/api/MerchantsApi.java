@@ -184,6 +184,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 422 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Merchant create(String identityId, CreateMerchantUnderwritingRequest createMerchantUnderwritingRequest) throws ApiException {
             ApiResponse<Merchant> localVarResp = createMerchantWithHttpInfo(identityId, createMerchantUnderwritingRequest);
                     return localVarResp.getData();
@@ -338,6 +342,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Verification createMerchantVerification(String merchantId, CreateVerificationRequest createVerificationRequest) throws ApiException {
             ApiResponse<Verification> localVarResp = createMerchantVerificationWithHttpInfo(merchantId, createVerificationRequest);
                     return localVarResp.getData();
@@ -486,6 +494,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Merchant get(String merchantId) throws ApiException {
             ApiResponse<Merchant> localVarResp = getMerchantWithHttpInfo(merchantId);
                     return localVarResp.getData();
@@ -812,6 +824,10 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
+    /**
+    * EDITED
+    * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+    */
     public MerchantsList list( ListMerchantsQueryParams listMerchantsQueryParams) throws ApiException {
 
         APIlistMerchantsRequest request = new APIlistMerchantsRequest();
@@ -920,6 +936,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Merchant update(String merchantId, UpdateMerchantRequest updateMerchantRequest) throws ApiException {
             ApiResponse<Merchant> localVarResp = updateMerchantWithHttpInfo(merchantId, updateMerchantRequest);
                     return localVarResp.getData();

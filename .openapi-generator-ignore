@@ -27,6 +27,8 @@
 src/main/java/api/FilesApi.java
 src/main/java/api/DisputesApi.java
 src/main/java/api/InstrumentUpdatesApi.java
+src/main/java/api/SubscriptionEnrollmentsApi.java
+src/main/java/api/SubscriptionSchedulesApi.java
 # src/main/java/model/AbstractOpenApiSchema.java
 
 # Not currently supported for library
@@ -38,6 +40,6 @@ src/**/FeesApi*.java
 src/**/PaymentInstrumentsP2CApi*.java
 src/**/ProcessorsApi*.java
 src/**/ReviewQueueApi*.java
-src/**/Subscription*Api*.java
+#src/**/Subscription*Api*.java
 src/**/UsersApi*.java
 

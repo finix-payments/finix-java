@@ -177,6 +177,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Authorization create(CreateAuthorizationRequest createAuthorizationRequest) throws ApiException {
             ApiResponse<Authorization> localVarResp = createAuthorizationWithHttpInfo(createAuthorizationRequest);
                     return localVarResp.getData();
@@ -327,6 +331,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Authorization get(String authorizationId) throws ApiException {
             ApiResponse<Authorization> localVarResp = getAuthorizationWithHttpInfo(authorizationId);
                     return localVarResp.getData();
@@ -978,6 +986,10 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
+    /**
+    * EDITED
+    * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+    */
     public AuthorizationsList list( ListAuthorizationsQueryParams listAuthorizationsQueryParams) throws ApiException {
 
         APIlistAuthorizationsRequest request = new APIlistAuthorizationsRequest();
@@ -1108,6 +1120,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Authorization update(String authorizationId, UpdateAuthorizationRequest updateAuthorizationRequest) throws ApiException {
             ApiResponse<Authorization> localVarResp = updateAuthorizationWithHttpInfo(authorizationId, updateAuthorizationRequest);
                     return localVarResp.getData();

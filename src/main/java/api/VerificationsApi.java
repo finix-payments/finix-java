@@ -173,6 +173,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Verification create(CreateVerificationRequest createVerificationRequest) throws ApiException {
             ApiResponse<Verification> localVarResp = createVerificationWithHttpInfo(createVerificationRequest);
                     return localVarResp.getData();
@@ -319,6 +323,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Verification get(String verificationId) throws ApiException {
             ApiResponse<Verification> localVarResp = getVerificationWithHttpInfo(verificationId);
                     return localVarResp.getData();
@@ -589,6 +597,10 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
+    /**
+    * EDITED
+    * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+    */
     public VerificationsList listByMerchantId(String merchantId,  ListMerchantVerificationsQueryParams listMerchantVerificationsQueryParams) throws ApiException {
 
         APIlistMerchantVerificationsRequest request = new APIlistMerchantVerificationsRequest(merchantId);
@@ -773,6 +785,10 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
+    /**
+    * EDITED
+    * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+    */
     public VerificationsList list( ListVerificationsQueryParams listVerificationsQueryParams) throws ApiException {
 
         APIlistVerificationsRequest request = new APIlistVerificationsRequest();

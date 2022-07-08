@@ -209,7 +209,7 @@ public class IdentitiesApiTest {
     @Test
     @DisplayName("Create a Bank Account")
     @BeforeEach
-    public void createBankAccount() throws ApiException{
+    public void createTokenizeBankAccountTest() throws ApiException{
         Map<String,String> localMap = new HashMap<>();
         localMap.put("Bank Account", "Company Account");
         CreatePaymentInstrumentRequest createPaymentInstrumentRequest =  CreatePaymentInstrumentRequest.builder()

@@ -300,6 +300,10 @@ this.localCustomBaseUrl = customBaseUrl;
                 }
         {{/vendorExtensions.x-streaming}}
         {{^vendorExtensions.x-streaming}}
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public {{#returnType}}{{{.}}} {{/returnType}}{{^returnType}}void {{/returnType}}{{#vendorExtensions.x-java-method-name}}{{{.}}}{{/vendorExtensions.x-java-method-name}}{{^vendorExtensions.x-java-method-name}}{{operationId}}{{/vendorExtensions.x-java-method-name}}({{#allParams}}{{{dataType}}} {{paramName}}{{^-last}}, {{/-last}}{{/allParams}}) throws ApiException {
             {{#returnType}}ApiResponse<{{{.}}}> localVarResp = {{/returnType}}{{operationId}}WithHttpInfo({{#allParams}}{{paramName}}{{^-last}}, {{/-last}}{{/allParams}});{{#returnType}}
                     return localVarResp.getData();{{/returnType}}
@@ -563,6 +567,10 @@ this.localCustomBaseUrl = customBaseUrl;
     {{#isDeprecated}}
             @Deprecated
     {{/isDeprecated}}
+    /**
+    * EDITED
+    * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+    */
     public {{{returnType}}} {{#vendorExtensions.x-java-method-name}}{{{.}}}{{/vendorExtensions.x-java-method-name}}{{^vendorExtensions.x-java-method-name}}{{operationId}}{{/vendorExtensions.x-java-method-name}}({{#requiredParams}}{{{dataType}}} {{paramName}}, {{/requiredParams}} {{#lambda.titlecase}}{{operationId}}{{/lambda.titlecase}}QueryParams {{operationId}}QueryParams) throws ApiException {
 
         API{{operationId}}Request request = new API{{operationId}}Request({{#requiredParams}}{{paramName}}{{^-last}}, {{/-last}}{{/requiredParams}});

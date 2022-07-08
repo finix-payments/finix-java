@@ -1,0 +1,51 @@
+{
+  "id" : "MUucec6fHeaWo3VHYoSkUySM",
+  "application" : "APgPDQrLD52TYvqazjHJJchM",
+  "identity" : "IDpYDM7J9n57q849o9E9yNrG",
+  "verification" : "VIdikDHXv7x8nWyJg8JZemGx",
+  "merchant_profile" : "MPzW2oRPtkLxK3fymcMACFi",
+  "processor" : "DUMMY_V1",
+  "processing_enabled" : true,
+  "settlement_enabled" : true,
+  "gross_settlement_enabled" : false,
+  "creating_transfer_from_report_enabled" : true,
+  "card_expiration_date_required" : true,
+  "card_cvv_required" : false,
+  "tags" : {
+    "key_2" : "value_2"
+  },
+  "mcc" : "0742",
+  "mid" : "FNX7CwmebftudY7i5mA4qF6XT",
+  "merchant_name" : "Petes Coffee",
+  "settlement_funding_identifier" : "UNSET",
+  "ready_to_settle_upon" : "RECONCILIATION",
+  "fee_ready_to_settle_upon" : "RECONCILIATION",
+  "level_two_level_three_data_enabled" : false,
+  "created_at" : "2022-01-27T07:36:58.19Z",
+  "updated_at" : "2022-01-27T07:36:58.46Z",
+  "onboarding_state" : "APPROVED",
+  "processor_details" : {
+    "mid" : "FNX7CwmebftudY7i5mA4qF6XT",
+    "api_key" : "secretValue"
+  },
+  "_links" : {
+    "self" : {
+      "href" : "https://finix.sandbox-payments-api.com/merchants/MUucec6fHeaWo3VHYoSkUySM"
+    },
+    "identity" : {
+      "href" : "https://finix.sandbox-payments-api.com/identities/IDpYDM7J9n57q849o9E9yNrG"
+    },
+    "verifications" : {
+      "href" : "https://finix.sandbox-payments-api.com/merchants/MUucec6fHeaWo3VHYoSkUySM/verifications"
+    },
+    "merchant_profile" : {
+      "href" : "https://finix.sandbox-payments-api.com/merchant_profiles/MPzW2oRPtkLxK3fymcMACFi"
+    },
+    "application" : {
+      "href" : "https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM"
+    },
+    "verification" : {
+      "href" : "https://finix.sandbox-payments-api.com/verifications/VIdikDHXv7x8nWyJg8JZemGx"
+    }
+  }
+}

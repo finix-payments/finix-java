@@ -1,0 +1,80 @@
+{
+  "id" : "IDqXfTAYjLL4Lyce4Xq33g9k",
+  "application" : "APgPDQrLD52TYvqazjHJJchM",
+  "entity" : {
+    "title" : "Founder",
+    "first_name" : "John",
+    "last_name" : "Smith",
+    "email" : "john.smith@company1.com",
+    "business_name" : null,
+    "business_type" : null,
+    "doing_business_as" : null,
+    "phone" : "1234567890",
+    "business_phone" : null,
+    "personal_address" : {
+      "line1" : "123 Main Street",
+      "line2" : null,
+      "city" : "San Francisco",
+      "region" : "CA",
+      "postal_code" : "90650",
+      "country" : "USA"
+    },
+    "business_address" : null,
+    "mcc" : null,
+    "dob" : {
+      "day" : 1,
+      "month" : 1,
+      "year" : 2013
+    },
+    "max_transaction_amount" : 0,
+    "amex_mid" : null,
+    "discover_mid" : null,
+    "url" : null,
+    "annual_card_volume" : 0,
+    "has_accepted_credit_cards_previously" : false,
+    "incorporation_date" : null,
+    "principal_percentage_ownership" : 25,
+    "short_business_name" : null,
+    "ownership_type" : null,
+    "tax_authority" : null,
+    "tax_id_provided" : true,
+    "business_tax_id_provided" : false,
+    "default_statement_descriptor" : null
+  },
+  "tags" : { },
+  "created_at" : "2022-01-27T07:37:01.87Z",
+  "updated_at" : "2022-01-27T07:37:01.93Z",
+  "_links" : {
+    "self" : {
+      "href" : "https://finix.sandbox-payments-api.com/identities/IDqXfTAYjLL4Lyce4Xq33g9k"
+    },
+    "verifications" : {
+      "href" : "https://finix.sandbox-payments-api.com/identities/IDqXfTAYjLL4Lyce4Xq33g9k/verifications"
+    },
+    "merchants" : {
+      "href" : "https://finix.sandbox-payments-api.com/identities/IDqXfTAYjLL4Lyce4Xq33g9k/merchants"
+    },
+    "settlements" : {
+      "href" : "https://finix.sandbox-payments-api.com/identities/IDqXfTAYjLL4Lyce4Xq33g9k/settlements"
+    },
+    "authorizations" : {
+      "href" : "https://finix.sandbox-payments-api.com/identities/IDqXfTAYjLL4Lyce4Xq33g9k/authorizations"
+    },
+    "transfers" : {
+      "href" : "https://finix.sandbox-payments-api.com/identities/IDqXfTAYjLL4Lyce4Xq33g9k/transfers"
+    },
+    "payment_instruments" : {
+      "href" : "https://finix.sandbox-payments-api.com/identities/IDqXfTAYjLL4Lyce4Xq33g9k/payment_instruments"
+    },
+    "associated_identities" : {
+      "href" : "https://finix.sandbox-payments-api.com/identities/IDqXfTAYjLL4Lyce4Xq33g9k/associated_identities"
+    },
+    "disputes" : {
+      "href" : "https://finix.sandbox-payments-api.com/identities/IDqXfTAYjLL4Lyce4Xq33g9k/disputes"
+    },
+    "application" : {
+      "href" : "https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM"
+    }
+  }
+}
+

@@ -183,6 +183,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Identity createAssociatedIdentity(String identityId, CreateIdentityRequest createIdentityRequest) throws ApiException {
             ApiResponse<Identity> localVarResp = createAssociatedIdentityWithHttpInfo(identityId, createIdentityRequest);
                     return localVarResp.getData();
@@ -325,6 +329,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Identity create(CreateIdentityRequest createIdentityRequest) throws ApiException {
             ApiResponse<Identity> localVarResp = createIdentityWithHttpInfo(createIdentityRequest);
                     return localVarResp.getData();
@@ -473,6 +481,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Verification createIdentityVerification(String identityId, CreateVerificationRequest createVerificationRequest) throws ApiException {
             ApiResponse<Verification> localVarResp = createIdentityVerificationWithHttpInfo(identityId, createVerificationRequest);
                     return localVarResp.getData();
@@ -621,6 +633,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Identity get(String identityId) throws ApiException {
             ApiResponse<Identity> localVarResp = getIdentityWithHttpInfo(identityId);
                     return localVarResp.getData();
@@ -1047,6 +1063,10 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
+    /**
+    * EDITED
+    * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+    */
     public IdentitiesList list( ListIdentitiesQueryParams listIdentitiesQueryParams) throws ApiException {
 
         APIlistIdentitiesRequest request = new APIlistIdentitiesRequest();
@@ -1286,6 +1306,10 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
+    /**
+    * EDITED
+    * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+    */
     public IdentitiesList listAssocaiatedIdentities(String identityId,  ListIdentityAssociatedIdentitiesQueryParams listIdentityAssociatedIdentitiesQueryParams) throws ApiException {
 
         APIlistIdentityAssociatedIdentitiesRequest request = new APIlistIdentityAssociatedIdentitiesRequest(identityId);
@@ -1392,6 +1416,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Identity update(String identityId, UpdateIdentityRequest updateIdentityRequest) throws ApiException {
             ApiResponse<Identity> localVarResp = updateIdentityWithHttpInfo(identityId, updateIdentityRequest);
                     return localVarResp.getData();

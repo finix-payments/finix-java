@@ -94,7 +94,9 @@ public class FinixClient {
     public InstrumentUpdatesApi InstrumentUpdates;
     public FeeProfilesApi FeeProfiles;
     public MerchantProfilesApi MerchantProfiles;
-
+    public SubscriptionEnrollmentsApi SubscriptionEnrollments;
+    public SubscriptionSchedulesApi SubscriptionSchedules;
+    public SubscriptionAmountsApi SubscriptionAmounts;
     private OkHttpClient httpClient;
     private JSON json;
     private HttpBasicAuth httpBasicAuth = new HttpBasicAuth();
@@ -194,7 +196,9 @@ public class FinixClient {
         InstrumentUpdates = new InstrumentUpdatesApi(this);
         FeeProfiles = new FeeProfilesApi(this);
         MerchantProfiles = new MerchantProfilesApi(this);
-
+        SubscriptionEnrollments = new SubscriptionEnrollmentsApi(this);
+        SubscriptionSchedules = new SubscriptionSchedulesApi(this);
+        SubscriptionAmounts = new SubscriptionAmountsApi(this);
         // Finix API Version
         addDefaultHeader("Finix-Version","2022-02-01");
     }

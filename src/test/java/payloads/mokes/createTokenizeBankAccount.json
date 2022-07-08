@@ -1,0 +1,39 @@
+{
+  "id" : "PI8sdzepdapDehPWKFTcre1m",
+  "application" : "APgPDQrLD52TYvqazjHJJchM",
+  "fingerprint" : "FPRd5moHxL3Ltuvk4cczxetCg",
+  "tags" : {
+    "Bank Account" : "Company Account"
+  },
+  "bank_code" : "123123123",
+  "country" : "USA",
+  "masked_account_number" : "XXXXX3123",
+  "name" : "Alice",
+  "account_type" : "SAVINGS",
+  "created_at" : "2022-01-27T07:36:57.62Z",
+  "updated_at" : "2022-01-27T07:36:57.62Z",
+  "instrument_type" : "BANK_ACCOUNT",
+  "type" : "BANK_ACCOUNT",
+  "currency" : "USD",
+  "identity" : "IDpYDM7J9n57q849o9E9yNrG",
+  "_links" : {
+    "self" : {
+      "href" : "https://finix.sandbox-payments-api.com/payment_instruments/PI8sdzepdapDehPWKFTcre1m"
+    },
+    "authorizations" : {
+      "href" : "https://finix.sandbox-payments-api.com/payment_instruments/PI8sdzepdapDehPWKFTcre1m/authorizations"
+    },
+    "transfers" : {
+      "href" : "https://finix.sandbox-payments-api.com/payment_instruments/PI8sdzepdapDehPWKFTcre1m/transfers"
+    },
+    "verifications" : {
+      "href" : "https://finix.sandbox-payments-api.com/payment_instruments/PI8sdzepdapDehPWKFTcre1m/verifications"
+    },
+    "application" : {
+      "href" : "https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM"
+    },
+    "identity" : {
+      "href" : "https://finix.sandbox-payments-api.com/identities/IDpYDM7J9n57q849o9E9yNrG"
+    }
+  }
+}

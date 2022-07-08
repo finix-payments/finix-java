@@ -169,6 +169,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public FeeProfile create(CreateFeeProfileRequest createFeeProfileRequest) throws ApiException {
             ApiResponse<FeeProfile> localVarResp = createFeeProfileWithHttpInfo(createFeeProfileRequest);
                     return localVarResp.getData();
@@ -313,6 +317,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public FeeProfile get(String feeProfileId) throws ApiException {
             ApiResponse<FeeProfile> localVarResp = getFeeProfileWithHttpInfo(feeProfileId);
                     return localVarResp.getData();
@@ -569,6 +577,10 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
+    /**
+    * EDITED
+    * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+    */
     public FeeProfilesList list( ListFeeProfilesQueryParams listFeeProfilesQueryParams) throws ApiException {
 
         APIlistFeeProfilesRequest request = new APIlistFeeProfilesRequest();

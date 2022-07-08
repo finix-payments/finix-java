@@ -169,6 +169,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public BalanceTransfer createBalanceTransfer(CreateBalanceTransferRequest createBalanceTransferRequest) throws ApiException {
             ApiResponse<BalanceTransfer> localVarResp = createBalanceTransferWithHttpInfo(createBalanceTransferRequest);
                     return localVarResp.getData();
@@ -313,6 +317,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public BalanceTransfer getBalanceTransfers(String balanceTransfersId) throws ApiException {
             ApiResponse<BalanceTransfer> localVarResp = getBalanceTransfersWithHttpInfo(balanceTransfersId);
                     return localVarResp.getData();
@@ -759,6 +767,10 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
+    /**
+    * EDITED
+    * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+    */
     public BalanceTransferList listBalanceTransfers( ListBalanceTransfersQueryParams listBalanceTransfersQueryParams) throws ApiException {
 
         APIlistBalanceTransfersRequest request = new APIlistBalanceTransfersRequest();

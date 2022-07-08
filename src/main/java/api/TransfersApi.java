@@ -180,6 +180,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Transfer create(CreateTransferRequest createTransferRequest) throws ApiException {
             ApiResponse<Transfer> localVarResp = createTransferWithHttpInfo(createTransferRequest);
                     return localVarResp.getData();
@@ -336,6 +340,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 422 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Transfer createTransferReversal(String transferId, CreateReversalRequest createReversalRequest) throws ApiException {
             ApiResponse<Transfer> localVarResp = createTransferReversalWithHttpInfo(transferId, createReversalRequest);
                     return localVarResp.getData();
@@ -486,6 +494,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Transfer get(String transferId) throws ApiException {
             ApiResponse<Transfer> localVarResp = getTransferWithHttpInfo(transferId);
                     return localVarResp.getData();
@@ -756,6 +768,10 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
+    /**
+    * EDITED
+    * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+    */
     public TransfersList listTransfersReversals(String transferId,  ListTransferReversalsQueryParams listTransferReversalsQueryParams) throws ApiException {
 
         APIlistTransferReversalsRequest request = new APIlistTransferReversalsRequest(transferId);
@@ -1410,6 +1426,10 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
+    /**
+    * EDITED
+    * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+    */
     public TransfersList list( ListTransfersQueryParams listTransfersQueryParams) throws ApiException {
 
         APIlistTransfersRequest request = new APIlistTransfersRequest();
@@ -1543,6 +1563,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Transfer update(String transferId, UpdateTransferRequest updateTransferRequest) throws ApiException {
             ApiResponse<Transfer> localVarResp = updateTransferWithHttpInfo(transferId, updateTransferRequest);
                     return localVarResp.getData();

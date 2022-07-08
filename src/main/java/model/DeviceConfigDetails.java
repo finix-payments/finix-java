@@ -49,7 +49,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Information used to configure how the `Device` handles transactions.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-07-05T17:36:16.020725-05:00[America/Chicago]")
 public class DeviceConfigDetails {
   public static final String SERIALIZED_NAME_ALLOW_DEBIT = "allow_debit";
   @SerializedName(SERIALIZED_NAME_ALLOW_DEBIT)

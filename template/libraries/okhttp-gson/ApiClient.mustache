@@ -104,6 +104,7 @@ public class FinixClient {
     public SettlementsApi Settlements;
     public VerificationsApi Verifications;
     public InstrumentUpdatesApi InstrumentUpdates;
+    public SubscriptionSchedulesApi Subscriptions;
     private OkHttpClient httpClient;
     private JSON json;
     private HttpBasicAuth httpBasicAuth = new HttpBasicAuth();
@@ -312,6 +313,7 @@ public class FinixClient {
         Settlements = new SettlementsApi(this);
         Verifications = new VerificationsApi(this);
         InstrumentUpdates = new InstrumentUpdatesApi(this);
+        Subscriptions = new SubscriptionSchedulesApi(this);
 
         // EDITED
         // Finix API Version

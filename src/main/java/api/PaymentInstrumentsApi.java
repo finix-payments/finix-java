@@ -174,6 +174,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public ApplePaySession createApplePaySession(ApplePaySessionRequest applePaySessionRequest) throws ApiException {
             ApiResponse<ApplePaySession> localVarResp = createApplePaySessionWithHttpInfo(applePaySessionRequest);
                     return localVarResp.getData();
@@ -312,6 +316,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public PaymentInstrument create(CreatePaymentInstrumentRequest createPaymentInstrumentRequest) throws ApiException {
             ApiResponse<PaymentInstrument> localVarResp = createPaymentInstrumentWithHttpInfo(createPaymentInstrumentRequest);
                     return localVarResp.getData();
@@ -460,6 +468,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Verification createPaymentInstrumentVerification(String paymentInstrumentId, CreateVerificationRequest createVerificationRequest) throws ApiException {
             ApiResponse<Verification> localVarResp = createPaymentInstrumentVerificationWithHttpInfo(paymentInstrumentId, createVerificationRequest);
                     return localVarResp.getData();
@@ -608,6 +620,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public PaymentInstrument get(String paymentInstrumentId) throws ApiException {
             ApiResponse<PaymentInstrument> localVarResp = getPaymentInstrumentWithHttpInfo(paymentInstrumentId);
                     return localVarResp.getData();
@@ -1044,6 +1060,10 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
+    /**
+    * EDITED
+    * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+    */
     public PaymentInstrumentsList list( ListPaymentInstrumentsQueryParams listPaymentInstrumentsQueryParams) throws ApiException {
 
         APIlistPaymentInstrumentsRequest request = new APIlistPaymentInstrumentsRequest();
@@ -1160,6 +1180,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public PaymentInstrument update(String paymentInstrumentId, UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest) throws ApiException {
             ApiResponse<PaymentInstrument> localVarResp = updatePaymentInstrumentWithHttpInfo(paymentInstrumentId, updatePaymentInstrumentRequest);
                     return localVarResp.getData();

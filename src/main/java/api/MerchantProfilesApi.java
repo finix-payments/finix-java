@@ -174,6 +174,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public MerchantProfile get(String merchantProfileId) throws ApiException {
             ApiResponse<MerchantProfile> localVarResp = getMerchantProfileWithHttpInfo(merchantProfileId);
                     return localVarResp.getData();
@@ -430,6 +434,10 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
+    /**
+    * EDITED
+    * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+    */
     public MerchantProfilesList list( ListMerchantProfilesQueryParams listMerchantProfilesQueryParams) throws ApiException {
 
         APIlistMerchantProfilesRequest request = new APIlistMerchantProfilesRequest();
@@ -532,6 +540,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public MerchantProfile update(String merchantProfileId, UpdateMerchantProfileRequest updateMerchantProfileRequest) throws ApiException {
             ApiResponse<MerchantProfile> localVarResp = updateMerchantProfileWithHttpInfo(merchantProfileId, updateMerchantProfileRequest);
                     return localVarResp.getData();

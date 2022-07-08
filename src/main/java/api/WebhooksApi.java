@@ -173,6 +173,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Webhook create(CreateWebhookRequest createWebhookRequest) throws ApiException {
             ApiResponse<Webhook> localVarResp = createWebhookWithHttpInfo(createWebhookRequest);
                     return localVarResp.getData();
@@ -319,6 +323,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Webhook get(String webhookId) throws ApiException {
             ApiResponse<Webhook> localVarResp = getWebhookWithHttpInfo(webhookId);
                     return localVarResp.getData();
@@ -575,6 +583,10 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
+    /**
+    * EDITED
+    * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+    */
     public WebhooksList list( ListWebhooksQueryParams listWebhooksQueryParams) throws ApiException {
 
         APIlistWebhooksRequest request = new APIlistWebhooksRequest();
@@ -679,6 +691,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Webhook update(String webhookId, UpdateWebhookRequest updateWebhookRequest) throws ApiException {
             ApiResponse<Webhook> localVarResp = updateWebhookWithHttpInfo(webhookId, updateWebhookRequest);
                     return localVarResp.getData();

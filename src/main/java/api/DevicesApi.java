@@ -177,6 +177,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Device create(String merchantId, CreateDevice createDevice) throws ApiException {
             ApiResponse<Device> localVarResp = createMerchantDeviceWithHttpInfo(merchantId, createDevice);
                     return localVarResp.getData();
@@ -325,6 +329,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Device get(String deviceId) throws ApiException {
             ApiResponse<Device> localVarResp = getDeviceWithHttpInfo(deviceId);
                     return localVarResp.getData();
@@ -471,6 +479,10 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+        /**
+        * EDITED
+        * Test Function Name Generations from OPENAPI Spec with x-java-method-name
+        */
                 public Device update(String deviceId, Object body) throws ApiException {
             ApiResponse<Device> localVarResp = updateDeviceWithHttpInfo(deviceId, body);
                     return localVarResp.getData();
