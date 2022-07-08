@@ -66,6 +66,7 @@ jobs:
           command: |
             mvn compile
             mvn package
+            mvn deploy
           working_directory: ~/project
       - run:
           name: Show jar files
