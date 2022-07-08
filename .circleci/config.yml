@@ -62,13 +62,15 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Assemble
-          command: ./gradlew assembleAll
-          working_directory: ~/project/project-composite
+          name: build
+          command: |
+            mvn compile
+            mvn package
+          working_directory: ~/project
       - run:
           name: Show jar files
-          command: find . -name "*boot.jar"
-          working_directory: ~/project/project-composite
+          command: find . -name "finix*.jar"
+          working_directory: ~/project
 
 workflows:
   version: 2
