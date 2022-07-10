@@ -67,3 +67,5 @@ finixClient.setTempFolderPath('/path/to/tempfolder')
 - Settlements
 - Webhooks
 - Verifications
+- Merchant Profiles
+- Fee Profiles
