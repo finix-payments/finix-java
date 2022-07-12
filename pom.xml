@@ -257,16 +257,6 @@
                                 <goals>
                                     <goal>sign</goal>
                                 </goals>
-                                <configuration>
-                                    <gpgArguments>
-                                        <arg>--pinentry-mode</arg>
-                                        <arg>loopback</arg>
-                                    </gpgArguments>
-                                    <!--suppress UnresolvedMavenProperty -->
-                                    <keyname>${gpg.id}</keyname>
-                                    <!--suppress UnresolvedMavenProperty -->
-                                    <passphrase>${gpg.id}</passphrase>
-                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
