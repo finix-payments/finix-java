@@ -139,6 +139,13 @@ workflows:
 
   build-deploy:
     jobs:
+      - sign-rpms:
+          filters:
+            branches:
+              only:
+                - develop
+            tags:
+              only: /^(DEP).*/
       - deploy:
           filters:
             branches:
@@ -146,3 +153,5 @@ workflows:
                 - develop
             tags:
               only: /^(DEP).*/
+          requires:
+            - sign-rmps
