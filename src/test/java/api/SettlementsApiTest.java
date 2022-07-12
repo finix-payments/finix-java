@@ -65,7 +65,7 @@ public class SettlementsApiTest {
      * Test Function Name Generations from OPENAPI Spec with x-java-method-name
      *
      */
-    @Test
+    //@Test
     @DisplayName("Fetch a Batch Settlement")
     public void getSettlementTest() throws ApiException {
         String settlementId = "STmCc8GbjjX33SdymwNhb9Et";
@@ -85,7 +85,7 @@ public class SettlementsApiTest {
      * Test Function Name Generations from OPENAPI Spec with x-java-method-name
      *
      */
-    @Test
+    //@Test
     @DisplayName("List Funding Transfers in a Batch Settlement")
     public void getSettlementFundingTransfersTest() throws ApiException {
         String settlementId = "STmCc8GbjjX33SdymwNhb9Et";
@@ -109,7 +109,7 @@ public class SettlementsApiTest {
      * Test Function Name Generations from OPENAPI Spec with x-java-method-name
      *
      */
-    @Test
+    //@Test
     @DisplayName("List Settlement Transfers")
     public void listSettlementTransfersTest() throws ApiException {
         String settlementId = "STmCc8GbjjX33SdymwNhb9Et";
@@ -134,7 +134,7 @@ public class SettlementsApiTest {
      * Test Function Name Generations from OPENAPI Spec with x-java-method-name
      *
      */
-    @Test
+    //@Test
     @DisplayName("List Settlements")
     public void listSettlementsTest() throws ApiException {
         SettlementsList response = finixClient.Settlements.list(ListSettlementsQueryParams.builder()
@@ -155,7 +155,7 @@ public class SettlementsApiTest {
      * Test Function Name Generations from OPENAPI Spec with x-java-method-name
      *
      */
-    @Test
+    //@Test
     @DisplayName("Remove Settlement Transfers")
     public void removeSettlementTransfersTest() throws ApiException {
         String settlementId = "STmCc8GbjjX33SdymwNhb9Et";

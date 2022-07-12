@@ -1,5 +1,6 @@
 version: 2.1
-
+orbs:
+  sign-packages: opennms/sign-packages@2.3.0
 jobs:
   sonarqube:
     docker:
@@ -88,6 +89,40 @@ jobs:
             mvn -Drepo.id=${ID} -Drepo.username=${NEXUS_USER} -Drepo.password=${NEXUS_PASSWORD} deploy
           working_directory: ~/project
 
+  sign-rpms:
+    description: Sign one or more RPM packages.
+    parameters:
+      gnupg_home:
+        default: ~/.gnupg
+        description: the location for GnuPG files
+        type: string
+      gnupg_key:
+        description: the name/email or key ID to use when signing
+        type: string
+      packages:
+        description: the RPM packages to sign
+        type: string
+      skip_if_forked_pr:
+        default: false
+        description: whether to skip running if this command is run on a forked PR
+        type: boolean
+    docker:
+      - image: cimg/openjdk:11.0
+    steps:
+      - run:
+          command: |
+            <<# parameters.skip_if_forked_pr >>
+              if [ -n "$CIRCLE_PR_NUMBER" ]; then
+                echo "Skipping RPM package signing for pull request #${CIRCLE_PR_NUMBER}."
+                exit 0
+              fi
+            <</ parameters.skip_if_forked_pr >>
+            export GNUPGHOME="$(realpath << parameters.gnupg_home >> || (cd << parameters.gnupg_home >>; pwd -P))"
+            rpmsign \
+              --define "passphrase_file ${GNUPGHOME}/gpg-passphrase" \
+              --key-id='<< parameters.gnupg_key >>' \
+              --resign << parameters.packages >>
+          name: Sign RPM Packages
 
 workflows:
   version: 2
@@ -108,6 +143,6 @@ workflows:
           filters:
             branches:
               only:
-                - main
+                - develop
             tags:
               only: /^(DEP).*/
