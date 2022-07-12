@@ -83,6 +83,7 @@ jobs:
       - run:
           name: build
           command: |
+            gpg --gen-key
             cp .m2/settings.xml ~/.m2
             mvn compile
             mvn package
