@@ -73,14 +73,6 @@ jobs:
           command: find . -name "finix*.jar"
           working_directory: ~/project
 
-commands:
-  configure-gpg:
-    steps:
-      - run:
-          name: Configure GPG private key for signing project artifacts in OSS Sonatype
-          command: |
-            echo $SECRING_GPG_ASC_BASE64 | base64 --decode | gpg --batch --no-tty --import --yes
-
   deploy:
     docker:
       - image: cimg/openjdk:11.0
@@ -96,41 +88,6 @@ commands:
             mvn package
             mvn -Drepo.id=${ID} -Drepo.username=${NEXUS_USER} -Drepo.password=${NEXUS_PASSWORD} -Dgpg.passphrase=${GPG_KEY} deploy
           working_directory: ~/project
-
-  sign-rpms:
-    description: Sign one or more RPM packages.
-    parameters:
-      gnupg_home:
-        default: ~/.gnupg
-        description: the location for GnuPG files
-        type: string
-      gnupg_key:
-        description: the name/email or key ID to use when signing
-        type: string
-      packages:
-        description: the RPM packages to sign
-        type: string
-      skip_if_forked_pr:
-        default: false
-        description: whether to skip running if this command is run on a forked PR
-        type: boolean
-    docker:
-      - image: cimg/openjdk:11.0
-    steps:
-      - run:
-          command: |
-            <<# parameters.skip_if_forked_pr >>
-              if [ -n "$CIRCLE_PR_NUMBER" ]; then
-                echo "Skipping RPM package signing for pull request #${CIRCLE_PR_NUMBER}."
-                exit 0
-              fi
-            <</ parameters.skip_if_forked_pr >>
-            export GNUPGHOME="$(realpath << parameters.gnupg_home >> || (cd << parameters.gnupg_home >>; pwd -P))"
-            rpmsign \
-              --define "passphrase_file ${GNUPGHOME}/gpg-passphrase" \
-              --key-id='<< parameters.gnupg_key >>' \
-              --resign << parameters.packages >>
-          name: Sign RPM Packages
 
 workflows:
   version: 2
