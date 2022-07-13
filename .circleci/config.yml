@@ -85,7 +85,6 @@ jobs:
           command: |
             mkdir -p ~/.m2
             cp .m2/settings.xml ~/.m2
-            gpg --import import-key
             gpg --keyserver keyserver.ubuntu.com --send-keys $GPG_KEY
             mvn compile
             mvn package
