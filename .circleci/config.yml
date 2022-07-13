@@ -88,7 +88,7 @@ jobs:
             
             mvn compile
             mvn package
-            mvn verify -Dgpg.passphrase=${GPG_KEY}
+            mvn release:perform -Darguments=-Dgpg.passphrase=${GPG_KEY}
             mvn -Drepo.id=${ID} -Drepo.username=${NEXUS_USER} -Drepo.password=${NEXUS_PASSWORD} verify gpg:sign install:install deploy:deploy
           working_directory: ~/project
 
