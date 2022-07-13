@@ -66,7 +66,7 @@ public class InstrumentUpdatesApiTest {
      * Test Function Name Generations from OPENAPI Spec with x-java-method-name
      *
      */
-    @Test
+    //@Test
     @DisplayName("Download Instrument Updates")
     public void downloadInstrumentUpdatesTest() throws ApiException {
         String format = null;
@@ -88,7 +88,7 @@ public class InstrumentUpdatesApiTest {
      * Test Function Name Generations from OPENAPI Spec with x-java-method-name
      *
      */
-    @Test
+    //@Test
     @DisplayName("Fetch an Instrument Update")
     public void getInstrumentUpdatesTest() throws ApiException {
         String instrumentUpdatesId = "IUp9oSWhWUF31DPrJ8CojQeQ";
