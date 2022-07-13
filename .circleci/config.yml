@@ -83,6 +83,7 @@ jobs:
       - run:
           name: build
           command: |
+            mkdir -p ~/.m2
             cp .m2/settings.xml ~/.m2
             mvn compile
             mvn package
