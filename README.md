@@ -60,6 +60,8 @@ finixClient.setTempFolderPath('/path/to/tempfolder')
 - Authorizaitons
 - Identities
 - Merchants
+- Payment Instruments
+- Instrument Updates
 - Balance Transfers
 - Devices
 - Disputes
