@@ -87,7 +87,6 @@ jobs:
             cp .m2/settings.xml ~/.m2          
             mvn compile
             mvn package
-            mvn gpg:sign
             mvn -Darguments=-Dgpg.passphrase=${GPG_KEY} release:perform 
             mvn -Drepo.id=${ID} -Drepo.username=${NEXUS_USER} -Drepo.password=${NEXUS_PASSWORD} verify gpg:sign install:install deploy:deploy
           working_directory: ~/project
