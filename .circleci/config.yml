@@ -92,7 +92,6 @@ jobs:
           working_directory: ~/project
 
 workflows:
-  version: 2
 
   assemble:
     jobs:
