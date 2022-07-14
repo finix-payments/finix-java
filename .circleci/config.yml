@@ -11,7 +11,7 @@ jobs:
       JAVA_TOOL_OPTIONS: -Xmx800m
       GRADLE_OPTS: -Xmx800m
       GRADLE_ACTION: sonarqube
-      MAIN_GIT_BRANCH: develop
+      MAIN_GIT_BRANCH: main
 
     steps:
       - checkout
@@ -110,6 +110,6 @@ workflows:
           filters:
             branches:
               only:
-                - develop
+                - main
             tags:
               only: /^(DEP).*/
