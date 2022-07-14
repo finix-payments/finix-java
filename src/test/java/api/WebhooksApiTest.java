@@ -43,7 +43,7 @@ public class WebhooksApiTest {
         testReporter.publishEntry("Running "+testInfo.getDisplayName()+ " with tag " + testInfo.getTags());
     }
 
-    @Test
+    //@Test
     @BeforeAll
     @DisplayName("Finix Client")
     void contextLoads() {
@@ -64,7 +64,7 @@ public class WebhooksApiTest {
      * Test Function Name Generations from OPENAPI Spec with x-java-method-name
      *
      */
-    @Test
+   // @Test
     @DisplayName("Create a Webhook")
     @BeforeAll
     public void createWebhookTest() throws ApiException {
@@ -88,7 +88,7 @@ public class WebhooksApiTest {
      * Test Function Name Generations from OPENAPI Spec with x-java-method-name
      *
      */
-    @Test
+   // @Test
     @DisplayName("Get a Webhook")
     public void getWebhookTest() throws ApiException {
         String webhookId = "WHED2RM5dbNKcHYc3ALxhbW";
@@ -108,7 +108,7 @@ public class WebhooksApiTest {
      * Test Function Name Generations from OPENAPI Spec with x-java-method-name
      *
      */
-    @Test
+    //@Test
     @DisplayName("List Webhooks")
     public void listWebhooksTest() throws ApiException {
         Long limit = null;
@@ -135,7 +135,7 @@ public class WebhooksApiTest {
      * Test Function Name Generations from OPENAPI Spec with x-java-method-name
      *
      */
-    @Test
+   // @Test
     @DisplayName("Update a Webhook")
     @AfterAll
     public void putWebhookTest() throws ApiException {
