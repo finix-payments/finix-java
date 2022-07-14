@@ -16,7 +16,7 @@
     <scm>
         <connection>scm:git:git@github.com:finix-payments/finix-java.git</connection>
         <developerConnection>scm:git:git@github.com:finix-payments/finix-java.git</developerConnection>
-        <url>https://github.com/finix-payments/finix-java/develop</url>
+        <url>https://github.com/finix-payments/finix-java</url>
     </scm>
 
     <distributionManagement>
