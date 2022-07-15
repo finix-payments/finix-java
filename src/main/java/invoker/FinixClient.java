@@ -99,6 +99,7 @@ public class FinixClient {
     private JSON json;
     private HttpBasicAuth httpBasicAuth = new HttpBasicAuth();
     private HttpLoggingInterceptor loggingInterceptor;
+    final Properties properties = new Properties();
 
     /**
     * EDITED
@@ -171,10 +172,11 @@ public class FinixClient {
 
         json = new JSON();
 
-        // Set default User-Agent.
-       // setUserAgent("OpenAPI-Generator/finix-java/java");
-        setUserAgent("finix-java/0.0.1");
+        //Setting up UserAgent Auto
 
+        // Set default User-Agent.
+        // setUserAgent("OpenAPI-Generator/finix-java/java");
+        setUserAgent("finix-java/0.0.1");
         authentications = new HashMap<String, Authentication>();
 
         // Add APIs to client for ease of interaction.

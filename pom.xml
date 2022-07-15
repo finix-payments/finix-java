@@ -18,7 +18,6 @@
         <developerConnection>scm:git:git@github.com:finix-payments/finix-java.git</developerConnection>
         <url>https://github.com/finix-payments/finix-java</url>
     </scm>
-
     <distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
@@ -29,8 +28,6 @@
             <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
-
-
     <licenses>
         <license>
             <name>MIT</name>
@@ -46,7 +43,6 @@
             <organizationUrl>https://finix.com</organizationUrl>
         </developer>
     </developers>
-
     <build>
         <plugins>
            <plugin>
@@ -239,8 +235,13 @@
               </configuration>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
-
     <profiles>
         <profile>
             <id>sign-artifacts</id>
@@ -264,7 +265,6 @@
             </build>
         </profile>
     </profiles>
-
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-gpg-plugin -->
         <dependency>
