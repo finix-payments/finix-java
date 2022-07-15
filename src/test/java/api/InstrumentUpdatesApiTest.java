@@ -96,6 +96,9 @@ public class InstrumentUpdatesApiTest {
         assertEquals(instrumentUpdatesId, update.getId(), "Should return " + instrumentUpdatesId + " but returns " + update.getId());
     }
 
+    /**
+     * Create an instrument update
+     */
     @Test
     @DisplayName("Create an instrument update")
     public void createInstrumentUpdateTest() throws ApiException {
