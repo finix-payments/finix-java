@@ -51,7 +51,7 @@ import invoker.JSON;
  * CreateExternalLinkRequest
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateExternalLinkRequest {
   /**
    * &lt;ul&gt;&lt;li&gt;Set to &lt;strong&gt;UPLOAD&lt;/strong&gt; to create a link that can be used to upload files to Finix.&lt;li&gt;Set to &lt;strong&gt;DOWNLOAD&lt;/strong&gt; to create a link where the uploaded file can be downloaded from.&lt;li&gt;Set to &lt;strong&gt;VIEW&lt;/strong&gt; to create a link that displays the file in browser.

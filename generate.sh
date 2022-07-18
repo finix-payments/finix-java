@@ -10,6 +10,7 @@ openapi-generator generate \
   --additional-properties=artifactVersion=0.0.1 \
   --additional-properties=url=0.0.1-SNAPSHOT \
   --additional-properties=enumUnknownDefaultCase=true \
+  --additional-properties=hideGenerationTimestamp=true \
   --global-property skipFormModel=false \
   \
   --global-property httpUserAgent=finix-java/0.0.1 \

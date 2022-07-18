@@ -53,7 +53,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "The additional information about the purchase. Used for Level 2 and Level 3 Processing.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:03:58.017729-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AdditionalPurchaseData {
   public static final String SERIALIZED_NAME_CUSTOMER_REFERENCE_NUMBER = "customer_reference_number";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_REFERENCE_NUMBER)
