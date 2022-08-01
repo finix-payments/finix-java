@@ -176,6 +176,17 @@ this.localCustomBaseUrl = customBaseUrl;
             }
 
     {{/formParams}}
+    {{#bodyParam}}
+    {{#vars}}
+    {{#isFile}}
+    {{#bodyParam}}
+    {{#vars}}
+        localVarFormParams.put("{{baseName}}", {{paramName}}.{{getter}}());
+    {{/vars}}
+    {{/bodyParam}}
+    {{/isFile}}
+    {{/vars}}
+    {{/bodyParam}}
     {{^dynamicOperations}}
         {{#queryParams}}
                 if ({{paramName}} != null) {
@@ -210,7 +221,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    {{#consumes}}"{{{mediaType}}}"{{^-last}}, {{/-last}}{{/consumes}}
+            {{#consumes}}"{{{mediaType}}}"{{^-last}}, {{/-last}}{{/consumes}}
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {

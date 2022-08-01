@@ -91,19 +91,13 @@ public class FinixClient {
     private InputStream sslCaCert;
     private boolean verifyingSsl;
     private KeyManager[] keyManagers;
-    public TransfersApi Transfers;
-    public AuthorizationsApi Authorizations;
-    public IdentitiesApi Identities;
-    public DisputesApi Disputes;
-    public DevicesApi Devices;
-    public PaymentInstrumentsApi PaymentInstruments;
-    public BalanceTransfersApi BalanceTransfers;
-    public WebhooksApi Webhooks;
-    public FilesApi Files;
-    public MerchantsApi Merchants;
-    public SettlementsApi Settlements;
-    public VerificationsApi Verifications;
-    public InstrumentUpdatesApi InstrumentUpdates;
+    {{#apiInfo}}
+    {{#apis}}
+    {{#operations}}
+    public {{classname}} {{#lambda.titlecase}}{{ classVarName }}{{/lambda.titlecase}};
+    {{/operations}}
+    {{/apis}}
+    {{/apiInfo}}
     private OkHttpClient httpClient;
     private JSON json;
     private HttpBasicAuth httpBasicAuth = new HttpBasicAuth();
@@ -297,20 +291,13 @@ public class FinixClient {
 
         // EDITED
         // Add APIs to client for ease of interaction.
-        Transfers = new TransfersApi(this);
-        Transfers = new TransfersApi(this);
-        PaymentInstruments = new PaymentInstrumentsApi(this);
-        Authorizations = new AuthorizationsApi(this);
-        Identities = new IdentitiesApi(this);
-        Disputes = new DisputesApi(this);
-        Devices = new DevicesApi(this);
-        Webhooks = new WebhooksApi(this);
-        BalanceTransfers = new BalanceTransfersApi(this);
-        Files = new FilesApi(this);
-        Merchants = new MerchantsApi(this);
-        Settlements = new SettlementsApi(this);
-        Verifications = new VerificationsApi(this);
-        InstrumentUpdates = new InstrumentUpdatesApi(this);
+        {{#apiInfo}}
+        {{#apis}}
+        {{#operations}}
+        {{#lambda.titlecase}}{{ classVarName }}{{/lambda.titlecase}} = new {{classname}}(this);
+        {{/operations}}
+        {{/apis}}
+        {{/apiInfo}}
 
         // EDITED
         // Finix API Version
