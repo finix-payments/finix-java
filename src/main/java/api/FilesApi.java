@@ -140,7 +140,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    "application/vnd.api+json"
+            "application/vnd.api+json"
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -167,7 +167,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
             /**
             * Create an External Link
-            * Create an &#x60;external_link&#x60; resource to share with users so they can upload files directly from their browser. For more info, see [Uploading files to Finix](/guides/onboarding/uploading-files-to-finix/#create-an-external-link).  Once created, you can upload the user&#39;s file to the &#x60;external_link&#x60; resource: [Upload files to External Link](#operation/uploadExternalLink)
+            * Create an &#x60;external_link&#x60; resource to share with users so they can upload files directly from their browser. For more info, see [Uploading files to Finix](/docs/guides/onboarding/uploading-files-to-finix/).   Once created, you can request the user to upload a file to the &#x60;external_link&#x60; resource: [Upload files to External Link](#operation/uploadExternalLink)
                 * @param fileId Your &#x60;File&#x60; ID. (required)
                 * @param createExternalLinkRequest  (optional)
                 * @return ExternalLink
@@ -189,7 +189,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Create an External Link
-        * Create an &#x60;external_link&#x60; resource to share with users so they can upload files directly from their browser. For more info, see [Uploading files to Finix](/guides/onboarding/uploading-files-to-finix/#create-an-external-link).  Once created, you can upload the user&#39;s file to the &#x60;external_link&#x60; resource: [Upload files to External Link](#operation/uploadExternalLink)
+        * Create an &#x60;external_link&#x60; resource to share with users so they can upload files directly from their browser. For more info, see [Uploading files to Finix](/docs/guides/onboarding/uploading-files-to-finix/).   Once created, you can request the user to upload a file to the &#x60;external_link&#x60; resource: [Upload files to External Link](#operation/uploadExternalLink)
             * @param fileId Your &#x60;File&#x60; ID. (required)
             * @param createExternalLinkRequest  (optional)
         * @return ApiResponse&lt;ExternalLink&gt;
@@ -212,7 +212,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Create an External Link (asynchronously)
-        * Create an &#x60;external_link&#x60; resource to share with users so they can upload files directly from their browser. For more info, see [Uploading files to Finix](/guides/onboarding/uploading-files-to-finix/#create-an-external-link).  Once created, you can upload the user&#39;s file to the &#x60;external_link&#x60; resource: [Upload files to External Link](#operation/uploadExternalLink)
+        * Create an &#x60;external_link&#x60; resource to share with users so they can upload files directly from their browser. For more info, see [Uploading files to Finix](/docs/guides/onboarding/uploading-files-to-finix/).   Once created, you can request the user to upload a file to the &#x60;external_link&#x60; resource: [Upload files to External Link](#operation/uploadExternalLink)
             * @param fileId Your &#x60;File&#x60; ID. (required)
             * @param createExternalLinkRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
@@ -286,7 +286,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    "application/vnd.api+json"
+            "application/vnd.api+json"
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -308,7 +308,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
             /**
             * Create a File
-            * Before uploading a file, you need to create a &#x60;File&#x60; resource.   Once created, you can [upload](#operations/uploadFile) your file to the new &#x60;File&#x60; resource.
+            * Before uploading a file, you need to create a &#x60;File&#x60; resource.   Once created, you can [upload](/#operation/uploadFile) your file to the new &#x60;File&#x60; resource.
                 * @param createFileRequest  (optional)
                 * @return ModelFile
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -329,7 +329,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Create a File
-        * Before uploading a file, you need to create a &#x60;File&#x60; resource.   Once created, you can [upload](#operations/uploadFile) your file to the new &#x60;File&#x60; resource.
+        * Before uploading a file, you need to create a &#x60;File&#x60; resource.   Once created, you can [upload](/#operation/uploadFile) your file to the new &#x60;File&#x60; resource.
             * @param createFileRequest  (optional)
         * @return ApiResponse&lt;ModelFile&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -351,7 +351,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Create a File (asynchronously)
-        * Before uploading a file, you need to create a &#x60;File&#x60; resource.   Once created, you can [upload](#operations/uploadFile) your file to the new &#x60;File&#x60; resource.
+        * Before uploading a file, you need to create a &#x60;File&#x60; resource.   Once created, you can [upload](/#operation/uploadFile) your file to the new &#x60;File&#x60; resource.
             * @param createFileRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
@@ -425,7 +425,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -571,7 +571,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -723,7 +723,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -887,7 +887,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1210,7 +1210,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1497,7 +1497,7 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        localVarFormParams.put("file",uploadFileRequest.getFile());
+        localVarFormParams.put("file", uploadFileRequest.getFile());
         final String[] localVarAccepts = {
             "application/vnd.api+json"
         };
@@ -1508,7 +1508,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    "multipart/form-data"
+            "multipart/form-data"
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {

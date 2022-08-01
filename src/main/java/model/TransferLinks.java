@@ -28,9 +28,11 @@ import model.ApplicationProfileLinksApplication;
 import model.AuthorizationLinksDevice;
 import model.AuthorizationLinksMerchantIdentity;
 import model.TransferLinksDestination;
+import model.TransferLinksDisputedTransfer;
 import model.TransferLinksDisputes;
 import model.TransferLinksFeeProfile;
 import model.TransferLinksFees;
+import model.TransferLinksParent;
 import model.TransferLinksPaymentInstruments;
 import model.TransferLinksReversals;
 import model.TransferLinksSource;
@@ -94,6 +96,10 @@ public class TransferLinks {
   @SerializedName(SERIALIZED_NAME_PAYMENT_INSTRUMENTS)
   private TransferLinksPaymentInstruments paymentInstruments;
 
+  public static final String SERIALIZED_NAME_DISPUTED_TRANSFER = "disputed_transfer";
+  @SerializedName(SERIALIZED_NAME_DISPUTED_TRANSFER)
+  private TransferLinksDisputedTransfer disputedTransfer;
+
   public static final String SERIALIZED_NAME_REVERSALS = "reversals";
   @SerializedName(SERIALIZED_NAME_REVERSALS)
   private TransferLinksReversals reversals;
@@ -101,6 +107,10 @@ public class TransferLinks {
   public static final String SERIALIZED_NAME_SELF = "self";
   @SerializedName(SERIALIZED_NAME_SELF)
   private ApplicationLinksSelf self;
+
+  public static final String SERIALIZED_NAME_PARENT = "parent";
+  @SerializedName(SERIALIZED_NAME_PARENT)
+  private TransferLinksParent parent;
 
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
@@ -293,6 +303,29 @@ public class TransferLinks {
   }
 
 
+  public TransferLinks disputedTransfer(TransferLinksDisputedTransfer disputedTransfer) {
+    
+    this.disputedTransfer = disputedTransfer;
+    return this;
+  }
+
+   /**
+   * Get disputedTransfer
+   * @return disputedTransfer
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public TransferLinksDisputedTransfer getDisputedTransfer() {
+    return disputedTransfer;
+  }
+
+
+  public void setDisputedTransfer(TransferLinksDisputedTransfer disputedTransfer) {
+    this.disputedTransfer = disputedTransfer;
+  }
+
+
   public TransferLinks reversals(TransferLinksReversals reversals) {
     
     this.reversals = reversals;
@@ -336,6 +369,29 @@ public class TransferLinks {
 
   public void setSelf(ApplicationLinksSelf self) {
     this.self = self;
+  }
+
+
+  public TransferLinks parent(TransferLinksParent parent) {
+    
+    this.parent = parent;
+    return this;
+  }
+
+   /**
+   * Get parent
+   * @return parent
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public TransferLinksParent getParent() {
+    return parent;
+  }
+
+
+  public void setParent(TransferLinksParent parent) {
+    this.parent = parent;
   }
 
 
@@ -415,15 +471,17 @@ public class TransferLinks {
         Objects.equals(this.fees, transferLinks.fees) &&
         Objects.equals(this.merchantIdentity, transferLinks.merchantIdentity) &&
         Objects.equals(this.paymentInstruments, transferLinks.paymentInstruments) &&
+        Objects.equals(this.disputedTransfer, transferLinks.disputedTransfer) &&
         Objects.equals(this.reversals, transferLinks.reversals) &&
         Objects.equals(this.self, transferLinks.self) &&
+        Objects.equals(this.parent, transferLinks.parent) &&
         Objects.equals(this.source, transferLinks.source)&&
         Objects.equals(this.additionalProperties, transferLinks.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(application, destination, device, disputes, feeProfile, fees, merchantIdentity, paymentInstruments, reversals, self, source, additionalProperties);
+    return Objects.hash(application, destination, device, disputes, feeProfile, fees, merchantIdentity, paymentInstruments, disputedTransfer, reversals, self, parent, source, additionalProperties);
   }
 
   @Override
@@ -438,8 +496,10 @@ public class TransferLinks {
     sb.append("    fees: ").append(toIndentedString(fees)).append("\n");
     sb.append("    merchantIdentity: ").append(toIndentedString(merchantIdentity)).append("\n");
     sb.append("    paymentInstruments: ").append(toIndentedString(paymentInstruments)).append("\n");
+    sb.append("    disputedTransfer: ").append(toIndentedString(disputedTransfer)).append("\n");
     sb.append("    reversals: ").append(toIndentedString(reversals)).append("\n");
     sb.append("    self: ").append(toIndentedString(self)).append("\n");
+    sb.append("    parent: ").append(toIndentedString(parent)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -472,8 +532,10 @@ public class TransferLinks {
     openapiFields.add("fees");
     openapiFields.add("merchant_identity");
     openapiFields.add("payment_instruments");
+    openapiFields.add("disputed_transfer");
     openapiFields.add("reversals");
     openapiFields.add("self");
+    openapiFields.add("parent");
     openapiFields.add("source");
 
     // a set of required properties/fields (JSON key names)
@@ -571,6 +633,15 @@ public class TransferLinks {
       * EDITED
       * ADDED  statement to for inconsistent null behaviour
       */
+      // validate the optional field `disputed_transfer`
+     // if (jsonObj.getAsJsonObject("disputed_transfer") != null) {
+       //TransferLinksDisputedTransfer.validateJsonObject(jsonObj.getAsJsonObject("disputed_transfer"));
+     // }
+
+      /**
+      * EDITED
+      * ADDED  statement to for inconsistent null behaviour
+      */
       // validate the optional field `reversals`
      // if (jsonObj.getAsJsonObject("reversals") != null) {
        //TransferLinksReversals.validateJsonObject(jsonObj.getAsJsonObject("reversals"));
@@ -583,6 +654,15 @@ public class TransferLinks {
       // validate the optional field `self`
      // if (jsonObj.getAsJsonObject("self") != null) {
        //ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
+     // }
+
+      /**
+      * EDITED
+      * ADDED  statement to for inconsistent null behaviour
+      */
+      // validate the optional field `parent`
+     // if (jsonObj.getAsJsonObject("parent") != null) {
+       //TransferLinksParent.validateJsonObject(jsonObj.getAsJsonObject("parent"));
      // }
 
       /**

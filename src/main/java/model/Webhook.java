@@ -25,6 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import model.ProcessorLinks;
+import model.WebhookAuthentication;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -67,6 +68,10 @@ public class Webhook {
   public static final String SERIALIZED_NAME_APPLICATION = "application";
   @SerializedName(SERIALIZED_NAME_APPLICATION)
   private String application;
+
+  public static final String SERIALIZED_NAME_AUTHENTICATION = "authentication";
+  @SerializedName(SERIALIZED_NAME_AUTHENTICATION)
+  private WebhookAuthentication authentication;
 
   public static final String SERIALIZED_NAME_ENABLED = "enabled";
   @SerializedName(SERIALIZED_NAME_ENABLED)
@@ -175,6 +180,29 @@ public class Webhook {
   }
 
 
+  public Webhook authentication(WebhookAuthentication authentication) {
+    
+    this.authentication = authentication;
+    return this;
+  }
+
+   /**
+   * Get authentication
+   * @return authentication
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public WebhookAuthentication getAuthentication() {
+    return authentication;
+  }
+
+
+  public void setAuthentication(WebhookAuthentication authentication) {
+    this.authentication = authentication;
+  }
+
+
   public Webhook enabled(Boolean enabled) {
     
     this.enabled = enabled;
@@ -258,6 +286,7 @@ public class Webhook {
         Objects.equals(this.createdAt, webhook.createdAt) &&
         Objects.equals(this.updatedAt, webhook.updatedAt) &&
         Objects.equals(this.application, webhook.application) &&
+        Objects.equals(this.authentication, webhook.authentication) &&
         Objects.equals(this.enabled, webhook.enabled) &&
         Objects.equals(this.url, webhook.url) &&
         Objects.equals(this.links, webhook.links);
@@ -265,7 +294,7 @@ public class Webhook {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdAt, updatedAt, application, enabled, url, links);
+    return Objects.hash(id, createdAt, updatedAt, application, authentication, enabled, url, links);
   }
 
   @Override
@@ -276,6 +305,7 @@ public class Webhook {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    application: ").append(toIndentedString(application)).append("\n");
+    sb.append("    authentication: ").append(toIndentedString(authentication)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
@@ -305,6 +335,7 @@ public class Webhook {
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
     openapiFields.add("application");
+    openapiFields.add("authentication");
     openapiFields.add("enabled");
     openapiFields.add("url");
     openapiFields.add("_links");
@@ -351,6 +382,15 @@ public class Webhook {
       if (jsonObj.get("application") != null && !jsonObj.get("application").isJsonNull()  && !jsonObj.get("application").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `application` to be a primitive type in the JSON string but got `%s`", jsonObj.get("application").toString()));
       }
+      /**
+      * EDITED
+      * ADDED  statement to for inconsistent null behaviour
+      */
+      // validate the optional field `authentication`
+     // if (jsonObj.getAsJsonObject("authentication") != null) {
+       //WebhookAuthentication.validateJsonObject(jsonObj.getAsJsonObject("authentication"));
+     // }
+
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour

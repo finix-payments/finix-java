@@ -136,7 +136,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    "application/hal+json"
+            "application/hal+json"
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -278,7 +278,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -417,7 +417,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -637,7 +637,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    "application/hal+json"
+            "application/hal+json"
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {

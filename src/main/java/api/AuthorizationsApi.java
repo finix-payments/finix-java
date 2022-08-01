@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import model.Authorization;
+import model.AuthorizationCaptured;
 import model.AuthorizationsList;
 import model.CreateAuthorizationRequest;
 import model.Error401Unauthorized;
@@ -85,6 +86,154 @@ this.localCustomBaseUrl = customBaseUrl;
 }
 
     /**
+    * Build call for captureAuthorization
+        * @param authorizationId ID of authorization to fetch (required)
+        * @param updateAuthorizationRequest  (optional)
+    * @param _callback Callback for upload/download progress
+    * @return Call to execute
+    * @throws ApiException If fail to serialize the request body object
+        * @http.response.details
+        <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                <tr><td> 200 </td><td> Single captured Authorization object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+        </table>
+    */
+    public okhttp3.Call captureAuthorizationCall(String authorizationId, UpdateAuthorizationRequest updateAuthorizationRequest, final ApiCallback _callback) throws ApiException {
+    String basePath = null;
+    // Operation Servers
+    String[] localBasePaths = new String[] {  };
+
+    // Determine Base Path to Use
+    if (localCustomBaseUrl != null){
+    basePath = localCustomBaseUrl;
+    } else if ( localBasePaths.length > 0 ) {
+    basePath = localBasePaths[localHostIndex];
+    } else {
+    basePath = null;
+    }
+
+    Object localVarPostBody = updateAuthorizationRequest;
+
+    // create path and map variables
+        String localVarPath = "/authorizations/{authorization_id}"
+            .replaceAll("\\{" + "authorization_id" + "\\}", localVarFinixClient.escapeString(authorizationId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/hal+json"
+        };
+
+        final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+        localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/hal+json"
+        };
+        final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BasicAuth" };
+        return localVarFinixClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        }
+
+        @SuppressWarnings("rawtypes")
+        private okhttp3.Call captureAuthorizationValidateBeforeCall(String authorizationId, UpdateAuthorizationRequest updateAuthorizationRequest, final ApiCallback _callback) throws ApiException {
+        
+                // verify the required parameter 'authorizationId' is set
+                if (authorizationId == null) {
+                throw new ApiException("Missing the required parameter 'authorizationId' when calling captureAuthorization(Async)");
+                }
+        
+
+            okhttp3.Call localVarCall = captureAuthorizationCall(authorizationId, updateAuthorizationRequest, _callback);
+            return localVarCall;
+
+        }
+
+            /**
+            * Capture an Authorization
+            * If successfully captured, the &#x60;transfer&#x60; field of the &#x60;Authorization&#x60; will contain the ID of the &#x60;Transfer&#x60; resource that&#39;ll move funds.   By default, &#x60;Transfers&#x60; are in a **PENDING** state. The **PENDING** state means the system hasn&#39;t submitted the request to capture funds. Capture requests get submitted via a batch request.   Once the &#x60;Authorization&#x60; is updated with a &#x60;capture_amount&#x60; (i.e. *Captured*), the state of the &#x60;Transfer&#x60; will update to **SUCCEEDED**.  &gt; Voided &#x60;Authorizations&#x60; can&#39;t be captured.
+                * @param authorizationId ID of authorization to fetch (required)
+                * @param updateAuthorizationRequest  (optional)
+                * @return AuthorizationCaptured
+            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+                * @http.response.details
+                <table summary="Response Details" border="1">
+                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                        <tr><td> 200 </td><td> Single captured Authorization object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                </table>
+            */
+                public AuthorizationCaptured update(String authorizationId, UpdateAuthorizationRequest updateAuthorizationRequest) throws ApiException {
+            ApiResponse<AuthorizationCaptured> localVarResp = captureAuthorizationWithHttpInfo(authorizationId, updateAuthorizationRequest);
+                    return localVarResp.getData();
+                }
+
+    /**
+        * Capture an Authorization
+        * If successfully captured, the &#x60;transfer&#x60; field of the &#x60;Authorization&#x60; will contain the ID of the &#x60;Transfer&#x60; resource that&#39;ll move funds.   By default, &#x60;Transfers&#x60; are in a **PENDING** state. The **PENDING** state means the system hasn&#39;t submitted the request to capture funds. Capture requests get submitted via a batch request.   Once the &#x60;Authorization&#x60; is updated with a &#x60;capture_amount&#x60; (i.e. *Captured*), the state of the &#x60;Transfer&#x60; will update to **SUCCEEDED**.  &gt; Voided &#x60;Authorizations&#x60; can&#39;t be captured.
+            * @param authorizationId ID of authorization to fetch (required)
+            * @param updateAuthorizationRequest  (optional)
+        * @return ApiResponse&lt;AuthorizationCaptured&gt;
+        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+            * @http.response.details
+            <table summary="Response Details" border="1">
+                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                    <tr><td> 200 </td><td> Single captured Authorization object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+            </table>
+        */
+        public ApiResponse<AuthorizationCaptured> captureAuthorizationWithHttpInfo(String authorizationId, UpdateAuthorizationRequest updateAuthorizationRequest) throws ApiException {
+        okhttp3.Call localVarCall = captureAuthorizationValidateBeforeCall(authorizationId, updateAuthorizationRequest, null);
+                Type localVarReturnType = new TypeToken<AuthorizationCaptured>(){}.getType();
+                return localVarFinixClient.execute(localVarCall, localVarReturnType);
+        }
+
+    /**
+        * Capture an Authorization (asynchronously)
+        * If successfully captured, the &#x60;transfer&#x60; field of the &#x60;Authorization&#x60; will contain the ID of the &#x60;Transfer&#x60; resource that&#39;ll move funds.   By default, &#x60;Transfers&#x60; are in a **PENDING** state. The **PENDING** state means the system hasn&#39;t submitted the request to capture funds. Capture requests get submitted via a batch request.   Once the &#x60;Authorization&#x60; is updated with a &#x60;capture_amount&#x60; (i.e. *Captured*), the state of the &#x60;Transfer&#x60; will update to **SUCCEEDED**.  &gt; Voided &#x60;Authorizations&#x60; can&#39;t be captured.
+            * @param authorizationId ID of authorization to fetch (required)
+            * @param updateAuthorizationRequest  (optional)
+        * @param _callback The callback to be executed when the API call finishes
+        * @return The request call
+        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+            * @http.response.details
+            <table summary="Response Details" border="1">
+                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                    <tr><td> 200 </td><td> Single captured Authorization object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+            </table>
+        */
+        public okhttp3.Call captureAuthorizationAsync(String authorizationId, UpdateAuthorizationRequest updateAuthorizationRequest, final ApiCallback<AuthorizationCaptured> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = captureAuthorizationValidateBeforeCall(authorizationId, updateAuthorizationRequest, _callback);
+    Type localVarReturnType = new TypeToken<AuthorizationCaptured>(){}.getType();
+        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+        }
+    /**
     * Build call for createAuthorization
         * @param createAuthorizationRequest  (optional)
     * @param _callback Callback for upload/download progress
@@ -138,7 +287,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    "application/hal+json"
+            "application/hal+json"
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -286,7 +435,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -529,7 +678,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1013,152 +1162,4 @@ this.localCustomBaseUrl = customBaseUrl;
         return request.execute();
 
     }
-    /**
-    * Build call for updateAuthorization
-        * @param authorizationId ID of authorization to fetch (required)
-        * @param updateAuthorizationRequest  (optional)
-    * @param _callback Callback for upload/download progress
-    * @return Call to execute
-    * @throws ApiException If fail to serialize the request body object
-        * @http.response.details
-        <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                <tr><td> 200 </td><td> Single Authorization object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-        </table>
-    */
-    public okhttp3.Call updateAuthorizationCall(String authorizationId, UpdateAuthorizationRequest updateAuthorizationRequest, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {  };
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
-
-    Object localVarPostBody = updateAuthorizationRequest;
-
-    // create path and map variables
-        String localVarPath = "/authorizations/{authorization_id}"
-            .replaceAll("\\{" + "authorization_id" + "\\}", localVarFinixClient.escapeString(authorizationId.toString()));
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/hal+json"
-        };
-
-        final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-    "application/hal+json"
-        };
-        final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
-        return localVarFinixClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
-
-        @SuppressWarnings("rawtypes")
-        private okhttp3.Call updateAuthorizationValidateBeforeCall(String authorizationId, UpdateAuthorizationRequest updateAuthorizationRequest, final ApiCallback _callback) throws ApiException {
-        
-                // verify the required parameter 'authorizationId' is set
-                if (authorizationId == null) {
-                throw new ApiException("Missing the required parameter 'authorizationId' when calling updateAuthorization(Async)");
-                }
-        
-
-            okhttp3.Call localVarCall = updateAuthorizationCall(authorizationId, updateAuthorizationRequest, _callback);
-            return localVarCall;
-
-        }
-
-            /**
-            * Update an Authorization
-            * If successfully captured, the &#x60;transfer&#x60; field of the &#x60;Authorization&#x60; will contain the ID of the &#x60;Transfer&#x60; resource that&#39;ll move funds.   By default, &#x60;Transfers&#x60; are in a **PENDING** state. The **PENDING** state means the system hasn&#39;t submitted the request to capture funds. Capture requests get submitted via a batch request.   Once the &#x60;Authorization&#x60; is updated with a &#x60;capture_amount&#x60; (i.e. *Captured*), the state of the &#x60;Transfer&#x60; will update to **SUCCEEDED**.  &gt; Voided &#x60;Authorizations&#x60; can&#39;t be captured.
-                * @param authorizationId ID of authorization to fetch (required)
-                * @param updateAuthorizationRequest  (optional)
-                * @return Authorization
-            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Single Authorization object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                </table>
-            */
-                public Authorization update(String authorizationId, UpdateAuthorizationRequest updateAuthorizationRequest) throws ApiException {
-            ApiResponse<Authorization> localVarResp = updateAuthorizationWithHttpInfo(authorizationId, updateAuthorizationRequest);
-                    return localVarResp.getData();
-                }
-
-    /**
-        * Update an Authorization
-        * If successfully captured, the &#x60;transfer&#x60; field of the &#x60;Authorization&#x60; will contain the ID of the &#x60;Transfer&#x60; resource that&#39;ll move funds.   By default, &#x60;Transfers&#x60; are in a **PENDING** state. The **PENDING** state means the system hasn&#39;t submitted the request to capture funds. Capture requests get submitted via a batch request.   Once the &#x60;Authorization&#x60; is updated with a &#x60;capture_amount&#x60; (i.e. *Captured*), the state of the &#x60;Transfer&#x60; will update to **SUCCEEDED**.  &gt; Voided &#x60;Authorizations&#x60; can&#39;t be captured.
-            * @param authorizationId ID of authorization to fetch (required)
-            * @param updateAuthorizationRequest  (optional)
-        * @return ApiResponse&lt;Authorization&gt;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Single Authorization object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public ApiResponse<Authorization> updateAuthorizationWithHttpInfo(String authorizationId, UpdateAuthorizationRequest updateAuthorizationRequest) throws ApiException {
-        okhttp3.Call localVarCall = updateAuthorizationValidateBeforeCall(authorizationId, updateAuthorizationRequest, null);
-                Type localVarReturnType = new TypeToken<Authorization>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
-
-    /**
-        * Update an Authorization (asynchronously)
-        * If successfully captured, the &#x60;transfer&#x60; field of the &#x60;Authorization&#x60; will contain the ID of the &#x60;Transfer&#x60; resource that&#39;ll move funds.   By default, &#x60;Transfers&#x60; are in a **PENDING** state. The **PENDING** state means the system hasn&#39;t submitted the request to capture funds. Capture requests get submitted via a batch request.   Once the &#x60;Authorization&#x60; is updated with a &#x60;capture_amount&#x60; (i.e. *Captured*), the state of the &#x60;Transfer&#x60; will update to **SUCCEEDED**.  &gt; Voided &#x60;Authorizations&#x60; can&#39;t be captured.
-            * @param authorizationId ID of authorization to fetch (required)
-            * @param updateAuthorizationRequest  (optional)
-        * @param _callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Single Authorization object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        public okhttp3.Call updateAuthorizationAsync(String authorizationId, UpdateAuthorizationRequest updateAuthorizationRequest, final ApiCallback<Authorization> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = updateAuthorizationValidateBeforeCall(authorizationId, updateAuthorizationRequest, _callback);
-    Type localVarReturnType = new TypeToken<Authorization>(){}.getType();
-        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-        }
     }

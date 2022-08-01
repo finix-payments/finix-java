@@ -123,9 +123,8 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        localVarFormParams.put("file",createInstrumentUpdateRequest.getFile());
-        localVarFormParams.put("request",createInstrumentUpdateRequest.getRequest());
-
+        localVarFormParams.put("file", createInstrumentUpdateRequest.getFile());
+        localVarFormParams.put("request", createInstrumentUpdateRequest.getRequest());
         final String[] localVarAccepts = {
             "application/hal+json"
         };
@@ -136,7 +135,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    "multipart/form-data"
+            "multipart/form-data"
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -158,7 +157,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
             /**
             * Create Instrument Updates
-            * To update the card details of your customers, create an &#x60;instrument_updates&#x60; resource. Include the &#x60;Payment Instrument&#x60; IDs you want to update in a CSV. For more info, see the guide on using our [Account Updater](//payments/account-updater/).
+            * To update the card details of your customers, create an &#x60;instrument_updates&#x60; resource. Include the &#x60;Payment Instrument&#x60; IDs you want to update in a CSV. For more info, the following guide on using our [Account Updater](/docs/guides/payments/account-updater/).
                 * @param createInstrumentUpdateRequest  (optional)
                 * @return InstrumentUpdate
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -179,7 +178,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Create Instrument Updates
-        * To update the card details of your customers, create an &#x60;instrument_updates&#x60; resource. Include the &#x60;Payment Instrument&#x60; IDs you want to update in a CSV. For more info, see the guide on using our [Account Updater](//payments/account-updater/).
+        * To update the card details of your customers, create an &#x60;instrument_updates&#x60; resource. Include the &#x60;Payment Instrument&#x60; IDs you want to update in a CSV. For more info, the following guide on using our [Account Updater](/docs/guides/payments/account-updater/).
             * @param createInstrumentUpdateRequest  (optional)
         * @return ApiResponse&lt;InstrumentUpdate&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -201,7 +200,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Create Instrument Updates (asynchronously)
-        * To update the card details of your customers, create an &#x60;instrument_updates&#x60; resource. Include the &#x60;Payment Instrument&#x60; IDs you want to update in a CSV. For more info, see the guide on using our [Account Updater](//payments/account-updater/).
+        * To update the card details of your customers, create an &#x60;instrument_updates&#x60; resource. Include the &#x60;Payment Instrument&#x60; IDs you want to update in a CSV. For more info, the following guide on using our [Account Updater](/docs/guides/payments/account-updater/).
             * @param createInstrumentUpdateRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
@@ -263,7 +262,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -421,7 +420,7 @@ this.localCustomBaseUrl = customBaseUrl;
     }
     /**
     * Build call for getInstrumentUpdate
-        * @param instrumentUpdatesId  (required)
+        * @param instrumentUpdatesId The Id of the instrument update. (required)
     * @param _callback Callback for upload/download progress
     * @return Call to execute
     * @throws ApiException If fail to serialize the request body object
@@ -471,7 +470,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -499,7 +498,7 @@ this.localCustomBaseUrl = customBaseUrl;
             /**
             * Fetch an Instrument Update
             * Fetch a specific &#x60;instrument_update&#x60; from an &#x60;instrument_updates&#x60; resource. For more information, see the guide on using our [Account Updater](/guides/payments/account-updater).
-                * @param instrumentUpdatesId  (required)
+                * @param instrumentUpdatesId The Id of the instrument update. (required)
                 * @return InstrumentUpdate
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
@@ -520,7 +519,7 @@ this.localCustomBaseUrl = customBaseUrl;
     /**
         * Fetch an Instrument Update
         * Fetch a specific &#x60;instrument_update&#x60; from an &#x60;instrument_updates&#x60; resource. For more information, see the guide on using our [Account Updater](/guides/payments/account-updater).
-            * @param instrumentUpdatesId  (required)
+            * @param instrumentUpdatesId The Id of the instrument update. (required)
         * @return ApiResponse&lt;InstrumentUpdate&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
             * @http.response.details
@@ -542,7 +541,7 @@ this.localCustomBaseUrl = customBaseUrl;
     /**
         * Fetch an Instrument Update (asynchronously)
         * Fetch a specific &#x60;instrument_update&#x60; from an &#x60;instrument_updates&#x60; resource. For more information, see the guide on using our [Account Updater](/guides/payments/account-updater).
-            * @param instrumentUpdatesId  (required)
+            * @param instrumentUpdatesId The Id of the instrument update. (required)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
         * @throws ApiException If fail to process the API call, e.g. serializing the request body object

@@ -89,7 +89,8 @@ this.localCustomBaseUrl = customBaseUrl;
 }
 
     /**
-    * Build call for createSettlement
+    * Build call for createIdentitySettlement
+        * @param identityId ID of identity to fetch (required)
         * @param createSettlementRequest  (optional)
     * @param _callback Callback for upload/download progress
     * @return Call to execute
@@ -101,10 +102,12 @@ this.localCustomBaseUrl = customBaseUrl;
                 <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 422 </td><td> Merchant identity disabled error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
         </table>
     */
-    public okhttp3.Call createSettlementCall(CreateSettlementRequest createSettlementRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createIdentitySettlementCall(String identityId, CreateSettlementRequest createSettlementRequest, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -121,7 +124,8 @@ this.localCustomBaseUrl = customBaseUrl;
     Object localVarPostBody = createSettlementRequest;
 
     // create path and map variables
-        String localVarPath = "/settlements";
+        String localVarPath = "/identities/{identity_id}/settlements"
+            .replaceAll("\\{" + "identity_id" + "\\}", localVarFinixClient.escapeString(identityId.toString()));
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -139,7 +143,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    "application/hal+json"
+            "application/hal+json"
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -151,17 +155,23 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call createSettlementValidateBeforeCall(CreateSettlementRequest createSettlementRequest, final ApiCallback _callback) throws ApiException {
+        private okhttp3.Call createIdentitySettlementValidateBeforeCall(String identityId, CreateSettlementRequest createSettlementRequest, final ApiCallback _callback) throws ApiException {
+        
+                // verify the required parameter 'identityId' is set
+                if (identityId == null) {
+                throw new ApiException("Missing the required parameter 'identityId' when calling createIdentitySettlement(Async)");
+                }
         
 
-            okhttp3.Call localVarCall = createSettlementCall(createSettlementRequest, _callback);
+            okhttp3.Call localVarCall = createIdentitySettlementCall(identityId, createSettlementRequest, _callback);
             return localVarCall;
 
         }
 
             /**
             * Create a Batch Settlement
-            * Create a batch &#x60;Settlement&#x60;. A &#x60;Settlement&#x60; is a collection of **SUCCEEDED** &#x60;Transfers&#x60; that are ready to get paid out to a &#x60;Merchant&#x60;.
+            * Create a batch &#x60;Settlement&#x60;. A &#x60;Settlement&#x60; is a collection of **SUCCEEDED** Transfers that are ready to get paid out to a &#x60;Merchant&#x60;.
+                * @param identityId ID of identity to fetch (required)
                 * @param createSettlementRequest  (optional)
                 * @return Settlement
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -172,17 +182,20 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 422 </td><td> Merchant identity disabled error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-                public Settlement create(CreateSettlementRequest createSettlementRequest) throws ApiException {
-            ApiResponse<Settlement> localVarResp = createSettlementWithHttpInfo(createSettlementRequest);
+                public Settlement create(String identityId, CreateSettlementRequest createSettlementRequest) throws ApiException {
+            ApiResponse<Settlement> localVarResp = createIdentitySettlementWithHttpInfo(identityId, createSettlementRequest);
                     return localVarResp.getData();
                 }
 
     /**
         * Create a Batch Settlement
-        * Create a batch &#x60;Settlement&#x60;. A &#x60;Settlement&#x60; is a collection of **SUCCEEDED** &#x60;Transfers&#x60; that are ready to get paid out to a &#x60;Merchant&#x60;.
+        * Create a batch &#x60;Settlement&#x60;. A &#x60;Settlement&#x60; is a collection of **SUCCEEDED** Transfers that are ready to get paid out to a &#x60;Merchant&#x60;.
+            * @param identityId ID of identity to fetch (required)
             * @param createSettlementRequest  (optional)
         * @return ApiResponse&lt;Settlement&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -193,18 +206,21 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 422 </td><td> Merchant identity disabled error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public ApiResponse<Settlement> createSettlementWithHttpInfo(CreateSettlementRequest createSettlementRequest) throws ApiException {
-        okhttp3.Call localVarCall = createSettlementValidateBeforeCall(createSettlementRequest, null);
+        public ApiResponse<Settlement> createIdentitySettlementWithHttpInfo(String identityId, CreateSettlementRequest createSettlementRequest) throws ApiException {
+        okhttp3.Call localVarCall = createIdentitySettlementValidateBeforeCall(identityId, createSettlementRequest, null);
                 Type localVarReturnType = new TypeToken<Settlement>(){}.getType();
                 return localVarFinixClient.execute(localVarCall, localVarReturnType);
         }
 
     /**
         * Create a Batch Settlement (asynchronously)
-        * Create a batch &#x60;Settlement&#x60;. A &#x60;Settlement&#x60; is a collection of **SUCCEEDED** &#x60;Transfers&#x60; that are ready to get paid out to a &#x60;Merchant&#x60;.
+        * Create a batch &#x60;Settlement&#x60;. A &#x60;Settlement&#x60; is a collection of **SUCCEEDED** Transfers that are ready to get paid out to a &#x60;Merchant&#x60;.
+            * @param identityId ID of identity to fetch (required)
             * @param createSettlementRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
@@ -216,12 +232,14 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 400 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 422 </td><td> Merchant identity disabled error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call createSettlementAsync(CreateSettlementRequest createSettlementRequest, final ApiCallback<Settlement> _callback) throws ApiException {
+        public okhttp3.Call createIdentitySettlementAsync(String identityId, CreateSettlementRequest createSettlementRequest, final ApiCallback<Settlement> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createSettlementValidateBeforeCall(createSettlementRequest, _callback);
+        okhttp3.Call localVarCall = createIdentitySettlementValidateBeforeCall(identityId, createSettlementRequest, _callback);
     Type localVarReturnType = new TypeToken<Settlement>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -278,7 +296,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -418,7 +436,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -646,7 +664,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -893,7 +911,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1174,7 +1192,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    "application/hal+json"
+            "application/hal+json"
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1320,7 +1338,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    "application/hal+json"
+            "application/hal+json"
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {

@@ -322,6 +322,10 @@ public class Fee {
   @SerializedName(SERIALIZED_NAME_FEE_TYPE)
   private FeeTypeEnum feeType;
 
+  public static final String SERIALIZED_NAME_LABEL = "label";
+  @SerializedName(SERIALIZED_NAME_LABEL)
+  private String label;
+
   public static final String SERIALIZED_NAME_LINKED_ID = "linked_id";
   @SerializedName(SERIALIZED_NAME_LINKED_ID)
   private String linkedId;
@@ -405,10 +409,6 @@ public class Fee {
   public static final String SERIALIZED_NAME_MERCHANT = "merchant";
   @SerializedName(SERIALIZED_NAME_MERCHANT)
   private String merchant;
-
-  public static final String SERIALIZED_NAME_LABEL = "label";
-  @SerializedName(SERIALIZED_NAME_LABEL)
-  private String label;
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
@@ -632,6 +632,29 @@ public class Fee {
   }
 
 
+  public Fee label(String label) {
+    
+    this.label = label;
+    return this;
+  }
+
+   /**
+   * The name of the &#x60;fee&#x60; object that was include in &#x60;label&#x60; when creating the fee.
+   * @return label
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The name of the `fee` object that was include in `label` when creating the fee.")
+
+  public String getLabel() {
+    return label;
+  }
+
+
+  public void setLabel(String label) {
+    this.label = label;
+  }
+
+
   public Fee linkedId(String linkedId) {
     
     this.linkedId = linkedId;
@@ -701,29 +724,6 @@ public class Fee {
   }
 
 
-  public Fee label(String label) {
-    
-    this.label = label;
-    return this;
-  }
-
-   /**
-   * Get label
-   * @return label
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getLabel() {
-    return label;
-  }
-
-
-  public void setLabel(String label) {
-    this.label = label;
-  }
-
-
   public Fee links(FeeLinks links) {
     
     this.links = links;
@@ -766,10 +766,10 @@ public class Fee {
         Objects.equals(this.displayName, fee.displayName) &&
         Objects.equals(this.feeSubtype, fee.feeSubtype) &&
         Objects.equals(this.feeType, fee.feeType) &&
+        Objects.equals(this.label, fee.label) &&
         Objects.equals(this.linkedId, fee.linkedId) &&
         Objects.equals(this.linkedType, fee.linkedType) &&
         Objects.equals(this.merchant, fee.merchant) &&
-        Objects.equals(this.label, fee.label) &&
         Objects.equals(this.links, fee.links);
   }
 
@@ -779,7 +779,7 @@ public class Fee {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, id, createdAt, updatedAt, amount, currency, displayName, feeSubtype, feeType, linkedId, linkedType, merchant, label, links);
+    return Objects.hash(tags, id, createdAt, updatedAt, amount, currency, displayName, feeSubtype, feeType, label, linkedId, linkedType, merchant, links);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -802,10 +802,10 @@ public class Fee {
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    feeSubtype: ").append(toIndentedString(feeSubtype)).append("\n");
     sb.append("    feeType: ").append(toIndentedString(feeType)).append("\n");
+    sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    linkedId: ").append(toIndentedString(linkedId)).append("\n");
     sb.append("    linkedType: ").append(toIndentedString(linkedType)).append("\n");
     sb.append("    merchant: ").append(toIndentedString(merchant)).append("\n");
-    sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -838,10 +838,10 @@ public class Fee {
     openapiFields.add("display_name");
     openapiFields.add("fee_subtype");
     openapiFields.add("fee_type");
+    openapiFields.add("label");
     openapiFields.add("linked_id");
     openapiFields.add("linked_type");
     openapiFields.add("merchant");
-    openapiFields.add("label");
     openapiFields.add("_links");
 
     // a set of required properties/fields (JSON key names)
@@ -904,6 +904,13 @@ public class Fee {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
+      if (jsonObj.get("label") != null && !jsonObj.get("label").isJsonNull()  && !jsonObj.get("label").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `label` to be a primitive type in the JSON string but got `%s`", jsonObj.get("label").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
       if (jsonObj.get("linked_id") != null && !jsonObj.get("linked_id").isJsonNull()  && !jsonObj.get("linked_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `linked_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("linked_id").toString()));
       }
@@ -920,13 +927,6 @@ public class Fee {
       */
       if (jsonObj.get("merchant") != null && !jsonObj.get("merchant").isJsonNull()  && !jsonObj.get("merchant").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("label") != null && !jsonObj.get("label").isJsonNull()  && !jsonObj.get("label").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `label` to be a primitive type in the JSON string but got `%s`", jsonObj.get("label").toString()));
       }
       /**
       * EDITED

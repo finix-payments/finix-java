@@ -101,6 +101,14 @@ public class UpdateMerchantRequest {
   @SerializedName(SERIALIZED_NAME_LEVEL_TWO_LEVEL_THREE_DATA_ENABLED)
   private Boolean levelTwoLevelThreeDataEnabled;
 
+  public static final String SERIALIZED_NAME_CONVENIENCE_CHARGES_ENABLED = "convenience_charges_enabled";
+  @SerializedName(SERIALIZED_NAME_CONVENIENCE_CHARGES_ENABLED)
+  private Boolean convenienceChargesEnabled;
+
+  public static final String SERIALIZED_NAME_RENT_SURCHARGES_ENABLED = "rent_surcharges_enabled";
+  @SerializedName(SERIALIZED_NAME_RENT_SURCHARGES_ENABLED)
+  private Boolean rentSurchargesEnabled;
+
   public UpdateMerchantRequest() { 
   }
 
@@ -388,6 +396,52 @@ public class UpdateMerchantRequest {
   }
 
 
+  public UpdateMerchantRequest convenienceChargesEnabled(Boolean convenienceChargesEnabled) {
+    
+    this.convenienceChargesEnabled = convenienceChargesEnabled;
+    return this;
+  }
+
+   /**
+   * Set to **true** if you want to enable the &#x60;Merchant&#x60; to accept convenience fees and/or service fees.
+   * @return convenienceChargesEnabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set to **true** if you want to enable the `Merchant` to accept convenience fees and/or service fees.")
+
+  public Boolean getConvenienceChargesEnabled() {
+    return convenienceChargesEnabled;
+  }
+
+
+  public void setConvenienceChargesEnabled(Boolean convenienceChargesEnabled) {
+    this.convenienceChargesEnabled = convenienceChargesEnabled;
+  }
+
+
+  public UpdateMerchantRequest rentSurchargesEnabled(Boolean rentSurchargesEnabled) {
+    
+    this.rentSurchargesEnabled = rentSurchargesEnabled;
+    return this;
+  }
+
+   /**
+   * Set to **true** if you want to enable a &#x60;Merchant&#x60; to accept rent charges.
+   * @return rentSurchargesEnabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set to **true** if you want to enable a `Merchant` to accept rent charges.")
+
+  public Boolean getRentSurchargesEnabled() {
+    return rentSurchargesEnabled;
+  }
+
+
+  public void setRentSurchargesEnabled(Boolean rentSurchargesEnabled) {
+    this.rentSurchargesEnabled = rentSurchargesEnabled;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -409,12 +463,14 @@ public class UpdateMerchantRequest {
         Objects.equals(this.settlementFundingIdentifier, updateMerchantRequest.settlementFundingIdentifier) &&
         Objects.equals(this.readyToSettleUpon, updateMerchantRequest.readyToSettleUpon) &&
         Objects.equals(this.feeReadyToSettleUpon, updateMerchantRequest.feeReadyToSettleUpon) &&
-        Objects.equals(this.levelTwoLevelThreeDataEnabled, updateMerchantRequest.levelTwoLevelThreeDataEnabled);
+        Objects.equals(this.levelTwoLevelThreeDataEnabled, updateMerchantRequest.levelTwoLevelThreeDataEnabled) &&
+        Objects.equals(this.convenienceChargesEnabled, updateMerchantRequest.convenienceChargesEnabled) &&
+        Objects.equals(this.rentSurchargesEnabled, updateMerchantRequest.rentSurchargesEnabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, processingEnabled, settlementEnabled, grossSettlementEnabled, creatingTransferFromReportEnabled, cardExpirationDateRequired, cardCvvRequired, merchantName, settlementFundingIdentifier, readyToSettleUpon, feeReadyToSettleUpon, levelTwoLevelThreeDataEnabled);
+    return Objects.hash(tags, processingEnabled, settlementEnabled, grossSettlementEnabled, creatingTransferFromReportEnabled, cardExpirationDateRequired, cardCvvRequired, merchantName, settlementFundingIdentifier, readyToSettleUpon, feeReadyToSettleUpon, levelTwoLevelThreeDataEnabled, convenienceChargesEnabled, rentSurchargesEnabled);
   }
 
   @Override
@@ -433,6 +489,8 @@ public class UpdateMerchantRequest {
     sb.append("    readyToSettleUpon: ").append(toIndentedString(readyToSettleUpon)).append("\n");
     sb.append("    feeReadyToSettleUpon: ").append(toIndentedString(feeReadyToSettleUpon)).append("\n");
     sb.append("    levelTwoLevelThreeDataEnabled: ").append(toIndentedString(levelTwoLevelThreeDataEnabled)).append("\n");
+    sb.append("    convenienceChargesEnabled: ").append(toIndentedString(convenienceChargesEnabled)).append("\n");
+    sb.append("    rentSurchargesEnabled: ").append(toIndentedString(rentSurchargesEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -467,6 +525,8 @@ public class UpdateMerchantRequest {
     openapiFields.add("ready_to_settle_upon");
     openapiFields.add("fee_ready_to_settle_upon");
     openapiFields.add("level_two_level_three_data_enabled");
+    openapiFields.add("convenience_charges_enabled");
+    openapiFields.add("rent_surcharges_enabled");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

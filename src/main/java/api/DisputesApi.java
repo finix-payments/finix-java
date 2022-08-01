@@ -129,7 +129,7 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        localVarFormParams.put("file",createDisputeEvidenceRequest.getFile());
+        localVarFormParams.put("file", createDisputeEvidenceRequest.getFile());
         final String[] localVarAccepts = {
             "application/hal+json"
         };
@@ -140,7 +140,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    "multipart/form-data"
+            "multipart/form-data"
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -287,7 +287,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -433,7 +433,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -581,7 +581,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -824,7 +824,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1039,7 +1039,7 @@ this.localCustomBaseUrl = customBaseUrl;
         return request.execute();
 
     }
-    private okhttp3.Call listDisputesAdjustmentsCall(String disputeId, Long limit, Long offset, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listDisputesAdjustmentsCall(String disputeId, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -1069,8 +1069,12 @@ this.localCustomBaseUrl = customBaseUrl;
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("limit", limit));
                 }
 
-                if (offset != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("offset", offset));
+                if (afterCursor != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("after_cursor", afterCursor));
+                }
+
+                if (beforeCursor != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("before_cursor", beforeCursor));
                 }
 
         final String[] localVarAccepts = {
@@ -1083,7 +1087,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1095,7 +1099,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call listDisputesAdjustmentsValidateBeforeCall(String disputeId, Long limit, Long offset, final ApiCallback _callback) throws ApiException {
+        private okhttp3.Call listDisputesAdjustmentsValidateBeforeCall(String disputeId, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
         
                 // verify the required parameter 'disputeId' is set
                 if (disputeId == null) {
@@ -1103,21 +1107,21 @@ this.localCustomBaseUrl = customBaseUrl;
                 }
         
 
-            okhttp3.Call localVarCall = listDisputesAdjustmentsCall(disputeId, limit, offset, _callback);
+            okhttp3.Call localVarCall = listDisputesAdjustmentsCall(disputeId, limit, afterCursor, beforeCursor, _callback);
             return localVarCall;
 
         }
 
 
-    private ApiResponse<AdjustmentTransfersList> listDisputesAdjustmentsWithHttpInfo(String disputeId, Long limit, Long offset) throws ApiException {
-        okhttp3.Call localVarCall = listDisputesAdjustmentsValidateBeforeCall(disputeId, limit, offset, null);
+    private ApiResponse<AdjustmentTransfersList> listDisputesAdjustmentsWithHttpInfo(String disputeId, Long limit, String afterCursor, String beforeCursor) throws ApiException {
+        okhttp3.Call localVarCall = listDisputesAdjustmentsValidateBeforeCall(disputeId, limit, afterCursor, beforeCursor, null);
                 Type localVarReturnType = new TypeToken<AdjustmentTransfersList>(){}.getType();
                 return localVarFinixClient.execute(localVarCall, localVarReturnType);
         }
 
-    private okhttp3.Call listDisputesAdjustmentsAsync(String disputeId, Long limit, Long offset, final ApiCallback<AdjustmentTransfersList> _callback) throws ApiException {
+    private okhttp3.Call listDisputesAdjustmentsAsync(String disputeId, Long limit, String afterCursor, String beforeCursor, final ApiCallback<AdjustmentTransfersList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listDisputesAdjustmentsValidateBeforeCall(disputeId, limit, offset, _callback);
+        okhttp3.Call localVarCall = listDisputesAdjustmentsValidateBeforeCall(disputeId, limit, afterCursor, beforeCursor, _callback);
     Type localVarReturnType = new TypeToken<AdjustmentTransfersList>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1126,7 +1130,8 @@ this.localCustomBaseUrl = customBaseUrl;
         public class APIlistDisputesAdjustmentsRequest {
             private final String disputeId;
             private Long limit;
-            private Long offset;
+            private String afterCursor;
+            private String beforeCursor;
 
         private APIlistDisputesAdjustmentsRequest(String disputeId) {
             this.disputeId = disputeId;
@@ -1143,12 +1148,22 @@ this.localCustomBaseUrl = customBaseUrl;
             }
 
             /**
-            * Set offset
-            * @param offset The number of items to skip before starting to collect the result set (optional)
+            * Set afterCursor
+            * @param afterCursor Return every resource created after the cursor value. (optional)
             * @return APIlistDisputesAdjustmentsRequest
             */
-            public APIlistDisputesAdjustmentsRequest offset(Long offset) {
-            this.offset = offset;
+            public APIlistDisputesAdjustmentsRequest afterCursor(String afterCursor) {
+            this.afterCursor = afterCursor;
+            return this;
+            }
+
+            /**
+            * Set beforeCursor
+            * @param beforeCursor Return every resource created before the cursor value. (optional)
+            * @return APIlistDisputesAdjustmentsRequest
+            */
+            public APIlistDisputesAdjustmentsRequest beforeCursor(String beforeCursor) {
+            this.beforeCursor = beforeCursor;
             return this;
             }
 
@@ -1168,7 +1183,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-        return listDisputesAdjustmentsCall(disputeId, limit, offset, _callback);
+        return listDisputesAdjustmentsCall(disputeId, limit, afterCursor, beforeCursor, _callback);
         }
 
         /**
@@ -1186,7 +1201,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public AdjustmentTransfersList execute() throws ApiException {
-    ApiResponse<AdjustmentTransfersList> localVarResp = listDisputesAdjustmentsWithHttpInfo(disputeId, limit, offset);
+    ApiResponse<AdjustmentTransfersList> localVarResp = listDisputesAdjustmentsWithHttpInfo(disputeId, limit, afterCursor, beforeCursor);
             return localVarResp.getData();
         }
 
@@ -1205,7 +1220,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public ApiResponse<AdjustmentTransfersList> executeWithHttpInfo() throws ApiException {
-        return listDisputesAdjustmentsWithHttpInfo(disputeId, limit, offset);
+        return listDisputesAdjustmentsWithHttpInfo(disputeId, limit, afterCursor, beforeCursor);
         }
 
         /**
@@ -1224,7 +1239,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call executeAsync(final ApiCallback<AdjustmentTransfersList> _callback) throws ApiException {
-        return listDisputesAdjustmentsAsync(disputeId, limit, offset, _callback);
+        return listDisputesAdjustmentsAsync(disputeId, limit, afterCursor, beforeCursor, _callback);
         }
         }
 
@@ -1247,7 +1262,8 @@ this.localCustomBaseUrl = customBaseUrl;
 
         APIlistDisputesAdjustmentsRequest request = new APIlistDisputesAdjustmentsRequest(disputeId);
         request.limit(listDisputesAdjustmentsQueryParams.getLimit());
-        request.offset(listDisputesAdjustmentsQueryParams.getOffset());
+        request.afterCursor(listDisputesAdjustmentsQueryParams.getAfterCursor());
+        request.beforeCursor(listDisputesAdjustmentsQueryParams.getBeforeCursor());
         return request.execute();
 
     }

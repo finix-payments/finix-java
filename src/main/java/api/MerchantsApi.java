@@ -140,7 +140,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    "application/hal+json"
+            "application/hal+json"
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -295,7 +295,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    "application/hal+json"
+            "application/hal+json"
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -445,7 +445,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -600,7 +600,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -878,7 +878,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    "application/hal+json"
+            "application/hal+json"
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -905,7 +905,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
             /**
             * Update a Merchant
-            * Update a &#x60;Merchant&#x60; to change the &#x60;Identity&#x60; information saved with the underlying processor, or enable Level 2/3 processing.
+            * Update a &#x60;Merchant&#x60; to:  - Change the &#x60;Identity&#x60; information saved with the underlying processor - Enable Level 2/3 processing - Enable [Buyer Chages](/guides/payments/buyer-charges/)
                 * @param merchantId ID of &#x60;Merchant&#x60;. (required)
                 * @param updateMerchantRequest  (optional)
                 * @return Merchant
@@ -927,7 +927,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Update a Merchant
-        * Update a &#x60;Merchant&#x60; to change the &#x60;Identity&#x60; information saved with the underlying processor, or enable Level 2/3 processing.
+        * Update a &#x60;Merchant&#x60; to:  - Change the &#x60;Identity&#x60; information saved with the underlying processor - Enable Level 2/3 processing - Enable [Buyer Chages](/guides/payments/buyer-charges/)
             * @param merchantId ID of &#x60;Merchant&#x60;. (required)
             * @param updateMerchantRequest  (optional)
         * @return ApiResponse&lt;Merchant&gt;
@@ -950,7 +950,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Update a Merchant (asynchronously)
-        * Update a &#x60;Merchant&#x60; to change the &#x60;Identity&#x60; information saved with the underlying processor, or enable Level 2/3 processing.
+        * Update a &#x60;Merchant&#x60; to:  - Change the &#x60;Identity&#x60; information saved with the underlying processor - Enable Level 2/3 processing - Enable [Buyer Chages](/guides/payments/buyer-charges/)
             * @param merchantId ID of &#x60;Merchant&#x60;. (required)
             * @param updateMerchantRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes

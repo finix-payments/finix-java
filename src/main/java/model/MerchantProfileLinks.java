@@ -62,13 +62,29 @@ public class MerchantProfileLinks {
   @SerializedName(SERIALIZED_NAME_FEE_PROFILE)
   private ApplicationLinksApplicationProfile feeProfile;
 
-  public static final String SERIALIZED_NAME_SELF = "self";
-  @SerializedName(SERIALIZED_NAME_SELF)
-  private ApplicationLinksSelf self;
+  public static final String SERIALIZED_NAME_OWNER_IDENTITY = "owner_identity";
+  @SerializedName(SERIALIZED_NAME_OWNER_IDENTITY)
+  private ApplicationLinksApplicationProfile ownerIdentity;
+
+  public static final String SERIALIZED_NAME_PROCESSORS = "processors";
+  @SerializedName(SERIALIZED_NAME_PROCESSORS)
+  private ApplicationLinksApplicationProfile processors;
+
+  public static final String SERIALIZED_NAME_RESERVE_PROFILE = "reserve_profile";
+  @SerializedName(SERIALIZED_NAME_RESERVE_PROFILE)
+  private ApplicationLinksApplicationProfile reserveProfile;
 
   public static final String SERIALIZED_NAME_RISK_PROFILE = "risk_profile";
   @SerializedName(SERIALIZED_NAME_RISK_PROFILE)
   private ApplicationLinksApplicationProfile riskProfile;
+
+  public static final String SERIALIZED_NAME_SELF = "self";
+  @SerializedName(SERIALIZED_NAME_SELF)
+  private ApplicationLinksSelf self;
+
+  public static final String SERIALIZED_NAME_USERS = "users";
+  @SerializedName(SERIALIZED_NAME_USERS)
+  private ApplicationLinksApplicationProfile users;
 
   public MerchantProfileLinks() { 
   }
@@ -119,26 +135,72 @@ public class MerchantProfileLinks {
   }
 
 
-  public MerchantProfileLinks self(ApplicationLinksSelf self) {
+  public MerchantProfileLinks ownerIdentity(ApplicationLinksApplicationProfile ownerIdentity) {
     
-    this.self = self;
+    this.ownerIdentity = ownerIdentity;
     return this;
   }
 
    /**
-   * Get self
-   * @return self
+   * Get ownerIdentity
+   * @return ownerIdentity
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksSelf getSelf() {
-    return self;
+  public ApplicationLinksApplicationProfile getOwnerIdentity() {
+    return ownerIdentity;
   }
 
 
-  public void setSelf(ApplicationLinksSelf self) {
-    this.self = self;
+  public void setOwnerIdentity(ApplicationLinksApplicationProfile ownerIdentity) {
+    this.ownerIdentity = ownerIdentity;
+  }
+
+
+  public MerchantProfileLinks processors(ApplicationLinksApplicationProfile processors) {
+    
+    this.processors = processors;
+    return this;
+  }
+
+   /**
+   * Get processors
+   * @return processors
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ApplicationLinksApplicationProfile getProcessors() {
+    return processors;
+  }
+
+
+  public void setProcessors(ApplicationLinksApplicationProfile processors) {
+    this.processors = processors;
+  }
+
+
+  public MerchantProfileLinks reserveProfile(ApplicationLinksApplicationProfile reserveProfile) {
+    
+    this.reserveProfile = reserveProfile;
+    return this;
+  }
+
+   /**
+   * Get reserveProfile
+   * @return reserveProfile
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ApplicationLinksApplicationProfile getReserveProfile() {
+    return reserveProfile;
+  }
+
+
+  public void setReserveProfile(ApplicationLinksApplicationProfile reserveProfile) {
+    this.reserveProfile = reserveProfile;
   }
 
 
@@ -165,6 +227,52 @@ public class MerchantProfileLinks {
   }
 
 
+  public MerchantProfileLinks self(ApplicationLinksSelf self) {
+    
+    this.self = self;
+    return this;
+  }
+
+   /**
+   * Get self
+   * @return self
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ApplicationLinksSelf getSelf() {
+    return self;
+  }
+
+
+  public void setSelf(ApplicationLinksSelf self) {
+    this.self = self;
+  }
+
+
+  public MerchantProfileLinks users(ApplicationLinksApplicationProfile users) {
+    
+    this.users = users;
+    return this;
+  }
+
+   /**
+   * Get users
+   * @return users
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ApplicationLinksApplicationProfile getUsers() {
+    return users;
+  }
+
+
+  public void setUsers(ApplicationLinksApplicationProfile users) {
+    this.users = users;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -177,13 +285,17 @@ public class MerchantProfileLinks {
     MerchantProfileLinks merchantProfileLinks = (MerchantProfileLinks) o;
     return Objects.equals(this.application, merchantProfileLinks.application) &&
         Objects.equals(this.feeProfile, merchantProfileLinks.feeProfile) &&
+        Objects.equals(this.ownerIdentity, merchantProfileLinks.ownerIdentity) &&
+        Objects.equals(this.processors, merchantProfileLinks.processors) &&
+        Objects.equals(this.reserveProfile, merchantProfileLinks.reserveProfile) &&
+        Objects.equals(this.riskProfile, merchantProfileLinks.riskProfile) &&
         Objects.equals(this.self, merchantProfileLinks.self) &&
-        Objects.equals(this.riskProfile, merchantProfileLinks.riskProfile);
+        Objects.equals(this.users, merchantProfileLinks.users);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(application, feeProfile, self, riskProfile);
+    return Objects.hash(application, feeProfile, ownerIdentity, processors, reserveProfile, riskProfile, self, users);
   }
 
   @Override
@@ -192,8 +304,12 @@ public class MerchantProfileLinks {
     sb.append("class MerchantProfileLinks {\n");
     sb.append("    application: ").append(toIndentedString(application)).append("\n");
     sb.append("    feeProfile: ").append(toIndentedString(feeProfile)).append("\n");
-    sb.append("    self: ").append(toIndentedString(self)).append("\n");
+    sb.append("    ownerIdentity: ").append(toIndentedString(ownerIdentity)).append("\n");
+    sb.append("    processors: ").append(toIndentedString(processors)).append("\n");
+    sb.append("    reserveProfile: ").append(toIndentedString(reserveProfile)).append("\n");
     sb.append("    riskProfile: ").append(toIndentedString(riskProfile)).append("\n");
+    sb.append("    self: ").append(toIndentedString(self)).append("\n");
+    sb.append("    users: ").append(toIndentedString(users)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -218,8 +334,12 @@ public class MerchantProfileLinks {
     openapiFields = new HashSet<String>();
     openapiFields.add("application");
     openapiFields.add("fee_profile");
-    openapiFields.add("self");
+    openapiFields.add("owner_identity");
+    openapiFields.add("processors");
+    openapiFields.add("reserve_profile");
     openapiFields.add("risk_profile");
+    openapiFields.add("self");
+    openapiFields.add("users");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -271,9 +391,27 @@ public class MerchantProfileLinks {
       * EDITED
       * ADDED  statement to for inconsistent null behaviour
       */
-      // validate the optional field `self`
-     // if (jsonObj.getAsJsonObject("self") != null) {
-       //ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
+      // validate the optional field `owner_identity`
+     // if (jsonObj.getAsJsonObject("owner_identity") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("owner_identity"));
+     // }
+
+      /**
+      * EDITED
+      * ADDED  statement to for inconsistent null behaviour
+      */
+      // validate the optional field `processors`
+     // if (jsonObj.getAsJsonObject("processors") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("processors"));
+     // }
+
+      /**
+      * EDITED
+      * ADDED  statement to for inconsistent null behaviour
+      */
+      // validate the optional field `reserve_profile`
+     // if (jsonObj.getAsJsonObject("reserve_profile") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("reserve_profile"));
      // }
 
       /**
@@ -283,6 +421,24 @@ public class MerchantProfileLinks {
       // validate the optional field `risk_profile`
      // if (jsonObj.getAsJsonObject("risk_profile") != null) {
        //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("risk_profile"));
+     // }
+
+      /**
+      * EDITED
+      * ADDED  statement to for inconsistent null behaviour
+      */
+      // validate the optional field `self`
+     // if (jsonObj.getAsJsonObject("self") != null) {
+       //ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
+     // }
+
+      /**
+      * EDITED
+      * ADDED  statement to for inconsistent null behaviour
+      */
+      // validate the optional field `users`
+     // if (jsonObj.getAsJsonObject("users") != null) {
+       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("users"));
      // }
 
   }

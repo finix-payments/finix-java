@@ -49,7 +49,7 @@ import invoker.JSON;
  */
 @ApiModel(description = "Link to the `Transfer` the `Dispute` is about.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-26T18:32:58.696164-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TransferLinksDisputedTransfer {
   public static final String SERIALIZED_NAME_HREF = "href";
   @SerializedName(SERIALIZED_NAME_HREF)

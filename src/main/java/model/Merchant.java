@@ -223,6 +223,14 @@ public class Merchant {
   @SerializedName(SERIALIZED_NAME_PROCESSOR_DETAILS)
   private MerchantProcessorDetails processorDetails;
 
+  public static final String SERIALIZED_NAME_CONVENIENCE_CHARGES_ENABLED = "convenience_charges_enabled";
+  @SerializedName(SERIALIZED_NAME_CONVENIENCE_CHARGES_ENABLED)
+  private Boolean convenienceChargesEnabled;
+
+  public static final String SERIALIZED_NAME_RENT_SURCHARGES_ENABLED = "rent_surcharges_enabled";
+  @SerializedName(SERIALIZED_NAME_RENT_SURCHARGES_ENABLED)
+  private Boolean rentSurchargesEnabled;
+
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
   private MerchantLinks links;
@@ -790,6 +798,52 @@ public class Merchant {
   }
 
 
+  public Merchant convenienceChargesEnabled(Boolean convenienceChargesEnabled) {
+    
+    this.convenienceChargesEnabled = convenienceChargesEnabled;
+    return this;
+  }
+
+   /**
+   * Set to **true** if you want to enable the &#x60;Merchant&#x60; to accept convenience fees and/or service fees.
+   * @return convenienceChargesEnabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set to **true** if you want to enable the `Merchant` to accept convenience fees and/or service fees.")
+
+  public Boolean getConvenienceChargesEnabled() {
+    return convenienceChargesEnabled;
+  }
+
+
+  public void setConvenienceChargesEnabled(Boolean convenienceChargesEnabled) {
+    this.convenienceChargesEnabled = convenienceChargesEnabled;
+  }
+
+
+  public Merchant rentSurchargesEnabled(Boolean rentSurchargesEnabled) {
+    
+    this.rentSurchargesEnabled = rentSurchargesEnabled;
+    return this;
+  }
+
+   /**
+   * Set to **true** if you want to enable a &#x60;Merchant&#x60; to accept rent charges.
+   * @return rentSurchargesEnabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set to **true** if you want to enable a `Merchant` to accept rent charges.")
+
+  public Boolean getRentSurchargesEnabled() {
+    return rentSurchargesEnabled;
+  }
+
+
+  public void setRentSurchargesEnabled(Boolean rentSurchargesEnabled) {
+    this.rentSurchargesEnabled = rentSurchargesEnabled;
+  }
+
+
   public Merchant links(MerchantLinks links) {
     
     this.links = links;
@@ -847,6 +901,8 @@ public class Merchant {
         Objects.equals(this.updatedAt, merchant.updatedAt) &&
         Objects.equals(this.onboardingState, merchant.onboardingState) &&
         Objects.equals(this.processorDetails, merchant.processorDetails) &&
+        Objects.equals(this.convenienceChargesEnabled, merchant.convenienceChargesEnabled) &&
+        Objects.equals(this.rentSurchargesEnabled, merchant.rentSurchargesEnabled) &&
         Objects.equals(this.links, merchant.links);
   }
 
@@ -856,7 +912,7 @@ public class Merchant {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, application, identity, verification, merchantProfile, processor, processingEnabled, settlementEnabled, grossSettlementEnabled, creatingTransferFromReportEnabled, cardExpirationDateRequired, cardCvvRequired, tags, mcc, mid, merchantName, settlementFundingIdentifier, readyToSettleUpon, feeReadyToSettleUpon, levelTwoLevelThreeDataEnabled, createdAt, updatedAt, onboardingState, processorDetails, links);
+    return Objects.hash(id, application, identity, verification, merchantProfile, processor, processingEnabled, settlementEnabled, grossSettlementEnabled, creatingTransferFromReportEnabled, cardExpirationDateRequired, cardCvvRequired, tags, mcc, mid, merchantName, settlementFundingIdentifier, readyToSettleUpon, feeReadyToSettleUpon, levelTwoLevelThreeDataEnabled, createdAt, updatedAt, onboardingState, processorDetails, convenienceChargesEnabled, rentSurchargesEnabled, links);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -894,6 +950,8 @@ public class Merchant {
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    onboardingState: ").append(toIndentedString(onboardingState)).append("\n");
     sb.append("    processorDetails: ").append(toIndentedString(processorDetails)).append("\n");
+    sb.append("    convenienceChargesEnabled: ").append(toIndentedString(convenienceChargesEnabled)).append("\n");
+    sb.append("    rentSurchargesEnabled: ").append(toIndentedString(rentSurchargesEnabled)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -941,6 +999,8 @@ public class Merchant {
     openapiFields.add("updated_at");
     openapiFields.add("onboarding_state");
     openapiFields.add("processor_details");
+    openapiFields.add("convenience_charges_enabled");
+    openapiFields.add("rent_surcharges_enabled");
     openapiFields.add("_links");
 
     // a set of required properties/fields (JSON key names)

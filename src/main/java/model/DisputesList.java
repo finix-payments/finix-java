@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import model.DisputesListEmbedded;
 import model.ListLinks;
-import model.PageCursor;
+import model.PageOffset;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -63,7 +63,7 @@ public class DisputesList {
 
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
-  private PageCursor page;
+  private PageOffset page;
 
   public DisputesList() { 
   }
@@ -114,7 +114,7 @@ public class DisputesList {
   }
 
 
-  public DisputesList page(PageCursor page) {
+  public DisputesList page(PageOffset page) {
     
     this.page = page;
     return this;
@@ -127,12 +127,12 @@ public class DisputesList {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public PageCursor getPage() {
+  public PageOffset getPage() {
     return page;
   }
 
 
-  public void setPage(PageCursor page) {
+  public void setPage(PageOffset page) {
     this.page = page;
   }
 
@@ -233,7 +233,7 @@ public class DisputesList {
       */
       // validate the optional field `page`
      // if (jsonObj.getAsJsonObject("page") != null) {
-       //PageCursor.validateJsonObject(jsonObj.getAsJsonObject("page"));
+       //PageOffset.validateJsonObject(jsonObj.getAsJsonObject("page"));
      // }
 
   }

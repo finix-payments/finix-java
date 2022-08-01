@@ -140,7 +140,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    "application/hal+json"
+            "application/hal+json"
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -289,7 +289,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    "application/hal+json"
+            "application/hal+json"
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -311,7 +311,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
             /**
             * Create an Identity
-            * Create an &#x60;Identity&#x60; for your merchant or buyer.  Creating &#x60;Identities&#x60; for merchants requires they provide [KYC details](/docs/guides/getting-stared/).  Related Guides: [Getting Started](/docs/guides/getting-started/), [Onboarding](/docs/guides/onboarding/)
+            * Create an &#x60;Identity&#x60; for your merchant or buyer.  Creating &#x60;Identities&#x60; for merchants requires they provide [KYC details](/docs/guides/getting-started/).  Related Guides: [Getting Started](/docs/guides/getting-started/), [Onboarding](/docs/guides/onboarding/)
                 * @param createIdentityRequest  (optional)
                 * @return Identity
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -332,7 +332,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Create an Identity
-        * Create an &#x60;Identity&#x60; for your merchant or buyer.  Creating &#x60;Identities&#x60; for merchants requires they provide [KYC details](/docs/guides/getting-stared/).  Related Guides: [Getting Started](/docs/guides/getting-started/), [Onboarding](/docs/guides/onboarding/)
+        * Create an &#x60;Identity&#x60; for your merchant or buyer.  Creating &#x60;Identities&#x60; for merchants requires they provide [KYC details](/docs/guides/getting-started/).  Related Guides: [Getting Started](/docs/guides/getting-started/), [Onboarding](/docs/guides/onboarding/)
             * @param createIdentityRequest  (optional)
         * @return ApiResponse&lt;Identity&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -354,7 +354,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Create an Identity (asynchronously)
-        * Create an &#x60;Identity&#x60; for your merchant or buyer.  Creating &#x60;Identities&#x60; for merchants requires they provide [KYC details](/docs/guides/getting-stared/).  Related Guides: [Getting Started](/docs/guides/getting-started/), [Onboarding](/docs/guides/onboarding/)
+        * Create an &#x60;Identity&#x60; for your merchant or buyer.  Creating &#x60;Identities&#x60; for merchants requires they provide [KYC details](/docs/guides/getting-started/).  Related Guides: [Getting Started](/docs/guides/getting-started/), [Onboarding](/docs/guides/onboarding/)
             * @param createIdentityRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
@@ -430,7 +430,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    "application/hal+json"
+            "application/hal+json"
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -580,7 +580,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -763,7 +763,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1115,7 +1115,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1349,7 +1349,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    "application/hal+json"
+            "application/hal+json"
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {

@@ -94,6 +94,8 @@ public class CreateDevice {
     
     ANDROID("ANDROID"),
     
+    LANE_3000("LANE_3000"),
+    
     UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;

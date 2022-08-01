@@ -90,9 +90,9 @@ public class CreatePaymentInstrumentRequest {
   public enum TypeEnum {
     PAYMENT_CARD("PAYMENT_CARD"),
     
-    TOKEN("TOKEN"),
-    
     APPLE_PAY("APPLE_PAY"),
+    
+    TOKEN("TOKEN"),
     
     BANK_ACCOUNT("BANK_ACCOUNT"),
     
@@ -171,10 +171,6 @@ public class CreatePaymentInstrumentRequest {
   @SerializedName(SERIALIZED_NAME_MERCHANT_IDENTITY)
   private String merchantIdentity;
 
-  public static final String SERIALIZED_NAME_ACCOUNT_NUMBER = "account_number";
-  @SerializedName(SERIALIZED_NAME_ACCOUNT_NUMBER)
-  private String accountNumber;
-
   /**
    * The type of bank account.
    */
@@ -251,13 +247,17 @@ public class CreatePaymentInstrumentRequest {
   @SerializedName(SERIALIZED_NAME_ACCOUNT_TYPE)
   private AccountTypeEnum accountType;
 
+  public static final String SERIALIZED_NAME_COUNTRY = "country";
+  @SerializedName(SERIALIZED_NAME_COUNTRY)
+  private String country;
+
   public static final String SERIALIZED_NAME_BANK_CODE = "bank_code";
   @SerializedName(SERIALIZED_NAME_BANK_CODE)
   private String bankCode;
 
-  public static final String SERIALIZED_NAME_COUNTRY = "country";
-  @SerializedName(SERIALIZED_NAME_COUNTRY)
-  private String country;
+  public static final String SERIALIZED_NAME_ACCOUNT_NUMBER = "account_number";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_NUMBER)
+  private String accountNumber;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -527,29 +527,6 @@ public class CreatePaymentInstrumentRequest {
   }
 
 
-  public CreatePaymentInstrumentRequest accountNumber(String accountNumber) {
-    
-    this.accountNumber = accountNumber;
-    return this;
-  }
-
-   /**
-   * The bank account number (no dashes in between numbers).
-   * @return accountNumber
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The bank account number (no dashes in between numbers).")
-
-  public String getAccountNumber() {
-    return accountNumber;
-  }
-
-
-  public void setAccountNumber(String accountNumber) {
-    this.accountNumber = accountNumber;
-  }
-
-
   public CreatePaymentInstrumentRequest accountType(AccountTypeEnum accountType) {
     
     this.accountType = accountType;
@@ -570,6 +547,29 @@ public class CreatePaymentInstrumentRequest {
 
   public void setAccountType(AccountTypeEnum accountType) {
     this.accountType = accountType;
+  }
+
+
+  public CreatePaymentInstrumentRequest country(String country) {
+    
+    this.country = country;
+    return this;
+  }
+
+   /**
+   * 3 Letter country code (e.g. USA).
+   * @return country
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "3 Letter country code (e.g. USA).")
+
+  public String getCountry() {
+    return country;
+  }
+
+
+  public void setCountry(String country) {
+    this.country = country;
   }
 
 
@@ -596,26 +596,26 @@ public class CreatePaymentInstrumentRequest {
   }
 
 
-  public CreatePaymentInstrumentRequest country(String country) {
+  public CreatePaymentInstrumentRequest accountNumber(String accountNumber) {
     
-    this.country = country;
+    this.accountNumber = accountNumber;
     return this;
   }
 
    /**
-   * 3 Letter country code (e.g. USA).
-   * @return country
+   * The bank account number (no dashes in between numbers).
+   * @return accountNumber
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "3 Letter country code (e.g. USA).")
+  @ApiModelProperty(value = "The bank account number (no dashes in between numbers).")
 
-  public String getCountry() {
-    return country;
+  public String getAccountNumber() {
+    return accountNumber;
   }
 
 
-  public void setCountry(String country) {
-    this.country = country;
+  public void setAccountNumber(String accountNumber) {
+    this.accountNumber = accountNumber;
   }
 
 
@@ -663,10 +663,10 @@ public class CreatePaymentInstrumentRequest {
         Objects.equals(this.identity, createPaymentInstrumentRequest.identity) &&
         Objects.equals(this.thirdPartyToken, createPaymentInstrumentRequest.thirdPartyToken) &&
         Objects.equals(this.merchantIdentity, createPaymentInstrumentRequest.merchantIdentity) &&
-        Objects.equals(this.accountNumber, createPaymentInstrumentRequest.accountNumber) &&
         Objects.equals(this.accountType, createPaymentInstrumentRequest.accountType) &&
-        Objects.equals(this.bankCode, createPaymentInstrumentRequest.bankCode) &&
         Objects.equals(this.country, createPaymentInstrumentRequest.country) &&
+        Objects.equals(this.bankCode, createPaymentInstrumentRequest.bankCode) &&
+        Objects.equals(this.accountNumber, createPaymentInstrumentRequest.accountNumber) &&
         Objects.equals(this.token, createPaymentInstrumentRequest.token);
   }
 
@@ -676,7 +676,7 @@ public class CreatePaymentInstrumentRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, expirationYear, tags, number, expirationMonth, address, securityCode, type, identity, thirdPartyToken, merchantIdentity, accountNumber, accountType, bankCode, country, token);
+    return Objects.hash(name, expirationYear, tags, number, expirationMonth, address, securityCode, type, identity, thirdPartyToken, merchantIdentity, accountType, country, bankCode, accountNumber, token);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -701,10 +701,10 @@ public class CreatePaymentInstrumentRequest {
     sb.append("    identity: ").append(toIndentedString(identity)).append("\n");
     sb.append("    thirdPartyToken: ").append(toIndentedString(thirdPartyToken)).append("\n");
     sb.append("    merchantIdentity: ").append(toIndentedString(merchantIdentity)).append("\n");
-    sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
-    sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
+    sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -739,10 +739,10 @@ public class CreatePaymentInstrumentRequest {
     openapiFields.add("identity");
     openapiFields.add("third_party_token");
     openapiFields.add("merchant_identity");
-    openapiFields.add("account_number");
     openapiFields.add("account_type");
-    openapiFields.add("bank_code");
     openapiFields.add("country");
+    openapiFields.add("bank_code");
+    openapiFields.add("account_number");
     openapiFields.add("token");
 
     // a set of required properties/fields (JSON key names)
@@ -835,15 +835,15 @@ public class CreatePaymentInstrumentRequest {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("account_number") != null && !jsonObj.get("account_number").isJsonNull()  && !jsonObj.get("account_number").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `account_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_number").toString()));
+      if (jsonObj.get("account_type") != null && !jsonObj.get("account_type").isJsonNull()  && !jsonObj.get("account_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `account_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_type").toString()));
       }
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("account_type") != null && !jsonObj.get("account_type").isJsonNull()  && !jsonObj.get("account_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `account_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_type").toString()));
+      if (jsonObj.get("country") != null && !jsonObj.get("country").isJsonNull()  && !jsonObj.get("country").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `country` to be a primitive type in the JSON string but got `%s`", jsonObj.get("country").toString()));
       }
       /**
       * EDITED
@@ -856,8 +856,8 @@ public class CreatePaymentInstrumentRequest {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("country") != null && !jsonObj.get("country").isJsonNull()  && !jsonObj.get("country").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `country` to be a primitive type in the JSON string but got `%s`", jsonObj.get("country").toString()));
+      if (jsonObj.get("account_number") != null && !jsonObj.get("account_number").isJsonNull()  && !jsonObj.get("account_number").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `account_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_number").toString()));
       }
       /**
       * EDITED

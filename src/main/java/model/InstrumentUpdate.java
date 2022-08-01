@@ -24,7 +24,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import model.DisputeEvidenceLinks;
+import java.util.ArrayList;
+import java.util.List;
+import model.InstrumentUpdateLinks;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -72,9 +74,25 @@ public class InstrumentUpdate {
   @SerializedName(SERIALIZED_NAME_STATE)
   private String state;
 
+  public static final String SERIALIZED_NAME_APPLICATION = "application";
+  @SerializedName(SERIALIZED_NAME_APPLICATION)
+  private String application;
+
+  public static final String SERIALIZED_NAME_MESSAGES = "messages";
+  @SerializedName(SERIALIZED_NAME_MESSAGES)
+  private List<String> messages = null;
+
+  public static final String SERIALIZED_NAME_TRACE_ID = "trace_id";
+  @SerializedName(SERIALIZED_NAME_TRACE_ID)
+  private String traceId;
+
+  public static final String SERIALIZED_NAME_PAYMENT_INSTRUMENT = "payment_instrument";
+  @SerializedName(SERIALIZED_NAME_PAYMENT_INSTRUMENT)
+  private String paymentInstrument;
+
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private DisputeEvidenceLinks links;
+  private InstrumentUpdateLinks links;
 
   public InstrumentUpdate() { 
   }
@@ -194,7 +212,107 @@ public class InstrumentUpdate {
   }
 
 
-  public InstrumentUpdate links(DisputeEvidenceLinks links) {
+  public InstrumentUpdate application(String application) {
+    
+    this.application = application;
+    return this;
+  }
+
+   /**
+   * The id of the application.
+   * @return application
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The id of the application.")
+
+  public String getApplication() {
+    return application;
+  }
+
+
+  public void setApplication(String application) {
+    this.application = application;
+  }
+
+
+  public InstrumentUpdate messages(List<String> messages) {
+    
+    this.messages = messages;
+    return this;
+  }
+
+  public InstrumentUpdate addMessagesItem(String messagesItem) {
+    if (this.messages == null) {
+      this.messages = new ArrayList<>();
+    }
+    this.messages.add(messagesItem);
+    return this;
+  }
+
+   /**
+   * Get messages
+   * @return messages
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getMessages() {
+    return messages;
+  }
+
+
+  public void setMessages(List<String> messages) {
+    this.messages = messages;
+  }
+
+
+  public InstrumentUpdate traceId(String traceId) {
+    
+    this.traceId = traceId;
+    return this;
+  }
+
+   /**
+   * Trace ID of the &#x60;Update&#x60;. The processor sends back the &#x60;trace_id&#x60; so you can track the update end-to-end.
+   * @return traceId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Trace ID of the `Update`. The processor sends back the `trace_id` so you can track the update end-to-end.")
+
+  public String getTraceId() {
+    return traceId;
+  }
+
+
+  public void setTraceId(String traceId) {
+    this.traceId = traceId;
+  }
+
+
+  public InstrumentUpdate paymentInstrument(String paymentInstrument) {
+    
+    this.paymentInstrument = paymentInstrument;
+    return this;
+  }
+
+   /**
+   * The id of the payment instrument the update occured against.
+   * @return paymentInstrument
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The id of the payment instrument the update occured against.")
+
+  public String getPaymentInstrument() {
+    return paymentInstrument;
+  }
+
+
+  public void setPaymentInstrument(String paymentInstrument) {
+    this.paymentInstrument = paymentInstrument;
+  }
+
+
+  public InstrumentUpdate links(InstrumentUpdateLinks links) {
     
     this.links = links;
     return this;
@@ -207,12 +325,12 @@ public class InstrumentUpdate {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public DisputeEvidenceLinks getLinks() {
+  public InstrumentUpdateLinks getLinks() {
     return links;
   }
 
 
-  public void setLinks(DisputeEvidenceLinks links) {
+  public void setLinks(InstrumentUpdateLinks links) {
     this.links = links;
   }
 
@@ -232,12 +350,16 @@ public class InstrumentUpdate {
         Objects.equals(this.updatedAt, instrumentUpdate.updatedAt) &&
         Objects.equals(this.merchant, instrumentUpdate.merchant) &&
         Objects.equals(this.state, instrumentUpdate.state) &&
+        Objects.equals(this.application, instrumentUpdate.application) &&
+        Objects.equals(this.messages, instrumentUpdate.messages) &&
+        Objects.equals(this.traceId, instrumentUpdate.traceId) &&
+        Objects.equals(this.paymentInstrument, instrumentUpdate.paymentInstrument) &&
         Objects.equals(this.links, instrumentUpdate.links);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdAt, updatedAt, merchant, state, links);
+    return Objects.hash(id, createdAt, updatedAt, merchant, state, application, messages, traceId, paymentInstrument, links);
   }
 
   @Override
@@ -249,6 +371,10 @@ public class InstrumentUpdate {
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    merchant: ").append(toIndentedString(merchant)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    application: ").append(toIndentedString(application)).append("\n");
+    sb.append("    messages: ").append(toIndentedString(messages)).append("\n");
+    sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
+    sb.append("    paymentInstrument: ").append(toIndentedString(paymentInstrument)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -277,6 +403,10 @@ public class InstrumentUpdate {
     openapiFields.add("updated_at");
     openapiFields.add("merchant");
     openapiFields.add("state");
+    openapiFields.add("application");
+    openapiFields.add("messages");
+    openapiFields.add("trace_id");
+    openapiFields.add("payment_instrument");
     openapiFields.add("_links");
 
     // a set of required properties/fields (JSON key names)
@@ -330,11 +460,40 @@ public class InstrumentUpdate {
       }
       /**
       * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("application") != null && !jsonObj.get("application").isJsonNull()  && !jsonObj.get("application").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `application` to be a primitive type in the JSON string but got `%s`", jsonObj.get("application").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      // ensure the json data is an array
+      if (jsonObj.get("messages") != null && !jsonObj.get("messages").isJsonNull() && !jsonObj.get("messages").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `messages` to be an array in the JSON string but got `%s`", jsonObj.get("messages").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("trace_id") != null && !jsonObj.get("trace_id").isJsonNull()  && !jsonObj.get("trace_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `trace_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("trace_id").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("payment_instrument") != null && !jsonObj.get("payment_instrument").isJsonNull()  && !jsonObj.get("payment_instrument").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `payment_instrument` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payment_instrument").toString()));
+      }
+      /**
+      * EDITED
       * ADDED  statement to for inconsistent null behaviour
       */
       // validate the optional field `_links`
      // if (jsonObj.getAsJsonObject("_links") != null) {
-       //DisputeEvidenceLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
+       //InstrumentUpdateLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
      // }
 
   }

@@ -45,20 +45,20 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * Link to the &#x60;Application&#x60; that was used in the request.
+ * Link to the payment instrument.
  */
-@ApiModel(description = "Link to the `Application` that was used in the request.")
+@ApiModel(description = "Link to the payment instrument.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class VerificationLinksApplication {
+public class InstrumentUpdateLinksPaymentInstrument {
   public static final String SERIALIZED_NAME_HREF = "href";
   @SerializedName(SERIALIZED_NAME_HREF)
   private String href;
 
-  public VerificationLinksApplication() { 
+  public InstrumentUpdateLinksPaymentInstrument() { 
   }
 
-  public VerificationLinksApplication href(String href) {
+  public InstrumentUpdateLinksPaymentInstrument href(String href) {
     
     this.href = href;
     return this;
@@ -90,8 +90,8 @@ public class VerificationLinksApplication {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VerificationLinksApplication verificationLinksApplication = (VerificationLinksApplication) o;
-    return Objects.equals(this.href, verificationLinksApplication.href);
+    InstrumentUpdateLinksPaymentInstrument instrumentUpdateLinksPaymentInstrument = (InstrumentUpdateLinksPaymentInstrument) o;
+    return Objects.equals(this.href, instrumentUpdateLinksPaymentInstrument.href);
   }
 
   @Override
@@ -102,7 +102,7 @@ public class VerificationLinksApplication {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VerificationLinksApplication {\n");
+    sb.append("class InstrumentUpdateLinksPaymentInstrument {\n");
     sb.append("    href: ").append(toIndentedString(href)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -136,14 +136,14 @@ public class VerificationLinksApplication {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to VerificationLinksApplication
+  * @throws IOException if the JSON Object is invalid with respect to InstrumentUpdateLinksPaymentInstrument
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (VerificationLinksApplication.openapiRequiredFields.isEmpty()) {
+        if (InstrumentUpdateLinksPaymentInstrument.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in VerificationLinksApplication is not found in the empty JSON string", VerificationLinksApplication.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in InstrumentUpdateLinksPaymentInstrument is not found in the empty JSON string", InstrumentUpdateLinksPaymentInstrument.openapiRequiredFields.toString()));
         }
       }
      /* 
@@ -151,8 +151,8 @@ public class VerificationLinksApplication {
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!VerificationLinksApplication.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `VerificationLinksApplication` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!InstrumentUpdateLinksPaymentInstrument.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `InstrumentUpdateLinksPaymentInstrument` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       */
@@ -170,22 +170,22 @@ public class VerificationLinksApplication {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!VerificationLinksApplication.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'VerificationLinksApplication' and its subtypes
+       if (!InstrumentUpdateLinksPaymentInstrument.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'InstrumentUpdateLinksPaymentInstrument' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<VerificationLinksApplication> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(VerificationLinksApplication.class));
+       final TypeAdapter<InstrumentUpdateLinksPaymentInstrument> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(InstrumentUpdateLinksPaymentInstrument.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<VerificationLinksApplication>() {
+       return (TypeAdapter<T>) new TypeAdapter<InstrumentUpdateLinksPaymentInstrument>() {
            @Override
-           public void write(JsonWriter out, VerificationLinksApplication value) throws IOException {
+           public void write(JsonWriter out, InstrumentUpdateLinksPaymentInstrument value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public VerificationLinksApplication read(JsonReader in) throws IOException {
+           public InstrumentUpdateLinksPaymentInstrument read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -196,18 +196,18 @@ public class VerificationLinksApplication {
   }
 
  /**
-  * Create an instance of VerificationLinksApplication given an JSON string
+  * Create an instance of InstrumentUpdateLinksPaymentInstrument given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of VerificationLinksApplication
-  * @throws IOException if the JSON string is invalid with respect to VerificationLinksApplication
+  * @return An instance of InstrumentUpdateLinksPaymentInstrument
+  * @throws IOException if the JSON string is invalid with respect to InstrumentUpdateLinksPaymentInstrument
   */
-  public static VerificationLinksApplication fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, VerificationLinksApplication.class);
+  public static InstrumentUpdateLinksPaymentInstrument fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, InstrumentUpdateLinksPaymentInstrument.class);
   }
 
  /**
-  * Convert an instance of VerificationLinksApplication to an JSON string
+  * Convert an instance of InstrumentUpdateLinksPaymentInstrument to an JSON string
   *
   * @return JSON string
   */

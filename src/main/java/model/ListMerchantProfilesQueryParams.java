@@ -50,6 +50,10 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListMerchantProfilesQueryParams {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
+
   public static final String SERIALIZED_NAME_BEFORE_CURSOR = "before_cursor";
   @SerializedName(SERIALIZED_NAME_BEFORE_CURSOR)
   private String beforeCursor;
@@ -64,6 +68,29 @@ public class ListMerchantProfilesQueryParams {
 
   public ListMerchantProfilesQueryParams() { 
   }
+
+  public ListMerchantProfilesQueryParams id(String id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Filter by id
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Filter by id")
+
+  public String getId() {
+    return id;
+  }
+
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
 
   public ListMerchantProfilesQueryParams beforeCursor(String beforeCursor) {
     
@@ -144,20 +171,22 @@ public class ListMerchantProfilesQueryParams {
       return false;
     }
     ListMerchantProfilesQueryParams listMerchantProfilesQueryParams = (ListMerchantProfilesQueryParams) o;
-    return Objects.equals(this.beforeCursor, listMerchantProfilesQueryParams.beforeCursor) &&
+    return Objects.equals(this.id, listMerchantProfilesQueryParams.id) &&
+        Objects.equals(this.beforeCursor, listMerchantProfilesQueryParams.beforeCursor) &&
         Objects.equals(this.afterCursor, listMerchantProfilesQueryParams.afterCursor) &&
         Objects.equals(this.limit, listMerchantProfilesQueryParams.limit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(beforeCursor, afterCursor, limit);
+    return Objects.hash(id, beforeCursor, afterCursor, limit);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListMerchantProfilesQueryParams {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    beforeCursor: ").append(toIndentedString(beforeCursor)).append("\n");
     sb.append("    afterCursor: ").append(toIndentedString(afterCursor)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
@@ -183,6 +212,7 @@ public class ListMerchantProfilesQueryParams {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("id");
     openapiFields.add("before_cursor");
     openapiFields.add("after_cursor");
     openapiFields.add("limit");
@@ -215,6 +245,13 @@ public class ListMerchantProfilesQueryParams {
         }
       }
       */
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()  && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour

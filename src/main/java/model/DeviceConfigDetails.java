@@ -227,11 +227,11 @@ public class DeviceConfigDetails {
   }
 
    /**
-   * Sets whether or not the device will be used to capture transactions. This field must be set to true (defaults to false).
+   * Sets whether or not the device will be used to capture transactions. This field must be set to **true** (defaults to **false**).
    * @return bypassDeviceOnCapture
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Sets whether or not the device will be used to capture transactions. This field must be set to true (defaults to false).")
+  @ApiModelProperty(value = "Sets whether or not the device will be used to capture transactions. This field must be set to **true** (defaults to **false**).")
 
   public Boolean getBypassDeviceOnCapture() {
     return bypassDeviceOnCapture;

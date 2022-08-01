@@ -195,11 +195,11 @@ public class DisputesApiTest {
     public void listDisputesAdjustmentsTest() throws ApiException {
         String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
         Long limit = null;
-        Long offset = null;
+        String nextCursor = null;
 
         AdjustmentTransfersList response = finixClient.Disputes.listDisputesAdjustments(disputeId,ListDisputesAdjustmentsQueryParams.builder()
                 .limit(limit)
-                .offset(offset)
+                .afterCursor(nextCursor)
                 .build());
         assertTrue(response.getPage() != null);
         assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());

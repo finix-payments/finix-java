@@ -53,13 +53,13 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FilesList {
-  public static final String SERIALIZED_NAME_PAGE = "page";
-  @SerializedName(SERIALIZED_NAME_PAGE)
-  private PageCursor page;
-
   public static final String SERIALIZED_NAME_EMBEDDED = "_embedded";
   @SerializedName(SERIALIZED_NAME_EMBEDDED)
   private FilesListEmbedded embedded;
+
+  public static final String SERIALIZED_NAME_PAGE = "page";
+  @SerializedName(SERIALIZED_NAME_PAGE)
+  private PageCursor page;
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
@@ -67,29 +67,6 @@ public class FilesList {
 
   public FilesList() { 
   }
-
-  public FilesList page(PageCursor page) {
-    
-    this.page = page;
-    return this;
-  }
-
-   /**
-   * Get page
-   * @return page
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public PageCursor getPage() {
-    return page;
-  }
-
-
-  public void setPage(PageCursor page) {
-    this.page = page;
-  }
-
 
   public FilesList embedded(FilesListEmbedded embedded) {
     
@@ -111,6 +88,29 @@ public class FilesList {
 
   public void setEmbedded(FilesListEmbedded embedded) {
     this.embedded = embedded;
+  }
+
+
+  public FilesList page(PageCursor page) {
+    
+    this.page = page;
+    return this;
+  }
+
+   /**
+   * Get page
+   * @return page
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public PageCursor getPage() {
+    return page;
+  }
+
+
+  public void setPage(PageCursor page) {
+    this.page = page;
   }
 
 
@@ -147,22 +147,22 @@ public class FilesList {
       return false;
     }
     FilesList filesList = (FilesList) o;
-    return Objects.equals(this.page, filesList.page) &&
-        Objects.equals(this.embedded, filesList.embedded) &&
+    return Objects.equals(this.embedded, filesList.embedded) &&
+        Objects.equals(this.page, filesList.page) &&
         Objects.equals(this.links, filesList.links);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(page, embedded, links);
+    return Objects.hash(embedded, page, links);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FilesList {\n");
-    sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    embedded: ").append(toIndentedString(embedded)).append("\n");
+    sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -186,8 +186,8 @@ public class FilesList {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("page");
     openapiFields.add("_embedded");
+    openapiFields.add("page");
     openapiFields.add("_links");
 
     // a set of required properties/fields (JSON key names)
@@ -222,18 +222,18 @@ public class FilesList {
       * EDITED
       * ADDED  statement to for inconsistent null behaviour
       */
-      // validate the optional field `page`
-     // if (jsonObj.getAsJsonObject("page") != null) {
-       //PageCursor.validateJsonObject(jsonObj.getAsJsonObject("page"));
+      // validate the optional field `_embedded`
+     // if (jsonObj.getAsJsonObject("_embedded") != null) {
+       //FilesListEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
      // }
 
       /**
       * EDITED
       * ADDED  statement to for inconsistent null behaviour
       */
-      // validate the optional field `_embedded`
-     // if (jsonObj.getAsJsonObject("_embedded") != null) {
-       //FilesListEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
+      // validate the optional field `page`
+     // if (jsonObj.getAsJsonObject("page") != null) {
+       //PageCursor.validateJsonObject(jsonObj.getAsJsonObject("page"));
      // }
 
   }

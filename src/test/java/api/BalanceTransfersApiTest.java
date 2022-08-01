@@ -77,7 +77,7 @@ public class BalanceTransfersApiTest {
                 .source(CreateBalanceTransferRequest.SourceEnum.OPERATING_ACCOUNT)
                 .processorType("LITLE_V1")
                 .build();
-        BalanceTransfer response = finixClient.BalanceTransfers.createBalanceTransfer(createBalanceTransferRequest);
+        BalanceTransfer response = finixClient.BalanceTransfers.create(createBalanceTransferRequest);
         assertEquals(CreateBalanceTransferRequest.SourceEnum.OPERATING_ACCOUNT.toString(),response.getSource(),()->"Should return " + "OPERATING_ACCOUNT" + " but returns " + response.getSource());
     }
 
@@ -97,7 +97,7 @@ public class BalanceTransfersApiTest {
     @DisplayName("Get a Balance Transfer")
     public void getBalanceTransfersTest() throws ApiException {
         String balanceTransfersId = "BT_v3KQqgpDPqskH8VH6isFyz";
-        BalanceTransfer response = finixClient.BalanceTransfers.getBalanceTransfers(balanceTransfersId);
+        BalanceTransfer response = finixClient.BalanceTransfers.get(balanceTransfersId);
         assertEquals(CreateBalanceTransferRequest.SourceEnum.OPERATING_ACCOUNT.toString(),response.getSource(),()->"Should return " + "OPERATING_ACCOUNT" + " but returns " + response.getSource());
     }
 
@@ -132,7 +132,7 @@ public class BalanceTransfersApiTest {
         String referenceId = null;
         String source = null;
 
-        BalanceTransferList response = finixClient.BalanceTransfers.listBalanceTransfers(ListBalanceTransfersQueryParams.builder()
+        BalanceTransferList response = finixClient.BalanceTransfers.list(ListBalanceTransfersQueryParams.builder()
                 .limit(limit)
                 .offset(offset)
                 .pageNumber(pageNumber)

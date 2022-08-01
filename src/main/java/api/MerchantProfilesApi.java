@@ -133,7 +133,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -160,7 +160,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
             /**
             * Show Merchant Profile
-            * Retrieve the details of a merchant profile.
+            * Get the merchant profile object
                 * @param merchantProfileId ID of merchant profile (required)
                 * @return MerchantProfile
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -181,7 +181,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Show Merchant Profile
-        * Retrieve the details of a merchant profile.
+        * Get the merchant profile object
             * @param merchantProfileId ID of merchant profile (required)
         * @return ApiResponse&lt;MerchantProfile&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -203,7 +203,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
     /**
         * Show Merchant Profile (asynchronously)
-        * Retrieve the details of a merchant profile.
+        * Get the merchant profile object
             * @param merchantProfileId ID of merchant profile (required)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
@@ -225,7 +225,7 @@ this.localCustomBaseUrl = customBaseUrl;
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
         }
-    private okhttp3.Call listMerchantProfilesCall(String beforeCursor, String afterCursor, Long limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listMerchantProfilesCall(String id, String beforeCursor, String afterCursor, Long limit, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -250,6 +250,10 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+                if (id != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("id", id));
+                }
+
                 if (beforeCursor != null) {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("before_cursor", beforeCursor));
                 }
@@ -272,7 +276,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -284,36 +288,47 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call listMerchantProfilesValidateBeforeCall(String beforeCursor, String afterCursor, Long limit, final ApiCallback _callback) throws ApiException {
+        private okhttp3.Call listMerchantProfilesValidateBeforeCall(String id, String beforeCursor, String afterCursor, Long limit, final ApiCallback _callback) throws ApiException {
         
 
-            okhttp3.Call localVarCall = listMerchantProfilesCall(beforeCursor, afterCursor, limit, _callback);
+            okhttp3.Call localVarCall = listMerchantProfilesCall(id, beforeCursor, afterCursor, limit, _callback);
             return localVarCall;
 
         }
 
 
-    private ApiResponse<MerchantProfilesList> listMerchantProfilesWithHttpInfo(String beforeCursor, String afterCursor, Long limit) throws ApiException {
-        okhttp3.Call localVarCall = listMerchantProfilesValidateBeforeCall(beforeCursor, afterCursor, limit, null);
+    private ApiResponse<MerchantProfilesList> listMerchantProfilesWithHttpInfo(String id, String beforeCursor, String afterCursor, Long limit) throws ApiException {
+        okhttp3.Call localVarCall = listMerchantProfilesValidateBeforeCall(id, beforeCursor, afterCursor, limit, null);
                 Type localVarReturnType = new TypeToken<MerchantProfilesList>(){}.getType();
                 return localVarFinixClient.execute(localVarCall, localVarReturnType);
         }
 
-    private okhttp3.Call listMerchantProfilesAsync(String beforeCursor, String afterCursor, Long limit, final ApiCallback<MerchantProfilesList> _callback) throws ApiException {
+    private okhttp3.Call listMerchantProfilesAsync(String id, String beforeCursor, String afterCursor, Long limit, final ApiCallback<MerchantProfilesList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listMerchantProfilesValidateBeforeCall(beforeCursor, afterCursor, limit, _callback);
+        okhttp3.Call localVarCall = listMerchantProfilesValidateBeforeCall(id, beforeCursor, afterCursor, limit, _callback);
     Type localVarReturnType = new TypeToken<MerchantProfilesList>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
         }
 
         public class APIlistMerchantProfilesRequest {
+            private String id;
             private String beforeCursor;
             private String afterCursor;
             private Long limit;
 
         private APIlistMerchantProfilesRequest() {
         }
+
+            /**
+            * Set id
+            * @param id Filter by id (optional)
+            * @return APIlistMerchantProfilesRequest
+            */
+            public APIlistMerchantProfilesRequest id(String id) {
+            this.id = id;
+            return this;
+            }
 
             /**
             * Set beforeCursor
@@ -360,7 +375,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-        return listMerchantProfilesCall(beforeCursor, afterCursor, limit, _callback);
+        return listMerchantProfilesCall(id, beforeCursor, afterCursor, limit, _callback);
         }
 
         /**
@@ -377,7 +392,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public MerchantProfilesList execute() throws ApiException {
-    ApiResponse<MerchantProfilesList> localVarResp = listMerchantProfilesWithHttpInfo(beforeCursor, afterCursor, limit);
+    ApiResponse<MerchantProfilesList> localVarResp = listMerchantProfilesWithHttpInfo(id, beforeCursor, afterCursor, limit);
             return localVarResp.getData();
         }
 
@@ -395,7 +410,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public ApiResponse<MerchantProfilesList> executeWithHttpInfo() throws ApiException {
-        return listMerchantProfilesWithHttpInfo(beforeCursor, afterCursor, limit);
+        return listMerchantProfilesWithHttpInfo(id, beforeCursor, afterCursor, limit);
         }
 
         /**
@@ -413,13 +428,13 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call executeAsync(final ApiCallback<MerchantProfilesList> _callback) throws ApiException {
-        return listMerchantProfilesAsync(beforeCursor, afterCursor, limit, _callback);
+        return listMerchantProfilesAsync(id, beforeCursor, afterCursor, limit, _callback);
         }
         }
 
         /**
         * List Merchant Profiles
-        * Retrieve a list of merchant_profiles.
+        * Get list of all the merchant_profiles objects
         * @return APIlistMerchantProfilesRequest
             * @http.response.details
             <table summary="Response Details" border="1">
@@ -433,6 +448,7 @@ this.localCustomBaseUrl = customBaseUrl;
     public MerchantProfilesList list( ListMerchantProfilesQueryParams listMerchantProfilesQueryParams) throws ApiException {
 
         APIlistMerchantProfilesRequest request = new APIlistMerchantProfilesRequest();
+        request.id(listMerchantProfilesQueryParams.getId());
         request.beforeCursor(listMerchantProfilesQueryParams.getBeforeCursor());
         request.afterCursor(listMerchantProfilesQueryParams.getAfterCursor());
         request.limit(listMerchantProfilesQueryParams.getLimit());
@@ -491,7 +507,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    "application/hal+json"
+            "application/hal+json"
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {

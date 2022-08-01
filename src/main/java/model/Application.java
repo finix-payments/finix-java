@@ -51,8 +51,9 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * Application
+ * 
  */
+@ApiModel(description = "")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Application {
@@ -178,7 +179,7 @@ public class Application {
   private SettlementFundingIdentifierEnum settlementFundingIdentifier;
 
   /**
-   * Gets or Sets readyToSettleUpon
+   * Details when &#x60;Authroizations&#x60; submitted under the &#x60;Application&#x60; will be ready to settle.
    */
   @JsonAdapter(ReadyToSettleUponEnum.Adapter.class)
   public enum ReadyToSettleUponEnum {
@@ -253,7 +254,7 @@ public class Application {
   private ReadyToSettleUponEnum readyToSettleUpon;
 
   /**
-   * Gets or Sets feeReadyToSettleUpon
+   * Details when the &#x60;fees&#x60; of &#x60;Authroizations&#x60; submitted under the &#x60;Application&#x60; will be ready to settle.
    */
   @JsonAdapter(FeeReadyToSettleUponEnum.Adapter.class)
   public enum FeeReadyToSettleUponEnum {
@@ -648,11 +649,11 @@ public class Application {
   }
 
    /**
-   * Get readyToSettleUpon
+   * Details when &#x60;Authroizations&#x60; submitted under the &#x60;Application&#x60; will be ready to settle.
    * @return readyToSettleUpon
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Details when `Authroizations` submitted under the `Application` will be ready to settle.")
 
   public ReadyToSettleUponEnum getReadyToSettleUpon() {
     return readyToSettleUpon;
@@ -671,11 +672,11 @@ public class Application {
   }
 
    /**
-   * Get feeReadyToSettleUpon
+   * Details when the &#x60;fees&#x60; of &#x60;Authroizations&#x60; submitted under the &#x60;Application&#x60; will be ready to settle.
    * @return feeReadyToSettleUpon
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Details when the `fees` of `Authroizations` submitted under the `Application` will be ready to settle.")
 
   public FeeReadyToSettleUponEnum getFeeReadyToSettleUpon() {
     return feeReadyToSettleUpon;

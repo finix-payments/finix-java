@@ -133,7 +133,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    "application/hal+json"
+            "application/hal+json"
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -169,7 +169,7 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-                public BalanceTransfer createBalanceTransfer(CreateBalanceTransferRequest createBalanceTransferRequest) throws ApiException {
+                public BalanceTransfer create(CreateBalanceTransferRequest createBalanceTransferRequest) throws ApiException {
             ApiResponse<BalanceTransfer> localVarResp = createBalanceTransferWithHttpInfo(createBalanceTransferRequest);
                     return localVarResp.getData();
                 }
@@ -272,7 +272,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -313,7 +313,7 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
-                public BalanceTransfer getBalanceTransfers(String balanceTransfersId) throws ApiException {
+                public BalanceTransfer get(String balanceTransfersId) throws ApiException {
             ApiResponse<BalanceTransfer> localVarResp = getBalanceTransfersWithHttpInfo(balanceTransfersId);
                     return localVarResp.getData();
                 }
@@ -459,7 +459,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -759,7 +759,7 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-    public BalanceTransferList listBalanceTransfers( ListBalanceTransfersQueryParams listBalanceTransfersQueryParams) throws ApiException {
+    public BalanceTransferList list( ListBalanceTransfersQueryParams listBalanceTransfersQueryParams) throws ApiException {
 
         APIlistBalanceTransfersRequest request = new APIlistBalanceTransfersRequest();
         request.limit(listBalanceTransfersQueryParams.getLimit());

@@ -164,8 +164,9 @@ public class PaymentInstrumentsApiTest {
     public void createPaymentInstrumentVerificationTest() throws ApiException {
        CreateVerificationRequest verificationForm = CreateVerificationRequest.builder()
                 .processor("DUMMY_V1")
+                .instrument(paymentInstrumentId)
                 .build();
-        Verification response = finixClient.PaymentInstruments.createPaymentInstrumentVerification(paymentInstrumentId, verificationForm);
+        Verification response = finixClient.Verifications.create(verificationForm);
         assertEquals(paymentInstrumentId,response.getPaymentInstrument(),()->" Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getPaymentInstrument());
     }
 

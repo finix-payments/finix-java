@@ -83,6 +83,10 @@ public class ExternalLink {
   @SerializedName(SERIALIZED_NAME_FILE_ID)
   private String fileId;
 
+  public static final String SERIALIZED_NAME_DURATION = "duration";
+  @SerializedName(SERIALIZED_NAME_DURATION)
+  private String duration;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private Map<String, String> tags = null;
@@ -90,10 +94,6 @@ public class ExternalLink {
   public static final String SERIALIZED_NAME_EXPIRED = "expired";
   @SerializedName(SERIALIZED_NAME_EXPIRED)
   private Boolean expired;
-
-  public static final String SERIALIZED_NAME_DURATION = "duration";
-  @SerializedName(SERIALIZED_NAME_DURATION)
-  private Long duration;
 
   public ExternalLink() { 
   }
@@ -259,6 +259,29 @@ public class ExternalLink {
   }
 
 
+  public ExternalLink duration(String duration) {
+    
+    this.duration = duration;
+    return this;
+  }
+
+   /**
+   * Details how long the &#x60;url&#x60; will be avalible for users to upload files to.
+   * @return duration
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Details how long the `url` will be avalible for users to upload files to.")
+
+  public String getDuration() {
+    return duration;
+  }
+
+
+  public void setDuration(String duration) {
+    this.duration = duration;
+  }
+
+
   public ExternalLink tags(Map<String, String> tags) {
     
     this.tags = tags;
@@ -313,29 +336,6 @@ public class ExternalLink {
   }
 
 
-  public ExternalLink duration(Long duration) {
-    
-    this.duration = duration;
-    return this;
-  }
-
-   /**
-   * If configured, how long the link is active for (in minutes).
-   * @return duration
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "If configured, how long the link is active for (in minutes).")
-
-  public Long getDuration() {
-    return duration;
-  }
-
-
-  public void setDuration(Long duration) {
-    this.duration = duration;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -353,9 +353,9 @@ public class ExternalLink {
         Objects.equals(this.expiresAt, externalLink.expiresAt) &&
         Objects.equals(this.userId, externalLink.userId) &&
         Objects.equals(this.fileId, externalLink.fileId) &&
+        Objects.equals(this.duration, externalLink.duration) &&
         Objects.equals(this.tags, externalLink.tags) &&
-        Objects.equals(this.expired, externalLink.expired) &&
-        Objects.equals(this.duration, externalLink.duration);
+        Objects.equals(this.expired, externalLink.expired);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -364,7 +364,7 @@ public class ExternalLink {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdAt, url, type, expiresAt, userId, fileId, tags, expired, duration);
+    return Objects.hash(id, createdAt, url, type, expiresAt, userId, fileId, duration, tags, expired);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -385,9 +385,9 @@ public class ExternalLink {
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    fileId: ").append(toIndentedString(fileId)).append("\n");
+    sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    expired: ").append(toIndentedString(expired)).append("\n");
-    sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -417,9 +417,9 @@ public class ExternalLink {
     openapiFields.add("expires_at");
     openapiFields.add("user_id");
     openapiFields.add("file_id");
+    openapiFields.add("duration");
     openapiFields.add("tags");
     openapiFields.add("expired");
-    openapiFields.add("duration");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -490,6 +490,13 @@ public class ExternalLink {
       */
       if (jsonObj.get("file_id") != null && !jsonObj.get("file_id").isJsonNull()  && !jsonObj.get("file_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `file_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("file_id").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("duration") != null && !jsonObj.get("duration").isJsonNull()  && !jsonObj.get("duration").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `duration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("duration").toString()));
       }
   }
 

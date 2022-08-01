@@ -297,7 +297,7 @@ public class AuthorizationsApiTest {
                 .fee(Long.valueOf(0))
                 .captureAmount(100L)
                 .build();
-        Authorization response = finixClient.Authorizations.update(authorizationId, updateAuthorizationRequest);
+       AuthorizationCaptured response = finixClient.Authorizations.update(authorizationId, updateAuthorizationRequest);
         assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getSource());
     }
     /**
@@ -310,7 +310,7 @@ public class AuthorizationsApiTest {
         UpdateAuthorizationRequest updateAuthorizationRequest = UpdateAuthorizationRequest.builder()
                 .voidMe(true)
                 .build();
-        Authorization response = finixClient.Authorizations.update(id, updateAuthorizationRequest);
+        AuthorizationCaptured response = finixClient.Authorizations.update(id, updateAuthorizationRequest);
         assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getSource());
     }
     /**
@@ -354,7 +354,7 @@ public class AuthorizationsApiTest {
                 .fee(0L)
                 .captureAmount(100L)
                 .build();
-        Authorization response = finixClient.Authorizations.update(id, updateAuthorizationRequest);
+        AuthorizationCaptured response = finixClient.Authorizations.update(id, updateAuthorizationRequest);
         assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getSource());
     }
 

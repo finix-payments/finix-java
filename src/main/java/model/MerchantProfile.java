@@ -80,6 +80,10 @@ public class MerchantProfile {
   @SerializedName(SERIALIZED_NAME_FEE_PROFILE)
   private String feeProfile;
 
+  public static final String SERIALIZED_NAME_RESERVE_PROFILE = "reserve_profile";
+  @SerializedName(SERIALIZED_NAME_RESERVE_PROFILE)
+  private String reserveProfile;
+
   public static final String SERIALIZED_NAME_RISK_PROFILE = "risk_profile";
   @SerializedName(SERIALIZED_NAME_RISK_PROFILE)
   private String riskProfile;
@@ -237,6 +241,29 @@ public class MerchantProfile {
   }
 
 
+  public MerchantProfile reserveProfile(String reserveProfile) {
+    
+    this.reserveProfile = reserveProfile;
+    return this;
+  }
+
+   /**
+   * Get reserveProfile
+   * @return reserveProfile
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "SPxxxxxxxxxxxxxxxxxx", value = "")
+
+  public String getReserveProfile() {
+    return reserveProfile;
+  }
+
+
+  public void setReserveProfile(String reserveProfile) {
+    this.reserveProfile = reserveProfile;
+  }
+
+
   public MerchantProfile riskProfile(String riskProfile) {
     
     this.riskProfile = riskProfile;
@@ -299,6 +326,7 @@ public class MerchantProfile {
         Objects.equals(this.updatedAt, merchantProfile.updatedAt) &&
         Objects.equals(this.application, merchantProfile.application) &&
         Objects.equals(this.feeProfile, merchantProfile.feeProfile) &&
+        Objects.equals(this.reserveProfile, merchantProfile.reserveProfile) &&
         Objects.equals(this.riskProfile, merchantProfile.riskProfile) &&
         Objects.equals(this.links, merchantProfile.links);
   }
@@ -309,7 +337,7 @@ public class MerchantProfile {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, id, createdAt, updatedAt, application, feeProfile, riskProfile, links);
+    return Objects.hash(tags, id, createdAt, updatedAt, application, feeProfile, reserveProfile, riskProfile, links);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -329,6 +357,7 @@ public class MerchantProfile {
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    application: ").append(toIndentedString(application)).append("\n");
     sb.append("    feeProfile: ").append(toIndentedString(feeProfile)).append("\n");
+    sb.append("    reserveProfile: ").append(toIndentedString(reserveProfile)).append("\n");
     sb.append("    riskProfile: ").append(toIndentedString(riskProfile)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
@@ -359,6 +388,7 @@ public class MerchantProfile {
     openapiFields.add("updated_at");
     openapiFields.add("application");
     openapiFields.add("fee_profile");
+    openapiFields.add("reserve_profile");
     openapiFields.add("risk_profile");
     openapiFields.add("_links");
 
@@ -410,6 +440,13 @@ public class MerchantProfile {
       */
       if (jsonObj.get("fee_profile") != null && !jsonObj.get("fee_profile").isJsonNull()  && !jsonObj.get("fee_profile").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fee_profile` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_profile").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("reserve_profile") != null && !jsonObj.get("reserve_profile").isJsonNull()  && !jsonObj.get("reserve_profile").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `reserve_profile` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reserve_profile").toString()));
       }
       /**
       * EDITED

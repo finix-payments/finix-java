@@ -27,7 +27,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import model.Currency;
-import model.OperationKey;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -72,13 +71,13 @@ public class CreateReversalRequest {
   @SerializedName(SERIALIZED_NAME_CURRENCY)
   private Currency currency;
 
-  public static final String SERIALIZED_NAME_OPERATION_KEY = "operation_key";
-  @SerializedName(SERIALIZED_NAME_OPERATION_KEY)
-  private OperationKey operationKey;
-
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private Long amount;
+
+  public static final String SERIALIZED_NAME_OPERATION_KEY = "operation_key";
+  @SerializedName(SERIALIZED_NAME_OPERATION_KEY)
+  private String operationKey;
 
   public CreateReversalRequest() { 
   }
@@ -90,11 +89,11 @@ public class CreateReversalRequest {
   }
 
    /**
-   * The total amount that will be debited in cents (e.g. 100 cents to debit $1.00).
+   * The amount of the refund in cents. It must be equal to or less than the amount of the original &#x60;Transfer&#x60;.
    * @return refundAmount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The total amount that will be debited in cents (e.g. 100 cents to debit $1.00).")
+  @ApiModelProperty(value = "The amount of the refund in cents. It must be equal to or less than the amount of the original `Transfer`.")
 
   public Long getRefundAmount() {
     return refundAmount;
@@ -144,11 +143,11 @@ public class CreateReversalRequest {
   }
 
    /**
-   * The ID of the resource.
+   * The ID of the &#x60;Device&#x60; used to process the transaction.
    * @return device
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the resource.")
+  @ApiModelProperty(value = "The ID of the `Device` used to process the transaction.")
 
   public String getDevice() {
     return device;
@@ -183,29 +182,6 @@ public class CreateReversalRequest {
   }
 
 
-  public CreateReversalRequest operationKey(OperationKey operationKey) {
-    
-    this.operationKey = operationKey;
-    return this;
-  }
-
-   /**
-   * Get operationKey
-   * @return operationKey
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public OperationKey getOperationKey() {
-    return operationKey;
-  }
-
-
-  public void setOperationKey(OperationKey operationKey) {
-    this.operationKey = operationKey;
-  }
-
-
   public CreateReversalRequest amount(Long amount) {
     
     this.amount = amount;
@@ -213,11 +189,11 @@ public class CreateReversalRequest {
   }
 
    /**
-   * The total amount that will be debited in cents (e.g. 100 cents to debit $1.00).
+   * The amount of the sale.
    * @return amount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The total amount that will be debited in cents (e.g. 100 cents to debit $1.00).")
+  @ApiModelProperty(value = "The amount of the sale.")
 
   public Long getAmount() {
     return amount;
@@ -226,6 +202,29 @@ public class CreateReversalRequest {
 
   public void setAmount(Long amount) {
     this.amount = amount;
+  }
+
+
+  public CreateReversalRequest operationKey(String operationKey) {
+    
+    this.operationKey = operationKey;
+    return this;
+  }
+
+   /**
+   * Describes the operation to be performed in the transaction. Use **CARD_PRESENT_UNREFERENCED_REFUND** for refunds where the card isn&#39;t avalible.
+   * @return operationKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "CARD_PRESENT_UNREFERENCED_REFUND", value = "Describes the operation to be performed in the transaction. Use **CARD_PRESENT_UNREFERENCED_REFUND** for refunds where the card isn't avalible.")
+
+  public String getOperationKey() {
+    return operationKey;
+  }
+
+
+  public void setOperationKey(String operationKey) {
+    this.operationKey = operationKey;
   }
 
 
@@ -243,8 +242,8 @@ public class CreateReversalRequest {
         Objects.equals(this.tags, createReversalRequest.tags) &&
         Objects.equals(this.device, createReversalRequest.device) &&
         Objects.equals(this.currency, createReversalRequest.currency) &&
-        Objects.equals(this.operationKey, createReversalRequest.operationKey) &&
-        Objects.equals(this.amount, createReversalRequest.amount);
+        Objects.equals(this.amount, createReversalRequest.amount) &&
+        Objects.equals(this.operationKey, createReversalRequest.operationKey);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -253,7 +252,7 @@ public class CreateReversalRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(refundAmount, tags, device, currency, operationKey, amount);
+    return Objects.hash(refundAmount, tags, device, currency, amount, operationKey);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -271,8 +270,8 @@ public class CreateReversalRequest {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    device: ").append(toIndentedString(device)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-    sb.append("    operationKey: ").append(toIndentedString(operationKey)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    operationKey: ").append(toIndentedString(operationKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -299,8 +298,8 @@ public class CreateReversalRequest {
     openapiFields.add("tags");
     openapiFields.add("device");
     openapiFields.add("currency");
-    openapiFields.add("operation_key");
     openapiFields.add("amount");
+    openapiFields.add("operation_key");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -336,6 +335,13 @@ public class CreateReversalRequest {
       */
       if (jsonObj.get("device") != null && !jsonObj.get("device").isJsonNull()  && !jsonObj.get("device").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `device` to be a primitive type in the JSON string but got `%s`", jsonObj.get("device").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("operation_key") != null && !jsonObj.get("operation_key").isJsonNull()  && !jsonObj.get("operation_key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `operation_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation_key").toString()));
       }
   }
 

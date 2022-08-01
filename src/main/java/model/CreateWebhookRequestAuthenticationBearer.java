@@ -45,39 +45,39 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * Link to the &#x60;Application&#x60; that was used in the request.
+ * The bearer authentication configuration. Null if bearer is not being used.
  */
-@ApiModel(description = "Link to the `Application` that was used in the request.")
+@ApiModel(description = "The bearer authentication configuration. Null if bearer is not being used.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class VerificationLinksApplication {
-  public static final String SERIALIZED_NAME_HREF = "href";
-  @SerializedName(SERIALIZED_NAME_HREF)
-  private String href;
+public class CreateWebhookRequestAuthenticationBearer {
+  public static final String SERIALIZED_NAME_TOKEN = "token";
+  @SerializedName(SERIALIZED_NAME_TOKEN)
+  private String token;
 
-  public VerificationLinksApplication() { 
+  public CreateWebhookRequestAuthenticationBearer() { 
   }
 
-  public VerificationLinksApplication href(String href) {
+  public CreateWebhookRequestAuthenticationBearer token(String token) {
     
-    this.href = href;
+    this.token = token;
     return this;
   }
 
    /**
-   * Get href
-   * @return href
+   * The string that Finix will send as the bearer token.
+   * @return token
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The string that Finix will send as the bearer token.")
 
-  public String getHref() {
-    return href;
+  public String getToken() {
+    return token;
   }
 
 
-  public void setHref(String href) {
-    this.href = href;
+  public void setToken(String token) {
+    this.token = token;
   }
 
 
@@ -90,20 +90,20 @@ public class VerificationLinksApplication {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VerificationLinksApplication verificationLinksApplication = (VerificationLinksApplication) o;
-    return Objects.equals(this.href, verificationLinksApplication.href);
+    CreateWebhookRequestAuthenticationBearer createWebhookRequestAuthenticationBearer = (CreateWebhookRequestAuthenticationBearer) o;
+    return Objects.equals(this.token, createWebhookRequestAuthenticationBearer.token);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(href);
+    return Objects.hash(token);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VerificationLinksApplication {\n");
-    sb.append("    href: ").append(toIndentedString(href)).append("\n");
+    sb.append("class CreateWebhookRequestAuthenticationBearer {\n");
+    sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -126,7 +126,7 @@ public class VerificationLinksApplication {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("href");
+    openapiFields.add("token");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -136,14 +136,14 @@ public class VerificationLinksApplication {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to VerificationLinksApplication
+  * @throws IOException if the JSON Object is invalid with respect to CreateWebhookRequestAuthenticationBearer
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (VerificationLinksApplication.openapiRequiredFields.isEmpty()) {
+        if (CreateWebhookRequestAuthenticationBearer.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in VerificationLinksApplication is not found in the empty JSON string", VerificationLinksApplication.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateWebhookRequestAuthenticationBearer is not found in the empty JSON string", CreateWebhookRequestAuthenticationBearer.openapiRequiredFields.toString()));
         }
       }
      /* 
@@ -151,8 +151,8 @@ public class VerificationLinksApplication {
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!VerificationLinksApplication.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `VerificationLinksApplication` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!CreateWebhookRequestAuthenticationBearer.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateWebhookRequestAuthenticationBearer` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       */
@@ -160,8 +160,8 @@ public class VerificationLinksApplication {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("href") != null && !jsonObj.get("href").isJsonNull()  && !jsonObj.get("href").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `href` to be a primitive type in the JSON string but got `%s`", jsonObj.get("href").toString()));
+      if (jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()  && !jsonObj.get("token").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
   }
 
@@ -170,22 +170,22 @@ public class VerificationLinksApplication {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!VerificationLinksApplication.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'VerificationLinksApplication' and its subtypes
+       if (!CreateWebhookRequestAuthenticationBearer.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CreateWebhookRequestAuthenticationBearer' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<VerificationLinksApplication> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(VerificationLinksApplication.class));
+       final TypeAdapter<CreateWebhookRequestAuthenticationBearer> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CreateWebhookRequestAuthenticationBearer.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<VerificationLinksApplication>() {
+       return (TypeAdapter<T>) new TypeAdapter<CreateWebhookRequestAuthenticationBearer>() {
            @Override
-           public void write(JsonWriter out, VerificationLinksApplication value) throws IOException {
+           public void write(JsonWriter out, CreateWebhookRequestAuthenticationBearer value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public VerificationLinksApplication read(JsonReader in) throws IOException {
+           public CreateWebhookRequestAuthenticationBearer read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -196,18 +196,18 @@ public class VerificationLinksApplication {
   }
 
  /**
-  * Create an instance of VerificationLinksApplication given an JSON string
+  * Create an instance of CreateWebhookRequestAuthenticationBearer given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of VerificationLinksApplication
-  * @throws IOException if the JSON string is invalid with respect to VerificationLinksApplication
+  * @return An instance of CreateWebhookRequestAuthenticationBearer
+  * @throws IOException if the JSON string is invalid with respect to CreateWebhookRequestAuthenticationBearer
   */
-  public static VerificationLinksApplication fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, VerificationLinksApplication.class);
+  public static CreateWebhookRequestAuthenticationBearer fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CreateWebhookRequestAuthenticationBearer.class);
   }
 
  /**
-  * Convert an instance of VerificationLinksApplication to an JSON string
+  * Convert an instance of CreateWebhookRequestAuthenticationBearer to an JSON string
   *
   * @return JSON string
   */

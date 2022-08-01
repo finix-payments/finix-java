@@ -24,9 +24,9 @@
 # src/main/java/api/PaymentInstrumentsApi.java
 # src/main/java/model/PaymentInstrument.java
 # src/main/java/model/CreatePaymentInstrumentRequest.java
-src/main/java/api/FilesApi.java
-src/main/java/api/DisputesApi.java
-src/main/java/api/InstrumentUpdatesApi.java
+# src/main/java/api/FilesApi.java
+# src/main/java/api/DisputesApi.java
+# src/main/java/api/InstrumentUpdatesApi.java
 # src/main/java/model/AbstractOpenApiSchema.java
 
 # Not currently supported for library

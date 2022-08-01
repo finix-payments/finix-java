@@ -136,7 +136,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    "application/hal+json"
+            "application/hal+json"
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -278,7 +278,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -418,7 +418,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -598,7 +598,7 @@ this.localCustomBaseUrl = customBaseUrl;
         return request.execute();
 
     }
-    private okhttp3.Call listVerificationsCall(String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listVerificationsCall(Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -623,8 +623,16 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-                if (id != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("id", id));
+                if (limit != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("limit", limit));
+                }
+
+                if (afterCursor != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("after_cursor", afterCursor));
+                }
+
+                if (beforeCursor != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("before_cursor", beforeCursor));
                 }
 
         final String[] localVarAccepts = {
@@ -637,7 +645,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         final String[] localVarContentTypes = {
-    
+            
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -649,42 +657,64 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call listVerificationsValidateBeforeCall(String id, final ApiCallback _callback) throws ApiException {
+        private okhttp3.Call listVerificationsValidateBeforeCall(Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
         
 
-            okhttp3.Call localVarCall = listVerificationsCall(id, _callback);
+            okhttp3.Call localVarCall = listVerificationsCall(limit, afterCursor, beforeCursor, _callback);
             return localVarCall;
 
         }
 
 
-    private ApiResponse<VerificationsList> listVerificationsWithHttpInfo(String id) throws ApiException {
-        okhttp3.Call localVarCall = listVerificationsValidateBeforeCall(id, null);
+    private ApiResponse<VerificationsList> listVerificationsWithHttpInfo(Long limit, String afterCursor, String beforeCursor) throws ApiException {
+        okhttp3.Call localVarCall = listVerificationsValidateBeforeCall(limit, afterCursor, beforeCursor, null);
                 Type localVarReturnType = new TypeToken<VerificationsList>(){}.getType();
                 return localVarFinixClient.execute(localVarCall, localVarReturnType);
         }
 
-    private okhttp3.Call listVerificationsAsync(String id, final ApiCallback<VerificationsList> _callback) throws ApiException {
+    private okhttp3.Call listVerificationsAsync(Long limit, String afterCursor, String beforeCursor, final ApiCallback<VerificationsList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listVerificationsValidateBeforeCall(id, _callback);
+        okhttp3.Call localVarCall = listVerificationsValidateBeforeCall(limit, afterCursor, beforeCursor, _callback);
     Type localVarReturnType = new TypeToken<VerificationsList>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
         }
 
         public class APIlistVerificationsRequest {
-            private String id;
+            private Long limit;
+            private String afterCursor;
+            private String beforeCursor;
 
         private APIlistVerificationsRequest() {
         }
 
             /**
-            * Set id
-            * @param id Filter by id (optional)
+            * Set limit
+            * @param limit The numbers of items to return (optional)
             * @return APIlistVerificationsRequest
             */
-            public APIlistVerificationsRequest id(String id) {
-            this.id = id;
+            public APIlistVerificationsRequest limit(Long limit) {
+            this.limit = limit;
+            return this;
+            }
+
+            /**
+            * Set afterCursor
+            * @param afterCursor Return every resource created after the cursor value. (optional)
+            * @return APIlistVerificationsRequest
+            */
+            public APIlistVerificationsRequest afterCursor(String afterCursor) {
+            this.afterCursor = afterCursor;
+            return this;
+            }
+
+            /**
+            * Set beforeCursor
+            * @param beforeCursor Return every resource created before the cursor value. (optional)
+            * @return APIlistVerificationsRequest
+            */
+            public APIlistVerificationsRequest beforeCursor(String beforeCursor) {
+            this.beforeCursor = beforeCursor;
             return this;
             }
 
@@ -703,7 +733,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-        return listVerificationsCall(id, _callback);
+        return listVerificationsCall(limit, afterCursor, beforeCursor, _callback);
         }
 
         /**
@@ -720,7 +750,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public VerificationsList execute() throws ApiException {
-    ApiResponse<VerificationsList> localVarResp = listVerificationsWithHttpInfo(id);
+    ApiResponse<VerificationsList> localVarResp = listVerificationsWithHttpInfo(limit, afterCursor, beforeCursor);
             return localVarResp.getData();
         }
 
@@ -738,7 +768,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public ApiResponse<VerificationsList> executeWithHttpInfo() throws ApiException {
-        return listVerificationsWithHttpInfo(id);
+        return listVerificationsWithHttpInfo(limit, afterCursor, beforeCursor);
         }
 
         /**
@@ -756,7 +786,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call executeAsync(final ApiCallback<VerificationsList> _callback) throws ApiException {
-        return listVerificationsAsync(id, _callback);
+        return listVerificationsAsync(limit, afterCursor, beforeCursor, _callback);
         }
         }
 
@@ -776,7 +806,9 @@ this.localCustomBaseUrl = customBaseUrl;
     public VerificationsList list( ListVerificationsQueryParams listVerificationsQueryParams) throws ApiException {
 
         APIlistVerificationsRequest request = new APIlistVerificationsRequest();
-        request.id(listVerificationsQueryParams.getId());
+        request.limit(listVerificationsQueryParams.getLimit());
+        request.afterCursor(listVerificationsQueryParams.getAfterCursor());
+        request.beforeCursor(listVerificationsQueryParams.getBeforeCursor());
         return request.execute();
 
     }

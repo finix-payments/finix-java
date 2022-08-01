@@ -56,12 +56,12 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * A charge authorization
+ * A captured authorization
  */
-@ApiModel(description = "A charge authorization")
+@ApiModel(description = "A captured authorization")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class Authorization {
+public class AuthorizationCaptured {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private Map<String, String> tags = null;
@@ -248,16 +248,16 @@ public class Authorization {
   @SerializedName(SERIALIZED_NAME_LINKS)
   private AuthorizationLinks links;
 
-  public Authorization() { 
+  public AuthorizationCaptured() { 
   }
 
-  public Authorization tags(Map<String, String> tags) {
+  public AuthorizationCaptured tags(Map<String, String> tags) {
     
     this.tags = tags;
     return this;
   }
 
-  public Authorization putTagsItem(String key, String tagsItem) {
+  public AuthorizationCaptured putTagsItem(String key, String tagsItem) {
     if (this.tags == null) {
       this.tags = new HashMap<>();
     }
@@ -282,7 +282,7 @@ public class Authorization {
   }
 
 
-  public Authorization id(String id) {
+  public AuthorizationCaptured id(String id) {
     
     this.id = id;
     return this;
@@ -305,7 +305,7 @@ public class Authorization {
   }
 
 
-  public Authorization createdAt(OffsetDateTime createdAt) {
+  public AuthorizationCaptured createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
     return this;
@@ -328,7 +328,7 @@ public class Authorization {
   }
 
 
-  public Authorization updatedAt(OffsetDateTime updatedAt) {
+  public AuthorizationCaptured updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
     return this;
@@ -351,7 +351,7 @@ public class Authorization {
   }
 
 
-  public Authorization _3dsRedirectUrl(String _3dsRedirectUrl) {
+  public AuthorizationCaptured _3dsRedirectUrl(String _3dsRedirectUrl) {
     
     this._3dsRedirectUrl = _3dsRedirectUrl;
     return this;
@@ -374,7 +374,7 @@ public class Authorization {
   }
 
 
-  public Authorization amount(Long amount) {
+  public AuthorizationCaptured amount(Long amount) {
     
     this.amount = amount;
     return this;
@@ -398,7 +398,7 @@ public class Authorization {
   }
 
 
-  public Authorization application(String application) {
+  public AuthorizationCaptured application(String application) {
     
     this.application = application;
     return this;
@@ -421,7 +421,7 @@ public class Authorization {
   }
 
 
-  public Authorization cardPresentDetails(CardPresentDetails cardPresentDetails) {
+  public AuthorizationCaptured cardPresentDetails(CardPresentDetails cardPresentDetails) {
     
     this.cardPresentDetails = cardPresentDetails;
     return this;
@@ -444,7 +444,7 @@ public class Authorization {
   }
 
 
-  public Authorization captureAmount(Long captureAmount) {
+  public AuthorizationCaptured captureAmount(Long captureAmount) {
     
     this.captureAmount = captureAmount;
     return this;
@@ -467,7 +467,7 @@ public class Authorization {
   }
 
 
-  public Authorization currency(Currency currency) {
+  public AuthorizationCaptured currency(Currency currency) {
     
     this.currency = currency;
     return this;
@@ -490,7 +490,7 @@ public class Authorization {
   }
 
 
-  public Authorization device(String device) {
+  public AuthorizationCaptured device(String device) {
     
     this.device = device;
     return this;
@@ -513,7 +513,7 @@ public class Authorization {
   }
 
 
-  public Authorization expiresAt(OffsetDateTime expiresAt) {
+  public AuthorizationCaptured expiresAt(OffsetDateTime expiresAt) {
     
     this.expiresAt = expiresAt;
     return this;
@@ -536,13 +536,13 @@ public class Authorization {
   }
 
 
-  public Authorization externalResponses(List<AuthorizationExternalResponsesInner> externalResponses) {
+  public AuthorizationCaptured externalResponses(List<AuthorizationExternalResponsesInner> externalResponses) {
     
     this.externalResponses = externalResponses;
     return this;
   }
 
-  public Authorization addExternalResponsesItem(AuthorizationExternalResponsesInner externalResponsesItem) {
+  public AuthorizationCaptured addExternalResponsesItem(AuthorizationExternalResponsesInner externalResponsesItem) {
     if (this.externalResponses == null) {
       this.externalResponses = new ArrayList<>();
     }
@@ -567,7 +567,7 @@ public class Authorization {
   }
 
 
-  public Authorization idempotencyId(String idempotencyId) {
+  public AuthorizationCaptured idempotencyId(String idempotencyId) {
     
     this.idempotencyId = idempotencyId;
     return this;
@@ -590,7 +590,7 @@ public class Authorization {
   }
 
 
-  public Authorization failureCode(String failureCode) {
+  public AuthorizationCaptured failureCode(String failureCode) {
     
     this.failureCode = failureCode;
     return this;
@@ -613,7 +613,7 @@ public class Authorization {
   }
 
 
-  public Authorization failureMessage(String failureMessage) {
+  public AuthorizationCaptured failureMessage(String failureMessage) {
     
     this.failureMessage = failureMessage;
     return this;
@@ -636,7 +636,7 @@ public class Authorization {
   }
 
 
-  public Authorization isVoid(Boolean isVoid) {
+  public AuthorizationCaptured isVoid(Boolean isVoid) {
     
     this.isVoid = isVoid;
     return this;
@@ -659,7 +659,7 @@ public class Authorization {
   }
 
 
-  public Authorization merchantIdentity(String merchantIdentity) {
+  public AuthorizationCaptured merchantIdentity(String merchantIdentity) {
     
     this.merchantIdentity = merchantIdentity;
     return this;
@@ -682,7 +682,7 @@ public class Authorization {
   }
 
 
-  public Authorization merchant(String merchant) {
+  public AuthorizationCaptured merchant(String merchant) {
     
     this.merchant = merchant;
     return this;
@@ -705,13 +705,13 @@ public class Authorization {
   }
 
 
-  public Authorization messages(List<String> messages) {
+  public AuthorizationCaptured messages(List<String> messages) {
     
     this.messages = messages;
     return this;
   }
 
-  public Authorization addMessagesItem(String messagesItem) {
+  public AuthorizationCaptured addMessagesItem(String messagesItem) {
     if (this.messages == null) {
       this.messages = new ArrayList<>();
     }
@@ -736,7 +736,7 @@ public class Authorization {
   }
 
 
-  public Authorization raw(Object raw) {
+  public AuthorizationCaptured raw(Object raw) {
     
     this.raw = raw;
     return this;
@@ -759,7 +759,7 @@ public class Authorization {
   }
 
 
-  public Authorization source(String source) {
+  public AuthorizationCaptured source(String source) {
     
     this.source = source;
     return this;
@@ -782,7 +782,7 @@ public class Authorization {
   }
 
 
-  public Authorization state(StateEnum state) {
+  public AuthorizationCaptured state(StateEnum state) {
     
     this.state = state;
     return this;
@@ -805,7 +805,7 @@ public class Authorization {
   }
 
 
-  public Authorization traceId(String traceId) {
+  public AuthorizationCaptured traceId(String traceId) {
     
     this.traceId = traceId;
     return this;
@@ -828,7 +828,7 @@ public class Authorization {
   }
 
 
-  public Authorization transfer(String transfer) {
+  public AuthorizationCaptured transfer(String transfer) {
     
     this.transfer = transfer;
     return this;
@@ -851,7 +851,7 @@ public class Authorization {
   }
 
 
-  public Authorization voidState(String voidState) {
+  public AuthorizationCaptured voidState(String voidState) {
     
     this.voidState = voidState;
     return this;
@@ -874,7 +874,7 @@ public class Authorization {
   }
 
 
-  public Authorization subType(SubTypeTransfer subType) {
+  public AuthorizationCaptured subType(SubTypeTransfer subType) {
     
     this.subType = subType;
     return this;
@@ -897,7 +897,7 @@ public class Authorization {
   }
 
 
-  public Authorization links(AuthorizationLinks links) {
+  public AuthorizationCaptured links(AuthorizationLinks links) {
     
     this.links = links;
     return this;
@@ -929,35 +929,35 @@ public class Authorization {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Authorization authorization = (Authorization) o;
-    return Objects.equals(this.tags, authorization.tags) &&
-        Objects.equals(this.id, authorization.id) &&
-        Objects.equals(this.createdAt, authorization.createdAt) &&
-        Objects.equals(this.updatedAt, authorization.updatedAt) &&
-        Objects.equals(this._3dsRedirectUrl, authorization._3dsRedirectUrl) &&
-        Objects.equals(this.amount, authorization.amount) &&
-        Objects.equals(this.application, authorization.application) &&
-        Objects.equals(this.cardPresentDetails, authorization.cardPresentDetails) &&
-        Objects.equals(this.captureAmount, authorization.captureAmount) &&
-        Objects.equals(this.currency, authorization.currency) &&
-        Objects.equals(this.device, authorization.device) &&
-        Objects.equals(this.expiresAt, authorization.expiresAt) &&
-        Objects.equals(this.externalResponses, authorization.externalResponses) &&
-        Objects.equals(this.idempotencyId, authorization.idempotencyId) &&
-        Objects.equals(this.failureCode, authorization.failureCode) &&
-        Objects.equals(this.failureMessage, authorization.failureMessage) &&
-        Objects.equals(this.isVoid, authorization.isVoid) &&
-        Objects.equals(this.merchantIdentity, authorization.merchantIdentity) &&
-        Objects.equals(this.merchant, authorization.merchant) &&
-        Objects.equals(this.messages, authorization.messages) &&
-        Objects.equals(this.raw, authorization.raw) &&
-        Objects.equals(this.source, authorization.source) &&
-        Objects.equals(this.state, authorization.state) &&
-        Objects.equals(this.traceId, authorization.traceId) &&
-        Objects.equals(this.transfer, authorization.transfer) &&
-        Objects.equals(this.voidState, authorization.voidState) &&
-        Objects.equals(this.subType, authorization.subType) &&
-        Objects.equals(this.links, authorization.links);
+    AuthorizationCaptured authorizationCaptured = (AuthorizationCaptured) o;
+    return Objects.equals(this.tags, authorizationCaptured.tags) &&
+        Objects.equals(this.id, authorizationCaptured.id) &&
+        Objects.equals(this.createdAt, authorizationCaptured.createdAt) &&
+        Objects.equals(this.updatedAt, authorizationCaptured.updatedAt) &&
+        Objects.equals(this._3dsRedirectUrl, authorizationCaptured._3dsRedirectUrl) &&
+        Objects.equals(this.amount, authorizationCaptured.amount) &&
+        Objects.equals(this.application, authorizationCaptured.application) &&
+        Objects.equals(this.cardPresentDetails, authorizationCaptured.cardPresentDetails) &&
+        Objects.equals(this.captureAmount, authorizationCaptured.captureAmount) &&
+        Objects.equals(this.currency, authorizationCaptured.currency) &&
+        Objects.equals(this.device, authorizationCaptured.device) &&
+        Objects.equals(this.expiresAt, authorizationCaptured.expiresAt) &&
+        Objects.equals(this.externalResponses, authorizationCaptured.externalResponses) &&
+        Objects.equals(this.idempotencyId, authorizationCaptured.idempotencyId) &&
+        Objects.equals(this.failureCode, authorizationCaptured.failureCode) &&
+        Objects.equals(this.failureMessage, authorizationCaptured.failureMessage) &&
+        Objects.equals(this.isVoid, authorizationCaptured.isVoid) &&
+        Objects.equals(this.merchantIdentity, authorizationCaptured.merchantIdentity) &&
+        Objects.equals(this.merchant, authorizationCaptured.merchant) &&
+        Objects.equals(this.messages, authorizationCaptured.messages) &&
+        Objects.equals(this.raw, authorizationCaptured.raw) &&
+        Objects.equals(this.source, authorizationCaptured.source) &&
+        Objects.equals(this.state, authorizationCaptured.state) &&
+        Objects.equals(this.traceId, authorizationCaptured.traceId) &&
+        Objects.equals(this.transfer, authorizationCaptured.transfer) &&
+        Objects.equals(this.voidState, authorizationCaptured.voidState) &&
+        Objects.equals(this.subType, authorizationCaptured.subType) &&
+        Objects.equals(this.links, authorizationCaptured.links);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -979,7 +979,7 @@ public class Authorization {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Authorization {\n");
+    sb.append("class AuthorizationCaptured {\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -1067,14 +1067,14 @@ public class Authorization {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Authorization
+  * @throws IOException if the JSON Object is invalid with respect to AuthorizationCaptured
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (Authorization.openapiRequiredFields.isEmpty()) {
+        if (AuthorizationCaptured.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Authorization is not found in the empty JSON string", Authorization.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AuthorizationCaptured is not found in the empty JSON string", AuthorizationCaptured.openapiRequiredFields.toString()));
         }
       }
      /* 
@@ -1082,8 +1082,8 @@ public class Authorization {
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!Authorization.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Authorization` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!AuthorizationCaptured.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AuthorizationCaptured` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       */
@@ -1231,22 +1231,22 @@ public class Authorization {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Authorization.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Authorization' and its subtypes
+       if (!AuthorizationCaptured.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AuthorizationCaptured' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Authorization> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Authorization.class));
+       final TypeAdapter<AuthorizationCaptured> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AuthorizationCaptured.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<Authorization>() {
+       return (TypeAdapter<T>) new TypeAdapter<AuthorizationCaptured>() {
            @Override
-           public void write(JsonWriter out, Authorization value) throws IOException {
+           public void write(JsonWriter out, AuthorizationCaptured value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public Authorization read(JsonReader in) throws IOException {
+           public AuthorizationCaptured read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -1257,18 +1257,18 @@ public class Authorization {
   }
 
  /**
-  * Create an instance of Authorization given an JSON string
+  * Create an instance of AuthorizationCaptured given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of Authorization
-  * @throws IOException if the JSON string is invalid with respect to Authorization
+  * @return An instance of AuthorizationCaptured
+  * @throws IOException if the JSON string is invalid with respect to AuthorizationCaptured
   */
-  public static Authorization fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Authorization.class);
+  public static AuthorizationCaptured fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AuthorizationCaptured.class);
   }
 
  /**
-  * Convert an instance of Authorization to an JSON string
+  * Convert an instance of AuthorizationCaptured to an JSON string
   *
   * @return JSON string
   */

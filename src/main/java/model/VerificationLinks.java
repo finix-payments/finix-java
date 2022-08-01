@@ -24,6 +24,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import model.ApplicationLinksSelf;
+import model.VerificationLinksApplication;
+import model.VerificationLinksMerchant;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -56,6 +58,14 @@ public class VerificationLinks {
   @SerializedName(SERIALIZED_NAME_SELF)
   private ApplicationLinksSelf self;
 
+  public static final String SERIALIZED_NAME_MERCHANT = "merchant";
+  @SerializedName(SERIALIZED_NAME_MERCHANT)
+  private VerificationLinksMerchant merchant;
+
+  public static final String SERIALIZED_NAME_APPLICATION = "application";
+  @SerializedName(SERIALIZED_NAME_APPLICATION)
+  private VerificationLinksApplication application;
+
   public VerificationLinks() { 
   }
 
@@ -79,6 +89,52 @@ public class VerificationLinks {
 
   public void setSelf(ApplicationLinksSelf self) {
     this.self = self;
+  }
+
+
+  public VerificationLinks merchant(VerificationLinksMerchant merchant) {
+    
+    this.merchant = merchant;
+    return this;
+  }
+
+   /**
+   * Get merchant
+   * @return merchant
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public VerificationLinksMerchant getMerchant() {
+    return merchant;
+  }
+
+
+  public void setMerchant(VerificationLinksMerchant merchant) {
+    this.merchant = merchant;
+  }
+
+
+  public VerificationLinks application(VerificationLinksApplication application) {
+    
+    this.application = application;
+    return this;
+  }
+
+   /**
+   * Get application
+   * @return application
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public VerificationLinksApplication getApplication() {
+    return application;
+  }
+
+
+  public void setApplication(VerificationLinksApplication application) {
+    this.application = application;
   }
 
   /**
@@ -127,13 +183,15 @@ public class VerificationLinks {
       return false;
     }
     VerificationLinks verificationLinks = (VerificationLinks) o;
-    return Objects.equals(this.self, verificationLinks.self)&&
+    return Objects.equals(this.self, verificationLinks.self) &&
+        Objects.equals(this.merchant, verificationLinks.merchant) &&
+        Objects.equals(this.application, verificationLinks.application)&&
         Objects.equals(this.additionalProperties, verificationLinks.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(self, additionalProperties);
+    return Objects.hash(self, merchant, application, additionalProperties);
   }
 
   @Override
@@ -141,6 +199,8 @@ public class VerificationLinks {
     StringBuilder sb = new StringBuilder();
     sb.append("class VerificationLinks {\n");
     sb.append("    self: ").append(toIndentedString(self)).append("\n");
+    sb.append("    merchant: ").append(toIndentedString(merchant)).append("\n");
+    sb.append("    application: ").append(toIndentedString(application)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -165,6 +225,8 @@ public class VerificationLinks {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("self");
+    openapiFields.add("merchant");
+    openapiFields.add("application");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -192,6 +254,24 @@ public class VerificationLinks {
       // validate the optional field `self`
      // if (jsonObj.getAsJsonObject("self") != null) {
        //ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
+     // }
+
+      /**
+      * EDITED
+      * ADDED  statement to for inconsistent null behaviour
+      */
+      // validate the optional field `merchant`
+     // if (jsonObj.getAsJsonObject("merchant") != null) {
+       //VerificationLinksMerchant.validateJsonObject(jsonObj.getAsJsonObject("merchant"));
+     // }
+
+      /**
+      * EDITED
+      * ADDED  statement to for inconsistent null behaviour
+      */
+      // validate the optional field `application`
+     // if (jsonObj.getAsJsonObject("application") != null) {
+       //VerificationLinksApplication.validateJsonObject(jsonObj.getAsJsonObject("application"));
      // }
 
   }

@@ -50,33 +50,87 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListVerificationsQueryParams {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
+  public static final String SERIALIZED_NAME_LIMIT = "limit";
+  @SerializedName(SERIALIZED_NAME_LIMIT)
+  private Long limit;
+
+  public static final String SERIALIZED_NAME_AFTER_CURSOR = "after_cursor";
+  @SerializedName(SERIALIZED_NAME_AFTER_CURSOR)
+  private String afterCursor;
+
+  public static final String SERIALIZED_NAME_BEFORE_CURSOR = "before_cursor";
+  @SerializedName(SERIALIZED_NAME_BEFORE_CURSOR)
+  private String beforeCursor;
 
   public ListVerificationsQueryParams() { 
   }
 
-  public ListVerificationsQueryParams id(String id) {
+  public ListVerificationsQueryParams limit(Long limit) {
     
-    this.id = id;
+    this.limit = limit;
     return this;
   }
 
    /**
-   * Filter by id
-   * @return id
+   * The numbers of items to return
+   * @return limit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by id")
+  @ApiModelProperty(value = "The numbers of items to return")
 
-  public String getId() {
-    return id;
+  public Long getLimit() {
+    return limit;
   }
 
 
-  public void setId(String id) {
-    this.id = id;
+  public void setLimit(Long limit) {
+    this.limit = limit;
+  }
+
+
+  public ListVerificationsQueryParams afterCursor(String afterCursor) {
+    
+    this.afterCursor = afterCursor;
+    return this;
+  }
+
+   /**
+   * Return every resource created after the cursor value.
+   * @return afterCursor
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Return every resource created after the cursor value.")
+
+  public String getAfterCursor() {
+    return afterCursor;
+  }
+
+
+  public void setAfterCursor(String afterCursor) {
+    this.afterCursor = afterCursor;
+  }
+
+
+  public ListVerificationsQueryParams beforeCursor(String beforeCursor) {
+    
+    this.beforeCursor = beforeCursor;
+    return this;
+  }
+
+   /**
+   * Return every resource created before the cursor value.
+   * @return beforeCursor
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Return every resource created before the cursor value.")
+
+  public String getBeforeCursor() {
+    return beforeCursor;
+  }
+
+
+  public void setBeforeCursor(String beforeCursor) {
+    this.beforeCursor = beforeCursor;
   }
 
 
@@ -90,19 +144,23 @@ public class ListVerificationsQueryParams {
       return false;
     }
     ListVerificationsQueryParams listVerificationsQueryParams = (ListVerificationsQueryParams) o;
-    return Objects.equals(this.id, listVerificationsQueryParams.id);
+    return Objects.equals(this.limit, listVerificationsQueryParams.limit) &&
+        Objects.equals(this.afterCursor, listVerificationsQueryParams.afterCursor) &&
+        Objects.equals(this.beforeCursor, listVerificationsQueryParams.beforeCursor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(limit, afterCursor, beforeCursor);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListVerificationsQueryParams {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    afterCursor: ").append(toIndentedString(afterCursor)).append("\n");
+    sb.append("    beforeCursor: ").append(toIndentedString(beforeCursor)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -125,7 +183,9 @@ public class ListVerificationsQueryParams {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("id");
+    openapiFields.add("limit");
+    openapiFields.add("after_cursor");
+    openapiFields.add("before_cursor");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -159,8 +219,15 @@ public class ListVerificationsQueryParams {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()  && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      if (jsonObj.get("after_cursor") != null && !jsonObj.get("after_cursor").isJsonNull()  && !jsonObj.get("after_cursor").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `after_cursor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("after_cursor").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("before_cursor") != null && !jsonObj.get("before_cursor").isJsonNull()  && !jsonObj.get("before_cursor").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `before_cursor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("before_cursor").toString()));
       }
   }
 

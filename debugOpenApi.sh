@@ -2,9 +2,9 @@ openapi-generator generate \
   --enable-post-process-file \
   -g java \
   --library okhttp-gson \
-  -i finix-java.yaml \
-  -t template \
-  -o ${PWD} \
+  -i finix-java/finix-java.yaml \
+  -t finix-java/template \
+  -o testgen3  \
   -p groupId=com.finix \
   --additional-properties=artifactId=finix-java \
   --additional-properties=artifactVersion=0.0.1 \
@@ -16,6 +16,7 @@ openapi-generator generate \
   --global-property httpUserAgent=finix-java/0.0.1 \
   --global-property modelTests=false,modelDocs=false \
   --global-property apiDocs=false \
+  --global-property debugOpenAPI=true \
   --skip-validate-spec \
   --type-mappings=integer=Long,int=Long \
   \

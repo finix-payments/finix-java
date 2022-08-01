@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import model.CreateWebhookRequestAuthentication;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -57,6 +58,10 @@ public class CreateWebhookRequest {
   public static final String SERIALIZED_NAME_ENABLED = "enabled";
   @SerializedName(SERIALIZED_NAME_ENABLED)
   private Boolean enabled;
+
+  public static final String SERIALIZED_NAME_AUTHENTICATION = "authentication";
+  @SerializedName(SERIALIZED_NAME_AUTHENTICATION)
+  private CreateWebhookRequestAuthentication authentication;
 
   public CreateWebhookRequest() { 
   }
@@ -107,6 +112,29 @@ public class CreateWebhookRequest {
   }
 
 
+  public CreateWebhookRequest authentication(CreateWebhookRequestAuthentication authentication) {
+    
+    this.authentication = authentication;
+    return this;
+  }
+
+   /**
+   * Get authentication
+   * @return authentication
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public CreateWebhookRequestAuthentication getAuthentication() {
+    return authentication;
+  }
+
+
+  public void setAuthentication(CreateWebhookRequestAuthentication authentication) {
+    this.authentication = authentication;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -118,12 +146,13 @@ public class CreateWebhookRequest {
     }
     CreateWebhookRequest createWebhookRequest = (CreateWebhookRequest) o;
     return Objects.equals(this.url, createWebhookRequest.url) &&
-        Objects.equals(this.enabled, createWebhookRequest.enabled);
+        Objects.equals(this.enabled, createWebhookRequest.enabled) &&
+        Objects.equals(this.authentication, createWebhookRequest.authentication);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(url, enabled);
+    return Objects.hash(url, enabled, authentication);
   }
 
   @Override
@@ -132,6 +161,7 @@ public class CreateWebhookRequest {
     sb.append("class CreateWebhookRequest {\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    authentication: ").append(toIndentedString(authentication)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -156,6 +186,7 @@ public class CreateWebhookRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("url");
     openapiFields.add("enabled");
+    openapiFields.add("authentication");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -192,6 +223,15 @@ public class CreateWebhookRequest {
       if (jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()  && !jsonObj.get("url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
       }
+      /**
+      * EDITED
+      * ADDED  statement to for inconsistent null behaviour
+      */
+      // validate the optional field `authentication`
+     // if (jsonObj.getAsJsonObject("authentication") != null) {
+       //CreateWebhookRequestAuthentication.validateJsonObject(jsonObj.getAsJsonObject("authentication"));
+     // }
+
   }
 
 

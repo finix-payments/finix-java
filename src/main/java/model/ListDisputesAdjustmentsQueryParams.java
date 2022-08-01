@@ -54,9 +54,13 @@ public class ListDisputesAdjustmentsQueryParams {
   @SerializedName(SERIALIZED_NAME_LIMIT)
   private Long limit;
 
-  public static final String SERIALIZED_NAME_OFFSET = "offset";
-  @SerializedName(SERIALIZED_NAME_OFFSET)
-  private Long offset;
+  public static final String SERIALIZED_NAME_AFTER_CURSOR = "after_cursor";
+  @SerializedName(SERIALIZED_NAME_AFTER_CURSOR)
+  private String afterCursor;
+
+  public static final String SERIALIZED_NAME_BEFORE_CURSOR = "before_cursor";
+  @SerializedName(SERIALIZED_NAME_BEFORE_CURSOR)
+  private String beforeCursor;
 
   public ListDisputesAdjustmentsQueryParams() { 
   }
@@ -84,26 +88,49 @@ public class ListDisputesAdjustmentsQueryParams {
   }
 
 
-  public ListDisputesAdjustmentsQueryParams offset(Long offset) {
+  public ListDisputesAdjustmentsQueryParams afterCursor(String afterCursor) {
     
-    this.offset = offset;
+    this.afterCursor = afterCursor;
     return this;
   }
 
    /**
-   * The number of items to skip before starting to collect the result set
-   * @return offset
+   * Return every resource created after the cursor value.
+   * @return afterCursor
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of items to skip before starting to collect the result set")
+  @ApiModelProperty(value = "Return every resource created after the cursor value.")
 
-  public Long getOffset() {
-    return offset;
+  public String getAfterCursor() {
+    return afterCursor;
   }
 
 
-  public void setOffset(Long offset) {
-    this.offset = offset;
+  public void setAfterCursor(String afterCursor) {
+    this.afterCursor = afterCursor;
+  }
+
+
+  public ListDisputesAdjustmentsQueryParams beforeCursor(String beforeCursor) {
+    
+    this.beforeCursor = beforeCursor;
+    return this;
+  }
+
+   /**
+   * Return every resource created before the cursor value.
+   * @return beforeCursor
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Return every resource created before the cursor value.")
+
+  public String getBeforeCursor() {
+    return beforeCursor;
+  }
+
+
+  public void setBeforeCursor(String beforeCursor) {
+    this.beforeCursor = beforeCursor;
   }
 
 
@@ -118,12 +145,13 @@ public class ListDisputesAdjustmentsQueryParams {
     }
     ListDisputesAdjustmentsQueryParams listDisputesAdjustmentsQueryParams = (ListDisputesAdjustmentsQueryParams) o;
     return Objects.equals(this.limit, listDisputesAdjustmentsQueryParams.limit) &&
-        Objects.equals(this.offset, listDisputesAdjustmentsQueryParams.offset);
+        Objects.equals(this.afterCursor, listDisputesAdjustmentsQueryParams.afterCursor) &&
+        Objects.equals(this.beforeCursor, listDisputesAdjustmentsQueryParams.beforeCursor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, offset);
+    return Objects.hash(limit, afterCursor, beforeCursor);
   }
 
   @Override
@@ -131,7 +159,8 @@ public class ListDisputesAdjustmentsQueryParams {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListDisputesAdjustmentsQueryParams {\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
-    sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
+    sb.append("    afterCursor: ").append(toIndentedString(afterCursor)).append("\n");
+    sb.append("    beforeCursor: ").append(toIndentedString(beforeCursor)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -155,7 +184,8 @@ public class ListDisputesAdjustmentsQueryParams {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("limit");
-    openapiFields.add("offset");
+    openapiFields.add("after_cursor");
+    openapiFields.add("before_cursor");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -185,6 +215,20 @@ public class ListDisputesAdjustmentsQueryParams {
         }
       }
       */
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("after_cursor") != null && !jsonObj.get("after_cursor").isJsonNull()  && !jsonObj.get("after_cursor").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `after_cursor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("after_cursor").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("before_cursor") != null && !jsonObj.get("before_cursor").isJsonNull()  && !jsonObj.get("before_cursor").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `before_cursor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("before_cursor").toString()));
+      }
   }
 
 

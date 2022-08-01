@@ -23,7 +23,9 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.ApplicationLinksApplicationProfile;
+import model.ApplicationLinksSelf;
+import model.InstrumentUpdateLinksApplication;
+import model.InstrumentUpdateLinksPaymentInstrument;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,27 +48,74 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * InstrumentUpdateLinks
+ * For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these &#x60;_links&#x60; to make your follow-up requests and quickly access relevant IDs.
  */
+@ApiModel(description = "For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.")
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T17:48:42.867219-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InstrumentUpdateLinks {
-  public static final String SERIALIZED_NAME_APPLICATION = "application";
-  @SerializedName(SERIALIZED_NAME_APPLICATION)
-  private ApplicationLinksApplicationProfile application;
+  public static final String SERIALIZED_NAME_SELF = "self";
+  @SerializedName(SERIALIZED_NAME_SELF)
+  private ApplicationLinksSelf self;
 
   public static final String SERIALIZED_NAME_PAYMENT_INSTRUMENT = "payment_instrument";
   @SerializedName(SERIALIZED_NAME_PAYMENT_INSTRUMENT)
-  private ApplicationLinksApplicationProfile paymentInstrument;
+  private InstrumentUpdateLinksPaymentInstrument paymentInstrument;
 
-  public static final String SERIALIZED_NAME_SELF = "self";
-  @SerializedName(SERIALIZED_NAME_SELF)
-  private ApplicationLinksApplicationProfile self;
+  public static final String SERIALIZED_NAME_APPLICATION = "application";
+  @SerializedName(SERIALIZED_NAME_APPLICATION)
+  private InstrumentUpdateLinksApplication application;
 
   public InstrumentUpdateLinks() { 
   }
 
-  public InstrumentUpdateLinks application(ApplicationLinksApplicationProfile application) {
+  public InstrumentUpdateLinks self(ApplicationLinksSelf self) {
+    
+    this.self = self;
+    return this;
+  }
+
+   /**
+   * Get self
+   * @return self
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ApplicationLinksSelf getSelf() {
+    return self;
+  }
+
+
+  public void setSelf(ApplicationLinksSelf self) {
+    this.self = self;
+  }
+
+
+  public InstrumentUpdateLinks paymentInstrument(InstrumentUpdateLinksPaymentInstrument paymentInstrument) {
+    
+    this.paymentInstrument = paymentInstrument;
+    return this;
+  }
+
+   /**
+   * Get paymentInstrument
+   * @return paymentInstrument
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public InstrumentUpdateLinksPaymentInstrument getPaymentInstrument() {
+    return paymentInstrument;
+  }
+
+
+  public void setPaymentInstrument(InstrumentUpdateLinksPaymentInstrument paymentInstrument) {
+    this.paymentInstrument = paymentInstrument;
+  }
+
+
+  public InstrumentUpdateLinks application(InstrumentUpdateLinksApplication application) {
     
     this.application = application;
     return this;
@@ -79,59 +128,13 @@ public class InstrumentUpdateLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ApplicationLinksApplicationProfile getApplication() {
+  public InstrumentUpdateLinksApplication getApplication() {
     return application;
   }
 
 
-  public void setApplication(ApplicationLinksApplicationProfile application) {
+  public void setApplication(InstrumentUpdateLinksApplication application) {
     this.application = application;
-  }
-
-
-  public InstrumentUpdateLinks paymentInstrument(ApplicationLinksApplicationProfile paymentInstrument) {
-    
-    this.paymentInstrument = paymentInstrument;
-    return this;
-  }
-
-   /**
-   * Get paymentInstrument
-   * @return paymentInstrument
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
-  public ApplicationLinksApplicationProfile getPaymentInstrument() {
-    return paymentInstrument;
-  }
-
-
-  public void setPaymentInstrument(ApplicationLinksApplicationProfile paymentInstrument) {
-    this.paymentInstrument = paymentInstrument;
-  }
-
-
-  public InstrumentUpdateLinks self(ApplicationLinksApplicationProfile self) {
-    
-    this.self = self;
-    return this;
-  }
-
-   /**
-   * Get self
-   * @return self
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
-  public ApplicationLinksApplicationProfile getSelf() {
-    return self;
-  }
-
-
-  public void setSelf(ApplicationLinksApplicationProfile self) {
-    this.self = self;
   }
 
 
@@ -145,23 +148,23 @@ public class InstrumentUpdateLinks {
       return false;
     }
     InstrumentUpdateLinks instrumentUpdateLinks = (InstrumentUpdateLinks) o;
-    return Objects.equals(this.application, instrumentUpdateLinks.application) &&
+    return Objects.equals(this.self, instrumentUpdateLinks.self) &&
         Objects.equals(this.paymentInstrument, instrumentUpdateLinks.paymentInstrument) &&
-        Objects.equals(this.self, instrumentUpdateLinks.self);
+        Objects.equals(this.application, instrumentUpdateLinks.application);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(application, paymentInstrument, self);
+    return Objects.hash(self, paymentInstrument, application);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InstrumentUpdateLinks {\n");
-    sb.append("    application: ").append(toIndentedString(application)).append("\n");
-    sb.append("    paymentInstrument: ").append(toIndentedString(paymentInstrument)).append("\n");
     sb.append("    self: ").append(toIndentedString(self)).append("\n");
+    sb.append("    paymentInstrument: ").append(toIndentedString(paymentInstrument)).append("\n");
+    sb.append("    application: ").append(toIndentedString(application)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -184,14 +187,12 @@ public class InstrumentUpdateLinks {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("application");
-    openapiFields.add("payment_instrument");
     openapiFields.add("self");
+    openapiFields.add("payment_instrument");
+    openapiFields.add("application");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("payment_instrument");
-    openapiRequiredFields.add("self");
   }
 
  /**
@@ -218,25 +219,13 @@ public class InstrumentUpdateLinks {
         }
       }
       */
-
-      /**
-      * EDITED
-      * Commented to ByPass required properties/fields are present in the JSON string
-      */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : InstrumentUpdateLinks.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       /**
       * EDITED
       * ADDED  statement to for inconsistent null behaviour
       */
-      // validate the optional field `application`
-     // if (jsonObj.getAsJsonObject("application") != null) {
-       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("application"));
+      // validate the optional field `self`
+     // if (jsonObj.getAsJsonObject("self") != null) {
+       //ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
      // }
 
       /**
@@ -245,16 +234,16 @@ public class InstrumentUpdateLinks {
       */
       // validate the optional field `payment_instrument`
      // if (jsonObj.getAsJsonObject("payment_instrument") != null) {
-       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("payment_instrument"));
+       //InstrumentUpdateLinksPaymentInstrument.validateJsonObject(jsonObj.getAsJsonObject("payment_instrument"));
      // }
 
       /**
       * EDITED
       * ADDED  statement to for inconsistent null behaviour
       */
-      // validate the optional field `self`
-     // if (jsonObj.getAsJsonObject("self") != null) {
-       //ApplicationLinksApplicationProfile.validateJsonObject(jsonObj.getAsJsonObject("self"));
+      // validate the optional field `application`
+     // if (jsonObj.getAsJsonObject("application") != null) {
+       //InstrumentUpdateLinksApplication.validateJsonObject(jsonObj.getAsJsonObject("application"));
      // }
 
   }

@@ -68,9 +68,9 @@ public class CreateFeeRequest {
   @SerializedName(SERIALIZED_NAME_CURRENCY)
   private Currency currency;
 
-  public static final String SERIALIZED_NAME_DISPLAY_NAME = "display_name";
-  @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
-  private String displayName;
+  public static final String SERIALIZED_NAME_LABEL = "label";
+  @SerializedName(SERIALIZED_NAME_LABEL)
+  private String label;
 
   /**
    * Subtype of the fee. Set to **CUSTOM**.
@@ -230,10 +230,6 @@ public class CreateFeeRequest {
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
   private String merchantId;
 
-  public static final String SERIALIZED_NAME_LABEL = "label";
-  @SerializedName(SERIALIZED_NAME_LABEL)
-  private String label;
-
   public static final String SERIALIZED_NAME_SETTLEMENT_DELAY_DAYS = "settlement_delay_days";
   @SerializedName(SERIALIZED_NAME_SETTLEMENT_DELAY_DAYS)
   private Long settlementDelayDays;
@@ -318,26 +314,26 @@ public class CreateFeeRequest {
   }
 
 
-  public CreateFeeRequest displayName(String displayName) {
+  public CreateFeeRequest label(String label) {
     
-    this.displayName = displayName;
+    this.label = label;
     return this;
   }
 
    /**
    * The display name of the &#x60;Fee&#x60; that can be used for filtering purposes.
-   * @return displayName
+   * @return label
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The display name of the `Fee` that can be used for filtering purposes.")
 
-  public String getDisplayName() {
-    return displayName;
+  public String getLabel() {
+    return label;
   }
 
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
+  public void setLabel(String label) {
+    this.label = label;
   }
 
 
@@ -456,29 +452,6 @@ public class CreateFeeRequest {
   }
 
 
-  public CreateFeeRequest label(String label) {
-    
-    this.label = label;
-    return this;
-  }
-
-   /**
-   * The display name of the Fee that can be used for filtering purposes.
-   * @return label
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The display name of the Fee that can be used for filtering purposes.")
-
-  public String getLabel() {
-    return label;
-  }
-
-
-  public void setLabel(String label) {
-    this.label = label;
-  }
-
-
   public CreateFeeRequest settlementDelayDays(Long settlementDelayDays) {
     
     this.settlementDelayDays = settlementDelayDays;
@@ -515,13 +488,12 @@ public class CreateFeeRequest {
     return Objects.equals(this.tags, createFeeRequest.tags) &&
         Objects.equals(this.amount, createFeeRequest.amount) &&
         Objects.equals(this.currency, createFeeRequest.currency) &&
-        Objects.equals(this.displayName, createFeeRequest.displayName) &&
+        Objects.equals(this.label, createFeeRequest.label) &&
         Objects.equals(this.feeSubtype, createFeeRequest.feeSubtype) &&
         Objects.equals(this.feeType, createFeeRequest.feeType) &&
         Objects.equals(this.linkedId, createFeeRequest.linkedId) &&
         Objects.equals(this.linkedType, createFeeRequest.linkedType) &&
         Objects.equals(this.merchantId, createFeeRequest.merchantId) &&
-        Objects.equals(this.label, createFeeRequest.label) &&
         Objects.equals(this.settlementDelayDays, createFeeRequest.settlementDelayDays);
   }
 
@@ -531,7 +503,7 @@ public class CreateFeeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, amount, currency, displayName, feeSubtype, feeType, linkedId, linkedType, merchantId, label, settlementDelayDays);
+    return Objects.hash(tags, amount, currency, label, feeSubtype, feeType, linkedId, linkedType, merchantId, settlementDelayDays);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -548,13 +520,12 @@ public class CreateFeeRequest {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    feeSubtype: ").append(toIndentedString(feeSubtype)).append("\n");
     sb.append("    feeType: ").append(toIndentedString(feeType)).append("\n");
     sb.append("    linkedId: ").append(toIndentedString(linkedId)).append("\n");
     sb.append("    linkedType: ").append(toIndentedString(linkedType)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
-    sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    settlementDelayDays: ").append(toIndentedString(settlementDelayDays)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -581,13 +552,12 @@ public class CreateFeeRequest {
     openapiFields.add("tags");
     openapiFields.add("amount");
     openapiFields.add("currency");
-    openapiFields.add("display_name");
+    openapiFields.add("label");
     openapiFields.add("fee_subtype");
     openapiFields.add("fee_type");
     openapiFields.add("linked_id");
     openapiFields.add("linked_type");
     openapiFields.add("merchant_id");
-    openapiFields.add("label");
     openapiFields.add("settlement_delay_days");
 
     // a set of required properties/fields (JSON key names)
@@ -638,8 +608,8 @@ public class CreateFeeRequest {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("display_name") != null && !jsonObj.get("display_name").isJsonNull()  && !jsonObj.get("display_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `display_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("display_name").toString()));
+      if (jsonObj.get("label") != null && !jsonObj.get("label").isJsonNull()  && !jsonObj.get("label").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `label` to be a primitive type in the JSON string but got `%s`", jsonObj.get("label").toString()));
       }
       /**
       * EDITED
@@ -668,13 +638,6 @@ public class CreateFeeRequest {
       */
       if (jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonNull()  && !jsonObj.get("merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("label") != null && !jsonObj.get("label").isJsonNull()  && !jsonObj.get("label").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `label` to be a primitive type in the JSON string but got `%s`", jsonObj.get("label").toString()));
       }
   }
 

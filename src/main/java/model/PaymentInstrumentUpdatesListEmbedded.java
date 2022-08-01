@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
-import model.InstrumentUpdate1;
+import model.InstrumentUpdate;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -56,18 +56,18 @@ import invoker.JSON;
 public class PaymentInstrumentUpdatesListEmbedded {
   public static final String SERIALIZED_NAME_UPDATES = "updates";
   @SerializedName(SERIALIZED_NAME_UPDATES)
-  private Set<InstrumentUpdate1> updates = new LinkedHashSet<>();
+  private Set<InstrumentUpdate> updates = new LinkedHashSet<>();
 
   public PaymentInstrumentUpdatesListEmbedded() { 
   }
 
-  public PaymentInstrumentUpdatesListEmbedded updates(Set<InstrumentUpdate1> updates) {
+  public PaymentInstrumentUpdatesListEmbedded updates(Set<InstrumentUpdate> updates) {
     
     this.updates = updates;
     return this;
   }
 
-  public PaymentInstrumentUpdatesListEmbedded addUpdatesItem(InstrumentUpdate1 updatesItem) {
+  public PaymentInstrumentUpdatesListEmbedded addUpdatesItem(InstrumentUpdate updatesItem) {
     this.updates.add(updatesItem);
     return this;
   }
@@ -79,12 +79,12 @@ public class PaymentInstrumentUpdatesListEmbedded {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public Set<InstrumentUpdate1> getUpdates() {
+  public Set<InstrumentUpdate> getUpdates() {
     return updates;
   }
 
 
-  public void setUpdates(Set<InstrumentUpdate1> updates) {
+  public void setUpdates(Set<InstrumentUpdate> updates) {
     this.updates = updates;
   }
 
@@ -186,7 +186,7 @@ public class PaymentInstrumentUpdatesListEmbedded {
 
         // validate the optional field `updates` (array)
         for (int i = 0; i < jsonArrayupdates.size(); i++) {
-          InstrumentUpdate1.validateJsonObject(jsonArrayupdates.get(i).getAsJsonObject());
+          InstrumentUpdate.validateJsonObject(jsonArrayupdates.get(i).getAsJsonObject());
         }
           ;
       }

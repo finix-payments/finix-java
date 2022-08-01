@@ -90,6 +90,14 @@ public class CreateFeeProfileRequest {
   @SerializedName(SERIALIZED_NAME_AMERICAN_EXPRESS_FIXED_FEE)
   private Long americanExpressFixedFee;
 
+  public static final String SERIALIZED_NAME_AMERICAN_EXPRESS_EXTERNALLY_FUNDED_BASIS_POINTS = "american_express_externally_funded_basis_points";
+  @SerializedName(SERIALIZED_NAME_AMERICAN_EXPRESS_EXTERNALLY_FUNDED_BASIS_POINTS)
+  private Long americanExpressExternallyFundedBasisPoints;
+
+  public static final String SERIALIZED_NAME_AMERICAN_EXPRESS_EXTERNALLY_FUNDED_FIXED_FEE = "american_express_externally_funded_fixed_fee";
+  @SerializedName(SERIALIZED_NAME_AMERICAN_EXPRESS_EXTERNALLY_FUNDED_FIXED_FEE)
+  private Long americanExpressExternallyFundedFixedFee;
+
   public static final String SERIALIZED_NAME_ANCILLARY_FIXED_FEE_PRIMARY = "ancillary_fixed_fee_primary";
   @SerializedName(SERIALIZED_NAME_ANCILLARY_FIXED_FEE_PRIMARY)
   private Long ancillaryFixedFeePrimary;
@@ -105,6 +113,14 @@ public class CreateFeeProfileRequest {
   public static final String SERIALIZED_NAME_BASIS_POINTS = "basis_points";
   @SerializedName(SERIALIZED_NAME_BASIS_POINTS)
   private Long basisPoints;
+
+  public static final String SERIALIZED_NAME_EXTERNALLY_FUNDED_BASIS_POINTS = "externally_funded_basis_points";
+  @SerializedName(SERIALIZED_NAME_EXTERNALLY_FUNDED_BASIS_POINTS)
+  private Long externallyFundedBasisPoints;
+
+  public static final String SERIALIZED_NAME_EXTERNALLY_FUNDED_FIXED_FEE = "externally_funded_fixed_fee";
+  @SerializedName(SERIALIZED_NAME_EXTERNALLY_FUNDED_FIXED_FEE)
+  private Long externallyFundedFixedFee;
 
   public static final String SERIALIZED_NAME_CHARGE_INTERCHANGE = "charge_interchange";
   @SerializedName(SERIALIZED_NAME_CHARGE_INTERCHANGE)
@@ -141,6 +157,14 @@ public class CreateFeeProfileRequest {
   public static final String SERIALIZED_NAME_DISCOVER_FIXED_FEE = "discover_fixed_fee";
   @SerializedName(SERIALIZED_NAME_DISCOVER_FIXED_FEE)
   private Long discoverFixedFee;
+
+  public static final String SERIALIZED_NAME_DISCOVER_EXTERNALLY_FUNDED_BASIS_POINTS = "discover_externally_funded_basis_points";
+  @SerializedName(SERIALIZED_NAME_DISCOVER_EXTERNALLY_FUNDED_BASIS_POINTS)
+  private Long discoverExternallyFundedBasisPoints;
+
+  public static final String SERIALIZED_NAME_DISCOVER_EXTERNALLY_FUNDED_FIXED_FEE = "discover_externally_funded_fixed_fee";
+  @SerializedName(SERIALIZED_NAME_DISCOVER_EXTERNALLY_FUNDED_FIXED_FEE)
+  private Long discoverExternallyFundedFixedFee;
 
   public static final String SERIALIZED_NAME_DISCOVER_NETWORK_AUTHORIZATION_FIXED_FEE = "discover_network_authorization_fixed_fee";
   @SerializedName(SERIALIZED_NAME_DISCOVER_NETWORK_AUTHORIZATION_FIXED_FEE)
@@ -199,7 +223,7 @@ public class CreateFeeProfileRequest {
   private Object qualifiedTiers;
 
   /**
-   * Gets or Sets roundingMode
+   * &lt;ul&gt;&lt;li&gt;Include &lt;strong&gt;AGGREGATE&lt;/strong&gt; if you want to round after the settlement calculation.&lt;li&gt;By default, rounding happens before the sum of the settlement calculation (i.e. round each fee transfer)&lt;/ul&gt;
    */
   @JsonAdapter(RoundingModeEnum.Adapter.class)
   public enum RoundingModeEnum {
@@ -347,11 +371,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get achBasisPoints
+   * Percentage-based fee incurred against the full amount of an eCheck (also called ACH payments). Calculated as one hundredth of one percent (1 basis point &#x3D; .0001 or .01%).
    * @return achBasisPoints
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Percentage-based fee incurred against the full amount of an eCheck (also called ACH payments). Calculated as one hundredth of one percent (1 basis point = .0001 or .01%).")
 
   public Long getAchBasisPoints() {
     return achBasisPoints;
@@ -370,11 +394,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get achCreditReturnFixedFee
+   * A fixed amount in cents that will be charged to the merchant for processing an echeck (also called ACH payments) credit return.
    * @return achCreditReturnFixedFee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A fixed amount in cents that will be charged to the merchant for processing an echeck (also called ACH payments) credit return.")
 
   public Long getAchCreditReturnFixedFee() {
     return achCreditReturnFixedFee;
@@ -393,11 +417,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get achDebitReturnFixedFee
+   * A fixed amount in cents that will be charged to the merchant for processing an echeck (also called ACH payment) debit return.
    * @return achDebitReturnFixedFee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A fixed amount in cents that will be charged to the merchant for processing an echeck (also called ACH payment) debit return.")
 
   public Long getAchDebitReturnFixedFee() {
     return achDebitReturnFixedFee;
@@ -416,11 +440,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get achFixedFee
+   * Fee in cents incurred for each individual &#x60;Transfer&#x60;.
    * @return achFixedFee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Fee in cents incurred for each individual `Transfer`.")
 
   public Long getAchFixedFee() {
     return achFixedFee;
@@ -439,11 +463,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get americanExpressAssessmentBasisPoints
+   * Applies to gross American Express card volume.
    * @return americanExpressAssessmentBasisPoints
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Applies to gross American Express card volume.")
 
   public Long getAmericanExpressAssessmentBasisPoints() {
     return americanExpressAssessmentBasisPoints;
@@ -462,11 +486,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get americanExpressBasisPoints
+   * Percentage-based fee incurred against the full amount of each American Express &#x60;Transfer&#x60;. Calculated as one hundredth of one percent (1 basis point &#x3D; .0001 or .01%).
    * @return americanExpressBasisPoints
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Percentage-based fee incurred against the full amount of each American Express `Transfer`. Calculated as one hundredth of one percent (1 basis point = .0001 or .01%).")
 
   public Long getAmericanExpressBasisPoints() {
     return americanExpressBasisPoints;
@@ -485,11 +509,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get americanExpressChargeInterchange
+   * Set to **True** to incur interchange fees for American Express &#x60;Transfers&#x60;.
    * @return americanExpressChargeInterchange
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Set to **True** to incur interchange fees for American Express `Transfers`.")
 
   public Boolean getAmericanExpressChargeInterchange() {
     return americanExpressChargeInterchange;
@@ -508,11 +532,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get americanExpressFixedFee
+   * Fee in cents incurred for each individual American Express &#x60;Transfer&#x60;.
    * @return americanExpressFixedFee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Fee in cents incurred for each individual American Express `Transfer`.")
 
   public Long getAmericanExpressFixedFee() {
     return americanExpressFixedFee;
@@ -524,6 +548,52 @@ public class CreateFeeProfileRequest {
   }
 
 
+  public CreateFeeProfileRequest americanExpressExternallyFundedBasisPoints(Long americanExpressExternallyFundedBasisPoints) {
+    
+    this.americanExpressExternallyFundedBasisPoints = americanExpressExternallyFundedBasisPoints;
+    return this;
+  }
+
+   /**
+   * Percentage-based fee incurred against the full amount of each American Express externally funded &#x60;Transfer&#x60;. Calculated as one hundredth of one percent (1 basis point &#x3D; .0001 or .01%).
+   * @return americanExpressExternallyFundedBasisPoints
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Percentage-based fee incurred against the full amount of each American Express externally funded `Transfer`. Calculated as one hundredth of one percent (1 basis point = .0001 or .01%).")
+
+  public Long getAmericanExpressExternallyFundedBasisPoints() {
+    return americanExpressExternallyFundedBasisPoints;
+  }
+
+
+  public void setAmericanExpressExternallyFundedBasisPoints(Long americanExpressExternallyFundedBasisPoints) {
+    this.americanExpressExternallyFundedBasisPoints = americanExpressExternallyFundedBasisPoints;
+  }
+
+
+  public CreateFeeProfileRequest americanExpressExternallyFundedFixedFee(Long americanExpressExternallyFundedFixedFee) {
+    
+    this.americanExpressExternallyFundedFixedFee = americanExpressExternallyFundedFixedFee;
+    return this;
+  }
+
+   /**
+   * Fee in cents incurred for each individual American Express externally funded &#x60;Transfer&#x60;.
+   * @return americanExpressExternallyFundedFixedFee
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Fee in cents incurred for each individual American Express externally funded `Transfer`.")
+
+  public Long getAmericanExpressExternallyFundedFixedFee() {
+    return americanExpressExternallyFundedFixedFee;
+  }
+
+
+  public void setAmericanExpressExternallyFundedFixedFee(Long americanExpressExternallyFundedFixedFee) {
+    this.americanExpressExternallyFundedFixedFee = americanExpressExternallyFundedFixedFee;
+  }
+
+
   public CreateFeeProfileRequest ancillaryFixedFeePrimary(Long ancillaryFixedFeePrimary) {
     
     this.ancillaryFixedFeePrimary = ancillaryFixedFeePrimary;
@@ -531,11 +601,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get ancillaryFixedFeePrimary
+   * An additional fixed fee that can be charged per &#x60;Transfer&#x60;.
    * @return ancillaryFixedFeePrimary
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "An additional fixed fee that can be charged per `Transfer`.")
 
   public Long getAncillaryFixedFeePrimary() {
     return ancillaryFixedFeePrimary;
@@ -554,11 +624,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get ancillaryFixedFeeSecondary
+   * An additional fixed fee that can be charged per &#x60;Transfer&#x60; if &#x60;ancillary_fixed_fee_primary&#x60; is included.
    * @return ancillaryFixedFeeSecondary
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "An additional fixed fee that can be charged per `Transfer` if `ancillary_fixed_fee_primary` is included.")
 
   public Long getAncillaryFixedFeeSecondary() {
     return ancillaryFixedFeeSecondary;
@@ -600,11 +670,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get basisPoints
+   * Percentage-based fee incurred against the full amount of each card-based &#x60;Transfer&#x60;. Calculated as one hundredth of one percent (1 basis point &#x3D; .0001 or .01%).
    * @return basisPoints
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Percentage-based fee incurred against the full amount of each card-based `Transfer`. Calculated as one hundredth of one percent (1 basis point = .0001 or .01%).")
 
   public Long getBasisPoints() {
     return basisPoints;
@@ -616,6 +686,52 @@ public class CreateFeeProfileRequest {
   }
 
 
+  public CreateFeeProfileRequest externallyFundedBasisPoints(Long externallyFundedBasisPoints) {
+    
+    this.externallyFundedBasisPoints = externallyFundedBasisPoints;
+    return this;
+  }
+
+   /**
+   * Percentage-based fee incurred against the full amount of each &#x60;Transfer&#x60; that&#39;s card-based and externally funded. Calculated as one hundredth of one percent (1 basis point &#x3D; .0001 or .01%).
+   * @return externallyFundedBasisPoints
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Percentage-based fee incurred against the full amount of each `Transfer` that's card-based and externally funded. Calculated as one hundredth of one percent (1 basis point = .0001 or .01%).")
+
+  public Long getExternallyFundedBasisPoints() {
+    return externallyFundedBasisPoints;
+  }
+
+
+  public void setExternallyFundedBasisPoints(Long externallyFundedBasisPoints) {
+    this.externallyFundedBasisPoints = externallyFundedBasisPoints;
+  }
+
+
+  public CreateFeeProfileRequest externallyFundedFixedFee(Long externallyFundedFixedFee) {
+    
+    this.externallyFundedFixedFee = externallyFundedFixedFee;
+    return this;
+  }
+
+   /**
+   * Fee in cents incurred for each individual &#x60;Transfer&#x60; that&#39;s card-based and externally funded.
+   * @return externallyFundedFixedFee
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Fee in cents incurred for each individual `Transfer` that's card-based and externally funded.")
+
+  public Long getExternallyFundedFixedFee() {
+    return externallyFundedFixedFee;
+  }
+
+
+  public void setExternallyFundedFixedFee(Long externallyFundedFixedFee) {
+    this.externallyFundedFixedFee = externallyFundedFixedFee;
+  }
+
+
   public CreateFeeProfileRequest chargeInterchange(Boolean chargeInterchange) {
     
     this.chargeInterchange = chargeInterchange;
@@ -623,11 +739,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get chargeInterchange
+   * Set to **True** to incur interchange fees for card-based &#x60;Transfers&#x60;.
    * @return chargeInterchange
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Set to **True** to incur interchange fees for card-based `Transfers`.")
 
   public Boolean getChargeInterchange() {
     return chargeInterchange;
@@ -646,11 +762,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get dinersClubBasisPoints
+   * Percentage-based fee incurred against the full amount of each Diners &#x60;Transfer&#x60;. Calculated as one hundredth of one percent (1 basis point &#x3D; .0001 or .01%).
    * @return dinersClubBasisPoints
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Percentage-based fee incurred against the full amount of each Diners `Transfer`. Calculated as one hundredth of one percent (1 basis point = .0001 or .01%).")
 
   public Long getDinersClubBasisPoints() {
     return dinersClubBasisPoints;
@@ -669,11 +785,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get dinersClubChargeInterchange
+   * Set to **True** to incur interchange fees for Diners &#x60;Transfers&#x60;.
    * @return dinersClubChargeInterchange
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Set to **True** to incur interchange fees for Diners `Transfers`.")
 
   public Boolean getDinersClubChargeInterchange() {
     return dinersClubChargeInterchange;
@@ -692,11 +808,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get dinersClubFixedFee
+   * Fee in cents incurred for each individual Diners &#x60;Transfer&#x60;.
    * @return dinersClubFixedFee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Fee in cents incurred for each individual Diners `Transfer`.")
 
   public Long getDinersClubFixedFee() {
     return dinersClubFixedFee;
@@ -715,11 +831,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get discoverAssessmentsBasisPoints
+   * Assessment applies to gross Discover card transaction volume.
    * @return discoverAssessmentsBasisPoints
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Assessment applies to gross Discover card transaction volume.")
 
   public Long getDiscoverAssessmentsBasisPoints() {
     return discoverAssessmentsBasisPoints;
@@ -738,11 +854,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get discoverBasisPoints
+   * Percentage-based fee incurred against the full amount of each Discover &#x60;Transfer&#x60;. Calculated as one hundredth of one percent (1 basis point &#x3D; .0001 or .01%).
    * @return discoverBasisPoints
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Percentage-based fee incurred against the full amount of each Discover `Transfer`. Calculated as one hundredth of one percent (1 basis point = .0001 or .01%).")
 
   public Long getDiscoverBasisPoints() {
     return discoverBasisPoints;
@@ -761,11 +877,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get discoverChargeInterchange
+   * Set to **True** to incur interchange fees for Discover &#x60;Transfers&#x60;.
    * @return discoverChargeInterchange
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Set to **True** to incur interchange fees for Discover `Transfers`.")
 
   public Boolean getDiscoverChargeInterchange() {
     return discoverChargeInterchange;
@@ -784,11 +900,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get discoverDataUsageFixedFee
+   * Applies to all U.S.-based &#x60;Authorization&#x60; transactions.
    * @return discoverDataUsageFixedFee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Applies to all U.S.-based `Authorization` transactions.")
 
   public Long getDiscoverDataUsageFixedFee() {
     return discoverDataUsageFixedFee;
@@ -807,11 +923,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get discoverFixedFee
+   * Fee in cents incurred for each individual Discover &#x60;Transfer&#x60;.
    * @return discoverFixedFee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Fee in cents incurred for each individual Discover `Transfer`.")
 
   public Long getDiscoverFixedFee() {
     return discoverFixedFee;
@@ -823,6 +939,52 @@ public class CreateFeeProfileRequest {
   }
 
 
+  public CreateFeeProfileRequest discoverExternallyFundedBasisPoints(Long discoverExternallyFundedBasisPoints) {
+    
+    this.discoverExternallyFundedBasisPoints = discoverExternallyFundedBasisPoints;
+    return this;
+  }
+
+   /**
+   * Percentage-based fee incurred against the full amount of each Discover externally funded &#x60;Transfer&#x60;. Calculated as one hundredth of one percent (1 basis point &#x3D; .0001 or .01%).
+   * @return discoverExternallyFundedBasisPoints
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Percentage-based fee incurred against the full amount of each Discover externally funded `Transfer`. Calculated as one hundredth of one percent (1 basis point = .0001 or .01%).")
+
+  public Long getDiscoverExternallyFundedBasisPoints() {
+    return discoverExternallyFundedBasisPoints;
+  }
+
+
+  public void setDiscoverExternallyFundedBasisPoints(Long discoverExternallyFundedBasisPoints) {
+    this.discoverExternallyFundedBasisPoints = discoverExternallyFundedBasisPoints;
+  }
+
+
+  public CreateFeeProfileRequest discoverExternallyFundedFixedFee(Long discoverExternallyFundedFixedFee) {
+    
+    this.discoverExternallyFundedFixedFee = discoverExternallyFundedFixedFee;
+    return this;
+  }
+
+   /**
+   * Fee in cents incurred for each individual Discover externally funded &#x60;Transfer&#x60;.
+   * @return discoverExternallyFundedFixedFee
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Fee in cents incurred for each individual Discover externally funded `Transfer`.")
+
+  public Long getDiscoverExternallyFundedFixedFee() {
+    return discoverExternallyFundedFixedFee;
+  }
+
+
+  public void setDiscoverExternallyFundedFixedFee(Long discoverExternallyFundedFixedFee) {
+    this.discoverExternallyFundedFixedFee = discoverExternallyFundedFixedFee;
+  }
+
+
   public CreateFeeProfileRequest discoverNetworkAuthorizationFixedFee(Long discoverNetworkAuthorizationFixedFee) {
     
     this.discoverNetworkAuthorizationFixedFee = discoverNetworkAuthorizationFixedFee;
@@ -830,11 +992,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get discoverNetworkAuthorizationFixedFee
+   * This fee applies to all Discover network &#x60;authorizations&#x60; and replaces the previously assessed Data Transmission.
    * @return discoverNetworkAuthorizationFixedFee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "This fee applies to all Discover network `authorizations` and replaces the previously assessed Data Transmission.")
 
   public Long getDiscoverNetworkAuthorizationFixedFee() {
     return discoverNetworkAuthorizationFixedFee;
@@ -853,11 +1015,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get disputeFixedFee
+   * Applied when a &#x60;dispute&#x60; is created or updated to a **PENDING** state.
    * @return disputeFixedFee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Applied when a `dispute` is created or updated to a **PENDING** state.")
 
   public Long getDisputeFixedFee() {
     return disputeFixedFee;
@@ -876,11 +1038,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get disputeInquiryFixedFee
+   * Applied when a &#x60;dispute&#x60; is created or updated to a **INQUIRY** state.
    * @return disputeInquiryFixedFee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Applied when a `dispute` is created or updated to a **INQUIRY** state.")
 
   public Long getDisputeInquiryFixedFee() {
     return disputeInquiryFixedFee;
@@ -899,11 +1061,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get fixedFee
+   * Fee in cents incurred for each individual card-based &#x60;Transfer&#x60;.
    * @return fixedFee
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Fee in cents incurred for each individual card-based `Transfer`.")
 
   public Long getFixedFee() {
     return fixedFee;
@@ -922,11 +1084,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get jcbBasisPoints
+   * Percentage-based fee incurred against the full amount of each JCB &#x60;Transfer&#x60;. Calculated as one hundredth of one percent (1 basis point &#x3D; .0001 or .01%).
    * @return jcbBasisPoints
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Percentage-based fee incurred against the full amount of each JCB `Transfer`. Calculated as one hundredth of one percent (1 basis point = .0001 or .01%).")
 
   public Long getJcbBasisPoints() {
     return jcbBasisPoints;
@@ -945,11 +1107,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get jcbChargeInterchange
+   * Set to **True** to incur interchange fees for JCB Transfers.
    * @return jcbChargeInterchange
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Set to **True** to incur interchange fees for JCB Transfers.")
 
   public Boolean getJcbChargeInterchange() {
     return jcbChargeInterchange;
@@ -968,11 +1130,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get jcbFixedFee
+   * Fee in cents incurred for each individual JCB &#x60;Transfer&#x60;.
    * @return jcbFixedFee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Fee in cents incurred for each individual JCB `Transfer`.")
 
   public Long getJcbFixedFee() {
     return jcbFixedFee;
@@ -991,11 +1153,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get mastercardAcquirerFeesBasisPoints
+   * The fee is assessed on a business’s gross MasterCard processing volume. This fee varies per acquirer based on MasterCard’s assessed charge as it’s distributed across the acquirer’s portfolio of merchants. Generally, this fee is a fraction of a basis point. For example, 0.0045%, 0.0075%, etc. are examples of a likely fee.
    * @return mastercardAcquirerFeesBasisPoints
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The fee is assessed on a business’s gross MasterCard processing volume. This fee varies per acquirer based on MasterCard’s assessed charge as it’s distributed across the acquirer’s portfolio of merchants. Generally, this fee is a fraction of a basis point. For example, 0.0045%, 0.0075%, etc. are examples of a likely fee.")
 
   public Long getMastercardAcquirerFeesBasisPoints() {
     return mastercardAcquirerFeesBasisPoints;
@@ -1014,11 +1176,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get mastercardAssessmentsOver1kBasisPoints
+   * Fee applied to Mastercard credit sale transactions greater than $1,000.
    * @return mastercardAssessmentsOver1kBasisPoints
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Fee applied to Mastercard credit sale transactions greater than $1,000.")
 
   public Long getMastercardAssessmentsOver1kBasisPoints() {
     return mastercardAssessmentsOver1kBasisPoints;
@@ -1037,11 +1199,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get mastercardAssessmentsUnder1kBasisPoints
+   * Fee applied to Mastercard transactions less than or equal to $1,000.
    * @return mastercardAssessmentsUnder1kBasisPoints
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Fee applied to Mastercard transactions less than or equal to $1,000.")
 
   public Long getMastercardAssessmentsUnder1kBasisPoints() {
     return mastercardAssessmentsUnder1kBasisPoints;
@@ -1060,11 +1222,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get mastercardBasisPoints
+   * Percentage-based fee incurred against the full amount of each MasterCard &#x60;Transfer&#x60;. Calculated as one hundredth of one percent (1 basis point &#x3D; .0001 or .01%).
    * @return mastercardBasisPoints
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Percentage-based fee incurred against the full amount of each MasterCard `Transfer`. Calculated as one hundredth of one percent (1 basis point = .0001 or .01%).")
 
   public Long getMastercardBasisPoints() {
     return mastercardBasisPoints;
@@ -1083,11 +1245,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get mastercardChargeInterchange
+   * Set to **True** to incur interchange fees for MasterCard &#x60;Transfers&#x60;.
    * @return mastercardChargeInterchange
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Set to **True** to incur interchange fees for MasterCard `Transfers`.")
 
   public Boolean getMastercardChargeInterchange() {
     return mastercardChargeInterchange;
@@ -1106,11 +1268,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get mastercardFixedFee
+   * Fee in cents incurred for each individual MasterCard &#x60;Transfer&#x60;.
    * @return mastercardFixedFee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Fee in cents incurred for each individual MasterCard `Transfer`.")
 
   public Long getMastercardFixedFee() {
     return mastercardFixedFee;
@@ -1152,11 +1314,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get roundingMode
+   * &lt;ul&gt;&lt;li&gt;Include &lt;strong&gt;AGGREGATE&lt;/strong&gt; if you want to round after the settlement calculation.&lt;li&gt;By default, rounding happens before the sum of the settlement calculation (i.e. round each fee transfer)&lt;/ul&gt;
    * @return roundingMode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "<ul><li>Include <strong>AGGREGATE</strong> if you want to round after the settlement calculation.<li>By default, rounding happens before the sum of the settlement calculation (i.e. round each fee transfer)</ul>")
 
   public RoundingModeEnum getRoundingMode() {
     return roundingMode;
@@ -1175,11 +1337,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get visaAcquirerProcessingFixedFee
+   * Applied to all U.S.-based credit card authorizations acquired in the U.S. regardless of where the issuer/cardholder is located. If your business is based in the U.S., the acquirer processing fee will apply to all Visa credit card authorizations.
    * @return visaAcquirerProcessingFixedFee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Applied to all U.S.-based credit card authorizations acquired in the U.S. regardless of where the issuer/cardholder is located. If your business is based in the U.S., the acquirer processing fee will apply to all Visa credit card authorizations.")
 
   public Long getVisaAcquirerProcessingFixedFee() {
     return visaAcquirerProcessingFixedFee;
@@ -1198,11 +1360,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get visaAssessmentsBasisPoints
+   * Applies to all Visa credit transactions.
    * @return visaAssessmentsBasisPoints
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Applies to all Visa credit transactions.")
 
   public Long getVisaAssessmentsBasisPoints() {
     return visaAssessmentsBasisPoints;
@@ -1221,11 +1383,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get visaBaseIICreditVoucherFixedFee
+   * Applies to all U.S.-based refunds.
    * @return visaBaseIICreditVoucherFixedFee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Applies to all U.S.-based refunds.")
 
   public Long getVisaBaseIICreditVoucherFixedFee() {
     return visaBaseIICreditVoucherFixedFee;
@@ -1244,11 +1406,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get visaBaseIISystemFileTransmissionFixedFee
+   * Applies to all Visa transactions and is charged in addition to other transaction-based assessments.
    * @return visaBaseIISystemFileTransmissionFixedFee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Applies to all Visa transactions and is charged in addition to other transaction-based assessments.")
 
   public Long getVisaBaseIISystemFileTransmissionFixedFee() {
     return visaBaseIISystemFileTransmissionFixedFee;
@@ -1267,11 +1429,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get visaBasisPoints
+   * Percentage-based fee incurred against the full amount of each Visa &#x60;Transfer&#x60;. Calculated as one hundredth of one percent (1 basis point &#x3D; .0001 or .01%).
    * @return visaBasisPoints
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Percentage-based fee incurred against the full amount of each Visa `Transfer`. Calculated as one hundredth of one percent (1 basis point = .0001 or .01%).")
 
   public Long getVisaBasisPoints() {
     return visaBasisPoints;
@@ -1290,11 +1452,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get visaChargeInterchange
+   * Set to **True** to incur interchange fees for Visa &#x60;Transfers&#x60;.
    * @return visaChargeInterchange
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Set to **True** to incur interchange fees for Visa `Transfers`.")
 
   public Boolean getVisaChargeInterchange() {
     return visaChargeInterchange;
@@ -1313,11 +1475,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get visaCreditVoucherFixedFee
+   * Applies to Visa refunds.
    * @return visaCreditVoucherFixedFee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Applies to Visa refunds.")
 
   public Long getVisaCreditVoucherFixedFee() {
     return visaCreditVoucherFixedFee;
@@ -1336,11 +1498,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get visaFixedFee
+   * Fee in cents incurred for each individual Visa &#x60;Transfer&#x60;.
    * @return visaFixedFee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Fee in cents incurred for each individual Visa `Transfer`.")
 
   public Long getVisaFixedFee() {
     return visaFixedFee;
@@ -1359,11 +1521,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get visaKilobyteAccessFixedFee
+   * Charged on each authorization transaction submitted to Visa’s network for settlement.
    * @return visaKilobyteAccessFixedFee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Charged on each authorization transaction submitted to Visa’s network for settlement.")
 
   public Long getVisaKilobyteAccessFixedFee() {
     return visaKilobyteAccessFixedFee;
@@ -1394,10 +1556,14 @@ public class CreateFeeProfileRequest {
         Objects.equals(this.americanExpressBasisPoints, createFeeProfileRequest.americanExpressBasisPoints) &&
         Objects.equals(this.americanExpressChargeInterchange, createFeeProfileRequest.americanExpressChargeInterchange) &&
         Objects.equals(this.americanExpressFixedFee, createFeeProfileRequest.americanExpressFixedFee) &&
+        Objects.equals(this.americanExpressExternallyFundedBasisPoints, createFeeProfileRequest.americanExpressExternallyFundedBasisPoints) &&
+        Objects.equals(this.americanExpressExternallyFundedFixedFee, createFeeProfileRequest.americanExpressExternallyFundedFixedFee) &&
         Objects.equals(this.ancillaryFixedFeePrimary, createFeeProfileRequest.ancillaryFixedFeePrimary) &&
         Objects.equals(this.ancillaryFixedFeeSecondary, createFeeProfileRequest.ancillaryFixedFeeSecondary) &&
         Objects.equals(this.application, createFeeProfileRequest.application) &&
         Objects.equals(this.basisPoints, createFeeProfileRequest.basisPoints) &&
+        Objects.equals(this.externallyFundedBasisPoints, createFeeProfileRequest.externallyFundedBasisPoints) &&
+        Objects.equals(this.externallyFundedFixedFee, createFeeProfileRequest.externallyFundedFixedFee) &&
         Objects.equals(this.chargeInterchange, createFeeProfileRequest.chargeInterchange) &&
         Objects.equals(this.dinersClubBasisPoints, createFeeProfileRequest.dinersClubBasisPoints) &&
         Objects.equals(this.dinersClubChargeInterchange, createFeeProfileRequest.dinersClubChargeInterchange) &&
@@ -1407,6 +1573,8 @@ public class CreateFeeProfileRequest {
         Objects.equals(this.discoverChargeInterchange, createFeeProfileRequest.discoverChargeInterchange) &&
         Objects.equals(this.discoverDataUsageFixedFee, createFeeProfileRequest.discoverDataUsageFixedFee) &&
         Objects.equals(this.discoverFixedFee, createFeeProfileRequest.discoverFixedFee) &&
+        Objects.equals(this.discoverExternallyFundedBasisPoints, createFeeProfileRequest.discoverExternallyFundedBasisPoints) &&
+        Objects.equals(this.discoverExternallyFundedFixedFee, createFeeProfileRequest.discoverExternallyFundedFixedFee) &&
         Objects.equals(this.discoverNetworkAuthorizationFixedFee, createFeeProfileRequest.discoverNetworkAuthorizationFixedFee) &&
         Objects.equals(this.disputeFixedFee, createFeeProfileRequest.disputeFixedFee) &&
         Objects.equals(this.disputeInquiryFixedFee, createFeeProfileRequest.disputeInquiryFixedFee) &&
@@ -1439,7 +1607,7 @@ public class CreateFeeProfileRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, achBasisPoints, achCreditReturnFixedFee, achDebitReturnFixedFee, achFixedFee, americanExpressAssessmentBasisPoints, americanExpressBasisPoints, americanExpressChargeInterchange, americanExpressFixedFee, ancillaryFixedFeePrimary, ancillaryFixedFeeSecondary, application, basisPoints, chargeInterchange, dinersClubBasisPoints, dinersClubChargeInterchange, dinersClubFixedFee, discoverAssessmentsBasisPoints, discoverBasisPoints, discoverChargeInterchange, discoverDataUsageFixedFee, discoverFixedFee, discoverNetworkAuthorizationFixedFee, disputeFixedFee, disputeInquiryFixedFee, fixedFee, jcbBasisPoints, jcbChargeInterchange, jcbFixedFee, mastercardAcquirerFeesBasisPoints, mastercardAssessmentsOver1kBasisPoints, mastercardAssessmentsUnder1kBasisPoints, mastercardBasisPoints, mastercardChargeInterchange, mastercardFixedFee, qualifiedTiers, roundingMode, visaAcquirerProcessingFixedFee, visaAssessmentsBasisPoints, visaBaseIICreditVoucherFixedFee, visaBaseIISystemFileTransmissionFixedFee, visaBasisPoints, visaChargeInterchange, visaCreditVoucherFixedFee, visaFixedFee, visaKilobyteAccessFixedFee);
+    return Objects.hash(tags, achBasisPoints, achCreditReturnFixedFee, achDebitReturnFixedFee, achFixedFee, americanExpressAssessmentBasisPoints, americanExpressBasisPoints, americanExpressChargeInterchange, americanExpressFixedFee, americanExpressExternallyFundedBasisPoints, americanExpressExternallyFundedFixedFee, ancillaryFixedFeePrimary, ancillaryFixedFeeSecondary, application, basisPoints, externallyFundedBasisPoints, externallyFundedFixedFee, chargeInterchange, dinersClubBasisPoints, dinersClubChargeInterchange, dinersClubFixedFee, discoverAssessmentsBasisPoints, discoverBasisPoints, discoverChargeInterchange, discoverDataUsageFixedFee, discoverFixedFee, discoverExternallyFundedBasisPoints, discoverExternallyFundedFixedFee, discoverNetworkAuthorizationFixedFee, disputeFixedFee, disputeInquiryFixedFee, fixedFee, jcbBasisPoints, jcbChargeInterchange, jcbFixedFee, mastercardAcquirerFeesBasisPoints, mastercardAssessmentsOver1kBasisPoints, mastercardAssessmentsUnder1kBasisPoints, mastercardBasisPoints, mastercardChargeInterchange, mastercardFixedFee, qualifiedTiers, roundingMode, visaAcquirerProcessingFixedFee, visaAssessmentsBasisPoints, visaBaseIICreditVoucherFixedFee, visaBaseIISystemFileTransmissionFixedFee, visaBasisPoints, visaChargeInterchange, visaCreditVoucherFixedFee, visaFixedFee, visaKilobyteAccessFixedFee);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1462,10 +1630,14 @@ public class CreateFeeProfileRequest {
     sb.append("    americanExpressBasisPoints: ").append(toIndentedString(americanExpressBasisPoints)).append("\n");
     sb.append("    americanExpressChargeInterchange: ").append(toIndentedString(americanExpressChargeInterchange)).append("\n");
     sb.append("    americanExpressFixedFee: ").append(toIndentedString(americanExpressFixedFee)).append("\n");
+    sb.append("    americanExpressExternallyFundedBasisPoints: ").append(toIndentedString(americanExpressExternallyFundedBasisPoints)).append("\n");
+    sb.append("    americanExpressExternallyFundedFixedFee: ").append(toIndentedString(americanExpressExternallyFundedFixedFee)).append("\n");
     sb.append("    ancillaryFixedFeePrimary: ").append(toIndentedString(ancillaryFixedFeePrimary)).append("\n");
     sb.append("    ancillaryFixedFeeSecondary: ").append(toIndentedString(ancillaryFixedFeeSecondary)).append("\n");
     sb.append("    application: ").append(toIndentedString(application)).append("\n");
     sb.append("    basisPoints: ").append(toIndentedString(basisPoints)).append("\n");
+    sb.append("    externallyFundedBasisPoints: ").append(toIndentedString(externallyFundedBasisPoints)).append("\n");
+    sb.append("    externallyFundedFixedFee: ").append(toIndentedString(externallyFundedFixedFee)).append("\n");
     sb.append("    chargeInterchange: ").append(toIndentedString(chargeInterchange)).append("\n");
     sb.append("    dinersClubBasisPoints: ").append(toIndentedString(dinersClubBasisPoints)).append("\n");
     sb.append("    dinersClubChargeInterchange: ").append(toIndentedString(dinersClubChargeInterchange)).append("\n");
@@ -1475,6 +1647,8 @@ public class CreateFeeProfileRequest {
     sb.append("    discoverChargeInterchange: ").append(toIndentedString(discoverChargeInterchange)).append("\n");
     sb.append("    discoverDataUsageFixedFee: ").append(toIndentedString(discoverDataUsageFixedFee)).append("\n");
     sb.append("    discoverFixedFee: ").append(toIndentedString(discoverFixedFee)).append("\n");
+    sb.append("    discoverExternallyFundedBasisPoints: ").append(toIndentedString(discoverExternallyFundedBasisPoints)).append("\n");
+    sb.append("    discoverExternallyFundedFixedFee: ").append(toIndentedString(discoverExternallyFundedFixedFee)).append("\n");
     sb.append("    discoverNetworkAuthorizationFixedFee: ").append(toIndentedString(discoverNetworkAuthorizationFixedFee)).append("\n");
     sb.append("    disputeFixedFee: ").append(toIndentedString(disputeFixedFee)).append("\n");
     sb.append("    disputeInquiryFixedFee: ").append(toIndentedString(disputeInquiryFixedFee)).append("\n");
@@ -1530,10 +1704,14 @@ public class CreateFeeProfileRequest {
     openapiFields.add("american_express_basis_points");
     openapiFields.add("american_express_charge_interchange");
     openapiFields.add("american_express_fixed_fee");
+    openapiFields.add("american_express_externally_funded_basis_points");
+    openapiFields.add("american_express_externally_funded_fixed_fee");
     openapiFields.add("ancillary_fixed_fee_primary");
     openapiFields.add("ancillary_fixed_fee_secondary");
     openapiFields.add("application");
     openapiFields.add("basis_points");
+    openapiFields.add("externally_funded_basis_points");
+    openapiFields.add("externally_funded_fixed_fee");
     openapiFields.add("charge_interchange");
     openapiFields.add("diners_club_basis_points");
     openapiFields.add("diners_club_charge_interchange");
@@ -1543,6 +1721,8 @@ public class CreateFeeProfileRequest {
     openapiFields.add("discover_charge_interchange");
     openapiFields.add("discover_data_usage_fixed_fee");
     openapiFields.add("discover_fixed_fee");
+    openapiFields.add("discover_externally_funded_basis_points");
+    openapiFields.add("discover_externally_funded_fixed_fee");
     openapiFields.add("discover_network_authorization_fixed_fee");
     openapiFields.add("dispute_fixed_fee");
     openapiFields.add("dispute_inquiry_fixed_fee");

@@ -48,7 +48,7 @@ import invoker.JSON;
  * ListPaymentInstrumentUpdatesQueryParams
  */
 @lombok.Builder@lombok.AllArgsConstructor
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-23T13:37:23.846763-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListPaymentInstrumentUpdatesQueryParams {
   public static final String SERIALIZED_NAME_LIMIT = "limit";
   @SerializedName(SERIALIZED_NAME_LIMIT)
@@ -57,10 +57,6 @@ public class ListPaymentInstrumentUpdatesQueryParams {
   public static final String SERIALIZED_NAME_OFFSET = "offset";
   @SerializedName(SERIALIZED_NAME_OFFSET)
   private Long offset;
-
-  public static final String SERIALIZED_NAME_PAGE_NUMBER = "pageNumber";
-  @SerializedName(SERIALIZED_NAME_PAGE_NUMBER)
-  private Long pageNumber;
 
   public static final String SERIALIZED_NAME_PAGE_SIZE = "pageSize";
   @SerializedName(SERIALIZED_NAME_PAGE_SIZE)
@@ -115,29 +111,6 @@ public class ListPaymentInstrumentUpdatesQueryParams {
   }
 
 
-  public ListPaymentInstrumentUpdatesQueryParams pageNumber(Long pageNumber) {
-    
-    this.pageNumber = pageNumber;
-    return this;
-  }
-
-   /**
-   * The page number to list.
-   * @return pageNumber
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The page number to list.")
-
-  public Long getPageNumber() {
-    return pageNumber;
-  }
-
-
-  public void setPageNumber(Long pageNumber) {
-    this.pageNumber = pageNumber;
-  }
-
-
   public ListPaymentInstrumentUpdatesQueryParams pageSize(Long pageSize) {
     
     this.pageSize = pageSize;
@@ -173,13 +146,12 @@ public class ListPaymentInstrumentUpdatesQueryParams {
     ListPaymentInstrumentUpdatesQueryParams listPaymentInstrumentUpdatesQueryParams = (ListPaymentInstrumentUpdatesQueryParams) o;
     return Objects.equals(this.limit, listPaymentInstrumentUpdatesQueryParams.limit) &&
         Objects.equals(this.offset, listPaymentInstrumentUpdatesQueryParams.offset) &&
-        Objects.equals(this.pageNumber, listPaymentInstrumentUpdatesQueryParams.pageNumber) &&
         Objects.equals(this.pageSize, listPaymentInstrumentUpdatesQueryParams.pageSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, offset, pageNumber, pageSize);
+    return Objects.hash(limit, offset, pageSize);
   }
 
   @Override
@@ -188,7 +160,6 @@ public class ListPaymentInstrumentUpdatesQueryParams {
     sb.append("class ListPaymentInstrumentUpdatesQueryParams {\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
-    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -214,7 +185,6 @@ public class ListPaymentInstrumentUpdatesQueryParams {
     openapiFields = new HashSet<String>();
     openapiFields.add("limit");
     openapiFields.add("offset");
-    openapiFields.add("pageNumber");
     openapiFields.add("pageSize");
 
     // a set of required properties/fields (JSON key names)
