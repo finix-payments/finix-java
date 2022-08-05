@@ -20,9 +20,11 @@ import model.*;
 import org.junit.jupiter.api.*;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * API tests for WebhooksApi
@@ -108,17 +110,22 @@ public class WebhooksApiTest {
      */
     @Test
     @DisplayName("List Webhooks")
-    public void listWebhooksTest() throws ApiException {
+    public void listWebhooksTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
         Long limit = null;
         String afterCursor = null;
         String beforeCursor = null;
 
-        WebhooksList response = finixClient.Webhooks.list(ListWebhooksQueryParams.builder()
+        FinixList<Webhook> webhooksList = finixClient.Webhooks.list(ListWebhooksQueryParams.builder()
                 .limit(limit)
                 .afterCursor(afterCursor)
                 .beforeCursor(beforeCursor)
                 .build());
-        assertEquals(20,response.getPage().getLimit().intValue(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit().intValue());
+        assertTrue(webhooksList.size() >= 0);
+        if (webhooksList.getHasMore() == true) {
+            FinixList<Webhook> nextList = webhooksList.listNext(1);
+            assertTrue(nextList != null);
+            assertEquals(1, nextList.size());
+        }
     }
 
     /**

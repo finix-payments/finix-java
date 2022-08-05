@@ -21,6 +21,7 @@ import org.junit.jupiter.api.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -237,7 +238,7 @@ public class PaymentInstrumentsApiTest {
      */
     @Test
     @DisplayName("List All Payment Instruments")
-    public void listPaymentInstrumentsTest() throws ApiException {
+    public void listPaymentInstrumentsTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
         Long limit = null;
         String afterCursor = null;
         String accountLast4 = null;
@@ -254,7 +255,7 @@ public class PaymentInstrumentsApiTest {
         String type = null;
         String beforeCursor = null;
 
-        PaymentInstrumentsList response = finixClient.PaymentInstruments.list(ListPaymentInstrumentsQueryParams.builder()
+        FinixList<PaymentInstrument> paymentInstrumentsList = finixClient.PaymentInstruments.list(ListPaymentInstrumentsQueryParams.builder()
                 .limit(limit)
                 .afterCursor(afterCursor)
                 .accountLast4(accountLast4)
@@ -271,9 +272,12 @@ public class PaymentInstrumentsApiTest {
                 .type(type)
                 .beforeCursor(beforeCursor)
                 .build());
-        assertTrue(response.getPage() != null);
-        assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());
-        assertTrue(response.getEmbedded().getPaymentInstruments().size() >= 1);
+        assertTrue(paymentInstrumentsList.size() >= 0);
+        if (paymentInstrumentsList.getHasMore() == true) {
+            FinixList<PaymentInstrument> nextList = paymentInstrumentsList.listNext(1);
+            assertTrue(nextList != null);
+            assertEquals(1, nextList.size());
+        }
     }
 
 

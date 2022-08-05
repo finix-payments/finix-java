@@ -26,6 +26,12 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.stream.Collectors;
+import java.util.*;
+import model.*;
 
 import model.CreateVerificationRequest;
 import model.Error401Unauthorized;
@@ -173,10 +179,13 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+
+
                 public Verification create(CreateVerificationRequest createVerificationRequest) throws ApiException {
             ApiResponse<Verification> localVarResp = createVerificationWithHttpInfo(createVerificationRequest);
                     return localVarResp.getData();
                 }
+
 
     /**
         * Perform a Verification
@@ -319,10 +328,13 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+
+
                 public Verification get(String verificationId) throws ApiException {
             ApiResponse<Verification> localVarResp = getVerificationWithHttpInfo(verificationId);
                     return localVarResp.getData();
                 }
+
 
     /**
         * Get a Verification
@@ -589,15 +601,44 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-    public VerificationsList listByMerchantId(String merchantId,  ListMerchantVerificationsQueryParams listMerchantVerificationsQueryParams) throws ApiException {
+        public FinixList listByMerchantId(String merchantId,  ListMerchantVerificationsQueryParams listMerchantVerificationsQueryParams)
+            throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
 
-        APIlistMerchantVerificationsRequest request = new APIlistMerchantVerificationsRequest(merchantId);
-        request.limit(listMerchantVerificationsQueryParams.getLimit());
-        request.afterCursor(listMerchantVerificationsQueryParams.getAfterCursor());
-        request.beforeCursor(listMerchantVerificationsQueryParams.getBeforeCursor());
-        return request.execute();
-
-    }
+            APIlistMerchantVerificationsRequest request = new APIlistMerchantVerificationsRequest(merchantId);
+                request.limit(listMerchantVerificationsQueryParams.getLimit());
+                request.afterCursor(listMerchantVerificationsQueryParams.getAfterCursor());
+                request.beforeCursor(listMerchantVerificationsQueryParams.getBeforeCursor());
+            VerificationsList response = request.execute();
+            Boolean hasNextCursor = (response.getPage().getClass().getName() == "model.PageCursor");
+            ListMerchantVerificationsQueryParams queryParams = (ListMerchantVerificationsQueryParams) getQueryParam(response.getPage(),
+                listMerchantVerificationsQueryParams,
+                hasNextCursor);
+            Boolean reachedEnd = reachedEnd(response.getPage(), hasNextCursor);
+            NextFetchFunction nextFetch = (a) -> {
+                queryParams.setLimit(a);
+                if (reachedEnd) {
+                throw new ArrayIndexOutOfBoundsException();
+                }
+                return this.listByMerchantId(merchantId,  queryParams);
+            };
+            FinixList currList = new FinixList(nextFetch, !reachedEnd);
+            if (response.getEmbedded() != null){
+                String fieldName = getFieldName(response.getEmbedded());
+                String fieldGet = "get" + fieldName;
+                Method getList = response.getEmbedded().getClass().getMethod(fieldGet);
+                Collection<Object> embeddedList = (Collection<Object>) getList.invoke(response.getEmbedded());
+                if (embeddedList.size() < response.getPage().getLimit()){
+                    currList = new FinixList<>(nextFetch, false);
+                }
+                for(Object item : embeddedList)
+                {
+                    currList.add(item);
+                }
+            }
+            currList.setPage(response.getPage());
+            currList.setLinks(response.getLinks());
+            return currList;
+        }
     private okhttp3.Call listVerificationsCall(Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -803,13 +844,89 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-    public VerificationsList list( ListVerificationsQueryParams listVerificationsQueryParams) throws ApiException {
+        public FinixList list( ListVerificationsQueryParams listVerificationsQueryParams)
+            throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
 
-        APIlistVerificationsRequest request = new APIlistVerificationsRequest();
-        request.limit(listVerificationsQueryParams.getLimit());
-        request.afterCursor(listVerificationsQueryParams.getAfterCursor());
-        request.beforeCursor(listVerificationsQueryParams.getBeforeCursor());
-        return request.execute();
+            APIlistVerificationsRequest request = new APIlistVerificationsRequest();
+                request.limit(listVerificationsQueryParams.getLimit());
+                request.afterCursor(listVerificationsQueryParams.getAfterCursor());
+                request.beforeCursor(listVerificationsQueryParams.getBeforeCursor());
+            VerificationsList response = request.execute();
+            Boolean hasNextCursor = (response.getPage().getClass().getName() == "model.PageCursor");
+            ListVerificationsQueryParams queryParams = (ListVerificationsQueryParams) getQueryParam(response.getPage(),
+                listVerificationsQueryParams,
+                hasNextCursor);
+            Boolean reachedEnd = reachedEnd(response.getPage(), hasNextCursor);
+            NextFetchFunction nextFetch = (a) -> {
+                queryParams.setLimit(a);
+                if (reachedEnd) {
+                throw new ArrayIndexOutOfBoundsException();
+                }
+                return this.list( queryParams);
+            };
+            FinixList currList = new FinixList(nextFetch, !reachedEnd);
+            if (response.getEmbedded() != null){
+                String fieldName = getFieldName(response.getEmbedded());
+                String fieldGet = "get" + fieldName;
+                Method getList = response.getEmbedded().getClass().getMethod(fieldGet);
+                Collection<Object> embeddedList = (Collection<Object>) getList.invoke(response.getEmbedded());
+                if (embeddedList.size() < response.getPage().getLimit()){
+                    currList = new FinixList<>(nextFetch, false);
+                }
+                for(Object item : embeddedList)
+                {
+                    currList.add(item);
+                }
+            }
+            currList.setPage(response.getPage());
+            currList.setLinks(response.getLinks());
+            return currList;
+        }
+        private String getFieldName(Object response){
+            Field[] methods = response.getClass().getFields();
+            Field[] testMethods = response.getClass().getDeclaredFields();
+            List<Field> a = Arrays.asList(methods);
+            List<Field> b = Arrays.asList(testMethods);
+            List<Field> diff = b.stream().filter(element -> !a.contains(element)).collect(Collectors.toList());
+            String fieldName = diff.get(0).getName();
+            return  fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
+        }
 
-    }
+        private Object getQueryParam(Object pageObject, Object queryParam, Boolean hasCursor) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+                if (hasCursor){
+                    Method setCursor = queryParam.getClass().getMethod("setAfterCursor", String.class);
+                    Method getOffset = pageObject.getClass().getMethod("getNextCursor");
+                    String nextCursor = (String) getOffset.invoke(pageObject);
+                    setCursor.invoke(queryParam, nextCursor);
+                }
+                else{
+                    Method setOffset = queryParam.getClass().getMethod("setOffset", Long.class);
+                    Method getOffset = pageObject.getClass().getMethod("getOffset");
+                    Long offset = (Long) getOffset.invoke(pageObject);
+                    setOffset.invoke(queryParam, offset);
+                }
+                return queryParam;
+        }
+
+        private Boolean reachedEnd(Object pageObject, Boolean hasCursor) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+            if (hasCursor){
+                Method getOffset = pageObject.getClass().getMethod("getNextCursor");
+                String nextCursor = (String) getOffset.invoke(pageObject);
+                if (nextCursor == null){
+                    return true;
+                }
+            }
+            else{
+                Method getOffset = pageObject.getClass().getMethod("getOffset");
+                Method getLimit = pageObject.getClass().getMethod("getLimit");
+                Method getCount = pageObject.getClass().getMethod("getCount");
+                Long offset = (Long) getOffset.invoke(pageObject);
+                Long limit = (Long) getLimit.invoke(pageObject);
+                Long count = (Long) getCount.invoke(pageObject);
+                if (offset + limit > count){
+                    return true;
+                }
+            }
+            return false;
+        }
     }

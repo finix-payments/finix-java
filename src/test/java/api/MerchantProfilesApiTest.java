@@ -19,12 +19,14 @@ import invoker.FinixClient;
 import model.*;
 import org.junit.jupiter.api.*;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * API tests for MerchantProfilesApi
@@ -88,13 +90,17 @@ public class MerchantProfilesApiTest {
      */
     @Test
     @DisplayName("Fetch a list of merchant profiles")
-    public void listMerchantProfilesTest() throws ApiException {
+    public void listMerchantProfilesTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
         Long limit = 20L;
-        MerchantProfilesList response = finixClient.MerchantProfiles.list(ListMerchantProfilesQueryParams.builder()
+        FinixList<MerchantProfile> merchantProfilesList = finixClient.MerchantProfiles.list(ListMerchantProfilesQueryParams.builder()
                 .limit(limit)
                 .build());
-        assertEquals(response.getPage().getLimit(), limit, "Response should return page limit of "+limit+" but returns "+response.getPage().getLimit());
-    }
+        assertTrue(merchantProfilesList.size() >= 0);
+        if (merchantProfilesList.getHasMore() == true) {
+            FinixList<MerchantProfile> nextList = merchantProfilesList.listNext(1);
+            assertTrue(nextList != null);
+            assertEquals(1, nextList.size());
+        }    }
 
     /**
      * Put Merchant Profile

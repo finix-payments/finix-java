@@ -26,6 +26,12 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.stream.Collectors;
+import java.util.*;
+import model.*;
 
 import model.Authorization;
 import model.AuthorizationCaptured;
@@ -180,10 +186,13 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+
+
                 public AuthorizationCaptured update(String authorizationId, UpdateAuthorizationRequest updateAuthorizationRequest) throws ApiException {
             ApiResponse<AuthorizationCaptured> localVarResp = captureAuthorizationWithHttpInfo(authorizationId, updateAuthorizationRequest);
                     return localVarResp.getData();
                 }
+
 
     /**
         * Capture an Authorization
@@ -326,10 +335,13 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+
+
                 public Authorization create(CreateAuthorizationRequest createAuthorizationRequest) throws ApiException {
             ApiResponse<Authorization> localVarResp = createAuthorizationWithHttpInfo(createAuthorizationRequest);
                     return localVarResp.getData();
                 }
+
 
     /**
         * Create an Authorization
@@ -476,10 +488,13 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+
+
                 public Authorization get(String authorizationId) throws ApiException {
             ApiResponse<Authorization> localVarResp = getAuthorizationWithHttpInfo(authorizationId);
                     return localVarResp.getData();
                 }
+
 
     /**
         * Get an Authorization
@@ -1127,39 +1142,115 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-    public AuthorizationsList list( ListAuthorizationsQueryParams listAuthorizationsQueryParams) throws ApiException {
+        public FinixList list( ListAuthorizationsQueryParams listAuthorizationsQueryParams)
+            throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
 
-        APIlistAuthorizationsRequest request = new APIlistAuthorizationsRequest();
-        request.sort(listAuthorizationsQueryParams.getSort());
-        request.beforeCursor(listAuthorizationsQueryParams.getBeforeCursor());
-        request.limit(listAuthorizationsQueryParams.getLimit());
-        request.idempotencyId(listAuthorizationsQueryParams.getIdempotencyId());
-        request.state(listAuthorizationsQueryParams.getState());
-        request.createdAtGte(listAuthorizationsQueryParams.getCreatedAtGte());
-        request.createdAtLte(listAuthorizationsQueryParams.getCreatedAtLte());
-        request.updatedAtGte(listAuthorizationsQueryParams.getUpdatedAtGte());
-        request.updatedAtLte(listAuthorizationsQueryParams.getUpdatedAtLte());
-        request.isVoid(listAuthorizationsQueryParams.getIsVoid());
-        request.amount(listAuthorizationsQueryParams.getAmount());
-        request.amountLt(listAuthorizationsQueryParams.getAmountLt());
-        request.amountGt(listAuthorizationsQueryParams.getAmountGt());
-        request.amountLte(listAuthorizationsQueryParams.getAmountLte());
-        request.amountGte(listAuthorizationsQueryParams.getAmountGte());
-        request.traceId(listAuthorizationsQueryParams.getTraceId());
-        request.instrumentBin(listAuthorizationsQueryParams.getInstrumentBin());
-        request.instrumentAccountLast4(listAuthorizationsQueryParams.getInstrumentAccountLast4());
-        request.instrumentBrandType(listAuthorizationsQueryParams.getInstrumentBrandType());
-        request.merchantIdentityId(listAuthorizationsQueryParams.getMerchantIdentityId());
-        request.merchantIdentityName(listAuthorizationsQueryParams.getMerchantIdentityName());
-        request.instrumentName(listAuthorizationsQueryParams.getInstrumentName());
-        request.instrumentType(listAuthorizationsQueryParams.getInstrumentType());
-        request.merchantId(listAuthorizationsQueryParams.getMerchantId());
-        request.merchantMid(listAuthorizationsQueryParams.getMerchantMid());
-        request.instrumentCardLast4(listAuthorizationsQueryParams.getInstrumentCardLast4());
-        request.merchantProcessorId(listAuthorizationsQueryParams.getMerchantProcessorId());
-        request.type(listAuthorizationsQueryParams.getType());
-        request.afterCursor(listAuthorizationsQueryParams.getAfterCursor());
-        return request.execute();
+            APIlistAuthorizationsRequest request = new APIlistAuthorizationsRequest();
+                request.sort(listAuthorizationsQueryParams.getSort());
+                request.beforeCursor(listAuthorizationsQueryParams.getBeforeCursor());
+                request.limit(listAuthorizationsQueryParams.getLimit());
+                request.idempotencyId(listAuthorizationsQueryParams.getIdempotencyId());
+                request.state(listAuthorizationsQueryParams.getState());
+                request.createdAtGte(listAuthorizationsQueryParams.getCreatedAtGte());
+                request.createdAtLte(listAuthorizationsQueryParams.getCreatedAtLte());
+                request.updatedAtGte(listAuthorizationsQueryParams.getUpdatedAtGte());
+                request.updatedAtLte(listAuthorizationsQueryParams.getUpdatedAtLte());
+                request.isVoid(listAuthorizationsQueryParams.getIsVoid());
+                request.amount(listAuthorizationsQueryParams.getAmount());
+                request.amountLt(listAuthorizationsQueryParams.getAmountLt());
+                request.amountGt(listAuthorizationsQueryParams.getAmountGt());
+                request.amountLte(listAuthorizationsQueryParams.getAmountLte());
+                request.amountGte(listAuthorizationsQueryParams.getAmountGte());
+                request.traceId(listAuthorizationsQueryParams.getTraceId());
+                request.instrumentBin(listAuthorizationsQueryParams.getInstrumentBin());
+                request.instrumentAccountLast4(listAuthorizationsQueryParams.getInstrumentAccountLast4());
+                request.instrumentBrandType(listAuthorizationsQueryParams.getInstrumentBrandType());
+                request.merchantIdentityId(listAuthorizationsQueryParams.getMerchantIdentityId());
+                request.merchantIdentityName(listAuthorizationsQueryParams.getMerchantIdentityName());
+                request.instrumentName(listAuthorizationsQueryParams.getInstrumentName());
+                request.instrumentType(listAuthorizationsQueryParams.getInstrumentType());
+                request.merchantId(listAuthorizationsQueryParams.getMerchantId());
+                request.merchantMid(listAuthorizationsQueryParams.getMerchantMid());
+                request.instrumentCardLast4(listAuthorizationsQueryParams.getInstrumentCardLast4());
+                request.merchantProcessorId(listAuthorizationsQueryParams.getMerchantProcessorId());
+                request.type(listAuthorizationsQueryParams.getType());
+                request.afterCursor(listAuthorizationsQueryParams.getAfterCursor());
+            AuthorizationsList response = request.execute();
+            Boolean hasNextCursor = (response.getPage().getClass().getName() == "model.PageCursor");
+            ListAuthorizationsQueryParams queryParams = (ListAuthorizationsQueryParams) getQueryParam(response.getPage(),
+                listAuthorizationsQueryParams,
+                hasNextCursor);
+            Boolean reachedEnd = reachedEnd(response.getPage(), hasNextCursor);
+            NextFetchFunction nextFetch = (a) -> {
+                queryParams.setLimit(a);
+                if (reachedEnd) {
+                throw new ArrayIndexOutOfBoundsException();
+                }
+                return this.list( queryParams);
+            };
+            FinixList currList = new FinixList(nextFetch, !reachedEnd);
+            if (response.getEmbedded() != null){
+                String fieldName = getFieldName(response.getEmbedded());
+                String fieldGet = "get" + fieldName;
+                Method getList = response.getEmbedded().getClass().getMethod(fieldGet);
+                Collection<Object> embeddedList = (Collection<Object>) getList.invoke(response.getEmbedded());
+                if (embeddedList.size() < response.getPage().getLimit()){
+                    currList = new FinixList<>(nextFetch, false);
+                }
+                for(Object item : embeddedList)
+                {
+                    currList.add(item);
+                }
+            }
+            currList.setPage(response.getPage());
+            currList.setLinks(response.getLinks());
+            return currList;
+        }
+        private String getFieldName(Object response){
+            Field[] methods = response.getClass().getFields();
+            Field[] testMethods = response.getClass().getDeclaredFields();
+            List<Field> a = Arrays.asList(methods);
+            List<Field> b = Arrays.asList(testMethods);
+            List<Field> diff = b.stream().filter(element -> !a.contains(element)).collect(Collectors.toList());
+            String fieldName = diff.get(0).getName();
+            return  fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
+        }
 
-    }
+        private Object getQueryParam(Object pageObject, Object queryParam, Boolean hasCursor) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+                if (hasCursor){
+                    Method setCursor = queryParam.getClass().getMethod("setAfterCursor", String.class);
+                    Method getOffset = pageObject.getClass().getMethod("getNextCursor");
+                    String nextCursor = (String) getOffset.invoke(pageObject);
+                    setCursor.invoke(queryParam, nextCursor);
+                }
+                else{
+                    Method setOffset = queryParam.getClass().getMethod("setOffset", Long.class);
+                    Method getOffset = pageObject.getClass().getMethod("getOffset");
+                    Long offset = (Long) getOffset.invoke(pageObject);
+                    setOffset.invoke(queryParam, offset);
+                }
+                return queryParam;
+        }
+
+        private Boolean reachedEnd(Object pageObject, Boolean hasCursor) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+            if (hasCursor){
+                Method getOffset = pageObject.getClass().getMethod("getNextCursor");
+                String nextCursor = (String) getOffset.invoke(pageObject);
+                if (nextCursor == null){
+                    return true;
+                }
+            }
+            else{
+                Method getOffset = pageObject.getClass().getMethod("getOffset");
+                Method getLimit = pageObject.getClass().getMethod("getLimit");
+                Method getCount = pageObject.getClass().getMethod("getCount");
+                Long offset = (Long) getOffset.invoke(pageObject);
+                Long limit = (Long) getLimit.invoke(pageObject);
+                Long count = (Long) getCount.invoke(pageObject);
+                if (offset + limit > count){
+                    return true;
+                }
+            }
+            return false;
+        }
     }

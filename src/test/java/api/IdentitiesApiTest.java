@@ -19,6 +19,7 @@ import invoker.FinixClient;
 import model.*;
 import org.junit.jupiter.api.*;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -261,7 +262,7 @@ public class IdentitiesApiTest {
      */
     @Test
     @DisplayName("List Identities")
-    public void listIdentitiesTest() throws ApiException {
+    public void listIdentitiesTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
         String sort = null;
         String afterCursor = null;
         Long limit = null;
@@ -277,7 +278,7 @@ public class IdentitiesApiTest {
         String title = null;
         String beforeCursor = null;
 
-        IdentitiesList response = finixClient.Identities.list(ListIdentitiesQueryParams.builder()
+        FinixList<Identity> identitiesList = finixClient.Identities.list(ListIdentitiesQueryParams.builder()
                 .sort(sort)
                 .afterCursor(afterCursor)
                 .limit(limit)
@@ -293,9 +294,13 @@ public class IdentitiesApiTest {
                 .title(title)
                 .beforeCursor(beforeCursor)
                 .build());
-        assertTrue(response.getPage() != null);
-        assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());
-   }
+        assertTrue(identitiesList.size() >= 0);
+        if (identitiesList.getHasMore() == true) {
+            FinixList<Identity> nextList = identitiesList.listNext(1);
+            assertTrue(nextList != null);
+            assertEquals(1, nextList.size());
+        }
+    }
 
     /**
      * List Associated Identities
@@ -311,12 +316,16 @@ public class IdentitiesApiTest {
      */
     @Test
     @DisplayName("List Associated Identities")
-    public void listIdentityAssociatedIdentitiesTest() throws ApiException {
+    public void listIdentityAssociatedIdentitiesTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
         String identityId = "IDpYDM7J9n57q849o9E9yNrG";
 
-        IdentitiesList response = finixClient.Identities.listAssocaiatedIdentities(identityId, ListIdentityAssociatedIdentitiesQueryParams.builder().build());
-        Integer count = response.getEmbedded().getIdentities().size();
-        assertTrue(count >= 1, "Should have 1 or more identities returned");
+        FinixList<Identity> associatedIdentitiesList = finixClient.Identities.listAssocaiatedIdentities(identityId, ListIdentityAssociatedIdentitiesQueryParams.builder().build());
+        assertTrue(associatedIdentitiesList.size() >= 0);
+        if (associatedIdentitiesList.getHasMore() == true) {
+            FinixList<Identity> nextList = associatedIdentitiesList.listNext(1);
+            assertTrue(nextList != null);
+            assertEquals(1, nextList.size());
+        }
     }
 
     /**

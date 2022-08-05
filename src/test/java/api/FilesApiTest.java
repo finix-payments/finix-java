@@ -23,6 +23,7 @@ import java.io.File;
 import org.junit.jupiter.api.*;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -30,6 +31,7 @@ import java.util.Map;
 
 import static model.CreateFileRequest.TypeEnum.DRIVERS_LICENSE_FRONT;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * API tests for FilesApi
@@ -190,7 +192,7 @@ public class FilesApiTest {
      */
     @Test
     @DisplayName("List All External Links")
-    public void listExternalLinksTest() throws ApiException {
+    public void listExternalLinksTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
         String fileId = localFileId;
         String sort = null;
         String afterCursor = null;
@@ -202,7 +204,7 @@ public class FilesApiTest {
         String updatedAtLte = null;
         String beforeCursor = null;
 
-        ExternalLinksList response = finixClient.Files.listExternalLinks(fileId, ListExternalLinksQueryParams.builder()
+        FinixList<ExternalLink> externalLinksList = finixClient.Files.listExternalLinks(fileId, ListExternalLinksQueryParams.builder()
                 .sort(sort)
                 .afterCursor(afterCursor)
                 .limit(limit)
@@ -213,7 +215,13 @@ public class FilesApiTest {
                 .updatedAtLte(updatedAtLte)
                 .beforeCursor(beforeCursor)
                 .build());
-        assertEquals(10,response.getPage().getLimit().intValue(),()->" Should return " + "10" + " but returns " + response.getPage().getLimit().intValue());
+
+        assertTrue(externalLinksList.size() >= 0);
+        if (externalLinksList.getHasMore() == true) {
+            FinixList<ExternalLink> nextList = externalLinksList.listNext(1);
+            assertTrue(nextList != null);
+            assertEquals(1, nextList.size());
+        }
     }
 
     /**
@@ -230,7 +238,7 @@ public class FilesApiTest {
      */
     @Test
     @DisplayName("List All Files")
-    public void listFilesTest() throws ApiException {
+    public void listFilesTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
         String sort = null;
         String afterCursor = null;
         Long limit = null;
@@ -241,7 +249,7 @@ public class FilesApiTest {
         String updatedAtLte = null;
         String beforeCursor = null;
 
-        FilesList response = finixClient.Files.list(ListFilesQueryParams.builder()
+        FinixList<File> fileList = finixClient.Files.list(ListFilesQueryParams.builder()
                 .sort(sort)
                 .afterCursor(afterCursor)
                 .limit(limit)
@@ -252,7 +260,12 @@ public class FilesApiTest {
                 .updatedAtLte(updatedAtLte)
                 .beforeCursor(beforeCursor)
                 .build());
-        assertEquals(10,response.getPage().getLimit().intValue(),()->" Should return " + "10" + " but returns " + response.getPage().getLimit().intValue());
+        assertTrue(fileList.size() >= 0);
+        if (fileList.getHasMore() == true) {
+            FinixList<File> nextList = fileList.listNext(1);
+            assertTrue(nextList != null);
+            assertEquals(1, nextList.size());
+        }
     }
 
     /**

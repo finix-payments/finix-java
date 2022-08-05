@@ -19,12 +19,14 @@ import invoker.FinixClient;
 import model.*;
 import org.junit.jupiter.api.*;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * API tests for BalanceTransfersApi
@@ -115,7 +117,7 @@ public class BalanceTransfersApiTest {
      */
     @Test
     @DisplayName("List Balance Transfers")
-    public void listBalanceTransfersTest() throws ApiException {
+    public void listBalanceTransfersTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
         Long limit = null;
         Long offset = null;
         Long pageNumber = null;
@@ -132,7 +134,7 @@ public class BalanceTransfersApiTest {
         String referenceId = null;
         String source = null;
 
-        BalanceTransferList response = finixClient.BalanceTransfers.list(ListBalanceTransfersQueryParams.builder()
+        FinixList<BalanceTransfer> balanceTransfersList = finixClient.BalanceTransfers.list(ListBalanceTransfersQueryParams.builder()
                 .limit(limit)
                 .offset(offset)
                 .pageNumber(pageNumber)
@@ -149,6 +151,11 @@ public class BalanceTransfersApiTest {
                 .referenceId(referenceId)
                 .source(source)
                 .build());
-        assertEquals(20,response.getPage().getLimit().intValue(),()->"Should return " + "20" + " but returns " + response.getPage().getLimit());
+        assertTrue(balanceTransfersList.size() >= 0);
+        if (balanceTransfersList.getHasMore() == true){
+            FinixList<BalanceTransfer> nextList = balanceTransfersList.listNext(1);
+            assertTrue( nextList != null);
+            assertEquals(1, nextList.size());
+        }
     }
 }

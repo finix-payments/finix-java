@@ -26,6 +26,12 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.stream.Collectors;
+import java.util.*;
+import model.*;
 
 import model.CreateSettlementRequest;
 import model.Error401Unauthorized;
@@ -187,10 +193,13 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 422 </td><td> Merchant identity disabled error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+
+
                 public Settlement create(String identityId, CreateSettlementRequest createSettlementRequest) throws ApiException {
             ApiResponse<Settlement> localVarResp = createIdentitySettlementWithHttpInfo(identityId, createSettlementRequest);
                     return localVarResp.getData();
                 }
+
 
     /**
         * Create a Batch Settlement
@@ -337,10 +346,13 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+
+
                 public Settlement get(String settlementId) throws ApiException {
             ApiResponse<Settlement> localVarResp = getSettlementWithHttpInfo(settlementId);
                     return localVarResp.getData();
                 }
+
 
     /**
         * Get a Settlement
@@ -607,15 +619,44 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-    public TransfersList listFundingTransfers(String settlementId,  ListSettlementFundingTransfersQueryParams listSettlementFundingTransfersQueryParams) throws ApiException {
+        public FinixList listFundingTransfers(String settlementId,  ListSettlementFundingTransfersQueryParams listSettlementFundingTransfersQueryParams)
+            throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
 
-        APIlistSettlementFundingTransfersRequest request = new APIlistSettlementFundingTransfersRequest(settlementId);
-        request.limit(listSettlementFundingTransfersQueryParams.getLimit());
-        request.afterCursor(listSettlementFundingTransfersQueryParams.getAfterCursor());
-        request.beforeCursor(listSettlementFundingTransfersQueryParams.getBeforeCursor());
-        return request.execute();
-
-    }
+            APIlistSettlementFundingTransfersRequest request = new APIlistSettlementFundingTransfersRequest(settlementId);
+                request.limit(listSettlementFundingTransfersQueryParams.getLimit());
+                request.afterCursor(listSettlementFundingTransfersQueryParams.getAfterCursor());
+                request.beforeCursor(listSettlementFundingTransfersQueryParams.getBeforeCursor());
+            TransfersList response = request.execute();
+            Boolean hasNextCursor = (response.getPage().getClass().getName() == "model.PageCursor");
+            ListSettlementFundingTransfersQueryParams queryParams = (ListSettlementFundingTransfersQueryParams) getQueryParam(response.getPage(),
+                listSettlementFundingTransfersQueryParams,
+                hasNextCursor);
+            Boolean reachedEnd = reachedEnd(response.getPage(), hasNextCursor);
+            NextFetchFunction nextFetch = (a) -> {
+                queryParams.setLimit(a);
+                if (reachedEnd) {
+                throw new ArrayIndexOutOfBoundsException();
+                }
+                return this.listFundingTransfers(settlementId,  queryParams);
+            };
+            FinixList currList = new FinixList(nextFetch, !reachedEnd);
+            if (response.getEmbedded() != null){
+                String fieldName = getFieldName(response.getEmbedded());
+                String fieldGet = "get" + fieldName;
+                Method getList = response.getEmbedded().getClass().getMethod(fieldGet);
+                Collection<Object> embeddedList = (Collection<Object>) getList.invoke(response.getEmbedded());
+                if (embeddedList.size() < response.getPage().getLimit()){
+                    currList = new FinixList<>(nextFetch, false);
+                }
+                for(Object item : embeddedList)
+                {
+                    currList.add(item);
+                }
+            }
+            currList.setPage(response.getPage());
+            currList.setLinks(response.getLinks());
+            return currList;
+        }
     private okhttp3.Call listSettlementTransfersCall(String settlementId, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -835,15 +876,44 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-    public TransfersList listTransfersBySettlementId(String settlementId,  ListSettlementTransfersQueryParams listSettlementTransfersQueryParams) throws ApiException {
+        public FinixList listTransfersBySettlementId(String settlementId,  ListSettlementTransfersQueryParams listSettlementTransfersQueryParams)
+            throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
 
-        APIlistSettlementTransfersRequest request = new APIlistSettlementTransfersRequest(settlementId);
-        request.limit(listSettlementTransfersQueryParams.getLimit());
-        request.afterCursor(listSettlementTransfersQueryParams.getAfterCursor());
-        request.beforeCursor(listSettlementTransfersQueryParams.getBeforeCursor());
-        return request.execute();
-
-    }
+            APIlistSettlementTransfersRequest request = new APIlistSettlementTransfersRequest(settlementId);
+                request.limit(listSettlementTransfersQueryParams.getLimit());
+                request.afterCursor(listSettlementTransfersQueryParams.getAfterCursor());
+                request.beforeCursor(listSettlementTransfersQueryParams.getBeforeCursor());
+            TransfersList response = request.execute();
+            Boolean hasNextCursor = (response.getPage().getClass().getName() == "model.PageCursor");
+            ListSettlementTransfersQueryParams queryParams = (ListSettlementTransfersQueryParams) getQueryParam(response.getPage(),
+                listSettlementTransfersQueryParams,
+                hasNextCursor);
+            Boolean reachedEnd = reachedEnd(response.getPage(), hasNextCursor);
+            NextFetchFunction nextFetch = (a) -> {
+                queryParams.setLimit(a);
+                if (reachedEnd) {
+                throw new ArrayIndexOutOfBoundsException();
+                }
+                return this.listTransfersBySettlementId(settlementId,  queryParams);
+            };
+            FinixList currList = new FinixList(nextFetch, !reachedEnd);
+            if (response.getEmbedded() != null){
+                String fieldName = getFieldName(response.getEmbedded());
+                String fieldGet = "get" + fieldName;
+                Method getList = response.getEmbedded().getClass().getMethod(fieldGet);
+                Collection<Object> embeddedList = (Collection<Object>) getList.invoke(response.getEmbedded());
+                if (embeddedList.size() < response.getPage().getLimit()){
+                    currList = new FinixList<>(nextFetch, false);
+                }
+                for(Object item : embeddedList)
+                {
+                    currList.add(item);
+                }
+            }
+            currList.setPage(response.getPage());
+            currList.setLinks(response.getLinks());
+            return currList;
+        }
     private okhttp3.Call listSettlementsCall(String createdAtGte, String createdAtLte, String updatedAtGte, String updatedAtLte, String id, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -1124,20 +1194,49 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-    public SettlementsList list( ListSettlementsQueryParams listSettlementsQueryParams) throws ApiException {
+        public FinixList list( ListSettlementsQueryParams listSettlementsQueryParams)
+            throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
 
-        APIlistSettlementsRequest request = new APIlistSettlementsRequest();
-        request.createdAtGte(listSettlementsQueryParams.getCreatedAtGte());
-        request.createdAtLte(listSettlementsQueryParams.getCreatedAtLte());
-        request.updatedAtGte(listSettlementsQueryParams.getUpdatedAtGte());
-        request.updatedAtLte(listSettlementsQueryParams.getUpdatedAtLte());
-        request.id(listSettlementsQueryParams.getId());
-        request.limit(listSettlementsQueryParams.getLimit());
-        request.afterCursor(listSettlementsQueryParams.getAfterCursor());
-        request.beforeCursor(listSettlementsQueryParams.getBeforeCursor());
-        return request.execute();
-
-    }
+            APIlistSettlementsRequest request = new APIlistSettlementsRequest();
+                request.createdAtGte(listSettlementsQueryParams.getCreatedAtGte());
+                request.createdAtLte(listSettlementsQueryParams.getCreatedAtLte());
+                request.updatedAtGte(listSettlementsQueryParams.getUpdatedAtGte());
+                request.updatedAtLte(listSettlementsQueryParams.getUpdatedAtLte());
+                request.id(listSettlementsQueryParams.getId());
+                request.limit(listSettlementsQueryParams.getLimit());
+                request.afterCursor(listSettlementsQueryParams.getAfterCursor());
+                request.beforeCursor(listSettlementsQueryParams.getBeforeCursor());
+            SettlementsList response = request.execute();
+            Boolean hasNextCursor = (response.getPage().getClass().getName() == "model.PageCursor");
+            ListSettlementsQueryParams queryParams = (ListSettlementsQueryParams) getQueryParam(response.getPage(),
+                listSettlementsQueryParams,
+                hasNextCursor);
+            Boolean reachedEnd = reachedEnd(response.getPage(), hasNextCursor);
+            NextFetchFunction nextFetch = (a) -> {
+                queryParams.setLimit(a);
+                if (reachedEnd) {
+                throw new ArrayIndexOutOfBoundsException();
+                }
+                return this.list( queryParams);
+            };
+            FinixList currList = new FinixList(nextFetch, !reachedEnd);
+            if (response.getEmbedded() != null){
+                String fieldName = getFieldName(response.getEmbedded());
+                String fieldGet = "get" + fieldName;
+                Method getList = response.getEmbedded().getClass().getMethod(fieldGet);
+                Collection<Object> embeddedList = (Collection<Object>) getList.invoke(response.getEmbedded());
+                if (embeddedList.size() < response.getPage().getLimit()){
+                    currList = new FinixList<>(nextFetch, false);
+                }
+                for(Object item : embeddedList)
+                {
+                    currList.add(item);
+                }
+            }
+            currList.setPage(response.getPage());
+            currList.setLinks(response.getLinks());
+            return currList;
+        }
     /**
     * Build call for removeSettlementTransfers
         * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
@@ -1234,9 +1333,12 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+
+
                 public void removeTransfersFromSettlement(String settlementId, RemoveSettlementTransfer removeSettlementTransfer) throws ApiException {
             removeSettlementTransfersWithHttpInfo(settlementId, removeSettlementTransfer);
                 }
+
 
     /**
         * Delete Settlement Transfers
@@ -1379,10 +1481,13 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+
+
                 public Settlement update(String settlementId, UpdateSettlementRequest updateSettlementRequest) throws ApiException {
             ApiResponse<Settlement> localVarResp = updateSettlementWithHttpInfo(settlementId, updateSettlementRequest);
                     return localVarResp.getData();
                 }
+
 
     /**
         * Update a Settlement
@@ -1429,5 +1534,52 @@ this.localCustomBaseUrl = customBaseUrl;
     Type localVarReturnType = new TypeToken<Settlement>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+        }
+        private String getFieldName(Object response){
+            Field[] methods = response.getClass().getFields();
+            Field[] testMethods = response.getClass().getDeclaredFields();
+            List<Field> a = Arrays.asList(methods);
+            List<Field> b = Arrays.asList(testMethods);
+            List<Field> diff = b.stream().filter(element -> !a.contains(element)).collect(Collectors.toList());
+            String fieldName = diff.get(0).getName();
+            return  fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
+        }
+
+        private Object getQueryParam(Object pageObject, Object queryParam, Boolean hasCursor) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+                if (hasCursor){
+                    Method setCursor = queryParam.getClass().getMethod("setAfterCursor", String.class);
+                    Method getOffset = pageObject.getClass().getMethod("getNextCursor");
+                    String nextCursor = (String) getOffset.invoke(pageObject);
+                    setCursor.invoke(queryParam, nextCursor);
+                }
+                else{
+                    Method setOffset = queryParam.getClass().getMethod("setOffset", Long.class);
+                    Method getOffset = pageObject.getClass().getMethod("getOffset");
+                    Long offset = (Long) getOffset.invoke(pageObject);
+                    setOffset.invoke(queryParam, offset);
+                }
+                return queryParam;
+        }
+
+        private Boolean reachedEnd(Object pageObject, Boolean hasCursor) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+            if (hasCursor){
+                Method getOffset = pageObject.getClass().getMethod("getNextCursor");
+                String nextCursor = (String) getOffset.invoke(pageObject);
+                if (nextCursor == null){
+                    return true;
+                }
+            }
+            else{
+                Method getOffset = pageObject.getClass().getMethod("getOffset");
+                Method getLimit = pageObject.getClass().getMethod("getLimit");
+                Method getCount = pageObject.getClass().getMethod("getCount");
+                Long offset = (Long) getOffset.invoke(pageObject);
+                Long limit = (Long) getLimit.invoke(pageObject);
+                Long count = (Long) getCount.invoke(pageObject);
+                if (offset + limit > count){
+                    return true;
+                }
+            }
+            return false;
         }
     }

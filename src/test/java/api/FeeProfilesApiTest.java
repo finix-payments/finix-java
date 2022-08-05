@@ -19,12 +19,14 @@ import invoker.FinixClient;
 import model.*;
 import org.junit.jupiter.api.*;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * API tests for FeeProfilesApi
@@ -36,11 +38,12 @@ public class FeeProfilesApiTest {
     private String feeProfileId;
     private TestInfo testInfo;
     private TestReporter testReporter;
+
     @BeforeEach
-    void init(TestInfo testInfo, TestReporter testReporter){
-        this.testInfo =testInfo;
-        this.testReporter =testReporter;
-        testReporter.publishEntry("Running "+testInfo.getDisplayName()+ " with tag " + testInfo.getTags());
+    void init(TestInfo testInfo, TestReporter testReporter) {
+        this.testInfo = testInfo;
+        this.testReporter = testReporter;
+        testReporter.publishEntry("Running " + testInfo.getDisplayName() + " with tag " + testInfo.getTags());
     }
 
     /**
@@ -50,26 +53,26 @@ public class FeeProfilesApiTest {
     @BeforeAll
     @DisplayName("Finix Client")
     void contextLoads() {
-        finixClient= new FinixClient("USimz3zSq5R2PqiEBXY6rSiJ","8bacba32-9550-48ff-b567-fe7648947041", Environment.SANDBOX);
-        assertEquals(true , finixClient!=null);
+        finixClient = new FinixClient("USimz3zSq5R2PqiEBXY6rSiJ", "8bacba32-9550-48ff-b567-fe7648947041", Environment.SANDBOX);
+        assertEquals(true, finixClient != null);
     }
+
     /**
      * Create a Fee Profile
-     *
+     * <p>
      * Create fee profiles
      *
      * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
+     *                      <p>
+     *                      *
+     *                      EDITED
+     *                      Test Function Name Generations from OPENAPI Spec with x-java-method-name
      */
     @Test
     @DisplayName("Create a Fee Profile")
     @Order(1)
     public void createFeeProfileTest() throws ApiException {
-        Map<String,String> localMap = new HashMap<>();
+        Map<String, String> localMap = new HashMap<>();
         localMap.put("app pricing", "simple");
         CreateFeeProfileRequest createFeeProfileRequest = CreateFeeProfileRequest.builder()
                 .achFixedFee(30L)
@@ -82,49 +85,52 @@ public class FeeProfilesApiTest {
                 .build();
         FeeProfile response = finixClient.FeeProfiles.create(createFeeProfileRequest);
         feeProfileId = response.getId();
-        assertEquals(response.getAchBasisPoints(), 300L, "Response should return ach_basis_points with value of 300 but returns" + response.getAchBasisPoints() );
-        assertEquals(response.getApplication(), "APmuwPBaW8pVcwb4vCTHQH32", "Response should return application of 'APmuwPBaW8pVcwb4vCTHQH32' but returns" + response.getApplication() );
+        assertEquals(response.getAchBasisPoints(), 300L, "Response should return ach_basis_points with value of 300 but returns" + response.getAchBasisPoints());
+        assertEquals(response.getApplication(), "APmuwPBaW8pVcwb4vCTHQH32", "Response should return application of 'APmuwPBaW8pVcwb4vCTHQH32' but returns" + response.getApplication());
     }
 
     /**
      * Fetch a Fee Profile
-     *
+     * <p>
      * Get fee profile
      *
      * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
+     *                      <p>
+     *                      *
+     *                      EDITED
+     *                      Test Function Name Generations from OPENAPI Spec with x-java-method-name
      */
     @Test
     @DisplayName("Fetch a Fee Profile")
     @Order(2)
     public void getFeeProfileTest() throws ApiException {
         FeeProfile response = finixClient.FeeProfiles.get(feeProfileId);
-        assertEquals(response.getId(), feeProfileId, "Response should return fee profile id of "+ feeProfileId + " but returns "+ response.getId());
+        assertEquals(response.getId(), feeProfileId, "Response should return fee profile id of " + feeProfileId + " but returns " + response.getId());
     }
 
     /**
      * List Fee Profiles
-     *
+     * <p>
      * Get all fee profiles
      *
      * @throws ApiException if the Api call fails
-     *
-     **
-     * EDITED
-     * Test Function Name Generations from OPENAPI Spec with x-java-method-name
-     *
+     *                      <p>
+     *                      *
+     *                      EDITED
+     *                      Test Function Name Generations from OPENAPI Spec with x-java-method-name
      */
     @Test
     @DisplayName("List Fee Profiles")
-    public void listFeeProfilesTest() throws ApiException {
+    public void listFeeProfilesTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
         Long limit = 20L;
-        FeeProfilesList response = finixClient.FeeProfiles.list(ListFeeProfilesQueryParams.builder()
+        FinixList<FeeProfile> feeProfilesList = finixClient.FeeProfiles.list(ListFeeProfilesQueryParams.builder()
                 .limit(limit)
                 .build());
-        assertEquals(response.getPage().getLimit(), limit, "Response should return page limit of "+limit+" but returns "+response.getPage().getLimit());
+        assertTrue(feeProfilesList.size() >= 0);
+        if (feeProfilesList.getHasMore() == true) {
+            FinixList<FeeProfile> nextList = feeProfilesList.listNext(1);
+            assertTrue(nextList != null);
+            assertEquals(1, nextList.size());
+        }
     }
 }

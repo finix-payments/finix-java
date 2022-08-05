@@ -19,6 +19,7 @@ import invoker.FinixClient;
 import model.*;
 import org.junit.jupiter.api.*;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -271,19 +272,24 @@ public class TransfersApiTest {
      */
     @Test
     @DisplayName("List Reversals on a Transfer")
-    public void listTransferReversalsTest() throws ApiException {
+    public void listTransferReversalsTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
         String transferId = "TRvtThmhZtk56z6dtCt8hUDR";
         Long limit = null;
         String afterCursor = null;
         String beforeCursor = null;
 
-        TransfersList response = finixClient.Transfers.listTransfersReversals(transferId, ListTransferReversalsQueryParams.builder()
+        FinixList<Transfer> transfersReversalsList = finixClient.Transfers.listTransfersReversals(transferId, ListTransferReversalsQueryParams.builder()
                 .limit(limit)
-                .afterCursor(afterCursor)
+                .afterCursor("TRw6rC8cajRQ2MKozpJ5U1zj")
                 .beforeCursor(beforeCursor)
                 .build());
-        assertTrue(response.getPage() != null);
-        assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());
+        assertTrue(transfersReversalsList.size() >= 0);
+
+        if (transfersReversalsList.getHasMore() == true) {
+            FinixList<Transfer> nextList = transfersReversalsList.listNext(1);
+            assertTrue(nextList != null);
+            assertEquals(1, nextList.size());
+        }
     }
 
     /**
@@ -300,7 +306,7 @@ public class TransfersApiTest {
      */
     @Test
     @DisplayName("List Transfers")
-    public void listTransfersTest() throws ApiException {
+    public void listTransfersTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
         String sort = null;
         String afterCursor = null;
         Long limit = null;
@@ -334,7 +340,7 @@ public class TransfersApiTest {
         String type = null;
         String beforeCursor = null;
 
-        TransfersList response = finixClient.Transfers.list(ListTransfersQueryParams.builder()
+        FinixList<Transfer> transfersList = finixClient.Transfers.list(ListTransfersQueryParams.builder()
                 .sort(sort)
                 .afterCursor(afterCursor)
                 .limit(limit)
@@ -368,8 +374,12 @@ public class TransfersApiTest {
                 .type(type)
                 .beforeCursor(beforeCursor)
                 .build());
-        assertTrue(response.getPage() != null);
-        assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());
+        assertTrue(transfersList.size() >= 0);
+        if (transfersList.getHasMore() == true) {
+            FinixList<Transfer> nextList = transfersList.listNext(1);
+            assertTrue(nextList != null);
+            assertEquals(1, nextList.size());
+        }
     }
 
     /**

@@ -20,6 +20,7 @@ import model.*;
 import org.junit.jupiter.api.*;
 
 import java.io.File;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -132,15 +133,18 @@ public class DisputesApiTest {
      */
     @Test
     @DisplayName("List Dispute Evidence")
-    public void listDisputeEvidenceTest() throws ApiException {
+    public void listDisputeEvidenceTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
         String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
         Long limit = 20L;
-        DisputeEvidenceList response = finixClient.Disputes.listDisputeEvidenceByDisputeId(disputeId, ListDisputeEvidenceQueryParams.builder()
+        FinixList<DisputeEvidence> disputeEvidencesList = finixClient.Disputes.listDisputeEvidenceByDisputeId(disputeId, ListDisputeEvidenceQueryParams.builder()
                 .limit(limit)
                 .build());
-        assertTrue(response.getPage() != null);
-        assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());
-        assertEquals(20,response.getPage().getLimit().intValue(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit().intValue());
+        assertTrue(disputeEvidencesList.size() >= 0);
+        if (disputeEvidencesList.getHasMore() == true){
+            FinixList<DisputeEvidence> nextList = disputeEvidencesList.listNext(1);
+            assertTrue( nextList != null);
+            assertEquals(1, nextList.size());
+        }
     }
 
     /**
@@ -157,7 +161,7 @@ public class DisputesApiTest {
      */
     @Test
     @DisplayName("List All Disputes")
-    public void listDisputesTest() throws ApiException {
+    public void listDisputesTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
         String sort = null;
         Long offset = null;
         Long limit = null;
@@ -166,7 +170,7 @@ public class DisputesApiTest {
         String updatedAtGte = null;
         String updatedAtLte = null;
 
-        DisputesList response = finixClient.Disputes.list(ListDisputesQueryParams.builder()
+        FinixList<Dispute> disputesList = finixClient.Disputes.list(ListDisputesQueryParams.builder()
                 .sort(sort)
                 .offset(offset)
                 .limit(limit)
@@ -175,8 +179,13 @@ public class DisputesApiTest {
                 .updatedAtGte(updatedAtGte)
                 .updatedAtLte(updatedAtLte)
                 .build());
-        assertEquals(20,response.getPage().getLimit().intValue(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit().intValue());
-    }
+        assertTrue(disputesList.size() >= 0);
+        if (disputesList.getHasMore() == true){
+            FinixList<Dispute> nextList = disputesList.listNext(1);
+            assertTrue( nextList != null);
+            assertEquals(1, nextList.size());
+        }
+        }
 
     /**
      * Fetch Dispute Adjustment Transfers
@@ -192,16 +201,21 @@ public class DisputesApiTest {
      */
     @Test
     @DisplayName("List Dispute Adjustment Transfers")
-    public void listDisputesAdjustmentsTest() throws ApiException {
+    public void listDisputesAdjustmentsTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
         String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
         Long limit = null;
         String nextCursor = null;
 
-        AdjustmentTransfersList response = finixClient.Disputes.listDisputesAdjustments(disputeId,ListDisputesAdjustmentsQueryParams.builder()
+        FinixList<Transfer> adjustmentDisputeList = finixClient.Disputes.listDisputesAdjustments(disputeId,ListDisputesAdjustmentsQueryParams.builder()
                 .limit(limit)
-                .afterCursor(nextCursor)
+                .afterCursor("TRsfZUjgXSCj7k2stZR7APEn")
                 .build());
-        assertTrue(response.getPage() != null);
-        assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());
+
+        assertTrue(adjustmentDisputeList.size() >= 0);
+        if (adjustmentDisputeList.getHasMore() == true){
+            FinixList<Transfer> nextList = adjustmentDisputeList.listNext(1);
+            assertTrue( nextList != null);
+            assertEquals(1, nextList.size());
+        }
    }
 }

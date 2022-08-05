@@ -19,6 +19,7 @@ import invoker.FinixClient;
 import model.*;
 import org.junit.jupiter.api.*;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -111,11 +112,15 @@ public class VerificationsApiTest {
      */
     @Test
     @DisplayName("List Merchant Verifications")
-    public void listMerchantVerificationsTest() throws ApiException {
+    public void listMerchantVerificationsTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
         String merchantId = "MU31oiYcWR6Bvx3tqYQ7WEr9";
-        VerificationsList verificationsList = finixClient.Verifications.listByMerchantId(merchantId, ListMerchantVerificationsQueryParams.builder().build());
-        Verification verification = verificationsList.getEmbedded().getVerifications().stream().findFirst().get();
-        assertEquals(merchantId, verification.getMerchant(), "Should return " + merchantId + " but returns " + verification.getMerchant());
+        FinixList<Verification> verificationsList = finixClient.Verifications.listByMerchantId(merchantId, ListMerchantVerificationsQueryParams.builder().build());
+        assertTrue(verificationsList.size() >= 0);
+        if (verificationsList.getHasMore() == true) {
+            FinixList<Verification> nextList = verificationsList.listNext(1);
+            assertTrue(nextList != null);
+            assertEquals(1, nextList.size());
+        }
     }
 
     /**
@@ -132,10 +137,14 @@ public class VerificationsApiTest {
      */
     @Test
     @DisplayName("List Verifications")
-    public void listVerificationsTest() throws ApiException {
-        VerificationsList response = finixClient.Verifications.list(ListVerificationsQueryParams.builder().build());
-        assertTrue(response.getPage() != null);
-        assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());
+    public void listVerificationsTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+        FinixList<Verification> verificationsList = finixClient.Verifications.list(ListVerificationsQueryParams.builder().build());
+        assertTrue(verificationsList.size() >= 0);
+        if (verificationsList.getHasMore() == true) {
+            FinixList<Verification> nextList = verificationsList.listNext(1);
+            assertTrue(nextList != null);
+            assertEquals(1, nextList.size());
+        }
     }
 
     /**

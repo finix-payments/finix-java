@@ -19,6 +19,7 @@ import invoker.FinixClient;
 import model.*;
 import org.junit.jupiter.api.*;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -211,7 +212,7 @@ public class AuthorizationsApiTest {
      */
     @Test
     @DisplayName("List Authorizations")
-    public void listAuthorizationsTest() throws ApiException {
+    public void listAuthorizationsTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
         String sort = null;
         String beforeCursor = null;
         Long limit = null;
@@ -242,7 +243,7 @@ public class AuthorizationsApiTest {
         String type = null;
         String afterCursor = null;
 
-        AuthorizationsList response = finixClient.Authorizations.list(ListAuthorizationsQueryParams.builder()
+        FinixList<Authorization> authorizationList = finixClient.Authorizations.list(ListAuthorizationsQueryParams.builder()
                 .sort(sort)
                 .beforeCursor(beforeCursor)
                 .limit(limit)
@@ -273,8 +274,12 @@ public class AuthorizationsApiTest {
                 .type(type)
                 .afterCursor(afterCursor)
                 .build());
-        assertTrue(response.getPage() != null);
-        assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());
+        assertTrue(authorizationList.size() >= 0);
+        if (authorizationList.getHasMore() == true){
+            FinixList<Authorization> nextList = authorizationList.listNext(1);
+            assertTrue( nextList != null);
+            assertEquals(1, nextList.size());
+        }
   }
 
     /**

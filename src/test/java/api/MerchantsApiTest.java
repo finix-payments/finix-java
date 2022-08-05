@@ -19,6 +19,7 @@ import invoker.FinixClient;
 import model.*;
 import org.junit.jupiter.api.*;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -93,7 +94,7 @@ public class MerchantsApiTest {
      */
     @Test
     @DisplayName("List Merchants")
-    public void listMerchantsTest() throws ApiException {
+    public void listMerchantsTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
         String id = null;
         String createdAtGte = null;
         String createdAtLte = null;
@@ -102,7 +103,7 @@ public class MerchantsApiTest {
         Long limit = null;
         String beforeCursor = null;
 
-        MerchantsList response = finixClient.Merchants.list(ListMerchantsQueryParams.builder()
+        FinixList<Merchant> merchantsList = finixClient.Merchants.list(ListMerchantsQueryParams.builder()
                 .id(id)
                 .createdAtGte(createdAtGte)
                 .createdAtLte(createdAtLte)
@@ -111,8 +112,12 @@ public class MerchantsApiTest {
                 .limit(limit)
                 .beforeCursor(beforeCursor)
                 .build());
-        assertTrue(response.getPage() != null);
-        assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());
+        assertTrue(merchantsList.size() >= 0);
+        if (merchantsList.getHasMore() == true) {
+            FinixList<Merchant> nextList = merchantsList.listNext(1);
+            assertTrue(nextList != null);
+            assertEquals(1, nextList.size());
+        }
     }
 
     /**

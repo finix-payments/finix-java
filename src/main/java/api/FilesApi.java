@@ -26,6 +26,12 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.stream.Collectors;
+import java.util.*;
+import model.*;
 
 import model.CreateExternalLinkRequest;
 import model.CreateFileRequest;
@@ -182,10 +188,13 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+
+
                 public ExternalLink createExternalLink(String fileId, CreateExternalLinkRequest createExternalLinkRequest) throws ApiException {
             ApiResponse<ExternalLink> localVarResp = createExternalLinkWithHttpInfo(fileId, createExternalLinkRequest);
                     return localVarResp.getData();
                 }
+
 
     /**
         * Create an External Link
@@ -322,10 +331,13 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+
+
                 public ModelFile create(CreateFileRequest createFileRequest) throws ApiException {
             ApiResponse<ModelFile> localVarResp = createFilesWithHttpInfo(createFileRequest);
                     return localVarResp.getData();
                 }
+
 
     /**
         * Create a File
@@ -466,10 +478,13 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+
+
                 public File downloadFile(String fileId) throws ApiException {
             ApiResponse<File> localVarResp = downloadFileWithHttpInfo(fileId);
                     return localVarResp.getData();
                 }
+
 
     /**
         * Download a file
@@ -618,10 +633,13 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+
+
                 public ExternalLink getExternalLink(String fileId, String externalLinkId) throws ApiException {
             ApiResponse<ExternalLink> localVarResp = getExternalLinkWithHttpInfo(fileId, externalLinkId);
                     return localVarResp.getData();
                 }
+
 
     /**
         * Fetch an External LInk
@@ -764,10 +782,13 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+
+
                 public ModelFile get(String fileId) throws ApiException {
             ApiResponse<ModelFile> localVarResp = getFileWithHttpInfo(fileId);
                     return localVarResp.getData();
                 }
+
 
     /**
         * Fetch a File
@@ -1124,21 +1145,50 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  -  </td></tr>
             </table>
         */
-    public ExternalLinksList listExternalLinks(String fileId,  ListExternalLinksQueryParams listExternalLinksQueryParams) throws ApiException {
+        public FinixList listExternalLinks(String fileId,  ListExternalLinksQueryParams listExternalLinksQueryParams)
+            throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
 
-        APIlistExternalLinksRequest request = new APIlistExternalLinksRequest(fileId);
-        request.sort(listExternalLinksQueryParams.getSort());
-        request.afterCursor(listExternalLinksQueryParams.getAfterCursor());
-        request.limit(listExternalLinksQueryParams.getLimit());
-        request.id(listExternalLinksQueryParams.getId());
-        request.createdAtGte(listExternalLinksQueryParams.getCreatedAtGte());
-        request.createdAtLte(listExternalLinksQueryParams.getCreatedAtLte());
-        request.updatedAtGte(listExternalLinksQueryParams.getUpdatedAtGte());
-        request.updatedAtLte(listExternalLinksQueryParams.getUpdatedAtLte());
-        request.beforeCursor(listExternalLinksQueryParams.getBeforeCursor());
-        return request.execute();
-
-    }
+            APIlistExternalLinksRequest request = new APIlistExternalLinksRequest(fileId);
+                request.sort(listExternalLinksQueryParams.getSort());
+                request.afterCursor(listExternalLinksQueryParams.getAfterCursor());
+                request.limit(listExternalLinksQueryParams.getLimit());
+                request.id(listExternalLinksQueryParams.getId());
+                request.createdAtGte(listExternalLinksQueryParams.getCreatedAtGte());
+                request.createdAtLte(listExternalLinksQueryParams.getCreatedAtLte());
+                request.updatedAtGte(listExternalLinksQueryParams.getUpdatedAtGte());
+                request.updatedAtLte(listExternalLinksQueryParams.getUpdatedAtLte());
+                request.beforeCursor(listExternalLinksQueryParams.getBeforeCursor());
+            ExternalLinksList response = request.execute();
+            Boolean hasNextCursor = (response.getPage().getClass().getName() == "model.PageCursor");
+            ListExternalLinksQueryParams queryParams = (ListExternalLinksQueryParams) getQueryParam(response.getPage(),
+                listExternalLinksQueryParams,
+                hasNextCursor);
+            Boolean reachedEnd = reachedEnd(response.getPage(), hasNextCursor);
+            NextFetchFunction nextFetch = (a) -> {
+                queryParams.setLimit(a);
+                if (reachedEnd) {
+                throw new ArrayIndexOutOfBoundsException();
+                }
+                return this.listExternalLinks(fileId,  queryParams);
+            };
+            FinixList currList = new FinixList(nextFetch, !reachedEnd);
+            if (response.getEmbedded() != null){
+                String fieldName = getFieldName(response.getEmbedded());
+                String fieldGet = "get" + fieldName;
+                Method getList = response.getEmbedded().getClass().getMethod(fieldGet);
+                Collection<Object> embeddedList = (Collection<Object>) getList.invoke(response.getEmbedded());
+                if (embeddedList.size() < response.getPage().getLimit()){
+                    currList = new FinixList<>(nextFetch, false);
+                }
+                for(Object item : embeddedList)
+                {
+                    currList.add(item);
+                }
+            }
+            currList.setPage(response.getPage());
+            currList.setLinks(response.getLinks());
+            return currList;
+        }
     private okhttp3.Call listFilesCall(String sort, String afterCursor, Long limit, String id, String createdAtGte, String createdAtLte, String updatedAtGte, String updatedAtLte, String beforeCursor, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -1439,21 +1489,50 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-    public FilesList list( ListFilesQueryParams listFilesQueryParams) throws ApiException {
+        public FinixList list( ListFilesQueryParams listFilesQueryParams)
+            throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
 
-        APIlistFilesRequest request = new APIlistFilesRequest();
-        request.sort(listFilesQueryParams.getSort());
-        request.afterCursor(listFilesQueryParams.getAfterCursor());
-        request.limit(listFilesQueryParams.getLimit());
-        request.id(listFilesQueryParams.getId());
-        request.createdAtGte(listFilesQueryParams.getCreatedAtGte());
-        request.createdAtLte(listFilesQueryParams.getCreatedAtLte());
-        request.updatedAtGte(listFilesQueryParams.getUpdatedAtGte());
-        request.updatedAtLte(listFilesQueryParams.getUpdatedAtLte());
-        request.beforeCursor(listFilesQueryParams.getBeforeCursor());
-        return request.execute();
-
-    }
+            APIlistFilesRequest request = new APIlistFilesRequest();
+                request.sort(listFilesQueryParams.getSort());
+                request.afterCursor(listFilesQueryParams.getAfterCursor());
+                request.limit(listFilesQueryParams.getLimit());
+                request.id(listFilesQueryParams.getId());
+                request.createdAtGte(listFilesQueryParams.getCreatedAtGte());
+                request.createdAtLte(listFilesQueryParams.getCreatedAtLte());
+                request.updatedAtGte(listFilesQueryParams.getUpdatedAtGte());
+                request.updatedAtLte(listFilesQueryParams.getUpdatedAtLte());
+                request.beforeCursor(listFilesQueryParams.getBeforeCursor());
+            FilesList response = request.execute();
+            Boolean hasNextCursor = (response.getPage().getClass().getName() == "model.PageCursor");
+            ListFilesQueryParams queryParams = (ListFilesQueryParams) getQueryParam(response.getPage(),
+                listFilesQueryParams,
+                hasNextCursor);
+            Boolean reachedEnd = reachedEnd(response.getPage(), hasNextCursor);
+            NextFetchFunction nextFetch = (a) -> {
+                queryParams.setLimit(a);
+                if (reachedEnd) {
+                throw new ArrayIndexOutOfBoundsException();
+                }
+                return this.list( queryParams);
+            };
+            FinixList currList = new FinixList(nextFetch, !reachedEnd);
+            if (response.getEmbedded() != null){
+                String fieldName = getFieldName(response.getEmbedded());
+                String fieldGet = "get" + fieldName;
+                Method getList = response.getEmbedded().getClass().getMethod(fieldGet);
+                Collection<Object> embeddedList = (Collection<Object>) getList.invoke(response.getEmbedded());
+                if (embeddedList.size() < response.getPage().getLimit()){
+                    currList = new FinixList<>(nextFetch, false);
+                }
+                for(Object item : embeddedList)
+                {
+                    currList.add(item);
+                }
+            }
+            currList.setPage(response.getPage());
+            currList.setLinks(response.getLinks());
+            return currList;
+        }
     /**
     * Build call for uploadFile
         * @param fileId The ID of the &#x60;File&#x60; that was created to upload the file. (required)
@@ -1550,10 +1629,13 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+
+
                 public ModelFile uploadFile(String fileId, UploadFileRequest uploadFileRequest) throws ApiException {
             ApiResponse<ModelFile> localVarResp = uploadFileWithHttpInfo(fileId, uploadFileRequest);
                     return localVarResp.getData();
                 }
+
 
     /**
         * Upload files Directly
@@ -1602,5 +1684,52 @@ this.localCustomBaseUrl = customBaseUrl;
     Type localVarReturnType = new TypeToken<ModelFile>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+        }
+        private String getFieldName(Object response){
+            Field[] methods = response.getClass().getFields();
+            Field[] testMethods = response.getClass().getDeclaredFields();
+            List<Field> a = Arrays.asList(methods);
+            List<Field> b = Arrays.asList(testMethods);
+            List<Field> diff = b.stream().filter(element -> !a.contains(element)).collect(Collectors.toList());
+            String fieldName = diff.get(0).getName();
+            return  fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
+        }
+
+        private Object getQueryParam(Object pageObject, Object queryParam, Boolean hasCursor) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+                if (hasCursor){
+                    Method setCursor = queryParam.getClass().getMethod("setAfterCursor", String.class);
+                    Method getOffset = pageObject.getClass().getMethod("getNextCursor");
+                    String nextCursor = (String) getOffset.invoke(pageObject);
+                    setCursor.invoke(queryParam, nextCursor);
+                }
+                else{
+                    Method setOffset = queryParam.getClass().getMethod("setOffset", Long.class);
+                    Method getOffset = pageObject.getClass().getMethod("getOffset");
+                    Long offset = (Long) getOffset.invoke(pageObject);
+                    setOffset.invoke(queryParam, offset);
+                }
+                return queryParam;
+        }
+
+        private Boolean reachedEnd(Object pageObject, Boolean hasCursor) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+            if (hasCursor){
+                Method getOffset = pageObject.getClass().getMethod("getNextCursor");
+                String nextCursor = (String) getOffset.invoke(pageObject);
+                if (nextCursor == null){
+                    return true;
+                }
+            }
+            else{
+                Method getOffset = pageObject.getClass().getMethod("getOffset");
+                Method getLimit = pageObject.getClass().getMethod("getLimit");
+                Method getCount = pageObject.getClass().getMethod("getCount");
+                Long offset = (Long) getOffset.invoke(pageObject);
+                Long limit = (Long) getLimit.invoke(pageObject);
+                Long count = (Long) getCount.invoke(pageObject);
+                if (offset + limit > count){
+                    return true;
+                }
+            }
+            return false;
         }
     }

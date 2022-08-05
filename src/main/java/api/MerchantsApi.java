@@ -26,6 +26,12 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.stream.Collectors;
+import java.util.*;
+import model.*;
 
 import model.CreateMerchantUnderwritingRequest;
 import model.CreateVerificationRequest;
@@ -184,10 +190,13 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 422 </td><td> Error </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+
+
                 public Merchant create(String identityId, CreateMerchantUnderwritingRequest createMerchantUnderwritingRequest) throws ApiException {
             ApiResponse<Merchant> localVarResp = createMerchantWithHttpInfo(identityId, createMerchantUnderwritingRequest);
                     return localVarResp.getData();
                 }
+
 
     /**
         * Create a Merchant
@@ -338,10 +347,13 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+
+
                 public Verification createMerchantVerification(String merchantId, CreateVerificationRequest createVerificationRequest) throws ApiException {
             ApiResponse<Verification> localVarResp = createMerchantVerificationWithHttpInfo(merchantId, createVerificationRequest);
                     return localVarResp.getData();
                 }
+
 
     /**
         * Verify a Merchant
@@ -486,10 +498,13 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+
+
                 public Merchant get(String merchantId) throws ApiException {
             ApiResponse<Merchant> localVarResp = getMerchantWithHttpInfo(merchantId);
                     return localVarResp.getData();
                 }
+
 
     /**
         * Get a Merchant
@@ -812,19 +827,48 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-    public MerchantsList list( ListMerchantsQueryParams listMerchantsQueryParams) throws ApiException {
+        public FinixList list( ListMerchantsQueryParams listMerchantsQueryParams)
+            throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
 
-        APIlistMerchantsRequest request = new APIlistMerchantsRequest();
-        request.id(listMerchantsQueryParams.getId());
-        request.createdAtGte(listMerchantsQueryParams.getCreatedAtGte());
-        request.createdAtLte(listMerchantsQueryParams.getCreatedAtLte());
-        request.sort(listMerchantsQueryParams.getSort());
-        request.afterCursor(listMerchantsQueryParams.getAfterCursor());
-        request.limit(listMerchantsQueryParams.getLimit());
-        request.beforeCursor(listMerchantsQueryParams.getBeforeCursor());
-        return request.execute();
-
-    }
+            APIlistMerchantsRequest request = new APIlistMerchantsRequest();
+                request.id(listMerchantsQueryParams.getId());
+                request.createdAtGte(listMerchantsQueryParams.getCreatedAtGte());
+                request.createdAtLte(listMerchantsQueryParams.getCreatedAtLte());
+                request.sort(listMerchantsQueryParams.getSort());
+                request.afterCursor(listMerchantsQueryParams.getAfterCursor());
+                request.limit(listMerchantsQueryParams.getLimit());
+                request.beforeCursor(listMerchantsQueryParams.getBeforeCursor());
+            MerchantsList response = request.execute();
+            Boolean hasNextCursor = (response.getPage().getClass().getName() == "model.PageCursor");
+            ListMerchantsQueryParams queryParams = (ListMerchantsQueryParams) getQueryParam(response.getPage(),
+                listMerchantsQueryParams,
+                hasNextCursor);
+            Boolean reachedEnd = reachedEnd(response.getPage(), hasNextCursor);
+            NextFetchFunction nextFetch = (a) -> {
+                queryParams.setLimit(a);
+                if (reachedEnd) {
+                throw new ArrayIndexOutOfBoundsException();
+                }
+                return this.list( queryParams);
+            };
+            FinixList currList = new FinixList(nextFetch, !reachedEnd);
+            if (response.getEmbedded() != null){
+                String fieldName = getFieldName(response.getEmbedded());
+                String fieldGet = "get" + fieldName;
+                Method getList = response.getEmbedded().getClass().getMethod(fieldGet);
+                Collection<Object> embeddedList = (Collection<Object>) getList.invoke(response.getEmbedded());
+                if (embeddedList.size() < response.getPage().getLimit()){
+                    currList = new FinixList<>(nextFetch, false);
+                }
+                for(Object item : embeddedList)
+                {
+                    currList.add(item);
+                }
+            }
+            currList.setPage(response.getPage());
+            currList.setLinks(response.getLinks());
+            return currList;
+        }
     /**
     * Build call for updateMerchant
         * @param merchantId ID of &#x60;Merchant&#x60;. (required)
@@ -920,10 +964,13 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+
+
                 public Merchant update(String merchantId, UpdateMerchantRequest updateMerchantRequest) throws ApiException {
             ApiResponse<Merchant> localVarResp = updateMerchantWithHttpInfo(merchantId, updateMerchantRequest);
                     return localVarResp.getData();
                 }
+
 
     /**
         * Update a Merchant
@@ -972,5 +1019,52 @@ this.localCustomBaseUrl = customBaseUrl;
     Type localVarReturnType = new TypeToken<Merchant>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+        }
+        private String getFieldName(Object response){
+            Field[] methods = response.getClass().getFields();
+            Field[] testMethods = response.getClass().getDeclaredFields();
+            List<Field> a = Arrays.asList(methods);
+            List<Field> b = Arrays.asList(testMethods);
+            List<Field> diff = b.stream().filter(element -> !a.contains(element)).collect(Collectors.toList());
+            String fieldName = diff.get(0).getName();
+            return  fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
+        }
+
+        private Object getQueryParam(Object pageObject, Object queryParam, Boolean hasCursor) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+                if (hasCursor){
+                    Method setCursor = queryParam.getClass().getMethod("setAfterCursor", String.class);
+                    Method getOffset = pageObject.getClass().getMethod("getNextCursor");
+                    String nextCursor = (String) getOffset.invoke(pageObject);
+                    setCursor.invoke(queryParam, nextCursor);
+                }
+                else{
+                    Method setOffset = queryParam.getClass().getMethod("setOffset", Long.class);
+                    Method getOffset = pageObject.getClass().getMethod("getOffset");
+                    Long offset = (Long) getOffset.invoke(pageObject);
+                    setOffset.invoke(queryParam, offset);
+                }
+                return queryParam;
+        }
+
+        private Boolean reachedEnd(Object pageObject, Boolean hasCursor) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+            if (hasCursor){
+                Method getOffset = pageObject.getClass().getMethod("getNextCursor");
+                String nextCursor = (String) getOffset.invoke(pageObject);
+                if (nextCursor == null){
+                    return true;
+                }
+            }
+            else{
+                Method getOffset = pageObject.getClass().getMethod("getOffset");
+                Method getLimit = pageObject.getClass().getMethod("getLimit");
+                Method getCount = pageObject.getClass().getMethod("getCount");
+                Long offset = (Long) getOffset.invoke(pageObject);
+                Long limit = (Long) getLimit.invoke(pageObject);
+                Long count = (Long) getCount.invoke(pageObject);
+                if (offset + limit > count){
+                    return true;
+                }
+            }
+            return false;
         }
     }

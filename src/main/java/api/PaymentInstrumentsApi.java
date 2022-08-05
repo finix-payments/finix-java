@@ -26,6 +26,12 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.stream.Collectors;
+import java.util.*;
+import model.*;
 
 import model.ApplePaySession;
 import model.ApplePaySessionRequest;
@@ -175,10 +181,13 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+
+
                 public ApplePaySession createApplePaySession(ApplePaySessionRequest applePaySessionRequest) throws ApiException {
             ApiResponse<ApplePaySession> localVarResp = createApplePaySessionWithHttpInfo(applePaySessionRequest);
                     return localVarResp.getData();
                 }
+
 
     /**
         * Create an Apple Pay Session
@@ -313,10 +322,13 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+
+
                 public PaymentInstrument create(CreatePaymentInstrumentRequest createPaymentInstrumentRequest) throws ApiException {
             ApiResponse<PaymentInstrument> localVarResp = createPaymentInstrumentWithHttpInfo(createPaymentInstrumentRequest);
                     return localVarResp.getData();
                 }
+
 
     /**
         * Create a Payment Instrument
@@ -459,10 +471,13 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+
+
                 public PaymentInstrument get(String paymentInstrumentId) throws ApiException {
             ApiResponse<PaymentInstrument> localVarResp = getPaymentInstrumentWithHttpInfo(paymentInstrumentId);
                     return localVarResp.getData();
                 }
+
 
     /**
         * Get a Payment Instrument
@@ -731,15 +746,44 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-    public PaymentInstrumentUpdatesList listUpdatesByPaymentInstrumentId(String paymentInstrumentId,  ListPaymentInstrumentUpdatesQueryParams listPaymentInstrumentUpdatesQueryParams) throws ApiException {
+        public FinixList listUpdatesByPaymentInstrumentId(String paymentInstrumentId,  ListPaymentInstrumentUpdatesQueryParams listPaymentInstrumentUpdatesQueryParams)
+            throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
 
-        APIlistPaymentInstrumentUpdatesRequest request = new APIlistPaymentInstrumentUpdatesRequest(paymentInstrumentId);
-        request.limit(listPaymentInstrumentUpdatesQueryParams.getLimit());
-        request.offset(listPaymentInstrumentUpdatesQueryParams.getOffset());
-        request.pageSize(listPaymentInstrumentUpdatesQueryParams.getPageSize());
-        return request.execute();
-
-    }
+            APIlistPaymentInstrumentUpdatesRequest request = new APIlistPaymentInstrumentUpdatesRequest(paymentInstrumentId);
+                request.limit(listPaymentInstrumentUpdatesQueryParams.getLimit());
+                request.offset(listPaymentInstrumentUpdatesQueryParams.getOffset());
+                request.pageSize(listPaymentInstrumentUpdatesQueryParams.getPageSize());
+            PaymentInstrumentUpdatesList response = request.execute();
+            Boolean hasNextCursor = (response.getPage().getClass().getName() == "model.PageCursor");
+            ListPaymentInstrumentUpdatesQueryParams queryParams = (ListPaymentInstrumentUpdatesQueryParams) getQueryParam(response.getPage(),
+                listPaymentInstrumentUpdatesQueryParams,
+                hasNextCursor);
+            Boolean reachedEnd = reachedEnd(response.getPage(), hasNextCursor);
+            NextFetchFunction nextFetch = (a) -> {
+                queryParams.setLimit(a);
+                if (reachedEnd) {
+                throw new ArrayIndexOutOfBoundsException();
+                }
+                return this.listUpdatesByPaymentInstrumentId(paymentInstrumentId,  queryParams);
+            };
+            FinixList currList = new FinixList(nextFetch, !reachedEnd);
+            if (response.getEmbedded() != null){
+                String fieldName = getFieldName(response.getEmbedded());
+                String fieldGet = "get" + fieldName;
+                Method getList = response.getEmbedded().getClass().getMethod(fieldGet);
+                Collection<Object> embeddedList = (Collection<Object>) getList.invoke(response.getEmbedded());
+                if (embeddedList.size() < response.getPage().getLimit()){
+                    currList = new FinixList<>(nextFetch, false);
+                }
+                for(Object item : embeddedList)
+                {
+                    currList.add(item);
+                }
+            }
+            currList.setPage(response.getPage());
+            currList.setLinks(response.getLinks());
+            return currList;
+        }
     private okhttp3.Call listPaymentInstrumentsCall(Long limit, String afterCursor, String accountLast4, String accountRoutingNumber, String application, String bin, String createdAtGte, String createdAtLte, String expirationMonth, String expirationYear, String lastFour, String name, String ownerIdentityId, String type, String beforeCursor, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -1125,27 +1169,56 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-    public PaymentInstrumentsList list( ListPaymentInstrumentsQueryParams listPaymentInstrumentsQueryParams) throws ApiException {
+        public FinixList list( ListPaymentInstrumentsQueryParams listPaymentInstrumentsQueryParams)
+            throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
 
-        APIlistPaymentInstrumentsRequest request = new APIlistPaymentInstrumentsRequest();
-        request.limit(listPaymentInstrumentsQueryParams.getLimit());
-        request.afterCursor(listPaymentInstrumentsQueryParams.getAfterCursor());
-        request.accountLast4(listPaymentInstrumentsQueryParams.getAccountLast4());
-        request.accountRoutingNumber(listPaymentInstrumentsQueryParams.getAccountRoutingNumber());
-        request.application(listPaymentInstrumentsQueryParams.getApplication());
-        request.bin(listPaymentInstrumentsQueryParams.getBin());
-        request.createdAtGte(listPaymentInstrumentsQueryParams.getCreatedAtGte());
-        request.createdAtLte(listPaymentInstrumentsQueryParams.getCreatedAtLte());
-        request.expirationMonth(listPaymentInstrumentsQueryParams.getExpirationMonth());
-        request.expirationYear(listPaymentInstrumentsQueryParams.getExpirationYear());
-        request.lastFour(listPaymentInstrumentsQueryParams.getLastFour());
-        request.name(listPaymentInstrumentsQueryParams.getName());
-        request.ownerIdentityId(listPaymentInstrumentsQueryParams.getOwnerIdentityId());
-        request.type(listPaymentInstrumentsQueryParams.getType());
-        request.beforeCursor(listPaymentInstrumentsQueryParams.getBeforeCursor());
-        return request.execute();
-
-    }
+            APIlistPaymentInstrumentsRequest request = new APIlistPaymentInstrumentsRequest();
+                request.limit(listPaymentInstrumentsQueryParams.getLimit());
+                request.afterCursor(listPaymentInstrumentsQueryParams.getAfterCursor());
+                request.accountLast4(listPaymentInstrumentsQueryParams.getAccountLast4());
+                request.accountRoutingNumber(listPaymentInstrumentsQueryParams.getAccountRoutingNumber());
+                request.application(listPaymentInstrumentsQueryParams.getApplication());
+                request.bin(listPaymentInstrumentsQueryParams.getBin());
+                request.createdAtGte(listPaymentInstrumentsQueryParams.getCreatedAtGte());
+                request.createdAtLte(listPaymentInstrumentsQueryParams.getCreatedAtLte());
+                request.expirationMonth(listPaymentInstrumentsQueryParams.getExpirationMonth());
+                request.expirationYear(listPaymentInstrumentsQueryParams.getExpirationYear());
+                request.lastFour(listPaymentInstrumentsQueryParams.getLastFour());
+                request.name(listPaymentInstrumentsQueryParams.getName());
+                request.ownerIdentityId(listPaymentInstrumentsQueryParams.getOwnerIdentityId());
+                request.type(listPaymentInstrumentsQueryParams.getType());
+                request.beforeCursor(listPaymentInstrumentsQueryParams.getBeforeCursor());
+            PaymentInstrumentsList response = request.execute();
+            Boolean hasNextCursor = (response.getPage().getClass().getName() == "model.PageCursor");
+            ListPaymentInstrumentsQueryParams queryParams = (ListPaymentInstrumentsQueryParams) getQueryParam(response.getPage(),
+                listPaymentInstrumentsQueryParams,
+                hasNextCursor);
+            Boolean reachedEnd = reachedEnd(response.getPage(), hasNextCursor);
+            NextFetchFunction nextFetch = (a) -> {
+                queryParams.setLimit(a);
+                if (reachedEnd) {
+                throw new ArrayIndexOutOfBoundsException();
+                }
+                return this.list( queryParams);
+            };
+            FinixList currList = new FinixList(nextFetch, !reachedEnd);
+            if (response.getEmbedded() != null){
+                String fieldName = getFieldName(response.getEmbedded());
+                String fieldGet = "get" + fieldName;
+                Method getList = response.getEmbedded().getClass().getMethod(fieldGet);
+                Collection<Object> embeddedList = (Collection<Object>) getList.invoke(response.getEmbedded());
+                if (embeddedList.size() < response.getPage().getLimit()){
+                    currList = new FinixList<>(nextFetch, false);
+                }
+                for(Object item : embeddedList)
+                {
+                    currList.add(item);
+                }
+            }
+            currList.setPage(response.getPage());
+            currList.setLinks(response.getLinks());
+            return currList;
+        }
     /**
     * Build call for updatePaymentInstrument
         * @param paymentInstrumentId ID of object (required)
@@ -1241,10 +1314,13 @@ this.localCustomBaseUrl = customBaseUrl;
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 </table>
             */
+
+
                 public PaymentInstrument update(String paymentInstrumentId, UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest) throws ApiException {
             ApiResponse<PaymentInstrument> localVarResp = updatePaymentInstrumentWithHttpInfo(paymentInstrumentId, updatePaymentInstrumentRequest);
                     return localVarResp.getData();
                 }
+
 
     /**
         * Update a Payment Instrument
@@ -1293,5 +1369,52 @@ this.localCustomBaseUrl = customBaseUrl;
     Type localVarReturnType = new TypeToken<PaymentInstrument>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+        }
+        private String getFieldName(Object response){
+            Field[] methods = response.getClass().getFields();
+            Field[] testMethods = response.getClass().getDeclaredFields();
+            List<Field> a = Arrays.asList(methods);
+            List<Field> b = Arrays.asList(testMethods);
+            List<Field> diff = b.stream().filter(element -> !a.contains(element)).collect(Collectors.toList());
+            String fieldName = diff.get(0).getName();
+            return  fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
+        }
+
+        private Object getQueryParam(Object pageObject, Object queryParam, Boolean hasCursor) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+                if (hasCursor){
+                    Method setCursor = queryParam.getClass().getMethod("setAfterCursor", String.class);
+                    Method getOffset = pageObject.getClass().getMethod("getNextCursor");
+                    String nextCursor = (String) getOffset.invoke(pageObject);
+                    setCursor.invoke(queryParam, nextCursor);
+                }
+                else{
+                    Method setOffset = queryParam.getClass().getMethod("setOffset", Long.class);
+                    Method getOffset = pageObject.getClass().getMethod("getOffset");
+                    Long offset = (Long) getOffset.invoke(pageObject);
+                    setOffset.invoke(queryParam, offset);
+                }
+                return queryParam;
+        }
+
+        private Boolean reachedEnd(Object pageObject, Boolean hasCursor) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+            if (hasCursor){
+                Method getOffset = pageObject.getClass().getMethod("getNextCursor");
+                String nextCursor = (String) getOffset.invoke(pageObject);
+                if (nextCursor == null){
+                    return true;
+                }
+            }
+            else{
+                Method getOffset = pageObject.getClass().getMethod("getOffset");
+                Method getLimit = pageObject.getClass().getMethod("getLimit");
+                Method getCount = pageObject.getClass().getMethod("getCount");
+                Long offset = (Long) getOffset.invoke(pageObject);
+                Long limit = (Long) getLimit.invoke(pageObject);
+                Long count = (Long) getCount.invoke(pageObject);
+                if (offset + limit > count){
+                    return true;
+                }
+            }
+            return false;
         }
     }

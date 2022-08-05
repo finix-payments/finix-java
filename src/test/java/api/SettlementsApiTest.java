@@ -19,6 +19,7 @@ import invoker.FinixClient;
 import model.*;
 import org.junit.jupiter.api.*;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -87,14 +88,18 @@ public class SettlementsApiTest {
      */
     @Test
     @DisplayName("List Funding Transfers in a Batch Settlement")
-    public void getSettlementFundingTransfersTest() throws ApiException {
+    public void getSettlementFundingTransfersTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
         String settlementId = "STmCc8GbjjX33SdymwNhb9Et";
         Long limit = 20L;
-        TransfersList response = finixClient.Settlements.listFundingTransfers(settlementId, ListSettlementFundingTransfersQueryParams.builder()
+        FinixList<Transfer> settlementFundingList = finixClient.Settlements.listFundingTransfers(settlementId, ListSettlementFundingTransfersQueryParams.builder()
                 .limit(limit)
                 .build());
-        assertTrue(response.getPage().getNextCursor() == null || (response.getPage().getNextCursor() instanceof String));
-        assertEquals("20",response.getPage().getLimit().toString(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit());
+        assertTrue(settlementFundingList.size() >= 0);
+        if (settlementFundingList.getHasMore() == true) {
+            FinixList<Transfer> nextList = settlementFundingList.listNext(1);
+            assertTrue(nextList != null);
+            assertEquals(1, nextList.size());
+        }
     }
 
     /**
@@ -111,15 +116,18 @@ public class SettlementsApiTest {
      */
     @Test
     @DisplayName("List Settlement Transfers")
-    public void listSettlementTransfersTest() throws ApiException {
+    public void listSettlementTransfersTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
         String settlementId = "STmCc8GbjjX33SdymwNhb9Et";
         Long limit = 20L;
-        TransfersList response = finixClient.Settlements.listTransfersBySettlementId(settlementId, ListSettlementTransfersQueryParams.builder()
+        FinixList<Transfer> settlementTransferList = finixClient.Settlements.listTransfersBySettlementId(settlementId, ListSettlementTransfersQueryParams.builder()
                 .limit(limit)
                 .build());
-        assertTrue(response.getPage() != null);
-        assertTrue(response.getPage().getNextCursor() == null || (response.getPage().getNextCursor() instanceof String));
-        assertEquals("20",response.getPage().getLimit().toString(),()->" Should return " + "20" + " but returns " + response.getPage().getLimit());
+        assertTrue(settlementTransferList.size() >= 0);
+        if (settlementTransferList.getHasMore() == true) {
+            FinixList<Transfer> nextList = settlementTransferList.listNext(1);
+            assertTrue(nextList != null);
+            assertEquals(1, nextList.size());
+        }
     }
 
     /**
@@ -136,11 +144,15 @@ public class SettlementsApiTest {
      */
     @Test
     @DisplayName("List Settlements")
-    public void listSettlementsTest() throws ApiException {
-        SettlementsList response = finixClient.Settlements.list(ListSettlementsQueryParams.builder()
+    public void listSettlementsTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+        FinixList<Settlement> settlementsList = finixClient.Settlements.list(ListSettlementsQueryParams.builder()
                 .build());
-        assertTrue(response.getPage() != null);
-        assertTrue(response.getPage().getNextCursor() != null && !response.getPage().getNextCursor().isEmpty());
+        assertTrue(settlementsList.size() >= 0);
+        if (settlementsList.getHasMore() == true) {
+            FinixList<Settlement> nextList = settlementsList.listNext(1);
+            assertTrue(nextList != null);
+            assertEquals(1, nextList.size());
+        }
     }
 
     /**
