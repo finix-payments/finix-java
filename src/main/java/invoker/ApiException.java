@@ -15,6 +15,11 @@ package invoker;
 
 import java.util.Map;
 import java.util.List;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 
 import javax.ws.rs.core.GenericType;
 
@@ -27,6 +32,7 @@ public class ApiException extends Exception {
     private int code = 0;
     private Map<String, List<String>> responseHeaders = null;
     private String responseBody = null;
+    private ArrayList<HashMap <String, String>>  body = null;
  
     /**
      * <p>Constructor for ApiException.</p>
@@ -65,6 +71,7 @@ public class ApiException extends Exception {
         this.code = code;
         this.responseHeaders = responseHeaders;
         this.responseBody = responseBody;
+        setBody();
     }
 
     /**
@@ -162,5 +169,49 @@ public class ApiException extends Exception {
     public String getMessage() {
         return String.format("Message: %s%nHTTP response code: %s%nHTTP response body: %s%nHTTP response headers: %s",
                 super.getMessage(), this.getCode(), this.getResponseBody(), this.getResponseHeaders().toString());
+    }
+
+
+    /**
+    * Get an arraylist of the error body.
+    *
+    * @return an arraylist of error body in the form of hashmap
+    */
+    public ArrayList<HashMap<String, String>> getBody() {
+        return body;
+    }
+
+    /**
+    * Set the body field of ApiException class.
+    *
+    * @return void
+    */
+    private void setBody() {
+        int startIndex = this.responseBody.indexOf("_embedded") + 13;
+        ObjectMapper objectMapper = new ObjectMapper();
+        if (startIndex != 12) {
+            int endIndex = this.responseBody.lastIndexOf("}") - 1;
+            String errorsRawString = this.responseBody.substring(startIndex, endIndex);
+            Map<String, ArrayList<HashMap<String, String>>> responseMap;
+            try {
+                responseMap = objectMapper.readValue(errorsRawString, HashMap.class);
+                if (responseMap.containsKey("errors")) {
+                    this.body = responseMap.get("errors");
+                }
+            } catch(JsonProcessingException e) {
+                this.body = new ArrayList<HashMap<String, String>>();
+                HashMap<String, String> tempMap = new HashMap<>();
+                if (this.responseBody.lastIndexOf("]") != -1) {
+                    tempMap.put("body", this.responseBody.substring(this.responseBody.indexOf("errors"),
+                        this.responseBody.lastIndexOf("]")));
+                }
+                else {
+                    tempMap.put("body", this.responseBody.substring(this.responseBody.indexOf("errors"),
+                    this.responseBody.lastIndexOf("}") - 1));
+                }
+                this.body.add(tempMap);
+                return;
+            }
+        }
     }
 }
