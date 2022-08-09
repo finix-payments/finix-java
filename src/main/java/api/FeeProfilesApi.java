@@ -143,9 +143,10 @@ this.localCustomBaseUrl = customBaseUrl;
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+            localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
+        localVarHeaderParams.put("Finix-Version", "2022-02-01");
         String[] localVarAuthNames = new String[] { "BasicAuth" };
         return localVarFinixClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
         }
@@ -285,9 +286,10 @@ this.localCustomBaseUrl = customBaseUrl;
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+            localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
+        localVarHeaderParams.put("Finix-Version", "2022-02-01");
         String[] localVarAuthNames = new String[] { "BasicAuth" };
         return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
         }
@@ -427,9 +429,10 @@ this.localCustomBaseUrl = customBaseUrl;
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+            localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
+        localVarHeaderParams.put("Finix-Version", "2022-02-01");
         String[] localVarAuthNames = new String[] { "BasicAuth" };
         return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
         }

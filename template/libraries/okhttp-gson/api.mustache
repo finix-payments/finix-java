@@ -230,9 +230,10 @@ this.localCustomBaseUrl = customBaseUrl;
         };
         final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+            localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
+        localVarHeaderParams.put("Finix-Version", "{{version}}");
         String[] localVarAuthNames = new String[] { {{#authMethods}}"{{name}}"{{^-last}}, {{/-last}}{{/authMethods}} };
         return localVarFinixClient.buildCall(basePath, localVarPath, {{^dynamicOperations}}"{{httpMethod}}"{{/dynamicOperations}}{{#dynamicOperations}}apiOperation.getMethod(){{/dynamicOperations}}, localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
         }
