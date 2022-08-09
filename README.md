@@ -35,7 +35,7 @@ finixClient= new FinixClient("USsRhsHYZGBPnQw8CByJyEQW","8a14c2f9-d94b-4c72-8f5c
 
 ### Example API
 Here is an example creating a Transfer:
-```java
+```java 
 CreateTransferRequest createTransferRequest = CreateTransferRequest
     .builder()
         .source("PIe2YvpcjvoVJ6PzoRPBK137")
@@ -52,9 +52,75 @@ Transfer transfer = finixClient.Transfers.create(createTransferRequest);
 Our Instrument Updates API and Files API allow you to download a file. These downloaded files are saved in Java's default generated temporary folder path.
 
 You can specify your own folder path with the following:
-```java
+
+```java 
 finixClient.setTempFolderPath('/path/to/tempfolder')
 ```
+
+### Retrieving List 
+finixList serves as the return type for all functions that involve retrieving a list. Here is an example of retrieving a list of transfers, and a demonstration of the properties of finixList.
+
+```java 
+// Retrieving a list of all transfers 
+FinixList<Transfer> transfersList = finixClient.Transfers.list(ListTransfersQueryParams.
+        builder()
+        .build());
+
+// Accessing transfers in the list and print out value
+for (Transfer t : transfersList){
+  System.out.println(t);
+}
+
+// Get the size of the current list
+int transferListSize = transfersList.size();
+
+// Get the page object that contains properties including offset/nextCursor, limit.
+// Note: refer to the specific api to see if the page object associated is of type pageCursor or pageOffset
+PageCursor pageObject = (PageCursor) transfersList.getPage();
+
+// Get the links 
+Object pageLinks = transfersList.getLinks();
+
+// Check if there is more to list, value equals to false if end of list has been reached 
+Boolean hasMore = transfersList.getHasMore();
+
+// Get the next list with limit 
+limit = 5L
+FinixList<Transfer> nextList = transfersList.listNext(limit);
+```
+
+### Exception Handling
+Exceptions can be handled with try-catch blocks. Here is an example of catching an exception and accessing its information.
+
+```java 
+try {
+    String userName = "USpumes23XhzHwXqiy9bfX2B";
+    String wrongPassword = "123123";
+    FinixClient invalidClient= new FinixClient(userName,wrongPassword, Environment.SANDBOX);
+    Long limit = 20L;
+    FinixList<FeeProfile> feeProfilesList = invalidClient.FeeProfiles.list(ListFeeProfilesQueryParams.builder()
+    .limit(limit)
+    .build());
+} catch (Exception genericError) {
+    if (genericError instanceof ApiException){
+        ApiException e = (ApiException) genericError;
+        
+        // Print basic http information of the error
+        System.err.println("Status code: " + e.getCode());
+        System.err.println("Response headers: " + e.getResponseHeaders());
+
+        // Print message of each error 
+        for (HashMap<String, String> thisError : error.getBody() ){
+            System.err.println(thisError.get("message"));
+        }
+          
+        // Access raw http incoming message of the error 
+        System.err.println(e.getResponseBody());
+    }
+}
+
+```
+
 ## Supported APIs
 - Transfers
 - Authorizaitons
