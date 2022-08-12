@@ -79,6 +79,8 @@ public class DevicesApiTest {
                 .build();
         Device response = finixClient.Devices.create(merchantId, createDevice);
         assertEquals("MUu56ZGx3Xb6U9gAqKfgNisd",response.getMerchant(),()->"Should return " + "MUu56ZGx3Xb6U9gAqKfgNisd" + " but returns " + response.getMerchant());
+        assertEquals(createDevice.getName(), response.getName());
+        assertEquals("MX915", response.getModel());
     }
 
     /**
@@ -97,8 +99,10 @@ public class DevicesApiTest {
     @DisplayName(" Get Device")
     public void getDeviceTest() throws ApiException {
         String deviceId = "DVf2H8sh4LZZC52GTUrwCPPf";
-        Device response = finixClient.Devices.get(deviceId);
+        GetDeviceQueryParams getDeviceQueryParams = new GetDeviceQueryParams();
+        Device response = finixClient.Devices.get(deviceId, getDeviceQueryParams);
         assertEquals("MUu56ZGx3Xb6U9gAqKfgNisd",response.getMerchant(),()->"Should return " + "MUu56ZGx3Xb6U9gAqKfgNisd" + " but returns " + response.getMerchant());
+        assertEquals(true, response.getConfigurationDetails().getAllowDebit());
     }
 
 }

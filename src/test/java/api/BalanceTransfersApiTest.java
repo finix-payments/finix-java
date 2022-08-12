@@ -81,6 +81,8 @@ public class BalanceTransfersApiTest {
                 .build();
         BalanceTransfer response = finixClient.BalanceTransfers.create(createBalanceTransferRequest);
         assertEquals(CreateBalanceTransferRequest.SourceEnum.OPERATING_ACCOUNT.toString(),response.getSource(),()->"Should return " + "OPERATING_ACCOUNT" + " but returns " + response.getSource());
+        assertEquals(createBalanceTransferRequest.getAmount(), response.getAmount());
+        assertEquals(createBalanceTransferRequest.getDescription(), response.getDescription());
     }
 
     /**
@@ -101,6 +103,8 @@ public class BalanceTransfersApiTest {
         String balanceTransfersId = "BT_v3KQqgpDPqskH8VH6isFyz";
         BalanceTransfer response = finixClient.BalanceTransfers.get(balanceTransfersId);
         assertEquals(CreateBalanceTransferRequest.SourceEnum.OPERATING_ACCOUNT.toString(),response.getSource(),()->"Should return " + "OPERATING_ACCOUNT" + " but returns " + response.getSource());
+        assertEquals(4000L, response.getAmount());
+        assertEquals(balanceTransfersId, response.getId());
     }
 
     /**

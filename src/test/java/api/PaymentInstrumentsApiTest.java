@@ -122,7 +122,8 @@ public class PaymentInstrumentsApiTest {
         PaymentInstrument response = finixClient.PaymentInstruments.create(createPaymentInstrumentRequest);
         paymentInstrumentId = response.getId();
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
-
+        assertEquals(createPaymentInstrumentRequest.getTags().get("card_game"), response.getTags().get("card_game"));
+        assertEquals(createPaymentInstrumentRequest.getExpirationMonth(), response.getExpirationMonth());
     }
     /**
      * Create a Bank Account
@@ -144,6 +145,8 @@ public class PaymentInstrumentsApiTest {
                 .build();
         PaymentInstrument response =  finixClient.PaymentInstruments.create(createPaymentInstrumentRequest);
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
+        assertEquals(createPaymentInstrumentRequest.getName(), response.getName());
+        assertEquals(createPaymentInstrumentRequest.getBankCode(), response.getBankCode());
     }
 
 
@@ -163,12 +166,19 @@ public class PaymentInstrumentsApiTest {
     @DisplayName("Payment instrument verification")
     @AfterAll
     public void createPaymentInstrumentVerificationTest() throws ApiException {
-       CreateVerificationRequest verificationForm = CreateVerificationRequest.builder()
-                .processor("DUMMY_V1")
-                .instrument(paymentInstrumentId)
-                .build();
+        Map<String,String> localMap = new HashMap<>();
+        localMap.put("card_name", "Business_Card");
+        CreateVerificationRequest verificationForm = CreateVerificationRequest.builder()
+               .processor("DUMMY_V1")
+               .merchant("MUgWbPVvtKbzjKNNGKqdQYV7")
+               .instrument("PI3tfx1Uw3SzHfqwPFGX9o1Y")
+               .identity("ID2CGJmjqyYaQAu6qyuvGeWK")
+               .tags(localMap)
+               .build();
         Verification response = finixClient.Verifications.create(verificationForm);
-        assertEquals(paymentInstrumentId,response.getPaymentInstrument(),()->" Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getPaymentInstrument());
+        assertEquals(verificationForm.getMerchant(), response.getMerchant());
+        assertEquals(verificationForm.getProcessor(), response.getProcessor());
+        assertEquals(verificationForm.getIdentity(), response.getMerchantIdentity());
     }
 
 
@@ -190,6 +200,7 @@ public class PaymentInstrumentsApiTest {
     public void getPaymentInstrumentTest() throws ApiException {
         String paymentInstrumentId = "PI8sdzepdapDehPWKFTcre1m";
         PaymentInstrument response = finixClient.PaymentInstruments.get(paymentInstrumentId);
+        assertEquals(paymentInstrumentId, response.getId());
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
     }
 
@@ -205,6 +216,7 @@ public class PaymentInstrumentsApiTest {
     public void getPaymentInstrumentCardTest() throws ApiException {
         String paymentInstrumentId = "PIe2YvpcjvoVJ6PzoRPBK137";
         PaymentInstrument response = finixClient.PaymentInstruments.get(paymentInstrumentId);
+        assertEquals(paymentInstrumentId, response.getId());
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
     }
 
@@ -220,6 +232,7 @@ public class PaymentInstrumentsApiTest {
     public void getApplePayPaymentInstrumentTest() throws ApiException {
         String paymentInstrumentId = "PI4gTM3twQ5XyXfM4rTuFvpo";
         PaymentInstrument response = finixClient.PaymentInstruments.get(paymentInstrumentId);
+        assertEquals(paymentInstrumentId, response.getId());
         assertEquals(response.getType(), PaymentInstrument.TypeEnum.UNKNOWN_DEFAULT,()->" Should return UNKOWN_DEFAULT but returns " + response.getType());
     }
 
@@ -296,12 +309,14 @@ public class PaymentInstrumentsApiTest {
     @Test
     @DisplayName("Update a Payment Instrument")
     public void updatePaymentInstrumentTest() throws ApiException, IOException {
+        Map<String,String> localMap = new HashMap<>();
+        localMap.put("Test", "update_test");
         String paymentInstrumentId = "PIe2YvpcjvoVJ6PzoRPBK137";
         UpdatePaymentInstrumentRequest updatePaymentInstrumentRequest = UpdatePaymentInstrumentRequest.builder()
-                .name("Amy Whites")
+                .tags(localMap)
                 .build();
         PaymentInstrument response = finixClient.PaymentInstruments.update(paymentInstrumentId, updatePaymentInstrumentRequest);
+        assertEquals(localMap.get("Test"), response.getTags().get("Test"));
         assertEquals(paymentInstrumentId,response.getId(),()->" Should return " + paymentInstrumentId + " but returns " + response.getId());
-
     }
 }

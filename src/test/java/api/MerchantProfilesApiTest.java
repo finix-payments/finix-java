@@ -122,6 +122,7 @@ public class MerchantProfilesApiTest {
         MerchantProfile response = finixClient.MerchantProfiles.update(merchantProfileId, UpdateMerchantProfileRequest.builder()
                 .riskProfile(riskProfileId)
                 .build());
+        assertEquals(merchantProfileId, response.getId());
         assertEquals(riskProfileId, response.getRiskProfile(), "Response should return risk profile of "+riskProfileId+ " but returns "+ response.getRiskProfile());
     }
 

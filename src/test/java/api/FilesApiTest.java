@@ -85,6 +85,7 @@ public class FilesApiTest {
         ExternalLink response = finixClient.Files.createExternalLink(fileId, createExternalLinkRequest);
         localExternalLinkId = response.getId();
         assertEquals("USsRhsHYZGBPnQw8CByJyEQW",response.getUserId(),()->" Should return " + "USsRhsHYZGBPnQw8CByJyEQW" + " but returns " + response.getUserId());
+        assertEquals("UPLOAD", response.getType());
     }
 
     /**
@@ -114,6 +115,8 @@ public class FilesApiTest {
         ModelFile response = finixClient.Files.create(createFileRequest);
         localFileId=response.getId();
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplicationId(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplicationId());
+        assertEquals(createFileRequest.getLinkedTo(), response.getLinkedTo());
+        assertEquals(createFileRequest.getType().toString(), response.getType());
     }
 
     /**
@@ -156,6 +159,7 @@ public class FilesApiTest {
         String externalLinkId = localExternalLinkId;
         ExternalLink response = finixClient.Files.getExternalLink(fileId, externalLinkId);
         assertEquals("USsRhsHYZGBPnQw8CByJyEQW",response.getUserId(),()->" Should return " + "USsRhsHYZGBPnQw8CByJyEQW" + " but returns " + response.getUserId());
+        assertEquals(fileId, response.getFileId());
     }
 
     /**

@@ -76,6 +76,7 @@ public class MerchantsApiTest {
     public void getMerchantTest() throws ApiException {
         String merchantId = "MUucec6fHeaWo3VHYoSkUySM";
         Merchant response = finixClient.Merchants.get(merchantId);
+        assertEquals(merchantId, response.getId());
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
     }
 
@@ -140,6 +141,7 @@ public class MerchantsApiTest {
                 .levelTwoLevelThreeDataEnabled(true)
                 .build();
         Merchant response = finixClient.Merchants.update(merchantId, updateMerchantRequest);
+        assertEquals(merchantId, response.getId());
         assertEquals(true, response.getLevelTwoLevelThreeDataEnabled(), "Level 2/3 should be enabled but instead is "+ response.getLevelTwoLevelThreeDataEnabled());
     }
 

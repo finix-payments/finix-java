@@ -95,6 +95,7 @@ public class DisputesApiTest {
         String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
         Dispute response = finixClient.Disputes.get(disputeId);
         assertEquals("DIs7yQRkHDdMYhurzYz72SFk",response.getId(),()->" Should return " + "DIs7yQRkHDdMYhurzYz72SFk" + " but returns " + response.getId());
+        assertEquals(888888L, response.getAmount());
     }
 
     /**
@@ -115,7 +116,8 @@ public class DisputesApiTest {
         String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
         String evidenceId = "DFnA9eVoYxRnxxLKzgcGGxYL";
         DisputeEvidence response = finixClient.Disputes.getDisputeEvidence(disputeId, evidenceId);
-        assertEquals("DFnA9eVoYxRnxxLKzgcGGxYL",response.getId(),()->" Should return " + "DFnA9eVoYxRnxxLKzgcGGxYL" + " but returns " + response.getId());
+        assertEquals(evidenceId,response.getId(),()->" Should return " + "DFnA9eVoYxRnxxLKzgcGGxYL" + " but returns " + response.getId());
+        assertEquals(disputeId, response.getDispute());
     }
 
 

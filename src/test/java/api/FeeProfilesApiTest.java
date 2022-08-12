@@ -85,8 +85,9 @@ public class FeeProfilesApiTest {
                 .build();
         FeeProfile response = finixClient.FeeProfiles.create(createFeeProfileRequest);
         feeProfileId = response.getId();
-        assertEquals(response.getAchBasisPoints(), 300L, "Response should return ach_basis_points with value of 300 but returns" + response.getAchBasisPoints());
-        assertEquals(response.getApplication(), "APmuwPBaW8pVcwb4vCTHQH32", "Response should return application of 'APmuwPBaW8pVcwb4vCTHQH32' but returns" + response.getApplication());
+        assertEquals( 300L, response.getAchBasisPoints(),"Response should return ach_basis_points with value of 300 but returns" + response.getAchBasisPoints());
+        assertEquals( "APmuwPBaW8pVcwb4vCTHQH32", response.getApplication(),"Response should return application of 'APmuwPBaW8pVcwb4vCTHQH32' but returns" + response.getApplication());
+        assertEquals(false, response.getChargeInterchange());
     }
 
     /**

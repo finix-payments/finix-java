@@ -71,6 +71,7 @@ public class SettlementsApiTest {
     public void getSettlementTest() throws ApiException {
         String settlementId = "STmCc8GbjjX33SdymwNhb9Et";
         Settlement response = finixClient.Settlements.get(settlementId);
+        assertEquals(settlementId, response.getId());
         assertEquals("AP3AB2itAWrrrPVS6spvrGYp",response.getApplication(),()->" Should return " + "AP3AB2itAWrrrPVS6spvrGYp" + " but returns " + response.getApplication());
     }
 

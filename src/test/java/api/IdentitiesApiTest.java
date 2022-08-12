@@ -103,6 +103,8 @@ public class IdentitiesApiTest {
                 .build();
         Identity response = finixClient.Identities.create(createIdentityRequest);
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
+        assertEquals(createIdentityRequest.getEntity().getFirstName(), response.getEntity().getFirstName());
+        assertEquals(createIdentityRequest.getEntity().getLastName(), response.getEntity().getLastName());
     }
     /**
      * Create an Identity
@@ -154,9 +156,6 @@ public class IdentitiesApiTest {
                 .tags(localMap)
                 .entity(CreateIdentityRequestEntity.builder()
                         .lastName("Sunkhronos")
-                        .maxTransactionAmount(12000000l)
-                        .hasAcceptedCreditCardsPreviously(true)
-                        .defaultStatementDescriptor("Petes Coffee")
                         .personalAddress(CreateIdentityRequestEntityPersonalAddress.builder()
                                 .city("San Mateo")
                                 .country("USA")
@@ -165,44 +164,15 @@ public class IdentitiesApiTest {
                                 .line1("741 Douglass St")
                                 .postalCode("94114")
                                 .build())
-                        .incorporationDate(CreateIdentityRequestEntityIncorporationDate.builder()
-                                .year(1978l)
-                                .day(27l)
-                                .month(6l)
-                                .build())
-                        .businessAddress(CreateIdentityRequestEntityBusinessAddress.builder()
-                                .city("San Mateo")
-                                .country("USA")
-                                .region("CA")
-                                .line2( "Apartment 7")
-                                .line1("741 Douglass St")
-                                .postalCode("94114")
-                                .build())
-                        .ownershipType(CreateIdentityRequestEntity.OwnershipTypeEnum.PRIVATE)
                         .firstName("dwayne")
-                        .title("CEO")
-                        .businessTaxId("123456789")
-                        .doingBusinessAs("Petes Coffee")
-                        .principalPercentageOwnership(50l)
                         .email("user@example.org")
-                        .mcc("0742")
                         .phone("1234567890")
-                        .businessName( "Petes Coffee")
-                        .taxId("123456789")
-                        .businessType(CreateIdentityRequestEntity.BusinessTypeEnum.INDIVIDUAL_SOLE_PROPRIETORSHIP)
-                        .businessPhone("+1 (408) 756-4497")
-                        .dob(CreateIdentityRequestEntityDob.builder()
-                                .year(1978l)
-                                .day(27l)
-                                .month(6l)
-                                .build())
-                        .url("www.PetesCoffee.com")
-                        .annualCardVolume(12000000l)
                         .build())
                 .build();
         Identity response = finixClient.Identities.create(createIdentityRequest);
         identity = response.getId();
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
+        
     }
     /**
      * Create a Bank Account
@@ -225,6 +195,8 @@ public class IdentitiesApiTest {
                 .build();
         PaymentInstrument response =  finixClient.PaymentInstruments.create(createPaymentInstrumentRequest);
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
+        assertEquals(createPaymentInstrumentRequest.getBankCode(), response.getBankCode());
+        assertEquals(createPaymentInstrumentRequest.getName(), response.getName());
     }
 
     /**
@@ -351,7 +323,7 @@ public class IdentitiesApiTest {
                 .entity(UpdateIdentityRequestEntity.builder()
                         .businessPhone("+1 (408) 756-4497")
                         .firstName("Bernard")
-                        .lastName("Jones")
+                        .lastName("Joness")
                         .title("CTO")
                         .dob(UpdateIdentityRequestEntityDob.builder()
                                 .year(1998l)
@@ -369,21 +341,15 @@ public class IdentitiesApiTest {
                         .annualCardVolume(12000000l)
                         .defaultStatementDescriptor("Bobs Burgers")
                         .url("www.BobsBurgers.com")
-                        .businessName("Bobs Burgers")
-                        .personalAddress(CreateIdentityRequestEntityPersonalAddress.builder()
-                                .city("San Mateo")
-                                .country("USA")
-                                .region("CA")
-                                .line2("Apartment 7")
-                                .line1("741 Douglass St")
-                                .postalCode("94114")
-                                .build())
+                        .businessName("Bobs Burgers")                        
                         .email("user@example.org")
                         .taxId("999999999")
                         .build())
                 .build();
         Identity response = finixClient.Identities.update(identityId, updateIdentityRequest);
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
+        assertEquals(updateIdentityRequest.getEntity().getLastName(), response.getEntity().getLastName());
+        assertEquals(updateIdentityRequest.getTags().get("key"), response.getTags().get("key"));
     }
     /**
      * Provision a Merchant
@@ -401,6 +367,8 @@ public class IdentitiesApiTest {
         Merchant response = finixClient.Merchants.create(identityId, createMerchantUnderwritingRequest);
         merchantId = response.getId();
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
+        assertEquals(createMerchantUnderwritingRequest.getTags().get("key"), response.getTags().get("key"));
+        assertEquals(createMerchantUnderwritingRequest.getProcessor(), response.getProcessor());
     }
 
 
@@ -417,6 +385,7 @@ public class IdentitiesApiTest {
                 .processor("DUMMY_V1").build();
         Verification response = finixClient.Identities.createIdentityVerification(identityId, verificationForm);
         assertEquals(identityId, response.getIdentity(), ()->"Should return " +identityId + " but returns "+ response.getIdentity());
+        assertEquals(verificationForm.getProcessor(), response.getProcessor());
     }
 
     /**
