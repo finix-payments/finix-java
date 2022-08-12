@@ -23,10 +23,10 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.CreateIdentityRequestEntityIncorporationDate;
-import model.CreateIdentityRequestEntityPersonalAddress;
 import model.UpdateIdentityRequestEntityBusinessAddress;
 import model.UpdateIdentityRequestEntityDob;
+import model.UpdateIdentityRequestEntityIncorporationDate;
+import model.UpdateIdentityRequestEntityPersonalAddress;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -50,9 +50,9 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * Underwriting data that&#39;s required to verify the identity of the merchant.
+ * Underwriting data that&#39;s required to verify the &#x60;Identity&#x60;.
  */
-@ApiModel(description = "Underwriting data that's required to verify the identity of the merchant.")
+@ApiModel(description = "Underwriting data that's required to verify the `Identity`.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateIdentityRequestEntity {
@@ -74,11 +74,11 @@ public class UpdateIdentityRequestEntity {
 
   public static final String SERIALIZED_NAME_PERSONAL_ADDRESS = "personal_address";
   @SerializedName(SERIALIZED_NAME_PERSONAL_ADDRESS)
-  private CreateIdentityRequestEntityPersonalAddress personalAddress;
+  private UpdateIdentityRequestEntityPersonalAddress personalAddress;
 
   public static final String SERIALIZED_NAME_INCORPORATION_DATE = "incorporation_date";
   @SerializedName(SERIALIZED_NAME_INCORPORATION_DATE)
-  private CreateIdentityRequestEntityIncorporationDate incorporationDate;
+  private UpdateIdentityRequestEntityIncorporationDate incorporationDate;
 
   public static final String SERIALIZED_NAME_BUSINESS_ADDRESS = "business_address";
   @SerializedName(SERIALIZED_NAME_BUSINESS_ADDRESS)
@@ -238,11 +238,11 @@ public class UpdateIdentityRequestEntity {
   }
 
    /**
-   * The legal last name of the merchant&#39;s control owner (max 20 characters).
+   * The &#x60;Identity&#x60; owner&#39;s legal last name.
    * @return lastName
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The legal last name of the merchant's control owner (max 20 characters).")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The `Identity` owner's legal last name.")
 
   public String getLastName() {
     return lastName;
@@ -323,7 +323,7 @@ public class UpdateIdentityRequestEntity {
   }
 
 
-  public UpdateIdentityRequestEntity personalAddress(CreateIdentityRequestEntityPersonalAddress personalAddress) {
+  public UpdateIdentityRequestEntity personalAddress(UpdateIdentityRequestEntityPersonalAddress personalAddress) {
     
     this.personalAddress = personalAddress;
     return this;
@@ -336,17 +336,17 @@ public class UpdateIdentityRequestEntity {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public CreateIdentityRequestEntityPersonalAddress getPersonalAddress() {
+  public UpdateIdentityRequestEntityPersonalAddress getPersonalAddress() {
     return personalAddress;
   }
 
 
-  public void setPersonalAddress(CreateIdentityRequestEntityPersonalAddress personalAddress) {
+  public void setPersonalAddress(UpdateIdentityRequestEntityPersonalAddress personalAddress) {
     this.personalAddress = personalAddress;
   }
 
 
-  public UpdateIdentityRequestEntity incorporationDate(CreateIdentityRequestEntityIncorporationDate incorporationDate) {
+  public UpdateIdentityRequestEntity incorporationDate(UpdateIdentityRequestEntityIncorporationDate incorporationDate) {
     
     this.incorporationDate = incorporationDate;
     return this;
@@ -359,12 +359,12 @@ public class UpdateIdentityRequestEntity {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public CreateIdentityRequestEntityIncorporationDate getIncorporationDate() {
+  public UpdateIdentityRequestEntityIncorporationDate getIncorporationDate() {
     return incorporationDate;
   }
 
 
-  public void setIncorporationDate(CreateIdentityRequestEntityIncorporationDate incorporationDate) {
+  public void setIncorporationDate(UpdateIdentityRequestEntityIncorporationDate incorporationDate) {
     this.incorporationDate = incorporationDate;
   }
 
@@ -422,11 +422,11 @@ public class UpdateIdentityRequestEntity {
   }
 
    /**
-   * The legal first name of the merchant&#39;s control owner (max 20 characters).
+   * The legal first name of the control owner (max 20 characters).
    * @return firstName
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The legal first name of the merchant's control owner (max 20 characters).")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The legal first name of the control owner (max 20 characters).")
 
   public String getFirstName() {
     return firstName;
@@ -540,8 +540,8 @@ public class UpdateIdentityRequestEntity {
    * The email address of the principal control owner where they can be reached (max 100 characters).
    * @return email
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The email address of the principal control owner where they can be reached (max 100 characters).")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The email address of the principal control owner where they can be reached (max 100 characters).")
 
   public String getEmail() {
     return email;
@@ -586,8 +586,8 @@ public class UpdateIdentityRequestEntity {
    * The principal control owner&#39;s phone number (max 10 characters).
    * @return phone
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The principal control owner's phone number (max 10 characters).")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The principal control owner's phone number (max 10 characters).")
 
   public String getPhone() {
     return phone;
@@ -721,11 +721,11 @@ public class UpdateIdentityRequestEntity {
   }
 
    /**
-   * The URL of the merchant&#39;s public website.
+   * The URL of the &#x60;Identity&#x60; owner&#39;s public website.
    * @return url
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The URL of the merchant's public website.")
+  @ApiModelProperty(value = "The URL of the `Identity` owner's public website.")
 
   public String getUrl() {
     return url;
@@ -744,11 +744,11 @@ public class UpdateIdentityRequestEntity {
   }
 
    /**
-   * The annual credit card sales (in cents) expected to be processed by this merchant (max 19 characters).
+   * The annual credit card sales (in cents) expected to be processed (max 19 characters).
    * @return annualCardVolume
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The annual credit card sales (in cents) expected to be processed by this merchant (max 19 characters).")
+  @ApiModelProperty(value = "The annual credit card sales (in cents) expected to be processed (max 19 characters).")
 
   public Long getAnnualCardVolume() {
     return annualCardVolume;
@@ -886,10 +886,6 @@ public class UpdateIdentityRequestEntity {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("last_name");
-    openapiRequiredFields.add("first_name");
-    openapiRequiredFields.add("email");
-    openapiRequiredFields.add("phone");
   }
 
  /**
@@ -916,18 +912,6 @@ public class UpdateIdentityRequestEntity {
         }
       }
       */
-
-      /**
-      * EDITED
-      * Commented to ByPass required properties/fields are present in the JSON string
-      */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : UpdateIdentityRequestEntity.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
@@ -948,7 +932,7 @@ public class UpdateIdentityRequestEntity {
       */
       // validate the optional field `personal_address`
      // if (jsonObj.getAsJsonObject("personal_address") != null) {
-       //CreateIdentityRequestEntityPersonalAddress.validateJsonObject(jsonObj.getAsJsonObject("personal_address"));
+       //UpdateIdentityRequestEntityPersonalAddress.validateJsonObject(jsonObj.getAsJsonObject("personal_address"));
      // }
 
       /**
@@ -957,7 +941,7 @@ public class UpdateIdentityRequestEntity {
       */
       // validate the optional field `incorporation_date`
      // if (jsonObj.getAsJsonObject("incorporation_date") != null) {
-       //CreateIdentityRequestEntityIncorporationDate.validateJsonObject(jsonObj.getAsJsonObject("incorporation_date"));
+       //UpdateIdentityRequestEntityIncorporationDate.validateJsonObject(jsonObj.getAsJsonObject("incorporation_date"));
      // }
 
       /**

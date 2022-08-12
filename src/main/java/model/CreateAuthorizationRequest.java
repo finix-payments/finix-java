@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import model.AdditionalBuyerCharges;
 import model.AdditionalPurchaseData;
 import model.CreateAuthorizationRequest3dSecureAuthentication;
 import model.Currency;
@@ -211,6 +212,10 @@ public class CreateAuthorizationRequest {
   public static final String SERIALIZED_NAME_DEVICE = "device";
   @SerializedName(SERIALIZED_NAME_DEVICE)
   private String device;
+
+  public static final String SERIALIZED_NAME_ADDITIONAL_BUYER_CHARGES = "additional_buyer_charges";
+  @SerializedName(SERIALIZED_NAME_ADDITIONAL_BUYER_CHARGES)
+  private AdditionalBuyerCharges additionalBuyerCharges;
 
   public static final String SERIALIZED_NAME_3D_SECURE_AUTHENTICATION = "3d_secure_authentication";
   @SerializedName(SERIALIZED_NAME_3D_SECURE_AUTHENTICATION)
@@ -526,6 +531,29 @@ public class CreateAuthorizationRequest {
   }
 
 
+  public CreateAuthorizationRequest additionalBuyerCharges(AdditionalBuyerCharges additionalBuyerCharges) {
+    
+    this.additionalBuyerCharges = additionalBuyerCharges;
+    return this;
+  }
+
+   /**
+   * Get additionalBuyerCharges
+   * @return additionalBuyerCharges
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public AdditionalBuyerCharges getAdditionalBuyerCharges() {
+    return additionalBuyerCharges;
+  }
+
+
+  public void setAdditionalBuyerCharges(AdditionalBuyerCharges additionalBuyerCharges) {
+    this.additionalBuyerCharges = additionalBuyerCharges;
+  }
+
+
   public CreateAuthorizationRequest _3dSecureAuthentication(CreateAuthorizationRequest3dSecureAuthentication _3dSecureAuthentication) {
     
     this._3dSecureAuthentication = _3dSecureAuthentication;
@@ -572,6 +600,7 @@ public class CreateAuthorizationRequest {
         Objects.equals(this.subType, createAuthorizationRequest.subType) &&
         Objects.equals(this.operationKey, createAuthorizationRequest.operationKey) &&
         Objects.equals(this.device, createAuthorizationRequest.device) &&
+        Objects.equals(this.additionalBuyerCharges, createAuthorizationRequest.additionalBuyerCharges) &&
         Objects.equals(this._3dSecureAuthentication, createAuthorizationRequest._3dSecureAuthentication);
   }
 
@@ -581,7 +610,7 @@ public class CreateAuthorizationRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, amount, currency, idempotencyId, merchant, merchantIdentity, processor, source, additionalPurchaseData, fraudSessionId, subType, operationKey, device, _3dSecureAuthentication);
+    return Objects.hash(tags, amount, currency, idempotencyId, merchant, merchantIdentity, processor, source, additionalPurchaseData, fraudSessionId, subType, operationKey, device, additionalBuyerCharges, _3dSecureAuthentication);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -608,6 +637,7 @@ public class CreateAuthorizationRequest {
     sb.append("    subType: ").append(toIndentedString(subType)).append("\n");
     sb.append("    operationKey: ").append(toIndentedString(operationKey)).append("\n");
     sb.append("    device: ").append(toIndentedString(device)).append("\n");
+    sb.append("    additionalBuyerCharges: ").append(toIndentedString(additionalBuyerCharges)).append("\n");
     sb.append("    _3dSecureAuthentication: ").append(toIndentedString(_3dSecureAuthentication)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -644,6 +674,7 @@ public class CreateAuthorizationRequest {
     openapiFields.add("sub_type");
     openapiFields.add("operation_key");
     openapiFields.add("device");
+    openapiFields.add("additional_buyer_charges");
     openapiFields.add("3d_secure_authentication");
 
     // a set of required properties/fields (JSON key names)
@@ -746,6 +777,15 @@ public class CreateAuthorizationRequest {
       if (jsonObj.get("device") != null && !jsonObj.get("device").isJsonNull()  && !jsonObj.get("device").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `device` to be a primitive type in the JSON string but got `%s`", jsonObj.get("device").toString()));
       }
+      /**
+      * EDITED
+      * ADDED  statement to for inconsistent null behaviour
+      */
+      // validate the optional field `additional_buyer_charges`
+     // if (jsonObj.getAsJsonObject("additional_buyer_charges") != null) {
+       //AdditionalBuyerCharges.validateJsonObject(jsonObj.getAsJsonObject("additional_buyer_charges"));
+     // }
+
       /**
       * EDITED
       * ADDED  statement to for inconsistent null behaviour

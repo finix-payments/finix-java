@@ -46,6 +46,7 @@ src/main/java/invoker/auth/Authentication.java
 src/main/java/invoker/auth/HttpBasicAuth.java
 src/main/java/invoker/auth/HttpBearerAuth.java
 src/main/java/model/AbstractOpenApiSchema.java
+src/main/java/model/AdditionalBuyerCharges.java
 src/main/java/model/AdditionalPurchaseData.java
 src/main/java/model/AdditionalPurchaseDataItemDataInner.java
 src/main/java/model/AdditionalPurchaseDataOrderDate.java
@@ -101,9 +102,6 @@ src/main/java/model/CreateIdentityRequestAdditionalUnderwritingData.java
 src/main/java/model/CreateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution.java
 src/main/java/model/CreateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType.java
 src/main/java/model/CreateIdentityRequestEntity.java
-src/main/java/model/CreateIdentityRequestEntityBusinessAddress.java
-src/main/java/model/CreateIdentityRequestEntityDob.java
-src/main/java/model/CreateIdentityRequestEntityIncorporationDate.java
 src/main/java/model/CreateIdentityRequestEntityPersonalAddress.java
 src/main/java/model/CreateInstrumentUpdateRequest.java
 src/main/java/model/CreateMerchantUnderwritingRequest.java
@@ -174,6 +172,7 @@ src/main/java/model/FeesList.java
 src/main/java/model/FeesListEmbedded.java
 src/main/java/model/FilesList.java
 src/main/java/model/FilesListEmbedded.java
+src/main/java/model/GetDeviceQueryParams.java
 src/main/java/model/IdentitiesList.java
 src/main/java/model/IdentitiesListEmbedded.java
 src/main/java/model/Identity.java
@@ -310,6 +309,7 @@ src/main/java/model/TransfersList.java
 src/main/java/model/TransfersListEmbedded.java
 src/main/java/model/UpdateApplicationProfileRequest.java
 src/main/java/model/UpdateAuthorizationRequest.java
+src/main/java/model/UpdateDeviceRequest.java
 src/main/java/model/UpdateFeeRequest.java
 src/main/java/model/UpdateIdentityRequest.java
 src/main/java/model/UpdateIdentityRequestAdditionalUnderwritingData.java
@@ -318,6 +318,8 @@ src/main/java/model/UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistrib
 src/main/java/model/UpdateIdentityRequestEntity.java
 src/main/java/model/UpdateIdentityRequestEntityBusinessAddress.java
 src/main/java/model/UpdateIdentityRequestEntityDob.java
+src/main/java/model/UpdateIdentityRequestEntityIncorporationDate.java
+src/main/java/model/UpdateIdentityRequestEntityPersonalAddress.java
 src/main/java/model/UpdateMerchantProfileRequest.java
 src/main/java/model/UpdateMerchantRequest.java
 src/main/java/model/UpdatePaymentInstrumentRequest.java

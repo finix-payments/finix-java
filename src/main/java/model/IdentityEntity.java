@@ -50,83 +50,63 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * The underwriting details required to verify the &#x60;Identity&#x60; of the &#x60;Merchant&#x60;.
+ * The underwriting details required to verify the &#x60;Identity&#x60;.
  */
-@ApiModel(description = "The underwriting details required to verify the `Identity` of the `Merchant`.")
+@ApiModel(description = "The underwriting details required to verify the `Identity`.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IdentityEntity {
-  public static final String SERIALIZED_NAME_TITLE = "title";
-  @SerializedName(SERIALIZED_NAME_TITLE)
-  private String title;
+  public static final String SERIALIZED_NAME_AMEX_MID = "amex_mid";
+  @SerializedName(SERIALIZED_NAME_AMEX_MID)
+  private Long amexMid;
 
-  public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
-  @SerializedName(SERIALIZED_NAME_FIRST_NAME)
-  private String firstName;
-
-  public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
-  @SerializedName(SERIALIZED_NAME_LAST_NAME)
-  private String lastName;
-
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
-  private String email;
-
-  public static final String SERIALIZED_NAME_BUSINESS_NAME = "business_name";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_NAME)
-  private String businessName;
-
-  public static final String SERIALIZED_NAME_BUSINESS_TYPE = "business_type";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_TYPE)
-  private String businessType;
-
-  public static final String SERIALIZED_NAME_DOING_BUSINESS_AS = "doing_business_as";
-  @SerializedName(SERIALIZED_NAME_DOING_BUSINESS_AS)
-  private String doingBusinessAs;
-
-  public static final String SERIALIZED_NAME_PHONE = "phone";
-  @SerializedName(SERIALIZED_NAME_PHONE)
-  private String phone;
-
-  public static final String SERIALIZED_NAME_BUSINESS_PHONE = "business_phone";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_PHONE)
-  private String businessPhone;
-
-  public static final String SERIALIZED_NAME_PERSONAL_ADDRESS = "personal_address";
-  @SerializedName(SERIALIZED_NAME_PERSONAL_ADDRESS)
-  private IdentityEntityPersonalAddress personalAddress;
+  public static final String SERIALIZED_NAME_ANNUAL_CARD_VOLUME = "annual_card_volume";
+  @SerializedName(SERIALIZED_NAME_ANNUAL_CARD_VOLUME)
+  private Long annualCardVolume;
 
   public static final String SERIALIZED_NAME_BUSINESS_ADDRESS = "business_address";
   @SerializedName(SERIALIZED_NAME_BUSINESS_ADDRESS)
   private IdentityEntityBusinessAddress businessAddress;
 
-  public static final String SERIALIZED_NAME_MCC = "mcc";
-  @SerializedName(SERIALIZED_NAME_MCC)
-  private String mcc;
+  public static final String SERIALIZED_NAME_BUSINESS_NAME = "business_name";
+  @SerializedName(SERIALIZED_NAME_BUSINESS_NAME)
+  private String businessName;
 
-  public static final String SERIALIZED_NAME_DOB = "dob";
-  @SerializedName(SERIALIZED_NAME_DOB)
-  private IdentityEntityDob dob;
+  public static final String SERIALIZED_NAME_BUSINESS_PHONE = "business_phone";
+  @SerializedName(SERIALIZED_NAME_BUSINESS_PHONE)
+  private String businessPhone;
 
-  public static final String SERIALIZED_NAME_MAX_TRANSACTION_AMOUNT = "max_transaction_amount";
-  @SerializedName(SERIALIZED_NAME_MAX_TRANSACTION_AMOUNT)
-  private Long maxTransactionAmount;
+  public static final String SERIALIZED_NAME_BUSINESS_TAX_ID_PROVIDED = "business_tax_id_provided";
+  @SerializedName(SERIALIZED_NAME_BUSINESS_TAX_ID_PROVIDED)
+  private Boolean businessTaxIdProvided;
 
-  public static final String SERIALIZED_NAME_AMEX_MID = "amex_mid";
-  @SerializedName(SERIALIZED_NAME_AMEX_MID)
-  private Long amexMid;
+  public static final String SERIALIZED_NAME_BUSINESS_TYPE = "business_type";
+  @SerializedName(SERIALIZED_NAME_BUSINESS_TYPE)
+  private String businessType;
+
+  public static final String SERIALIZED_NAME_DEFAULT_STATEMENT_DESCRIPTOR = "default_statement_descriptor";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_STATEMENT_DESCRIPTOR)
+  private String defaultStatementDescriptor;
 
   public static final String SERIALIZED_NAME_DISCOVER_MID = "discover_mid";
   @SerializedName(SERIALIZED_NAME_DISCOVER_MID)
   private Long discoverMid;
 
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
-  private String url;
+  public static final String SERIALIZED_NAME_DOB = "dob";
+  @SerializedName(SERIALIZED_NAME_DOB)
+  private IdentityEntityDob dob;
 
-  public static final String SERIALIZED_NAME_ANNUAL_CARD_VOLUME = "annual_card_volume";
-  @SerializedName(SERIALIZED_NAME_ANNUAL_CARD_VOLUME)
-  private Long annualCardVolume;
+  public static final String SERIALIZED_NAME_DOING_BUSINESS_AS = "doing_business_as";
+  @SerializedName(SERIALIZED_NAME_DOING_BUSINESS_AS)
+  private String doingBusinessAs;
+
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
+  private String email;
+
+  public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
+  @SerializedName(SERIALIZED_NAME_FIRST_NAME)
+  private String firstName;
 
   public static final String SERIALIZED_NAME_HAS_ACCEPTED_CREDIT_CARDS_PREVIOUSLY = "has_accepted_credit_cards_previously";
   @SerializedName(SERIALIZED_NAME_HAS_ACCEPTED_CREDIT_CARDS_PREVIOUSLY)
@@ -136,13 +116,17 @@ public class IdentityEntity {
   @SerializedName(SERIALIZED_NAME_INCORPORATION_DATE)
   private IdentityEntityIncorporationDate incorporationDate;
 
-  public static final String SERIALIZED_NAME_PRINCIPAL_PERCENTAGE_OWNERSHIP = "principal_percentage_ownership";
-  @SerializedName(SERIALIZED_NAME_PRINCIPAL_PERCENTAGE_OWNERSHIP)
-  private Long principalPercentageOwnership;
+  public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
+  @SerializedName(SERIALIZED_NAME_LAST_NAME)
+  private String lastName;
 
-  public static final String SERIALIZED_NAME_SHORT_BUSINESS_NAME = "short_business_name";
-  @SerializedName(SERIALIZED_NAME_SHORT_BUSINESS_NAME)
-  private String shortBusinessName;
+  public static final String SERIALIZED_NAME_MAX_TRANSACTION_AMOUNT = "max_transaction_amount";
+  @SerializedName(SERIALIZED_NAME_MAX_TRANSACTION_AMOUNT)
+  private Long maxTransactionAmount;
+
+  public static final String SERIALIZED_NAME_MCC = "mcc";
+  @SerializedName(SERIALIZED_NAME_MCC)
+  private String mcc;
 
   /**
    * Values can be either: &lt;ul&gt;&lt;li&gt;&lt;strong&gt;PUBLIC&lt;/strong&gt; to indicate a publicly-traded company.&lt;li&gt;&lt;strong&gt;PRIVATE&lt;/strong&gt; for privately-held businesses.
@@ -219,6 +203,22 @@ public class IdentityEntity {
   @SerializedName(SERIALIZED_NAME_OWNERSHIP_TYPE)
   private OwnershipTypeEnum ownershipType;
 
+  public static final String SERIALIZED_NAME_PERSONAL_ADDRESS = "personal_address";
+  @SerializedName(SERIALIZED_NAME_PERSONAL_ADDRESS)
+  private IdentityEntityPersonalAddress personalAddress;
+
+  public static final String SERIALIZED_NAME_PHONE = "phone";
+  @SerializedName(SERIALIZED_NAME_PHONE)
+  private String phone;
+
+  public static final String SERIALIZED_NAME_PRINCIPAL_PERCENTAGE_OWNERSHIP = "principal_percentage_ownership";
+  @SerializedName(SERIALIZED_NAME_PRINCIPAL_PERCENTAGE_OWNERSHIP)
+  private Long principalPercentageOwnership;
+
+  public static final String SERIALIZED_NAME_SHORT_BUSINESS_NAME = "short_business_name";
+  @SerializedName(SERIALIZED_NAME_SHORT_BUSINESS_NAME)
+  private String shortBusinessName;
+
   public static final String SERIALIZED_NAME_TAX_AUTHORITY = "tax_authority";
   @SerializedName(SERIALIZED_NAME_TAX_AUTHORITY)
   private String taxAuthority;
@@ -227,244 +227,60 @@ public class IdentityEntity {
   @SerializedName(SERIALIZED_NAME_TAX_ID_PROVIDED)
   private Boolean taxIdProvided;
 
-  public static final String SERIALIZED_NAME_BUSINESS_TAX_ID_PROVIDED = "business_tax_id_provided";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_TAX_ID_PROVIDED)
-  private Boolean businessTaxIdProvided;
+  public static final String SERIALIZED_NAME_TITLE = "title";
+  @SerializedName(SERIALIZED_NAME_TITLE)
+  private String title;
 
-  public static final String SERIALIZED_NAME_DEFAULT_STATEMENT_DESCRIPTOR = "default_statement_descriptor";
-  @SerializedName(SERIALIZED_NAME_DEFAULT_STATEMENT_DESCRIPTOR)
-  private String defaultStatementDescriptor;
+  public static final String SERIALIZED_NAME_URL = "url";
+  @SerializedName(SERIALIZED_NAME_URL)
+  private String url;
 
   public IdentityEntity() { 
   }
 
-  public IdentityEntity title(String title) {
+  public IdentityEntity amexMid(Long amexMid) {
     
-    this.title = title;
+    this.amexMid = amexMid;
     return this;
   }
 
    /**
-   * The corporate title of the control owner (e.g. Chief Executive Officer, CFO, etc. Max 60 characters).
-   * @return title
+   * Assigned amexMid value. If a value is passed, it must be 10 or 11 digits.
+   * @return amexMid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The corporate title of the control owner (e.g. Chief Executive Officer, CFO, etc. Max 60 characters).")
+  @ApiModelProperty(value = "Assigned amexMid value. If a value is passed, it must be 10 or 11 digits.")
 
-  public String getTitle() {
-    return title;
+  public Long getAmexMid() {
+    return amexMid;
   }
 
 
-  public void setTitle(String title) {
-    this.title = title;
+  public void setAmexMid(Long amexMid) {
+    this.amexMid = amexMid;
   }
 
 
-  public IdentityEntity firstName(String firstName) {
+  public IdentityEntity annualCardVolume(Long annualCardVolume) {
     
-    this.firstName = firstName;
+    this.annualCardVolume = annualCardVolume;
     return this;
   }
 
    /**
-   * The legal first name of the merchant&#39;s control owner (max 20 characters).
-   * @return firstName
+   * The annual credit card sales (in cents) expected to be processed by this merchant (max 19 characters).
+   * @return annualCardVolume
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The legal first name of the merchant's control owner (max 20 characters).")
+  @ApiModelProperty(value = "The annual credit card sales (in cents) expected to be processed by this merchant (max 19 characters).")
 
-  public String getFirstName() {
-    return firstName;
+  public Long getAnnualCardVolume() {
+    return annualCardVolume;
   }
 
 
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
-  }
-
-
-  public IdentityEntity lastName(String lastName) {
-    
-    this.lastName = lastName;
-    return this;
-  }
-
-   /**
-   * The legal last name of the merchant&#39;s control owner (max 20 characters).
-   * @return lastName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The legal last name of the merchant's control owner (max 20 characters).")
-
-  public String getLastName() {
-    return lastName;
-  }
-
-
-  public void setLastName(String lastName) {
-    this.lastName = lastName;
-  }
-
-
-  public IdentityEntity email(String email) {
-    
-    this.email = email;
-    return this;
-  }
-
-   /**
-   * The email address of the principal control owner where they can be reached (max 100 characters).
-   * @return email
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The email address of the principal control owner where they can be reached (max 100 characters).")
-
-  public String getEmail() {
-    return email;
-  }
-
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-
-  public IdentityEntity businessName(String businessName) {
-    
-    this.businessName = businessName;
-    return this;
-  }
-
-   /**
-   * The merchant&#39;s legal business name (max 120 characters).&lt;ul&gt;&lt;li&gt;If &lt;strong&gt;INDIVIDUAL_SOLE_PROPRIETORSHIP&lt;/strong&gt;, pass the owner&#39;s legal first name, last name and middle initial.
-   * @return businessName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The merchant's legal business name (max 120 characters).<ul><li>If <strong>INDIVIDUAL_SOLE_PROPRIETORSHIP</strong>, pass the owner's legal first name, last name and middle initial.")
-
-  public String getBusinessName() {
-    return businessName;
-  }
-
-
-  public void setBusinessName(String businessName) {
-    this.businessName = businessName;
-  }
-
-
-  public IdentityEntity businessType(String businessType) {
-    
-    this.businessType = businessType;
-    return this;
-  }
-
-   /**
-   * Include the value that best applies to the merchant.
-   * @return businessType
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Include the value that best applies to the merchant.")
-
-  public String getBusinessType() {
-    return businessType;
-  }
-
-
-  public void setBusinessType(String businessType) {
-    this.businessType = businessType;
-  }
-
-
-  public IdentityEntity doingBusinessAs(String doingBusinessAs) {
-    
-    this.doingBusinessAs = doingBusinessAs;
-    return this;
-  }
-
-   /**
-   * Alternate names of the business. If there are no other names, pass the same value used for &#x60;business_name&#x60; (max 60 characters).
-   * @return doingBusinessAs
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Alternate names of the business. If there are no other names, pass the same value used for `business_name` (max 60 characters).")
-
-  public String getDoingBusinessAs() {
-    return doingBusinessAs;
-  }
-
-
-  public void setDoingBusinessAs(String doingBusinessAs) {
-    this.doingBusinessAs = doingBusinessAs;
-  }
-
-
-  public IdentityEntity phone(String phone) {
-    
-    this.phone = phone;
-    return this;
-  }
-
-   /**
-   * The principal control owner&#39;s phone number (max 10 characters).
-   * @return phone
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The principal control owner's phone number (max 10 characters).")
-
-  public String getPhone() {
-    return phone;
-  }
-
-
-  public void setPhone(String phone) {
-    this.phone = phone;
-  }
-
-
-  public IdentityEntity businessPhone(String businessPhone) {
-    
-    this.businessPhone = businessPhone;
-    return this;
-  }
-
-   /**
-   * Customer service phone number where the merchant can be reached (max 10 characters).
-   * @return businessPhone
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Customer service phone number where the merchant can be reached (max 10 characters).")
-
-  public String getBusinessPhone() {
-    return businessPhone;
-  }
-
-
-  public void setBusinessPhone(String businessPhone) {
-    this.businessPhone = businessPhone;
-  }
-
-
-  public IdentityEntity personalAddress(IdentityEntityPersonalAddress personalAddress) {
-    
-    this.personalAddress = personalAddress;
-    return this;
-  }
-
-   /**
-   * Get personalAddress
-   * @return personalAddress
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public IdentityEntityPersonalAddress getPersonalAddress() {
-    return personalAddress;
-  }
-
-
-  public void setPersonalAddress(IdentityEntityPersonalAddress personalAddress) {
-    this.personalAddress = personalAddress;
+  public void setAnnualCardVolume(Long annualCardVolume) {
+    this.annualCardVolume = annualCardVolume;
   }
 
 
@@ -491,95 +307,118 @@ public class IdentityEntity {
   }
 
 
-  public IdentityEntity mcc(String mcc) {
+  public IdentityEntity businessName(String businessName) {
     
-    this.mcc = mcc;
+    this.businessName = businessName;
     return this;
   }
 
    /**
-   * The Merchant Category Code ([MCC](http://www.dm.usda.gov/procurement/card/card\\_x/mcc.pdf)) that this merchant will be classified under.
-   * @return mcc
+   * The merchant&#39;s legal business name (max 120 characters).&lt;ul&gt;&lt;li&gt;If &lt;strong&gt;INDIVIDUAL_SOLE_PROPRIETORSHIP&lt;/strong&gt;, pass the owner&#39;s legal first name, last name and middle initial.
+   * @return businessName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The Merchant Category Code ([MCC](http://www.dm.usda.gov/procurement/card/card\\_x/mcc.pdf)) that this merchant will be classified under.")
+  @ApiModelProperty(value = "The merchant's legal business name (max 120 characters).<ul><li>If <strong>INDIVIDUAL_SOLE_PROPRIETORSHIP</strong>, pass the owner's legal first name, last name and middle initial.")
 
-  public String getMcc() {
-    return mcc;
+  public String getBusinessName() {
+    return businessName;
   }
 
 
-  public void setMcc(String mcc) {
-    this.mcc = mcc;
+  public void setBusinessName(String businessName) {
+    this.businessName = businessName;
   }
 
 
-  public IdentityEntity dob(IdentityEntityDob dob) {
+  public IdentityEntity businessPhone(String businessPhone) {
     
-    this.dob = dob;
+    this.businessPhone = businessPhone;
     return this;
   }
 
    /**
-   * Get dob
-   * @return dob
+   * Customer service phone number where the merchant can be reached (max 10 characters).
+   * @return businessPhone
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Customer service phone number where the merchant can be reached (max 10 characters).")
 
-  public IdentityEntityDob getDob() {
-    return dob;
+  public String getBusinessPhone() {
+    return businessPhone;
   }
 
 
-  public void setDob(IdentityEntityDob dob) {
-    this.dob = dob;
+  public void setBusinessPhone(String businessPhone) {
+    this.businessPhone = businessPhone;
   }
 
 
-  public IdentityEntity maxTransactionAmount(Long maxTransactionAmount) {
+  public IdentityEntity businessTaxIdProvided(Boolean businessTaxIdProvided) {
     
-    this.maxTransactionAmount = maxTransactionAmount;
+    this.businessTaxIdProvided = businessTaxIdProvided;
     return this;
   }
 
    /**
-   * The maximum amount (in cents) that can be charged for a single transaction (max 12 characters).
-   * @return maxTransactionAmount
+   * Details if the &#x60;business_tax_id&#x60; was provided.
+   * @return businessTaxIdProvided
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The maximum amount (in cents) that can be charged for a single transaction (max 12 characters).")
+  @ApiModelProperty(value = "Details if the `business_tax_id` was provided.")
 
-  public Long getMaxTransactionAmount() {
-    return maxTransactionAmount;
+  public Boolean getBusinessTaxIdProvided() {
+    return businessTaxIdProvided;
   }
 
 
-  public void setMaxTransactionAmount(Long maxTransactionAmount) {
-    this.maxTransactionAmount = maxTransactionAmount;
+  public void setBusinessTaxIdProvided(Boolean businessTaxIdProvided) {
+    this.businessTaxIdProvided = businessTaxIdProvided;
   }
 
 
-  public IdentityEntity amexMid(Long amexMid) {
+  public IdentityEntity businessType(String businessType) {
     
-    this.amexMid = amexMid;
+    this.businessType = businessType;
     return this;
   }
 
    /**
-   * Assigned amexMid value. If a value is passed, it must be 10 or 11 digits.
-   * @return amexMid
+   * Include the value that best applies to the merchant.
+   * @return businessType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Assigned amexMid value. If a value is passed, it must be 10 or 11 digits.")
+  @ApiModelProperty(value = "Include the value that best applies to the merchant.")
 
-  public Long getAmexMid() {
-    return amexMid;
+  public String getBusinessType() {
+    return businessType;
   }
 
 
-  public void setAmexMid(Long amexMid) {
-    this.amexMid = amexMid;
+  public void setBusinessType(String businessType) {
+    this.businessType = businessType;
+  }
+
+
+  public IdentityEntity defaultStatementDescriptor(String defaultStatementDescriptor) {
+    
+    this.defaultStatementDescriptor = defaultStatementDescriptor;
+    return this;
+  }
+
+   /**
+   * The description of the merchant that appears on the buyer&#39;s bank or card statement.
+   * @return defaultStatementDescriptor
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The description of the merchant that appears on the buyer's bank or card statement.")
+
+  public String getDefaultStatementDescriptor() {
+    return defaultStatementDescriptor;
+  }
+
+
+  public void setDefaultStatementDescriptor(String defaultStatementDescriptor) {
+    this.defaultStatementDescriptor = defaultStatementDescriptor;
   }
 
 
@@ -606,49 +445,95 @@ public class IdentityEntity {
   }
 
 
-  public IdentityEntity url(String url) {
+  public IdentityEntity dob(IdentityEntityDob dob) {
     
-    this.url = url;
+    this.dob = dob;
     return this;
   }
 
    /**
-   * The URL of the merchant&#39;s public website.
-   * @return url
+   * Get dob
+   * @return dob
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The URL of the merchant's public website.")
+  @ApiModelProperty(value = "")
 
-  public String getUrl() {
-    return url;
+  public IdentityEntityDob getDob() {
+    return dob;
   }
 
 
-  public void setUrl(String url) {
-    this.url = url;
+  public void setDob(IdentityEntityDob dob) {
+    this.dob = dob;
   }
 
 
-  public IdentityEntity annualCardVolume(Long annualCardVolume) {
+  public IdentityEntity doingBusinessAs(String doingBusinessAs) {
     
-    this.annualCardVolume = annualCardVolume;
+    this.doingBusinessAs = doingBusinessAs;
     return this;
   }
 
    /**
-   * The annual credit card sales (in cents) expected to be processed by this merchant (max 19 characters).
-   * @return annualCardVolume
+   * Alternate names of the business. If there are no other names, pass the same value used for &#x60;business_name&#x60; (max 60 characters).
+   * @return doingBusinessAs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The annual credit card sales (in cents) expected to be processed by this merchant (max 19 characters).")
+  @ApiModelProperty(value = "Alternate names of the business. If there are no other names, pass the same value used for `business_name` (max 60 characters).")
 
-  public Long getAnnualCardVolume() {
-    return annualCardVolume;
+  public String getDoingBusinessAs() {
+    return doingBusinessAs;
   }
 
 
-  public void setAnnualCardVolume(Long annualCardVolume) {
-    this.annualCardVolume = annualCardVolume;
+  public void setDoingBusinessAs(String doingBusinessAs) {
+    this.doingBusinessAs = doingBusinessAs;
+  }
+
+
+  public IdentityEntity email(String email) {
+    
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * The email address of the principal control owner where they can be reached (max 100 characters).
+   * @return email
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The email address of the principal control owner where they can be reached (max 100 characters).")
+
+  public String getEmail() {
+    return email;
+  }
+
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+
+  public IdentityEntity firstName(String firstName) {
+    
+    this.firstName = firstName;
+    return this;
+  }
+
+   /**
+   * The legal first name of the merchant&#39;s control owner (max 20 characters).
+   * @return firstName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The legal first name of the merchant's control owner (max 20 characters).")
+
+  public String getFirstName() {
+    return firstName;
+  }
+
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
   }
 
 
@@ -698,6 +583,144 @@ public class IdentityEntity {
   }
 
 
+  public IdentityEntity lastName(String lastName) {
+    
+    this.lastName = lastName;
+    return this;
+  }
+
+   /**
+   * The legal last name of the merchant&#39;s control owner (max 20 characters).
+   * @return lastName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The legal last name of the merchant's control owner (max 20 characters).")
+
+  public String getLastName() {
+    return lastName;
+  }
+
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
+
+  public IdentityEntity maxTransactionAmount(Long maxTransactionAmount) {
+    
+    this.maxTransactionAmount = maxTransactionAmount;
+    return this;
+  }
+
+   /**
+   * The maximum amount (in cents) that can be charged for a single transaction (max 12 characters).
+   * @return maxTransactionAmount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The maximum amount (in cents) that can be charged for a single transaction (max 12 characters).")
+
+  public Long getMaxTransactionAmount() {
+    return maxTransactionAmount;
+  }
+
+
+  public void setMaxTransactionAmount(Long maxTransactionAmount) {
+    this.maxTransactionAmount = maxTransactionAmount;
+  }
+
+
+  public IdentityEntity mcc(String mcc) {
+    
+    this.mcc = mcc;
+    return this;
+  }
+
+   /**
+   * The Merchant Category Code ([MCC](http://www.dm.usda.gov/procurement/card/card\\_x/mcc.pdf)) that this merchant will be classified under.
+   * @return mcc
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The Merchant Category Code ([MCC](http://www.dm.usda.gov/procurement/card/card\\_x/mcc.pdf)) that this merchant will be classified under.")
+
+  public String getMcc() {
+    return mcc;
+  }
+
+
+  public void setMcc(String mcc) {
+    this.mcc = mcc;
+  }
+
+
+  public IdentityEntity ownershipType(OwnershipTypeEnum ownershipType) {
+    
+    this.ownershipType = ownershipType;
+    return this;
+  }
+
+   /**
+   * Values can be either: &lt;ul&gt;&lt;li&gt;&lt;strong&gt;PUBLIC&lt;/strong&gt; to indicate a publicly-traded company.&lt;li&gt;&lt;strong&gt;PRIVATE&lt;/strong&gt; for privately-held businesses.
+   * @return ownershipType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Values can be either: <ul><li><strong>PUBLIC</strong> to indicate a publicly-traded company.<li><strong>PRIVATE</strong> for privately-held businesses.")
+
+  public OwnershipTypeEnum getOwnershipType() {
+    return ownershipType;
+  }
+
+
+  public void setOwnershipType(OwnershipTypeEnum ownershipType) {
+    this.ownershipType = ownershipType;
+  }
+
+
+  public IdentityEntity personalAddress(IdentityEntityPersonalAddress personalAddress) {
+    
+    this.personalAddress = personalAddress;
+    return this;
+  }
+
+   /**
+   * Get personalAddress
+   * @return personalAddress
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public IdentityEntityPersonalAddress getPersonalAddress() {
+    return personalAddress;
+  }
+
+
+  public void setPersonalAddress(IdentityEntityPersonalAddress personalAddress) {
+    this.personalAddress = personalAddress;
+  }
+
+
+  public IdentityEntity phone(String phone) {
+    
+    this.phone = phone;
+    return this;
+  }
+
+   /**
+   * The principal control owner&#39;s phone number (max 10 characters).
+   * @return phone
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The principal control owner's phone number (max 10 characters).")
+
+  public String getPhone() {
+    return phone;
+  }
+
+
+  public void setPhone(String phone) {
+    this.phone = phone;
+  }
+
+
   public IdentityEntity principalPercentageOwnership(Long principalPercentageOwnership) {
     
     this.principalPercentageOwnership = principalPercentageOwnership;
@@ -741,29 +764,6 @@ public class IdentityEntity {
 
   public void setShortBusinessName(String shortBusinessName) {
     this.shortBusinessName = shortBusinessName;
-  }
-
-
-  public IdentityEntity ownershipType(OwnershipTypeEnum ownershipType) {
-    
-    this.ownershipType = ownershipType;
-    return this;
-  }
-
-   /**
-   * Values can be either: &lt;ul&gt;&lt;li&gt;&lt;strong&gt;PUBLIC&lt;/strong&gt; to indicate a publicly-traded company.&lt;li&gt;&lt;strong&gt;PRIVATE&lt;/strong&gt; for privately-held businesses.
-   * @return ownershipType
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Values can be either: <ul><li><strong>PUBLIC</strong> to indicate a publicly-traded company.<li><strong>PRIVATE</strong> for privately-held businesses.")
-
-  public OwnershipTypeEnum getOwnershipType() {
-    return ownershipType;
-  }
-
-
-  public void setOwnershipType(OwnershipTypeEnum ownershipType) {
-    this.ownershipType = ownershipType;
   }
 
 
@@ -813,49 +813,49 @@ public class IdentityEntity {
   }
 
 
-  public IdentityEntity businessTaxIdProvided(Boolean businessTaxIdProvided) {
+  public IdentityEntity title(String title) {
     
-    this.businessTaxIdProvided = businessTaxIdProvided;
+    this.title = title;
     return this;
   }
 
    /**
-   * Details if the &#x60;business_tax_id&#x60; was provided.
-   * @return businessTaxIdProvided
+   * The corporate title of the control owner (e.g. Chief Executive Officer, CFO, etc. Max 60 characters).
+   * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Details if the `business_tax_id` was provided.")
+  @ApiModelProperty(value = "The corporate title of the control owner (e.g. Chief Executive Officer, CFO, etc. Max 60 characters).")
 
-  public Boolean getBusinessTaxIdProvided() {
-    return businessTaxIdProvided;
+  public String getTitle() {
+    return title;
   }
 
 
-  public void setBusinessTaxIdProvided(Boolean businessTaxIdProvided) {
-    this.businessTaxIdProvided = businessTaxIdProvided;
+  public void setTitle(String title) {
+    this.title = title;
   }
 
 
-  public IdentityEntity defaultStatementDescriptor(String defaultStatementDescriptor) {
+  public IdentityEntity url(String url) {
     
-    this.defaultStatementDescriptor = defaultStatementDescriptor;
+    this.url = url;
     return this;
   }
 
    /**
-   * The description of the merchant that appears on the buyer&#39;s bank or card statement.
-   * @return defaultStatementDescriptor
+   * The URL of the merchant&#39;s public website.
+   * @return url
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The description of the merchant that appears on the buyer's bank or card statement.")
+  @ApiModelProperty(value = "The URL of the merchant's public website.")
 
-  public String getDefaultStatementDescriptor() {
-    return defaultStatementDescriptor;
+  public String getUrl() {
+    return url;
   }
 
 
-  public void setDefaultStatementDescriptor(String defaultStatementDescriptor) {
-    this.defaultStatementDescriptor = defaultStatementDescriptor;
+  public void setUrl(String url) {
+    this.url = url;
   }
 
 
@@ -869,33 +869,33 @@ public class IdentityEntity {
       return false;
     }
     IdentityEntity identityEntity = (IdentityEntity) o;
-    return Objects.equals(this.title, identityEntity.title) &&
-        Objects.equals(this.firstName, identityEntity.firstName) &&
-        Objects.equals(this.lastName, identityEntity.lastName) &&
-        Objects.equals(this.email, identityEntity.email) &&
-        Objects.equals(this.businessName, identityEntity.businessName) &&
-        Objects.equals(this.businessType, identityEntity.businessType) &&
-        Objects.equals(this.doingBusinessAs, identityEntity.doingBusinessAs) &&
-        Objects.equals(this.phone, identityEntity.phone) &&
-        Objects.equals(this.businessPhone, identityEntity.businessPhone) &&
-        Objects.equals(this.personalAddress, identityEntity.personalAddress) &&
-        Objects.equals(this.businessAddress, identityEntity.businessAddress) &&
-        Objects.equals(this.mcc, identityEntity.mcc) &&
-        Objects.equals(this.dob, identityEntity.dob) &&
-        Objects.equals(this.maxTransactionAmount, identityEntity.maxTransactionAmount) &&
-        Objects.equals(this.amexMid, identityEntity.amexMid) &&
-        Objects.equals(this.discoverMid, identityEntity.discoverMid) &&
-        Objects.equals(this.url, identityEntity.url) &&
+    return Objects.equals(this.amexMid, identityEntity.amexMid) &&
         Objects.equals(this.annualCardVolume, identityEntity.annualCardVolume) &&
+        Objects.equals(this.businessAddress, identityEntity.businessAddress) &&
+        Objects.equals(this.businessName, identityEntity.businessName) &&
+        Objects.equals(this.businessPhone, identityEntity.businessPhone) &&
+        Objects.equals(this.businessTaxIdProvided, identityEntity.businessTaxIdProvided) &&
+        Objects.equals(this.businessType, identityEntity.businessType) &&
+        Objects.equals(this.defaultStatementDescriptor, identityEntity.defaultStatementDescriptor) &&
+        Objects.equals(this.discoverMid, identityEntity.discoverMid) &&
+        Objects.equals(this.dob, identityEntity.dob) &&
+        Objects.equals(this.doingBusinessAs, identityEntity.doingBusinessAs) &&
+        Objects.equals(this.email, identityEntity.email) &&
+        Objects.equals(this.firstName, identityEntity.firstName) &&
         Objects.equals(this.hasAcceptedCreditCardsPreviously, identityEntity.hasAcceptedCreditCardsPreviously) &&
         Objects.equals(this.incorporationDate, identityEntity.incorporationDate) &&
+        Objects.equals(this.lastName, identityEntity.lastName) &&
+        Objects.equals(this.maxTransactionAmount, identityEntity.maxTransactionAmount) &&
+        Objects.equals(this.mcc, identityEntity.mcc) &&
+        Objects.equals(this.ownershipType, identityEntity.ownershipType) &&
+        Objects.equals(this.personalAddress, identityEntity.personalAddress) &&
+        Objects.equals(this.phone, identityEntity.phone) &&
         Objects.equals(this.principalPercentageOwnership, identityEntity.principalPercentageOwnership) &&
         Objects.equals(this.shortBusinessName, identityEntity.shortBusinessName) &&
-        Objects.equals(this.ownershipType, identityEntity.ownershipType) &&
         Objects.equals(this.taxAuthority, identityEntity.taxAuthority) &&
         Objects.equals(this.taxIdProvided, identityEntity.taxIdProvided) &&
-        Objects.equals(this.businessTaxIdProvided, identityEntity.businessTaxIdProvided) &&
-        Objects.equals(this.defaultStatementDescriptor, identityEntity.defaultStatementDescriptor);
+        Objects.equals(this.title, identityEntity.title) &&
+        Objects.equals(this.url, identityEntity.url);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -904,7 +904,7 @@ public class IdentityEntity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, firstName, lastName, email, businessName, businessType, doingBusinessAs, phone, businessPhone, personalAddress, businessAddress, mcc, dob, maxTransactionAmount, amexMid, discoverMid, url, annualCardVolume, hasAcceptedCreditCardsPreviously, incorporationDate, principalPercentageOwnership, shortBusinessName, ownershipType, taxAuthority, taxIdProvided, businessTaxIdProvided, defaultStatementDescriptor);
+    return Objects.hash(amexMid, annualCardVolume, businessAddress, businessName, businessPhone, businessTaxIdProvided, businessType, defaultStatementDescriptor, discoverMid, dob, doingBusinessAs, email, firstName, hasAcceptedCreditCardsPreviously, incorporationDate, lastName, maxTransactionAmount, mcc, ownershipType, personalAddress, phone, principalPercentageOwnership, shortBusinessName, taxAuthority, taxIdProvided, title, url);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -918,33 +918,33 @@ public class IdentityEntity {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IdentityEntity {\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
-    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    businessName: ").append(toIndentedString(businessName)).append("\n");
-    sb.append("    businessType: ").append(toIndentedString(businessType)).append("\n");
-    sb.append("    doingBusinessAs: ").append(toIndentedString(doingBusinessAs)).append("\n");
-    sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
-    sb.append("    businessPhone: ").append(toIndentedString(businessPhone)).append("\n");
-    sb.append("    personalAddress: ").append(toIndentedString(personalAddress)).append("\n");
-    sb.append("    businessAddress: ").append(toIndentedString(businessAddress)).append("\n");
-    sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
-    sb.append("    dob: ").append(toIndentedString(dob)).append("\n");
-    sb.append("    maxTransactionAmount: ").append(toIndentedString(maxTransactionAmount)).append("\n");
     sb.append("    amexMid: ").append(toIndentedString(amexMid)).append("\n");
-    sb.append("    discoverMid: ").append(toIndentedString(discoverMid)).append("\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    annualCardVolume: ").append(toIndentedString(annualCardVolume)).append("\n");
+    sb.append("    businessAddress: ").append(toIndentedString(businessAddress)).append("\n");
+    sb.append("    businessName: ").append(toIndentedString(businessName)).append("\n");
+    sb.append("    businessPhone: ").append(toIndentedString(businessPhone)).append("\n");
+    sb.append("    businessTaxIdProvided: ").append(toIndentedString(businessTaxIdProvided)).append("\n");
+    sb.append("    businessType: ").append(toIndentedString(businessType)).append("\n");
+    sb.append("    defaultStatementDescriptor: ").append(toIndentedString(defaultStatementDescriptor)).append("\n");
+    sb.append("    discoverMid: ").append(toIndentedString(discoverMid)).append("\n");
+    sb.append("    dob: ").append(toIndentedString(dob)).append("\n");
+    sb.append("    doingBusinessAs: ").append(toIndentedString(doingBusinessAs)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    hasAcceptedCreditCardsPreviously: ").append(toIndentedString(hasAcceptedCreditCardsPreviously)).append("\n");
     sb.append("    incorporationDate: ").append(toIndentedString(incorporationDate)).append("\n");
+    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+    sb.append("    maxTransactionAmount: ").append(toIndentedString(maxTransactionAmount)).append("\n");
+    sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
+    sb.append("    ownershipType: ").append(toIndentedString(ownershipType)).append("\n");
+    sb.append("    personalAddress: ").append(toIndentedString(personalAddress)).append("\n");
+    sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
     sb.append("    principalPercentageOwnership: ").append(toIndentedString(principalPercentageOwnership)).append("\n");
     sb.append("    shortBusinessName: ").append(toIndentedString(shortBusinessName)).append("\n");
-    sb.append("    ownershipType: ").append(toIndentedString(ownershipType)).append("\n");
     sb.append("    taxAuthority: ").append(toIndentedString(taxAuthority)).append("\n");
     sb.append("    taxIdProvided: ").append(toIndentedString(taxIdProvided)).append("\n");
-    sb.append("    businessTaxIdProvided: ").append(toIndentedString(businessTaxIdProvided)).append("\n");
-    sb.append("    defaultStatementDescriptor: ").append(toIndentedString(defaultStatementDescriptor)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -967,33 +967,33 @@ public class IdentityEntity {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("title");
-    openapiFields.add("first_name");
-    openapiFields.add("last_name");
-    openapiFields.add("email");
-    openapiFields.add("business_name");
-    openapiFields.add("business_type");
-    openapiFields.add("doing_business_as");
-    openapiFields.add("phone");
-    openapiFields.add("business_phone");
-    openapiFields.add("personal_address");
-    openapiFields.add("business_address");
-    openapiFields.add("mcc");
-    openapiFields.add("dob");
-    openapiFields.add("max_transaction_amount");
     openapiFields.add("amex_mid");
-    openapiFields.add("discover_mid");
-    openapiFields.add("url");
     openapiFields.add("annual_card_volume");
+    openapiFields.add("business_address");
+    openapiFields.add("business_name");
+    openapiFields.add("business_phone");
+    openapiFields.add("business_tax_id_provided");
+    openapiFields.add("business_type");
+    openapiFields.add("default_statement_descriptor");
+    openapiFields.add("discover_mid");
+    openapiFields.add("dob");
+    openapiFields.add("doing_business_as");
+    openapiFields.add("email");
+    openapiFields.add("first_name");
     openapiFields.add("has_accepted_credit_cards_previously");
     openapiFields.add("incorporation_date");
+    openapiFields.add("last_name");
+    openapiFields.add("max_transaction_amount");
+    openapiFields.add("mcc");
+    openapiFields.add("ownership_type");
+    openapiFields.add("personal_address");
+    openapiFields.add("phone");
     openapiFields.add("principal_percentage_ownership");
     openapiFields.add("short_business_name");
-    openapiFields.add("ownership_type");
     openapiFields.add("tax_authority");
     openapiFields.add("tax_id_provided");
-    openapiFields.add("business_tax_id_provided");
-    openapiFields.add("default_statement_descriptor");
+    openapiFields.add("title");
+    openapiFields.add("url");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1025,38 +1025,26 @@ public class IdentityEntity {
       */
       /**
       * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
+      * ADDED  statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()  && !jsonObj.get("title").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("first_name") != null && !jsonObj.get("first_name").isJsonNull()  && !jsonObj.get("first_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `first_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("first_name").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("last_name") != null && !jsonObj.get("last_name").isJsonNull()  && !jsonObj.get("last_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `last_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_name").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()  && !jsonObj.get("email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
-      }
+      // validate the optional field `business_address`
+     // if (jsonObj.getAsJsonObject("business_address") != null) {
+       //IdentityEntityBusinessAddress.validateJsonObject(jsonObj.getAsJsonObject("business_address"));
+     // }
+
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
       if (jsonObj.get("business_name") != null && !jsonObj.get("business_name").isJsonNull()  && !jsonObj.get("business_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `business_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("business_name").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("business_phone") != null && !jsonObj.get("business_phone").isJsonNull()  && !jsonObj.get("business_phone").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `business_phone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("business_phone").toString()));
       }
       /**
       * EDITED
@@ -1069,47 +1057,8 @@ public class IdentityEntity {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("doing_business_as") != null && !jsonObj.get("doing_business_as").isJsonNull()  && !jsonObj.get("doing_business_as").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `doing_business_as` to be a primitive type in the JSON string but got `%s`", jsonObj.get("doing_business_as").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("phone") != null && !jsonObj.get("phone").isJsonNull()  && !jsonObj.get("phone").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `phone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phone").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("business_phone") != null && !jsonObj.get("business_phone").isJsonNull()  && !jsonObj.get("business_phone").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `business_phone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("business_phone").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED  statement to for inconsistent null behaviour
-      */
-      // validate the optional field `personal_address`
-     // if (jsonObj.getAsJsonObject("personal_address") != null) {
-       //IdentityEntityPersonalAddress.validateJsonObject(jsonObj.getAsJsonObject("personal_address"));
-     // }
-
-      /**
-      * EDITED
-      * ADDED  statement to for inconsistent null behaviour
-      */
-      // validate the optional field `business_address`
-     // if (jsonObj.getAsJsonObject("business_address") != null) {
-       //IdentityEntityBusinessAddress.validateJsonObject(jsonObj.getAsJsonObject("business_address"));
-     // }
-
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("mcc") != null && !jsonObj.get("mcc").isJsonNull()  && !jsonObj.get("mcc").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mcc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mcc").toString()));
+      if (jsonObj.get("default_statement_descriptor") != null && !jsonObj.get("default_statement_descriptor").isJsonNull()  && !jsonObj.get("default_statement_descriptor").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `default_statement_descriptor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("default_statement_descriptor").toString()));
       }
       /**
       * EDITED
@@ -1124,8 +1073,22 @@ public class IdentityEntity {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()  && !jsonObj.get("url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
+      if (jsonObj.get("doing_business_as") != null && !jsonObj.get("doing_business_as").isJsonNull()  && !jsonObj.get("doing_business_as").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `doing_business_as` to be a primitive type in the JSON string but got `%s`", jsonObj.get("doing_business_as").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()  && !jsonObj.get("email").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("first_name") != null && !jsonObj.get("first_name").isJsonNull()  && !jsonObj.get("first_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `first_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("first_name").toString()));
       }
       /**
       * EDITED
@@ -1140,8 +1103,15 @@ public class IdentityEntity {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("short_business_name") != null && !jsonObj.get("short_business_name").isJsonNull()  && !jsonObj.get("short_business_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `short_business_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("short_business_name").toString()));
+      if (jsonObj.get("last_name") != null && !jsonObj.get("last_name").isJsonNull()  && !jsonObj.get("last_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `last_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_name").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("mcc") != null && !jsonObj.get("mcc").isJsonNull()  && !jsonObj.get("mcc").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `mcc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mcc").toString()));
       }
       /**
       * EDITED
@@ -1149,6 +1119,29 @@ public class IdentityEntity {
       */
       if (jsonObj.get("ownership_type") != null && !jsonObj.get("ownership_type").isJsonNull()  && !jsonObj.get("ownership_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ownership_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ownership_type").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED  statement to for inconsistent null behaviour
+      */
+      // validate the optional field `personal_address`
+     // if (jsonObj.getAsJsonObject("personal_address") != null) {
+       //IdentityEntityPersonalAddress.validateJsonObject(jsonObj.getAsJsonObject("personal_address"));
+     // }
+
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("phone") != null && !jsonObj.get("phone").isJsonNull()  && !jsonObj.get("phone").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `phone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phone").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("short_business_name") != null && !jsonObj.get("short_business_name").isJsonNull()  && !jsonObj.get("short_business_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `short_business_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("short_business_name").toString()));
       }
       /**
       * EDITED
@@ -1161,8 +1154,15 @@ public class IdentityEntity {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("default_statement_descriptor") != null && !jsonObj.get("default_statement_descriptor").isJsonNull()  && !jsonObj.get("default_statement_descriptor").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `default_statement_descriptor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("default_statement_descriptor").toString()));
+      if (jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()  && !jsonObj.get("title").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()  && !jsonObj.get("url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
       }
   }
 

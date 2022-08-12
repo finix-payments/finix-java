@@ -9,8 +9,6 @@ info:
 servers:
 - description: Sandbox server to be used for testing and development
   url: https://finix.sandbox-payments-api.com
-- description: Live server to be used for production charges
-  url: https://finix.live-payments-api.com
 security:
 - BasicAuth: []
 tags:
@@ -465,6 +463,7 @@ paths:
                     void_state: UNATTEMPTED
                     expires_at: 2022-02-03T07:37:19.16Z
                     idempotency_id: null
+                    additional_buyer_charges: null
                     failure_code: null
                     failure_message: null
                     _links:
@@ -496,6 +495,7 @@ paths:
                     void_state: UNATTEMPTED
                     expires_at: 2022-02-03T07:37:19.95Z
                     idempotency_id: null
+                    additional_buyer_charges: null
                     failure_code: null
                     failure_message: null
                     _links:
@@ -527,6 +527,7 @@ paths:
                     void_state: UNATTEMPTED
                     expires_at: 2022-02-03T07:37:20.68Z
                     idempotency_id: null
+                    additional_buyer_charges: null
                     failure_code: null
                     failure_message: null
                     _links:
@@ -558,6 +559,7 @@ paths:
                     void_state: UNATTEMPTED
                     expires_at: 2022-02-03T07:37:21.55Z
                     idempotency_id: null
+                    additional_buyer_charges: null
                     failure_code: null
                     failure_message: null
                     _links:
@@ -589,6 +591,7 @@ paths:
                     void_state: PENDING
                     expires_at: 2022-02-03T07:37:28.10Z
                     idempotency_id: null
+                    additional_buyer_charges: null
                     failure_code: null
                     failure_message: null
                     _links:
@@ -637,6 +640,7 @@ paths:
                     void_state: UNATTEMPTED
                     expires_at: 2019-03-18T23:36:42.03Z
                     idempotency_id: null
+                    additional_buyer_charges: null
                     failure_code: null
                     failure_message: null
                     sub_type: API
@@ -678,6 +682,7 @@ paths:
                     is_void: false
                     expires_at: 2019-03-08T03:37:10.10Z
                     idempotency_id: null
+                    additional_buyer_charges: null
                     failure_code: null
                     failure_message: null
                     _links:
@@ -689,6 +694,40 @@ paths:
                         href: https://finix.sandbox-payments-api.com/devices/DVf2H8sh4LZZC52GTUrwCPPf
                       merchant_identity:
                         href: https://finix.sandbox-payments-api.com/identities/IDsbTBawhnLBAVeinRb84vFR
+                Authorization with Buyer Charges:
+                  value:
+                    id: AUnxmW39jBePKqYKwQamC3BR
+                    application: APgPDQrLD52TYvqazjHJJchM
+                    amount: 5200
+                    tags:
+                      test: sale
+                    state: SUCCEEDED
+                    currency: USD
+                    transfer: null
+                    messages: []
+                    raw: null
+                    created_at: 2022-08-01T19:04:00.29Z
+                    updated_at: 2022-08-01T19:04:00.43Z
+                    trace_id: dcb4b954-89b3-4c5e-9b3a-1b8e70e30556
+                    source: PIe2YvpcjvoVJ6PzoRPBK137
+                    merchant_identity: IDuqZpDw28f2KK6YuDk4jNLg
+                    "3ds_redirect_url": null
+                    is_void: false
+                    void_state: UNATTEMPTED
+                    expires_at: 2022-08-08T19:04:00.29Z
+                    idempotency_id: null
+                    additional_buyer_charges:
+                      convenience_amount: 0
+                      rent_surcharge_amount: 200
+                    failure_code: null
+                    failure_message: null
+                    _links:
+                      self:
+                        href: https://finix.sandbox-payments-api.com/authorizations/AUnxmW39jBePKqYKwQamC3BR
+                      application:
+                        href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
+                      merchant_identity:
+                        href: https://finix.sandbox-payments-api.com/identities/IDuqZpDw28f2KK6YuDk4jNLg
               schema:
                 $ref: '#/components/schemas/Authorization'
           description: Single Authorization object
@@ -838,6 +877,7 @@ paths:
                     void_state: UNATTEMPTED
                     expires_at: 2022-02-03T07:37:19.16Z
                     idempotency_id: null
+                    additional_buyer_charges: null
                     failure_code: null
                     failure_message: null
                     _links:
@@ -869,6 +909,7 @@ paths:
                     void_state: UNATTEMPTED
                     expires_at: 2022-02-03T07:37:19.95Z
                     idempotency_id: null
+                    additional_buyer_charges: null
                     failure_code: null
                     failure_message: null
                     _links:
@@ -900,6 +941,7 @@ paths:
                     void_state: UNATTEMPTED
                     expires_at: 2022-02-03T07:37:20.68Z
                     idempotency_id: null
+                    additional_buyer_charges: null
                     failure_code: null
                     failure_message: null
                     _links:
@@ -931,6 +973,7 @@ paths:
                     void_state: UNATTEMPTED
                     expires_at: 2022-02-03T07:37:21.55Z
                     idempotency_id: null
+                    additional_buyer_charges: null
                     failure_code: null
                     failure_message: null
                     _links:
@@ -962,6 +1005,7 @@ paths:
                     void_state: PENDING
                     expires_at: 2022-02-03T07:37:28.10Z
                     idempotency_id: null
+                    additional_buyer_charges: null
                     failure_code: null
                     failure_message: null
                     _links:
@@ -1010,6 +1054,7 @@ paths:
                     void_state: UNATTEMPTED
                     expires_at: 2019-03-18T23:36:42.03Z
                     idempotency_id: null
+                    additional_buyer_charges: null
                     failure_code: null
                     failure_message: null
                     sub_type: API
@@ -1051,6 +1096,7 @@ paths:
                     is_void: false
                     expires_at: 2019-03-08T03:37:10.10Z
                     idempotency_id: null
+                    additional_buyer_charges: null
                     failure_code: null
                     failure_message: null
                     _links:
@@ -1062,6 +1108,40 @@ paths:
                         href: https://finix.sandbox-payments-api.com/devices/DVf2H8sh4LZZC52GTUrwCPPf
                       merchant_identity:
                         href: https://finix.sandbox-payments-api.com/identities/IDsbTBawhnLBAVeinRb84vFR
+                Authorization with Buyer Charges:
+                  value:
+                    id: AUnxmW39jBePKqYKwQamC3BR
+                    application: APgPDQrLD52TYvqazjHJJchM
+                    amount: 5200
+                    tags:
+                      test: sale
+                    state: SUCCEEDED
+                    currency: USD
+                    transfer: null
+                    messages: []
+                    raw: null
+                    created_at: 2022-08-01T19:04:00.29Z
+                    updated_at: 2022-08-01T19:04:00.43Z
+                    trace_id: dcb4b954-89b3-4c5e-9b3a-1b8e70e30556
+                    source: PIe2YvpcjvoVJ6PzoRPBK137
+                    merchant_identity: IDuqZpDw28f2KK6YuDk4jNLg
+                    "3ds_redirect_url": null
+                    is_void: false
+                    void_state: UNATTEMPTED
+                    expires_at: 2022-08-08T19:04:00.29Z
+                    idempotency_id: null
+                    additional_buyer_charges:
+                      convenience_amount: 0
+                      rent_surcharge_amount: 200
+                    failure_code: null
+                    failure_message: null
+                    _links:
+                      self:
+                        href: https://finix.sandbox-payments-api.com/authorizations/AUnxmW39jBePKqYKwQamC3BR
+                      application:
+                        href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
+                      merchant_identity:
+                        href: https://finix.sandbox-payments-api.com/identities/IDuqZpDw28f2KK6YuDk4jNLg
               schema:
                 $ref: '#/components/schemas/Authorization'
           description: Single Authorization object
@@ -1758,6 +1838,14 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Specifies whether the connection information should be included.
+        explode: true
+        in: query
+        name: include_connection
+        required: false
+        schema:
+          type: boolean
+        style: form
       responses:
         "200":
           content:
@@ -1974,6 +2062,7 @@ paths:
       tags:
       - Devices
       x-java-method-name: get
+      x-group-parameters: true
       x-python-method-name: get
       x-accepts: application/hal+json
     put:
@@ -4377,7 +4466,7 @@ paths:
       description: Retrieve the details of a previously created `Identity`.
       operationId: getIdentity
       parameters:
-      - description: ID of the `identity` to fetch
+      - description: ID of the `Identity` to fetch.
         explode: false
         in: path
         name: identity_id
@@ -4629,7 +4718,7 @@ paths:
         \ again](#operation/createMerchantVerification)."
       operationId: updateIdentity
       parameters:
-      - description: ID of the `identity` to fetch
+      - description: ID of the `Identity` to fetch.
         explode: false
         in: path
         name: identity_id
@@ -6439,7 +6528,7 @@ paths:
       description: Verify an `Identity`.
       operationId: createIdentityVerification
       parameters:
-      - description: ID of identity to fetch
+      - description: ID of `Identity` to verify.
         explode: false
         in: path
         name: identity_id
@@ -10977,6 +11066,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -11022,6 +11112,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -11067,6 +11158,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -11112,6 +11204,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -11157,6 +11250,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -11202,6 +11296,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -11259,6 +11354,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APeUbTUjvYb1CdPXvNcwW1wP
@@ -11314,6 +11410,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APeUbTUjvYb1CdPXvNcwW1wP
@@ -11368,6 +11465,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APeUbTUjvYb1CdPXvNcwW1wP
@@ -11413,6 +11511,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APuZMfMerci2JuLUs7xWpf5G
@@ -11467,6 +11566,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APuZMfMerci2JuLUs7xWpf5G
@@ -11486,6 +11586,40 @@ paths:
                         href: https://finix.sandbox-payments-api.com/transfers/TR3vLiG6wecEwY3TC3oQiudG/disputes
                       fee_profile:
                         href: https://finix.sandbox-payments-api.com/fee_profiles/FPrATYzpomaTRtdo2BssRoGx
+                Transfer (with Buyer Charges):
+                  value:
+                    id: AUpaSunWzKyq73A6DKyZ3g8f
+                    application: APgPDQrLD52TYvqazjHJJchM
+                    amount: 5200
+                    tags:
+                      test: sale
+                    state: SUCCEEDED
+                    currency: USD
+                    transfer: null
+                    messages: []
+                    raw: null
+                    created_at: 2022-08-01T19:40:17.99Z
+                    updated_at: 2022-08-01T19:40:18.16Z
+                    trace_id: 767f5042-49ab-48f3-b6ce-5c7c1bbe4b39
+                    source: PIe2YvpcjvoVJ6PzoRPBK137
+                    merchant_identity: IDuqZpDw28f2KK6YuDk4jNLg
+                    "3ds_redirect_url": null
+                    is_void: false
+                    void_state: UNATTEMPTED
+                    expires_at: 2022-08-08T19:40:17.99Z
+                    idempotency_id: null
+                    additional_buyer_charges:
+                      convenience_amount: 100
+                      rent_surcharge_amount: 200
+                    failure_code: null
+                    failure_message: null
+                    _links:
+                      self:
+                        href: https://finix.sandbox-payments-api.com/authorizations/AUpaSunWzKyq73A6DKyZ3g8f
+                      application:
+                        href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
+                      merchant_identity:
+                        href: https://finix.sandbox-payments-api.com/identities/IDuqZpDw28f2KK6YuDk4jNLg
               schema:
                 $ref: '#/components/schemas/Transfer'
           description: Single Transfer object
@@ -11639,6 +11773,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -11684,6 +11819,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -11729,6 +11865,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -11774,6 +11911,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -11819,6 +11957,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -11864,6 +12003,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -11921,6 +12061,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APeUbTUjvYb1CdPXvNcwW1wP
@@ -11976,6 +12117,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APeUbTUjvYb1CdPXvNcwW1wP
@@ -12030,6 +12172,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APeUbTUjvYb1CdPXvNcwW1wP
@@ -12075,6 +12218,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APuZMfMerci2JuLUs7xWpf5G
@@ -12129,6 +12273,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APuZMfMerci2JuLUs7xWpf5G
@@ -12148,6 +12293,40 @@ paths:
                         href: https://finix.sandbox-payments-api.com/transfers/TR3vLiG6wecEwY3TC3oQiudG/disputes
                       fee_profile:
                         href: https://finix.sandbox-payments-api.com/fee_profiles/FPrATYzpomaTRtdo2BssRoGx
+                Transfer (with Buyer Charges):
+                  value:
+                    id: AUpaSunWzKyq73A6DKyZ3g8f
+                    application: APgPDQrLD52TYvqazjHJJchM
+                    amount: 5200
+                    tags:
+                      test: sale
+                    state: SUCCEEDED
+                    currency: USD
+                    transfer: null
+                    messages: []
+                    raw: null
+                    created_at: 2022-08-01T19:40:17.99Z
+                    updated_at: 2022-08-01T19:40:18.16Z
+                    trace_id: 767f5042-49ab-48f3-b6ce-5c7c1bbe4b39
+                    source: PIe2YvpcjvoVJ6PzoRPBK137
+                    merchant_identity: IDuqZpDw28f2KK6YuDk4jNLg
+                    "3ds_redirect_url": null
+                    is_void: false
+                    void_state: UNATTEMPTED
+                    expires_at: 2022-08-08T19:40:17.99Z
+                    idempotency_id: null
+                    additional_buyer_charges:
+                      convenience_amount: 100
+                      rent_surcharge_amount: 200
+                    failure_code: null
+                    failure_message: null
+                    _links:
+                      self:
+                        href: https://finix.sandbox-payments-api.com/authorizations/AUpaSunWzKyq73A6DKyZ3g8f
+                      application:
+                        href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
+                      merchant_identity:
+                        href: https://finix.sandbox-payments-api.com/identities/IDuqZpDw28f2KK6YuDk4jNLg
               schema:
                 $ref: '#/components/schemas/Transfer'
           description: Single Transfer object
@@ -12262,6 +12441,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -12307,6 +12487,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -12352,6 +12533,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -12397,6 +12579,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -12442,6 +12625,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -12487,6 +12671,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -12544,6 +12729,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APeUbTUjvYb1CdPXvNcwW1wP
@@ -12599,6 +12785,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APeUbTUjvYb1CdPXvNcwW1wP
@@ -12653,6 +12840,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APeUbTUjvYb1CdPXvNcwW1wP
@@ -12698,6 +12886,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APuZMfMerci2JuLUs7xWpf5G
@@ -12752,6 +12941,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APuZMfMerci2JuLUs7xWpf5G
@@ -12771,6 +12961,40 @@ paths:
                         href: https://finix.sandbox-payments-api.com/transfers/TR3vLiG6wecEwY3TC3oQiudG/disputes
                       fee_profile:
                         href: https://finix.sandbox-payments-api.com/fee_profiles/FPrATYzpomaTRtdo2BssRoGx
+                Transfer (with Buyer Charges):
+                  value:
+                    id: AUpaSunWzKyq73A6DKyZ3g8f
+                    application: APgPDQrLD52TYvqazjHJJchM
+                    amount: 5200
+                    tags:
+                      test: sale
+                    state: SUCCEEDED
+                    currency: USD
+                    transfer: null
+                    messages: []
+                    raw: null
+                    created_at: 2022-08-01T19:40:17.99Z
+                    updated_at: 2022-08-01T19:40:18.16Z
+                    trace_id: 767f5042-49ab-48f3-b6ce-5c7c1bbe4b39
+                    source: PIe2YvpcjvoVJ6PzoRPBK137
+                    merchant_identity: IDuqZpDw28f2KK6YuDk4jNLg
+                    "3ds_redirect_url": null
+                    is_void: false
+                    void_state: UNATTEMPTED
+                    expires_at: 2022-08-08T19:40:17.99Z
+                    idempotency_id: null
+                    additional_buyer_charges:
+                      convenience_amount: 100
+                      rent_surcharge_amount: 200
+                    failure_code: null
+                    failure_message: null
+                    _links:
+                      self:
+                        href: https://finix.sandbox-payments-api.com/authorizations/AUpaSunWzKyq73A6DKyZ3g8f
+                      application:
+                        href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
+                      merchant_identity:
+                        href: https://finix.sandbox-payments-api.com/identities/IDuqZpDw28f2KK6YuDk4jNLg
               schema:
                 $ref: '#/components/schemas/Transfer'
           description: Single Transfer object
@@ -13005,6 +13229,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -13050,6 +13275,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -13095,6 +13321,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -13140,6 +13367,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -13185,6 +13413,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -13230,6 +13459,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -13287,6 +13517,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APeUbTUjvYb1CdPXvNcwW1wP
@@ -13342,6 +13573,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APeUbTUjvYb1CdPXvNcwW1wP
@@ -13396,6 +13628,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APeUbTUjvYb1CdPXvNcwW1wP
@@ -13441,6 +13674,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APuZMfMerci2JuLUs7xWpf5G
@@ -13495,6 +13729,7 @@ paths:
                     subtype: API
                     failure_code: null
                     failure_message: null
+                    additional_buyer_charges: null
                     _links:
                       application:
                         href: https://finix.sandbox-payments-api.com/applications/APuZMfMerci2JuLUs7xWpf5G
@@ -13514,6 +13749,40 @@ paths:
                         href: https://finix.sandbox-payments-api.com/transfers/TR3vLiG6wecEwY3TC3oQiudG/disputes
                       fee_profile:
                         href: https://finix.sandbox-payments-api.com/fee_profiles/FPrATYzpomaTRtdo2BssRoGx
+                Transfer (with Buyer Charges):
+                  value:
+                    id: AUpaSunWzKyq73A6DKyZ3g8f
+                    application: APgPDQrLD52TYvqazjHJJchM
+                    amount: 5200
+                    tags:
+                      test: sale
+                    state: SUCCEEDED
+                    currency: USD
+                    transfer: null
+                    messages: []
+                    raw: null
+                    created_at: 2022-08-01T19:40:17.99Z
+                    updated_at: 2022-08-01T19:40:18.16Z
+                    trace_id: 767f5042-49ab-48f3-b6ce-5c7c1bbe4b39
+                    source: PIe2YvpcjvoVJ6PzoRPBK137
+                    merchant_identity: IDuqZpDw28f2KK6YuDk4jNLg
+                    "3ds_redirect_url": null
+                    is_void: false
+                    void_state: UNATTEMPTED
+                    expires_at: 2022-08-08T19:40:17.99Z
+                    idempotency_id: null
+                    additional_buyer_charges:
+                      convenience_amount: 100
+                      rent_surcharge_amount: 200
+                    failure_code: null
+                    failure_message: null
+                    _links:
+                      self:
+                        href: https://finix.sandbox-payments-api.com/authorizations/AUpaSunWzKyq73A6DKyZ3g8f
+                      application:
+                        href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
+                      merchant_identity:
+                        href: https://finix.sandbox-payments-api.com/identities/IDuqZpDw28f2KK6YuDk4jNLg
               schema:
                 $ref: '#/components/schemas/Transfer'
           description: Single Transfer object
@@ -16644,6 +16913,16 @@ components:
                 currency: USD
                 amount: 150
                 operation_key: CARD_PRESENT_AUTHORIZATION
+            Create an Authorization with Buyer Charges:
+              value:
+                additional_buyer_charges:
+                  rent_surcharge_amount: 150
+                amount: 5200
+                currency: USD
+                merchant: MUeDVrf2ahuKc9Eg5TeZugvs
+                source: PIe2YvpcjvoVJ6PzoRPBK137
+                tags:
+                  test: sale
           schema:
             $ref: '#/components/schemas/CreateAuthorizationRequest'
     UpdateAuthorizationRequest:
@@ -16736,22 +17015,6 @@ components:
       content:
         application/hal+json:
           examples:
-            Create an Identity for a Buyer:
-              value:
-                tags:
-                  key: value
-                entity:
-                  phone: "7145677613"
-                  first_name: Collen
-                  last_name: Wade
-                  email: therock@gmail.com
-                  personal_address:
-                    city: San Mateo
-                    country: USA
-                    region: CA
-                    line2: Apartment 7
-                    line1: 741 Douglass St
-                    postal_code: "94114"
             Create an Identity for a Merchant:
               value:
                 additional_underwriting_data:
@@ -16824,6 +17087,22 @@ components:
                     month: 6
                   url: www.PetesCoffee.com
                   annual_card_volume: 12000000
+            Create an Identity for a Buyer:
+              value:
+                entity:
+                  phone: "7145677613"
+                  first_name: Collen
+                  last_name: Wade
+                  email: therock@gmail.com
+                  personal_address:
+                    city: San Mateo
+                    country: USA
+                    region: CA
+                    line2: Apartment 7
+                    line1: 741 Douglass St
+                    postal_code: "94114"
+                  tags:
+                    key: value
           schema:
             $ref: '#/components/schemas/CreateIdentityRequest'
       description: ""
@@ -17082,6 +17361,16 @@ components:
                 currency: USD
                 amount: 150
                 operation_key: CARD_PRESENT_DEBIT
+            Create a Transfer with Buyer Charges:
+              value:
+                additional_buyer_charges:
+                  convenience_amount: 300
+                amount: 10300
+                currency: USD
+                merchant: MUeDVrf2ahuKc9Eg5TeZugvs
+                source: PIe2YvpcjvoVJ6PzoRPBK137
+                tags:
+                  test: sale
           schema:
             $ref: '#/components/schemas/CreateTransferRequest'
     UpdateDeviceRequest:
@@ -17103,7 +17392,7 @@ components:
               value:
                 action: DEACTIVATE
           schema:
-            type: object
+            $ref: '#/components/schemas/UpdateDeviceRequest'
     CreateUserRequest:
       content:
         application/hal+json:
@@ -17283,9 +17572,10 @@ components:
       content:
         application/hal+json:
           examples:
-            Update Name:
+            Update Tag:
               value:
-                name: Amy White
+                tags:
+                  custom_key: custome value
           schema:
             $ref: '#/components/schemas/UpdatePaymentInstrumentRequest'
     UpdateMerchantRequest:
@@ -17710,6 +18000,7 @@ components:
                 void_state: UNATTEMPTED
                 expires_at: 2022-02-03T07:37:19.16Z
                 idempotency_id: null
+                additional_buyer_charges: null
                 failure_code: null
                 failure_message: null
                 _links:
@@ -17741,6 +18032,7 @@ components:
                 void_state: UNATTEMPTED
                 expires_at: 2022-02-03T07:37:19.95Z
                 idempotency_id: null
+                additional_buyer_charges: null
                 failure_code: null
                 failure_message: null
                 _links:
@@ -17772,6 +18064,7 @@ components:
                 void_state: UNATTEMPTED
                 expires_at: 2022-02-03T07:37:20.68Z
                 idempotency_id: null
+                additional_buyer_charges: null
                 failure_code: null
                 failure_message: null
                 _links:
@@ -17803,6 +18096,7 @@ components:
                 void_state: UNATTEMPTED
                 expires_at: 2022-02-03T07:37:21.55Z
                 idempotency_id: null
+                additional_buyer_charges: null
                 failure_code: null
                 failure_message: null
                 _links:
@@ -17834,6 +18128,7 @@ components:
                 void_state: PENDING
                 expires_at: 2022-02-03T07:37:28.10Z
                 idempotency_id: null
+                additional_buyer_charges: null
                 failure_code: null
                 failure_message: null
                 _links:
@@ -17882,6 +18177,7 @@ components:
                 void_state: UNATTEMPTED
                 expires_at: 2019-03-18T23:36:42.03Z
                 idempotency_id: null
+                additional_buyer_charges: null
                 failure_code: null
                 failure_message: null
                 sub_type: API
@@ -17923,6 +18219,7 @@ components:
                 is_void: false
                 expires_at: 2019-03-08T03:37:10.10Z
                 idempotency_id: null
+                additional_buyer_charges: null
                 failure_code: null
                 failure_message: null
                 _links:
@@ -17934,6 +18231,40 @@ components:
                     href: https://finix.sandbox-payments-api.com/devices/DVf2H8sh4LZZC52GTUrwCPPf
                   merchant_identity:
                     href: https://finix.sandbox-payments-api.com/identities/IDsbTBawhnLBAVeinRb84vFR
+            Authorization with Buyer Charges:
+              value:
+                id: AUnxmW39jBePKqYKwQamC3BR
+                application: APgPDQrLD52TYvqazjHJJchM
+                amount: 5200
+                tags:
+                  test: sale
+                state: SUCCEEDED
+                currency: USD
+                transfer: null
+                messages: []
+                raw: null
+                created_at: 2022-08-01T19:04:00.29Z
+                updated_at: 2022-08-01T19:04:00.43Z
+                trace_id: dcb4b954-89b3-4c5e-9b3a-1b8e70e30556
+                source: PIe2YvpcjvoVJ6PzoRPBK137
+                merchant_identity: IDuqZpDw28f2KK6YuDk4jNLg
+                "3ds_redirect_url": null
+                is_void: false
+                void_state: UNATTEMPTED
+                expires_at: 2022-08-08T19:04:00.29Z
+                idempotency_id: null
+                additional_buyer_charges:
+                  convenience_amount: 0
+                  rent_surcharge_amount: 200
+                failure_code: null
+                failure_message: null
+                _links:
+                  self:
+                    href: https://finix.sandbox-payments-api.com/authorizations/AUnxmW39jBePKqYKwQamC3BR
+                  application:
+                    href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
+                  merchant_identity:
+                    href: https://finix.sandbox-payments-api.com/identities/IDuqZpDw28f2KK6YuDk4jNLg
           schema:
             $ref: '#/components/schemas/Authorization'
       description: Single Authorization object
@@ -20829,6 +21160,7 @@ components:
                 subtype: API
                 failure_code: null
                 failure_message: null
+                additional_buyer_charges: null
                 _links:
                   application:
                     href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -20874,6 +21206,7 @@ components:
                 subtype: API
                 failure_code: null
                 failure_message: null
+                additional_buyer_charges: null
                 _links:
                   application:
                     href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -20919,6 +21252,7 @@ components:
                 subtype: API
                 failure_code: null
                 failure_message: null
+                additional_buyer_charges: null
                 _links:
                   application:
                     href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -20964,6 +21298,7 @@ components:
                 subtype: API
                 failure_code: null
                 failure_message: null
+                additional_buyer_charges: null
                 _links:
                   application:
                     href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -21009,6 +21344,7 @@ components:
                 subtype: API
                 failure_code: null
                 failure_message: null
+                additional_buyer_charges: null
                 _links:
                   application:
                     href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -21054,6 +21390,7 @@ components:
                 subtype: API
                 failure_code: null
                 failure_message: null
+                additional_buyer_charges: null
                 _links:
                   application:
                     href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
@@ -21111,6 +21448,7 @@ components:
                 subtype: API
                 failure_code: null
                 failure_message: null
+                additional_buyer_charges: null
                 _links:
                   application:
                     href: https://finix.sandbox-payments-api.com/applications/APeUbTUjvYb1CdPXvNcwW1wP
@@ -21166,6 +21504,7 @@ components:
                 subtype: API
                 failure_code: null
                 failure_message: null
+                additional_buyer_charges: null
                 _links:
                   application:
                     href: https://finix.sandbox-payments-api.com/applications/APeUbTUjvYb1CdPXvNcwW1wP
@@ -21220,6 +21559,7 @@ components:
                 subtype: API
                 failure_code: null
                 failure_message: null
+                additional_buyer_charges: null
                 _links:
                   application:
                     href: https://finix.sandbox-payments-api.com/applications/APeUbTUjvYb1CdPXvNcwW1wP
@@ -21265,6 +21605,7 @@ components:
                 subtype: API
                 failure_code: null
                 failure_message: null
+                additional_buyer_charges: null
                 _links:
                   application:
                     href: https://finix.sandbox-payments-api.com/applications/APuZMfMerci2JuLUs7xWpf5G
@@ -21319,6 +21660,7 @@ components:
                 subtype: API
                 failure_code: null
                 failure_message: null
+                additional_buyer_charges: null
                 _links:
                   application:
                     href: https://finix.sandbox-payments-api.com/applications/APuZMfMerci2JuLUs7xWpf5G
@@ -21338,6 +21680,40 @@ components:
                     href: https://finix.sandbox-payments-api.com/transfers/TR3vLiG6wecEwY3TC3oQiudG/disputes
                   fee_profile:
                     href: https://finix.sandbox-payments-api.com/fee_profiles/FPrATYzpomaTRtdo2BssRoGx
+            Transfer (with Buyer Charges):
+              value:
+                id: AUpaSunWzKyq73A6DKyZ3g8f
+                application: APgPDQrLD52TYvqazjHJJchM
+                amount: 5200
+                tags:
+                  test: sale
+                state: SUCCEEDED
+                currency: USD
+                transfer: null
+                messages: []
+                raw: null
+                created_at: 2022-08-01T19:40:17.99Z
+                updated_at: 2022-08-01T19:40:18.16Z
+                trace_id: 767f5042-49ab-48f3-b6ce-5c7c1bbe4b39
+                source: PIe2YvpcjvoVJ6PzoRPBK137
+                merchant_identity: IDuqZpDw28f2KK6YuDk4jNLg
+                "3ds_redirect_url": null
+                is_void: false
+                void_state: UNATTEMPTED
+                expires_at: 2022-08-08T19:40:17.99Z
+                idempotency_id: null
+                additional_buyer_charges:
+                  convenience_amount: 100
+                  rent_surcharge_amount: 200
+                failure_code: null
+                failure_message: null
+                _links:
+                  self:
+                    href: https://finix.sandbox-payments-api.com/authorizations/AUpaSunWzKyq73A6DKyZ3g8f
+                  application:
+                    href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
+                  merchant_identity:
+                    href: https://finix.sandbox-payments-api.com/identities/IDuqZpDw28f2KK6YuDk4jNLg
           schema:
             $ref: '#/components/schemas/Transfer'
       description: Single Transfer object
@@ -23497,6 +23873,8 @@ components:
           type: string
           x-examples:
             example-1: string
+        additional_buyer_charges:
+          $ref: '#/components/schemas/AdditionalBuyerCharges'
         "3d_secure_authentication":
           $ref: '#/components/schemas/CreateAuthorizationRequest_3d_secure_authentication'
       required:
@@ -23570,6 +23948,8 @@ components:
           description: A randomly generated value that'll be associated with the request.
           nullable: true
           type: string
+        additional_buyer_charges:
+          $ref: '#/components/schemas/AdditionalBuyerCharges'
         failure_code:
           description: "The code of the failure so the decline can be handled programmatically.\
             \ For more info on how to handle the failure, see [Failure Codes](/docs/guides/developers/errors/#failure-codes)."
@@ -23716,6 +24096,8 @@ components:
           description: A randomly generated value that'll be associated with the request.
           nullable: true
           type: string
+        additional_buyer_charges:
+          $ref: '#/components/schemas/AdditionalBuyerCharges'
         failure_code:
           description: "The code of the failure so the decline can be handled programmatically.\
             \ For more info on how to handle the failure, see [Failure Codes](/docs/guides/developers/errors/#failure-codes)."
@@ -24059,7 +24441,8 @@ components:
         configuration_details:
           $ref: '#/components/schemas/DeviceConfigDetails'
         connection:
-          description: Details if the `Device` is connected and online.
+          description: Details if the `Device` is connected and online. Only returned
+            when include_connection parameter provided.
           type: string
         enabled:
           description: Details if the `Device` resource is enabled. Set to **false**
@@ -24796,6 +25179,18 @@ components:
           description: The ID of the `Identity` resource.
           minLength: 1
           type: string
+        created_at:
+          description: Timestamp of when the object was created.
+          format: date-time
+          title: CreatedAt
+          type: string
+        updated_at:
+          description: Timestamp of when the object was last updated.
+          format: date-time
+          title: UpdatedAt
+          type: string
+        additional_underwriting_data:
+          $ref: '#/components/schemas/Identity_additional_underwriting_data'
         application:
           description: ID of the `Application` associated with the `Identity`.
           minLength: 1
@@ -24809,16 +25204,6 @@ components:
             numbers).
           title: tags
           type: object
-        created_at:
-          description: Timestamp of when the `Identity` was created
-          minLength: 1
-          type: string
-        updated_at:
-          description: Timestamp of when the `Identity` was last updated.
-          minLength: 1
-          type: string
-        additional_underwriting_data:
-          $ref: '#/components/schemas/Identity_additional_underwriting_data'
         _links:
           $ref: '#/components/schemas/Identity__links'
       title: ""
@@ -24922,6 +25307,8 @@ components:
     CreateIdentityRequest:
       description: ""
       properties:
+        entity:
+          $ref: '#/components/schemas/CreateIdentityRequest_entity'
         additional_underwriting_data:
           $ref: '#/components/schemas/CreateIdentityRequest_additional_underwriting_data'
         tags:
@@ -24931,10 +25318,6 @@ components:
             numbers).
           title: tags
           type: object
-        entity:
-          $ref: '#/components/schemas/CreateIdentityRequest_entity'
-      required:
-      - entity
       type: object
       x-examples:
         example-1:
@@ -25390,24 +25773,6 @@ components:
     PaymentInstrument:
       description: ""
       properties:
-        tags:
-          additionalProperties:
-            type: string
-          description: Key value pair for annotating custom meta data (e.g. order
-            numbers).
-          title: tags
-          type: object
-        type:
-          description: Type of `Payment Instrument`.
-          enum:
-          - PAYMENT_CARD
-          - TOKEN
-          - VANTIV_OMNI_TOKEN
-          - BANK_ACCOUNT
-          - PAYMENT_CARD_PRESENT
-          - SWIPED_PAYMENT_CARD
-          - VIRTUAL
-          type: string
         id:
           description: The ID of the resource.
           nullable: true
@@ -25458,13 +25823,13 @@ components:
         instrument_type:
           description: The type of `Payment Instrument`.
           enum:
+          - BANK_ACCOUNT
+          - VANTIV_OMNI_TOKEN
+          - VIRTUAL
+          - SWIPED_PAYMENT_CARD
           - PAYMENT_CARD
           - TOKEN
-          - VANTIV_OMNI_TOKEN
-          - BANK_ACCOUNT
           - PAYMENT_CARD_PRESENT
-          - SWIPED_PAYMENT_CARD
-          - VIRTUAL
           type: string
         masked_account_number:
           description: The last 4 digits of the account number used to create the
@@ -25476,64 +25841,26 @@ components:
           description: The name of the bank account or card owner.
           nullable: true
           type: string
-        payload_type:
+        tags:
+          additionalProperties:
+            type: string
+          description: Key value pair for annotating custom meta data (e.g. order
+            numbers).
+          title: tags
+          type: object
+        type:
+          description: Type of `Payment Instrument`.
           enum:
-          - SOURCE
-          - DESTINATION
+          - BANK_ACCOUNT
+          - VANTIV_OMNI_TOKEN
+          - VIRTUAL
+          - SWIPED_PAYMENT_CARD
+          - PAYMENT_CARD
+          - TOKEN
+          - PAYMENT_CARD_PRESENT
           type: string
         _links:
           $ref: '#/components/schemas/PaymentInstrument__links'
-        expiration_month:
-          description: Expiration month (e.g. 12 for December).
-          maximum: 12
-          minimum: 1
-          type: integer
-        expiration_year:
-          description: 4-digit expiration year.
-          minimum: 1
-          type: integer
-        bin:
-          description: Bank Identification number for the `Payment Instrument`.
-          pattern: "^\\d{6}$"
-          type: string
-        last_four:
-          description: Last four digits of the card or bank account number.
-          pattern: "^\\d{4}$"
-          type: string
-        brand:
-          description: The `brand` of the card saved in the `Payment Instrument`.
-          enum:
-          - UNKNOWN
-          - DINERS_CLUB_INTERNATIONAL
-          - DANKORT
-          - MIR
-          - TROY
-          - UATP
-          - CHINA_T_UNION
-          - CHINA_UNION_PAY
-          - AMERICAN_EXPRESS
-          - VERVE
-          - RUPAY
-          - DISCOVER
-          - JCB
-          - MASTERCARD
-          - INTERPAYMENT
-          - INSTAPAYMENT
-          - MAESTRO
-          - VISA
-          - LANKAPAY
-          - DINERS_CLUB
-          type: string
-        card_type:
-          description: The type of payment card saved in the `Payment Instrument`.
-          enum:
-          - UNKNOWN
-          - CREDIT
-          - DEBIT
-          - HSA_FSA
-          - NON_RELOADABLE_PREPAID
-          - RELOADABLE_PREPAID
-          type: string
         address:
           $ref: '#/components/schemas/Address'
         address_verification:
@@ -25548,27 +25875,57 @@ components:
           - NOT_SUPPORTED
           - UNKNOWN
           type: string
-        security_code_verification:
-          description: Details the results of the Card Verification Code check.
-          enum:
-          - MATCHED
-          - UNKNOWN
-          - UNMATCHED
+        bin:
+          description: Bank Identification number for the `Payment Instrument`.
+          pattern: "^\\d{6}$"
+          type: string
+        brand:
+          description: The `brand` of the card saved in the `Payment Instrument`.
+          pattern: "^\\d{6}$"
           type: string
         card_name:
           description: A custom name you can include to identify the card being used
             (e.g. **Business Card**).
           nullable: true
           type: string
+        card_type:
+          description: The type of payment card saved in the `Payment Instrument`.
+          pattern: "^\\d{6}$"
+          type: string
+        expiration_month:
+          description: Expiration month (e.g. 12 for December).
+          maximum: 12
+          minimum: 1
+          type: integer
+        expiration_year:
+          description: 4-digit expiration year.
+          minimum: 1
+          type: integer
         fast_funds_indicator:
           description: Details if Fast Funds is enabled for the card.
+          type: string
+        last_four:
+          description: Last four digits of the card or bank account number.
+          pattern: "^\\d{6}$"
           type: string
         online_gambing_block_indicator:
           description: Detailes if the card is enabled to receive push-payments for
             online gambling payouts.
           type: string
+        payload_type:
+          enum:
+          - SOURCE
+          - DESTINATION
+          type: string
         push_funds_block_indicator:
           description: Details if the card is enabled to receive push-to-card disbursements.
+          type: string
+        security_code_verification:
+          description: Details the results of the Card Verification Code check.
+          enum:
+          - MATCHED
+          - UNKNOWN
+          - UNMATCHED
           type: string
       type: object
     CreatePaymentInstrumentRequest:
@@ -25600,10 +25957,10 @@ components:
         type:
           description: Type of `Payment Instrument`.
           enum:
-          - PAYMENT_CARD
           - APPLE_PAY
-          - TOKEN
           - BANK_ACCOUNT
+          - TOKEN
+          - PAYMENT_CARD
           type: string
         identity:
           description: The ID of the resource.
@@ -25614,13 +25971,6 @@ components:
             example-1: string
         third_party_token:
           type: string
-        merchant_identity:
-          description: The ID of the resource.
-          nullable: true
-          title: Id
-          type: string
-          x-examples:
-            example-1: string
         account_type:
           description: The type of bank account.
           enum:
@@ -25646,12 +25996,6 @@ components:
     UpdatePaymentInstrumentRequest:
       description: ""
       properties:
-        name:
-          description: The name of the bank account or card owner.
-          type: string
-        expiration_year:
-          description: The 4-digit expiration year of the card.
-          type: integer
         tags:
           additionalProperties:
             type: string
@@ -25659,52 +26003,6 @@ components:
             numbers).
           title: tags
           type: object
-        number:
-          description: The card or bank account number (no dashes in between numbers).
-          type: string
-        expiration_month:
-          description: The expiration month of the card (e.g. 12 for December).
-          type: integer
-        address:
-          $ref: '#/components/schemas/CreatePaymentInstrumentRequest_address'
-        security_code:
-          description: The 3-4 digit security code of the card (i.e. CVV code).
-          type: string
-        type:
-          description: Type of `Payment Instrument`.
-          enum:
-          - PAYMENT_CARD
-          - TOKEN
-          - BANK_ACCOUNT
-          type: string
-        identity:
-          description: The ID of the resource.
-          nullable: true
-          title: Id
-          type: string
-          x-examples:
-            example-1: string
-        third_party_token:
-          type: string
-        account_number:
-          description: The bank account number (no dashes in between numbers).
-          type: string
-        account_type:
-          description: The type of bank account.
-          enum:
-          - CHECKING
-          - SAVINGS
-          - CORPORATE
-          - CORP_SAVINGS
-          type: string
-        bank_code:
-          description: The routing number of the bank account.
-          type: string
-        country:
-          description: 3 Letter country code (e.g. USA).
-          type: string
-        token:
-          type: string
       title: ""
       type: object
       x-examples: {}
@@ -26129,6 +26427,8 @@ components:
           type: string
           x-stoplight:
             id: cgilf858039yi
+        additional_buyer_charges:
+          $ref: '#/components/schemas/AdditionalBuyerCharges'
         _links:
           $ref: '#/components/schemas/Transfer__links'
       type: object
@@ -26247,6 +26547,8 @@ components:
             id: x00www7a3mlv6
         additional_purchase_data:
           $ref: '#/components/schemas/AdditionalPurchaseData'
+        additional_buyer_charges:
+          $ref: '#/components/schemas/AdditionalBuyerCharges'
       title: CreateTransferRequest
       type: object
     TransfersList:
@@ -28548,6 +28850,25 @@ components:
       type: string
       x-stoplight:
         id: 2qbkukuj5e20b
+    AdditionalBuyerCharges:
+      description: "Object detailing any [Buyer Charges](/guides/payments/buyer-charges)\
+        \ that got included in the `Authorization`."
+      nullable: true
+      properties:
+        convenience_amount:
+          description: Include the convenience fee the merchant is charging the buyer
+            for the transaction when creating a `Transfer` or an `Authorization`.
+          nullable: true
+          type: number
+        rent_surcharge_amount:
+          description: Include the rent surcharge the merchant is charging the buyer
+            for the transaction when creating a `Transfer` or an `Authorization`.
+          nullable: true
+          type: number
+      title: AdditionalBuyerCharges
+      type: object
+      x-stoplight:
+        id: 8t8auxc19wmuw
     UpdateMerchantProfileRequest:
       properties:
         tags:
@@ -28567,6 +28888,31 @@ components:
       type: object
       x-stoplight:
         id: 9cuj94a54fwqp
+    UpdateDeviceRequest:
+      properties:
+        action:
+          description: The action you want to perform on the device.
+          enum:
+          - DEACTIVATE
+          type: string
+        activation_code:
+          description: Used when `action` is **ACTIVATE**. The input the code thats
+            show up on the device screen.
+          type: string
+        tags:
+          additionalProperties:
+            type: string
+          description: Key value pair for annotating custom meta data (e.g. order
+            numbers).
+          title: tags
+          type: object
+        idle_message:
+          description: Message to display on the idle screen.
+          type: string
+      title: UpdateDeviceRequest
+      type: object
+      x-stoplight:
+        id: w6o14ff8xpu3w
     ListAuthorizationsQueryParams:
       properties:
         sort:
@@ -28710,6 +29056,12 @@ components:
         source:
           description: Filter by the `Payment Instrument` saved in `source`
           type: string
+      type: object
+    GetDeviceQueryParams:
+      properties:
+        include_connection:
+          description: Specifies whether the connection information should be included.
+          type: boolean
       type: object
     ListDisputesQueryParams:
       properties:
@@ -30127,235 +30479,6 @@ components:
           type: array
           uniqueItems: true
       type: object
-    Identity_entity_personal_address:
-      description: The home address of the merchant's principal control owner. This
-        field is used for identity verification purposes.
-      nullable: true
-      properties:
-        line1:
-          description: First line of the address (max 35 characters).
-          minLength: 1
-          nullable: true
-          type: string
-        line2:
-          description: Second line of the address (max 35 characters).
-          minLength: 1
-          nullable: true
-          type: string
-        city:
-          description: City (max 20 characters).
-          minLength: 1
-          nullable: true
-          type: string
-        region:
-          description: 2-letter State code.
-          minLength: 1
-          nullable: true
-          type: string
-        postal_code:
-          description: Zip or Postal code (max 7 characters).
-          minLength: 1
-          nullable: true
-          type: string
-        country:
-          description: 3-Letter country code (e.g. USA).
-          minLength: 1
-          nullable: true
-          type: string
-      type: object
-    Identity_entity_business_address:
-      description: The primary address for the legal entity.
-      nullable: true
-      properties:
-        line1:
-          description: First line of the address (max 35 characters).
-          minLength: 1
-          nullable: true
-          type: string
-        line2:
-          description: Second line of the address (max 35 characters).
-          minLength: 1
-          nullable: true
-          type: string
-        city:
-          description: City (max 20 characters).
-          minLength: 1
-          nullable: true
-          type: string
-        region:
-          description: 2-letter state code.
-          minLength: 1
-          nullable: true
-          type: string
-        postal_code:
-          description: Zip or Postal code (max 7 characters).
-          minLength: 1
-          nullable: true
-          type: string
-        country:
-          description: 3-Letter Country code (e.g. USA).
-          minLength: 1
-          nullable: true
-          type: string
-      type: object
-    Identity_entity_dob:
-      description: The control owner's date of birth.
-      nullable: true
-      properties:
-        day:
-          type: integer
-        month:
-          type: integer
-        year:
-          type: integer
-      type: object
-    Identity_entity_incorporation_date:
-      description: The date the company was founded and registered with the US.
-      nullable: true
-      properties:
-        day:
-          type: integer
-        month:
-          type: integer
-        year:
-          type: integer
-      type: object
-    Identity_entity:
-      description: The underwriting details required to verify the `Identity` of the
-        `Merchant`.
-      properties:
-        title:
-          description: "The corporate title of the control owner (e.g. Chief Executive\
-            \ Officer, CFO, etc. Max 60 characters)."
-          minLength: 1
-          nullable: true
-          type: string
-        first_name:
-          description: The legal first name of the merchant's control owner (max 20
-            characters).
-          minLength: 1
-          nullable: true
-          type: string
-        last_name:
-          description: The legal last name of the merchant's control owner (max 20
-            characters).
-          minLength: 1
-          nullable: true
-          type: string
-        email:
-          description: The email address of the principal control owner where they
-            can be reached (max 100 characters).
-          minLength: 1
-          nullable: true
-          type: string
-        business_name:
-          description: "The merchant's legal business name (max 120 characters).<ul><li>If\
-            \ <strong>INDIVIDUAL_SOLE_PROPRIETORSHIP</strong>, pass the owner's legal\
-            \ first name, last name and middle initial."
-          minLength: 1
-          nullable: true
-          type: string
-        business_type:
-          description: Include the value that best applies to the merchant.
-          nullable: true
-          type: string
-        doing_business_as:
-          description: "Alternate names of the business. If there are no other names,\
-            \ pass the same value used for `business_name` (max 60 characters)."
-          minLength: 1
-          nullable: true
-          type: string
-        phone:
-          description: The principal control owner's phone number (max 10 characters).
-          minLength: 1
-          nullable: true
-          type: string
-        business_phone:
-          description: Customer service phone number where the merchant can be reached
-            (max 10 characters).
-          minLength: 1
-          nullable: true
-          type: string
-        personal_address:
-          $ref: '#/components/schemas/Identity_entity_personal_address'
-        business_address:
-          $ref: '#/components/schemas/Identity_entity_business_address'
-        mcc:
-          description: "The Merchant Category Code ([MCC](http://www.dm.usda.gov/procurement/card/card\\\
-            _x/mcc.pdf)) that this merchant will be classified under."
-          minLength: 1
-          nullable: true
-          type: string
-        dob:
-          $ref: '#/components/schemas/Identity_entity_dob'
-        max_transaction_amount:
-          description: The maximum amount (in cents) that can be charged for a single
-            transaction (max 12 characters).
-          nullable: true
-          type: integer
-        amex_mid:
-          description: "Assigned amexMid value. If a value is passed, it must be 10\
-            \ or 11 digits."
-          nullable: true
-          type: integer
-        discover_mid:
-          description: Assigned discoverMid value.
-          nullable: true
-          type: integer
-        url:
-          description: The URL of the merchant's public website.
-          minLength: 1
-          nullable: true
-          type: string
-        annual_card_volume:
-          description: The annual credit card sales (in cents) expected to be processed
-            by this merchant (max 19 characters).
-          nullable: true
-          type: integer
-        has_accepted_credit_cards_previously:
-          description: Defaults to **false** if not passed.
-          type: boolean
-        incorporation_date:
-          $ref: '#/components/schemas/Identity_entity_incorporation_date'
-        principal_percentage_ownership:
-          description: Percentage of the company owned by the principal control owner
-            (min 0; max 100).
-          nullable: true
-          type: integer
-        short_business_name:
-          description: "Abbreviated names of the business. If there are no abbreviated\
-            \ name, leave this field blank."
-          nullable: true
-          type: string
-        ownership_type:
-          description: "Values can be either: <ul><li><strong>PUBLIC</strong> to indicate\
-            \ a publicly-traded company.<li><strong>PRIVATE</strong> for privately-held\
-            \ businesses."
-          enum:
-          - PUBLIC
-          - PRIVATE
-          minLength: 1
-          nullable: true
-          type: string
-        tax_authority:
-          description: <ul><li>Only required when onboarding a merchant with a <tt>MCC</tt>
-            of <strong>9311</strong>.<li> The <tt>tax_authority</tt> is the tax gathering
-            entity (e.g San Francisco Water Authority).
-          nullable: true
-          type: string
-        tax_id_provided:
-          description: Details if the `tax_id` was provided.
-          type: boolean
-        business_tax_id_provided:
-          description: Details if the `business_tax_id` was provided.
-          type: boolean
-        default_statement_descriptor:
-          description: The description of the merchant that appears on the buyer's
-            bank or card statement.
-          minLength: 1
-          nullable: true
-          type: string
-      type: object
     Identity_additional_underwriting_data_card_volume_distribution:
       description: The distribution of the merchant's credit card volume The sum of
         `card_volume_distribution` must be 100.
@@ -30401,8 +30524,7 @@ components:
           type: integer
       type: object
     Identity_additional_underwriting_data:
-      description: Additional underwriting data that's required to verify the `Identity`
-        of the `Merchant`.
+      description: Additional underwriting data that's required to verify the `Identity`.
       nullable: true
       properties:
         annual_ach_volume:
@@ -30474,6 +30596,234 @@ components:
           type: string
         volume_distribution_by_business_type:
           $ref: '#/components/schemas/Identity_additional_underwriting_data_volume_distribution_by_business_type'
+      type: object
+    Identity_entity_business_address:
+      description: The primary address for the legal entity.
+      nullable: true
+      properties:
+        line1:
+          description: First line of the address (max 35 characters).
+          minLength: 1
+          nullable: true
+          type: string
+        line2:
+          description: Second line of the address (max 35 characters).
+          minLength: 1
+          nullable: true
+          type: string
+        city:
+          description: City (max 20 characters).
+          minLength: 1
+          nullable: true
+          type: string
+        region:
+          description: 2-letter state code.
+          minLength: 1
+          nullable: true
+          type: string
+        postal_code:
+          description: Zip or Postal code (max 7 characters).
+          minLength: 1
+          nullable: true
+          type: string
+        country:
+          description: 3-Letter Country code (e.g. USA).
+          minLength: 1
+          nullable: true
+          type: string
+      type: object
+    Identity_entity_dob:
+      description: The control owner's date of birth.
+      nullable: true
+      properties:
+        day:
+          type: integer
+        month:
+          type: integer
+        year:
+          type: integer
+      type: object
+    Identity_entity_incorporation_date:
+      description: The date the company was founded and registered with the US.
+      nullable: true
+      properties:
+        day:
+          type: integer
+        month:
+          type: integer
+        year:
+          type: integer
+      type: object
+    Identity_entity_personal_address:
+      description: The home address of the merchant's principal control owner. This
+        field is used for identity verification purposes.
+      nullable: true
+      properties:
+        line1:
+          description: First line of the address (max 35 characters).
+          minLength: 1
+          nullable: true
+          type: string
+        line2:
+          description: Second line of the address (max 35 characters).
+          minLength: 1
+          nullable: true
+          type: string
+        city:
+          description: City (max 20 characters).
+          minLength: 1
+          nullable: true
+          type: string
+        region:
+          description: 2-letter State code.
+          minLength: 1
+          nullable: true
+          type: string
+        postal_code:
+          description: Zip or Postal code (max 7 characters).
+          minLength: 1
+          nullable: true
+          type: string
+        country:
+          description: 3-Letter country code (e.g. USA).
+          minLength: 1
+          nullable: true
+          type: string
+      type: object
+    Identity_entity:
+      description: The underwriting details required to verify the `Identity`.
+      properties:
+        amex_mid:
+          description: "Assigned amexMid value. If a value is passed, it must be 10\
+            \ or 11 digits."
+          nullable: true
+          type: integer
+        annual_card_volume:
+          description: The annual credit card sales (in cents) expected to be processed
+            by this merchant (max 19 characters).
+          nullable: true
+          type: integer
+        business_address:
+          $ref: '#/components/schemas/Identity_entity_business_address'
+        business_name:
+          description: "The merchant's legal business name (max 120 characters).<ul><li>If\
+            \ <strong>INDIVIDUAL_SOLE_PROPRIETORSHIP</strong>, pass the owner's legal\
+            \ first name, last name and middle initial."
+          minLength: 1
+          nullable: true
+          type: string
+        business_phone:
+          description: Customer service phone number where the merchant can be reached
+            (max 10 characters).
+          minLength: 1
+          nullable: true
+          type: string
+        business_tax_id_provided:
+          description: Details if the `business_tax_id` was provided.
+          type: boolean
+        business_type:
+          description: Include the value that best applies to the merchant.
+          nullable: true
+          type: string
+        default_statement_descriptor:
+          description: The description of the merchant that appears on the buyer's
+            bank or card statement.
+          minLength: 1
+          nullable: true
+          type: string
+        discover_mid:
+          description: Assigned discoverMid value.
+          nullable: true
+          type: integer
+        dob:
+          $ref: '#/components/schemas/Identity_entity_dob'
+        doing_business_as:
+          description: "Alternate names of the business. If there are no other names,\
+            \ pass the same value used for `business_name` (max 60 characters)."
+          minLength: 1
+          nullable: true
+          type: string
+        email:
+          description: The email address of the principal control owner where they
+            can be reached (max 100 characters).
+          minLength: 1
+          nullable: true
+          type: string
+        first_name:
+          description: The legal first name of the merchant's control owner (max 20
+            characters).
+          minLength: 1
+          nullable: true
+          type: string
+        has_accepted_credit_cards_previously:
+          description: Defaults to **false** if not passed.
+          type: boolean
+        incorporation_date:
+          $ref: '#/components/schemas/Identity_entity_incorporation_date'
+        last_name:
+          description: The legal last name of the merchant's control owner (max 20
+            characters).
+          minLength: 1
+          nullable: true
+          type: string
+        max_transaction_amount:
+          description: The maximum amount (in cents) that can be charged for a single
+            transaction (max 12 characters).
+          nullable: true
+          type: integer
+        mcc:
+          description: "The Merchant Category Code ([MCC](http://www.dm.usda.gov/procurement/card/card\\\
+            _x/mcc.pdf)) that this merchant will be classified under."
+          minLength: 1
+          nullable: true
+          type: string
+        ownership_type:
+          description: "Values can be either: <ul><li><strong>PUBLIC</strong> to indicate\
+            \ a publicly-traded company.<li><strong>PRIVATE</strong> for privately-held\
+            \ businesses."
+          enum:
+          - PUBLIC
+          - PRIVATE
+          minLength: 1
+          nullable: true
+          type: string
+        personal_address:
+          $ref: '#/components/schemas/Identity_entity_personal_address'
+        phone:
+          description: The principal control owner's phone number (max 10 characters).
+          minLength: 1
+          nullable: true
+          type: string
+        principal_percentage_ownership:
+          description: Percentage of the company owned by the principal control owner
+            (min 0; max 100).
+          nullable: true
+          type: integer
+        short_business_name:
+          description: "Abbreviated names of the business. If there are no abbreviated\
+            \ name, leave this field blank."
+          nullable: true
+          type: string
+        tax_authority:
+          description: <ul><li>Only required when onboarding a merchant with a <tt>MCC</tt>
+            of <strong>9311</strong>.<li> The <tt>tax_authority</tt> is the tax gathering
+            entity (e.g San Francisco Water Authority).
+          nullable: true
+          type: string
+        tax_id_provided:
+          description: Details if the `tax_id` was provided.
+          type: boolean
+        title:
+          description: "The corporate title of the control owner (e.g. Chief Executive\
+            \ Officer, CFO, etc. Max 60 characters)."
+          minLength: 1
+          nullable: true
+          type: string
+        url:
+          description: The URL of the merchant's public website.
+          minLength: 1
+          nullable: true
+          type: string
       type: object
     Identity__links_self:
       description: Link to the resource that was used in the request.
@@ -30571,9 +30921,51 @@ components:
         application:
           $ref: '#/components/schemas/Identity__links_application'
       type: object
+    CreateIdentityRequest_entity_personal_address:
+      description: The billing address of the buyer. This field is used for identity
+        verification purposes.
+      properties:
+        city:
+          description: City (max 20 characters).
+          type: string
+        country:
+          description: 3-Letter country code (e.g. USA).
+          type: string
+        line1:
+          description: First line of the address (max 35 characters).
+          type: string
+        line2:
+          description: Second line of the address (max 35 characters).
+          type: string
+        postal_code:
+          description: Zip or Postal code (max 7 characters).
+          type: string
+        region:
+          description: 2-letter State code.
+          type: string
+      type: object
+    CreateIdentityRequest_entity:
+      description: The underwriting details required to verify `Identities`.
+      properties:
+        email:
+          description: The email address of the buyer where they can be reached (max
+            100 characters).
+          type: string
+        first_name:
+          description: The legal first name of the buyer (max 20 characters).
+          type: string
+        last_name:
+          description: The legal last name of the buyer (max 20 characters).
+          type: string
+        personal_address:
+          $ref: '#/components/schemas/CreateIdentityRequest_entity_personal_address'
+        phone:
+          description: Phone number where the buyer can be reached.
+          type: string
+      type: object
     CreateIdentityRequest_additional_underwriting_data_volume_distribution_by_business_type:
-      description: Merchant's distribution of credit card volume by business type.
-        Sum of `volume_distribution_by_business_type` must be 100.
+      description: "IP address of the merchant when this merchant accepted the merchant\
+        \ agreement (e.g., 42.1.1.113)."
       properties:
         other_volume_percentage:
           description: The percentage of the merchant's volume that isn't represented
@@ -30614,8 +31006,6 @@ components:
           type: integer
       type: object
     CreateIdentityRequest_additional_underwriting_data:
-      description: Additional underwriting data that's required to verify the identity
-        of the merchant.
       nullable: true
       properties:
         merchant_agreement_accepted:
@@ -30644,13 +31034,13 @@ components:
           minLength: 1
           type: string
         refund_policy:
-          description: Include the value that best applies to the merchant's refund
-            policy.
+          description: "The details of the browser that was used when this merchant\
+            \ consented to a credit check (e.g., Mozilla 5.0 (Macintosh; Intel Mac\
+            \ OS X 10 _14_6))."
           enum:
           - NO_REFUNDS
           - MERCHANDISE_EXCHANGE_ONLY
           - 30_DAYS
-          minLength: 1
           type: string
         credit_check_timestamp:
           description: "A timestamp of when this merchant consented to a credit check\
@@ -30662,13 +31052,12 @@ components:
             check.
           type: boolean
         merchant_agreement_timestamp:
-          description: "Timestamp of when the merchant accepted Finix's Terms of Service\
-            \ (e.g., 2021-04-28T16:42:55Z)."
+          description: Sets if this merchant has consented and accepted to a credit
+            check.
           minLength: 1
           type: string
         business_description:
           description: Description of this merchant's business (max 200 characters).
-          minLength: 1
           type: string
         average_card_transfer_amount:
           description: The average credit card sale amount (in cents) for this merchant.
@@ -30686,207 +31075,6 @@ components:
           type: string
         card_volume_distribution:
           $ref: '#/components/schemas/CreateIdentityRequest_additional_underwriting_data_card_volume_distribution'
-      type: object
-    CreateIdentityRequest_entity_personal_address:
-      description: The home address of the merchant's principal control owner. This
-        field is used for identity verification purposes.
-      properties:
-        city:
-          description: City (max 20 characters).
-          minLength: 1
-          type: string
-        country:
-          description: 3-Letter country code (e.g. USA).
-          minLength: 1
-          type: string
-        region:
-          description: 2-letter State code.
-          minLength: 1
-          type: string
-        line2:
-          description: Second line of the address (max 35 characters).
-          minLength: 1
-          type: string
-        line1:
-          description: First line of the address (max 35 characters).
-          minLength: 1
-          type: string
-        postal_code:
-          description: Zip or Postal code (max 7 characters).
-          minLength: 1
-          type: string
-      type: object
-    CreateIdentityRequest_entity_incorporation_date:
-      description: The date the company was founded and registered with the US.
-      properties:
-        year:
-          type: integer
-        day:
-          type: integer
-        month:
-          type: integer
-      type: object
-    CreateIdentityRequest_entity_business_address:
-      description: The primary address for the legal entity.
-      nullable: true
-      properties:
-        city:
-          description: City (max 20 characters).
-          minLength: 1
-          type: string
-        country:
-          description: 3-Letter Country code (e.g. USA).
-          minLength: 1
-          type: string
-        region:
-          description: 2-letter state code.
-          minLength: 1
-          type: string
-        line2:
-          description: Second line of the address (max 35 characters).
-          minLength: 1
-          type: string
-        line1:
-          description: First line of the address (max 35 characters).
-          minLength: 1
-          type: string
-        postal_code:
-          description: Zip or Postal code (max 7 characters).
-          minLength: 1
-          type: string
-      type: object
-    CreateIdentityRequest_entity_dob:
-      description: The control owner's date of birth.
-      properties:
-        year:
-          type: integer
-        day:
-          type: integer
-        month:
-          type: integer
-      type: object
-    CreateIdentityRequest_entity:
-      description: The underwriting details required to verify the `Identity` of the
-        `Merchant`.
-      properties:
-        last_name:
-          description: The legal last name of the merchant's control owner (max 20
-            characters).
-          minLength: 1
-          type: string
-        max_transaction_amount:
-          description: The maximum amount (in cents) that can be charged for a single
-            transaction (max 12 characters).
-          type: integer
-        has_accepted_credit_cards_previously:
-          description: Defaults to **false** if not passed.
-          type: boolean
-        default_statement_descriptor:
-          description: The description of the merchant that appears on the buyer's
-            bank or card statement.
-          minLength: 1
-          type: string
-        personal_address:
-          $ref: '#/components/schemas/CreateIdentityRequest_entity_personal_address'
-        incorporation_date:
-          $ref: '#/components/schemas/CreateIdentityRequest_entity_incorporation_date'
-        business_address:
-          $ref: '#/components/schemas/CreateIdentityRequest_entity_business_address'
-        ownership_type:
-          description: "Avalible values include: <ul><li><strong>PUBLIC</strong> to\
-            \ indicate a publicly-traded company.<li><strong>PRIVATE</strong> for\
-            \ privately-held businesses."
-          enum:
-          - PUBLIC
-          - PRIVATE
-          minLength: 1
-          type: string
-        first_name:
-          description: The legal first name of the merchant's control owner (max 20
-            characters).
-          minLength: 1
-          type: string
-        title:
-          description: "The corporate title of the control owner (e.g. Chief Executive\
-            \ Officer, CFO, etc. Max 60 characters)."
-          minLength: 1
-          type: string
-        business_tax_id:
-          description: "Nine digit Tax Identification Number (TIN), Employer Identification\
-            \ Number (EIN). If the `business_type` is **INDIVIDUAL\\_SOLE\\_PROPRIETORSHIP**\
-            \ and they do not have an EIN, use the sole proprietor's Social Security\
-            \ Number (SSN)."
-          minLength: 1
-          type: string
-        doing_business_as:
-          description: "Alternate names of the business. If there are no other names,\
-            \ pass the same value used for `business_name` (max 60 characters)."
-          minLength: 1
-          type: string
-        principal_percentage_ownership:
-          description: Percentage of the company owned by the principal control owner
-            (min 0; max 100).
-          type: integer
-        email:
-          description: The email address of the principal control owner where they
-            can be reached (max 100 characters).
-          minLength: 1
-          type: string
-        mcc:
-          description: "The Merchant Category Code ([MCC](http://www.dm.usda.gov/procurement/card/card\\\
-            _x/mcc.pdf)) that this merchant will be classified under."
-          minLength: 1
-          type: string
-        phone:
-          description: The principal control owner's phone number (max 10 characters).
-          minLength: 1
-          type: string
-        business_name:
-          description: "The merchant's legal business name (max 120 characters).<ul><li>If\
-            \ **INDIVIDUAL_SOLE_PROPRIETORSHIP**, pass the owner's legal first name,\
-            \ last name and middle initial."
-          minLength: 1
-          nullable: true
-          type: string
-        tax_id:
-          description: Pass one of the following values (nine digits):<ul><li>Social
-            Security Number (SSN)<li>Tax Identification Number (TIN)<li>Individual
-            Taxpayer Identification Number (ITIN)</ul>
-          minLength: 1
-          type: string
-        business_type:
-          description: Include the value that best applies to the merchant.
-          enum:
-          - INDIVIDUAL_SOLE_PROPRIETORSHIP
-          - CORPORATION
-          - LIMITED_LIABILITY_COMPANY
-          - PARTNERSHIP
-          - ASSOCIATION_ESTATE_TRUST
-          - TAX_EXEMPT_ORGANIZATION
-          - INTERNATIONAL_ORGANIZATION
-          - GOVERNMENT_AGENCY
-          minLength: 1
-          type: string
-        business_phone:
-          description: Customer service phone number where the merchant can be reached
-            (max 10 characters).
-          minLength: 1
-          type: string
-        dob:
-          $ref: '#/components/schemas/CreateIdentityRequest_entity_dob'
-        url:
-          description: The URL of the merchant's public website.
-          minLength: 1
-          type: string
-        annual_card_volume:
-          description: The annual credit card sales (in cents) expected to be processed
-            by this merchant (max 19 characters).
-          type: integer
-      required:
-      - email
-      - first_name
-      - last_name
-      - phone
       type: object
     UpdateIdentityRequest_additional_underwriting_data_volume_distribution_by_business_type:
       description: Merchant's distribution of credit card volume by business type.
@@ -30931,8 +31119,8 @@ components:
           type: integer
       type: object
     UpdateIdentityRequest_additional_underwriting_data:
-      description: Additional underwriting data that's required to verify the identity
-        of the merchant.
+      description: Additional underwriting data that's required to verify the `Identity`
+        of merchants.
       properties:
         merchant_agreement_accepted:
           description: Sets whether this merchant has accepted the terms and conditions
@@ -31003,6 +31191,45 @@ components:
         card_volume_distribution:
           $ref: '#/components/schemas/UpdateIdentityRequest_additional_underwriting_data_card_volume_distribution'
       type: object
+    UpdateIdentityRequest_entity_personal_address:
+      description: The home address of the principal control owner. This field is
+        used for identity verification purposes.
+      properties:
+        city:
+          description: City (max 20 characters).
+          minLength: 1
+          type: string
+        country:
+          description: 3-Letter country code (e.g. USA).
+          minLength: 1
+          type: string
+        region:
+          description: 2-letter State code.
+          minLength: 1
+          type: string
+        line2:
+          description: Second line of the address (max 35 characters).
+          minLength: 1
+          type: string
+        line1:
+          description: First line of the address (max 35 characters).
+          minLength: 1
+          type: string
+        postal_code:
+          description: Zip or Postal code (max 7 characters).
+          minLength: 1
+          type: string
+      type: object
+    UpdateIdentityRequest_entity_incorporation_date:
+      description: The date the company was founded and registered with the US.
+      properties:
+        year:
+          type: integer
+        day:
+          type: integer
+        month:
+          type: integer
+      type: object
     UpdateIdentityRequest_entity_business_address:
       description: The primary address for the legal entity.
       nullable: true
@@ -31043,12 +31270,10 @@ components:
           type: integer
       type: object
     UpdateIdentityRequest_entity:
-      description: Underwriting data that's required to verify the identity of the
-        merchant.
+      description: Underwriting data that's required to verify the `Identity`.
       properties:
         last_name:
-          description: The legal last name of the merchant's control owner (max 20
-            characters).
+          description: The `Identity` owner's legal last name.
           minLength: 1
           type: string
         max_transaction_amount:
@@ -31064,9 +31289,9 @@ components:
           minLength: 1
           type: string
         personal_address:
-          $ref: '#/components/schemas/CreateIdentityRequest_entity_personal_address'
+          $ref: '#/components/schemas/UpdateIdentityRequest_entity_personal_address'
         incorporation_date:
-          $ref: '#/components/schemas/CreateIdentityRequest_entity_incorporation_date'
+          $ref: '#/components/schemas/UpdateIdentityRequest_entity_incorporation_date'
         business_address:
           $ref: '#/components/schemas/UpdateIdentityRequest_entity_business_address'
         ownership_type:
@@ -31077,8 +31302,7 @@ components:
           minLength: 1
           type: string
         first_name:
-          description: The legal first name of the merchant's control owner (max 20
-            characters).
+          description: The legal first name of the control owner (max 20 characters).
           minLength: 1
           type: string
         title:
@@ -31144,18 +31368,13 @@ components:
         dob:
           $ref: '#/components/schemas/UpdateIdentityRequest_entity_dob'
         url:
-          description: The URL of the merchant's public website.
+          description: The URL of the `Identity` owner's public website.
           minLength: 1
           type: string
         annual_card_volume:
           description: The annual credit card sales (in cents) expected to be processed
-            by this merchant (max 19 characters).
+            (max 19 characters).
           type: integer
-      required:
-      - email
-      - first_name
-      - last_name
-      - phone
       type: object
     Merchant_processor_details:
       description: Additional details specific to the processor.
@@ -31271,18 +31490,18 @@ components:
         \ link to resources relevant to the request. You can use these `_links` to\
         \ make your follow-up requests and quickly access relevant IDs."
       properties:
-        application:
-          $ref: '#/components/schemas/Merchant__links_application'
-        authorizations:
-          $ref: '#/components/schemas/PaymentInstrument__links_authorizations'
-        identity:
-          $ref: '#/components/schemas/Merchant__links_identity'
         self:
           $ref: '#/components/schemas/Application__links_self'
+        authorizations:
+          $ref: '#/components/schemas/PaymentInstrument__links_authorizations'
         transfers:
           $ref: '#/components/schemas/PaymentInstrument__links_transfers'
         verifications:
           $ref: '#/components/schemas/Merchant__links_verifications'
+        application:
+          $ref: '#/components/schemas/Merchant__links_application'
+        identity:
+          $ref: '#/components/schemas/Merchant__links_identity'
       type: object
     CreatePaymentInstrumentRequest_address:
       description: The address of the bank account or card owner.

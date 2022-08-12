@@ -57,21 +57,13 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PaymentInstrumentLinks {
-  public static final String SERIALIZED_NAME_APPLICATION = "application";
-  @SerializedName(SERIALIZED_NAME_APPLICATION)
-  private MerchantLinksApplication application;
+  public static final String SERIALIZED_NAME_SELF = "self";
+  @SerializedName(SERIALIZED_NAME_SELF)
+  private ApplicationLinksSelf self;
 
   public static final String SERIALIZED_NAME_AUTHORIZATIONS = "authorizations";
   @SerializedName(SERIALIZED_NAME_AUTHORIZATIONS)
   private PaymentInstrumentLinksAuthorizations authorizations;
-
-  public static final String SERIALIZED_NAME_IDENTITY = "identity";
-  @SerializedName(SERIALIZED_NAME_IDENTITY)
-  private MerchantLinksIdentity identity;
-
-  public static final String SERIALIZED_NAME_SELF = "self";
-  @SerializedName(SERIALIZED_NAME_SELF)
-  private ApplicationLinksSelf self;
 
   public static final String SERIALIZED_NAME_TRANSFERS = "transfers";
   @SerializedName(SERIALIZED_NAME_TRANSFERS)
@@ -81,29 +73,37 @@ public class PaymentInstrumentLinks {
   @SerializedName(SERIALIZED_NAME_VERIFICATIONS)
   private MerchantLinksVerifications verifications;
 
+  public static final String SERIALIZED_NAME_APPLICATION = "application";
+  @SerializedName(SERIALIZED_NAME_APPLICATION)
+  private MerchantLinksApplication application;
+
+  public static final String SERIALIZED_NAME_IDENTITY = "identity";
+  @SerializedName(SERIALIZED_NAME_IDENTITY)
+  private MerchantLinksIdentity identity;
+
   public PaymentInstrumentLinks() { 
   }
 
-  public PaymentInstrumentLinks application(MerchantLinksApplication application) {
+  public PaymentInstrumentLinks self(ApplicationLinksSelf self) {
     
-    this.application = application;
+    this.self = self;
     return this;
   }
 
    /**
-   * Get application
-   * @return application
+   * Get self
+   * @return self
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public MerchantLinksApplication getApplication() {
-    return application;
+  public ApplicationLinksSelf getSelf() {
+    return self;
   }
 
 
-  public void setApplication(MerchantLinksApplication application) {
-    this.application = application;
+  public void setSelf(ApplicationLinksSelf self) {
+    this.self = self;
   }
 
 
@@ -127,52 +127,6 @@ public class PaymentInstrumentLinks {
 
   public void setAuthorizations(PaymentInstrumentLinksAuthorizations authorizations) {
     this.authorizations = authorizations;
-  }
-
-
-  public PaymentInstrumentLinks identity(MerchantLinksIdentity identity) {
-    
-    this.identity = identity;
-    return this;
-  }
-
-   /**
-   * Get identity
-   * @return identity
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public MerchantLinksIdentity getIdentity() {
-    return identity;
-  }
-
-
-  public void setIdentity(MerchantLinksIdentity identity) {
-    this.identity = identity;
-  }
-
-
-  public PaymentInstrumentLinks self(ApplicationLinksSelf self) {
-    
-    this.self = self;
-    return this;
-  }
-
-   /**
-   * Get self
-   * @return self
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public ApplicationLinksSelf getSelf() {
-    return self;
-  }
-
-
-  public void setSelf(ApplicationLinksSelf self) {
-    this.self = self;
   }
 
 
@@ -222,6 +176,52 @@ public class PaymentInstrumentLinks {
   }
 
 
+  public PaymentInstrumentLinks application(MerchantLinksApplication application) {
+    
+    this.application = application;
+    return this;
+  }
+
+   /**
+   * Get application
+   * @return application
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public MerchantLinksApplication getApplication() {
+    return application;
+  }
+
+
+  public void setApplication(MerchantLinksApplication application) {
+    this.application = application;
+  }
+
+
+  public PaymentInstrumentLinks identity(MerchantLinksIdentity identity) {
+    
+    this.identity = identity;
+    return this;
+  }
+
+   /**
+   * Get identity
+   * @return identity
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public MerchantLinksIdentity getIdentity() {
+    return identity;
+  }
+
+
+  public void setIdentity(MerchantLinksIdentity identity) {
+    this.identity = identity;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -232,29 +232,29 @@ public class PaymentInstrumentLinks {
       return false;
     }
     PaymentInstrumentLinks paymentInstrumentLinks = (PaymentInstrumentLinks) o;
-    return Objects.equals(this.application, paymentInstrumentLinks.application) &&
+    return Objects.equals(this.self, paymentInstrumentLinks.self) &&
         Objects.equals(this.authorizations, paymentInstrumentLinks.authorizations) &&
-        Objects.equals(this.identity, paymentInstrumentLinks.identity) &&
-        Objects.equals(this.self, paymentInstrumentLinks.self) &&
         Objects.equals(this.transfers, paymentInstrumentLinks.transfers) &&
-        Objects.equals(this.verifications, paymentInstrumentLinks.verifications);
+        Objects.equals(this.verifications, paymentInstrumentLinks.verifications) &&
+        Objects.equals(this.application, paymentInstrumentLinks.application) &&
+        Objects.equals(this.identity, paymentInstrumentLinks.identity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(application, authorizations, identity, self, transfers, verifications);
+    return Objects.hash(self, authorizations, transfers, verifications, application, identity);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentInstrumentLinks {\n");
-    sb.append("    application: ").append(toIndentedString(application)).append("\n");
-    sb.append("    authorizations: ").append(toIndentedString(authorizations)).append("\n");
-    sb.append("    identity: ").append(toIndentedString(identity)).append("\n");
     sb.append("    self: ").append(toIndentedString(self)).append("\n");
+    sb.append("    authorizations: ").append(toIndentedString(authorizations)).append("\n");
     sb.append("    transfers: ").append(toIndentedString(transfers)).append("\n");
     sb.append("    verifications: ").append(toIndentedString(verifications)).append("\n");
+    sb.append("    application: ").append(toIndentedString(application)).append("\n");
+    sb.append("    identity: ").append(toIndentedString(identity)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -277,12 +277,12 @@ public class PaymentInstrumentLinks {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("application");
-    openapiFields.add("authorizations");
-    openapiFields.add("identity");
     openapiFields.add("self");
+    openapiFields.add("authorizations");
     openapiFields.add("transfers");
     openapiFields.add("verifications");
+    openapiFields.add("application");
+    openapiFields.add("identity");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -316,9 +316,9 @@ public class PaymentInstrumentLinks {
       * EDITED
       * ADDED  statement to for inconsistent null behaviour
       */
-      // validate the optional field `application`
-     // if (jsonObj.getAsJsonObject("application") != null) {
-       //MerchantLinksApplication.validateJsonObject(jsonObj.getAsJsonObject("application"));
+      // validate the optional field `self`
+     // if (jsonObj.getAsJsonObject("self") != null) {
+       //ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
      // }
 
       /**
@@ -328,24 +328,6 @@ public class PaymentInstrumentLinks {
       // validate the optional field `authorizations`
      // if (jsonObj.getAsJsonObject("authorizations") != null) {
        //PaymentInstrumentLinksAuthorizations.validateJsonObject(jsonObj.getAsJsonObject("authorizations"));
-     // }
-
-      /**
-      * EDITED
-      * ADDED  statement to for inconsistent null behaviour
-      */
-      // validate the optional field `identity`
-     // if (jsonObj.getAsJsonObject("identity") != null) {
-       //MerchantLinksIdentity.validateJsonObject(jsonObj.getAsJsonObject("identity"));
-     // }
-
-      /**
-      * EDITED
-      * ADDED  statement to for inconsistent null behaviour
-      */
-      // validate the optional field `self`
-     // if (jsonObj.getAsJsonObject("self") != null) {
-       //ApplicationLinksSelf.validateJsonObject(jsonObj.getAsJsonObject("self"));
      // }
 
       /**
@@ -364,6 +346,24 @@ public class PaymentInstrumentLinks {
       // validate the optional field `verifications`
      // if (jsonObj.getAsJsonObject("verifications") != null) {
        //MerchantLinksVerifications.validateJsonObject(jsonObj.getAsJsonObject("verifications"));
+     // }
+
+      /**
+      * EDITED
+      * ADDED  statement to for inconsistent null behaviour
+      */
+      // validate the optional field `application`
+     // if (jsonObj.getAsJsonObject("application") != null) {
+       //MerchantLinksApplication.validateJsonObject(jsonObj.getAsJsonObject("application"));
+     // }
+
+      /**
+      * EDITED
+      * ADDED  statement to for inconsistent null behaviour
+      */
+      // validate the optional field `identity`
+     // if (jsonObj.getAsJsonObject("identity") != null) {
+       //MerchantLinksIdentity.validateJsonObject(jsonObj.getAsJsonObject("identity"));
      // }
 
   }

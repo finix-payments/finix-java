@@ -45,12 +45,12 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * The billing address of the buyer. This field is used for identity verification purposes.
+ * The home address of the principal control owner. This field is used for identity verification purposes.
  */
-@ApiModel(description = "The billing address of the buyer. This field is used for identity verification purposes.")
+@ApiModel(description = "The home address of the principal control owner. This field is used for identity verification purposes.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class CreateIdentityRequestEntityPersonalAddress {
+public class UpdateIdentityRequestEntityPersonalAddress {
   public static final String SERIALIZED_NAME_CITY = "city";
   @SerializedName(SERIALIZED_NAME_CITY)
   private String city;
@@ -59,26 +59,26 @@ public class CreateIdentityRequestEntityPersonalAddress {
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private String country;
 
-  public static final String SERIALIZED_NAME_LINE1 = "line1";
-  @SerializedName(SERIALIZED_NAME_LINE1)
-  private String line1;
+  public static final String SERIALIZED_NAME_REGION = "region";
+  @SerializedName(SERIALIZED_NAME_REGION)
+  private String region;
 
   public static final String SERIALIZED_NAME_LINE2 = "line2";
   @SerializedName(SERIALIZED_NAME_LINE2)
   private String line2;
 
+  public static final String SERIALIZED_NAME_LINE1 = "line1";
+  @SerializedName(SERIALIZED_NAME_LINE1)
+  private String line1;
+
   public static final String SERIALIZED_NAME_POSTAL_CODE = "postal_code";
   @SerializedName(SERIALIZED_NAME_POSTAL_CODE)
   private String postalCode;
 
-  public static final String SERIALIZED_NAME_REGION = "region";
-  @SerializedName(SERIALIZED_NAME_REGION)
-  private String region;
-
-  public CreateIdentityRequestEntityPersonalAddress() { 
+  public UpdateIdentityRequestEntityPersonalAddress() { 
   }
 
-  public CreateIdentityRequestEntityPersonalAddress city(String city) {
+  public UpdateIdentityRequestEntityPersonalAddress city(String city) {
     
     this.city = city;
     return this;
@@ -101,7 +101,7 @@ public class CreateIdentityRequestEntityPersonalAddress {
   }
 
 
-  public CreateIdentityRequestEntityPersonalAddress country(String country) {
+  public UpdateIdentityRequestEntityPersonalAddress country(String country) {
     
     this.country = country;
     return this;
@@ -124,76 +124,7 @@ public class CreateIdentityRequestEntityPersonalAddress {
   }
 
 
-  public CreateIdentityRequestEntityPersonalAddress line1(String line1) {
-    
-    this.line1 = line1;
-    return this;
-  }
-
-   /**
-   * First line of the address (max 35 characters).
-   * @return line1
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "First line of the address (max 35 characters).")
-
-  public String getLine1() {
-    return line1;
-  }
-
-
-  public void setLine1(String line1) {
-    this.line1 = line1;
-  }
-
-
-  public CreateIdentityRequestEntityPersonalAddress line2(String line2) {
-    
-    this.line2 = line2;
-    return this;
-  }
-
-   /**
-   * Second line of the address (max 35 characters).
-   * @return line2
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Second line of the address (max 35 characters).")
-
-  public String getLine2() {
-    return line2;
-  }
-
-
-  public void setLine2(String line2) {
-    this.line2 = line2;
-  }
-
-
-  public CreateIdentityRequestEntityPersonalAddress postalCode(String postalCode) {
-    
-    this.postalCode = postalCode;
-    return this;
-  }
-
-   /**
-   * Zip or Postal code (max 7 characters).
-   * @return postalCode
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Zip or Postal code (max 7 characters).")
-
-  public String getPostalCode() {
-    return postalCode;
-  }
-
-
-  public void setPostalCode(String postalCode) {
-    this.postalCode = postalCode;
-  }
-
-
-  public CreateIdentityRequestEntityPersonalAddress region(String region) {
+  public UpdateIdentityRequestEntityPersonalAddress region(String region) {
     
     this.region = region;
     return this;
@@ -216,6 +147,75 @@ public class CreateIdentityRequestEntityPersonalAddress {
   }
 
 
+  public UpdateIdentityRequestEntityPersonalAddress line2(String line2) {
+    
+    this.line2 = line2;
+    return this;
+  }
+
+   /**
+   * Second line of the address (max 35 characters).
+   * @return line2
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Second line of the address (max 35 characters).")
+
+  public String getLine2() {
+    return line2;
+  }
+
+
+  public void setLine2(String line2) {
+    this.line2 = line2;
+  }
+
+
+  public UpdateIdentityRequestEntityPersonalAddress line1(String line1) {
+    
+    this.line1 = line1;
+    return this;
+  }
+
+   /**
+   * First line of the address (max 35 characters).
+   * @return line1
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "First line of the address (max 35 characters).")
+
+  public String getLine1() {
+    return line1;
+  }
+
+
+  public void setLine1(String line1) {
+    this.line1 = line1;
+  }
+
+
+  public UpdateIdentityRequestEntityPersonalAddress postalCode(String postalCode) {
+    
+    this.postalCode = postalCode;
+    return this;
+  }
+
+   /**
+   * Zip or Postal code (max 7 characters).
+   * @return postalCode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Zip or Postal code (max 7 characters).")
+
+  public String getPostalCode() {
+    return postalCode;
+  }
+
+
+  public void setPostalCode(String postalCode) {
+    this.postalCode = postalCode;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -225,30 +225,30 @@ public class CreateIdentityRequestEntityPersonalAddress {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateIdentityRequestEntityPersonalAddress createIdentityRequestEntityPersonalAddress = (CreateIdentityRequestEntityPersonalAddress) o;
-    return Objects.equals(this.city, createIdentityRequestEntityPersonalAddress.city) &&
-        Objects.equals(this.country, createIdentityRequestEntityPersonalAddress.country) &&
-        Objects.equals(this.line1, createIdentityRequestEntityPersonalAddress.line1) &&
-        Objects.equals(this.line2, createIdentityRequestEntityPersonalAddress.line2) &&
-        Objects.equals(this.postalCode, createIdentityRequestEntityPersonalAddress.postalCode) &&
-        Objects.equals(this.region, createIdentityRequestEntityPersonalAddress.region);
+    UpdateIdentityRequestEntityPersonalAddress updateIdentityRequestEntityPersonalAddress = (UpdateIdentityRequestEntityPersonalAddress) o;
+    return Objects.equals(this.city, updateIdentityRequestEntityPersonalAddress.city) &&
+        Objects.equals(this.country, updateIdentityRequestEntityPersonalAddress.country) &&
+        Objects.equals(this.region, updateIdentityRequestEntityPersonalAddress.region) &&
+        Objects.equals(this.line2, updateIdentityRequestEntityPersonalAddress.line2) &&
+        Objects.equals(this.line1, updateIdentityRequestEntityPersonalAddress.line1) &&
+        Objects.equals(this.postalCode, updateIdentityRequestEntityPersonalAddress.postalCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(city, country, line1, line2, postalCode, region);
+    return Objects.hash(city, country, region, line2, line1, postalCode);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateIdentityRequestEntityPersonalAddress {\n");
+    sb.append("class UpdateIdentityRequestEntityPersonalAddress {\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
-    sb.append("    line1: ").append(toIndentedString(line1)).append("\n");
-    sb.append("    line2: ").append(toIndentedString(line2)).append("\n");
-    sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    line2: ").append(toIndentedString(line2)).append("\n");
+    sb.append("    line1: ").append(toIndentedString(line1)).append("\n");
+    sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -273,10 +273,10 @@ public class CreateIdentityRequestEntityPersonalAddress {
     openapiFields = new HashSet<String>();
     openapiFields.add("city");
     openapiFields.add("country");
-    openapiFields.add("line1");
-    openapiFields.add("line2");
-    openapiFields.add("postal_code");
     openapiFields.add("region");
+    openapiFields.add("line2");
+    openapiFields.add("line1");
+    openapiFields.add("postal_code");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -286,14 +286,14 @@ public class CreateIdentityRequestEntityPersonalAddress {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CreateIdentityRequestEntityPersonalAddress
+  * @throws IOException if the JSON Object is invalid with respect to UpdateIdentityRequestEntityPersonalAddress
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (CreateIdentityRequestEntityPersonalAddress.openapiRequiredFields.isEmpty()) {
+        if (UpdateIdentityRequestEntityPersonalAddress.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateIdentityRequestEntityPersonalAddress is not found in the empty JSON string", CreateIdentityRequestEntityPersonalAddress.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateIdentityRequestEntityPersonalAddress is not found in the empty JSON string", UpdateIdentityRequestEntityPersonalAddress.openapiRequiredFields.toString()));
         }
       }
      /* 
@@ -301,8 +301,8 @@ public class CreateIdentityRequestEntityPersonalAddress {
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!CreateIdentityRequestEntityPersonalAddress.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateIdentityRequestEntityPersonalAddress` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!UpdateIdentityRequestEntityPersonalAddress.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateIdentityRequestEntityPersonalAddress` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       */
@@ -324,8 +324,8 @@ public class CreateIdentityRequestEntityPersonalAddress {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("line1") != null && !jsonObj.get("line1").isJsonNull()  && !jsonObj.get("line1").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `line1` to be a primitive type in the JSON string but got `%s`", jsonObj.get("line1").toString()));
+      if (jsonObj.get("region") != null && !jsonObj.get("region").isJsonNull()  && !jsonObj.get("region").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `region` to be a primitive type in the JSON string but got `%s`", jsonObj.get("region").toString()));
       }
       /**
       * EDITED
@@ -338,15 +338,15 @@ public class CreateIdentityRequestEntityPersonalAddress {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("postal_code") != null && !jsonObj.get("postal_code").isJsonNull()  && !jsonObj.get("postal_code").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `postal_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("postal_code").toString()));
+      if (jsonObj.get("line1") != null && !jsonObj.get("line1").isJsonNull()  && !jsonObj.get("line1").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `line1` to be a primitive type in the JSON string but got `%s`", jsonObj.get("line1").toString()));
       }
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("region") != null && !jsonObj.get("region").isJsonNull()  && !jsonObj.get("region").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `region` to be a primitive type in the JSON string but got `%s`", jsonObj.get("region").toString()));
+      if (jsonObj.get("postal_code") != null && !jsonObj.get("postal_code").isJsonNull()  && !jsonObj.get("postal_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `postal_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("postal_code").toString()));
       }
   }
 
@@ -355,22 +355,22 @@ public class CreateIdentityRequestEntityPersonalAddress {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CreateIdentityRequestEntityPersonalAddress.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreateIdentityRequestEntityPersonalAddress' and its subtypes
+       if (!UpdateIdentityRequestEntityPersonalAddress.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'UpdateIdentityRequestEntityPersonalAddress' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CreateIdentityRequestEntityPersonalAddress> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CreateIdentityRequestEntityPersonalAddress.class));
+       final TypeAdapter<UpdateIdentityRequestEntityPersonalAddress> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(UpdateIdentityRequestEntityPersonalAddress.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CreateIdentityRequestEntityPersonalAddress>() {
+       return (TypeAdapter<T>) new TypeAdapter<UpdateIdentityRequestEntityPersonalAddress>() {
            @Override
-           public void write(JsonWriter out, CreateIdentityRequestEntityPersonalAddress value) throws IOException {
+           public void write(JsonWriter out, UpdateIdentityRequestEntityPersonalAddress value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public CreateIdentityRequestEntityPersonalAddress read(JsonReader in) throws IOException {
+           public UpdateIdentityRequestEntityPersonalAddress read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -381,18 +381,18 @@ public class CreateIdentityRequestEntityPersonalAddress {
   }
 
  /**
-  * Create an instance of CreateIdentityRequestEntityPersonalAddress given an JSON string
+  * Create an instance of UpdateIdentityRequestEntityPersonalAddress given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of CreateIdentityRequestEntityPersonalAddress
-  * @throws IOException if the JSON string is invalid with respect to CreateIdentityRequestEntityPersonalAddress
+  * @return An instance of UpdateIdentityRequestEntityPersonalAddress
+  * @throws IOException if the JSON string is invalid with respect to UpdateIdentityRequestEntityPersonalAddress
   */
-  public static CreateIdentityRequestEntityPersonalAddress fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CreateIdentityRequestEntityPersonalAddress.class);
+  public static UpdateIdentityRequestEntityPersonalAddress fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, UpdateIdentityRequestEntityPersonalAddress.class);
   }
 
  /**
-  * Convert an instance of CreateIdentityRequestEntityPersonalAddress to an JSON string
+  * Convert an instance of UpdateIdentityRequestEntityPersonalAddress to an JSON string
   *
   * @return JSON string
   */

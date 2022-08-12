@@ -60,92 +60,6 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PaymentInstrument {
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
-
-  /**
-   * Type of &#x60;Payment Instrument&#x60;.
-   */
-  @JsonAdapter(TypeEnum.Adapter.class)
-  public enum TypeEnum {
-    PAYMENT_CARD("PAYMENT_CARD"),
-    
-    TOKEN("TOKEN"),
-    
-    VANTIV_OMNI_TOKEN("VANTIV_OMNI_TOKEN"),
-    
-    BANK_ACCOUNT("BANK_ACCOUNT"),
-    
-    PAYMENT_CARD_PRESENT("PAYMENT_CARD_PRESENT"),
-    
-    SWIPED_PAYMENT_CARD("SWIPED_PAYMENT_CARD"),
-    
-    VIRTUAL("VIRTUAL"),
-    
-    UNKNOWN_DEFAULT("unknown_default_open_api");
-
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    /*
-    * EDITED
-    * Add ability get the raw underlying value of a enum the library is not aware about.
-    */
-    private String rawValue;
-
-    public void setRawValue(String s){
-    this.rawValue = s;
-    }
-
-    public String getRawValue() {
-    return rawValue;
-    }
-
-    public static TypeEnum fromValue(String value) {
-        for (TypeEnum b : TypeEnum.values()) {
-          if (b.value.equals(value)) {
-            return b;
-          }
-        }
-
-        TypeEnum unknownDefault = TypeEnum.UNKNOWN_DEFAULT;
-        unknownDefault.setRawValue(value);
-
-        return unknownDefault;
-        
-    }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
-  }
-
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private TypeEnum type;
-
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -263,19 +177,19 @@ public class PaymentInstrument {
    */
   @JsonAdapter(InstrumentTypeEnum.Adapter.class)
   public enum InstrumentTypeEnum {
+    BANK_ACCOUNT("BANK_ACCOUNT"),
+    
+    VANTIV_OMNI_TOKEN("VANTIV_OMNI_TOKEN"),
+    
+    VIRTUAL("VIRTUAL"),
+    
+    SWIPED_PAYMENT_CARD("SWIPED_PAYMENT_CARD"),
+    
     PAYMENT_CARD("PAYMENT_CARD"),
     
     TOKEN("TOKEN"),
     
-    VANTIV_OMNI_TOKEN("VANTIV_OMNI_TOKEN"),
-    
-    BANK_ACCOUNT("BANK_ACCOUNT"),
-    
     PAYMENT_CARD_PRESENT("PAYMENT_CARD_PRESENT"),
-    
-    SWIPED_PAYMENT_CARD("SWIPED_PAYMENT_CARD"),
-    
-    VIRTUAL("VIRTUAL"),
     
     UNKNOWN_DEFAULT("unknown_default_open_api");
 
@@ -348,20 +262,34 @@ public class PaymentInstrument {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
+
   /**
-   * Gets or Sets payloadType
+   * Type of &#x60;Payment Instrument&#x60;.
    */
-  @JsonAdapter(PayloadTypeEnum.Adapter.class)
-  public enum PayloadTypeEnum {
-    SOURCE("SOURCE"),
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    BANK_ACCOUNT("BANK_ACCOUNT"),
     
-    DESTINATION("DESTINATION"),
+    VANTIV_OMNI_TOKEN("VANTIV_OMNI_TOKEN"),
+    
+    VIRTUAL("VIRTUAL"),
+    
+    SWIPED_PAYMENT_CARD("SWIPED_PAYMENT_CARD"),
+    
+    PAYMENT_CARD("PAYMENT_CARD"),
+    
+    TOKEN("TOKEN"),
+    
+    PAYMENT_CARD_PRESENT("PAYMENT_CARD_PRESENT"),
     
     UNKNOWN_DEFAULT("unknown_default_open_api");
 
     private String value;
 
-    PayloadTypeEnum(String value) {
+    TypeEnum(String value) {
       this.value = value;
     }
 
@@ -388,245 +316,41 @@ public class PaymentInstrument {
     return rawValue;
     }
 
-    public static PayloadTypeEnum fromValue(String value) {
-        for (PayloadTypeEnum b : PayloadTypeEnum.values()) {
+    public static TypeEnum fromValue(String value) {
+        for (TypeEnum b : TypeEnum.values()) {
           if (b.value.equals(value)) {
             return b;
           }
         }
 
-        PayloadTypeEnum unknownDefault = PayloadTypeEnum.UNKNOWN_DEFAULT;
+        TypeEnum unknownDefault = TypeEnum.UNKNOWN_DEFAULT;
         unknownDefault.setRawValue(value);
 
         return unknownDefault;
         
     }
 
-    public static class Adapter extends TypeAdapter<PayloadTypeEnum> {
+    public static class Adapter extends TypeAdapter<TypeEnum> {
       @Override
-      public void write(final JsonWriter jsonWriter, final PayloadTypeEnum enumeration) throws IOException {
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
         jsonWriter.value(enumeration.getValue());
       }
 
       @Override
-      public PayloadTypeEnum read(final JsonReader jsonReader) throws IOException {
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
         String value =  jsonReader.nextString();
-        return PayloadTypeEnum.fromValue(value);
+        return TypeEnum.fromValue(value);
       }
     }
   }
 
-  public static final String SERIALIZED_NAME_PAYLOAD_TYPE = "payload_type";
-  @SerializedName(SERIALIZED_NAME_PAYLOAD_TYPE)
-  private PayloadTypeEnum payloadType;
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private TypeEnum type;
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
   private PaymentInstrumentLinks links;
-
-  public static final String SERIALIZED_NAME_EXPIRATION_MONTH = "expiration_month";
-  @SerializedName(SERIALIZED_NAME_EXPIRATION_MONTH)
-  private Long expirationMonth;
-
-  public static final String SERIALIZED_NAME_EXPIRATION_YEAR = "expiration_year";
-  @SerializedName(SERIALIZED_NAME_EXPIRATION_YEAR)
-  private Long expirationYear;
-
-  public static final String SERIALIZED_NAME_BIN = "bin";
-  @SerializedName(SERIALIZED_NAME_BIN)
-  private String bin;
-
-  public static final String SERIALIZED_NAME_LAST_FOUR = "last_four";
-  @SerializedName(SERIALIZED_NAME_LAST_FOUR)
-  private String lastFour;
-
-  /**
-   * The &#x60;brand&#x60; of the card saved in the &#x60;Payment Instrument&#x60;.
-   */
-  @JsonAdapter(BrandEnum.Adapter.class)
-  public enum BrandEnum {
-    UNKNOWN("UNKNOWN"),
-    
-    DINERS_CLUB_INTERNATIONAL("DINERS_CLUB_INTERNATIONAL"),
-    
-    DANKORT("DANKORT"),
-    
-    MIR("MIR"),
-    
-    TROY("TROY"),
-    
-    UATP("UATP"),
-    
-    CHINA_T_UNION("CHINA_T_UNION"),
-    
-    CHINA_UNION_PAY("CHINA_UNION_PAY"),
-    
-    AMERICAN_EXPRESS("AMERICAN_EXPRESS"),
-    
-    VERVE("VERVE"),
-    
-    RUPAY("RUPAY"),
-    
-    DISCOVER("DISCOVER"),
-    
-    JCB("JCB"),
-    
-    MASTERCARD("MASTERCARD"),
-    
-    INTERPAYMENT("INTERPAYMENT"),
-    
-    INSTAPAYMENT("INSTAPAYMENT"),
-    
-    MAESTRO("MAESTRO"),
-    
-    VISA("VISA"),
-    
-    LANKAPAY("LANKAPAY"),
-    
-    DINERS_CLUB("DINERS_CLUB"),
-    
-    UNKNOWN_DEFAULT("unknown_default_open_api");
-
-    private String value;
-
-    BrandEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    /*
-    * EDITED
-    * Add ability get the raw underlying value of a enum the library is not aware about.
-    */
-    private String rawValue;
-
-    public void setRawValue(String s){
-    this.rawValue = s;
-    }
-
-    public String getRawValue() {
-    return rawValue;
-    }
-
-    public static BrandEnum fromValue(String value) {
-        for (BrandEnum b : BrandEnum.values()) {
-          if (b.value.equals(value)) {
-            return b;
-          }
-        }
-
-        BrandEnum unknownDefault = BrandEnum.UNKNOWN_DEFAULT;
-        unknownDefault.setRawValue(value);
-
-        return unknownDefault;
-        
-    }
-
-    public static class Adapter extends TypeAdapter<BrandEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final BrandEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public BrandEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return BrandEnum.fromValue(value);
-      }
-    }
-  }
-
-  public static final String SERIALIZED_NAME_BRAND = "brand";
-  @SerializedName(SERIALIZED_NAME_BRAND)
-  private BrandEnum brand;
-
-  /**
-   * The type of payment card saved in the &#x60;Payment Instrument&#x60;.
-   */
-  @JsonAdapter(CardTypeEnum.Adapter.class)
-  public enum CardTypeEnum {
-    UNKNOWN("UNKNOWN"),
-    
-    CREDIT("CREDIT"),
-    
-    DEBIT("DEBIT"),
-    
-    HSA_FSA("HSA_FSA"),
-    
-    NON_RELOADABLE_PREPAID("NON_RELOADABLE_PREPAID"),
-    
-    RELOADABLE_PREPAID("RELOADABLE_PREPAID"),
-    
-    UNKNOWN_DEFAULT("unknown_default_open_api");
-
-    private String value;
-
-    CardTypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    /*
-    * EDITED
-    * Add ability get the raw underlying value of a enum the library is not aware about.
-    */
-    private String rawValue;
-
-    public void setRawValue(String s){
-    this.rawValue = s;
-    }
-
-    public String getRawValue() {
-    return rawValue;
-    }
-
-    public static CardTypeEnum fromValue(String value) {
-        for (CardTypeEnum b : CardTypeEnum.values()) {
-          if (b.value.equals(value)) {
-            return b;
-          }
-        }
-
-        CardTypeEnum unknownDefault = CardTypeEnum.UNKNOWN_DEFAULT;
-        unknownDefault.setRawValue(value);
-
-        return unknownDefault;
-        
-    }
-
-    public static class Adapter extends TypeAdapter<CardTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final CardTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public CardTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return CardTypeEnum.fromValue(value);
-      }
-    }
-  }
-
-  public static final String SERIALIZED_NAME_CARD_TYPE = "card_type";
-  @SerializedName(SERIALIZED_NAME_CARD_TYPE)
-  private CardTypeEnum cardType;
 
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
@@ -714,6 +438,118 @@ public class PaymentInstrument {
   @SerializedName(SERIALIZED_NAME_ADDRESS_VERIFICATION)
   private AddressVerificationEnum addressVerification;
 
+  public static final String SERIALIZED_NAME_BIN = "bin";
+  @SerializedName(SERIALIZED_NAME_BIN)
+  private String bin;
+
+  public static final String SERIALIZED_NAME_BRAND = "brand";
+  @SerializedName(SERIALIZED_NAME_BRAND)
+  private String brand;
+
+  public static final String SERIALIZED_NAME_CARD_NAME = "card_name";
+  @SerializedName(SERIALIZED_NAME_CARD_NAME)
+  private String cardName;
+
+  public static final String SERIALIZED_NAME_CARD_TYPE = "card_type";
+  @SerializedName(SERIALIZED_NAME_CARD_TYPE)
+  private String cardType;
+
+  public static final String SERIALIZED_NAME_EXPIRATION_MONTH = "expiration_month";
+  @SerializedName(SERIALIZED_NAME_EXPIRATION_MONTH)
+  private Long expirationMonth;
+
+  public static final String SERIALIZED_NAME_EXPIRATION_YEAR = "expiration_year";
+  @SerializedName(SERIALIZED_NAME_EXPIRATION_YEAR)
+  private Long expirationYear;
+
+  public static final String SERIALIZED_NAME_FAST_FUNDS_INDICATOR = "fast_funds_indicator";
+  @SerializedName(SERIALIZED_NAME_FAST_FUNDS_INDICATOR)
+  private String fastFundsIndicator;
+
+  public static final String SERIALIZED_NAME_LAST_FOUR = "last_four";
+  @SerializedName(SERIALIZED_NAME_LAST_FOUR)
+  private String lastFour;
+
+  public static final String SERIALIZED_NAME_ONLINE_GAMBING_BLOCK_INDICATOR = "online_gambing_block_indicator";
+  @SerializedName(SERIALIZED_NAME_ONLINE_GAMBING_BLOCK_INDICATOR)
+  private String onlineGambingBlockIndicator;
+
+  /**
+   * Gets or Sets payloadType
+   */
+  @JsonAdapter(PayloadTypeEnum.Adapter.class)
+  public enum PayloadTypeEnum {
+    SOURCE("SOURCE"),
+    
+    DESTINATION("DESTINATION"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
+
+    private String value;
+
+    PayloadTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
+    public static PayloadTypeEnum fromValue(String value) {
+        for (PayloadTypeEnum b : PayloadTypeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
+        }
+
+        PayloadTypeEnum unknownDefault = PayloadTypeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
+    }
+
+    public static class Adapter extends TypeAdapter<PayloadTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PayloadTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public PayloadTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return PayloadTypeEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_PAYLOAD_TYPE = "payload_type";
+  @SerializedName(SERIALIZED_NAME_PAYLOAD_TYPE)
+  private PayloadTypeEnum payloadType;
+
+  public static final String SERIALIZED_NAME_PUSH_FUNDS_BLOCK_INDICATOR = "push_funds_block_indicator";
+  @SerializedName(SERIALIZED_NAME_PUSH_FUNDS_BLOCK_INDICATOR)
+  private String pushFundsBlockIndicator;
+
   /**
    * Details the results of the Card Verification Code check.
    */
@@ -788,78 +624,8 @@ public class PaymentInstrument {
   @SerializedName(SERIALIZED_NAME_SECURITY_CODE_VERIFICATION)
   private SecurityCodeVerificationEnum securityCodeVerification;
 
-  public static final String SERIALIZED_NAME_CARD_NAME = "card_name";
-  @SerializedName(SERIALIZED_NAME_CARD_NAME)
-  private String cardName;
-
-  public static final String SERIALIZED_NAME_FAST_FUNDS_INDICATOR = "fast_funds_indicator";
-  @SerializedName(SERIALIZED_NAME_FAST_FUNDS_INDICATOR)
-  private String fastFundsIndicator;
-
-  public static final String SERIALIZED_NAME_ONLINE_GAMBING_BLOCK_INDICATOR = "online_gambing_block_indicator";
-  @SerializedName(SERIALIZED_NAME_ONLINE_GAMBING_BLOCK_INDICATOR)
-  private String onlineGambingBlockIndicator;
-
-  public static final String SERIALIZED_NAME_PUSH_FUNDS_BLOCK_INDICATOR = "push_funds_block_indicator";
-  @SerializedName(SERIALIZED_NAME_PUSH_FUNDS_BLOCK_INDICATOR)
-  private String pushFundsBlockIndicator;
-
   public PaymentInstrument() { 
   }
-
-  public PaymentInstrument tags(Map<String, String> tags) {
-    
-    this.tags = tags;
-    return this;
-  }
-
-  public PaymentInstrument putTagsItem(String key, String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new HashMap<>();
-    }
-    this.tags.put(key, tagsItem);
-    return this;
-  }
-
-   /**
-   * Key value pair for annotating custom meta data (e.g. order numbers).
-   * @return tags
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
-
-  public Map<String, String> getTags() {
-    return tags;
-  }
-
-
-  public void setTags(Map<String, String> tags) {
-    this.tags = tags;
-  }
-
-
-  public PaymentInstrument type(TypeEnum type) {
-    
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Type of &#x60;Payment Instrument&#x60;.
-   * @return type
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Type of `Payment Instrument`.")
-
-  public TypeEnum getType() {
-    return type;
-  }
-
-
-  public void setType(TypeEnum type) {
-    this.type = type;
-  }
-
 
   public PaymentInstrument id(String id) {
     
@@ -1160,26 +926,57 @@ public class PaymentInstrument {
   }
 
 
-  public PaymentInstrument payloadType(PayloadTypeEnum payloadType) {
+  public PaymentInstrument tags(Map<String, String> tags) {
     
-    this.payloadType = payloadType;
+    this.tags = tags;
+    return this;
+  }
+
+  public PaymentInstrument putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
     return this;
   }
 
    /**
-   * Get payloadType
-   * @return payloadType
+   * Key value pair for annotating custom meta data (e.g. order numbers).
+   * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
 
-  public PayloadTypeEnum getPayloadType() {
-    return payloadType;
+  public Map<String, String> getTags() {
+    return tags;
   }
 
 
-  public void setPayloadType(PayloadTypeEnum payloadType) {
-    this.payloadType = payloadType;
+  public void setTags(Map<String, String> tags) {
+    this.tags = tags;
+  }
+
+
+  public PaymentInstrument type(TypeEnum type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Type of &#x60;Payment Instrument&#x60;.
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Type of `Payment Instrument`.")
+
+  public TypeEnum getType() {
+    return type;
+  }
+
+
+  public void setType(TypeEnum type) {
+    this.type = type;
   }
 
 
@@ -1203,6 +1000,144 @@ public class PaymentInstrument {
 
   public void setLinks(PaymentInstrumentLinks links) {
     this.links = links;
+  }
+
+
+  public PaymentInstrument address(Address address) {
+    
+    this.address = address;
+    return this;
+  }
+
+   /**
+   * Get address
+   * @return address
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Address getAddress() {
+    return address;
+  }
+
+
+  public void setAddress(Address address) {
+    this.address = address;
+  }
+
+
+  public PaymentInstrument addressVerification(AddressVerificationEnum addressVerification) {
+    
+    this.addressVerification = addressVerification;
+    return this;
+  }
+
+   /**
+   * Additional address information that’s required to verify the identity of the merchant.
+   * @return addressVerification
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Additional address information that’s required to verify the identity of the merchant.")
+
+  public AddressVerificationEnum getAddressVerification() {
+    return addressVerification;
+  }
+
+
+  public void setAddressVerification(AddressVerificationEnum addressVerification) {
+    this.addressVerification = addressVerification;
+  }
+
+
+  public PaymentInstrument bin(String bin) {
+    
+    this.bin = bin;
+    return this;
+  }
+
+   /**
+   * Bank Identification number for the &#x60;Payment Instrument&#x60;.
+   * @return bin
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Bank Identification number for the `Payment Instrument`.")
+
+  public String getBin() {
+    return bin;
+  }
+
+
+  public void setBin(String bin) {
+    this.bin = bin;
+  }
+
+
+  public PaymentInstrument brand(String brand) {
+    
+    this.brand = brand;
+    return this;
+  }
+
+   /**
+   * The &#x60;brand&#x60; of the card saved in the &#x60;Payment Instrument&#x60;.
+   * @return brand
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The `brand` of the card saved in the `Payment Instrument`.")
+
+  public String getBrand() {
+    return brand;
+  }
+
+
+  public void setBrand(String brand) {
+    this.brand = brand;
+  }
+
+
+  public PaymentInstrument cardName(String cardName) {
+    
+    this.cardName = cardName;
+    return this;
+  }
+
+   /**
+   * A custom name you can include to identify the card being used (e.g. **Business Card**).
+   * @return cardName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A custom name you can include to identify the card being used (e.g. **Business Card**).")
+
+  public String getCardName() {
+    return cardName;
+  }
+
+
+  public void setCardName(String cardName) {
+    this.cardName = cardName;
+  }
+
+
+  public PaymentInstrument cardType(String cardType) {
+    
+    this.cardType = cardType;
+    return this;
+  }
+
+   /**
+   * The type of payment card saved in the &#x60;Payment Instrument&#x60;.
+   * @return cardType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The type of payment card saved in the `Payment Instrument`.")
+
+  public String getCardType() {
+    return cardType;
+  }
+
+
+  public void setCardType(String cardType) {
+    this.cardType = cardType;
   }
 
 
@@ -1255,26 +1190,26 @@ public class PaymentInstrument {
   }
 
 
-  public PaymentInstrument bin(String bin) {
+  public PaymentInstrument fastFundsIndicator(String fastFundsIndicator) {
     
-    this.bin = bin;
+    this.fastFundsIndicator = fastFundsIndicator;
     return this;
   }
 
    /**
-   * Bank Identification number for the &#x60;Payment Instrument&#x60;.
-   * @return bin
+   * Details if Fast Funds is enabled for the card.
+   * @return fastFundsIndicator
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Bank Identification number for the `Payment Instrument`.")
+  @ApiModelProperty(value = "Details if Fast Funds is enabled for the card.")
 
-  public String getBin() {
-    return bin;
+  public String getFastFundsIndicator() {
+    return fastFundsIndicator;
   }
 
 
-  public void setBin(String bin) {
-    this.bin = bin;
+  public void setFastFundsIndicator(String fastFundsIndicator) {
+    this.fastFundsIndicator = fastFundsIndicator;
   }
 
 
@@ -1301,167 +1236,6 @@ public class PaymentInstrument {
   }
 
 
-  public PaymentInstrument brand(BrandEnum brand) {
-    
-    this.brand = brand;
-    return this;
-  }
-
-   /**
-   * The &#x60;brand&#x60; of the card saved in the &#x60;Payment Instrument&#x60;.
-   * @return brand
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The `brand` of the card saved in the `Payment Instrument`.")
-
-  public BrandEnum getBrand() {
-    return brand;
-  }
-
-
-  public void setBrand(BrandEnum brand) {
-    this.brand = brand;
-  }
-
-
-  public PaymentInstrument cardType(CardTypeEnum cardType) {
-    
-    this.cardType = cardType;
-    return this;
-  }
-
-   /**
-   * The type of payment card saved in the &#x60;Payment Instrument&#x60;.
-   * @return cardType
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The type of payment card saved in the `Payment Instrument`.")
-
-  public CardTypeEnum getCardType() {
-    return cardType;
-  }
-
-
-  public void setCardType(CardTypeEnum cardType) {
-    this.cardType = cardType;
-  }
-
-
-  public PaymentInstrument address(Address address) {
-    
-    this.address = address;
-    return this;
-  }
-
-   /**
-   * Get address
-   * @return address
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Address getAddress() {
-    return address;
-  }
-
-
-  public void setAddress(Address address) {
-    this.address = address;
-  }
-
-
-  public PaymentInstrument addressVerification(AddressVerificationEnum addressVerification) {
-    
-    this.addressVerification = addressVerification;
-    return this;
-  }
-
-   /**
-   * Additional address information that’s required to verify the identity of the merchant.
-   * @return addressVerification
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Additional address information that’s required to verify the identity of the merchant.")
-
-  public AddressVerificationEnum getAddressVerification() {
-    return addressVerification;
-  }
-
-
-  public void setAddressVerification(AddressVerificationEnum addressVerification) {
-    this.addressVerification = addressVerification;
-  }
-
-
-  public PaymentInstrument securityCodeVerification(SecurityCodeVerificationEnum securityCodeVerification) {
-    
-    this.securityCodeVerification = securityCodeVerification;
-    return this;
-  }
-
-   /**
-   * Details the results of the Card Verification Code check.
-   * @return securityCodeVerification
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Details the results of the Card Verification Code check.")
-
-  public SecurityCodeVerificationEnum getSecurityCodeVerification() {
-    return securityCodeVerification;
-  }
-
-
-  public void setSecurityCodeVerification(SecurityCodeVerificationEnum securityCodeVerification) {
-    this.securityCodeVerification = securityCodeVerification;
-  }
-
-
-  public PaymentInstrument cardName(String cardName) {
-    
-    this.cardName = cardName;
-    return this;
-  }
-
-   /**
-   * A custom name you can include to identify the card being used (e.g. **Business Card**).
-   * @return cardName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "A custom name you can include to identify the card being used (e.g. **Business Card**).")
-
-  public String getCardName() {
-    return cardName;
-  }
-
-
-  public void setCardName(String cardName) {
-    this.cardName = cardName;
-  }
-
-
-  public PaymentInstrument fastFundsIndicator(String fastFundsIndicator) {
-    
-    this.fastFundsIndicator = fastFundsIndicator;
-    return this;
-  }
-
-   /**
-   * Details if Fast Funds is enabled for the card.
-   * @return fastFundsIndicator
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Details if Fast Funds is enabled for the card.")
-
-  public String getFastFundsIndicator() {
-    return fastFundsIndicator;
-  }
-
-
-  public void setFastFundsIndicator(String fastFundsIndicator) {
-    this.fastFundsIndicator = fastFundsIndicator;
-  }
-
-
   public PaymentInstrument onlineGambingBlockIndicator(String onlineGambingBlockIndicator) {
     
     this.onlineGambingBlockIndicator = onlineGambingBlockIndicator;
@@ -1482,6 +1256,29 @@ public class PaymentInstrument {
 
   public void setOnlineGambingBlockIndicator(String onlineGambingBlockIndicator) {
     this.onlineGambingBlockIndicator = onlineGambingBlockIndicator;
+  }
+
+
+  public PaymentInstrument payloadType(PayloadTypeEnum payloadType) {
+    
+    this.payloadType = payloadType;
+    return this;
+  }
+
+   /**
+   * Get payloadType
+   * @return payloadType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public PayloadTypeEnum getPayloadType() {
+    return payloadType;
+  }
+
+
+  public void setPayloadType(PayloadTypeEnum payloadType) {
+    this.payloadType = payloadType;
   }
 
 
@@ -1508,6 +1305,29 @@ public class PaymentInstrument {
   }
 
 
+  public PaymentInstrument securityCodeVerification(SecurityCodeVerificationEnum securityCodeVerification) {
+    
+    this.securityCodeVerification = securityCodeVerification;
+    return this;
+  }
+
+   /**
+   * Details the results of the Card Verification Code check.
+   * @return securityCodeVerification
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Details the results of the Card Verification Code check.")
+
+  public SecurityCodeVerificationEnum getSecurityCodeVerification() {
+    return securityCodeVerification;
+  }
+
+
+  public void setSecurityCodeVerification(SecurityCodeVerificationEnum securityCodeVerification) {
+    this.securityCodeVerification = securityCodeVerification;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1518,9 +1338,7 @@ public class PaymentInstrument {
       return false;
     }
     PaymentInstrument paymentInstrument = (PaymentInstrument) o;
-    return Objects.equals(this.tags, paymentInstrument.tags) &&
-        Objects.equals(this.type, paymentInstrument.type) &&
-        Objects.equals(this.id, paymentInstrument.id) &&
+    return Objects.equals(this.id, paymentInstrument.id) &&
         Objects.equals(this.createdAt, paymentInstrument.createdAt) &&
         Objects.equals(this.updatedAt, paymentInstrument.updatedAt) &&
         Objects.equals(this.accountType, paymentInstrument.accountType) &&
@@ -1533,21 +1351,23 @@ public class PaymentInstrument {
         Objects.equals(this.instrumentType, paymentInstrument.instrumentType) &&
         Objects.equals(this.maskedAccountNumber, paymentInstrument.maskedAccountNumber) &&
         Objects.equals(this.name, paymentInstrument.name) &&
-        Objects.equals(this.payloadType, paymentInstrument.payloadType) &&
+        Objects.equals(this.tags, paymentInstrument.tags) &&
+        Objects.equals(this.type, paymentInstrument.type) &&
         Objects.equals(this.links, paymentInstrument.links) &&
-        Objects.equals(this.expirationMonth, paymentInstrument.expirationMonth) &&
-        Objects.equals(this.expirationYear, paymentInstrument.expirationYear) &&
-        Objects.equals(this.bin, paymentInstrument.bin) &&
-        Objects.equals(this.lastFour, paymentInstrument.lastFour) &&
-        Objects.equals(this.brand, paymentInstrument.brand) &&
-        Objects.equals(this.cardType, paymentInstrument.cardType) &&
         Objects.equals(this.address, paymentInstrument.address) &&
         Objects.equals(this.addressVerification, paymentInstrument.addressVerification) &&
-        Objects.equals(this.securityCodeVerification, paymentInstrument.securityCodeVerification) &&
+        Objects.equals(this.bin, paymentInstrument.bin) &&
+        Objects.equals(this.brand, paymentInstrument.brand) &&
         Objects.equals(this.cardName, paymentInstrument.cardName) &&
+        Objects.equals(this.cardType, paymentInstrument.cardType) &&
+        Objects.equals(this.expirationMonth, paymentInstrument.expirationMonth) &&
+        Objects.equals(this.expirationYear, paymentInstrument.expirationYear) &&
         Objects.equals(this.fastFundsIndicator, paymentInstrument.fastFundsIndicator) &&
+        Objects.equals(this.lastFour, paymentInstrument.lastFour) &&
         Objects.equals(this.onlineGambingBlockIndicator, paymentInstrument.onlineGambingBlockIndicator) &&
-        Objects.equals(this.pushFundsBlockIndicator, paymentInstrument.pushFundsBlockIndicator);
+        Objects.equals(this.payloadType, paymentInstrument.payloadType) &&
+        Objects.equals(this.pushFundsBlockIndicator, paymentInstrument.pushFundsBlockIndicator) &&
+        Objects.equals(this.securityCodeVerification, paymentInstrument.securityCodeVerification);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1556,7 +1376,7 @@ public class PaymentInstrument {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, type, id, createdAt, updatedAt, accountType, application, bankCode, country, currency, fingerprint, identity, instrumentType, maskedAccountNumber, name, payloadType, links, expirationMonth, expirationYear, bin, lastFour, brand, cardType, address, addressVerification, securityCodeVerification, cardName, fastFundsIndicator, onlineGambingBlockIndicator, pushFundsBlockIndicator);
+    return Objects.hash(id, createdAt, updatedAt, accountType, application, bankCode, country, currency, fingerprint, identity, instrumentType, maskedAccountNumber, name, tags, type, links, address, addressVerification, bin, brand, cardName, cardType, expirationMonth, expirationYear, fastFundsIndicator, lastFour, onlineGambingBlockIndicator, payloadType, pushFundsBlockIndicator, securityCodeVerification);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1570,8 +1390,6 @@ public class PaymentInstrument {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentInstrument {\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
@@ -1585,21 +1403,23 @@ public class PaymentInstrument {
     sb.append("    instrumentType: ").append(toIndentedString(instrumentType)).append("\n");
     sb.append("    maskedAccountNumber: ").append(toIndentedString(maskedAccountNumber)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    payloadType: ").append(toIndentedString(payloadType)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
-    sb.append("    expirationMonth: ").append(toIndentedString(expirationMonth)).append("\n");
-    sb.append("    expirationYear: ").append(toIndentedString(expirationYear)).append("\n");
-    sb.append("    bin: ").append(toIndentedString(bin)).append("\n");
-    sb.append("    lastFour: ").append(toIndentedString(lastFour)).append("\n");
-    sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
-    sb.append("    cardType: ").append(toIndentedString(cardType)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    addressVerification: ").append(toIndentedString(addressVerification)).append("\n");
-    sb.append("    securityCodeVerification: ").append(toIndentedString(securityCodeVerification)).append("\n");
+    sb.append("    bin: ").append(toIndentedString(bin)).append("\n");
+    sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
     sb.append("    cardName: ").append(toIndentedString(cardName)).append("\n");
+    sb.append("    cardType: ").append(toIndentedString(cardType)).append("\n");
+    sb.append("    expirationMonth: ").append(toIndentedString(expirationMonth)).append("\n");
+    sb.append("    expirationYear: ").append(toIndentedString(expirationYear)).append("\n");
     sb.append("    fastFundsIndicator: ").append(toIndentedString(fastFundsIndicator)).append("\n");
+    sb.append("    lastFour: ").append(toIndentedString(lastFour)).append("\n");
     sb.append("    onlineGambingBlockIndicator: ").append(toIndentedString(onlineGambingBlockIndicator)).append("\n");
+    sb.append("    payloadType: ").append(toIndentedString(payloadType)).append("\n");
     sb.append("    pushFundsBlockIndicator: ").append(toIndentedString(pushFundsBlockIndicator)).append("\n");
+    sb.append("    securityCodeVerification: ").append(toIndentedString(securityCodeVerification)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1622,8 +1442,6 @@ public class PaymentInstrument {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("tags");
-    openapiFields.add("type");
     openapiFields.add("id");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
@@ -1637,21 +1455,23 @@ public class PaymentInstrument {
     openapiFields.add("instrument_type");
     openapiFields.add("masked_account_number");
     openapiFields.add("name");
-    openapiFields.add("payload_type");
+    openapiFields.add("tags");
+    openapiFields.add("type");
     openapiFields.add("_links");
-    openapiFields.add("expiration_month");
-    openapiFields.add("expiration_year");
-    openapiFields.add("bin");
-    openapiFields.add("last_four");
-    openapiFields.add("brand");
-    openapiFields.add("card_type");
     openapiFields.add("address");
     openapiFields.add("address_verification");
-    openapiFields.add("security_code_verification");
+    openapiFields.add("bin");
+    openapiFields.add("brand");
     openapiFields.add("card_name");
+    openapiFields.add("card_type");
+    openapiFields.add("expiration_month");
+    openapiFields.add("expiration_year");
     openapiFields.add("fast_funds_indicator");
+    openapiFields.add("last_four");
     openapiFields.add("online_gambing_block_indicator");
+    openapiFields.add("payload_type");
     openapiFields.add("push_funds_block_indicator");
+    openapiFields.add("security_code_verification");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1681,13 +1501,6 @@ public class PaymentInstrument {
         }
       }
       */
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()  && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
@@ -1755,8 +1568,8 @@ public class PaymentInstrument {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("payload_type") != null && !jsonObj.get("payload_type").isJsonNull()  && !jsonObj.get("payload_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `payload_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payload_type").toString()));
+      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()  && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
       /**
       * EDITED
@@ -1767,34 +1580,6 @@ public class PaymentInstrument {
        //PaymentInstrumentLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
      // }
 
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("bin") != null && !jsonObj.get("bin").isJsonNull()  && !jsonObj.get("bin").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bin").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("last_four") != null && !jsonObj.get("last_four").isJsonNull()  && !jsonObj.get("last_four").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `last_four` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_four").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("brand") != null && !jsonObj.get("brand").isJsonNull()  && !jsonObj.get("brand").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `brand` to be a primitive type in the JSON string but got `%s`", jsonObj.get("brand").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("card_type") != null && !jsonObj.get("card_type").isJsonNull()  && !jsonObj.get("card_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `card_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("card_type").toString()));
-      }
       /**
       * EDITED
       * ADDED  statement to for inconsistent null behaviour
@@ -1815,8 +1600,15 @@ public class PaymentInstrument {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("security_code_verification") != null && !jsonObj.get("security_code_verification").isJsonNull()  && !jsonObj.get("security_code_verification").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `security_code_verification` to be a primitive type in the JSON string but got `%s`", jsonObj.get("security_code_verification").toString()));
+      if (jsonObj.get("bin") != null && !jsonObj.get("bin").isJsonNull()  && !jsonObj.get("bin").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `bin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bin").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("brand") != null && !jsonObj.get("brand").isJsonNull()  && !jsonObj.get("brand").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `brand` to be a primitive type in the JSON string but got `%s`", jsonObj.get("brand").toString()));
       }
       /**
       * EDITED
@@ -1829,8 +1621,22 @@ public class PaymentInstrument {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
+      if (jsonObj.get("card_type") != null && !jsonObj.get("card_type").isJsonNull()  && !jsonObj.get("card_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `card_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("card_type").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
       if (jsonObj.get("fast_funds_indicator") != null && !jsonObj.get("fast_funds_indicator").isJsonNull()  && !jsonObj.get("fast_funds_indicator").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fast_funds_indicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fast_funds_indicator").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("last_four") != null && !jsonObj.get("last_four").isJsonNull()  && !jsonObj.get("last_four").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `last_four` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_four").toString()));
       }
       /**
       * EDITED
@@ -1843,8 +1649,22 @@ public class PaymentInstrument {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
+      if (jsonObj.get("payload_type") != null && !jsonObj.get("payload_type").isJsonNull()  && !jsonObj.get("payload_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `payload_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payload_type").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
       if (jsonObj.get("push_funds_block_indicator") != null && !jsonObj.get("push_funds_block_indicator").isJsonNull()  && !jsonObj.get("push_funds_block_indicator").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `push_funds_block_indicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("push_funds_block_indicator").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("security_code_verification") != null && !jsonObj.get("security_code_verification").isJsonNull()  && !jsonObj.get("security_code_verification").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `security_code_verification` to be a primitive type in the JSON string but got `%s`", jsonObj.get("security_code_verification").toString()));
       }
   }
 

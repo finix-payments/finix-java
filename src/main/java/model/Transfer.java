@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import model.AdditionalBuyerCharges;
 import model.CardPresentDetails;
 import model.Currency;
 import model.FeeType;
@@ -426,6 +427,10 @@ public class Transfer {
   public static final String SERIALIZED_NAME_FAILURE_MESSAGE = "failure_message";
   @SerializedName(SERIALIZED_NAME_FAILURE_MESSAGE)
   private String failureMessage;
+
+  public static final String SERIALIZED_NAME_ADDITIONAL_BUYER_CHARGES = "additional_buyer_charges";
+  @SerializedName(SERIALIZED_NAME_ADDITIONAL_BUYER_CHARGES)
+  private AdditionalBuyerCharges additionalBuyerCharges;
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
@@ -1071,6 +1076,29 @@ public class Transfer {
   }
 
 
+  public Transfer additionalBuyerCharges(AdditionalBuyerCharges additionalBuyerCharges) {
+    
+    this.additionalBuyerCharges = additionalBuyerCharges;
+    return this;
+  }
+
+   /**
+   * Get additionalBuyerCharges
+   * @return additionalBuyerCharges
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public AdditionalBuyerCharges getAdditionalBuyerCharges() {
+    return additionalBuyerCharges;
+  }
+
+
+  public void setAdditionalBuyerCharges(AdditionalBuyerCharges additionalBuyerCharges) {
+    this.additionalBuyerCharges = additionalBuyerCharges;
+  }
+
+
   public Transfer links(TransferLinks links) {
     
     this.links = links;
@@ -1131,6 +1159,7 @@ public class Transfer {
         Objects.equals(this.externallyFunded, transfer.externallyFunded) &&
         Objects.equals(this.failureCode, transfer.failureCode) &&
         Objects.equals(this.failureMessage, transfer.failureMessage) &&
+        Objects.equals(this.additionalBuyerCharges, transfer.additionalBuyerCharges) &&
         Objects.equals(this.links, transfer.links);
   }
 
@@ -1140,7 +1169,7 @@ public class Transfer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, type, id, createdAt, updatedAt, amount, application, cardPresentDetails, currency, destination, device, fee, feeType, idempotencyId, identity, merchantIdentity, messages, raw, readyToSettleAt, source, state, statementDescriptor, subtype, traceId, externallyFunded, failureCode, failureMessage, links);
+    return Objects.hash(tags, type, id, createdAt, updatedAt, amount, application, cardPresentDetails, currency, destination, device, fee, feeType, idempotencyId, identity, merchantIdentity, messages, raw, readyToSettleAt, source, state, statementDescriptor, subtype, traceId, externallyFunded, failureCode, failureMessage, additionalBuyerCharges, links);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1181,6 +1210,7 @@ public class Transfer {
     sb.append("    externallyFunded: ").append(toIndentedString(externallyFunded)).append("\n");
     sb.append("    failureCode: ").append(toIndentedString(failureCode)).append("\n");
     sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
+    sb.append("    additionalBuyerCharges: ").append(toIndentedString(additionalBuyerCharges)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1231,6 +1261,7 @@ public class Transfer {
     openapiFields.add("externally_funded");
     openapiFields.add("failure_code");
     openapiFields.add("failure_message");
+    openapiFields.add("additional_buyer_charges");
     openapiFields.add("_links");
 
     // a set of required properties/fields (JSON key names)
@@ -1390,6 +1421,15 @@ public class Transfer {
       if (jsonObj.get("failure_message") != null && !jsonObj.get("failure_message").isJsonNull()  && !jsonObj.get("failure_message").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `failure_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failure_message").toString()));
       }
+      /**
+      * EDITED
+      * ADDED  statement to for inconsistent null behaviour
+      */
+      // validate the optional field `additional_buyer_charges`
+     // if (jsonObj.getAsJsonObject("additional_buyer_charges") != null) {
+       //AdditionalBuyerCharges.validateJsonObject(jsonObj.getAsJsonObject("additional_buyer_charges"));
+     // }
+
   }
 
 

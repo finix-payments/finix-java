@@ -45,9 +45,9 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * Merchant&#39;s distribution of credit card volume by business type. Sum of &#x60;volume_distribution_by_business_type&#x60; must be 100.
+ * IP address of the merchant when this merchant accepted the merchant agreement (e.g., 42.1.1.113).
  */
-@ApiModel(description = "Merchant's distribution of credit card volume by business type. Sum of `volume_distribution_by_business_type` must be 100.")
+@ApiModel(description = "IP address of the merchant when this merchant accepted the merchant agreement (e.g., 42.1.1.113).")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType {

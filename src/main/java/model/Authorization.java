@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import model.AdditionalBuyerCharges;
 import model.AuthorizationExternalResponsesInner;
 import model.AuthorizationLinks;
 import model.CardPresentDetails;
@@ -117,6 +118,10 @@ public class Authorization {
   public static final String SERIALIZED_NAME_IDEMPOTENCY_ID = "idempotency_id";
   @SerializedName(SERIALIZED_NAME_IDEMPOTENCY_ID)
   private String idempotencyId;
+
+  public static final String SERIALIZED_NAME_ADDITIONAL_BUYER_CHARGES = "additional_buyer_charges";
+  @SerializedName(SERIALIZED_NAME_ADDITIONAL_BUYER_CHARGES)
+  private AdditionalBuyerCharges additionalBuyerCharges;
 
   public static final String SERIALIZED_NAME_FAILURE_CODE = "failure_code";
   @SerializedName(SERIALIZED_NAME_FAILURE_CODE)
@@ -590,6 +595,29 @@ public class Authorization {
   }
 
 
+  public Authorization additionalBuyerCharges(AdditionalBuyerCharges additionalBuyerCharges) {
+    
+    this.additionalBuyerCharges = additionalBuyerCharges;
+    return this;
+  }
+
+   /**
+   * Get additionalBuyerCharges
+   * @return additionalBuyerCharges
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public AdditionalBuyerCharges getAdditionalBuyerCharges() {
+    return additionalBuyerCharges;
+  }
+
+
+  public void setAdditionalBuyerCharges(AdditionalBuyerCharges additionalBuyerCharges) {
+    this.additionalBuyerCharges = additionalBuyerCharges;
+  }
+
+
   public Authorization failureCode(String failureCode) {
     
     this.failureCode = failureCode;
@@ -944,6 +972,7 @@ public class Authorization {
         Objects.equals(this.expiresAt, authorization.expiresAt) &&
         Objects.equals(this.externalResponses, authorization.externalResponses) &&
         Objects.equals(this.idempotencyId, authorization.idempotencyId) &&
+        Objects.equals(this.additionalBuyerCharges, authorization.additionalBuyerCharges) &&
         Objects.equals(this.failureCode, authorization.failureCode) &&
         Objects.equals(this.failureMessage, authorization.failureMessage) &&
         Objects.equals(this.isVoid, authorization.isVoid) &&
@@ -966,7 +995,7 @@ public class Authorization {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, id, createdAt, updatedAt, _3dsRedirectUrl, amount, application, cardPresentDetails, captureAmount, currency, device, expiresAt, externalResponses, idempotencyId, failureCode, failureMessage, isVoid, merchantIdentity, merchant, messages, raw, source, state, traceId, transfer, voidState, subType, links);
+    return Objects.hash(tags, id, createdAt, updatedAt, _3dsRedirectUrl, amount, application, cardPresentDetails, captureAmount, currency, device, expiresAt, externalResponses, idempotencyId, additionalBuyerCharges, failureCode, failureMessage, isVoid, merchantIdentity, merchant, messages, raw, source, state, traceId, transfer, voidState, subType, links);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -994,6 +1023,7 @@ public class Authorization {
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    externalResponses: ").append(toIndentedString(externalResponses)).append("\n");
     sb.append("    idempotencyId: ").append(toIndentedString(idempotencyId)).append("\n");
+    sb.append("    additionalBuyerCharges: ").append(toIndentedString(additionalBuyerCharges)).append("\n");
     sb.append("    failureCode: ").append(toIndentedString(failureCode)).append("\n");
     sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
     sb.append("    isVoid: ").append(toIndentedString(isVoid)).append("\n");
@@ -1044,6 +1074,7 @@ public class Authorization {
     openapiFields.add("expires_at");
     openapiFields.add("external_responses");
     openapiFields.add("idempotency_id");
+    openapiFields.add("additional_buyer_charges");
     openapiFields.add("failure_code");
     openapiFields.add("failure_message");
     openapiFields.add("is_void");
@@ -1144,6 +1175,15 @@ public class Authorization {
       if (jsonObj.get("idempotency_id") != null && !jsonObj.get("idempotency_id").isJsonNull()  && !jsonObj.get("idempotency_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `idempotency_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("idempotency_id").toString()));
       }
+      /**
+      * EDITED
+      * ADDED  statement to for inconsistent null behaviour
+      */
+      // validate the optional field `additional_buyer_charges`
+     // if (jsonObj.getAsJsonObject("additional_buyer_charges") != null) {
+       //AdditionalBuyerCharges.validateJsonObject(jsonObj.getAsJsonObject("additional_buyer_charges"));
+     // }
+
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour

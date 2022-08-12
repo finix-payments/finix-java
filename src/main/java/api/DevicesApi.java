@@ -40,7 +40,9 @@ import model.Error403ForbiddenList;
 import model.Error404NotFoundList;
 import model.Error406NotAcceptable;
 import model.ErrorGeneric;
+import model.UpdateDeviceRequest;
 
+import model.GetDeviceQueryParams;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -242,23 +244,7 @@ this.localCustomBaseUrl = customBaseUrl;
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
         }
-    /**
-    * Build call for getDevice
-        * @param deviceId ID of the &#x60;Device&#x60;. (required)
-    * @param _callback Callback for upload/download progress
-    * @return Call to execute
-    * @throws ApiException If fail to serialize the request body object
-        * @http.response.details
-        <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                <tr><td> 200 </td><td> Single Device object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-        </table>
-    */
-    public okhttp3.Call getDeviceCall(String deviceId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDeviceCall(String deviceId, Boolean includeConnection, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -284,6 +270,10 @@ this.localCustomBaseUrl = customBaseUrl;
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+                if (includeConnection != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("include_connection", includeConnection));
+                }
+
         final String[] localVarAccepts = {
             "application/hal+json"
         };
@@ -307,7 +297,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call getDeviceValidateBeforeCall(String deviceId, final ApiCallback _callback) throws ApiException {
+        private okhttp3.Call getDeviceValidateBeforeCall(String deviceId, Boolean includeConnection, final ApiCallback _callback) throws ApiException {
         
                 // verify the required parameter 'deviceId' is set
                 if (deviceId == null) {
@@ -315,39 +305,84 @@ this.localCustomBaseUrl = customBaseUrl;
                 }
         
 
-            okhttp3.Call localVarCall = getDeviceCall(deviceId, _callback);
+            okhttp3.Call localVarCall = getDeviceCall(deviceId, includeConnection, _callback);
             return localVarCall;
 
         }
 
+
+    private ApiResponse<Device> getDeviceWithHttpInfo(String deviceId, Boolean includeConnection) throws ApiException {
+        okhttp3.Call localVarCall = getDeviceValidateBeforeCall(deviceId, includeConnection, null);
+                Type localVarReturnType = new TypeToken<Device>(){}.getType();
+                return localVarFinixClient.execute(localVarCall, localVarReturnType);
+        }
+
+    private okhttp3.Call getDeviceAsync(String deviceId, Boolean includeConnection, final ApiCallback<Device> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getDeviceValidateBeforeCall(deviceId, includeConnection, _callback);
+    Type localVarReturnType = new TypeToken<Device>(){}.getType();
+        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+        }
+
+        public class APIgetDeviceRequest {
+            private final String deviceId;
+            private Boolean includeConnection;
+
+        private APIgetDeviceRequest(String deviceId) {
+            this.deviceId = deviceId;
+        }
+
             /**
-            * Get Device
-            * Retrieve the details of an existing &#x60;Device&#x60;.  To check the connectivity of the device, include &#x60;?include_connection\\&#x3D;true \\&#x60; at the end of the request endpoint.
-                * @param deviceId ID of the &#x60;Device&#x60;. (required)
-                * @return Device
-            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Single Device object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                </table>
+            * Set includeConnection
+            * @param includeConnection Specifies whether the connection information should be included. (optional)
+            * @return APIgetDeviceRequest
             */
+            public APIgetDeviceRequest includeConnection(Boolean includeConnection) {
+            this.includeConnection = includeConnection;
+            return this;
+            }
 
+        /**
+        * Build call for getDevice
+        * @param _callback ApiCallback API callback
+        * @return Call to execute
+        * @throws ApiException If fail to serialize the request body object
+            * @http.response.details
+            <table summary="Response Details" border="1">
+                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                    <tr><td> 200 </td><td> Single Device object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+            </table>
+        */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+        return getDeviceCall(deviceId, includeConnection, _callback);
+        }
 
-                public Device get(String deviceId) throws ApiException {
-            ApiResponse<Device> localVarResp = getDeviceWithHttpInfo(deviceId);
-                    return localVarResp.getData();
-                }
+        /**
+        * Execute getDevice request
+            * @return Device
+        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+            * @http.response.details
+            <table summary="Response Details" border="1">
+                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                    <tr><td> 200 </td><td> Single Device object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+            </table>
+        */
+        public Device execute() throws ApiException {
+    ApiResponse<Device> localVarResp = getDeviceWithHttpInfo(deviceId, includeConnection);
+            return localVarResp.getData();
+        }
 
-
-    /**
-        * Get Device
-        * Retrieve the details of an existing &#x60;Device&#x60;.  To check the connectivity of the device, include &#x60;?include_connection\\&#x3D;true \\&#x60; at the end of the request endpoint.
-            * @param deviceId ID of the &#x60;Device&#x60;. (required)
+        /**
+        * Execute getDevice request with HTTP info returned
         * @return ApiResponse&lt;Device&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
             * @http.response.details
@@ -360,16 +395,12 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public ApiResponse<Device> getDeviceWithHttpInfo(String deviceId) throws ApiException {
-        okhttp3.Call localVarCall = getDeviceValidateBeforeCall(deviceId, null);
-                Type localVarReturnType = new TypeToken<Device>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
+        public ApiResponse<Device> executeWithHttpInfo() throws ApiException {
+        return getDeviceWithHttpInfo(deviceId, includeConnection);
         }
 
-    /**
-        * Get Device (asynchronously)
-        * Retrieve the details of an existing &#x60;Device&#x60;.  To check the connectivity of the device, include &#x60;?include_connection\\&#x3D;true \\&#x60; at the end of the request endpoint.
-            * @param deviceId ID of the &#x60;Device&#x60;. (required)
+        /**
+        * Execute getDevice request (asynchronously)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -383,17 +414,36 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call getDeviceAsync(String deviceId, final ApiCallback<Device> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getDeviceValidateBeforeCall(deviceId, _callback);
-    Type localVarReturnType = new TypeToken<Device>(){}.getType();
-        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
+        public okhttp3.Call executeAsync(final ApiCallback<Device> _callback) throws ApiException {
+        return getDeviceAsync(deviceId, includeConnection, _callback);
         }
+        }
+
+        /**
+        * Get Device
+        * Retrieve the details of an existing &#x60;Device&#x60;.  To check the connectivity of the device, include &#x60;?include_connection\\&#x3D;true \\&#x60; at the end of the request endpoint.
+            * @param deviceId ID of the &#x60;Device&#x60;. (required)
+        * @return APIgetDeviceRequest
+            * @http.response.details
+            <table summary="Response Details" border="1">
+                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                    <tr><td> 200 </td><td> Single Device object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+            </table>
+        */
+    public Device get(String deviceId,  GetDeviceQueryParams getDeviceQueryParams) throws ApiException {
+
+        APIgetDeviceRequest request = new APIgetDeviceRequest(deviceId);
+        request.includeConnection(getDeviceQueryParams.getIncludeConnection());
+        return request.execute();
+    }
     /**
     * Build call for updateDevice
         * @param deviceId ID of the &#x60;Device&#x60;. (required)
-        * @param body  (optional)
+        * @param updateDeviceRequest  (optional)
     * @param _callback Callback for upload/download progress
     * @return Call to execute
     * @throws ApiException If fail to serialize the request body object
@@ -407,7 +457,7 @@ this.localCustomBaseUrl = customBaseUrl;
                 <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
         </table>
     */
-    public okhttp3.Call updateDeviceCall(String deviceId, Object body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateDeviceCall(String deviceId, UpdateDeviceRequest updateDeviceRequest, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {  };
@@ -421,7 +471,7 @@ this.localCustomBaseUrl = customBaseUrl;
     basePath = null;
     }
 
-    Object localVarPostBody = body;
+    Object localVarPostBody = updateDeviceRequest;
 
     // create path and map variables
         String localVarPath = "/devices/{device_id}"
@@ -456,7 +506,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call updateDeviceValidateBeforeCall(String deviceId, Object body, final ApiCallback _callback) throws ApiException {
+        private okhttp3.Call updateDeviceValidateBeforeCall(String deviceId, UpdateDeviceRequest updateDeviceRequest, final ApiCallback _callback) throws ApiException {
         
                 // verify the required parameter 'deviceId' is set
                 if (deviceId == null) {
@@ -464,7 +514,7 @@ this.localCustomBaseUrl = customBaseUrl;
                 }
         
 
-            okhttp3.Call localVarCall = updateDeviceCall(deviceId, body, _callback);
+            okhttp3.Call localVarCall = updateDeviceCall(deviceId, updateDeviceRequest, _callback);
             return localVarCall;
 
         }
@@ -473,7 +523,7 @@ this.localCustomBaseUrl = customBaseUrl;
             * Update a Device
             * Update a &#x60;Device&#x60; to activate or deactivate it.
                 * @param deviceId ID of the &#x60;Device&#x60;. (required)
-                * @param body  (optional)
+                * @param updateDeviceRequest  (optional)
                 * @return Device
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
@@ -488,8 +538,8 @@ this.localCustomBaseUrl = customBaseUrl;
             */
 
 
-                public Device update(String deviceId, Object body) throws ApiException {
-            ApiResponse<Device> localVarResp = updateDeviceWithHttpInfo(deviceId, body);
+                public Device update(String deviceId, UpdateDeviceRequest updateDeviceRequest) throws ApiException {
+            ApiResponse<Device> localVarResp = updateDeviceWithHttpInfo(deviceId, updateDeviceRequest);
                     return localVarResp.getData();
                 }
 
@@ -498,7 +548,7 @@ this.localCustomBaseUrl = customBaseUrl;
         * Update a Device
         * Update a &#x60;Device&#x60; to activate or deactivate it.
             * @param deviceId ID of the &#x60;Device&#x60;. (required)
-            * @param body  (optional)
+            * @param updateDeviceRequest  (optional)
         * @return ApiResponse&lt;Device&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
             * @http.response.details
@@ -511,8 +561,8 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public ApiResponse<Device> updateDeviceWithHttpInfo(String deviceId, Object body) throws ApiException {
-        okhttp3.Call localVarCall = updateDeviceValidateBeforeCall(deviceId, body, null);
+        public ApiResponse<Device> updateDeviceWithHttpInfo(String deviceId, UpdateDeviceRequest updateDeviceRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateDeviceValidateBeforeCall(deviceId, updateDeviceRequest, null);
                 Type localVarReturnType = new TypeToken<Device>(){}.getType();
                 return localVarFinixClient.execute(localVarCall, localVarReturnType);
         }
@@ -521,7 +571,7 @@ this.localCustomBaseUrl = customBaseUrl;
         * Update a Device (asynchronously)
         * Update a &#x60;Device&#x60; to activate or deactivate it.
             * @param deviceId ID of the &#x60;Device&#x60;. (required)
-            * @param body  (optional)
+            * @param updateDeviceRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -535,9 +585,9 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call updateDeviceAsync(String deviceId, Object body, final ApiCallback<Device> _callback) throws ApiException {
+        public okhttp3.Call updateDeviceAsync(String deviceId, UpdateDeviceRequest updateDeviceRequest, final ApiCallback<Device> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateDeviceValidateBeforeCall(deviceId, body, _callback);
+        okhttp3.Call localVarCall = updateDeviceValidateBeforeCall(deviceId, updateDeviceRequest, _callback);
     Type localVarReturnType = new TypeToken<Device>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

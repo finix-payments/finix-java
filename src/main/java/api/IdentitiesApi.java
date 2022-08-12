@@ -392,7 +392,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
     /**
     * Build call for createIdentityVerification
-        * @param identityId ID of identity to fetch (required)
+        * @param identityId ID of &#x60;Identity&#x60; to verify. (required)
         * @param createVerificationRequest  (optional)
     * @param _callback Callback for upload/download progress
     * @return Call to execute
@@ -473,7 +473,7 @@ this.localCustomBaseUrl = customBaseUrl;
             /**
             * Verify an Identity
             * Verify an &#x60;Identity&#x60;.
-                * @param identityId ID of identity to fetch (required)
+                * @param identityId ID of &#x60;Identity&#x60; to verify. (required)
                 * @param createVerificationRequest  (optional)
                 * @return Verification
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -499,7 +499,7 @@ this.localCustomBaseUrl = customBaseUrl;
     /**
         * Verify an Identity
         * Verify an &#x60;Identity&#x60;.
-            * @param identityId ID of identity to fetch (required)
+            * @param identityId ID of &#x60;Identity&#x60; to verify. (required)
             * @param createVerificationRequest  (optional)
         * @return ApiResponse&lt;Verification&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -523,7 +523,7 @@ this.localCustomBaseUrl = customBaseUrl;
     /**
         * Verify an Identity (asynchronously)
         * Verify an &#x60;Identity&#x60;.
-            * @param identityId ID of identity to fetch (required)
+            * @param identityId ID of &#x60;Identity&#x60; to verify. (required)
             * @param createVerificationRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
@@ -548,7 +548,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
     /**
     * Build call for getIdentity
-        * @param identityId ID of the &#x60;identity&#x60; to fetch (required)
+        * @param identityId ID of the &#x60;Identity&#x60; to fetch. (required)
     * @param _callback Callback for upload/download progress
     * @return Call to execute
     * @throws ApiException If fail to serialize the request body object
@@ -627,7 +627,7 @@ this.localCustomBaseUrl = customBaseUrl;
             /**
             * Fetch an Identity
             * Retrieve the details of a previously created &#x60;Identity&#x60;.
-                * @param identityId ID of the &#x60;identity&#x60; to fetch (required)
+                * @param identityId ID of the &#x60;Identity&#x60; to fetch. (required)
                 * @return Identity
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
@@ -651,7 +651,7 @@ this.localCustomBaseUrl = customBaseUrl;
     /**
         * Fetch an Identity
         * Retrieve the details of a previously created &#x60;Identity&#x60;.
-            * @param identityId ID of the &#x60;identity&#x60; to fetch (required)
+            * @param identityId ID of the &#x60;Identity&#x60; to fetch. (required)
         * @return ApiResponse&lt;Identity&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
             * @http.response.details
@@ -673,7 +673,7 @@ this.localCustomBaseUrl = customBaseUrl;
     /**
         * Fetch an Identity (asynchronously)
         * Retrieve the details of a previously created &#x60;Identity&#x60;.
-            * @param identityId ID of the &#x60;identity&#x60; to fetch (required)
+            * @param identityId ID of the &#x60;Identity&#x60; to fetch. (required)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1379,7 +1379,7 @@ this.localCustomBaseUrl = customBaseUrl;
         }
     /**
     * Build call for updateIdentity
-        * @param identityId ID of the &#x60;identity&#x60; to fetch (required)
+        * @param identityId ID of the &#x60;Identity&#x60; to fetch. (required)
         * @param updateIdentityRequest  (optional)
     * @param _callback Callback for upload/download progress
     * @return Call to execute
@@ -1460,7 +1460,7 @@ this.localCustomBaseUrl = customBaseUrl;
             /**
             * Update an Identity
             * Update an existing &#x60;Identity&#x60;.  If you are updating the &#x60;Identity&#x60; of a &#x60;Merchant&#x60; that’s already been onboarded, you need to [verify the merchant again](#operation/createMerchantVerification).
-                * @param identityId ID of the &#x60;identity&#x60; to fetch (required)
+                * @param identityId ID of the &#x60;Identity&#x60; to fetch. (required)
                 * @param updateIdentityRequest  (optional)
                 * @return Identity
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1486,7 +1486,7 @@ this.localCustomBaseUrl = customBaseUrl;
     /**
         * Update an Identity
         * Update an existing &#x60;Identity&#x60;.  If you are updating the &#x60;Identity&#x60; of a &#x60;Merchant&#x60; that’s already been onboarded, you need to [verify the merchant again](#operation/createMerchantVerification).
-            * @param identityId ID of the &#x60;identity&#x60; to fetch (required)
+            * @param identityId ID of the &#x60;Identity&#x60; to fetch. (required)
             * @param updateIdentityRequest  (optional)
         * @return ApiResponse&lt;Identity&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1510,7 +1510,7 @@ this.localCustomBaseUrl = customBaseUrl;
     /**
         * Update an Identity (asynchronously)
         * Update an existing &#x60;Identity&#x60;.  If you are updating the &#x60;Identity&#x60; of a &#x60;Merchant&#x60; that’s already been onboarded, you need to [verify the merchant again](#operation/createMerchantVerification).
-            * @param identityId ID of the &#x60;identity&#x60; to fetch (required)
+            * @param identityId ID of the &#x60;Identity&#x60; to fetch. (required)
             * @param updateIdentityRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call

@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import model.AdditionalBuyerCharges;
 import model.AdditionalPurchaseData;
 import model.CardPresentInstrumentForm;
 import model.ConfigurationDetails;
@@ -388,6 +389,10 @@ public class CreateTransferRequest {
   public static final String SERIALIZED_NAME_ADDITIONAL_PURCHASE_DATA = "additional_purchase_data";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_PURCHASE_DATA)
   private AdditionalPurchaseData additionalPurchaseData;
+
+  public static final String SERIALIZED_NAME_ADDITIONAL_BUYER_CHARGES = "additional_buyer_charges";
+  @SerializedName(SERIALIZED_NAME_ADDITIONAL_BUYER_CHARGES)
+  private AdditionalBuyerCharges additionalBuyerCharges;
 
   public CreateTransferRequest() { 
   }
@@ -914,6 +919,29 @@ public class CreateTransferRequest {
   }
 
 
+  public CreateTransferRequest additionalBuyerCharges(AdditionalBuyerCharges additionalBuyerCharges) {
+    
+    this.additionalBuyerCharges = additionalBuyerCharges;
+    return this;
+  }
+
+   /**
+   * Get additionalBuyerCharges
+   * @return additionalBuyerCharges
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public AdditionalBuyerCharges getAdditionalBuyerCharges() {
+    return additionalBuyerCharges;
+  }
+
+
+  public void setAdditionalBuyerCharges(AdditionalBuyerCharges additionalBuyerCharges) {
+    this.additionalBuyerCharges = additionalBuyerCharges;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -945,7 +973,8 @@ public class CreateTransferRequest {
         Objects.equals(this.source, createTransferRequest.source) &&
         Objects.equals(this.statementDescriptor, createTransferRequest.statementDescriptor) &&
         Objects.equals(this.fraudSessionId, createTransferRequest.fraudSessionId) &&
-        Objects.equals(this.additionalPurchaseData, createTransferRequest.additionalPurchaseData);
+        Objects.equals(this.additionalPurchaseData, createTransferRequest.additionalPurchaseData) &&
+        Objects.equals(this.additionalBuyerCharges, createTransferRequest.additionalBuyerCharges);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -954,7 +983,7 @@ public class CreateTransferRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, adjustmentRequest, amount, configOverride, currency, destination, device, deviceConfiguration, fee, gateway, _3dSecureAuthentication, idempotencyId, inputMethod, merchant, merchantIdentity, operationKey, paymentInstrument, processor, source, statementDescriptor, fraudSessionId, additionalPurchaseData);
+    return Objects.hash(tags, adjustmentRequest, amount, configOverride, currency, destination, device, deviceConfiguration, fee, gateway, _3dSecureAuthentication, idempotencyId, inputMethod, merchant, merchantIdentity, operationKey, paymentInstrument, processor, source, statementDescriptor, fraudSessionId, additionalPurchaseData, additionalBuyerCharges);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -990,6 +1019,7 @@ public class CreateTransferRequest {
     sb.append("    statementDescriptor: ").append(toIndentedString(statementDescriptor)).append("\n");
     sb.append("    fraudSessionId: ").append(toIndentedString(fraudSessionId)).append("\n");
     sb.append("    additionalPurchaseData: ").append(toIndentedString(additionalPurchaseData)).append("\n");
+    sb.append("    additionalBuyerCharges: ").append(toIndentedString(additionalBuyerCharges)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1034,6 +1064,7 @@ public class CreateTransferRequest {
     openapiFields.add("statement_descriptor");
     openapiFields.add("fraud_session_id");
     openapiFields.add("additional_purchase_data");
+    openapiFields.add("additional_buyer_charges");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1181,6 +1212,15 @@ public class CreateTransferRequest {
       // validate the optional field `additional_purchase_data`
      // if (jsonObj.getAsJsonObject("additional_purchase_data") != null) {
        //AdditionalPurchaseData.validateJsonObject(jsonObj.getAsJsonObject("additional_purchase_data"));
+     // }
+
+      /**
+      * EDITED
+      * ADDED  statement to for inconsistent null behaviour
+      */
+      // validate the optional field `additional_buyer_charges`
+     // if (jsonObj.getAsJsonObject("additional_buyer_charges") != null) {
+       //AdditionalBuyerCharges.validateJsonObject(jsonObj.getAsJsonObject("additional_buyer_charges"));
      // }
 
   }

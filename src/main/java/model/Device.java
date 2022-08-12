@@ -275,11 +275,11 @@ public class Device {
   }
 
    /**
-   * Details if the &#x60;Device&#x60; is connected and online.
+   * Details if the &#x60;Device&#x60; is connected and online. Only returned when include_connection parameter provided.
    * @return connection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Details if the `Device` is connected and online.")
+  @ApiModelProperty(value = "Details if the `Device` is connected and online. Only returned when include_connection parameter provided.")
 
   public String getConnection() {
     return connection;

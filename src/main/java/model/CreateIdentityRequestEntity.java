@@ -23,11 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import model.CreateIdentityRequestEntityBusinessAddress;
-import model.CreateIdentityRequestEntityDob;
-import model.CreateIdentityRequestEntityIncorporationDate;
 import model.CreateIdentityRequestEntityPersonalAddress;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,254 +46,80 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * The underwriting details required to verify the &#x60;Identity&#x60; of the &#x60;Merchant&#x60;.
+ * The underwriting details required to verify &#x60;Identities&#x60;.
  */
-@ApiModel(description = "The underwriting details required to verify the `Identity` of the `Merchant`.")
+@ApiModel(description = "The underwriting details required to verify `Identities`.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateIdentityRequestEntity {
-  public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
-  @SerializedName(SERIALIZED_NAME_LAST_NAME)
-  private String lastName;
-
-  public static final String SERIALIZED_NAME_MAX_TRANSACTION_AMOUNT = "max_transaction_amount";
-  @SerializedName(SERIALIZED_NAME_MAX_TRANSACTION_AMOUNT)
-  private Long maxTransactionAmount;
-
-  public static final String SERIALIZED_NAME_HAS_ACCEPTED_CREDIT_CARDS_PREVIOUSLY = "has_accepted_credit_cards_previously";
-  @SerializedName(SERIALIZED_NAME_HAS_ACCEPTED_CREDIT_CARDS_PREVIOUSLY)
-  private Boolean hasAcceptedCreditCardsPreviously;
-
-  public static final String SERIALIZED_NAME_DEFAULT_STATEMENT_DESCRIPTOR = "default_statement_descriptor";
-  @SerializedName(SERIALIZED_NAME_DEFAULT_STATEMENT_DESCRIPTOR)
-  private String defaultStatementDescriptor;
-
-  public static final String SERIALIZED_NAME_PERSONAL_ADDRESS = "personal_address";
-  @SerializedName(SERIALIZED_NAME_PERSONAL_ADDRESS)
-  private CreateIdentityRequestEntityPersonalAddress personalAddress;
-
-  public static final String SERIALIZED_NAME_INCORPORATION_DATE = "incorporation_date";
-  @SerializedName(SERIALIZED_NAME_INCORPORATION_DATE)
-  private CreateIdentityRequestEntityIncorporationDate incorporationDate;
-
-  public static final String SERIALIZED_NAME_BUSINESS_ADDRESS = "business_address";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_ADDRESS)
-  private CreateIdentityRequestEntityBusinessAddress businessAddress;
-
-  /**
-   * Avalible values include: &lt;ul&gt;&lt;li&gt;&lt;strong&gt;PUBLIC&lt;/strong&gt; to indicate a publicly-traded company.&lt;li&gt;&lt;strong&gt;PRIVATE&lt;/strong&gt; for privately-held businesses.
-   */
-  @JsonAdapter(OwnershipTypeEnum.Adapter.class)
-  public enum OwnershipTypeEnum {
-    PUBLIC("PUBLIC"),
-    
-    PRIVATE("PRIVATE"),
-    
-    UNKNOWN_DEFAULT("unknown_default_open_api");
-
-    private String value;
-
-    OwnershipTypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    /*
-    * EDITED
-    * Add ability get the raw underlying value of a enum the library is not aware about.
-    */
-    private String rawValue;
-
-    public void setRawValue(String s){
-    this.rawValue = s;
-    }
-
-    public String getRawValue() {
-    return rawValue;
-    }
-
-    public static OwnershipTypeEnum fromValue(String value) {
-        for (OwnershipTypeEnum b : OwnershipTypeEnum.values()) {
-          if (b.value.equals(value)) {
-            return b;
-          }
-        }
-
-        OwnershipTypeEnum unknownDefault = OwnershipTypeEnum.UNKNOWN_DEFAULT;
-        unknownDefault.setRawValue(value);
-
-        return unknownDefault;
-        
-    }
-
-    public static class Adapter extends TypeAdapter<OwnershipTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final OwnershipTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public OwnershipTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return OwnershipTypeEnum.fromValue(value);
-      }
-    }
-  }
-
-  public static final String SERIALIZED_NAME_OWNERSHIP_TYPE = "ownership_type";
-  @SerializedName(SERIALIZED_NAME_OWNERSHIP_TYPE)
-  private OwnershipTypeEnum ownershipType;
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
+  private String email;
 
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
   private String firstName;
 
-  public static final String SERIALIZED_NAME_TITLE = "title";
-  @SerializedName(SERIALIZED_NAME_TITLE)
-  private String title;
+  public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
+  @SerializedName(SERIALIZED_NAME_LAST_NAME)
+  private String lastName;
 
-  public static final String SERIALIZED_NAME_BUSINESS_TAX_ID = "business_tax_id";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_TAX_ID)
-  private String businessTaxId;
-
-  public static final String SERIALIZED_NAME_DOING_BUSINESS_AS = "doing_business_as";
-  @SerializedName(SERIALIZED_NAME_DOING_BUSINESS_AS)
-  private String doingBusinessAs;
-
-  public static final String SERIALIZED_NAME_PRINCIPAL_PERCENTAGE_OWNERSHIP = "principal_percentage_ownership";
-  @SerializedName(SERIALIZED_NAME_PRINCIPAL_PERCENTAGE_OWNERSHIP)
-  private Long principalPercentageOwnership;
-
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
-  private String email;
-
-  public static final String SERIALIZED_NAME_MCC = "mcc";
-  @SerializedName(SERIALIZED_NAME_MCC)
-  private String mcc;
+  public static final String SERIALIZED_NAME_PERSONAL_ADDRESS = "personal_address";
+  @SerializedName(SERIALIZED_NAME_PERSONAL_ADDRESS)
+  private CreateIdentityRequestEntityPersonalAddress personalAddress;
 
   public static final String SERIALIZED_NAME_PHONE = "phone";
   @SerializedName(SERIALIZED_NAME_PHONE)
   private String phone;
 
-  public static final String SERIALIZED_NAME_BUSINESS_NAME = "business_name";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_NAME)
-  private String businessName;
-
-  public static final String SERIALIZED_NAME_TAX_ID = "tax_id";
-  @SerializedName(SERIALIZED_NAME_TAX_ID)
-  private String taxId;
-
-  /**
-   * Include the value that best applies to the merchant.
-   */
-  @JsonAdapter(BusinessTypeEnum.Adapter.class)
-  public enum BusinessTypeEnum {
-    INDIVIDUAL_SOLE_PROPRIETORSHIP("INDIVIDUAL_SOLE_PROPRIETORSHIP"),
-    
-    CORPORATION("CORPORATION"),
-    
-    LIMITED_LIABILITY_COMPANY("LIMITED_LIABILITY_COMPANY"),
-    
-    PARTNERSHIP("PARTNERSHIP"),
-    
-    ASSOCIATION_ESTATE_TRUST("ASSOCIATION_ESTATE_TRUST"),
-    
-    TAX_EXEMPT_ORGANIZATION("TAX_EXEMPT_ORGANIZATION"),
-    
-    INTERNATIONAL_ORGANIZATION("INTERNATIONAL_ORGANIZATION"),
-    
-    GOVERNMENT_AGENCY("GOVERNMENT_AGENCY"),
-    
-    UNKNOWN_DEFAULT("unknown_default_open_api");
-
-    private String value;
-
-    BusinessTypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    /*
-    * EDITED
-    * Add ability get the raw underlying value of a enum the library is not aware about.
-    */
-    private String rawValue;
-
-    public void setRawValue(String s){
-    this.rawValue = s;
-    }
-
-    public String getRawValue() {
-    return rawValue;
-    }
-
-    public static BusinessTypeEnum fromValue(String value) {
-        for (BusinessTypeEnum b : BusinessTypeEnum.values()) {
-          if (b.value.equals(value)) {
-            return b;
-          }
-        }
-
-        BusinessTypeEnum unknownDefault = BusinessTypeEnum.UNKNOWN_DEFAULT;
-        unknownDefault.setRawValue(value);
-
-        return unknownDefault;
-        
-    }
-
-    public static class Adapter extends TypeAdapter<BusinessTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final BusinessTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public BusinessTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return BusinessTypeEnum.fromValue(value);
-      }
-    }
-  }
-
-  public static final String SERIALIZED_NAME_BUSINESS_TYPE = "business_type";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_TYPE)
-  private BusinessTypeEnum businessType;
-
-  public static final String SERIALIZED_NAME_BUSINESS_PHONE = "business_phone";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_PHONE)
-  private String businessPhone;
-
-  public static final String SERIALIZED_NAME_DOB = "dob";
-  @SerializedName(SERIALIZED_NAME_DOB)
-  private CreateIdentityRequestEntityDob dob;
-
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
-  private String url;
-
-  public static final String SERIALIZED_NAME_ANNUAL_CARD_VOLUME = "annual_card_volume";
-  @SerializedName(SERIALIZED_NAME_ANNUAL_CARD_VOLUME)
-  private Long annualCardVolume;
-
   public CreateIdentityRequestEntity() { 
   }
+
+  public CreateIdentityRequestEntity email(String email) {
+    
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * The email address of the buyer where they can be reached (max 100 characters).
+   * @return email
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The email address of the buyer where they can be reached (max 100 characters).")
+
+  public String getEmail() {
+    return email;
+  }
+
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+
+  public CreateIdentityRequestEntity firstName(String firstName) {
+    
+    this.firstName = firstName;
+    return this;
+  }
+
+   /**
+   * The legal first name of the buyer (max 20 characters).
+   * @return firstName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The legal first name of the buyer (max 20 characters).")
+
+  public String getFirstName() {
+    return firstName;
+  }
+
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
 
   public CreateIdentityRequestEntity lastName(String lastName) {
     
@@ -306,11 +128,11 @@ public class CreateIdentityRequestEntity {
   }
 
    /**
-   * The legal last name of the merchant&#39;s control owner (max 20 characters).
+   * The legal last name of the buyer (max 20 characters).
    * @return lastName
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The legal last name of the merchant's control owner (max 20 characters).")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The legal last name of the buyer (max 20 characters).")
 
   public String getLastName() {
     return lastName;
@@ -319,75 +141,6 @@ public class CreateIdentityRequestEntity {
 
   public void setLastName(String lastName) {
     this.lastName = lastName;
-  }
-
-
-  public CreateIdentityRequestEntity maxTransactionAmount(Long maxTransactionAmount) {
-    
-    this.maxTransactionAmount = maxTransactionAmount;
-    return this;
-  }
-
-   /**
-   * The maximum amount (in cents) that can be charged for a single transaction (max 12 characters).
-   * @return maxTransactionAmount
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The maximum amount (in cents) that can be charged for a single transaction (max 12 characters).")
-
-  public Long getMaxTransactionAmount() {
-    return maxTransactionAmount;
-  }
-
-
-  public void setMaxTransactionAmount(Long maxTransactionAmount) {
-    this.maxTransactionAmount = maxTransactionAmount;
-  }
-
-
-  public CreateIdentityRequestEntity hasAcceptedCreditCardsPreviously(Boolean hasAcceptedCreditCardsPreviously) {
-    
-    this.hasAcceptedCreditCardsPreviously = hasAcceptedCreditCardsPreviously;
-    return this;
-  }
-
-   /**
-   * Defaults to **false** if not passed.
-   * @return hasAcceptedCreditCardsPreviously
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Defaults to **false** if not passed.")
-
-  public Boolean getHasAcceptedCreditCardsPreviously() {
-    return hasAcceptedCreditCardsPreviously;
-  }
-
-
-  public void setHasAcceptedCreditCardsPreviously(Boolean hasAcceptedCreditCardsPreviously) {
-    this.hasAcceptedCreditCardsPreviously = hasAcceptedCreditCardsPreviously;
-  }
-
-
-  public CreateIdentityRequestEntity defaultStatementDescriptor(String defaultStatementDescriptor) {
-    
-    this.defaultStatementDescriptor = defaultStatementDescriptor;
-    return this;
-  }
-
-   /**
-   * The description of the merchant that appears on the buyer&#39;s bank or card statement.
-   * @return defaultStatementDescriptor
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The description of the merchant that appears on the buyer's bank or card statement.")
-
-  public String getDefaultStatementDescriptor() {
-    return defaultStatementDescriptor;
-  }
-
-
-  public void setDefaultStatementDescriptor(String defaultStatementDescriptor) {
-    this.defaultStatementDescriptor = defaultStatementDescriptor;
   }
 
 
@@ -414,236 +167,6 @@ public class CreateIdentityRequestEntity {
   }
 
 
-  public CreateIdentityRequestEntity incorporationDate(CreateIdentityRequestEntityIncorporationDate incorporationDate) {
-    
-    this.incorporationDate = incorporationDate;
-    return this;
-  }
-
-   /**
-   * Get incorporationDate
-   * @return incorporationDate
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public CreateIdentityRequestEntityIncorporationDate getIncorporationDate() {
-    return incorporationDate;
-  }
-
-
-  public void setIncorporationDate(CreateIdentityRequestEntityIncorporationDate incorporationDate) {
-    this.incorporationDate = incorporationDate;
-  }
-
-
-  public CreateIdentityRequestEntity businessAddress(CreateIdentityRequestEntityBusinessAddress businessAddress) {
-    
-    this.businessAddress = businessAddress;
-    return this;
-  }
-
-   /**
-   * Get businessAddress
-   * @return businessAddress
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public CreateIdentityRequestEntityBusinessAddress getBusinessAddress() {
-    return businessAddress;
-  }
-
-
-  public void setBusinessAddress(CreateIdentityRequestEntityBusinessAddress businessAddress) {
-    this.businessAddress = businessAddress;
-  }
-
-
-  public CreateIdentityRequestEntity ownershipType(OwnershipTypeEnum ownershipType) {
-    
-    this.ownershipType = ownershipType;
-    return this;
-  }
-
-   /**
-   * Avalible values include: &lt;ul&gt;&lt;li&gt;&lt;strong&gt;PUBLIC&lt;/strong&gt; to indicate a publicly-traded company.&lt;li&gt;&lt;strong&gt;PRIVATE&lt;/strong&gt; for privately-held businesses.
-   * @return ownershipType
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Avalible values include: <ul><li><strong>PUBLIC</strong> to indicate a publicly-traded company.<li><strong>PRIVATE</strong> for privately-held businesses.")
-
-  public OwnershipTypeEnum getOwnershipType() {
-    return ownershipType;
-  }
-
-
-  public void setOwnershipType(OwnershipTypeEnum ownershipType) {
-    this.ownershipType = ownershipType;
-  }
-
-
-  public CreateIdentityRequestEntity firstName(String firstName) {
-    
-    this.firstName = firstName;
-    return this;
-  }
-
-   /**
-   * The legal first name of the merchant&#39;s control owner (max 20 characters).
-   * @return firstName
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The legal first name of the merchant's control owner (max 20 characters).")
-
-  public String getFirstName() {
-    return firstName;
-  }
-
-
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
-  }
-
-
-  public CreateIdentityRequestEntity title(String title) {
-    
-    this.title = title;
-    return this;
-  }
-
-   /**
-   * The corporate title of the control owner (e.g. Chief Executive Officer, CFO, etc. Max 60 characters).
-   * @return title
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The corporate title of the control owner (e.g. Chief Executive Officer, CFO, etc. Max 60 characters).")
-
-  public String getTitle() {
-    return title;
-  }
-
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-
-  public CreateIdentityRequestEntity businessTaxId(String businessTaxId) {
-    
-    this.businessTaxId = businessTaxId;
-    return this;
-  }
-
-   /**
-   * Nine digit Tax Identification Number (TIN), Employer Identification Number (EIN). If the &#x60;business_type&#x60; is **INDIVIDUAL\\_SOLE\\_PROPRIETORSHIP** and they do not have an EIN, use the sole proprietor&#39;s Social Security Number (SSN).
-   * @return businessTaxId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Nine digit Tax Identification Number (TIN), Employer Identification Number (EIN). If the `business_type` is **INDIVIDUAL\\_SOLE\\_PROPRIETORSHIP** and they do not have an EIN, use the sole proprietor's Social Security Number (SSN).")
-
-  public String getBusinessTaxId() {
-    return businessTaxId;
-  }
-
-
-  public void setBusinessTaxId(String businessTaxId) {
-    this.businessTaxId = businessTaxId;
-  }
-
-
-  public CreateIdentityRequestEntity doingBusinessAs(String doingBusinessAs) {
-    
-    this.doingBusinessAs = doingBusinessAs;
-    return this;
-  }
-
-   /**
-   * Alternate names of the business. If there are no other names, pass the same value used for &#x60;business_name&#x60; (max 60 characters).
-   * @return doingBusinessAs
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Alternate names of the business. If there are no other names, pass the same value used for `business_name` (max 60 characters).")
-
-  public String getDoingBusinessAs() {
-    return doingBusinessAs;
-  }
-
-
-  public void setDoingBusinessAs(String doingBusinessAs) {
-    this.doingBusinessAs = doingBusinessAs;
-  }
-
-
-  public CreateIdentityRequestEntity principalPercentageOwnership(Long principalPercentageOwnership) {
-    
-    this.principalPercentageOwnership = principalPercentageOwnership;
-    return this;
-  }
-
-   /**
-   * Percentage of the company owned by the principal control owner (min 0; max 100).
-   * @return principalPercentageOwnership
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Percentage of the company owned by the principal control owner (min 0; max 100).")
-
-  public Long getPrincipalPercentageOwnership() {
-    return principalPercentageOwnership;
-  }
-
-
-  public void setPrincipalPercentageOwnership(Long principalPercentageOwnership) {
-    this.principalPercentageOwnership = principalPercentageOwnership;
-  }
-
-
-  public CreateIdentityRequestEntity email(String email) {
-    
-    this.email = email;
-    return this;
-  }
-
-   /**
-   * The email address of the principal control owner where they can be reached (max 100 characters).
-   * @return email
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The email address of the principal control owner where they can be reached (max 100 characters).")
-
-  public String getEmail() {
-    return email;
-  }
-
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-
-  public CreateIdentityRequestEntity mcc(String mcc) {
-    
-    this.mcc = mcc;
-    return this;
-  }
-
-   /**
-   * The Merchant Category Code ([MCC](http://www.dm.usda.gov/procurement/card/card\\_x/mcc.pdf)) that this merchant will be classified under.
-   * @return mcc
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The Merchant Category Code ([MCC](http://www.dm.usda.gov/procurement/card/card\\_x/mcc.pdf)) that this merchant will be classified under.")
-
-  public String getMcc() {
-    return mcc;
-  }
-
-
-  public void setMcc(String mcc) {
-    this.mcc = mcc;
-  }
-
-
   public CreateIdentityRequestEntity phone(String phone) {
     
     this.phone = phone;
@@ -651,11 +174,11 @@ public class CreateIdentityRequestEntity {
   }
 
    /**
-   * The principal control owner&#39;s phone number (max 10 characters).
+   * Phone number where the buyer can be reached.
    * @return phone
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The principal control owner's phone number (max 10 characters).")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Phone number where the buyer can be reached.")
 
   public String getPhone() {
     return phone;
@@ -664,167 +187,6 @@ public class CreateIdentityRequestEntity {
 
   public void setPhone(String phone) {
     this.phone = phone;
-  }
-
-
-  public CreateIdentityRequestEntity businessName(String businessName) {
-    
-    this.businessName = businessName;
-    return this;
-  }
-
-   /**
-   * The merchant&#39;s legal business name (max 120 characters).&lt;ul&gt;&lt;li&gt;If **INDIVIDUAL_SOLE_PROPRIETORSHIP**, pass the owner&#39;s legal first name, last name and middle initial.
-   * @return businessName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The merchant's legal business name (max 120 characters).<ul><li>If **INDIVIDUAL_SOLE_PROPRIETORSHIP**, pass the owner's legal first name, last name and middle initial.")
-
-  public String getBusinessName() {
-    return businessName;
-  }
-
-
-  public void setBusinessName(String businessName) {
-    this.businessName = businessName;
-  }
-
-
-  public CreateIdentityRequestEntity taxId(String taxId) {
-    
-    this.taxId = taxId;
-    return this;
-  }
-
-   /**
-   * Pass one of the following values (nine digits):&lt;ul&gt;&lt;li&gt;Social Security Number (SSN)&lt;li&gt;Tax Identification Number (TIN)&lt;li&gt;Individual Taxpayer Identification Number (ITIN)&lt;/ul&gt;
-   * @return taxId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Pass one of the following values (nine digits):<ul><li>Social Security Number (SSN)<li>Tax Identification Number (TIN)<li>Individual Taxpayer Identification Number (ITIN)</ul>")
-
-  public String getTaxId() {
-    return taxId;
-  }
-
-
-  public void setTaxId(String taxId) {
-    this.taxId = taxId;
-  }
-
-
-  public CreateIdentityRequestEntity businessType(BusinessTypeEnum businessType) {
-    
-    this.businessType = businessType;
-    return this;
-  }
-
-   /**
-   * Include the value that best applies to the merchant.
-   * @return businessType
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Include the value that best applies to the merchant.")
-
-  public BusinessTypeEnum getBusinessType() {
-    return businessType;
-  }
-
-
-  public void setBusinessType(BusinessTypeEnum businessType) {
-    this.businessType = businessType;
-  }
-
-
-  public CreateIdentityRequestEntity businessPhone(String businessPhone) {
-    
-    this.businessPhone = businessPhone;
-    return this;
-  }
-
-   /**
-   * Customer service phone number where the merchant can be reached (max 10 characters).
-   * @return businessPhone
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Customer service phone number where the merchant can be reached (max 10 characters).")
-
-  public String getBusinessPhone() {
-    return businessPhone;
-  }
-
-
-  public void setBusinessPhone(String businessPhone) {
-    this.businessPhone = businessPhone;
-  }
-
-
-  public CreateIdentityRequestEntity dob(CreateIdentityRequestEntityDob dob) {
-    
-    this.dob = dob;
-    return this;
-  }
-
-   /**
-   * Get dob
-   * @return dob
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public CreateIdentityRequestEntityDob getDob() {
-    return dob;
-  }
-
-
-  public void setDob(CreateIdentityRequestEntityDob dob) {
-    this.dob = dob;
-  }
-
-
-  public CreateIdentityRequestEntity url(String url) {
-    
-    this.url = url;
-    return this;
-  }
-
-   /**
-   * The URL of the merchant&#39;s public website.
-   * @return url
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The URL of the merchant's public website.")
-
-  public String getUrl() {
-    return url;
-  }
-
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-
-  public CreateIdentityRequestEntity annualCardVolume(Long annualCardVolume) {
-    
-    this.annualCardVolume = annualCardVolume;
-    return this;
-  }
-
-   /**
-   * The annual credit card sales (in cents) expected to be processed by this merchant (max 19 characters).
-   * @return annualCardVolume
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The annual credit card sales (in cents) expected to be processed by this merchant (max 19 characters).")
-
-  public Long getAnnualCardVolume() {
-    return annualCardVolume;
-  }
-
-
-  public void setAnnualCardVolume(Long annualCardVolume) {
-    this.annualCardVolume = annualCardVolume;
   }
 
 
@@ -838,74 +200,27 @@ public class CreateIdentityRequestEntity {
       return false;
     }
     CreateIdentityRequestEntity createIdentityRequestEntity = (CreateIdentityRequestEntity) o;
-    return Objects.equals(this.lastName, createIdentityRequestEntity.lastName) &&
-        Objects.equals(this.maxTransactionAmount, createIdentityRequestEntity.maxTransactionAmount) &&
-        Objects.equals(this.hasAcceptedCreditCardsPreviously, createIdentityRequestEntity.hasAcceptedCreditCardsPreviously) &&
-        Objects.equals(this.defaultStatementDescriptor, createIdentityRequestEntity.defaultStatementDescriptor) &&
-        Objects.equals(this.personalAddress, createIdentityRequestEntity.personalAddress) &&
-        Objects.equals(this.incorporationDate, createIdentityRequestEntity.incorporationDate) &&
-        Objects.equals(this.businessAddress, createIdentityRequestEntity.businessAddress) &&
-        Objects.equals(this.ownershipType, createIdentityRequestEntity.ownershipType) &&
+    return Objects.equals(this.email, createIdentityRequestEntity.email) &&
         Objects.equals(this.firstName, createIdentityRequestEntity.firstName) &&
-        Objects.equals(this.title, createIdentityRequestEntity.title) &&
-        Objects.equals(this.businessTaxId, createIdentityRequestEntity.businessTaxId) &&
-        Objects.equals(this.doingBusinessAs, createIdentityRequestEntity.doingBusinessAs) &&
-        Objects.equals(this.principalPercentageOwnership, createIdentityRequestEntity.principalPercentageOwnership) &&
-        Objects.equals(this.email, createIdentityRequestEntity.email) &&
-        Objects.equals(this.mcc, createIdentityRequestEntity.mcc) &&
-        Objects.equals(this.phone, createIdentityRequestEntity.phone) &&
-        Objects.equals(this.businessName, createIdentityRequestEntity.businessName) &&
-        Objects.equals(this.taxId, createIdentityRequestEntity.taxId) &&
-        Objects.equals(this.businessType, createIdentityRequestEntity.businessType) &&
-        Objects.equals(this.businessPhone, createIdentityRequestEntity.businessPhone) &&
-        Objects.equals(this.dob, createIdentityRequestEntity.dob) &&
-        Objects.equals(this.url, createIdentityRequestEntity.url) &&
-        Objects.equals(this.annualCardVolume, createIdentityRequestEntity.annualCardVolume);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+        Objects.equals(this.lastName, createIdentityRequestEntity.lastName) &&
+        Objects.equals(this.personalAddress, createIdentityRequestEntity.personalAddress) &&
+        Objects.equals(this.phone, createIdentityRequestEntity.phone);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(lastName, maxTransactionAmount, hasAcceptedCreditCardsPreviously, defaultStatementDescriptor, personalAddress, incorporationDate, businessAddress, ownershipType, firstName, title, businessTaxId, doingBusinessAs, principalPercentageOwnership, email, mcc, phone, businessName, taxId, businessType, businessPhone, dob, url, annualCardVolume);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(email, firstName, lastName, personalAddress, phone);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateIdentityRequestEntity {\n");
-    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
-    sb.append("    maxTransactionAmount: ").append(toIndentedString(maxTransactionAmount)).append("\n");
-    sb.append("    hasAcceptedCreditCardsPreviously: ").append(toIndentedString(hasAcceptedCreditCardsPreviously)).append("\n");
-    sb.append("    defaultStatementDescriptor: ").append(toIndentedString(defaultStatementDescriptor)).append("\n");
-    sb.append("    personalAddress: ").append(toIndentedString(personalAddress)).append("\n");
-    sb.append("    incorporationDate: ").append(toIndentedString(incorporationDate)).append("\n");
-    sb.append("    businessAddress: ").append(toIndentedString(businessAddress)).append("\n");
-    sb.append("    ownershipType: ").append(toIndentedString(ownershipType)).append("\n");
-    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    businessTaxId: ").append(toIndentedString(businessTaxId)).append("\n");
-    sb.append("    doingBusinessAs: ").append(toIndentedString(doingBusinessAs)).append("\n");
-    sb.append("    principalPercentageOwnership: ").append(toIndentedString(principalPercentageOwnership)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
+    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+    sb.append("    personalAddress: ").append(toIndentedString(personalAddress)).append("\n");
     sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
-    sb.append("    businessName: ").append(toIndentedString(businessName)).append("\n");
-    sb.append("    taxId: ").append(toIndentedString(taxId)).append("\n");
-    sb.append("    businessType: ").append(toIndentedString(businessType)).append("\n");
-    sb.append("    businessPhone: ").append(toIndentedString(businessPhone)).append("\n");
-    sb.append("    dob: ").append(toIndentedString(dob)).append("\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
-    sb.append("    annualCardVolume: ").append(toIndentedString(annualCardVolume)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -928,36 +243,14 @@ public class CreateIdentityRequestEntity {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("last_name");
-    openapiFields.add("max_transaction_amount");
-    openapiFields.add("has_accepted_credit_cards_previously");
-    openapiFields.add("default_statement_descriptor");
-    openapiFields.add("personal_address");
-    openapiFields.add("incorporation_date");
-    openapiFields.add("business_address");
-    openapiFields.add("ownership_type");
-    openapiFields.add("first_name");
-    openapiFields.add("title");
-    openapiFields.add("business_tax_id");
-    openapiFields.add("doing_business_as");
-    openapiFields.add("principal_percentage_ownership");
     openapiFields.add("email");
-    openapiFields.add("mcc");
+    openapiFields.add("first_name");
+    openapiFields.add("last_name");
+    openapiFields.add("personal_address");
     openapiFields.add("phone");
-    openapiFields.add("business_name");
-    openapiFields.add("tax_id");
-    openapiFields.add("business_type");
-    openapiFields.add("business_phone");
-    openapiFields.add("dob");
-    openapiFields.add("url");
-    openapiFields.add("annual_card_volume");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("last_name");
-    openapiRequiredFields.add("first_name");
-    openapiRequiredFields.add("email");
-    openapiRequiredFields.add("phone");
   }
 
  /**
@@ -984,65 +277,12 @@ public class CreateIdentityRequestEntity {
         }
       }
       */
-
-      /**
-      * EDITED
-      * Commented to ByPass required properties/fields are present in the JSON string
-      */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : CreateIdentityRequestEntity.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("last_name") != null && !jsonObj.get("last_name").isJsonNull()  && !jsonObj.get("last_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `last_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_name").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("default_statement_descriptor") != null && !jsonObj.get("default_statement_descriptor").isJsonNull()  && !jsonObj.get("default_statement_descriptor").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `default_statement_descriptor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("default_statement_descriptor").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED  statement to for inconsistent null behaviour
-      */
-      // validate the optional field `personal_address`
-     // if (jsonObj.getAsJsonObject("personal_address") != null) {
-       //CreateIdentityRequestEntityPersonalAddress.validateJsonObject(jsonObj.getAsJsonObject("personal_address"));
-     // }
-
-      /**
-      * EDITED
-      * ADDED  statement to for inconsistent null behaviour
-      */
-      // validate the optional field `incorporation_date`
-     // if (jsonObj.getAsJsonObject("incorporation_date") != null) {
-       //CreateIdentityRequestEntityIncorporationDate.validateJsonObject(jsonObj.getAsJsonObject("incorporation_date"));
-     // }
-
-      /**
-      * EDITED
-      * ADDED  statement to for inconsistent null behaviour
-      */
-      // validate the optional field `business_address`
-     // if (jsonObj.getAsJsonObject("business_address") != null) {
-       //CreateIdentityRequestEntityBusinessAddress.validateJsonObject(jsonObj.getAsJsonObject("business_address"));
-     // }
-
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("ownership_type") != null && !jsonObj.get("ownership_type").isJsonNull()  && !jsonObj.get("ownership_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ownership_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ownership_type").toString()));
+      if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()  && !jsonObj.get("email").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
       /**
       * EDITED
@@ -1055,87 +295,24 @@ public class CreateIdentityRequestEntity {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()  && !jsonObj.get("title").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("business_tax_id") != null && !jsonObj.get("business_tax_id").isJsonNull()  && !jsonObj.get("business_tax_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `business_tax_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("business_tax_id").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("doing_business_as") != null && !jsonObj.get("doing_business_as").isJsonNull()  && !jsonObj.get("doing_business_as").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `doing_business_as` to be a primitive type in the JSON string but got `%s`", jsonObj.get("doing_business_as").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()  && !jsonObj.get("email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("mcc") != null && !jsonObj.get("mcc").isJsonNull()  && !jsonObj.get("mcc").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mcc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mcc").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("phone") != null && !jsonObj.get("phone").isJsonNull()  && !jsonObj.get("phone").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `phone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phone").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("business_name") != null && !jsonObj.get("business_name").isJsonNull()  && !jsonObj.get("business_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `business_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("business_name").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("tax_id") != null && !jsonObj.get("tax_id").isJsonNull()  && !jsonObj.get("tax_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tax_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tax_id").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("business_type") != null && !jsonObj.get("business_type").isJsonNull()  && !jsonObj.get("business_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `business_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("business_type").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("business_phone") != null && !jsonObj.get("business_phone").isJsonNull()  && !jsonObj.get("business_phone").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `business_phone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("business_phone").toString()));
+      if (jsonObj.get("last_name") != null && !jsonObj.get("last_name").isJsonNull()  && !jsonObj.get("last_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `last_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_name").toString()));
       }
       /**
       * EDITED
       * ADDED  statement to for inconsistent null behaviour
       */
-      // validate the optional field `dob`
-     // if (jsonObj.getAsJsonObject("dob") != null) {
-       //CreateIdentityRequestEntityDob.validateJsonObject(jsonObj.getAsJsonObject("dob"));
+      // validate the optional field `personal_address`
+     // if (jsonObj.getAsJsonObject("personal_address") != null) {
+       //CreateIdentityRequestEntityPersonalAddress.validateJsonObject(jsonObj.getAsJsonObject("personal_address"));
      // }
 
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()  && !jsonObj.get("url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
+      if (jsonObj.get("phone") != null && !jsonObj.get("phone").isJsonNull()  && !jsonObj.get("phone").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `phone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phone").toString()));
       }
   }
 

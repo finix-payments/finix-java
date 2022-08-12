@@ -48,9 +48,9 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * Additional underwriting data that&#39;s required to verify the &#x60;Identity&#x60; of the &#x60;Merchant&#x60;.
+ * Additional underwriting data that&#39;s required to verify the &#x60;Identity&#x60;.
  */
-@ApiModel(description = "Additional underwriting data that's required to verify the `Identity` of the `Merchant`.")
+@ApiModel(description = "Additional underwriting data that's required to verify the `Identity`.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IdentityAdditionalUnderwritingData {
