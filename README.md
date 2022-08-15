@@ -101,22 +101,18 @@ try {
     FinixList<FeeProfile> feeProfilesList = invalidClient.FeeProfiles.list(ListFeeProfilesQueryParams.builder()
     .limit(limit)
     .build());
-} catch (Exception genericError) {
-    if (genericError instanceof ApiException){
-        ApiException e = (ApiException) genericError;
-        
-        // Print basic http information of the error
-        System.err.println("Status code: " + e.getCode());
-        System.err.println("Response headers: " + e.getResponseHeaders());
+} catch (ApiException e) {
+    // Print basic http information of the error
+    System.err.println("Status code: " + e.getCode());
+    System.err.println("Response headers: " + e.getResponseHeaders());
 
-        // Print message of each error 
-        for (HashMap<String, String> thisError : error.getBody() ){
-            System.err.println(thisError.get("message"));
-        }
-          
-        // Access raw http incoming message of the error 
-        System.err.println(e.getResponseBody());
+    // Print message of each error 
+    for (HashMap<String, String> thisError : e.getBody() ){
+        System.err.println(thisError.get("message"));
     }
+        
+    // Access raw http incoming message of the error 
+    System.err.println(e.getResponseBody());
 }
 
 ```
