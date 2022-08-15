@@ -117,13 +117,16 @@ public class SettlementsApiTest {
      */
     @Test
     @DisplayName("List Settlement Transfers")
-    public void listSettlementTransfersTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    public void listSettlementTransfersTest() throws ApiException{
         String settlementId = "STmCc8GbjjX33SdymwNhb9Et";
         Long limit = 20L;
         FinixList<Transfer> settlementTransferList = finixClient.Settlements.listTransfersBySettlementId(settlementId, ListSettlementTransfersQueryParams.builder()
                 .limit(limit)
                 .build());
         assertTrue(settlementTransferList.size() >= 0);
+        if (settlementTransferList.size() == 0){
+            assertEquals(false, settlementTransferList.getHasMore());
+        }
         if (settlementTransferList.getHasMore() == true) {
             FinixList<Transfer> nextList = settlementTransferList.listNext(1);
             assertTrue(nextList != null);
@@ -145,10 +148,13 @@ public class SettlementsApiTest {
      */
     @Test
     @DisplayName("List Settlements")
-    public void listSettlementsTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    public void listSettlementsTest() throws ApiException{
         FinixList<Settlement> settlementsList = finixClient.Settlements.list(ListSettlementsQueryParams.builder()
                 .build());
         assertTrue(settlementsList.size() >= 0);
+        if (settlementsList.size() == 0){
+            assertEquals(false, settlementsList.getHasMore());
+        }
         if (settlementsList.getHasMore() == true) {
             FinixList<Settlement> nextList = settlementsList.listNext(1);
             assertTrue(nextList != null);

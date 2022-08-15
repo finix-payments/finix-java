@@ -122,12 +122,15 @@ public class FeeProfilesApiTest {
      */
     @Test
     @DisplayName("List Fee Profiles")
-    public void listFeeProfilesTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    public void listFeeProfilesTest() throws ApiException{
         Long limit = 20L;
         FinixList<FeeProfile> feeProfilesList = finixClient.FeeProfiles.list(ListFeeProfilesQueryParams.builder()
                 .limit(limit)
                 .build());
         assertTrue(feeProfilesList.size() >= 0);
+        if (feeProfilesList.size() == 0){
+            assertEquals(false, feeProfilesList.getHasMore());
+        }
         if (feeProfilesList.getHasMore() == true) {
             FinixList<FeeProfile> nextList = feeProfilesList.listNext(1);
             assertTrue(nextList != null);

@@ -121,7 +121,7 @@ public class BalanceTransfersApiTest {
      */
     @Test
     @DisplayName("List Balance Transfers")
-    public void listBalanceTransfersTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    public void listBalanceTransfersTest() throws ApiException{
         Long limit = null;
         Long offset = null;
         Long pageNumber = null;
@@ -156,6 +156,9 @@ public class BalanceTransfersApiTest {
                 .source(source)
                 .build());
         assertTrue(balanceTransfersList.size() >= 0);
+        if (balanceTransfersList.size() == 0){
+            assertEquals(false, balanceTransfersList.getHasMore());
+        }
         if (balanceTransfersList.getHasMore() == true){
             FinixList<BalanceTransfer> nextList = balanceTransfersList.listNext(1);
             assertTrue( nextList != null);

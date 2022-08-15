@@ -222,7 +222,7 @@ public class AuthorizationsApiTest {
      */
     @Test
     @DisplayName("List Authorizations")
-    public void listAuthorizationsTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    public void listAuthorizationsTest() throws ApiException{
         String sort = null;
         String beforeCursor = null;
         Long limit = null;
@@ -285,6 +285,9 @@ public class AuthorizationsApiTest {
                 .afterCursor(afterCursor)
                 .build());
         assertTrue(authorizationList.size() >= 0);
+        if (authorizationList.size() == 0){
+                assertEquals(false, authorizationList.getHasMore());
+        }
         if (authorizationList.getHasMore() == true){
             FinixList<Authorization> nextList = authorizationList.listNext(1);
             assertTrue( nextList != null);

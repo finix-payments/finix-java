@@ -272,7 +272,7 @@ public class TransfersApiTest {
      */
     @Test
     @DisplayName("List Reversals on a Transfer")
-    public void listTransferReversalsTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    public void listTransferReversalsTest() throws ApiException{
         String transferId = "TRvtThmhZtk56z6dtCt8hUDR";
         Long limit = null;
         String afterCursor = null;
@@ -284,7 +284,9 @@ public class TransfersApiTest {
                 .beforeCursor(beforeCursor)
                 .build());
         assertTrue(transfersReversalsList.size() >= 0);
-
+        if (transfersReversalsList.size() == 0){
+            assertEquals(false, transfersReversalsList.getHasMore());
+        }
         if (transfersReversalsList.getHasMore() == true) {
             FinixList<Transfer> nextList = transfersReversalsList.listNext(1);
             assertTrue(nextList != null);
@@ -306,7 +308,7 @@ public class TransfersApiTest {
      */
     @Test
     @DisplayName("List Transfers")
-    public void listTransfersTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    public void listTransfersTest() throws ApiException{
         String sort = null;
         String afterCursor = null;
         Long limit = null;
@@ -375,6 +377,9 @@ public class TransfersApiTest {
                 .beforeCursor(beforeCursor)
                 .build());
         assertTrue(transfersList.size() >= 0);
+        if (transfersList.size() == 0){
+            assertEquals(false, transfersList.getHasMore());
+        }
         if (transfersList.getHasMore() == true) {
             FinixList<Transfer> nextList = transfersList.listNext(1);
             assertTrue(nextList != null);

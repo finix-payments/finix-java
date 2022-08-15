@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.stream.Collectors;
 import java.util.*;
@@ -602,41 +601,50 @@ this.localCustomBaseUrl = customBaseUrl;
             return  fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
         }
 
-        private Object getQueryParam(Object pageObject, Object queryParam, Boolean hasCursor) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-                if (hasCursor){
+        private Object getQueryParam(Object pageObject, Object queryParam, Boolean hasCursor) throws ApiException {
+            try {
+                if (hasCursor) {
                     Method setCursor = queryParam.getClass().getMethod("setAfterCursor", String.class);
                     Method getOffset = pageObject.getClass().getMethod("getNextCursor");
                     String nextCursor = (String) getOffset.invoke(pageObject);
                     setCursor.invoke(queryParam, nextCursor);
-                }
-                else{
+                } else {
                     Method setOffset = queryParam.getClass().getMethod("setOffset", Long.class);
                     Method getOffset = pageObject.getClass().getMethod("getOffset");
                     Long offset = (Long) getOffset.invoke(pageObject);
                     setOffset.invoke(queryParam, offset);
                 }
-                return queryParam;
+            } catch (Exception e) {
+                throw new ApiException(e.getMessage());
+            }
+            return queryParam;
         }
 
-        private Boolean reachedEnd(Object pageObject, Boolean hasCursor) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
-            if (hasCursor){
-                Method getOffset = pageObject.getClass().getMethod("getNextCursor");
-                String nextCursor = (String) getOffset.invoke(pageObject);
-                if (nextCursor == null){
-                    return true;
+        private Boolean reachedEnd(Object pageObject, Boolean hasCursor) throws ApiException{
+            int endOfList = 0;
+            try {
+                if (hasCursor){
+                    Method getOffset = pageObject.getClass().getMethod("getNextCursor");
+                    String nextCursor = (String) getOffset.invoke(pageObject);
+                    if (nextCursor == null){
+                        endOfList += 1;
+                    }
                 }
-            }
-            else{
-                Method getOffset = pageObject.getClass().getMethod("getOffset");
-                Method getLimit = pageObject.getClass().getMethod("getLimit");
-                Method getCount = pageObject.getClass().getMethod("getCount");
-                Long offset = (Long) getOffset.invoke(pageObject);
-                Long limit = (Long) getLimit.invoke(pageObject);
-                Long count = (Long) getCount.invoke(pageObject);
-                if (offset + limit > count){
-                    return true;
+                else{
+                    Method getOffset = pageObject.getClass().getMethod("getOffset");
+                    Method getLimit = pageObject.getClass().getMethod("getLimit");
+                    Method getCount = pageObject.getClass().getMethod("getCount");
+                    Long offset = (Long) getOffset.invoke(pageObject);
+                    Long limit = (Long) getLimit.invoke(pageObject);
+                    Long count = (Long) getCount.invoke(pageObject);
+                    if (offset + limit > count){
+                        endOfList += 1;
+                    }
                 }
+            } catch (Exception e) {
+                throw new ApiException(e.getMessage());
             }
+            if (endOfList == 1){return true;}
             return false;
         }
     }

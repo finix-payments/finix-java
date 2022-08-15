@@ -251,7 +251,7 @@ public class PaymentInstrumentsApiTest {
      */
     @Test
     @DisplayName("List All Payment Instruments")
-    public void listPaymentInstrumentsTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    public void listPaymentInstrumentsTest() throws ApiException{
         Long limit = null;
         String afterCursor = null;
         String accountLast4 = null;
@@ -286,6 +286,9 @@ public class PaymentInstrumentsApiTest {
                 .beforeCursor(beforeCursor)
                 .build());
         assertTrue(paymentInstrumentsList.size() >= 0);
+        if (paymentInstrumentsList.size() == 0){
+            assertEquals(false, paymentInstrumentsList.getHasMore());
+        }
         if (paymentInstrumentsList.getHasMore() == true) {
             FinixList<PaymentInstrument> nextList = paymentInstrumentsList.listNext(1);
             assertTrue(nextList != null);

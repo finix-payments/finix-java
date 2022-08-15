@@ -2,7 +2,6 @@ package model;
 
 import invoker.ApiException;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
 public class FinixList<E> extends ArrayList<E> {
@@ -16,7 +15,7 @@ public class FinixList<E> extends ArrayList<E> {
         this.hasMore = hasMore;
     }
 
-    public FinixList<E> listNext (long a) throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    public FinixList<E> listNext (long a) throws ApiException{
         return this.nextfetchFunction.listNextBase(a);
     }
 

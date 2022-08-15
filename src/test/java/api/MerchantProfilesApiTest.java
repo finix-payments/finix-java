@@ -90,12 +90,15 @@ public class MerchantProfilesApiTest {
      */
     @Test
     @DisplayName("Fetch a list of merchant profiles")
-    public void listMerchantProfilesTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    public void listMerchantProfilesTest() throws ApiException{
         Long limit = 20L;
         FinixList<MerchantProfile> merchantProfilesList = finixClient.MerchantProfiles.list(ListMerchantProfilesQueryParams.builder()
                 .limit(limit)
                 .build());
         assertTrue(merchantProfilesList.size() >= 0);
+        if (merchantProfilesList.size() == 0){
+            assertEquals(false, merchantProfilesList.getHasMore());
+        }
         if (merchantProfilesList.getHasMore() == true) {
             FinixList<MerchantProfile> nextList = merchantProfilesList.listNext(1);
             assertTrue(nextList != null);

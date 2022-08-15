@@ -196,7 +196,7 @@ public class FilesApiTest {
      */
     @Test
     @DisplayName("List All External Links")
-    public void listExternalLinksTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    public void listExternalLinksTest() throws ApiException{
         String fileId = localFileId;
         String sort = null;
         String afterCursor = null;
@@ -221,6 +221,9 @@ public class FilesApiTest {
                 .build());
 
         assertTrue(externalLinksList.size() >= 0);
+        if (externalLinksList.size() == 0){
+            assertEquals(false, externalLinksList.getHasMore());
+        }
         if (externalLinksList.getHasMore() == true) {
             FinixList<ExternalLink> nextList = externalLinksList.listNext(1);
             assertTrue(nextList != null);
@@ -242,7 +245,7 @@ public class FilesApiTest {
      */
     @Test
     @DisplayName("List All Files")
-    public void listFilesTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    public void listFilesTest() throws ApiException{
         String sort = null;
         String afterCursor = null;
         Long limit = null;
@@ -265,6 +268,9 @@ public class FilesApiTest {
                 .beforeCursor(beforeCursor)
                 .build());
         assertTrue(fileList.size() >= 0);
+        if (fileList.size() == 0){
+            assertEquals(false, fileList.getHasMore());
+        }
         if (fileList.getHasMore() == true) {
             FinixList<File> nextList = fileList.listNext(1);
             assertTrue(nextList != null);

@@ -112,10 +112,13 @@ public class VerificationsApiTest {
      */
     @Test
     @DisplayName("List Merchant Verifications")
-    public void listMerchantVerificationsTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    public void listMerchantVerificationsTest() throws ApiException {
         String merchantId = "MU31oiYcWR6Bvx3tqYQ7WEr9";
         FinixList<Verification> verificationsList = finixClient.Verifications.listByMerchantId(merchantId, ListMerchantVerificationsQueryParams.builder().build());
         assertTrue(verificationsList.size() >= 0);
+        if (verificationsList.size() == 0){
+            assertEquals(false, verificationsList.getHasMore());
+        }
         if (verificationsList.getHasMore() == true) {
             FinixList<Verification> nextList = verificationsList.listNext(1);
             assertTrue(nextList != null);
@@ -137,9 +140,12 @@ public class VerificationsApiTest {
      */
     @Test
     @DisplayName("List Verifications")
-    public void listVerificationsTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    public void listVerificationsTest() throws ApiException {
         FinixList<Verification> verificationsList = finixClient.Verifications.list(ListVerificationsQueryParams.builder().build());
         assertTrue(verificationsList.size() >= 0);
+        if (verificationsList.size() == 0){
+            assertEquals(false, verificationsList.getHasMore());
+        }
         if (verificationsList.getHasMore() == true) {
             FinixList<Verification> nextList = verificationsList.listNext(1);
             assertTrue(nextList != null);

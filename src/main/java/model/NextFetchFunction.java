@@ -4,6 +4,7 @@ import invoker.ApiException;
 
 import java.lang.reflect.InvocationTargetException;
 
+@SuppressWarnings("rawtypes")
 public interface NextFetchFunction {
-    public FinixList listNextBase(long a) throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException;
+    public FinixList listNextBase(long a) throws ApiException;
 }

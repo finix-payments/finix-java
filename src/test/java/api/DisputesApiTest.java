@@ -135,13 +135,16 @@ public class DisputesApiTest {
      */
     @Test
     @DisplayName("List Dispute Evidence")
-    public void listDisputeEvidenceTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    public void listDisputeEvidenceTest() throws ApiException{
         String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
         Long limit = 20L;
         FinixList<DisputeEvidence> disputeEvidencesList = finixClient.Disputes.listDisputeEvidenceByDisputeId(disputeId, ListDisputeEvidenceQueryParams.builder()
                 .limit(limit)
                 .build());
         assertTrue(disputeEvidencesList.size() >= 0);
+        if (disputeEvidencesList.size() == 0){
+            assertEquals(false, disputeEvidencesList.getHasMore());
+        }
         if (disputeEvidencesList.getHasMore() == true){
             FinixList<DisputeEvidence> nextList = disputeEvidencesList.listNext(1);
             assertTrue( nextList != null);
@@ -163,7 +166,7 @@ public class DisputesApiTest {
      */
     @Test
     @DisplayName("List All Disputes")
-    public void listDisputesTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    public void listDisputesTest() throws ApiException{
         String sort = null;
         Long offset = null;
         Long limit = null;
@@ -182,6 +185,9 @@ public class DisputesApiTest {
                 .updatedAtLte(updatedAtLte)
                 .build());
         assertTrue(disputesList.size() >= 0);
+        if (disputesList.size() == 0){
+            assertEquals(false, disputesList.getHasMore());
+        }
         if (disputesList.getHasMore() == true){
             FinixList<Dispute> nextList = disputesList.listNext(1);
             assertTrue( nextList != null);
@@ -203,7 +209,7 @@ public class DisputesApiTest {
      */
     @Test
     @DisplayName("List Dispute Adjustment Transfers")
-    public void listDisputesAdjustmentsTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    public void listDisputesAdjustmentsTest() throws ApiException{
         String disputeId = "DIs7yQRkHDdMYhurzYz72SFk";
         Long limit = null;
         String nextCursor = null;
@@ -212,8 +218,12 @@ public class DisputesApiTest {
                 .limit(limit)
                 .afterCursor("TRsfZUjgXSCj7k2stZR7APEn")
                 .build());
-
+        System.out.println(adjustmentDisputeList.getPage());
+        System.out.println(adjustmentDisputeList.getHasMore());
         assertTrue(adjustmentDisputeList.size() >= 0);
+        if (adjustmentDisputeList.size() == 0){
+            assertEquals(false, adjustmentDisputeList.getHasMore());
+        }
         if (adjustmentDisputeList.getHasMore() == true){
             FinixList<Transfer> nextList = adjustmentDisputeList.listNext(1);
             assertTrue( nextList != null);

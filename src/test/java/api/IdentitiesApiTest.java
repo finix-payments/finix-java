@@ -234,7 +234,7 @@ public class IdentitiesApiTest {
      */
     @Test
     @DisplayName("List Identities")
-    public void listIdentitiesTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    public void listIdentitiesTest() throws ApiException{
         String sort = null;
         String afterCursor = null;
         Long limit = null;
@@ -267,6 +267,9 @@ public class IdentitiesApiTest {
                 .beforeCursor(beforeCursor)
                 .build());
         assertTrue(identitiesList.size() >= 0);
+        if (identitiesList.size() == 0){
+                assertEquals(false, identitiesList.getHasMore());
+        }
         if (identitiesList.getHasMore() == true) {
             FinixList<Identity> nextList = identitiesList.listNext(1);
             assertTrue(nextList != null);
@@ -288,11 +291,14 @@ public class IdentitiesApiTest {
      */
     @Test
     @DisplayName("List Associated Identities")
-    public void listIdentityAssociatedIdentitiesTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    public void listIdentityAssociatedIdentitiesTest() throws ApiException{
         String identityId = "IDpYDM7J9n57q849o9E9yNrG";
 
         FinixList<Identity> associatedIdentitiesList = finixClient.Identities.listAssocaiatedIdentities(identityId, ListIdentityAssociatedIdentitiesQueryParams.builder().build());
         assertTrue(associatedIdentitiesList.size() >= 0);
+        if (associatedIdentitiesList.size() == 0){
+                assertEquals(false, associatedIdentitiesList.getHasMore());
+        }
         if (associatedIdentitiesList.getHasMore() == true) {
             FinixList<Identity> nextList = associatedIdentitiesList.listNext(1);
             assertTrue(nextList != null);

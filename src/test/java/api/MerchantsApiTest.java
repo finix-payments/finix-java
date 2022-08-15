@@ -95,7 +95,7 @@ public class MerchantsApiTest {
      */
     @Test
     @DisplayName("List Merchants")
-    public void listMerchantsTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    public void listMerchantsTest() throws ApiException{
         String id = null;
         String createdAtGte = null;
         String createdAtLte = null;
@@ -114,6 +114,9 @@ public class MerchantsApiTest {
                 .beforeCursor(beforeCursor)
                 .build());
         assertTrue(merchantsList.size() >= 0);
+        if (merchantsList.size() == 0){
+            assertEquals(false, merchantsList.getHasMore());
+        }
         if (merchantsList.getHasMore() == true) {
             FinixList<Merchant> nextList = merchantsList.listNext(1);
             assertTrue(nextList != null);

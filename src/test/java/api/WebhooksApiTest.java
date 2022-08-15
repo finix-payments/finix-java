@@ -110,7 +110,7 @@ public class WebhooksApiTest {
      */
     @Test
     @DisplayName("List Webhooks")
-    public void listWebhooksTest() throws ApiException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    public void listWebhooksTest() throws ApiException {
         Long limit = null;
         String afterCursor = null;
         String beforeCursor = null;
@@ -121,6 +121,9 @@ public class WebhooksApiTest {
                 .beforeCursor(beforeCursor)
                 .build());
         assertTrue(webhooksList.size() >= 0);
+        if (webhooksList.size() == 0){
+            assertEquals(false, webhooksList.getHasMore());
+        }
         if (webhooksList.getHasMore() == true) {
             FinixList<Webhook> nextList = webhooksList.listNext(1);
             assertTrue(nextList != null);
