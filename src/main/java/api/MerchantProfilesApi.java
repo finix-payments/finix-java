@@ -50,41 +50,41 @@ import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
 public class MerchantProfilesApi {
-private FinixClient localVarFinixClient;
-private int localHostIndex;
-private String localCustomBaseUrl;
+    private FinixClient localVarFinixClient;
+    private int localHostIndex;
+    private String localCustomBaseUrl;
 
-public MerchantProfilesApi() {
-this(Configuration.getDefaultFinixClient());
-}
+    public MerchantProfilesApi() {
+        this(Configuration.getDefaultFinixClient());
+    }
 
-public MerchantProfilesApi(FinixClient finixClient) {
-this.localVarFinixClient = finixClient;
-}
+    public MerchantProfilesApi(FinixClient finixClient) {
+        this.localVarFinixClient = finixClient;
+    }
 
-public FinixClient getFinixClient() {
-return localVarFinixClient;
-}
+    public FinixClient getFinixClient() {
+        return localVarFinixClient;
+    }
 
-public void setFinixClient(FinixClient finixClient) {
-this.localVarFinixClient = finixClient;
-}
+    public void setFinixClient(FinixClient finixClient) {
+        this.localVarFinixClient = finixClient;
+    }
 
-public int getHostIndex() {
-return localHostIndex;
-}
+    public int getHostIndex() {
+        return localHostIndex;
+    }
 
-public void setHostIndex(int hostIndex) {
-this.localHostIndex = hostIndex;
-}
+    public void setHostIndex(int hostIndex) {
+        this.localHostIndex = hostIndex;
+    }
 
-public String getCustomBaseUrl() {
-return localCustomBaseUrl;
-}
+    public String getCustomBaseUrl() {
+        return localCustomBaseUrl;
+    }
 
-public void setCustomBaseUrl(String customBaseUrl) {
-this.localCustomBaseUrl = customBaseUrl;
-}
+    public void setCustomBaseUrl(String customBaseUrl) {
+        this.localCustomBaseUrl = customBaseUrl;
+    }
 
     /**
     * Build call for getMerchantProfile
@@ -103,30 +103,30 @@ this.localCustomBaseUrl = customBaseUrl;
         </table>
     */
     public okhttp3.Call getMerchantProfileCall(String merchantProfileId, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
+        String basePath = null;
     // Operation Servers
-    String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[] {  };
 
     // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
 
-    Object localVarPostBody = null;
+        Object localVarPostBody = null;
 
     // create path and map variables
         String localVarPath = "/merchant_profiles/{merchant_profile_id}"
             .replaceAll("\\{" + "merchant_profile_id" + "\\}", localVarFinixClient.escapeString(merchantProfileId.toString()));
 
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
             "application/hal+json"
@@ -134,7 +134,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
+            localVarHeaderParams.put("Accept", localVarAccept);
         }
 
         final String[] localVarContentTypes = {
@@ -148,21 +148,21 @@ this.localCustomBaseUrl = customBaseUrl;
         localVarHeaderParams.put("Finix-Version", "2022-02-01");
         String[] localVarAuthNames = new String[] { "BasicAuth" };
         return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
+    }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call getMerchantProfileValidateBeforeCall(String merchantProfileId, final ApiCallback _callback) throws ApiException {
-        
-                // verify the required parameter 'merchantProfileId' is set
-                if (merchantProfileId == null) {
-                throw new ApiException("Missing the required parameter 'merchantProfileId' when calling getMerchantProfile(Async)");
-                }
-        
-
-            okhttp3.Call localVarCall = getMerchantProfileCall(merchantProfileId, _callback);
-            return localVarCall;
-
+    private okhttp3.Call getMerchantProfileValidateBeforeCall(String merchantProfileId, final ApiCallback _callback) throws ApiException {
+    
+            // verify the required parameter 'merchantProfileId' is set
+        if (merchantProfileId == null) {
+            throw new ApiException("Missing the required parameter 'merchantProfileId' when calling getMerchantProfile(Async)");
         }
+    
+
+        okhttp3.Call localVarCall = getMerchantProfileCall(merchantProfileId, _callback);
+        return localVarCall;
+
+    }
 
             /**
             * Show Merchant Profile
@@ -182,10 +182,10 @@ this.localCustomBaseUrl = customBaseUrl;
             */
 
 
-                public MerchantProfile get(String merchantProfileId) throws ApiException {
-            ApiResponse<MerchantProfile> localVarResp = getMerchantProfileWithHttpInfo(merchantProfileId);
-                    return localVarResp.getData();
-                }
+    public MerchantProfile get(String merchantProfileId) throws ApiException {
+        ApiResponse<MerchantProfile> localVarResp = getMerchantProfileWithHttpInfo(merchantProfileId);
+        return localVarResp.getData();
+    }
 
 
     /**
@@ -204,11 +204,11 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public ApiResponse<MerchantProfile> getMerchantProfileWithHttpInfo(String merchantProfileId) throws ApiException {
+    public ApiResponse<MerchantProfile> getMerchantProfileWithHttpInfo(String merchantProfileId) throws ApiException {
         okhttp3.Call localVarCall = getMerchantProfileValidateBeforeCall(merchantProfileId, null);
-                Type localVarReturnType = new TypeToken<MerchantProfile>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
+        Type localVarReturnType = new TypeToken<MerchantProfile>(){}.getType();
+        return localVarFinixClient.execute(localVarCall, localVarReturnType);
+    }
 
     /**
         * Show Merchant Profile (asynchronously)
@@ -227,53 +227,53 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call getMerchantProfileAsync(String merchantProfileId, final ApiCallback<MerchantProfile> _callback) throws ApiException {
+    public okhttp3.Call getMerchantProfileAsync(String merchantProfileId, final ApiCallback<MerchantProfile> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getMerchantProfileValidateBeforeCall(merchantProfileId, _callback);
-    Type localVarReturnType = new TypeToken<MerchantProfile>(){}.getType();
+        Type localVarReturnType = new TypeToken<MerchantProfile>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
-        }
+    }
     private okhttp3.Call listMerchantProfilesCall(String id, String beforeCursor, String afterCursor, Long limit, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
+        String basePath = null;
     // Operation Servers
-    String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[] {  };
 
     // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
 
-    Object localVarPostBody = null;
+        Object localVarPostBody = null;
 
     // create path and map variables
         String localVarPath = "/merchant_profiles";
 
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-                if (id != null) {
+        if (id != null) {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("id", id));
-                }
+        }
 
-                if (beforeCursor != null) {
+        if (beforeCursor != null) {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("before_cursor", beforeCursor));
-                }
+        }
 
-                if (afterCursor != null) {
+        if (afterCursor != null) {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("after_cursor", afterCursor));
-                }
+        }
 
-                if (limit != null) {
+        if (limit != null) {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("limit", limit));
-                }
+        }
 
         final String[] localVarAccepts = {
             "application/hal+json"
@@ -281,7 +281,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
+            localVarHeaderParams.put("Accept", localVarAccept);
         }
 
         final String[] localVarContentTypes = {
@@ -295,80 +295,80 @@ this.localCustomBaseUrl = customBaseUrl;
         localVarHeaderParams.put("Finix-Version", "2022-02-01");
         String[] localVarAuthNames = new String[] { "BasicAuth" };
         return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
+    }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call listMerchantProfilesValidateBeforeCall(String id, String beforeCursor, String afterCursor, Long limit, final ApiCallback _callback) throws ApiException {
-        
+    private okhttp3.Call listMerchantProfilesValidateBeforeCall(String id, String beforeCursor, String afterCursor, Long limit, final ApiCallback _callback) throws ApiException {
+    
 
-            okhttp3.Call localVarCall = listMerchantProfilesCall(id, beforeCursor, afterCursor, limit, _callback);
-            return localVarCall;
+        okhttp3.Call localVarCall = listMerchantProfilesCall(id, beforeCursor, afterCursor, limit, _callback);
+        return localVarCall;
 
-        }
+    }
 
 
     private ApiResponse<MerchantProfilesList> listMerchantProfilesWithHttpInfo(String id, String beforeCursor, String afterCursor, Long limit) throws ApiException {
         okhttp3.Call localVarCall = listMerchantProfilesValidateBeforeCall(id, beforeCursor, afterCursor, limit, null);
-                Type localVarReturnType = new TypeToken<MerchantProfilesList>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
+        Type localVarReturnType = new TypeToken<MerchantProfilesList>(){}.getType();
+        return localVarFinixClient.execute(localVarCall, localVarReturnType);
+    }
 
     private okhttp3.Call listMerchantProfilesAsync(String id, String beforeCursor, String afterCursor, Long limit, final ApiCallback<MerchantProfilesList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listMerchantProfilesValidateBeforeCall(id, beforeCursor, afterCursor, limit, _callback);
-    Type localVarReturnType = new TypeToken<MerchantProfilesList>(){}.getType();
+        Type localVarReturnType = new TypeToken<MerchantProfilesList>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
-        }
+    }
 
-        public class APIlistMerchantProfilesRequest {
-            private String id;
-            private String beforeCursor;
-            private String afterCursor;
-            private Long limit;
+    public class APIlistMerchantProfilesRequest {
+        private String id;
+        private String beforeCursor;
+        private String afterCursor;
+        private Long limit;
 
         private APIlistMerchantProfilesRequest() {
         }
 
-            /**
-            * Set id
-            * @param id Filter by id (optional)
-            * @return APIlistMerchantProfilesRequest
-            */
-            public APIlistMerchantProfilesRequest id(String id) {
+        /**
+        * Set id
+        * @param id Filter by id (optional)
+        * @return APIlistMerchantProfilesRequest
+        */
+        public APIlistMerchantProfilesRequest id(String id) {
             this.id = id;
             return this;
-            }
+        }
 
-            /**
-            * Set beforeCursor
-            * @param beforeCursor Return every resource created before the cursor value. (optional)
-            * @return APIlistMerchantProfilesRequest
-            */
-            public APIlistMerchantProfilesRequest beforeCursor(String beforeCursor) {
+        /**
+        * Set beforeCursor
+        * @param beforeCursor Return every resource created before the cursor value. (optional)
+        * @return APIlistMerchantProfilesRequest
+        */
+        public APIlistMerchantProfilesRequest beforeCursor(String beforeCursor) {
             this.beforeCursor = beforeCursor;
             return this;
-            }
+        }
 
-            /**
-            * Set afterCursor
-            * @param afterCursor Return every resource created after the cursor value. (optional)
-            * @return APIlistMerchantProfilesRequest
-            */
-            public APIlistMerchantProfilesRequest afterCursor(String afterCursor) {
+        /**
+        * Set afterCursor
+        * @param afterCursor Return every resource created after the cursor value. (optional)
+        * @return APIlistMerchantProfilesRequest
+        */
+        public APIlistMerchantProfilesRequest afterCursor(String afterCursor) {
             this.afterCursor = afterCursor;
             return this;
-            }
+        }
 
-            /**
-            * Set limit
-            * @param limit The numbers of items to return (optional)
-            * @return APIlistMerchantProfilesRequest
-            */
-            public APIlistMerchantProfilesRequest limit(Long limit) {
+        /**
+        * Set limit
+        * @param limit The numbers of items to return (optional)
+        * @return APIlistMerchantProfilesRequest
+        */
+        public APIlistMerchantProfilesRequest limit(Long limit) {
             this.limit = limit;
             return this;
-            }
+        }
 
         /**
         * Build call for listMerchantProfiles
@@ -385,7 +385,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-        return listMerchantProfilesCall(id, beforeCursor, afterCursor, limit, _callback);
+            return listMerchantProfilesCall(id, beforeCursor, afterCursor, limit, _callback);
         }
 
         /**
@@ -402,7 +402,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public MerchantProfilesList execute() throws ApiException {
-    ApiResponse<MerchantProfilesList> localVarResp = listMerchantProfilesWithHttpInfo(id, beforeCursor, afterCursor, limit);
+            ApiResponse<MerchantProfilesList> localVarResp = listMerchantProfilesWithHttpInfo(id, beforeCursor, afterCursor, limit);
             return localVarResp.getData();
         }
 
@@ -420,7 +420,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public ApiResponse<MerchantProfilesList> executeWithHttpInfo() throws ApiException {
-        return listMerchantProfilesWithHttpInfo(id, beforeCursor, afterCursor, limit);
+            return listMerchantProfilesWithHttpInfo(id, beforeCursor, afterCursor, limit);
         }
 
         /**
@@ -438,68 +438,68 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call executeAsync(final ApiCallback<MerchantProfilesList> _callback) throws ApiException {
-        return listMerchantProfilesAsync(id, beforeCursor, afterCursor, limit, _callback);
+            return listMerchantProfilesAsync(id, beforeCursor, afterCursor, limit, _callback);
         }
-        }
+    }
 
-        /**
-        * List Merchant Profiles
-        * Get list of all the merchant_profiles objects
-        * @return APIlistMerchantProfilesRequest
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Single merchant profile object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        @SuppressWarnings({"unchecked", "rawtypes"})
-        public FinixList list( ListMerchantProfilesQueryParams listMerchantProfilesQueryParams)
-            throws ApiException{
+    /**
+    * List Merchant Profiles
+    * Get list of all the merchant_profiles objects
+    * @return APIlistMerchantProfilesRequest
+        * @http.response.details
+        <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                <tr><td> 200 </td><td> Single merchant profile object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+        </table>
+    */
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public FinixList list( ListMerchantProfilesQueryParams listMerchantProfilesQueryParams)
+        throws ApiException{
 
-            APIlistMerchantProfilesRequest request = new APIlistMerchantProfilesRequest();
-                request.id(listMerchantProfilesQueryParams.getId());
-                request.beforeCursor(listMerchantProfilesQueryParams.getBeforeCursor());
-                request.afterCursor(listMerchantProfilesQueryParams.getAfterCursor());
-                request.limit(listMerchantProfilesQueryParams.getLimit());
-            MerchantProfilesList response = request.execute();
-            Boolean hasNextCursor = (response.getPage().getClass().getName() == "model.PageCursor");
-            ListMerchantProfilesQueryParams queryParams = (ListMerchantProfilesQueryParams) getQueryParam(response.getPage(),
-                listMerchantProfilesQueryParams,
-                hasNextCursor);
-            Boolean reachedEnd = reachedEnd(response.getPage(), hasNextCursor);
-            NextFetchFunction nextFetch = (a) -> {
-                queryParams.setLimit(a);
-                if (reachedEnd) {
-                throw new ArrayIndexOutOfBoundsException();
-                }
-                return this.list( queryParams);
-            };
-            FinixList currList = new FinixList(nextFetch, !reachedEnd);
-            if (response.getEmbedded() != null){
-                String fieldName = getFieldName(response.getEmbedded());
-                String fieldGet = "get" + fieldName;
-                try{
-                    Method getList = response.getEmbedded().getClass().getMethod(fieldGet);
-                    Collection<Object> embeddedList = (Collection<Object>) getList.invoke(response.getEmbedded());
-
-                    if (embeddedList.size() < response.getPage().getLimit()){
-                        currList = new FinixList<>(nextFetch, false);
-                    }
-                    for(Object item : embeddedList)
-                    {
-                        currList.add(item);
-                    }
-                } catch (Exception e){
-                    throw new ApiException(e.getMessage());
-                }
+        APIlistMerchantProfilesRequest request = new APIlistMerchantProfilesRequest();
+        request.id(listMerchantProfilesQueryParams.getId());
+        request.beforeCursor(listMerchantProfilesQueryParams.getBeforeCursor());
+        request.afterCursor(listMerchantProfilesQueryParams.getAfterCursor());
+        request.limit(listMerchantProfilesQueryParams.getLimit());
+        MerchantProfilesList response = request.execute();
+        Boolean hasNextCursor = (response.getPage().getClass().getName() == "model.PageCursor");
+        ListMerchantProfilesQueryParams queryParams = (ListMerchantProfilesQueryParams) getQueryParam(response.getPage(),
+            listMerchantProfilesQueryParams,
+            hasNextCursor);
+        Boolean reachedEnd = reachedEnd(response.getPage(), hasNextCursor);
+        NextFetchFunction nextFetch = (a) -> {
+            queryParams.setLimit(a);
+            if (reachedEnd) {
+            throw new ArrayIndexOutOfBoundsException();
             }
-            currList.setPage(response.getPage());
-            currList.setLinks(response.getLinks());
-            return currList;
+            return this.list( queryParams);
+        };
+        FinixList currList = new FinixList(nextFetch, !reachedEnd);
+        if (response.getEmbedded() != null){
+            String fieldName = getFieldName(response.getEmbedded());
+            String fieldGet = "get" + fieldName;
+            try{
+                Method getList = response.getEmbedded().getClass().getMethod(fieldGet);
+                Collection<Object> embeddedList = (Collection<Object>) getList.invoke(response.getEmbedded());
+
+                if (embeddedList.size() < response.getPage().getLimit()){
+                    currList = new FinixList<>(nextFetch, false);
+                }
+                for(Object item : embeddedList)
+                {
+                    currList.add(item);
+                }
+            } catch (Exception e){
+                throw new ApiException(e.getMessage());
+            }
         }
+        currList.setPage(response.getPage());
+        currList.setLinks(response.getLinks());
+        return currList;
+    }
     /**
     * Build call for updateMerchantProfile
         * @param merchantProfileId ID of merchant profile (required)
@@ -517,30 +517,30 @@ this.localCustomBaseUrl = customBaseUrl;
         </table>
     */
     public okhttp3.Call updateMerchantProfileCall(String merchantProfileId, UpdateMerchantProfileRequest updateMerchantProfileRequest, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
+        String basePath = null;
     // Operation Servers
-    String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[] {  };
 
     // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
 
-    Object localVarPostBody = updateMerchantProfileRequest;
+        Object localVarPostBody = updateMerchantProfileRequest;
 
     // create path and map variables
         String localVarPath = "/merchant_profiles/{merchant_profile_id}"
             .replaceAll("\\{" + "merchant_profile_id" + "\\}", localVarFinixClient.escapeString(merchantProfileId.toString()));
 
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
             "application/hal+json"
@@ -548,7 +548,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
+            localVarHeaderParams.put("Accept", localVarAccept);
         }
 
         final String[] localVarContentTypes = {
@@ -562,21 +562,21 @@ this.localCustomBaseUrl = customBaseUrl;
         localVarHeaderParams.put("Finix-Version", "2022-02-01");
         String[] localVarAuthNames = new String[] { "BasicAuth" };
         return localVarFinixClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
+    }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call updateMerchantProfileValidateBeforeCall(String merchantProfileId, UpdateMerchantProfileRequest updateMerchantProfileRequest, final ApiCallback _callback) throws ApiException {
-        
-                // verify the required parameter 'merchantProfileId' is set
-                if (merchantProfileId == null) {
-                throw new ApiException("Missing the required parameter 'merchantProfileId' when calling updateMerchantProfile(Async)");
-                }
-        
-
-            okhttp3.Call localVarCall = updateMerchantProfileCall(merchantProfileId, updateMerchantProfileRequest, _callback);
-            return localVarCall;
-
+    private okhttp3.Call updateMerchantProfileValidateBeforeCall(String merchantProfileId, UpdateMerchantProfileRequest updateMerchantProfileRequest, final ApiCallback _callback) throws ApiException {
+    
+            // verify the required parameter 'merchantProfileId' is set
+        if (merchantProfileId == null) {
+            throw new ApiException("Missing the required parameter 'merchantProfileId' when calling updateMerchantProfile(Async)");
         }
+    
+
+        okhttp3.Call localVarCall = updateMerchantProfileCall(merchantProfileId, updateMerchantProfileRequest, _callback);
+        return localVarCall;
+
+    }
 
             /**
             * Update a Merchant Profile
@@ -596,10 +596,10 @@ this.localCustomBaseUrl = customBaseUrl;
             */
 
 
-                public MerchantProfile update(String merchantProfileId, UpdateMerchantProfileRequest updateMerchantProfileRequest) throws ApiException {
-            ApiResponse<MerchantProfile> localVarResp = updateMerchantProfileWithHttpInfo(merchantProfileId, updateMerchantProfileRequest);
-                    return localVarResp.getData();
-                }
+    public MerchantProfile update(String merchantProfileId, UpdateMerchantProfileRequest updateMerchantProfileRequest) throws ApiException {
+        ApiResponse<MerchantProfile> localVarResp = updateMerchantProfileWithHttpInfo(merchantProfileId, updateMerchantProfileRequest);
+        return localVarResp.getData();
+    }
 
 
     /**
@@ -618,11 +618,11 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public ApiResponse<MerchantProfile> updateMerchantProfileWithHttpInfo(String merchantProfileId, UpdateMerchantProfileRequest updateMerchantProfileRequest) throws ApiException {
+    public ApiResponse<MerchantProfile> updateMerchantProfileWithHttpInfo(String merchantProfileId, UpdateMerchantProfileRequest updateMerchantProfileRequest) throws ApiException {
         okhttp3.Call localVarCall = updateMerchantProfileValidateBeforeCall(merchantProfileId, updateMerchantProfileRequest, null);
-                Type localVarReturnType = new TypeToken<MerchantProfile>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
+        Type localVarReturnType = new TypeToken<MerchantProfile>(){}.getType();
+        return localVarFinixClient.execute(localVarCall, localVarReturnType);
+    }
 
     /**
         * Update a Merchant Profile (asynchronously)
@@ -641,67 +641,67 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call updateMerchantProfileAsync(String merchantProfileId, UpdateMerchantProfileRequest updateMerchantProfileRequest, final ApiCallback<MerchantProfile> _callback) throws ApiException {
+    public okhttp3.Call updateMerchantProfileAsync(String merchantProfileId, UpdateMerchantProfileRequest updateMerchantProfileRequest, final ApiCallback<MerchantProfile> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateMerchantProfileValidateBeforeCall(merchantProfileId, updateMerchantProfileRequest, _callback);
-    Type localVarReturnType = new TypeToken<MerchantProfile>(){}.getType();
+        Type localVarReturnType = new TypeToken<MerchantProfile>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
-        }
-        private String getFieldName(Object response){
-            Field[] methods = response.getClass().getFields();
-            Field[] testMethods = response.getClass().getDeclaredFields();
-            List<Field> a = Arrays.asList(methods);
-            List<Field> b = Arrays.asList(testMethods);
-            List<Field> diff = b.stream().filter(element -> !a.contains(element)).collect(Collectors.toList());
-            String fieldName = diff.get(0).getName();
-            return  fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
-        }
-
-        private Object getQueryParam(Object pageObject, Object queryParam, Boolean hasCursor) throws ApiException {
-            try {
-                if (hasCursor) {
-                    Method setCursor = queryParam.getClass().getMethod("setAfterCursor", String.class);
-                    Method getOffset = pageObject.getClass().getMethod("getNextCursor");
-                    String nextCursor = (String) getOffset.invoke(pageObject);
-                    setCursor.invoke(queryParam, nextCursor);
-                } else {
-                    Method setOffset = queryParam.getClass().getMethod("setOffset", Long.class);
-                    Method getOffset = pageObject.getClass().getMethod("getOffset");
-                    Long offset = (Long) getOffset.invoke(pageObject);
-                    setOffset.invoke(queryParam, offset);
-                }
-            } catch (Exception e) {
-                throw new ApiException(e.getMessage());
-            }
-            return queryParam;
-        }
-
-        private Boolean reachedEnd(Object pageObject, Boolean hasCursor) throws ApiException{
-            int endOfList = 0;
-            try {
-                if (hasCursor){
-                    Method getOffset = pageObject.getClass().getMethod("getNextCursor");
-                    String nextCursor = (String) getOffset.invoke(pageObject);
-                    if (nextCursor == null){
-                        endOfList += 1;
-                    }
-                }
-                else{
-                    Method getOffset = pageObject.getClass().getMethod("getOffset");
-                    Method getLimit = pageObject.getClass().getMethod("getLimit");
-                    Method getCount = pageObject.getClass().getMethod("getCount");
-                    Long offset = (Long) getOffset.invoke(pageObject);
-                    Long limit = (Long) getLimit.invoke(pageObject);
-                    Long count = (Long) getCount.invoke(pageObject);
-                    if (offset + limit > count){
-                        endOfList += 1;
-                    }
-                }
-            } catch (Exception e) {
-                throw new ApiException(e.getMessage());
-            }
-            if (endOfList == 1){return true;}
-            return false;
-        }
     }
+    private String getFieldName(Object response){
+        Field[] methods = response.getClass().getFields();
+        Field[] testMethods = response.getClass().getDeclaredFields();
+        List<Field> a = Arrays.asList(methods);
+        List<Field> b = Arrays.asList(testMethods);
+        List<Field> diff = b.stream().filter(element -> !a.contains(element)).collect(Collectors.toList());
+        String fieldName = diff.get(0).getName();
+        return  fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
+    }
+
+    private Object getQueryParam(Object pageObject, Object queryParam, Boolean hasCursor) throws ApiException {
+        try {
+            if (hasCursor) {
+                Method setCursor = queryParam.getClass().getMethod("setAfterCursor", String.class);
+                Method getOffset = pageObject.getClass().getMethod("getNextCursor");
+                String nextCursor = (String) getOffset.invoke(pageObject);
+                setCursor.invoke(queryParam, nextCursor);
+            } else {
+                Method setOffset = queryParam.getClass().getMethod("setOffset", Long.class);
+                Method getOffset = pageObject.getClass().getMethod("getOffset");
+                Long offset = (Long) getOffset.invoke(pageObject);
+                setOffset.invoke(queryParam, offset);
+            }
+        } catch (Exception e) {
+            throw new ApiException(e.getMessage());
+        }
+        return queryParam;
+    }
+
+    private Boolean reachedEnd(Object pageObject, Boolean hasCursor) throws ApiException{
+        int endOfList = 0;
+        try {
+            if (hasCursor){
+                Method getOffset = pageObject.getClass().getMethod("getNextCursor");
+                String nextCursor = (String) getOffset.invoke(pageObject);
+                if (nextCursor == null){
+                    endOfList += 1;
+                }
+            }
+            else{
+                Method getOffset = pageObject.getClass().getMethod("getOffset");
+                Method getLimit = pageObject.getClass().getMethod("getLimit");
+                Method getCount = pageObject.getClass().getMethod("getCount");
+                Long offset = (Long) getOffset.invoke(pageObject);
+                Long limit = (Long) getLimit.invoke(pageObject);
+                Long count = (Long) getCount.invoke(pageObject);
+                if (offset + limit > count){
+                    endOfList += 1;
+                }
+            }
+        } catch (Exception e) {
+            throw new ApiException(e.getMessage());
+        }
+        if (endOfList == 1){ return true;}
+        return false;
+    }
+}

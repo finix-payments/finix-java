@@ -67,41 +67,41 @@ import javax.ws.rs.core.GenericType;
 
 {{#operations}}
 public class {{classname}} {
-private FinixClient localVarFinixClient;
-private int localHostIndex;
-private String localCustomBaseUrl;
+    private FinixClient localVarFinixClient;
+    private int localHostIndex;
+    private String localCustomBaseUrl;
 
-public {{classname}}() {
-this(Configuration.getDefaultFinixClient());
-}
+    public {{classname}}() {
+        this(Configuration.getDefaultFinixClient());
+    }
 
-public {{classname}}(FinixClient finixClient) {
-this.localVarFinixClient = finixClient;
-}
+    public {{classname}}(FinixClient finixClient) {
+        this.localVarFinixClient = finixClient;
+    }
 
-public FinixClient getFinixClient() {
-return localVarFinixClient;
-}
+    public FinixClient getFinixClient() {
+        return localVarFinixClient;
+    }
 
-public void setFinixClient(FinixClient finixClient) {
-this.localVarFinixClient = finixClient;
-}
+    public void setFinixClient(FinixClient finixClient) {
+        this.localVarFinixClient = finixClient;
+    }
 
-public int getHostIndex() {
-return localHostIndex;
-}
+    public int getHostIndex() {
+        return localHostIndex;
+    }
 
-public void setHostIndex(int hostIndex) {
-this.localHostIndex = hostIndex;
-}
+    public void setHostIndex(int hostIndex) {
+        this.localHostIndex = hostIndex;
+    }
 
-public String getCustomBaseUrl() {
-return localCustomBaseUrl;
-}
+    public String getCustomBaseUrl() {
+        return localCustomBaseUrl;
+    }
 
-public void setCustomBaseUrl(String customBaseUrl) {
-this.localCustomBaseUrl = customBaseUrl;
-}
+    public void setCustomBaseUrl(String customBaseUrl) {
+        this.localCustomBaseUrl = customBaseUrl;
+    }
 
 {{#operation}}
     {{^vendorExtensions.x-group-parameters}}/**
@@ -131,20 +131,20 @@ this.localCustomBaseUrl = customBaseUrl;
         @Deprecated
     {{/isDeprecated}}
     public{{/vendorExtensions.x-group-parameters}}{{#vendorExtensions.x-group-parameters}}private{{/vendorExtensions.x-group-parameters}} okhttp3.Call {{operationId}}Call({{#allParams}}{{{dataType}}} {{paramName}}, {{/allParams}}final ApiCallback _callback) throws ApiException {
-    String basePath = null;
+        String basePath = null;
     // Operation Servers
-    String[] localBasePaths = new String[] { {{#servers}}"{{{url}}}"{{^-last}}, {{/-last}}{{/servers}} };
+        String[] localBasePaths = new String[] { {{#servers}}"{{{url}}}"{{^-last}}, {{/-last}}{{/servers}} };
 
     // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
 
-    Object localVarPostBody = {{#bodyParam}}{{paramName}}{{/bodyParam}}{{^bodyParam}}null{{/bodyParam}};
+        Object localVarPostBody = {{#bodyParam}}{{paramName}}{{/bodyParam}}{{^bodyParam}}null{{/bodyParam}};
 
     // create path and map variables
     {{^dynamicOperations}}
@@ -154,7 +154,7 @@ this.localCustomBaseUrl = customBaseUrl;
     {{#dynamicOperations}}
         ApiOperation apiOperation = localVarFinixClient.getOperationLookupMap().get("{{{operationId}}}");
         if (apiOperation == null) {
-        throw new ApiException("Operation not found in OAS");
+            throw new ApiException("Operation not found in OAS");
         }
         Operation operation = apiOperation.getOperation();
         String localVarPath = apiOperation.getPath();
@@ -168,16 +168,16 @@ this.localCustomBaseUrl = customBaseUrl;
         {{/allParams}}
     {{/dynamicOperations}}
 
-    {{javaUtilPrefix}}List<Pair> localVarQueryParams = new {{javaUtilPrefix}}ArrayList<Pair>();
-    {{javaUtilPrefix}}List<Pair> localVarCollectionQueryParams = new {{javaUtilPrefix}}ArrayList<Pair>();
-    {{javaUtilPrefix}}Map<String, String> localVarHeaderParams = new {{javaUtilPrefix}}HashMap<String, String>();
-    {{javaUtilPrefix}}Map<String, String> localVarCookieParams = new {{javaUtilPrefix}}HashMap<String, String>();
-    {{javaUtilPrefix}}Map<String, Object> localVarFormParams = new {{javaUtilPrefix}}HashMap<String, Object>();
+        {{javaUtilPrefix}}List<Pair> localVarQueryParams = new {{javaUtilPrefix}}ArrayList<Pair>();
+        {{javaUtilPrefix}}List<Pair> localVarCollectionQueryParams = new {{javaUtilPrefix}}ArrayList<Pair>();
+        {{javaUtilPrefix}}Map<String, String> localVarHeaderParams = new {{javaUtilPrefix}}HashMap<String, String>();
+        {{javaUtilPrefix}}Map<String, String> localVarCookieParams = new {{javaUtilPrefix}}HashMap<String, String>();
+        {{javaUtilPrefix}}Map<String, Object> localVarFormParams = new {{javaUtilPrefix}}HashMap<String, Object>();
 
     {{#formParams}}
-            if ({{paramName}} != null) {
+        if ({{paramName}} != null) {
             localVarFormParams.put("{{baseName}}", {{paramName}});
-            }
+        }
 
     {{/formParams}}
     {{#bodyParam}}
@@ -193,26 +193,26 @@ this.localCustomBaseUrl = customBaseUrl;
     {{/bodyParam}}
     {{^dynamicOperations}}
         {{#queryParams}}
-                if ({{paramName}} != null) {
+        if ({{paramName}} != null) {
             {{#collectionFormat}}localVarCollectionQueryParams.addAll(localVarFinixClient.parameterToPairs("{{{.}}}", {{/collectionFormat}}{{^collectionFormat}}localVarQueryParams.addAll(localVarFinixClient.parameterToPair({{/collectionFormat}}"{{baseName}}", {{paramName}}));
-                }
+        }
 
         {{/queryParams}}
         {{#headerParams}}
-                if ({{paramName}} != null) {
-                localVarHeaderParams.put("{{baseName}}", localVarFinixClient.parameterToString({{paramName}}));
-                }
+        if ({{paramName}} != null) {
+            localVarHeaderParams.put("{{baseName}}", localVarFinixClient.parameterToString({{paramName}}));
+        }
 
         {{/headerParams}}
         {{#cookieParams}}
-                if ({{paramName}} != null) {
-                localVarCookieParams.put("{{baseName}}", localVarFinixClient.parameterToString({{paramName}}));
-                }
+        if ({{paramName}} != null) {
+            localVarCookieParams.put("{{baseName}}", localVarFinixClient.parameterToString({{paramName}}));
+        }
 
         {{/cookieParams}}
     {{/dynamicOperations}}
     {{#dynamicOperations}}
-            localVarPath = localVarFinixClient.fillParametersFromOperation(operation, paramMap, localVarPath, localVarQueryParams, localVarCollectionQueryParams, localVarHeaderParams, localVarCookieParams);
+        localVarPath = localVarFinixClient.fillParametersFromOperation(operation, paramMap, localVarPath, localVarQueryParams, localVarCollectionQueryParams, localVarHeaderParams, localVarCookieParams);
 
     {{/dynamicOperations}}
         final String[] localVarAccepts = {
@@ -221,7 +221,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
+            localVarHeaderParams.put("Accept", localVarAccept);
         }
 
         final String[] localVarContentTypes = {
@@ -235,27 +235,27 @@ this.localCustomBaseUrl = customBaseUrl;
         localVarHeaderParams.put("Finix-Version", "{{version}}");
         String[] localVarAuthNames = new String[] { {{#authMethods}}"{{name}}"{{^-last}}, {{/-last}}{{/authMethods}} };
         return localVarFinixClient.buildCall(basePath, localVarPath, {{^dynamicOperations}}"{{httpMethod}}"{{/dynamicOperations}}{{#dynamicOperations}}apiOperation.getMethod(){{/dynamicOperations}}, localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
+    }
 
     {{#isDeprecated}}
             @Deprecated
     {{/isDeprecated}}
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call {{operationId}}ValidateBeforeCall({{#allParams}}{{{dataType}}} {{paramName}}, {{/allParams}}final ApiCallback _callback) throws ApiException {
-    {{^performBeanValidation}}
-        {{#allParams}}{{#required}}
-                // verify the required parameter '{{paramName}}' is set
-                if ({{paramName}} == null) {
-                throw new ApiException("Missing the required parameter '{{paramName}}' when calling {{operationId}}(Async)");
-                }
-        {{/required}}{{/allParams}}
+    private okhttp3.Call {{operationId}}ValidateBeforeCall({{#allParams}}{{{dataType}}} {{paramName}}, {{/allParams}}final ApiCallback _callback) throws ApiException {
+{{^performBeanValidation}}
+    {{#allParams}}{{#required}}
+            // verify the required parameter '{{paramName}}' is set
+        if ({{paramName}} == null) {
+            throw new ApiException("Missing the required parameter '{{paramName}}' when calling {{operationId}}(Async)");
+        }
+    {{/required}}{{/allParams}}
 
-            okhttp3.Call localVarCall = {{operationId}}Call({{#allParams}}{{paramName}}, {{/allParams}}_callback);
-            return localVarCall;
+        okhttp3.Call localVarCall = {{operationId}}Call({{#allParams}}{{paramName}}, {{/allParams}}_callback);
+        return localVarCall;
 
-    {{/performBeanValidation}}
-    {{#performBeanValidation}}
-            try {
+{{/performBeanValidation}}
+{{#performBeanValidation}}
+        try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
@@ -265,22 +265,22 @@ this.localCustomBaseUrl = customBaseUrl;
             parameterValues);
 
             if (violations.size() == 0) {
-            okhttp3.Call localVarCall = {{operationId}}Call({{#allParams}}{{paramName}}, {{/allParams}}_callback);
-            return localVarCall;
+                okhttp3.Call localVarCall = {{operationId}}Call({{#allParams}}{{paramName}}, {{/allParams}}_callback);
+                return localVarCall;
 
             } else {
-            throw new BeanValidationException((Set) violations);
+                throw new BeanValidationException((Set) violations);
             }
-            } catch (NoSuchMethodException e) {
+        } catch (NoSuchMethodException e) {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
-            } catch (SecurityException e) {
+        } catch (SecurityException e) {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
-            }
-
-    {{/performBeanValidation}}
         }
+
+{{/performBeanValidation}}
+    }
 
     {{^vendorExtensions.x-group-parameters}}
             /**
@@ -311,25 +311,25 @@ this.localCustomBaseUrl = customBaseUrl;
         {{/isDeprecated}}
 
         {{#vendorExtensions.x-streaming}}
-                public {{#returnType}}InputStream {{/returnType}}{{^returnType}}void {{/returnType}}{{operationId}}({{#allParams}}{{{dataType}}} {{paramName}}{{^-last}}, {{/-last}}{{/allParams}}) throws ApiException {
-            {{#returnType}}InputStream localVarResp = {{/returnType}}{{operationId}}WithHttpInfo({{#allParams}}{{paramName}}{{^-last}}, {{/-last}}{{/allParams}});{{#returnType}}
-                    return localVarResp;{{/returnType}}
-                }
+    public {{#returnType}}InputStream {{/returnType}}{{^returnType}}void {{/returnType}}{{operationId}}({{#allParams}}{{{dataType}}} {{paramName}}{{^-last}}, {{/-last}}{{/allParams}}) throws ApiException {
+        {{#returnType}}InputStream localVarResp = {{/returnType}}{{operationId}}WithHttpInfo({{#allParams}}{{paramName}}{{^-last}}, {{/-last}}{{/allParams}});{{#returnType}}
+        return localVarResp;{{/returnType}}
+    }
         {{/vendorExtensions.x-streaming}}
 
         {{^vendorExtensions.x-streaming}}
         {{^vendorExtensions.x-returns-list}}
-                public {{#returnType}}{{{.}}} {{/returnType}}{{^returnType}}void {{/returnType}}{{#vendorExtensions.x-java-method-name}}{{{.}}}{{/vendorExtensions.x-java-method-name}}{{^vendorExtensions.x-java-method-name}}{{operationId}}{{/vendorExtensions.x-java-method-name}}({{#allParams}}{{{dataType}}} {{paramName}}{{^-last}}, {{/-last}}{{/allParams}}) throws ApiException {
-            {{#returnType}}ApiResponse<{{{.}}}> localVarResp = {{/returnType}}{{operationId}}WithHttpInfo({{#allParams}}{{paramName}}{{^-last}}, {{/-last}}{{/allParams}});{{#returnType}}
-                    return localVarResp.getData();{{/returnType}}
-                }
-        {{/vendorExtensions.x-returns-list}}
-        {{#vendorExtensions.x-returns-list}}
-                public {{#returnType}}FinixList {{/returnType}}{{^returnType}}void {{/returnType}}{{#vendorExtensions.x-java-method-name}}{{{.}}}{{/vendorExtensions.x-java-method-name}}{{^vendorExtensions.x-java-method-name}}{{operationId}}{{/vendorExtensions.x-java-method-name}}({{#allParams}}{{{dataType}}} {{paramName}}{{^-last}}, {{/-last}}{{/allParams}}) throws ApiException {
-                {{#returnType}}ApiResponse<{{{.}}}> localVarResp = {{/returnType}}{{operationId}}WithHttpInfo({{#allParams}}{{paramName}}{{^-last}}, {{/-last}}{{/allParams}});
-            {{#returnType}}
-                    {{{returnType}}} response = localVarResp.getData();
-                    Boolean hasNextCursor = (response.getPage().getClass().getName() == "model.PageCursor");
+    public {{#returnType}}{{{.}}} {{/returnType}}{{^returnType}}void {{/returnType}}{{#vendorExtensions.x-java-method-name}}{{{.}}}{{/vendorExtensions.x-java-method-name}}{{^vendorExtensions.x-java-method-name}}{{operationId}}{{/vendorExtensions.x-java-method-name}}({{#allParams}}{{{dataType}}} {{paramName}}{{^-last}}, {{/-last}}{{/allParams}}) throws ApiException {
+        {{#returnType}}ApiResponse<{{{.}}}> localVarResp = {{/returnType}}{{operationId}}WithHttpInfo({{#allParams}}{{paramName}}{{^-last}}, {{/-last}}{{/allParams}});{{#returnType}}
+        return localVarResp.getData();{{/returnType}}
+    }
+{{/vendorExtensions.x-returns-list}}
+{{#vendorExtensions.x-returns-list}}
+    public {{#returnType}}FinixList {{/returnType}}{{^returnType}}void {{/returnType}}{{#vendorExtensions.x-java-method-name}}{{{.}}}{{/vendorExtensions.x-java-method-name}}{{^vendorExtensions.x-java-method-name}}{{operationId}}{{/vendorExtensions.x-java-method-name}}({{#allParams}}{{{dataType}}} {{paramName}}{{^-last}}, {{/-last}}{{/allParams}}) throws ApiException {
+        {{#returnType}}ApiResponse<{{{.}}}> localVarResp = {{/returnType}}{{operationId}}WithHttpInfo({{#allParams}}{{paramName}}{{^-last}}, {{/-last}}{{/allParams}});
+{{#returnType}}
+        {{{returnType}}} response = localVarResp.getData();
+        Boolean hasNextCursor = (response.getPage().getClass().getName() == "model.PageCursor");
 <!--                {{#lambda.titlecase}}{{operationId}}{{/lambda.titlecase}}QueryParams queryParams = ({{#lambda.titlecase}}{{operationId}}{{/lambda.titlecase}}QueryParams) getQueryParam(response.getPage(),-->
 <!--                {{operationId}}QueryParams,-->
 <!--                    hasNextCursor);-->
@@ -341,25 +341,25 @@ this.localCustomBaseUrl = customBaseUrl;
 <!--                    }-->
 <!--                    return this.{{#vendorExtensions.x-java-method-name}}{{{.}}}{{/vendorExtensions.x-java-method-name}}{{^vendorExtensions.x-java-method-name}}{{operationId}}{{/vendorExtensions.x-java-method-name}}({{#requiredParams}}{{paramName}}, {{/requiredParams}} queryParams);-->
 <!--                    };-->
-                    FinixList currList = new FinixList(null, false);
-                    if (response.getEmbedded() != null) {
-                        String fieldName = getFieldName(response.getEmbedded());
-                        String fieldGet = "get" + fieldName;
-                        Method getList = response.getEmbedded().getClass().getMethod(fieldGet);
-                        Collection<Object> embeddedList = (Collection<Object>) getList.invoke(response.getEmbedded());
-                        if (embeddedList.size() < response.getPage().getLimit()){
-                            currList = new FinixList<>(nextFetch, false);
-                        }
-                        for(Object item : embeddedList)
-                        {
-                            currList.add(item);
-                        }
-                    }
-                    currList.setPage(response.getPage());
-                    currList.setLinks(response.getLinks());
-                    return currList;
-            {{/returnType}}
-                    }
+        FinixList currList = new FinixList(null, false);
+        if (response.getEmbedded() != null) {
+            String fieldName = getFieldName(response.getEmbedded());
+            String fieldGet = "get" + fieldName;
+            Method getList = response.getEmbedded().getClass().getMethod(fieldGet);
+            Collection<Object> embeddedList = (Collection<Object>) getList.invoke(response.getEmbedded());
+            if (embeddedList.size() < response.getPage().getLimit()){
+                currList = new FinixList<>(nextFetch, false);
+            }
+            for(Object item : embeddedList)
+            {
+                currList.add(item);
+            }
+        }
+        currList.setPage(response.getPage());
+        currList.setLinks(response.getLinks());
+        return currList;
+{{/returnType}}
+    }
         {{/vendorExtensions.x-returns-list}}
         {{/vendorExtensions.x-streaming}}
 
@@ -391,47 +391,47 @@ this.localCustomBaseUrl = customBaseUrl;
     {{#isDeprecated}}
             @Deprecated
     {{/isDeprecated}}
-        public{{/vendorExtensions.x-group-parameters}}{{#vendorExtensions.x-group-parameters}}private{{/vendorExtensions.x-group-parameters}}{{#vendorExtensions.x-streaming}} InputStream {{operationId}}WithHttpInfo({{#allParams}}{{#useBeanValidation}}{{>beanValidationQueryParams}}{{/useBeanValidation}}{{{dataType}}} {{paramName}}{{^-last}}, {{/-last}}{{/allParams}}) throws ApiException {
+    public{{/vendorExtensions.x-group-parameters}}{{#vendorExtensions.x-group-parameters}}private{{/vendorExtensions.x-group-parameters}}{{#vendorExtensions.x-streaming}} InputStream {{operationId}}WithHttpInfo({{#allParams}}{{#useBeanValidation}}{{>beanValidationQueryParams}}{{/useBeanValidation}}{{{dataType}}} {{paramName}}{{^-last}}, {{/-last}}{{/allParams}}) throws ApiException {
         okhttp3.Call localVarCall = {{operationId}}ValidateBeforeCall({{#allParams}}{{paramName}}, {{/allParams}}null);
-    {{#returnType}}
-        {{#errorObjectType}}
-                try {
-                Type localVarReturnType = new TypeToken<{{{returnType}}}>(){}.getType();
-                return localVarFinixClient.executeStream(localVarCall, localVarReturnType);
-                } catch (ApiException e) {
-                e.setErrorObject(localVarFinixClient.getJSON().getGson().fromJson(e.getResponseBody(), new TypeToken<{{{errorObjectType}}}>(){}.getType()));
-                e.setErrorObjectType(new GenericType<{{{errorObjectType}}}>(){});
-                throw e;
-                }
-        {{/errorObjectType}}
-        {{^errorObjectType}}
-                Type localVarReturnType = new TypeToken<{{{returnType}}}>(){}.getType();
-                return localVarFinixClient.executeStream(localVarCall, localVarReturnType);
-        {{/errorObjectType}}
-    {{/returnType}}
+{{#returnType}}
+    {{#errorObjectType}}
+        try {
+            Type localVarReturnType = new TypeToken<{{{returnType}}}>(){}.getType();
+            return localVarFinixClient.executeStream(localVarCall, localVarReturnType);
+        } catch (ApiException e) {
+            e.setErrorObject(localVarFinixClient.getJSON().getGson().fromJson(e.getResponseBody(), new TypeToken<{{{errorObjectType}}}>(){}.getType()));
+            e.setErrorObjectType(new GenericType<{{{errorObjectType}}}>(){});
+            throw e;
         }
-    {{/vendorExtensions.x-streaming}}{{^vendorExtensions.x-streaming}} ApiResponse<{{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}Void{{/returnType}}> {{operationId}}WithHttpInfo({{#allParams}}{{#useBeanValidation}}{{>beanValidationQueryParams}}{{/useBeanValidation}}{{{dataType}}} {{paramName}}{{^-last}}, {{/-last}}{{/allParams}}) throws ApiException {
+    {{/errorObjectType}}
+    {{^errorObjectType}}
+            Type localVarReturnType = new TypeToken<{{{returnType}}}>(){}.getType();
+            return localVarFinixClient.executeStream(localVarCall, localVarReturnType);
+    {{/errorObjectType}}
+{{/returnType}}
+        }
+        {{/vendorExtensions.x-streaming}}{{^vendorExtensions.x-streaming}} ApiResponse<{{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}Void{{/returnType}}> {{operationId}}WithHttpInfo({{#allParams}}{{#useBeanValidation}}{{>beanValidationQueryParams}}{{/useBeanValidation}}{{{dataType}}} {{paramName}}{{^-last}}, {{/-last}}{{/allParams}}) throws ApiException {
         okhttp3.Call localVarCall = {{operationId}}ValidateBeforeCall({{#allParams}}{{paramName}}, {{/allParams}}null);
-    {{^returnType}}
-            return localVarFinixClient.execute(localVarCall);
-    {{/returnType}}
-    {{#returnType}}
-        {{#errorObjectType}}
-                try {
-                Type localVarReturnType = new TypeToken<{{{returnType}}}>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-                } catch (ApiException e) {
-                e.setErrorObject(localVarFinixClient.getJSON().getGson().fromJson(e.getResponseBody(), new TypeToken<{{{errorObjectType}}}>(){}.getType()));
-                e.setErrorObjectType(new GenericType<{{{errorObjectType}}}>(){});
-                throw e;
-                }
-        {{/errorObjectType}}
-        {{^errorObjectType}}
-                Type localVarReturnType = new TypeToken<{{{returnType}}}>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        {{/errorObjectType}}
-    {{/returnType}}
+{{^returnType}}
+        return localVarFinixClient.execute(localVarCall);
+{{/returnType}}
+{{#returnType}}
+    {{#errorObjectType}}
+        try {
+            Type localVarReturnType = new TypeToken<{{{returnType}}}>(){}.getType();
+            return localVarFinixClient.execute(localVarCall, localVarReturnType);
+        } catch (ApiException e) {
+            e.setErrorObject(localVarFinixClient.getJSON().getGson().fromJson(e.getResponseBody(), new TypeToken<{{{errorObjectType}}}>(){}.getType()));
+            e.setErrorObjectType(new GenericType<{{{errorObjectType}}}>(){});
+            throw e;
         }
+    {{/errorObjectType}}
+    {{^errorObjectType}}
+        Type localVarReturnType = new TypeToken<{{{returnType}}}>(){}.getType();
+        return localVarFinixClient.execute(localVarCall, localVarReturnType);
+    {{/errorObjectType}}
+{{/returnType}}
+    }
     {{/vendorExtensions.x-streaming}}
 
     {{^vendorExtensions.x-group-parameters}}/**
@@ -461,39 +461,39 @@ this.localCustomBaseUrl = customBaseUrl;
     {{#isDeprecated}}
             @Deprecated
     {{/isDeprecated}}
-        public{{/vendorExtensions.x-group-parameters}}{{#vendorExtensions.x-group-parameters}}private{{/vendorExtensions.x-group-parameters}} okhttp3.Call {{operationId}}Async({{#allParams}}{{{dataType}}} {{paramName}}, {{/allParams}}final ApiCallback<{{{returnType}}}{{^returnType}}Void{{/returnType}}> _callback) throws ApiException {
+    public{{/vendorExtensions.x-group-parameters}}{{#vendorExtensions.x-group-parameters}}private{{/vendorExtensions.x-group-parameters}} okhttp3.Call {{operationId}}Async({{#allParams}}{{{dataType}}} {{paramName}}, {{/allParams}}final ApiCallback<{{{returnType}}}{{^returnType}}Void{{/returnType}}> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = {{operationId}}ValidateBeforeCall({{#allParams}}{{paramName}}, {{/allParams}}_callback);
-    {{#returnType}}Type localVarReturnType = new TypeToken<{{{returnType}}}>(){}.getType();
+        {{#returnType}}Type localVarReturnType = new TypeToken<{{{returnType}}}>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);{{/returnType}}{{^returnType}}localVarFinixClient.executeAsync(localVarCall, _callback);{{/returnType}}
         return localVarCall;
-        }
+    }
     {{#vendorExtensions.x-group-parameters}}
 
-        public class API{{operationId}}Request {
-    {{#requiredParams}}
-            private final {{{dataType}}} {{paramName}};
-    {{/requiredParams}}
-    {{#optionalParams}}
-            private {{{dataType}}} {{paramName}};
-    {{/optionalParams}}
+    public class API{{operationId}}Request {
+{{#requiredParams}}
+        private final {{{dataType}}} {{paramName}};
+{{/requiredParams}}
+{{#optionalParams}}
+        private {{{dataType}}} {{paramName}};
+{{/optionalParams}}
 
         private API{{operationId}}Request({{#requiredParams}}{{{dataType}}} {{paramName}}{{^-last}}, {{/-last}}{{/requiredParams}}) {
-    {{#requiredParams}}
+        {{#requiredParams}}
             this.{{paramName}} = {{paramName}};
-    {{/requiredParams}}
+        {{/requiredParams}}
         }
 
     {{#optionalParams}}
-            /**
-            * Set {{paramName}}
-            * @param {{paramName}} {{description}} (optional{{^isContainer}}{{#defaultValue}}, default to {{.}}{{/defaultValue}}{{/isContainer}})
-            * @return API{{operationId}}Request
-            */
-            public API{{operationId}}Request {{paramName}}({{{dataType}}} {{paramName}}) {
+        /**
+        * Set {{paramName}}
+        * @param {{paramName}} {{description}} (optional{{^isContainer}}{{#defaultValue}}, default to {{.}}{{/defaultValue}}{{/isContainer}})
+        * @return API{{operationId}}Request
+        */
+        public API{{operationId}}Request {{paramName}}({{{dataType}}} {{paramName}}) {
             this.{{paramName}} = {{paramName}};
             return this;
-            }
+        }
 
     {{/optionalParams}}
         /**
@@ -518,7 +518,7 @@ this.localCustomBaseUrl = customBaseUrl;
             @Deprecated
     {{/isDeprecated}}
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-        return {{operationId}}Call({{#allParams}}{{paramName}}, {{/allParams}}_callback);
+            return {{operationId}}Call({{#allParams}}{{paramName}}, {{/allParams}}_callback);
         }
 
         /**
@@ -542,7 +542,7 @@ this.localCustomBaseUrl = customBaseUrl;
             @Deprecated
     {{/isDeprecated}}
         public {{{returnType}}}{{^returnType}}void{{/returnType}} execute() throws ApiException {
-    {{#returnType}}ApiResponse<{{{.}}}> localVarResp = {{/returnType}}{{operationId}}WithHttpInfo({{#allParams}}{{paramName}}{{^-last}}, {{/-last}}{{/allParams}});{{#returnType}}
+            {{#returnType}}ApiResponse<{{{.}}}> localVarResp = {{/returnType}}{{operationId}}WithHttpInfo({{#allParams}}{{paramName}}{{^-last}}, {{/-last}}{{/allParams}});{{#returnType}}
             return localVarResp.getData();{{/returnType}}
         }
 
@@ -567,7 +567,7 @@ this.localCustomBaseUrl = customBaseUrl;
             @Deprecated
     {{/isDeprecated}}
         public ApiResponse<{{{returnType}}}{{^returnType}}Void{{/returnType}}> executeWithHttpInfo() throws ApiException {
-        return {{operationId}}WithHttpInfo({{#allParams}}{{paramName}}{{^-last}}, {{/-last}}{{/allParams}});
+            return {{operationId}}WithHttpInfo({{#allParams}}{{paramName}}{{^-last}}, {{/-last}}{{/allParams}});
         }
 
         /**
@@ -592,9 +592,9 @@ this.localCustomBaseUrl = customBaseUrl;
             @Deprecated
     {{/isDeprecated}}
         public okhttp3.Call executeAsync(final ApiCallback<{{{returnType}}}{{^returnType}}Void{{/returnType}}> _callback) throws ApiException {
-        return {{operationId}}Async({{#allParams}}{{paramName}}, {{/allParams}}_callback);
+            return {{operationId}}Async({{#allParams}}{{paramName}}, {{/allParams}}_callback);
         }
-        }
+    }
 
         {{^vendorExtensions.x-returns-list}}
         /**
@@ -631,134 +631,134 @@ this.localCustomBaseUrl = customBaseUrl;
         return request.execute();
     }
     {{/vendorExtensions.x-returns-list}}
-    {{#vendorExtensions.x-returns-list}}
-        /**
-        * {{summary}}
-        * {{notes}}{{#requiredParams}}
-            * @param {{paramName}} {{description}} (required){{/requiredParams}}
-        * @return API{{operationId}}Request
-    {{#responses.0}}
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                {{#responses}}
-                    <tr><td> {{code}} </td><td> {{message}} </td><td> {{#headers}} * {{baseName}} - {{description}} <br> {{/headers}}{{^headers.0}} - {{/headers.0}} </td></tr>
-                {{/responses}}
-            </table>
-    {{/responses.0}}
-    {{#isDeprecated}}
-            * @deprecated
-    {{/isDeprecated}}
-    {{#externalDocs}}
-            * {{description}}
-            * @see <a href="{{url}}">{{summary}} Documentation</a>
-    {{/externalDocs}}
-        */
-    {{#isDeprecated}}
-            @Deprecated
-    {{/isDeprecated}}
-        @SuppressWarnings({"unchecked", "rawtypes"})
-        public FinixList {{#vendorExtensions.x-java-method-name}}{{{.}}}{{/vendorExtensions.x-java-method-name}}{{^vendorExtensions.x-java-method-name}}{{operationId}}{{/vendorExtensions.x-java-method-name}}({{#requiredParams}}{{{dataType}}} {{paramName}}, {{/requiredParams}} {{#lambda.titlecase}}{{operationId}}{{/lambda.titlecase}}QueryParams {{operationId}}QueryParams)
-            throws ApiException{
+{{#vendorExtensions.x-returns-list}}
+    /**
+    * {{summary}}
+    * {{notes}}{{#requiredParams}}
+        * @param {{paramName}} {{description}} (required){{/requiredParams}}
+    * @return API{{operationId}}Request
+{{#responses.0}}
+        * @http.response.details
+        <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            {{#responses}}
+                <tr><td> {{code}} </td><td> {{message}} </td><td> {{#headers}} * {{baseName}} - {{description}} <br> {{/headers}}{{^headers.0}} - {{/headers.0}} </td></tr>
+            {{/responses}}
+        </table>
+{{/responses.0}}
+{{#isDeprecated}}
+        * @deprecated
+{{/isDeprecated}}
+{{#externalDocs}}
+        * {{description}}
+        * @see <a href="{{url}}">{{summary}} Documentation</a>
+{{/externalDocs}}
+    */
+{{#isDeprecated}}
+        @Deprecated
+{{/isDeprecated}}
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public FinixList {{#vendorExtensions.x-java-method-name}}{{{.}}}{{/vendorExtensions.x-java-method-name}}{{^vendorExtensions.x-java-method-name}}{{operationId}}{{/vendorExtensions.x-java-method-name}}({{#requiredParams}}{{{dataType}}} {{paramName}}, {{/requiredParams}} {{#lambda.titlecase}}{{operationId}}{{/lambda.titlecase}}QueryParams {{operationId}}QueryParams)
+        throws ApiException{
 
-            API{{operationId}}Request request = new API{{operationId}}Request({{#requiredParams}}{{paramName}}{{^-last}}, {{/-last}}{{/requiredParams}});
-        {{#optionalParams}}
-                request.{{paramName}}({{operationId}}QueryParams.get{{#lambda.titlecase}}{{paramName}}{{/lambda.titlecase}}());
-        {{/optionalParams}}
-            {{{returnType}}} response = request.execute();
-            Boolean hasNextCursor = (response.getPage().getClass().getName() == "model.PageCursor");
-            {{#lambda.titlecase}}{{operationId}}{{/lambda.titlecase}}QueryParams queryParams = ({{#lambda.titlecase}}{{operationId}}{{/lambda.titlecase}}QueryParams) getQueryParam(response.getPage(),
-                {{operationId}}QueryParams,
-                hasNextCursor);
-            Boolean reachedEnd = reachedEnd(response.getPage(), hasNextCursor);
-            NextFetchFunction nextFetch = (a) -> {
-                queryParams.setLimit(a);
-                if (reachedEnd) {
-                throw new ArrayIndexOutOfBoundsException();
-                }
-                return this.{{#vendorExtensions.x-java-method-name}}{{{.}}}{{/vendorExtensions.x-java-method-name}}{{^vendorExtensions.x-java-method-name}}{{operationId}}{{/vendorExtensions.x-java-method-name}}({{#requiredParams}}{{paramName}}, {{/requiredParams}} queryParams);
-            };
-            FinixList currList = new FinixList(nextFetch, !reachedEnd);
-            if (response.getEmbedded() != null){
-                String fieldName = getFieldName(response.getEmbedded());
-                String fieldGet = "get" + fieldName;
-                try{
-                    Method getList = response.getEmbedded().getClass().getMethod(fieldGet);
-                    Collection<Object> embeddedList = (Collection<Object>) getList.invoke(response.getEmbedded());
-
-                    if (embeddedList.size() < response.getPage().getLimit()){
-                        currList = new FinixList<>(nextFetch, false);
-                    }
-                    for(Object item : embeddedList)
-                    {
-                        currList.add(item);
-                    }
-                } catch (Exception e){
-                    throw new ApiException(e.getMessage());
-                }
+        API{{operationId}}Request request = new API{{operationId}}Request({{#requiredParams}}{{paramName}}{{^-last}}, {{/-last}}{{/requiredParams}});
+    {{#optionalParams}}
+        request.{{paramName}}({{operationId}}QueryParams.get{{#lambda.titlecase}}{{paramName}}{{/lambda.titlecase}}());
+    {{/optionalParams}}
+        {{{returnType}}} response = request.execute();
+        Boolean hasNextCursor = (response.getPage().getClass().getName() == "model.PageCursor");
+        {{#lambda.titlecase}}{{operationId}}{{/lambda.titlecase}}QueryParams queryParams = ({{#lambda.titlecase}}{{operationId}}{{/lambda.titlecase}}QueryParams) getQueryParam(response.getPage(),
+            {{operationId}}QueryParams,
+            hasNextCursor);
+        Boolean reachedEnd = reachedEnd(response.getPage(), hasNextCursor);
+        NextFetchFunction nextFetch = (a) -> {
+            queryParams.setLimit(a);
+            if (reachedEnd) {
+            throw new ArrayIndexOutOfBoundsException();
             }
-            currList.setPage(response.getPage());
-            currList.setLinks(response.getLinks());
-            return currList;
+            return this.{{#vendorExtensions.x-java-method-name}}{{{.}}}{{/vendorExtensions.x-java-method-name}}{{^vendorExtensions.x-java-method-name}}{{operationId}}{{/vendorExtensions.x-java-method-name}}({{#requiredParams}}{{paramName}}, {{/requiredParams}} queryParams);
+        };
+        FinixList currList = new FinixList(nextFetch, !reachedEnd);
+        if (response.getEmbedded() != null){
+            String fieldName = getFieldName(response.getEmbedded());
+            String fieldGet = "get" + fieldName;
+            try{
+                Method getList = response.getEmbedded().getClass().getMethod(fieldGet);
+                Collection<Object> embeddedList = (Collection<Object>) getList.invoke(response.getEmbedded());
+
+                if (embeddedList.size() < response.getPage().getLimit()){
+                    currList = new FinixList<>(nextFetch, false);
+                }
+                for(Object item : embeddedList)
+                {
+                    currList.add(item);
+                }
+            } catch (Exception e){
+                throw new ApiException(e.getMessage());
+            }
         }
+        currList.setPage(response.getPage());
+        currList.setLinks(response.getLinks());
+        return currList;
+    }
     {{/vendorExtensions.x-returns-list}}
     {{/vendorExtensions.x-group-parameters}}
 {{/operation}}
-        private String getFieldName(Object response){
-            Field[] methods = response.getClass().getFields();
-            Field[] testMethods = response.getClass().getDeclaredFields();
-            List<Field> a = Arrays.asList(methods);
-            List<Field> b = Arrays.asList(testMethods);
-            List<Field> diff = b.stream().filter(element -> !a.contains(element)).collect(Collectors.toList());
-            String fieldName = diff.get(0).getName();
-            return  fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
-        }
-
-        private Object getQueryParam(Object pageObject, Object queryParam, Boolean hasCursor) throws ApiException {
-            try {
-                if (hasCursor) {
-                    Method setCursor = queryParam.getClass().getMethod("setAfterCursor", String.class);
-                    Method getOffset = pageObject.getClass().getMethod("getNextCursor");
-                    String nextCursor = (String) getOffset.invoke(pageObject);
-                    setCursor.invoke(queryParam, nextCursor);
-                } else {
-                    Method setOffset = queryParam.getClass().getMethod("setOffset", Long.class);
-                    Method getOffset = pageObject.getClass().getMethod("getOffset");
-                    Long offset = (Long) getOffset.invoke(pageObject);
-                    setOffset.invoke(queryParam, offset);
-                }
-            } catch (Exception e) {
-                throw new ApiException(e.getMessage());
-            }
-            return queryParam;
-        }
-
-        private Boolean reachedEnd(Object pageObject, Boolean hasCursor) throws ApiException{
-            int endOfList = 0;
-            try {
-                if (hasCursor){
-                    Method getOffset = pageObject.getClass().getMethod("getNextCursor");
-                    String nextCursor = (String) getOffset.invoke(pageObject);
-                    if (nextCursor == null){
-                        endOfList += 1;
-                    }
-                }
-                else{
-                    Method getOffset = pageObject.getClass().getMethod("getOffset");
-                    Method getLimit = pageObject.getClass().getMethod("getLimit");
-                    Method getCount = pageObject.getClass().getMethod("getCount");
-                    Long offset = (Long) getOffset.invoke(pageObject);
-                    Long limit = (Long) getLimit.invoke(pageObject);
-                    Long count = (Long) getCount.invoke(pageObject);
-                    if (offset + limit > count){
-                        endOfList += 1;
-                    }
-                }
-            } catch (Exception e) {
-                throw new ApiException(e.getMessage());
-            }
-            if (endOfList == 1){return true;}
-            return false;
-        }
+    private String getFieldName(Object response){
+        Field[] methods = response.getClass().getFields();
+        Field[] testMethods = response.getClass().getDeclaredFields();
+        List<Field> a = Arrays.asList(methods);
+        List<Field> b = Arrays.asList(testMethods);
+        List<Field> diff = b.stream().filter(element -> !a.contains(element)).collect(Collectors.toList());
+        String fieldName = diff.get(0).getName();
+        return  fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
     }
+
+    private Object getQueryParam(Object pageObject, Object queryParam, Boolean hasCursor) throws ApiException {
+        try {
+            if (hasCursor) {
+                Method setCursor = queryParam.getClass().getMethod("setAfterCursor", String.class);
+                Method getOffset = pageObject.getClass().getMethod("getNextCursor");
+                String nextCursor = (String) getOffset.invoke(pageObject);
+                setCursor.invoke(queryParam, nextCursor);
+            } else {
+                Method setOffset = queryParam.getClass().getMethod("setOffset", Long.class);
+                Method getOffset = pageObject.getClass().getMethod("getOffset");
+                Long offset = (Long) getOffset.invoke(pageObject);
+                setOffset.invoke(queryParam, offset);
+            }
+        } catch (Exception e) {
+            throw new ApiException(e.getMessage());
+        }
+        return queryParam;
+    }
+
+    private Boolean reachedEnd(Object pageObject, Boolean hasCursor) throws ApiException{
+        int endOfList = 0;
+        try {
+            if (hasCursor){
+                Method getOffset = pageObject.getClass().getMethod("getNextCursor");
+                String nextCursor = (String) getOffset.invoke(pageObject);
+                if (nextCursor == null){
+                    endOfList += 1;
+                }
+            }
+            else{
+                Method getOffset = pageObject.getClass().getMethod("getOffset");
+                Method getLimit = pageObject.getClass().getMethod("getLimit");
+                Method getCount = pageObject.getClass().getMethod("getCount");
+                Long offset = (Long) getOffset.invoke(pageObject);
+                Long limit = (Long) getLimit.invoke(pageObject);
+                Long count = (Long) getCount.invoke(pageObject);
+                if (offset + limit > count){
+                    endOfList += 1;
+                }
+            }
+        } catch (Exception e) {
+            throw new ApiException(e.getMessage());
+        }
+        if (endOfList == 1){ return true;}
+        return false;
+    }
+}
 {{/operations}}

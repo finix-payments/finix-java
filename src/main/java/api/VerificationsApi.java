@@ -53,41 +53,41 @@ import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
 public class VerificationsApi {
-private FinixClient localVarFinixClient;
-private int localHostIndex;
-private String localCustomBaseUrl;
+    private FinixClient localVarFinixClient;
+    private int localHostIndex;
+    private String localCustomBaseUrl;
 
-public VerificationsApi() {
-this(Configuration.getDefaultFinixClient());
-}
+    public VerificationsApi() {
+        this(Configuration.getDefaultFinixClient());
+    }
 
-public VerificationsApi(FinixClient finixClient) {
-this.localVarFinixClient = finixClient;
-}
+    public VerificationsApi(FinixClient finixClient) {
+        this.localVarFinixClient = finixClient;
+    }
 
-public FinixClient getFinixClient() {
-return localVarFinixClient;
-}
+    public FinixClient getFinixClient() {
+        return localVarFinixClient;
+    }
 
-public void setFinixClient(FinixClient finixClient) {
-this.localVarFinixClient = finixClient;
-}
+    public void setFinixClient(FinixClient finixClient) {
+        this.localVarFinixClient = finixClient;
+    }
 
-public int getHostIndex() {
-return localHostIndex;
-}
+    public int getHostIndex() {
+        return localHostIndex;
+    }
 
-public void setHostIndex(int hostIndex) {
-this.localHostIndex = hostIndex;
-}
+    public void setHostIndex(int hostIndex) {
+        this.localHostIndex = hostIndex;
+    }
 
-public String getCustomBaseUrl() {
-return localCustomBaseUrl;
-}
+    public String getCustomBaseUrl() {
+        return localCustomBaseUrl;
+    }
 
-public void setCustomBaseUrl(String customBaseUrl) {
-this.localCustomBaseUrl = customBaseUrl;
-}
+    public void setCustomBaseUrl(String customBaseUrl) {
+        this.localCustomBaseUrl = customBaseUrl;
+    }
 
     /**
     * Build call for createVerification
@@ -107,29 +107,29 @@ this.localCustomBaseUrl = customBaseUrl;
         </table>
     */
     public okhttp3.Call createVerificationCall(CreateVerificationRequest createVerificationRequest, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
+        String basePath = null;
     // Operation Servers
-    String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[] {  };
 
     // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
 
-    Object localVarPostBody = createVerificationRequest;
+        Object localVarPostBody = createVerificationRequest;
 
     // create path and map variables
         String localVarPath = "/verifications";
 
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
             "application/hal+json"
@@ -137,7 +137,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
+            localVarHeaderParams.put("Accept", localVarAccept);
         }
 
         final String[] localVarContentTypes = {
@@ -151,16 +151,16 @@ this.localCustomBaseUrl = customBaseUrl;
         localVarHeaderParams.put("Finix-Version", "2022-02-01");
         String[] localVarAuthNames = new String[] { "BasicAuth" };
         return localVarFinixClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
+    }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call createVerificationValidateBeforeCall(CreateVerificationRequest createVerificationRequest, final ApiCallback _callback) throws ApiException {
-        
+    private okhttp3.Call createVerificationValidateBeforeCall(CreateVerificationRequest createVerificationRequest, final ApiCallback _callback) throws ApiException {
+    
 
-            okhttp3.Call localVarCall = createVerificationCall(createVerificationRequest, _callback);
-            return localVarCall;
+        okhttp3.Call localVarCall = createVerificationCall(createVerificationRequest, _callback);
+        return localVarCall;
 
-        }
+    }
 
             /**
             * Perform a Verification
@@ -181,10 +181,10 @@ this.localCustomBaseUrl = customBaseUrl;
             */
 
 
-                public Verification create(CreateVerificationRequest createVerificationRequest) throws ApiException {
-            ApiResponse<Verification> localVarResp = createVerificationWithHttpInfo(createVerificationRequest);
-                    return localVarResp.getData();
-                }
+    public Verification create(CreateVerificationRequest createVerificationRequest) throws ApiException {
+        ApiResponse<Verification> localVarResp = createVerificationWithHttpInfo(createVerificationRequest);
+        return localVarResp.getData();
+    }
 
 
     /**
@@ -204,11 +204,11 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public ApiResponse<Verification> createVerificationWithHttpInfo(CreateVerificationRequest createVerificationRequest) throws ApiException {
+    public ApiResponse<Verification> createVerificationWithHttpInfo(CreateVerificationRequest createVerificationRequest) throws ApiException {
         okhttp3.Call localVarCall = createVerificationValidateBeforeCall(createVerificationRequest, null);
-                Type localVarReturnType = new TypeToken<Verification>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
+        Type localVarReturnType = new TypeToken<Verification>(){}.getType();
+        return localVarFinixClient.execute(localVarCall, localVarReturnType);
+    }
 
     /**
         * Perform a Verification (asynchronously)
@@ -228,13 +228,13 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 422 </td><td> Invalid field </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call createVerificationAsync(CreateVerificationRequest createVerificationRequest, final ApiCallback<Verification> _callback) throws ApiException {
+    public okhttp3.Call createVerificationAsync(CreateVerificationRequest createVerificationRequest, final ApiCallback<Verification> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createVerificationValidateBeforeCall(createVerificationRequest, _callback);
-    Type localVarReturnType = new TypeToken<Verification>(){}.getType();
+        Type localVarReturnType = new TypeToken<Verification>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
-        }
+    }
     /**
     * Build call for getVerification
         * @param verificationId ID of &#x60;Verification&#x60; object. (required)
@@ -252,30 +252,30 @@ this.localCustomBaseUrl = customBaseUrl;
         </table>
     */
     public okhttp3.Call getVerificationCall(String verificationId, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
+        String basePath = null;
     // Operation Servers
-    String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[] {  };
 
     // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
 
-    Object localVarPostBody = null;
+        Object localVarPostBody = null;
 
     // create path and map variables
         String localVarPath = "/verifications/{verification_id}"
             .replaceAll("\\{" + "verification_id" + "\\}", localVarFinixClient.escapeString(verificationId.toString()));
 
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
             "application/hal+json"
@@ -283,7 +283,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
+            localVarHeaderParams.put("Accept", localVarAccept);
         }
 
         final String[] localVarContentTypes = {
@@ -297,21 +297,21 @@ this.localCustomBaseUrl = customBaseUrl;
         localVarHeaderParams.put("Finix-Version", "2022-02-01");
         String[] localVarAuthNames = new String[] { "BasicAuth" };
         return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
+    }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call getVerificationValidateBeforeCall(String verificationId, final ApiCallback _callback) throws ApiException {
-        
-                // verify the required parameter 'verificationId' is set
-                if (verificationId == null) {
-                throw new ApiException("Missing the required parameter 'verificationId' when calling getVerification(Async)");
-                }
-        
-
-            okhttp3.Call localVarCall = getVerificationCall(verificationId, _callback);
-            return localVarCall;
-
+    private okhttp3.Call getVerificationValidateBeforeCall(String verificationId, final ApiCallback _callback) throws ApiException {
+    
+            // verify the required parameter 'verificationId' is set
+        if (verificationId == null) {
+            throw new ApiException("Missing the required parameter 'verificationId' when calling getVerification(Async)");
         }
+    
+
+        okhttp3.Call localVarCall = getVerificationCall(verificationId, _callback);
+        return localVarCall;
+
+    }
 
             /**
             * Get a Verification
@@ -331,10 +331,10 @@ this.localCustomBaseUrl = customBaseUrl;
             */
 
 
-                public Verification get(String verificationId) throws ApiException {
-            ApiResponse<Verification> localVarResp = getVerificationWithHttpInfo(verificationId);
-                    return localVarResp.getData();
-                }
+    public Verification get(String verificationId) throws ApiException {
+        ApiResponse<Verification> localVarResp = getVerificationWithHttpInfo(verificationId);
+        return localVarResp.getData();
+    }
 
 
     /**
@@ -353,11 +353,11 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public ApiResponse<Verification> getVerificationWithHttpInfo(String verificationId) throws ApiException {
+    public ApiResponse<Verification> getVerificationWithHttpInfo(String verificationId) throws ApiException {
         okhttp3.Call localVarCall = getVerificationValidateBeforeCall(verificationId, null);
-                Type localVarReturnType = new TypeToken<Verification>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
+        Type localVarReturnType = new TypeToken<Verification>(){}.getType();
+        return localVarFinixClient.execute(localVarCall, localVarReturnType);
+    }
 
     /**
         * Get a Verification (asynchronously)
@@ -376,50 +376,50 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call getVerificationAsync(String verificationId, final ApiCallback<Verification> _callback) throws ApiException {
+    public okhttp3.Call getVerificationAsync(String verificationId, final ApiCallback<Verification> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getVerificationValidateBeforeCall(verificationId, _callback);
-    Type localVarReturnType = new TypeToken<Verification>(){}.getType();
+        Type localVarReturnType = new TypeToken<Verification>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
-        }
+    }
     private okhttp3.Call listMerchantVerificationsCall(String merchantId, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
+        String basePath = null;
     // Operation Servers
-    String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[] {  };
 
     // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
 
-    Object localVarPostBody = null;
+        Object localVarPostBody = null;
 
     // create path and map variables
         String localVarPath = "/merchants/{merchant_id}/verifications"
             .replaceAll("\\{" + "merchant_id" + "\\}", localVarFinixClient.escapeString(merchantId.toString()));
 
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-                if (limit != null) {
+        if (limit != null) {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("limit", limit));
-                }
+        }
 
-                if (afterCursor != null) {
+        if (afterCursor != null) {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("after_cursor", afterCursor));
-                }
+        }
 
-                if (beforeCursor != null) {
+        if (beforeCursor != null) {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("before_cursor", beforeCursor));
-                }
+        }
 
         final String[] localVarAccepts = {
             "application/hal+json"
@@ -427,7 +427,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
+            localVarHeaderParams.put("Accept", localVarAccept);
         }
 
         final String[] localVarContentTypes = {
@@ -441,76 +441,76 @@ this.localCustomBaseUrl = customBaseUrl;
         localVarHeaderParams.put("Finix-Version", "2022-02-01");
         String[] localVarAuthNames = new String[] { "BasicAuth" };
         return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
+    }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call listMerchantVerificationsValidateBeforeCall(String merchantId, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
-        
-                // verify the required parameter 'merchantId' is set
-                if (merchantId == null) {
-                throw new ApiException("Missing the required parameter 'merchantId' when calling listMerchantVerifications(Async)");
-                }
-        
-
-            okhttp3.Call localVarCall = listMerchantVerificationsCall(merchantId, limit, afterCursor, beforeCursor, _callback);
-            return localVarCall;
-
+    private okhttp3.Call listMerchantVerificationsValidateBeforeCall(String merchantId, Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
+    
+            // verify the required parameter 'merchantId' is set
+        if (merchantId == null) {
+            throw new ApiException("Missing the required parameter 'merchantId' when calling listMerchantVerifications(Async)");
         }
+    
+
+        okhttp3.Call localVarCall = listMerchantVerificationsCall(merchantId, limit, afterCursor, beforeCursor, _callback);
+        return localVarCall;
+
+    }
 
 
     private ApiResponse<VerificationsList> listMerchantVerificationsWithHttpInfo(String merchantId, Long limit, String afterCursor, String beforeCursor) throws ApiException {
         okhttp3.Call localVarCall = listMerchantVerificationsValidateBeforeCall(merchantId, limit, afterCursor, beforeCursor, null);
-                Type localVarReturnType = new TypeToken<VerificationsList>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
+        Type localVarReturnType = new TypeToken<VerificationsList>(){}.getType();
+        return localVarFinixClient.execute(localVarCall, localVarReturnType);
+    }
 
     private okhttp3.Call listMerchantVerificationsAsync(String merchantId, Long limit, String afterCursor, String beforeCursor, final ApiCallback<VerificationsList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listMerchantVerificationsValidateBeforeCall(merchantId, limit, afterCursor, beforeCursor, _callback);
-    Type localVarReturnType = new TypeToken<VerificationsList>(){}.getType();
+        Type localVarReturnType = new TypeToken<VerificationsList>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
-        }
+    }
 
-        public class APIlistMerchantVerificationsRequest {
-            private final String merchantId;
-            private Long limit;
-            private String afterCursor;
-            private String beforeCursor;
+    public class APIlistMerchantVerificationsRequest {
+        private final String merchantId;
+        private Long limit;
+        private String afterCursor;
+        private String beforeCursor;
 
         private APIlistMerchantVerificationsRequest(String merchantId) {
             this.merchantId = merchantId;
         }
 
-            /**
-            * Set limit
-            * @param limit The number of entries to return. (optional)
-            * @return APIlistMerchantVerificationsRequest
-            */
-            public APIlistMerchantVerificationsRequest limit(Long limit) {
+        /**
+        * Set limit
+        * @param limit The number of entries to return. (optional)
+        * @return APIlistMerchantVerificationsRequest
+        */
+        public APIlistMerchantVerificationsRequest limit(Long limit) {
             this.limit = limit;
             return this;
-            }
+        }
 
-            /**
-            * Set afterCursor
-            * @param afterCursor Return every resource created after the cursor value. (optional)
-            * @return APIlistMerchantVerificationsRequest
-            */
-            public APIlistMerchantVerificationsRequest afterCursor(String afterCursor) {
+        /**
+        * Set afterCursor
+        * @param afterCursor Return every resource created after the cursor value. (optional)
+        * @return APIlistMerchantVerificationsRequest
+        */
+        public APIlistMerchantVerificationsRequest afterCursor(String afterCursor) {
             this.afterCursor = afterCursor;
             return this;
-            }
+        }
 
-            /**
-            * Set beforeCursor
-            * @param beforeCursor Return every resource created before the cursor value. (optional)
-            * @return APIlistMerchantVerificationsRequest
-            */
-            public APIlistMerchantVerificationsRequest beforeCursor(String beforeCursor) {
+        /**
+        * Set beforeCursor
+        * @param beforeCursor Return every resource created before the cursor value. (optional)
+        * @return APIlistMerchantVerificationsRequest
+        */
+        public APIlistMerchantVerificationsRequest beforeCursor(String beforeCursor) {
             this.beforeCursor = beforeCursor;
             return this;
-            }
+        }
 
         /**
         * Build call for listMerchantVerifications
@@ -528,7 +528,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-        return listMerchantVerificationsCall(merchantId, limit, afterCursor, beforeCursor, _callback);
+            return listMerchantVerificationsCall(merchantId, limit, afterCursor, beforeCursor, _callback);
         }
 
         /**
@@ -546,7 +546,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public VerificationsList execute() throws ApiException {
-    ApiResponse<VerificationsList> localVarResp = listMerchantVerificationsWithHttpInfo(merchantId, limit, afterCursor, beforeCursor);
+            ApiResponse<VerificationsList> localVarResp = listMerchantVerificationsWithHttpInfo(merchantId, limit, afterCursor, beforeCursor);
             return localVarResp.getData();
         }
 
@@ -565,7 +565,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public ApiResponse<VerificationsList> executeWithHttpInfo() throws ApiException {
-        return listMerchantVerificationsWithHttpInfo(merchantId, limit, afterCursor, beforeCursor);
+            return listMerchantVerificationsWithHttpInfo(merchantId, limit, afterCursor, beforeCursor);
         }
 
         /**
@@ -584,105 +584,105 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call executeAsync(final ApiCallback<VerificationsList> _callback) throws ApiException {
-        return listMerchantVerificationsAsync(merchantId, limit, afterCursor, beforeCursor, _callback);
+            return listMerchantVerificationsAsync(merchantId, limit, afterCursor, beforeCursor, _callback);
         }
-        }
-
-        /**
-        * List Merchant Verifications
-        * Get a list of all the &#x60;Verifications&#x60; in the &#x60;Merchant&#x60; object.
-            * @param merchantId ID of &#x60;Merchant&#x60; object. (required)
-        * @return APIlistMerchantVerificationsRequest
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Verification objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        @SuppressWarnings({"unchecked", "rawtypes"})
-        public FinixList listByMerchantId(String merchantId,  ListMerchantVerificationsQueryParams listMerchantVerificationsQueryParams)
-            throws ApiException{
-
-            APIlistMerchantVerificationsRequest request = new APIlistMerchantVerificationsRequest(merchantId);
-                request.limit(listMerchantVerificationsQueryParams.getLimit());
-                request.afterCursor(listMerchantVerificationsQueryParams.getAfterCursor());
-                request.beforeCursor(listMerchantVerificationsQueryParams.getBeforeCursor());
-            VerificationsList response = request.execute();
-            Boolean hasNextCursor = (response.getPage().getClass().getName() == "model.PageCursor");
-            ListMerchantVerificationsQueryParams queryParams = (ListMerchantVerificationsQueryParams) getQueryParam(response.getPage(),
-                listMerchantVerificationsQueryParams,
-                hasNextCursor);
-            Boolean reachedEnd = reachedEnd(response.getPage(), hasNextCursor);
-            NextFetchFunction nextFetch = (a) -> {
-                queryParams.setLimit(a);
-                if (reachedEnd) {
-                throw new ArrayIndexOutOfBoundsException();
-                }
-                return this.listByMerchantId(merchantId,  queryParams);
-            };
-            FinixList currList = new FinixList(nextFetch, !reachedEnd);
-            if (response.getEmbedded() != null){
-                String fieldName = getFieldName(response.getEmbedded());
-                String fieldGet = "get" + fieldName;
-                try{
-                    Method getList = response.getEmbedded().getClass().getMethod(fieldGet);
-                    Collection<Object> embeddedList = (Collection<Object>) getList.invoke(response.getEmbedded());
-
-                    if (embeddedList.size() < response.getPage().getLimit()){
-                        currList = new FinixList<>(nextFetch, false);
-                    }
-                    for(Object item : embeddedList)
-                    {
-                        currList.add(item);
-                    }
-                } catch (Exception e){
-                    throw new ApiException(e.getMessage());
-                }
-            }
-            currList.setPage(response.getPage());
-            currList.setLinks(response.getLinks());
-            return currList;
-        }
-    private okhttp3.Call listVerificationsCall(Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {  };
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
     }
 
-    Object localVarPostBody = null;
+    /**
+    * List Merchant Verifications
+    * Get a list of all the &#x60;Verifications&#x60; in the &#x60;Merchant&#x60; object.
+        * @param merchantId ID of &#x60;Merchant&#x60; object. (required)
+    * @return APIlistMerchantVerificationsRequest
+        * @http.response.details
+        <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                <tr><td> 200 </td><td> List of Verification objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+        </table>
+    */
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public FinixList listByMerchantId(String merchantId,  ListMerchantVerificationsQueryParams listMerchantVerificationsQueryParams)
+        throws ApiException{
+
+        APIlistMerchantVerificationsRequest request = new APIlistMerchantVerificationsRequest(merchantId);
+        request.limit(listMerchantVerificationsQueryParams.getLimit());
+        request.afterCursor(listMerchantVerificationsQueryParams.getAfterCursor());
+        request.beforeCursor(listMerchantVerificationsQueryParams.getBeforeCursor());
+        VerificationsList response = request.execute();
+        Boolean hasNextCursor = (response.getPage().getClass().getName() == "model.PageCursor");
+        ListMerchantVerificationsQueryParams queryParams = (ListMerchantVerificationsQueryParams) getQueryParam(response.getPage(),
+            listMerchantVerificationsQueryParams,
+            hasNextCursor);
+        Boolean reachedEnd = reachedEnd(response.getPage(), hasNextCursor);
+        NextFetchFunction nextFetch = (a) -> {
+            queryParams.setLimit(a);
+            if (reachedEnd) {
+            throw new ArrayIndexOutOfBoundsException();
+            }
+            return this.listByMerchantId(merchantId,  queryParams);
+        };
+        FinixList currList = new FinixList(nextFetch, !reachedEnd);
+        if (response.getEmbedded() != null){
+            String fieldName = getFieldName(response.getEmbedded());
+            String fieldGet = "get" + fieldName;
+            try{
+                Method getList = response.getEmbedded().getClass().getMethod(fieldGet);
+                Collection<Object> embeddedList = (Collection<Object>) getList.invoke(response.getEmbedded());
+
+                if (embeddedList.size() < response.getPage().getLimit()){
+                    currList = new FinixList<>(nextFetch, false);
+                }
+                for(Object item : embeddedList)
+                {
+                    currList.add(item);
+                }
+            } catch (Exception e){
+                throw new ApiException(e.getMessage());
+            }
+        }
+        currList.setPage(response.getPage());
+        currList.setLinks(response.getLinks());
+        return currList;
+    }
+    private okhttp3.Call listVerificationsCall(Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+    // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+    // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
 
     // create path and map variables
         String localVarPath = "/verifications";
 
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-                if (limit != null) {
+        if (limit != null) {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("limit", limit));
-                }
+        }
 
-                if (afterCursor != null) {
+        if (afterCursor != null) {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("after_cursor", afterCursor));
-                }
+        }
 
-                if (beforeCursor != null) {
+        if (beforeCursor != null) {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("before_cursor", beforeCursor));
-                }
+        }
 
         final String[] localVarAccepts = {
             "application/hal+json"
@@ -690,7 +690,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
+            localVarHeaderParams.put("Accept", localVarAccept);
         }
 
         final String[] localVarContentTypes = {
@@ -704,69 +704,69 @@ this.localCustomBaseUrl = customBaseUrl;
         localVarHeaderParams.put("Finix-Version", "2022-02-01");
         String[] localVarAuthNames = new String[] { "BasicAuth" };
         return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
+    }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call listVerificationsValidateBeforeCall(Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
-        
+    private okhttp3.Call listVerificationsValidateBeforeCall(Long limit, String afterCursor, String beforeCursor, final ApiCallback _callback) throws ApiException {
+    
 
-            okhttp3.Call localVarCall = listVerificationsCall(limit, afterCursor, beforeCursor, _callback);
-            return localVarCall;
+        okhttp3.Call localVarCall = listVerificationsCall(limit, afterCursor, beforeCursor, _callback);
+        return localVarCall;
 
-        }
+    }
 
 
     private ApiResponse<VerificationsList> listVerificationsWithHttpInfo(Long limit, String afterCursor, String beforeCursor) throws ApiException {
         okhttp3.Call localVarCall = listVerificationsValidateBeforeCall(limit, afterCursor, beforeCursor, null);
-                Type localVarReturnType = new TypeToken<VerificationsList>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
+        Type localVarReturnType = new TypeToken<VerificationsList>(){}.getType();
+        return localVarFinixClient.execute(localVarCall, localVarReturnType);
+    }
 
     private okhttp3.Call listVerificationsAsync(Long limit, String afterCursor, String beforeCursor, final ApiCallback<VerificationsList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listVerificationsValidateBeforeCall(limit, afterCursor, beforeCursor, _callback);
-    Type localVarReturnType = new TypeToken<VerificationsList>(){}.getType();
+        Type localVarReturnType = new TypeToken<VerificationsList>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
-        }
+    }
 
-        public class APIlistVerificationsRequest {
-            private Long limit;
-            private String afterCursor;
-            private String beforeCursor;
+    public class APIlistVerificationsRequest {
+        private Long limit;
+        private String afterCursor;
+        private String beforeCursor;
 
         private APIlistVerificationsRequest() {
         }
 
-            /**
-            * Set limit
-            * @param limit The numbers of items to return (optional)
-            * @return APIlistVerificationsRequest
-            */
-            public APIlistVerificationsRequest limit(Long limit) {
+        /**
+        * Set limit
+        * @param limit The numbers of items to return (optional)
+        * @return APIlistVerificationsRequest
+        */
+        public APIlistVerificationsRequest limit(Long limit) {
             this.limit = limit;
             return this;
-            }
+        }
 
-            /**
-            * Set afterCursor
-            * @param afterCursor Return every resource created after the cursor value. (optional)
-            * @return APIlistVerificationsRequest
-            */
-            public APIlistVerificationsRequest afterCursor(String afterCursor) {
+        /**
+        * Set afterCursor
+        * @param afterCursor Return every resource created after the cursor value. (optional)
+        * @return APIlistVerificationsRequest
+        */
+        public APIlistVerificationsRequest afterCursor(String afterCursor) {
             this.afterCursor = afterCursor;
             return this;
-            }
+        }
 
-            /**
-            * Set beforeCursor
-            * @param beforeCursor Return every resource created before the cursor value. (optional)
-            * @return APIlistVerificationsRequest
-            */
-            public APIlistVerificationsRequest beforeCursor(String beforeCursor) {
+        /**
+        * Set beforeCursor
+        * @param beforeCursor Return every resource created before the cursor value. (optional)
+        * @return APIlistVerificationsRequest
+        */
+        public APIlistVerificationsRequest beforeCursor(String beforeCursor) {
             this.beforeCursor = beforeCursor;
             return this;
-            }
+        }
 
         /**
         * Build call for listVerifications
@@ -783,7 +783,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-        return listVerificationsCall(limit, afterCursor, beforeCursor, _callback);
+            return listVerificationsCall(limit, afterCursor, beforeCursor, _callback);
         }
 
         /**
@@ -800,7 +800,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public VerificationsList execute() throws ApiException {
-    ApiResponse<VerificationsList> localVarResp = listVerificationsWithHttpInfo(limit, afterCursor, beforeCursor);
+            ApiResponse<VerificationsList> localVarResp = listVerificationsWithHttpInfo(limit, afterCursor, beforeCursor);
             return localVarResp.getData();
         }
 
@@ -818,7 +818,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public ApiResponse<VerificationsList> executeWithHttpInfo() throws ApiException {
-        return listVerificationsWithHttpInfo(limit, afterCursor, beforeCursor);
+            return listVerificationsWithHttpInfo(limit, afterCursor, beforeCursor);
         }
 
         /**
@@ -836,121 +836,121 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call executeAsync(final ApiCallback<VerificationsList> _callback) throws ApiException {
-        return listVerificationsAsync(limit, afterCursor, beforeCursor, _callback);
-        }
-        }
-
-        /**
-        * List Verifications
-        * Retrieve a list of &#x60;Verifications&#x60;.
-        * @return APIlistVerificationsRequest
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> List of Verification objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-        @SuppressWarnings({"unchecked", "rawtypes"})
-        public FinixList list( ListVerificationsQueryParams listVerificationsQueryParams)
-            throws ApiException{
-
-            APIlistVerificationsRequest request = new APIlistVerificationsRequest();
-                request.limit(listVerificationsQueryParams.getLimit());
-                request.afterCursor(listVerificationsQueryParams.getAfterCursor());
-                request.beforeCursor(listVerificationsQueryParams.getBeforeCursor());
-            VerificationsList response = request.execute();
-            Boolean hasNextCursor = (response.getPage().getClass().getName() == "model.PageCursor");
-            ListVerificationsQueryParams queryParams = (ListVerificationsQueryParams) getQueryParam(response.getPage(),
-                listVerificationsQueryParams,
-                hasNextCursor);
-            Boolean reachedEnd = reachedEnd(response.getPage(), hasNextCursor);
-            NextFetchFunction nextFetch = (a) -> {
-                queryParams.setLimit(a);
-                if (reachedEnd) {
-                throw new ArrayIndexOutOfBoundsException();
-                }
-                return this.list( queryParams);
-            };
-            FinixList currList = new FinixList(nextFetch, !reachedEnd);
-            if (response.getEmbedded() != null){
-                String fieldName = getFieldName(response.getEmbedded());
-                String fieldGet = "get" + fieldName;
-                try{
-                    Method getList = response.getEmbedded().getClass().getMethod(fieldGet);
-                    Collection<Object> embeddedList = (Collection<Object>) getList.invoke(response.getEmbedded());
-
-                    if (embeddedList.size() < response.getPage().getLimit()){
-                        currList = new FinixList<>(nextFetch, false);
-                    }
-                    for(Object item : embeddedList)
-                    {
-                        currList.add(item);
-                    }
-                } catch (Exception e){
-                    throw new ApiException(e.getMessage());
-                }
-            }
-            currList.setPage(response.getPage());
-            currList.setLinks(response.getLinks());
-            return currList;
-        }
-        private String getFieldName(Object response){
-            Field[] methods = response.getClass().getFields();
-            Field[] testMethods = response.getClass().getDeclaredFields();
-            List<Field> a = Arrays.asList(methods);
-            List<Field> b = Arrays.asList(testMethods);
-            List<Field> diff = b.stream().filter(element -> !a.contains(element)).collect(Collectors.toList());
-            String fieldName = diff.get(0).getName();
-            return  fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
-        }
-
-        private Object getQueryParam(Object pageObject, Object queryParam, Boolean hasCursor) throws ApiException {
-            try {
-                if (hasCursor) {
-                    Method setCursor = queryParam.getClass().getMethod("setAfterCursor", String.class);
-                    Method getOffset = pageObject.getClass().getMethod("getNextCursor");
-                    String nextCursor = (String) getOffset.invoke(pageObject);
-                    setCursor.invoke(queryParam, nextCursor);
-                } else {
-                    Method setOffset = queryParam.getClass().getMethod("setOffset", Long.class);
-                    Method getOffset = pageObject.getClass().getMethod("getOffset");
-                    Long offset = (Long) getOffset.invoke(pageObject);
-                    setOffset.invoke(queryParam, offset);
-                }
-            } catch (Exception e) {
-                throw new ApiException(e.getMessage());
-            }
-            return queryParam;
-        }
-
-        private Boolean reachedEnd(Object pageObject, Boolean hasCursor) throws ApiException{
-            int endOfList = 0;
-            try {
-                if (hasCursor){
-                    Method getOffset = pageObject.getClass().getMethod("getNextCursor");
-                    String nextCursor = (String) getOffset.invoke(pageObject);
-                    if (nextCursor == null){
-                        endOfList += 1;
-                    }
-                }
-                else{
-                    Method getOffset = pageObject.getClass().getMethod("getOffset");
-                    Method getLimit = pageObject.getClass().getMethod("getLimit");
-                    Method getCount = pageObject.getClass().getMethod("getCount");
-                    Long offset = (Long) getOffset.invoke(pageObject);
-                    Long limit = (Long) getLimit.invoke(pageObject);
-                    Long count = (Long) getCount.invoke(pageObject);
-                    if (offset + limit > count){
-                        endOfList += 1;
-                    }
-                }
-            } catch (Exception e) {
-                throw new ApiException(e.getMessage());
-            }
-            if (endOfList == 1){return true;}
-            return false;
+            return listVerificationsAsync(limit, afterCursor, beforeCursor, _callback);
         }
     }
+
+    /**
+    * List Verifications
+    * Retrieve a list of &#x60;Verifications&#x60;.
+    * @return APIlistVerificationsRequest
+        * @http.response.details
+        <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                <tr><td> 200 </td><td> List of Verification objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+        </table>
+    */
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public FinixList list( ListVerificationsQueryParams listVerificationsQueryParams)
+        throws ApiException{
+
+        APIlistVerificationsRequest request = new APIlistVerificationsRequest();
+        request.limit(listVerificationsQueryParams.getLimit());
+        request.afterCursor(listVerificationsQueryParams.getAfterCursor());
+        request.beforeCursor(listVerificationsQueryParams.getBeforeCursor());
+        VerificationsList response = request.execute();
+        Boolean hasNextCursor = (response.getPage().getClass().getName() == "model.PageCursor");
+        ListVerificationsQueryParams queryParams = (ListVerificationsQueryParams) getQueryParam(response.getPage(),
+            listVerificationsQueryParams,
+            hasNextCursor);
+        Boolean reachedEnd = reachedEnd(response.getPage(), hasNextCursor);
+        NextFetchFunction nextFetch = (a) -> {
+            queryParams.setLimit(a);
+            if (reachedEnd) {
+            throw new ArrayIndexOutOfBoundsException();
+            }
+            return this.list( queryParams);
+        };
+        FinixList currList = new FinixList(nextFetch, !reachedEnd);
+        if (response.getEmbedded() != null){
+            String fieldName = getFieldName(response.getEmbedded());
+            String fieldGet = "get" + fieldName;
+            try{
+                Method getList = response.getEmbedded().getClass().getMethod(fieldGet);
+                Collection<Object> embeddedList = (Collection<Object>) getList.invoke(response.getEmbedded());
+
+                if (embeddedList.size() < response.getPage().getLimit()){
+                    currList = new FinixList<>(nextFetch, false);
+                }
+                for(Object item : embeddedList)
+                {
+                    currList.add(item);
+                }
+            } catch (Exception e){
+                throw new ApiException(e.getMessage());
+            }
+        }
+        currList.setPage(response.getPage());
+        currList.setLinks(response.getLinks());
+        return currList;
+    }
+    private String getFieldName(Object response){
+        Field[] methods = response.getClass().getFields();
+        Field[] testMethods = response.getClass().getDeclaredFields();
+        List<Field> a = Arrays.asList(methods);
+        List<Field> b = Arrays.asList(testMethods);
+        List<Field> diff = b.stream().filter(element -> !a.contains(element)).collect(Collectors.toList());
+        String fieldName = diff.get(0).getName();
+        return  fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
+    }
+
+    private Object getQueryParam(Object pageObject, Object queryParam, Boolean hasCursor) throws ApiException {
+        try {
+            if (hasCursor) {
+                Method setCursor = queryParam.getClass().getMethod("setAfterCursor", String.class);
+                Method getOffset = pageObject.getClass().getMethod("getNextCursor");
+                String nextCursor = (String) getOffset.invoke(pageObject);
+                setCursor.invoke(queryParam, nextCursor);
+            } else {
+                Method setOffset = queryParam.getClass().getMethod("setOffset", Long.class);
+                Method getOffset = pageObject.getClass().getMethod("getOffset");
+                Long offset = (Long) getOffset.invoke(pageObject);
+                setOffset.invoke(queryParam, offset);
+            }
+        } catch (Exception e) {
+            throw new ApiException(e.getMessage());
+        }
+        return queryParam;
+    }
+
+    private Boolean reachedEnd(Object pageObject, Boolean hasCursor) throws ApiException{
+        int endOfList = 0;
+        try {
+            if (hasCursor){
+                Method getOffset = pageObject.getClass().getMethod("getNextCursor");
+                String nextCursor = (String) getOffset.invoke(pageObject);
+                if (nextCursor == null){
+                    endOfList += 1;
+                }
+            }
+            else{
+                Method getOffset = pageObject.getClass().getMethod("getOffset");
+                Method getLimit = pageObject.getClass().getMethod("getLimit");
+                Method getCount = pageObject.getClass().getMethod("getCount");
+                Long offset = (Long) getOffset.invoke(pageObject);
+                Long limit = (Long) getLimit.invoke(pageObject);
+                Long count = (Long) getCount.invoke(pageObject);
+                if (offset + limit > count){
+                    endOfList += 1;
+                }
+            }
+        } catch (Exception e) {
+            throw new ApiException(e.getMessage());
+        }
+        if (endOfList == 1){ return true;}
+        return false;
+    }
+}

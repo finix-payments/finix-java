@@ -51,41 +51,41 @@ import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
 public class InstrumentUpdatesApi {
-private FinixClient localVarFinixClient;
-private int localHostIndex;
-private String localCustomBaseUrl;
+    private FinixClient localVarFinixClient;
+    private int localHostIndex;
+    private String localCustomBaseUrl;
 
-public InstrumentUpdatesApi() {
-this(Configuration.getDefaultFinixClient());
-}
+    public InstrumentUpdatesApi() {
+        this(Configuration.getDefaultFinixClient());
+    }
 
-public InstrumentUpdatesApi(FinixClient finixClient) {
-this.localVarFinixClient = finixClient;
-}
+    public InstrumentUpdatesApi(FinixClient finixClient) {
+        this.localVarFinixClient = finixClient;
+    }
 
-public FinixClient getFinixClient() {
-return localVarFinixClient;
-}
+    public FinixClient getFinixClient() {
+        return localVarFinixClient;
+    }
 
-public void setFinixClient(FinixClient finixClient) {
-this.localVarFinixClient = finixClient;
-}
+    public void setFinixClient(FinixClient finixClient) {
+        this.localVarFinixClient = finixClient;
+    }
 
-public int getHostIndex() {
-return localHostIndex;
-}
+    public int getHostIndex() {
+        return localHostIndex;
+    }
 
-public void setHostIndex(int hostIndex) {
-this.localHostIndex = hostIndex;
-}
+    public void setHostIndex(int hostIndex) {
+        this.localHostIndex = hostIndex;
+    }
 
-public String getCustomBaseUrl() {
-return localCustomBaseUrl;
-}
+    public String getCustomBaseUrl() {
+        return localCustomBaseUrl;
+    }
 
-public void setCustomBaseUrl(String customBaseUrl) {
-this.localCustomBaseUrl = customBaseUrl;
-}
+    public void setCustomBaseUrl(String customBaseUrl) {
+        this.localCustomBaseUrl = customBaseUrl;
+    }
 
     /**
     * Build call for createPaymentInstrumentUpdate
@@ -104,29 +104,29 @@ this.localCustomBaseUrl = customBaseUrl;
         </table>
     */
     public okhttp3.Call createPaymentInstrumentUpdateCall(CreateInstrumentUpdateRequest createInstrumentUpdateRequest, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
+        String basePath = null;
     // Operation Servers
-    String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[] {  };
 
     // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
 
-    Object localVarPostBody = createInstrumentUpdateRequest;
+        Object localVarPostBody = createInstrumentUpdateRequest;
 
     // create path and map variables
         String localVarPath = "/instrument_updates";
 
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         localVarFormParams.put("file", createInstrumentUpdateRequest.getFile());
         localVarFormParams.put("request", createInstrumentUpdateRequest.getRequest());
@@ -136,7 +136,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
+            localVarHeaderParams.put("Accept", localVarAccept);
         }
 
         final String[] localVarContentTypes = {
@@ -150,16 +150,16 @@ this.localCustomBaseUrl = customBaseUrl;
         localVarHeaderParams.put("Finix-Version", "2022-02-01");
         String[] localVarAuthNames = new String[] { "BasicAuth" };
         return localVarFinixClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
+    }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call createPaymentInstrumentUpdateValidateBeforeCall(CreateInstrumentUpdateRequest createInstrumentUpdateRequest, final ApiCallback _callback) throws ApiException {
-        
+    private okhttp3.Call createPaymentInstrumentUpdateValidateBeforeCall(CreateInstrumentUpdateRequest createInstrumentUpdateRequest, final ApiCallback _callback) throws ApiException {
+    
 
-            okhttp3.Call localVarCall = createPaymentInstrumentUpdateCall(createInstrumentUpdateRequest, _callback);
-            return localVarCall;
+        okhttp3.Call localVarCall = createPaymentInstrumentUpdateCall(createInstrumentUpdateRequest, _callback);
+        return localVarCall;
 
-        }
+    }
 
             /**
             * Create Instrument Updates
@@ -179,10 +179,10 @@ this.localCustomBaseUrl = customBaseUrl;
             */
 
 
-                public InstrumentUpdate create(CreateInstrumentUpdateRequest createInstrumentUpdateRequest) throws ApiException {
-            ApiResponse<InstrumentUpdate> localVarResp = createPaymentInstrumentUpdateWithHttpInfo(createInstrumentUpdateRequest);
-                    return localVarResp.getData();
-                }
+    public InstrumentUpdate create(CreateInstrumentUpdateRequest createInstrumentUpdateRequest) throws ApiException {
+        ApiResponse<InstrumentUpdate> localVarResp = createPaymentInstrumentUpdateWithHttpInfo(createInstrumentUpdateRequest);
+        return localVarResp.getData();
+    }
 
 
     /**
@@ -201,11 +201,11 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public ApiResponse<InstrumentUpdate> createPaymentInstrumentUpdateWithHttpInfo(CreateInstrumentUpdateRequest createInstrumentUpdateRequest) throws ApiException {
+    public ApiResponse<InstrumentUpdate> createPaymentInstrumentUpdateWithHttpInfo(CreateInstrumentUpdateRequest createInstrumentUpdateRequest) throws ApiException {
         okhttp3.Call localVarCall = createPaymentInstrumentUpdateValidateBeforeCall(createInstrumentUpdateRequest, null);
-                Type localVarReturnType = new TypeToken<InstrumentUpdate>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
+        Type localVarReturnType = new TypeToken<InstrumentUpdate>(){}.getType();
+        return localVarFinixClient.execute(localVarCall, localVarReturnType);
+    }
 
     /**
         * Create Instrument Updates (asynchronously)
@@ -224,42 +224,42 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call createPaymentInstrumentUpdateAsync(CreateInstrumentUpdateRequest createInstrumentUpdateRequest, final ApiCallback<InstrumentUpdate> _callback) throws ApiException {
+    public okhttp3.Call createPaymentInstrumentUpdateAsync(CreateInstrumentUpdateRequest createInstrumentUpdateRequest, final ApiCallback<InstrumentUpdate> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createPaymentInstrumentUpdateValidateBeforeCall(createInstrumentUpdateRequest, _callback);
-    Type localVarReturnType = new TypeToken<InstrumentUpdate>(){}.getType();
+        Type localVarReturnType = new TypeToken<InstrumentUpdate>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
-        }
+    }
     private okhttp3.Call downloadInstrumentUpdateCall(String instrumentUpdatesId, String format, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
+        String basePath = null;
     // Operation Servers
-    String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[] {  };
 
     // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
 
-    Object localVarPostBody = null;
+        Object localVarPostBody = null;
 
     // create path and map variables
         String localVarPath = "/instrument_updates/{instrument_updates_id}/download"
             .replaceAll("\\{" + "instrument_updates_id" + "\\}", localVarFinixClient.escapeString(instrumentUpdatesId.toString()));
 
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-                if (format != null) {
+        if (format != null) {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("format", format));
-                }
+        }
 
         final String[] localVarAccepts = {
             "application/json"
@@ -267,7 +267,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
+            localVarHeaderParams.put("Accept", localVarAccept);
         }
 
         final String[] localVarContentTypes = {
@@ -281,54 +281,54 @@ this.localCustomBaseUrl = customBaseUrl;
         localVarHeaderParams.put("Finix-Version", "2022-02-01");
         String[] localVarAuthNames = new String[] { "BasicAuth" };
         return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
+    }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call downloadInstrumentUpdateValidateBeforeCall(String instrumentUpdatesId, String format, final ApiCallback _callback) throws ApiException {
-        
-                // verify the required parameter 'instrumentUpdatesId' is set
-                if (instrumentUpdatesId == null) {
-                throw new ApiException("Missing the required parameter 'instrumentUpdatesId' when calling downloadInstrumentUpdate(Async)");
-                }
-        
-
-            okhttp3.Call localVarCall = downloadInstrumentUpdateCall(instrumentUpdatesId, format, _callback);
-            return localVarCall;
-
+    private okhttp3.Call downloadInstrumentUpdateValidateBeforeCall(String instrumentUpdatesId, String format, final ApiCallback _callback) throws ApiException {
+    
+            // verify the required parameter 'instrumentUpdatesId' is set
+        if (instrumentUpdatesId == null) {
+            throw new ApiException("Missing the required parameter 'instrumentUpdatesId' when calling downloadInstrumentUpdate(Async)");
         }
+    
+
+        okhttp3.Call localVarCall = downloadInstrumentUpdateCall(instrumentUpdatesId, format, _callback);
+        return localVarCall;
+
+    }
 
 
     private ApiResponse<File> downloadInstrumentUpdateWithHttpInfo(String instrumentUpdatesId, String format) throws ApiException {
         okhttp3.Call localVarCall = downloadInstrumentUpdateValidateBeforeCall(instrumentUpdatesId, format, null);
-                Type localVarReturnType = new TypeToken<File>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        return localVarFinixClient.execute(localVarCall, localVarReturnType);
+    }
 
     private okhttp3.Call downloadInstrumentUpdateAsync(String instrumentUpdatesId, String format, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = downloadInstrumentUpdateValidateBeforeCall(instrumentUpdatesId, format, _callback);
-    Type localVarReturnType = new TypeToken<File>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
-        }
+    }
 
-        public class APIdownloadInstrumentUpdateRequest {
-            private final String instrumentUpdatesId;
-            private String format;
+    public class APIdownloadInstrumentUpdateRequest {
+        private final String instrumentUpdatesId;
+        private String format;
 
         private APIdownloadInstrumentUpdateRequest(String instrumentUpdatesId) {
             this.instrumentUpdatesId = instrumentUpdatesId;
         }
 
-            /**
-            * Set format
-            * @param format Specify the format you&#39;d like to download the response in (JSON is the only other format available for download). (optional)
-            * @return APIdownloadInstrumentUpdateRequest
-            */
-            public APIdownloadInstrumentUpdateRequest format(String format) {
+        /**
+        * Set format
+        * @param format Specify the format you&#39;d like to download the response in (JSON is the only other format available for download). (optional)
+        * @return APIdownloadInstrumentUpdateRequest
+        */
+        public APIdownloadInstrumentUpdateRequest format(String format) {
             this.format = format;
             return this;
-            }
+        }
 
         /**
         * Build call for downloadInstrumentUpdate
@@ -346,7 +346,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-        return downloadInstrumentUpdateCall(instrumentUpdatesId, format, _callback);
+            return downloadInstrumentUpdateCall(instrumentUpdatesId, format, _callback);
         }
 
         /**
@@ -364,7 +364,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public File execute() throws ApiException {
-    ApiResponse<File> localVarResp = downloadInstrumentUpdateWithHttpInfo(instrumentUpdatesId, format);
+            ApiResponse<File> localVarResp = downloadInstrumentUpdateWithHttpInfo(instrumentUpdatesId, format);
             return localVarResp.getData();
         }
 
@@ -383,7 +383,7 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public ApiResponse<File> executeWithHttpInfo() throws ApiException {
-        return downloadInstrumentUpdateWithHttpInfo(instrumentUpdatesId, format);
+            return downloadInstrumentUpdateWithHttpInfo(instrumentUpdatesId, format);
         }
 
         /**
@@ -402,9 +402,9 @@ this.localCustomBaseUrl = customBaseUrl;
             </table>
         */
         public okhttp3.Call executeAsync(final ApiCallback<File> _callback) throws ApiException {
-        return downloadInstrumentUpdateAsync(instrumentUpdatesId, format, _callback);
+            return downloadInstrumentUpdateAsync(instrumentUpdatesId, format, _callback);
         }
-        }
+    }
 
         /**
         * Download Instrument Updates
@@ -444,30 +444,30 @@ this.localCustomBaseUrl = customBaseUrl;
         </table>
     */
     public okhttp3.Call getInstrumentUpdateCall(String instrumentUpdatesId, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
+        String basePath = null;
     // Operation Servers
-    String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[] {  };
 
     // Determine Base Path to Use
-    if (localCustomBaseUrl != null){
-    basePath = localCustomBaseUrl;
-    } else if ( localBasePaths.length > 0 ) {
-    basePath = localBasePaths[localHostIndex];
-    } else {
-    basePath = null;
-    }
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
 
-    Object localVarPostBody = null;
+        Object localVarPostBody = null;
 
     // create path and map variables
         String localVarPath = "/instrument_updates/{instrument_updates_id}"
             .replaceAll("\\{" + "instrument_updates_id" + "\\}", localVarFinixClient.escapeString(instrumentUpdatesId.toString()));
 
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
             "application/hal+json"
@@ -475,7 +475,7 @@ this.localCustomBaseUrl = customBaseUrl;
 
         final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
-        localVarHeaderParams.put("Accept", localVarAccept);
+            localVarHeaderParams.put("Accept", localVarAccept);
         }
 
         final String[] localVarContentTypes = {
@@ -489,21 +489,21 @@ this.localCustomBaseUrl = customBaseUrl;
         localVarHeaderParams.put("Finix-Version", "2022-02-01");
         String[] localVarAuthNames = new String[] { "BasicAuth" };
         return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-        }
+    }
 
         @SuppressWarnings("rawtypes")
-        private okhttp3.Call getInstrumentUpdateValidateBeforeCall(String instrumentUpdatesId, final ApiCallback _callback) throws ApiException {
-        
-                // verify the required parameter 'instrumentUpdatesId' is set
-                if (instrumentUpdatesId == null) {
-                throw new ApiException("Missing the required parameter 'instrumentUpdatesId' when calling getInstrumentUpdate(Async)");
-                }
-        
-
-            okhttp3.Call localVarCall = getInstrumentUpdateCall(instrumentUpdatesId, _callback);
-            return localVarCall;
-
+    private okhttp3.Call getInstrumentUpdateValidateBeforeCall(String instrumentUpdatesId, final ApiCallback _callback) throws ApiException {
+    
+            // verify the required parameter 'instrumentUpdatesId' is set
+        if (instrumentUpdatesId == null) {
+            throw new ApiException("Missing the required parameter 'instrumentUpdatesId' when calling getInstrumentUpdate(Async)");
         }
+    
+
+        okhttp3.Call localVarCall = getInstrumentUpdateCall(instrumentUpdatesId, _callback);
+        return localVarCall;
+
+    }
 
             /**
             * Fetch an Instrument Update
@@ -523,10 +523,10 @@ this.localCustomBaseUrl = customBaseUrl;
             */
 
 
-                public InstrumentUpdate get(String instrumentUpdatesId) throws ApiException {
-            ApiResponse<InstrumentUpdate> localVarResp = getInstrumentUpdateWithHttpInfo(instrumentUpdatesId);
-                    return localVarResp.getData();
-                }
+    public InstrumentUpdate get(String instrumentUpdatesId) throws ApiException {
+        ApiResponse<InstrumentUpdate> localVarResp = getInstrumentUpdateWithHttpInfo(instrumentUpdatesId);
+        return localVarResp.getData();
+    }
 
 
     /**
@@ -545,11 +545,11 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public ApiResponse<InstrumentUpdate> getInstrumentUpdateWithHttpInfo(String instrumentUpdatesId) throws ApiException {
+    public ApiResponse<InstrumentUpdate> getInstrumentUpdateWithHttpInfo(String instrumentUpdatesId) throws ApiException {
         okhttp3.Call localVarCall = getInstrumentUpdateValidateBeforeCall(instrumentUpdatesId, null);
-                Type localVarReturnType = new TypeToken<InstrumentUpdate>(){}.getType();
-                return localVarFinixClient.execute(localVarCall, localVarReturnType);
-        }
+        Type localVarReturnType = new TypeToken<InstrumentUpdate>(){}.getType();
+        return localVarFinixClient.execute(localVarCall, localVarReturnType);
+    }
 
     /**
         * Fetch an Instrument Update (asynchronously)
@@ -568,67 +568,67 @@ this.localCustomBaseUrl = customBaseUrl;
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-        public okhttp3.Call getInstrumentUpdateAsync(String instrumentUpdatesId, final ApiCallback<InstrumentUpdate> _callback) throws ApiException {
+    public okhttp3.Call getInstrumentUpdateAsync(String instrumentUpdatesId, final ApiCallback<InstrumentUpdate> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getInstrumentUpdateValidateBeforeCall(instrumentUpdatesId, _callback);
-    Type localVarReturnType = new TypeToken<InstrumentUpdate>(){}.getType();
+        Type localVarReturnType = new TypeToken<InstrumentUpdate>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
-        }
-        private String getFieldName(Object response){
-            Field[] methods = response.getClass().getFields();
-            Field[] testMethods = response.getClass().getDeclaredFields();
-            List<Field> a = Arrays.asList(methods);
-            List<Field> b = Arrays.asList(testMethods);
-            List<Field> diff = b.stream().filter(element -> !a.contains(element)).collect(Collectors.toList());
-            String fieldName = diff.get(0).getName();
-            return  fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
-        }
-
-        private Object getQueryParam(Object pageObject, Object queryParam, Boolean hasCursor) throws ApiException {
-            try {
-                if (hasCursor) {
-                    Method setCursor = queryParam.getClass().getMethod("setAfterCursor", String.class);
-                    Method getOffset = pageObject.getClass().getMethod("getNextCursor");
-                    String nextCursor = (String) getOffset.invoke(pageObject);
-                    setCursor.invoke(queryParam, nextCursor);
-                } else {
-                    Method setOffset = queryParam.getClass().getMethod("setOffset", Long.class);
-                    Method getOffset = pageObject.getClass().getMethod("getOffset");
-                    Long offset = (Long) getOffset.invoke(pageObject);
-                    setOffset.invoke(queryParam, offset);
-                }
-            } catch (Exception e) {
-                throw new ApiException(e.getMessage());
-            }
-            return queryParam;
-        }
-
-        private Boolean reachedEnd(Object pageObject, Boolean hasCursor) throws ApiException{
-            int endOfList = 0;
-            try {
-                if (hasCursor){
-                    Method getOffset = pageObject.getClass().getMethod("getNextCursor");
-                    String nextCursor = (String) getOffset.invoke(pageObject);
-                    if (nextCursor == null){
-                        endOfList += 1;
-                    }
-                }
-                else{
-                    Method getOffset = pageObject.getClass().getMethod("getOffset");
-                    Method getLimit = pageObject.getClass().getMethod("getLimit");
-                    Method getCount = pageObject.getClass().getMethod("getCount");
-                    Long offset = (Long) getOffset.invoke(pageObject);
-                    Long limit = (Long) getLimit.invoke(pageObject);
-                    Long count = (Long) getCount.invoke(pageObject);
-                    if (offset + limit > count){
-                        endOfList += 1;
-                    }
-                }
-            } catch (Exception e) {
-                throw new ApiException(e.getMessage());
-            }
-            if (endOfList == 1){return true;}
-            return false;
-        }
     }
+    private String getFieldName(Object response){
+        Field[] methods = response.getClass().getFields();
+        Field[] testMethods = response.getClass().getDeclaredFields();
+        List<Field> a = Arrays.asList(methods);
+        List<Field> b = Arrays.asList(testMethods);
+        List<Field> diff = b.stream().filter(element -> !a.contains(element)).collect(Collectors.toList());
+        String fieldName = diff.get(0).getName();
+        return  fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
+    }
+
+    private Object getQueryParam(Object pageObject, Object queryParam, Boolean hasCursor) throws ApiException {
+        try {
+            if (hasCursor) {
+                Method setCursor = queryParam.getClass().getMethod("setAfterCursor", String.class);
+                Method getOffset = pageObject.getClass().getMethod("getNextCursor");
+                String nextCursor = (String) getOffset.invoke(pageObject);
+                setCursor.invoke(queryParam, nextCursor);
+            } else {
+                Method setOffset = queryParam.getClass().getMethod("setOffset", Long.class);
+                Method getOffset = pageObject.getClass().getMethod("getOffset");
+                Long offset = (Long) getOffset.invoke(pageObject);
+                setOffset.invoke(queryParam, offset);
+            }
+        } catch (Exception e) {
+            throw new ApiException(e.getMessage());
+        }
+        return queryParam;
+    }
+
+    private Boolean reachedEnd(Object pageObject, Boolean hasCursor) throws ApiException{
+        int endOfList = 0;
+        try {
+            if (hasCursor){
+                Method getOffset = pageObject.getClass().getMethod("getNextCursor");
+                String nextCursor = (String) getOffset.invoke(pageObject);
+                if (nextCursor == null){
+                    endOfList += 1;
+                }
+            }
+            else{
+                Method getOffset = pageObject.getClass().getMethod("getOffset");
+                Method getLimit = pageObject.getClass().getMethod("getLimit");
+                Method getCount = pageObject.getClass().getMethod("getCount");
+                Long offset = (Long) getOffset.invoke(pageObject);
+                Long limit = (Long) getLimit.invoke(pageObject);
+                Long count = (Long) getCount.invoke(pageObject);
+                if (offset + limit > count){
+                    endOfList += 1;
+                }
+            }
+        } catch (Exception e) {
+            throw new ApiException(e.getMessage());
+        }
+        if (endOfList == 1){ return true;}
+        return false;
+    }
+}
