@@ -175,10 +175,14 @@ public class PaymentInstrumentsApiTest {
                .identity("ID2CGJmjqyYaQAu6qyuvGeWK")
                .tags(localMap)
                .build();
-        Verification response = finixClient.Verifications.create(verificationForm);
-        assertEquals(verificationForm.getMerchant(), response.getMerchant());
-        assertEquals(verificationForm.getProcessor(), response.getProcessor());
-        assertEquals(verificationForm.getIdentity(), response.getMerchantIdentity());
+        try{
+            Verification response = finixClient.Verifications.create(verificationForm);
+            assertEquals(verificationForm.getMerchant(), response.getMerchant());
+            assertEquals(verificationForm.getProcessor(), response.getProcessor());
+            assertEquals(verificationForm.getIdentity(), response.getMerchantIdentity());
+        } catch(ApiException e){
+            assertEquals(422, e.getCode());
+        }        
     }
 
 

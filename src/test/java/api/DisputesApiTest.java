@@ -218,8 +218,6 @@ public class DisputesApiTest {
                 .limit(limit)
                 .afterCursor("TRsfZUjgXSCj7k2stZR7APEn")
                 .build());
-        System.out.println(adjustmentDisputeList.getPage());
-        System.out.println(adjustmentDisputeList.getHasMore());
         assertTrue(adjustmentDisputeList.size() >= 0);
         if (adjustmentDisputeList.size() == 0){
             assertEquals(false, adjustmentDisputeList.getHasMore());
