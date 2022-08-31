@@ -48,8 +48,9 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * MerchantProfilesListEmbedded
+ * List of &#x60;merchant_profile&#x60; objects.
  */
+@ApiModel(description = "List of `merchant_profile` objects.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MerchantProfilesListEmbedded {
@@ -75,11 +76,11 @@ public class MerchantProfilesListEmbedded {
   }
 
    /**
-   * Get merchantProfiles
+   * &#x60;merchant_profile&#x60; objects.
    * @return merchantProfiles
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "`merchant_profile` objects.")
 
   public List<MerchantProfile> getMerchantProfiles() {
     return merchantProfiles;

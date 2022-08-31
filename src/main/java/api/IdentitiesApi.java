@@ -32,6 +32,7 @@ import java.util.stream.Collectors;
 import java.util.*;
 import model.*;
 
+import model.CreateAssociatedIdentityRequest;
 import model.CreateIdentityRequest;
 import model.CreateVerificationRequest;
 import model.Error401Unauthorized;
@@ -94,7 +95,7 @@ public class IdentitiesApi {
     /**
     * Build call for createAssociatedIdentity
         * @param identityId ID of &#x60;Identity&#x60; to associate object with. (required)
-        * @param createIdentityRequest  (optional)
+        * @param createAssociatedIdentityRequest  (optional)
     * @param _callback Callback for upload/download progress
     * @return Call to execute
     * @throws ApiException If fail to serialize the request body object
@@ -109,7 +110,7 @@ public class IdentitiesApi {
                 <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
         </table>
     */
-    public okhttp3.Call createAssociatedIdentityCall(String identityId, CreateIdentityRequest createIdentityRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAssociatedIdentityCall(String identityId, CreateAssociatedIdentityRequest createAssociatedIdentityRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
     // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -123,7 +124,7 @@ public class IdentitiesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createIdentityRequest;
+        Object localVarPostBody = createAssociatedIdentityRequest;
 
     // create path and map variables
         String localVarPath = "/identities/{identity_id}/associated_identities"
@@ -158,7 +159,7 @@ public class IdentitiesApi {
     }
 
         @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAssociatedIdentityValidateBeforeCall(String identityId, CreateIdentityRequest createIdentityRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createAssociatedIdentityValidateBeforeCall(String identityId, CreateAssociatedIdentityRequest createAssociatedIdentityRequest, final ApiCallback _callback) throws ApiException {
     
             // verify the required parameter 'identityId' is set
         if (identityId == null) {
@@ -166,7 +167,7 @@ public class IdentitiesApi {
         }
     
 
-        okhttp3.Call localVarCall = createAssociatedIdentityCall(identityId, createIdentityRequest, _callback);
+        okhttp3.Call localVarCall = createAssociatedIdentityCall(identityId, createAssociatedIdentityRequest, _callback);
         return localVarCall;
 
     }
@@ -175,7 +176,7 @@ public class IdentitiesApi {
             * Create an Associated Identity
             * Create an associated &#x60;Identity&#x60; for [every owner with 25% or more ownership](/guides/onboarding/#step-3-add-associated-identities) over the merchant.
                 * @param identityId ID of &#x60;Identity&#x60; to associate object with. (required)
-                * @param createIdentityRequest  (optional)
+                * @param createAssociatedIdentityRequest  (optional)
                 * @return Identity
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
@@ -191,8 +192,8 @@ public class IdentitiesApi {
             */
 
 
-    public Identity createAssociatedIdentity(String identityId, CreateIdentityRequest createIdentityRequest) throws ApiException {
-        ApiResponse<Identity> localVarResp = createAssociatedIdentityWithHttpInfo(identityId, createIdentityRequest);
+    public Identity createAssociatedIdentity(String identityId, CreateAssociatedIdentityRequest createAssociatedIdentityRequest) throws ApiException {
+        ApiResponse<Identity> localVarResp = createAssociatedIdentityWithHttpInfo(identityId, createAssociatedIdentityRequest);
         return localVarResp.getData();
     }
 
@@ -201,7 +202,7 @@ public class IdentitiesApi {
         * Create an Associated Identity
         * Create an associated &#x60;Identity&#x60; for [every owner with 25% or more ownership](/guides/onboarding/#step-3-add-associated-identities) over the merchant.
             * @param identityId ID of &#x60;Identity&#x60; to associate object with. (required)
-            * @param createIdentityRequest  (optional)
+            * @param createAssociatedIdentityRequest  (optional)
         * @return ApiResponse&lt;Identity&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
             * @http.response.details
@@ -215,8 +216,8 @@ public class IdentitiesApi {
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-    public ApiResponse<Identity> createAssociatedIdentityWithHttpInfo(String identityId, CreateIdentityRequest createIdentityRequest) throws ApiException {
-        okhttp3.Call localVarCall = createAssociatedIdentityValidateBeforeCall(identityId, createIdentityRequest, null);
+    public ApiResponse<Identity> createAssociatedIdentityWithHttpInfo(String identityId, CreateAssociatedIdentityRequest createAssociatedIdentityRequest) throws ApiException {
+        okhttp3.Call localVarCall = createAssociatedIdentityValidateBeforeCall(identityId, createAssociatedIdentityRequest, null);
         Type localVarReturnType = new TypeToken<Identity>(){}.getType();
         return localVarFinixClient.execute(localVarCall, localVarReturnType);
     }
@@ -225,7 +226,7 @@ public class IdentitiesApi {
         * Create an Associated Identity (asynchronously)
         * Create an associated &#x60;Identity&#x60; for [every owner with 25% or more ownership](/guides/onboarding/#step-3-add-associated-identities) over the merchant.
             * @param identityId ID of &#x60;Identity&#x60; to associate object with. (required)
-            * @param createIdentityRequest  (optional)
+            * @param createAssociatedIdentityRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -240,9 +241,9 @@ public class IdentitiesApi {
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
             </table>
         */
-    public okhttp3.Call createAssociatedIdentityAsync(String identityId, CreateIdentityRequest createIdentityRequest, final ApiCallback<Identity> _callback) throws ApiException {
+    public okhttp3.Call createAssociatedIdentityAsync(String identityId, CreateAssociatedIdentityRequest createAssociatedIdentityRequest, final ApiCallback<Identity> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createAssociatedIdentityValidateBeforeCall(identityId, createIdentityRequest, _callback);
+        okhttp3.Call localVarCall = createAssociatedIdentityValidateBeforeCall(identityId, createAssociatedIdentityRequest, _callback);
         Type localVarReturnType = new TypeToken<Identity>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -321,7 +322,7 @@ public class IdentitiesApi {
 
             /**
             * Create an Identity
-            * Create an &#x60;Identity&#x60; for your merchant or buyer.  Creating &#x60;Identities&#x60; for merchants requires they provide [KYC details](/docs/guides/getting-started/).  Related Guides: [Getting Started](/docs/guides/getting-started/), [Onboarding](/docs/guides/onboarding/)
+            * Create an &#x60;Identity&#x60; for your merchant or buyer.  All fields for a buyer&#39;s &#x60;Identity&#x60; are optional.   Providing &#x60;business_type&#x60; indicates that the &#x60;Identity&#x60; is being created for a Merchant.  Creating &#x60;Identities&#x60; for merchants requires they provide [KYC details](/docs/guides/getting-started/). - When creating an &#x60;Identity&#x60; for a buyer , don&#39;t pass the &#x60;business_type&#x60; field. Including a value for &#x60;business_type&#x60; configures the created &#x60;Identity&#x60; to get processed as a merchant. - When creating an &#x60;Identity&#x60; for a buyer, all fields are optional . Related Guides: [Getting Started](/docs/guides/getting-started/), [Onboarding](/docs/guides/onboarding/)
                 * @param createIdentityRequest  (optional)
                 * @return Identity
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -345,7 +346,7 @@ public class IdentitiesApi {
 
     /**
         * Create an Identity
-        * Create an &#x60;Identity&#x60; for your merchant or buyer.  Creating &#x60;Identities&#x60; for merchants requires they provide [KYC details](/docs/guides/getting-started/).  Related Guides: [Getting Started](/docs/guides/getting-started/), [Onboarding](/docs/guides/onboarding/)
+        * Create an &#x60;Identity&#x60; for your merchant or buyer.  All fields for a buyer&#39;s &#x60;Identity&#x60; are optional.   Providing &#x60;business_type&#x60; indicates that the &#x60;Identity&#x60; is being created for a Merchant.  Creating &#x60;Identities&#x60; for merchants requires they provide [KYC details](/docs/guides/getting-started/). - When creating an &#x60;Identity&#x60; for a buyer , don&#39;t pass the &#x60;business_type&#x60; field. Including a value for &#x60;business_type&#x60; configures the created &#x60;Identity&#x60; to get processed as a merchant. - When creating an &#x60;Identity&#x60; for a buyer, all fields are optional . Related Guides: [Getting Started](/docs/guides/getting-started/), [Onboarding](/docs/guides/onboarding/)
             * @param createIdentityRequest  (optional)
         * @return ApiResponse&lt;Identity&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -367,7 +368,7 @@ public class IdentitiesApi {
 
     /**
         * Create an Identity (asynchronously)
-        * Create an &#x60;Identity&#x60; for your merchant or buyer.  Creating &#x60;Identities&#x60; for merchants requires they provide [KYC details](/docs/guides/getting-started/).  Related Guides: [Getting Started](/docs/guides/getting-started/), [Onboarding](/docs/guides/onboarding/)
+        * Create an &#x60;Identity&#x60; for your merchant or buyer.  All fields for a buyer&#39;s &#x60;Identity&#x60; are optional.   Providing &#x60;business_type&#x60; indicates that the &#x60;Identity&#x60; is being created for a Merchant.  Creating &#x60;Identities&#x60; for merchants requires they provide [KYC details](/docs/guides/getting-started/). - When creating an &#x60;Identity&#x60; for a buyer , don&#39;t pass the &#x60;business_type&#x60; field. Including a value for &#x60;business_type&#x60; configures the created &#x60;Identity&#x60; to get processed as a merchant. - When creating an &#x60;Identity&#x60; for a buyer, all fields are optional . Related Guides: [Getting Started](/docs/guides/getting-started/), [Onboarding](/docs/guides/onboarding/)
             * @param createIdentityRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
@@ -841,7 +842,7 @@ public class IdentitiesApi {
 
         /**
         * Set sort
-        * @param sort Specify key to be used for sorting the collection (optional)
+        * @param sort Specify key to be used for sorting the collection. (optional)
         * @return APIlistIdentitiesRequest
         */
         public APIlistIdentitiesRequest sort(String sort) {
@@ -861,7 +862,7 @@ public class IdentitiesApi {
 
         /**
         * Set limit
-        * @param limit The numbers of items to return (optional)
+        * @param limit The numbers of items to return. (optional)
         * @return APIlistIdentitiesRequest
         */
         public APIlistIdentitiesRequest limit(Long limit) {
@@ -871,7 +872,7 @@ public class IdentitiesApi {
 
         /**
         * Set id
-        * @param id Filter by id (optional)
+        * @param id Filter by &#x60;id&#x60;. (optional)
         * @return APIlistIdentitiesRequest
         */
         public APIlistIdentitiesRequest id(String id) {
@@ -881,7 +882,7 @@ public class IdentitiesApi {
 
         /**
         * Set createdAtGte
-        * @param createdAtGte Filter where created_at is after the given date. (optional)
+        * @param createdAtGte Filter where &#x60;created_at&#x60; is after the given date. (optional)
         * @return APIlistIdentitiesRequest
         */
         public APIlistIdentitiesRequest createdAtGte(String createdAtGte) {
@@ -891,7 +892,7 @@ public class IdentitiesApi {
 
         /**
         * Set createdAtLte
-        * @param createdAtLte Filter where created_at is before the given date. (optional)
+        * @param createdAtLte Filter where &#x60;created_at&#x60; is before the given date. (optional)
         * @return APIlistIdentitiesRequest
         */
         public APIlistIdentitiesRequest createdAtLte(String createdAtLte) {
@@ -901,7 +902,7 @@ public class IdentitiesApi {
 
         /**
         * Set defaultStatementDescriptor
-        * @param defaultStatementDescriptor Filter by the default_statement_descriptor (optional)
+        * @param defaultStatementDescriptor Filter by the &#x60;default_statement_descriptor&#x60;. (optional)
         * @return APIlistIdentitiesRequest
         */
         public APIlistIdentitiesRequest defaultStatementDescriptor(String defaultStatementDescriptor) {
@@ -921,7 +922,7 @@ public class IdentitiesApi {
 
         /**
         * Set businessType
-        * @param businessType Filter by the business type. Partial business types are not supported (optional)
+        * @param businessType Filter by the business type. Partial business types are not supported. (optional)
         * @return APIlistIdentitiesRequest
         */
         public APIlistIdentitiesRequest businessType(String businessType) {
@@ -941,7 +942,7 @@ public class IdentitiesApi {
 
         /**
         * Set firstName
-        * @param firstName Filter by the first name of the person associated to the Identity. (optional)
+        * @param firstName Filter by the first name of the person associated to the &#x60;Identity&#x60;. (optional)
         * @return APIlistIdentitiesRequest
         */
         public APIlistIdentitiesRequest firstName(String firstName) {
@@ -951,7 +952,7 @@ public class IdentitiesApi {
 
         /**
         * Set lastName
-        * @param lastName Filter by the last name of the person associated to the identity. (optional)
+        * @param lastName Filter by the last name of the person associated to the &#x60;Identity&#x60;. (optional)
         * @return APIlistIdentitiesRequest
         */
         public APIlistIdentitiesRequest lastName(String lastName) {

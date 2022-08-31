@@ -54,7 +54,7 @@ import invoker.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateDeviceRequest {
   /**
-   * The action you want to perform on the device.
+   * The action you want to perform on the device. Use **DEACTIVATE** to deactivate the device.
    */
   @JsonAdapter(ActionEnum.Adapter.class)
   public enum ActionEnum {
@@ -145,11 +145,11 @@ public class UpdateDeviceRequest {
   }
 
    /**
-   * The action you want to perform on the device.
+   * The action you want to perform on the device. Use **DEACTIVATE** to deactivate the device.
    * @return action
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The action you want to perform on the device.")
+  @ApiModelProperty(value = "The action you want to perform on the device. Use **DEACTIVATE** to deactivate the device.")
 
   public ActionEnum getAction() {
     return action;
@@ -168,11 +168,11 @@ public class UpdateDeviceRequest {
   }
 
    /**
-   * Used when &#x60;action&#x60; is **ACTIVATE**. The input the code thats show up on the device screen.
+   * Used when &#x60;action&#x60; is **ACTIVATE**. Provide the input code that shows up on the device screen.
    * @return activationCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Used when `action` is **ACTIVATE**. The input the code thats show up on the device screen.")
+  @ApiModelProperty(value = "Used when `action` is **ACTIVATE**. Provide the input code that shows up on the device screen.")
 
   public String getActivationCode() {
     return activationCode;

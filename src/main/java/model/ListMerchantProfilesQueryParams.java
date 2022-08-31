@@ -58,13 +58,13 @@ public class ListMerchantProfilesQueryParams {
   @SerializedName(SERIALIZED_NAME_BEFORE_CURSOR)
   private String beforeCursor;
 
-  public static final String SERIALIZED_NAME_AFTER_CURSOR = "after_cursor";
-  @SerializedName(SERIALIZED_NAME_AFTER_CURSOR)
-  private String afterCursor;
-
   public static final String SERIALIZED_NAME_LIMIT = "limit";
   @SerializedName(SERIALIZED_NAME_LIMIT)
   private Long limit;
+
+  public static final String SERIALIZED_NAME_AFTER_CURSOR = "after_cursor";
+  @SerializedName(SERIALIZED_NAME_AFTER_CURSOR)
+  private String afterCursor;
 
   public ListMerchantProfilesQueryParams() { 
   }
@@ -76,11 +76,11 @@ public class ListMerchantProfilesQueryParams {
   }
 
    /**
-   * Filter by id
+   * Filter by &#x60;id&#x60;.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by id")
+  @ApiModelProperty(value = "Filter by `id`.")
 
   public String getId() {
     return id;
@@ -115,6 +115,29 @@ public class ListMerchantProfilesQueryParams {
   }
 
 
+  public ListMerchantProfilesQueryParams limit(Long limit) {
+    
+    this.limit = limit;
+    return this;
+  }
+
+   /**
+   * The numbers of items to return.
+   * @return limit
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numbers of items to return.")
+
+  public Long getLimit() {
+    return limit;
+  }
+
+
+  public void setLimit(Long limit) {
+    this.limit = limit;
+  }
+
+
   public ListMerchantProfilesQueryParams afterCursor(String afterCursor) {
     
     this.afterCursor = afterCursor;
@@ -138,29 +161,6 @@ public class ListMerchantProfilesQueryParams {
   }
 
 
-  public ListMerchantProfilesQueryParams limit(Long limit) {
-    
-    this.limit = limit;
-    return this;
-  }
-
-   /**
-   * The numbers of items to return
-   * @return limit
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The numbers of items to return")
-
-  public Long getLimit() {
-    return limit;
-  }
-
-
-  public void setLimit(Long limit) {
-    this.limit = limit;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -173,13 +173,13 @@ public class ListMerchantProfilesQueryParams {
     ListMerchantProfilesQueryParams listMerchantProfilesQueryParams = (ListMerchantProfilesQueryParams) o;
     return Objects.equals(this.id, listMerchantProfilesQueryParams.id) &&
         Objects.equals(this.beforeCursor, listMerchantProfilesQueryParams.beforeCursor) &&
-        Objects.equals(this.afterCursor, listMerchantProfilesQueryParams.afterCursor) &&
-        Objects.equals(this.limit, listMerchantProfilesQueryParams.limit);
+        Objects.equals(this.limit, listMerchantProfilesQueryParams.limit) &&
+        Objects.equals(this.afterCursor, listMerchantProfilesQueryParams.afterCursor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, beforeCursor, afterCursor, limit);
+    return Objects.hash(id, beforeCursor, limit, afterCursor);
   }
 
   @Override
@@ -188,8 +188,8 @@ public class ListMerchantProfilesQueryParams {
     sb.append("class ListMerchantProfilesQueryParams {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    beforeCursor: ").append(toIndentedString(beforeCursor)).append("\n");
-    sb.append("    afterCursor: ").append(toIndentedString(afterCursor)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    afterCursor: ").append(toIndentedString(afterCursor)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -214,8 +214,8 @@ public class ListMerchantProfilesQueryParams {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("before_cursor");
-    openapiFields.add("after_cursor");
     openapiFields.add("limit");
+    openapiFields.add("after_cursor");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

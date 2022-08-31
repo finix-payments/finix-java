@@ -56,10 +56,6 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApplicationProfile {
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
-
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -84,43 +80,16 @@ public class ApplicationProfile {
   @SerializedName(SERIALIZED_NAME_RISK_PROFILE)
   private String riskProfile;
 
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
+
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
   private ApplicationProfileLinks links;
 
   public ApplicationProfile() { 
   }
-
-  public ApplicationProfile tags(Map<String, String> tags) {
-    
-    this.tags = tags;
-    return this;
-  }
-
-  public ApplicationProfile putTagsItem(String key, String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new HashMap<>();
-    }
-    this.tags.put(key, tagsItem);
-    return this;
-  }
-
-   /**
-   * Key value pair for annotating custom meta data (e.g. order numbers).
-   * @return tags
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
-
-  public Map<String, String> getTags() {
-    return tags;
-  }
-
-
-  public void setTags(Map<String, String> tags) {
-    this.tags = tags;
-  }
-
 
   public ApplicationProfile id(String id) {
     
@@ -260,6 +229,37 @@ public class ApplicationProfile {
   }
 
 
+  public ApplicationProfile tags(Map<String, String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public ApplicationProfile putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
+    return this;
+  }
+
+   /**
+   * Key value pair for annotating custom meta data (e.g. order numbers).
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
+
+  public Map<String, String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(Map<String, String> tags) {
+    this.tags = tags;
+  }
+
+
   public ApplicationProfile links(ApplicationProfileLinks links) {
     
     this.links = links;
@@ -293,13 +293,13 @@ public class ApplicationProfile {
       return false;
     }
     ApplicationProfile applicationProfile = (ApplicationProfile) o;
-    return Objects.equals(this.tags, applicationProfile.tags) &&
-        Objects.equals(this.id, applicationProfile.id) &&
+    return Objects.equals(this.id, applicationProfile.id) &&
         Objects.equals(this.createdAt, applicationProfile.createdAt) &&
         Objects.equals(this.updatedAt, applicationProfile.updatedAt) &&
         Objects.equals(this.application, applicationProfile.application) &&
         Objects.equals(this.feeProfile, applicationProfile.feeProfile) &&
         Objects.equals(this.riskProfile, applicationProfile.riskProfile) &&
+        Objects.equals(this.tags, applicationProfile.tags) &&
         Objects.equals(this.links, applicationProfile.links);
   }
 
@@ -309,7 +309,7 @@ public class ApplicationProfile {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, id, createdAt, updatedAt, application, feeProfile, riskProfile, links);
+    return Objects.hash(id, createdAt, updatedAt, application, feeProfile, riskProfile, tags, links);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -323,13 +323,13 @@ public class ApplicationProfile {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ApplicationProfile {\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    application: ").append(toIndentedString(application)).append("\n");
     sb.append("    feeProfile: ").append(toIndentedString(feeProfile)).append("\n");
     sb.append("    riskProfile: ").append(toIndentedString(riskProfile)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -353,13 +353,13 @@ public class ApplicationProfile {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("tags");
     openapiFields.add("id");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
     openapiFields.add("application");
     openapiFields.add("fee_profile");
     openapiFields.add("risk_profile");
+    openapiFields.add("tags");
     openapiFields.add("_links");
 
     // a set of required properties/fields (JSON key names)

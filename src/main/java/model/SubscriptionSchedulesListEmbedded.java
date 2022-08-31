@@ -49,8 +49,9 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * SubscriptionSchedulesListEmbedded
+ * List of &#x60;subscription_schedule&#x60; objects.
  */
+@ApiModel(description = "List of `subscription_schedule` objects.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubscriptionSchedulesListEmbedded {
@@ -76,11 +77,11 @@ public class SubscriptionSchedulesListEmbedded {
   }
 
    /**
-   * Get subscriptionSchedules
+   * &#x60;subscription_schedule&#x60; objects.
    * @return subscriptionSchedules
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "`subscription_schedule` objects.")
 
   public Set<SubscriptionSchedule> getSubscriptionSchedules() {
     return subscriptionSchedules;

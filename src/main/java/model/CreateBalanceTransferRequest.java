@@ -55,16 +55,20 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateBalanceTransferRequest {
+  public static final String SERIALIZED_NAME_AMOUNT = "amount";
+  @SerializedName(SERIALIZED_NAME_AMOUNT)
+  private Long amount;
+
+  public static final String SERIALIZED_NAME_CURRENCY = "currency";
+  @SerializedName(SERIALIZED_NAME_CURRENCY)
+  private Currency currency;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
-
   /**
-   * Choose the value that best applies to the account where funds will get credited.
+   * The account where funds get credited. For balance transfers, this is an aliased ID and will have the value of &#x60;FOR_BENEFIT_OF_ACCOUNT&#x60; or &#x60;OPERATING_ACCOUNT&#x60;.
    */
   @JsonAdapter(DestinationEnum.Adapter.class)
   public enum DestinationEnum {
@@ -138,16 +142,12 @@ public class CreateBalanceTransferRequest {
   @SerializedName(SERIALIZED_NAME_DESTINATION)
   private DestinationEnum destination;
 
-  public static final String SERIALIZED_NAME_CURRENCY = "currency";
-  @SerializedName(SERIALIZED_NAME_CURRENCY)
-  private Currency currency;
-
-  public static final String SERIALIZED_NAME_AMOUNT = "amount";
-  @SerializedName(SERIALIZED_NAME_AMOUNT)
-  private Long amount;
+  public static final String SERIALIZED_NAME_PROCESSOR_TYPE = "processor_type";
+  @SerializedName(SERIALIZED_NAME_PROCESSOR_TYPE)
+  private String processorType;
 
   /**
-   * Choose the value that best applies to the account where funds will get debited.
+   * The account where funds get debited. For balance transfers, this is an aliased ID and will have the value of &#x60;FOR_BENEFIT_OF_ACCOUNT&#x60; or &#x60;OPERATING_ACCOUNT&#x60;.
    */
   @JsonAdapter(SourceEnum.Adapter.class)
   public enum SourceEnum {
@@ -218,12 +218,58 @@ public class CreateBalanceTransferRequest {
   @SerializedName(SERIALIZED_NAME_SOURCE)
   private SourceEnum source;
 
-  public static final String SERIALIZED_NAME_PROCESSOR_TYPE = "processor_type";
-  @SerializedName(SERIALIZED_NAME_PROCESSOR_TYPE)
-  private String processorType;
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
 
   public CreateBalanceTransferRequest() { 
   }
+
+  public CreateBalanceTransferRequest amount(Long amount) {
+    
+    this.amount = amount;
+    return this;
+  }
+
+   /**
+   * The total amount that will be debited in cents (e.g. 100 cents to debit $1.00).
+   * @return amount
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "The total amount that will be debited in cents (e.g. 100 cents to debit $1.00).")
+
+  public Long getAmount() {
+    return amount;
+  }
+
+
+  public void setAmount(Long amount) {
+    this.amount = amount;
+  }
+
+
+  public CreateBalanceTransferRequest currency(Currency currency) {
+    
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * Get currency
+   * @return currency
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+
+  public Currency getCurrency() {
+    return currency;
+  }
+
+
+  public void setCurrency(Currency currency) {
+    this.currency = currency;
+  }
+
 
   public CreateBalanceTransferRequest description(String description) {
     
@@ -235,8 +281,8 @@ public class CreateBalanceTransferRequest {
    * Additional information about the &#x60;balance_transfer&#x60; (e.g. **Transferring funds for Holidays**).
    * @return description
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Additional information about the `balance_transfer` (e.g. **Transferring funds for Holidays**).")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Additional information about the `balance_transfer` (e.g. **Transferring funds for Holidays**).")
 
   public String getDescription() {
     return description;
@@ -245,6 +291,75 @@ public class CreateBalanceTransferRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+
+  public CreateBalanceTransferRequest destination(DestinationEnum destination) {
+    
+    this.destination = destination;
+    return this;
+  }
+
+   /**
+   * The account where funds get credited. For balance transfers, this is an aliased ID and will have the value of &#x60;FOR_BENEFIT_OF_ACCOUNT&#x60; or &#x60;OPERATING_ACCOUNT&#x60;.
+   * @return destination
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(required = true, value = "The account where funds get credited. For balance transfers, this is an aliased ID and will have the value of `FOR_BENEFIT_OF_ACCOUNT` or `OPERATING_ACCOUNT`.")
+
+  public DestinationEnum getDestination() {
+    return destination;
+  }
+
+
+  public void setDestination(DestinationEnum destination) {
+    this.destination = destination;
+  }
+
+
+  public CreateBalanceTransferRequest processorType(String processorType) {
+    
+    this.processorType = processorType;
+    return this;
+  }
+
+   /**
+   * Pass **LITLE_V1**; &#x60;balance_transfers&#x60; are only avalible for platforms with **LITLE_V1** credentials.
+   * @return processorType
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(example = "LITLE_V1", required = true, value = "Pass **LITLE_V1**; `balance_transfers` are only avalible for platforms with **LITLE_V1** credentials.")
+
+  public String getProcessorType() {
+    return processorType;
+  }
+
+
+  public void setProcessorType(String processorType) {
+    this.processorType = processorType;
+  }
+
+
+  public CreateBalanceTransferRequest source(SourceEnum source) {
+    
+    this.source = source;
+    return this;
+  }
+
+   /**
+   * The account where funds get debited. For balance transfers, this is an aliased ID and will have the value of &#x60;FOR_BENEFIT_OF_ACCOUNT&#x60; or &#x60;OPERATING_ACCOUNT&#x60;.
+   * @return source
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "The account where funds get debited. For balance transfers, this is an aliased ID and will have the value of `FOR_BENEFIT_OF_ACCOUNT` or `OPERATING_ACCOUNT`.")
+
+  public SourceEnum getSource() {
+    return source;
+  }
+
+
+  public void setSource(SourceEnum source) {
+    this.source = source;
   }
 
 
@@ -279,121 +394,6 @@ public class CreateBalanceTransferRequest {
   }
 
 
-  public CreateBalanceTransferRequest destination(DestinationEnum destination) {
-    
-    this.destination = destination;
-    return this;
-  }
-
-   /**
-   * Choose the value that best applies to the account where funds will get credited.
-   * @return destination
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "Choose the value that best applies to the account where funds will get credited.")
-
-  public DestinationEnum getDestination() {
-    return destination;
-  }
-
-
-  public void setDestination(DestinationEnum destination) {
-    this.destination = destination;
-  }
-
-
-  public CreateBalanceTransferRequest currency(Currency currency) {
-    
-    this.currency = currency;
-    return this;
-  }
-
-   /**
-   * Get currency
-   * @return currency
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
-  public Currency getCurrency() {
-    return currency;
-  }
-
-
-  public void setCurrency(Currency currency) {
-    this.currency = currency;
-  }
-
-
-  public CreateBalanceTransferRequest amount(Long amount) {
-    
-    this.amount = amount;
-    return this;
-  }
-
-   /**
-   * The total amount that will be debited in cents (e.g. 100 cents to debit $1.00).
-   * @return amount
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The total amount that will be debited in cents (e.g. 100 cents to debit $1.00).")
-
-  public Long getAmount() {
-    return amount;
-  }
-
-
-  public void setAmount(Long amount) {
-    this.amount = amount;
-  }
-
-
-  public CreateBalanceTransferRequest source(SourceEnum source) {
-    
-    this.source = source;
-    return this;
-  }
-
-   /**
-   * Choose the value that best applies to the account where funds will get debited.
-   * @return source
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Choose the value that best applies to the account where funds will get debited.")
-
-  public SourceEnum getSource() {
-    return source;
-  }
-
-
-  public void setSource(SourceEnum source) {
-    this.source = source;
-  }
-
-
-  public CreateBalanceTransferRequest processorType(String processorType) {
-    
-    this.processorType = processorType;
-    return this;
-  }
-
-   /**
-   * Pass **LITLE_V1**; &#x60;balance_transfers&#x60; are only avalible for platforms with **LITLE_V1** credentials.
-   * @return processorType
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "LITLE_V1", required = true, value = "Pass **LITLE_V1**; `balance_transfers` are only avalible for platforms with **LITLE_V1** credentials.")
-
-  public String getProcessorType() {
-    return processorType;
-  }
-
-
-  public void setProcessorType(String processorType) {
-    this.processorType = processorType;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -404,31 +404,31 @@ public class CreateBalanceTransferRequest {
       return false;
     }
     CreateBalanceTransferRequest createBalanceTransferRequest = (CreateBalanceTransferRequest) o;
-    return Objects.equals(this.description, createBalanceTransferRequest.description) &&
-        Objects.equals(this.tags, createBalanceTransferRequest.tags) &&
-        Objects.equals(this.destination, createBalanceTransferRequest.destination) &&
+    return Objects.equals(this.amount, createBalanceTransferRequest.amount) &&
         Objects.equals(this.currency, createBalanceTransferRequest.currency) &&
-        Objects.equals(this.amount, createBalanceTransferRequest.amount) &&
+        Objects.equals(this.description, createBalanceTransferRequest.description) &&
+        Objects.equals(this.destination, createBalanceTransferRequest.destination) &&
+        Objects.equals(this.processorType, createBalanceTransferRequest.processorType) &&
         Objects.equals(this.source, createBalanceTransferRequest.source) &&
-        Objects.equals(this.processorType, createBalanceTransferRequest.processorType);
+        Objects.equals(this.tags, createBalanceTransferRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, tags, destination, currency, amount, source, processorType);
+    return Objects.hash(amount, currency, description, destination, processorType, source, tags);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateBalanceTransferRequest {\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
-    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    processorType: ").append(toIndentedString(processorType)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -451,21 +451,22 @@ public class CreateBalanceTransferRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("description");
-    openapiFields.add("tags");
-    openapiFields.add("destination");
-    openapiFields.add("currency");
     openapiFields.add("amount");
-    openapiFields.add("source");
+    openapiFields.add("currency");
+    openapiFields.add("description");
+    openapiFields.add("destination");
     openapiFields.add("processor_type");
+    openapiFields.add("source");
+    openapiFields.add("tags");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("destination");
-    openapiRequiredFields.add("currency");
     openapiRequiredFields.add("amount");
-    openapiRequiredFields.add("source");
+    openapiRequiredFields.add("currency");
+    openapiRequiredFields.add("description");
+    openapiRequiredFields.add("destination");
     openapiRequiredFields.add("processor_type");
+    openapiRequiredFields.add("source");
   }
 
  /**
@@ -522,15 +523,15 @@ public class CreateBalanceTransferRequest {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()  && !jsonObj.get("source").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source").toString()));
+      if (jsonObj.get("processor_type") != null && !jsonObj.get("processor_type").isJsonNull()  && !jsonObj.get("processor_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `processor_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("processor_type").toString()));
       }
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("processor_type") != null && !jsonObj.get("processor_type").isJsonNull()  && !jsonObj.get("processor_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `processor_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("processor_type").toString()));
+      if (jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()  && !jsonObj.get("source").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source").toString()));
       }
   }
 

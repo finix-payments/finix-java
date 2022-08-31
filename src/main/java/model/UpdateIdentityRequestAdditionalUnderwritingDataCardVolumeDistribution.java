@@ -55,13 +55,13 @@ public class UpdateIdentityRequestAdditionalUnderwritingDataCardVolumeDistributi
   @SerializedName(SERIALIZED_NAME_CARD_PRESENT_PERCENTAGE)
   private Long cardPresentPercentage;
 
-  public static final String SERIALIZED_NAME_MAIL_ORDER_TELEPHONE_ORDER_PERCENTAGE = "mail_order_telephone_order_percentage";
-  @SerializedName(SERIALIZED_NAME_MAIL_ORDER_TELEPHONE_ORDER_PERCENTAGE)
-  private Long mailOrderTelephoneOrderPercentage;
-
   public static final String SERIALIZED_NAME_ECOMMERCE_PERCENTAGE = "ecommerce_percentage";
   @SerializedName(SERIALIZED_NAME_ECOMMERCE_PERCENTAGE)
   private Long ecommercePercentage;
+
+  public static final String SERIALIZED_NAME_MAIL_ORDER_TELEPHONE_ORDER_PERCENTAGE = "mail_order_telephone_order_percentage";
+  @SerializedName(SERIALIZED_NAME_MAIL_ORDER_TELEPHONE_ORDER_PERCENTAGE)
+  private Long mailOrderTelephoneOrderPercentage;
 
   public UpdateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution() { 
   }
@@ -89,29 +89,6 @@ public class UpdateIdentityRequestAdditionalUnderwritingDataCardVolumeDistributi
   }
 
 
-  public UpdateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution mailOrderTelephoneOrderPercentage(Long mailOrderTelephoneOrderPercentage) {
-    
-    this.mailOrderTelephoneOrderPercentage = mailOrderTelephoneOrderPercentage;
-    return this;
-  }
-
-   /**
-   * The percentage of the merchant&#39;s business that&#39;s mail or telephone order (between 0 and 100).
-   * @return mailOrderTelephoneOrderPercentage
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The percentage of the merchant's business that's mail or telephone order (between 0 and 100).")
-
-  public Long getMailOrderTelephoneOrderPercentage() {
-    return mailOrderTelephoneOrderPercentage;
-  }
-
-
-  public void setMailOrderTelephoneOrderPercentage(Long mailOrderTelephoneOrderPercentage) {
-    this.mailOrderTelephoneOrderPercentage = mailOrderTelephoneOrderPercentage;
-  }
-
-
   public UpdateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution ecommercePercentage(Long ecommercePercentage) {
     
     this.ecommercePercentage = ecommercePercentage;
@@ -135,6 +112,29 @@ public class UpdateIdentityRequestAdditionalUnderwritingDataCardVolumeDistributi
   }
 
 
+  public UpdateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution mailOrderTelephoneOrderPercentage(Long mailOrderTelephoneOrderPercentage) {
+    
+    this.mailOrderTelephoneOrderPercentage = mailOrderTelephoneOrderPercentage;
+    return this;
+  }
+
+   /**
+   * The percentage of the merchant&#39;s business that&#39;s mail or telephone order (between 0 and 100).
+   * @return mailOrderTelephoneOrderPercentage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The percentage of the merchant's business that's mail or telephone order (between 0 and 100).")
+
+  public Long getMailOrderTelephoneOrderPercentage() {
+    return mailOrderTelephoneOrderPercentage;
+  }
+
+
+  public void setMailOrderTelephoneOrderPercentage(Long mailOrderTelephoneOrderPercentage) {
+    this.mailOrderTelephoneOrderPercentage = mailOrderTelephoneOrderPercentage;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -146,13 +146,13 @@ public class UpdateIdentityRequestAdditionalUnderwritingDataCardVolumeDistributi
     }
     UpdateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution updateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution = (UpdateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution) o;
     return Objects.equals(this.cardPresentPercentage, updateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution.cardPresentPercentage) &&
-        Objects.equals(this.mailOrderTelephoneOrderPercentage, updateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution.mailOrderTelephoneOrderPercentage) &&
-        Objects.equals(this.ecommercePercentage, updateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution.ecommercePercentage);
+        Objects.equals(this.ecommercePercentage, updateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution.ecommercePercentage) &&
+        Objects.equals(this.mailOrderTelephoneOrderPercentage, updateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution.mailOrderTelephoneOrderPercentage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardPresentPercentage, mailOrderTelephoneOrderPercentage, ecommercePercentage);
+    return Objects.hash(cardPresentPercentage, ecommercePercentage, mailOrderTelephoneOrderPercentage);
   }
 
   @Override
@@ -160,8 +160,8 @@ public class UpdateIdentityRequestAdditionalUnderwritingDataCardVolumeDistributi
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution {\n");
     sb.append("    cardPresentPercentage: ").append(toIndentedString(cardPresentPercentage)).append("\n");
-    sb.append("    mailOrderTelephoneOrderPercentage: ").append(toIndentedString(mailOrderTelephoneOrderPercentage)).append("\n");
     sb.append("    ecommercePercentage: ").append(toIndentedString(ecommercePercentage)).append("\n");
+    sb.append("    mailOrderTelephoneOrderPercentage: ").append(toIndentedString(mailOrderTelephoneOrderPercentage)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -185,8 +185,8 @@ public class UpdateIdentityRequestAdditionalUnderwritingDataCardVolumeDistributi
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("card_present_percentage");
-    openapiFields.add("mail_order_telephone_order_percentage");
     openapiFields.add("ecommerce_percentage");
+    openapiFields.add("mail_order_telephone_order_percentage");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

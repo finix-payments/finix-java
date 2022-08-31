@@ -24,8 +24,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import model.InstrumentUpdateLinks;
 
 import com.google.gson.Gson;
@@ -66,6 +64,10 @@ public class InstrumentUpdate {
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private OffsetDateTime updatedAt;
 
+  public static final String SERIALIZED_NAME_IDEMPOTENCY_ID = "idempotency_id";
+  @SerializedName(SERIALIZED_NAME_IDEMPOTENCY_ID)
+  private String idempotencyId;
+
   public static final String SERIALIZED_NAME_MERCHANT = "merchant";
   @SerializedName(SERIALIZED_NAME_MERCHANT)
   private String merchant;
@@ -73,22 +75,6 @@ public class InstrumentUpdate {
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
   private String state;
-
-  public static final String SERIALIZED_NAME_APPLICATION = "application";
-  @SerializedName(SERIALIZED_NAME_APPLICATION)
-  private String application;
-
-  public static final String SERIALIZED_NAME_MESSAGES = "messages";
-  @SerializedName(SERIALIZED_NAME_MESSAGES)
-  private List<String> messages = null;
-
-  public static final String SERIALIZED_NAME_TRACE_ID = "trace_id";
-  @SerializedName(SERIALIZED_NAME_TRACE_ID)
-  private String traceId;
-
-  public static final String SERIALIZED_NAME_PAYMENT_INSTRUMENT = "payment_instrument";
-  @SerializedName(SERIALIZED_NAME_PAYMENT_INSTRUMENT)
-  private String paymentInstrument;
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
@@ -166,6 +152,29 @@ public class InstrumentUpdate {
   }
 
 
+  public InstrumentUpdate idempotencyId(String idempotencyId) {
+    
+    this.idempotencyId = idempotencyId;
+    return this;
+  }
+
+   /**
+   * A randomly generated value that will be associated with this &#x60;instrument_update&#x60; resource.
+   * @return idempotencyId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A randomly generated value that will be associated with this `instrument_update` resource.")
+
+  public String getIdempotencyId() {
+    return idempotencyId;
+  }
+
+
+  public void setIdempotencyId(String idempotencyId) {
+    this.idempotencyId = idempotencyId;
+  }
+
+
   public InstrumentUpdate merchant(String merchant) {
     
     this.merchant = merchant;
@@ -212,106 +221,6 @@ public class InstrumentUpdate {
   }
 
 
-  public InstrumentUpdate application(String application) {
-    
-    this.application = application;
-    return this;
-  }
-
-   /**
-   * The id of the application.
-   * @return application
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The id of the application.")
-
-  public String getApplication() {
-    return application;
-  }
-
-
-  public void setApplication(String application) {
-    this.application = application;
-  }
-
-
-  public InstrumentUpdate messages(List<String> messages) {
-    
-    this.messages = messages;
-    return this;
-  }
-
-  public InstrumentUpdate addMessagesItem(String messagesItem) {
-    if (this.messages == null) {
-      this.messages = new ArrayList<>();
-    }
-    this.messages.add(messagesItem);
-    return this;
-  }
-
-   /**
-   * Get messages
-   * @return messages
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public List<String> getMessages() {
-    return messages;
-  }
-
-
-  public void setMessages(List<String> messages) {
-    this.messages = messages;
-  }
-
-
-  public InstrumentUpdate traceId(String traceId) {
-    
-    this.traceId = traceId;
-    return this;
-  }
-
-   /**
-   * Trace ID of the &#x60;Update&#x60;. The processor sends back the &#x60;trace_id&#x60; so you can track the update end-to-end.
-   * @return traceId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Trace ID of the `Update`. The processor sends back the `trace_id` so you can track the update end-to-end.")
-
-  public String getTraceId() {
-    return traceId;
-  }
-
-
-  public void setTraceId(String traceId) {
-    this.traceId = traceId;
-  }
-
-
-  public InstrumentUpdate paymentInstrument(String paymentInstrument) {
-    
-    this.paymentInstrument = paymentInstrument;
-    return this;
-  }
-
-   /**
-   * The id of the payment instrument the update occured against.
-   * @return paymentInstrument
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The id of the payment instrument the update occured against.")
-
-  public String getPaymentInstrument() {
-    return paymentInstrument;
-  }
-
-
-  public void setPaymentInstrument(String paymentInstrument) {
-    this.paymentInstrument = paymentInstrument;
-  }
-
-
   public InstrumentUpdate links(InstrumentUpdateLinks links) {
     
     this.links = links;
@@ -348,18 +257,15 @@ public class InstrumentUpdate {
     return Objects.equals(this.id, instrumentUpdate.id) &&
         Objects.equals(this.createdAt, instrumentUpdate.createdAt) &&
         Objects.equals(this.updatedAt, instrumentUpdate.updatedAt) &&
+        Objects.equals(this.idempotencyId, instrumentUpdate.idempotencyId) &&
         Objects.equals(this.merchant, instrumentUpdate.merchant) &&
         Objects.equals(this.state, instrumentUpdate.state) &&
-        Objects.equals(this.application, instrumentUpdate.application) &&
-        Objects.equals(this.messages, instrumentUpdate.messages) &&
-        Objects.equals(this.traceId, instrumentUpdate.traceId) &&
-        Objects.equals(this.paymentInstrument, instrumentUpdate.paymentInstrument) &&
         Objects.equals(this.links, instrumentUpdate.links);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdAt, updatedAt, merchant, state, application, messages, traceId, paymentInstrument, links);
+    return Objects.hash(id, createdAt, updatedAt, idempotencyId, merchant, state, links);
   }
 
   @Override
@@ -369,12 +275,9 @@ public class InstrumentUpdate {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    idempotencyId: ").append(toIndentedString(idempotencyId)).append("\n");
     sb.append("    merchant: ").append(toIndentedString(merchant)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    application: ").append(toIndentedString(application)).append("\n");
-    sb.append("    messages: ").append(toIndentedString(messages)).append("\n");
-    sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
-    sb.append("    paymentInstrument: ").append(toIndentedString(paymentInstrument)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -401,12 +304,9 @@ public class InstrumentUpdate {
     openapiFields.add("id");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
+    openapiFields.add("idempotency_id");
     openapiFields.add("merchant");
     openapiFields.add("state");
-    openapiFields.add("application");
-    openapiFields.add("messages");
-    openapiFields.add("trace_id");
-    openapiFields.add("payment_instrument");
     openapiFields.add("_links");
 
     // a set of required properties/fields (JSON key names)
@@ -448,6 +348,13 @@ public class InstrumentUpdate {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
+      if (jsonObj.get("idempotency_id") != null && !jsonObj.get("idempotency_id").isJsonNull()  && !jsonObj.get("idempotency_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `idempotency_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("idempotency_id").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
       if (jsonObj.get("merchant") != null && !jsonObj.get("merchant").isJsonNull()  && !jsonObj.get("merchant").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant").toString()));
       }
@@ -457,35 +364,6 @@ public class InstrumentUpdate {
       */
       if (jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()  && !jsonObj.get("state").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("application") != null && !jsonObj.get("application").isJsonNull()  && !jsonObj.get("application").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `application` to be a primitive type in the JSON string but got `%s`", jsonObj.get("application").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      // ensure the json data is an array
-      if (jsonObj.get("messages") != null && !jsonObj.get("messages").isJsonNull() && !jsonObj.get("messages").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `messages` to be an array in the JSON string but got `%s`", jsonObj.get("messages").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("trace_id") != null && !jsonObj.get("trace_id").isJsonNull()  && !jsonObj.get("trace_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `trace_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("trace_id").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("payment_instrument") != null && !jsonObj.get("payment_instrument").isJsonNull()  && !jsonObj.get("payment_instrument").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `payment_instrument` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payment_instrument").toString()));
       }
       /**
       * EDITED

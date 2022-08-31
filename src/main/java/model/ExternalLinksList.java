@@ -53,13 +53,13 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ExternalLinksList {
-  public static final String SERIALIZED_NAME_EMBEDDED = "_embedded";
-  @SerializedName(SERIALIZED_NAME_EMBEDDED)
-  private ExternalLinksListEmbedded embedded;
-
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
   private PageCursor page;
+
+  public static final String SERIALIZED_NAME_EMBEDDED = "_embedded";
+  @SerializedName(SERIALIZED_NAME_EMBEDDED)
+  private ExternalLinksListEmbedded embedded;
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
@@ -67,29 +67,6 @@ public class ExternalLinksList {
 
   public ExternalLinksList() { 
   }
-
-  public ExternalLinksList embedded(ExternalLinksListEmbedded embedded) {
-    
-    this.embedded = embedded;
-    return this;
-  }
-
-   /**
-   * Get embedded
-   * @return embedded
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public ExternalLinksListEmbedded getEmbedded() {
-    return embedded;
-  }
-
-
-  public void setEmbedded(ExternalLinksListEmbedded embedded) {
-    this.embedded = embedded;
-  }
-
 
   public ExternalLinksList page(PageCursor page) {
     
@@ -111,6 +88,29 @@ public class ExternalLinksList {
 
   public void setPage(PageCursor page) {
     this.page = page;
+  }
+
+
+  public ExternalLinksList embedded(ExternalLinksListEmbedded embedded) {
+    
+    this.embedded = embedded;
+    return this;
+  }
+
+   /**
+   * Get embedded
+   * @return embedded
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ExternalLinksListEmbedded getEmbedded() {
+    return embedded;
+  }
+
+
+  public void setEmbedded(ExternalLinksListEmbedded embedded) {
+    this.embedded = embedded;
   }
 
 
@@ -147,22 +147,22 @@ public class ExternalLinksList {
       return false;
     }
     ExternalLinksList externalLinksList = (ExternalLinksList) o;
-    return Objects.equals(this.embedded, externalLinksList.embedded) &&
-        Objects.equals(this.page, externalLinksList.page) &&
+    return Objects.equals(this.page, externalLinksList.page) &&
+        Objects.equals(this.embedded, externalLinksList.embedded) &&
         Objects.equals(this.links, externalLinksList.links);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(embedded, page, links);
+    return Objects.hash(page, embedded, links);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExternalLinksList {\n");
-    sb.append("    embedded: ").append(toIndentedString(embedded)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
+    sb.append("    embedded: ").append(toIndentedString(embedded)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -186,8 +186,8 @@ public class ExternalLinksList {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("_embedded");
     openapiFields.add("page");
+    openapiFields.add("_embedded");
     openapiFields.add("_links");
 
     // a set of required properties/fields (JSON key names)
@@ -222,18 +222,18 @@ public class ExternalLinksList {
       * EDITED
       * ADDED  statement to for inconsistent null behaviour
       */
-      // validate the optional field `_embedded`
-     // if (jsonObj.getAsJsonObject("_embedded") != null) {
-       //ExternalLinksListEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
+      // validate the optional field `page`
+     // if (jsonObj.getAsJsonObject("page") != null) {
+       //PageCursor.validateJsonObject(jsonObj.getAsJsonObject("page"));
      // }
 
       /**
       * EDITED
       * ADDED  statement to for inconsistent null behaviour
       */
-      // validate the optional field `page`
-     // if (jsonObj.getAsJsonObject("page") != null) {
-       //PageCursor.validateJsonObject(jsonObj.getAsJsonObject("page"));
+      // validate the optional field `_embedded`
+     // if (jsonObj.getAsJsonObject("_embedded") != null) {
+       //ExternalLinksListEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
      // }
 
   }

@@ -73,11 +73,11 @@ public class IdentityEntityIncorporationDate {
   }
 
    /**
-   * Get day
+   * Day business was incorporated (between 1 and 31).
    * @return day
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Day business was incorporated (between 1 and 31).")
 
   public Long getDay() {
     return day;
@@ -96,11 +96,11 @@ public class IdentityEntityIncorporationDate {
   }
 
    /**
-   * Get month
+   * Month business was incorporated (between 1 and 12).
    * @return month
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Month business was incorporated (between 1 and 12).")
 
   public Long getMonth() {
     return month;
@@ -119,11 +119,11 @@ public class IdentityEntityIncorporationDate {
   }
 
    /**
-   * Get year
+   * Year business was incorporated (4-digit).
    * @return year
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Year business was incorporated (4-digit).")
 
   public Long getYear() {
     return year;

@@ -339,11 +339,11 @@ public class BalanceTransfer {
   }
 
    /**
-   * ID of the &#x60;Payment Instrument&#x60; where funds will be sent.
+   * The account where funds get credited. For balance transfers, this is an aliased ID and will have the value of &#x60;FOR_BENEFIT_OF_ACCOUNT&#x60; or &#x60;OPERATING_ACCOUNT&#x60;.
    * @return destination
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the `Payment Instrument` where funds will be sent.")
+  @ApiModelProperty(value = "The account where funds get credited. For balance transfers, this is an aliased ID and will have the value of `FOR_BENEFIT_OF_ACCOUNT` or `OPERATING_ACCOUNT`.")
 
   public String getDestination() {
     return destination;
@@ -431,11 +431,11 @@ public class BalanceTransfer {
   }
 
    /**
-   * ID of the &#x60;Payment Instrument&#x60; where funds get debited.
+   * The account where funds get debited. For balance transfers, this is an aliased ID and will have the value of &#x60;FOR_BENEFIT_OF_ACCOUNT&#x60; or &#x60;OPERATING_ACCOUNT&#x60;.
    * @return source
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the `Payment Instrument` where funds get debited.")
+  @ApiModelProperty(value = "The account where funds get debited. For balance transfers, this is an aliased ID and will have the value of `FOR_BENEFIT_OF_ACCOUNT` or `OPERATING_ACCOUNT`.")
 
   public String getSource() {
     return source;

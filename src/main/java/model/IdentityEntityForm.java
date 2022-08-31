@@ -56,10 +56,6 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IdentityEntityForm {
-  public static final String SERIALIZED_NAME_TITLE = "title";
-  @SerializedName(SERIALIZED_NAME_TITLE)
-  private String title;
-
   public static final String SERIALIZED_NAME_AMEX_MID = "amex_mid";
   @SerializedName(SERIALIZED_NAME_AMEX_MID)
   private String amexMid;
@@ -317,35 +313,16 @@ public class IdentityEntityForm {
   @SerializedName(SERIALIZED_NAME_TAX_ID)
   private String taxId;
 
+  public static final String SERIALIZED_NAME_TITLE = "title";
+  @SerializedName(SERIALIZED_NAME_TITLE)
+  private String title;
+
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
 
   public IdentityEntityForm() { 
   }
-
-  public IdentityEntityForm title(String title) {
-    
-    this.title = title;
-    return this;
-  }
-
-   /**
-   * Control person&#39;s corporate title or role (i.e. Chief Executive Officer, CFO, etc.; max 60 characters).
-   * @return title
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Control person's corporate title or role (i.e. Chief Executive Officer, CFO, etc.; max 60 characters).")
-
-  public String getTitle() {
-    return title;
-  }
-
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
 
   public IdentityEntityForm amexMid(String amexMid) {
     
@@ -404,7 +381,7 @@ public class IdentityEntityForm {
    * @return businessAddress
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
 
   public IdentityEntityFormBusinessAddress getBusinessAddress() {
     return businessAddress;
@@ -423,11 +400,11 @@ public class IdentityEntityForm {
   }
 
    /**
-   * Merchant&#39;s full legal business name (If INDIVIDUAL\\_SOLE\\_PROPRIETORSHIP, input first name, Full legal last name and middle initial; max 120 characters)
+   * Merchant&#39;s full legal business name (If **INDIVIDUAL\\_SOLE\\_PROPRIETORSHIP**, input first name, Full legal last name and middle initial; max 120 characters)
    * @return businessName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Merchant's full legal business name (If INDIVIDUAL\\_SOLE\\_PROPRIETORSHIP, input first name, Full legal last name and middle initial; max 120 characters)")
+  @ApiModelProperty(required = true, value = "Merchant's full legal business name (If **INDIVIDUAL\\_SOLE\\_PROPRIETORSHIP**, input first name, Full legal last name and middle initial; max 120 characters)")
 
   public String getBusinessName() {
     return businessName;
@@ -449,8 +426,8 @@ public class IdentityEntityForm {
    * Customer service phone number where the merchant can be reached (max 10 characters).
    * @return businessPhone
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Customer service phone number where the merchant can be reached (max 10 characters).")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Customer service phone number where the merchant can be reached (max 10 characters).")
 
   public String getBusinessPhone() {
     return businessPhone;
@@ -472,8 +449,8 @@ public class IdentityEntityForm {
    * Nine digit Tax Identification Number (TIN), Employer Identification Number (EIN). If the &#x60;business_type&#x60; is **INDIVIDUAL\\_SOLE\\_PROPRIETORSHIP** and they do not have an EIN, use the sole proprietor&#39;s Social Security Number (SSN).
    * @return businessTaxId
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Nine digit Tax Identification Number (TIN), Employer Identification Number (EIN). If the `business_type` is **INDIVIDUAL\\_SOLE\\_PROPRIETORSHIP** and they do not have an EIN, use the sole proprietor's Social Security Number (SSN).")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Nine digit Tax Identification Number (TIN), Employer Identification Number (EIN). If the `business_type` is **INDIVIDUAL\\_SOLE\\_PROPRIETORSHIP** and they do not have an EIN, use the sole proprietor's Social Security Number (SSN).")
 
   public String getBusinessTaxId() {
     return businessTaxId;
@@ -496,7 +473,7 @@ public class IdentityEntityForm {
    * @return businessType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Include the value that applies the best.")
+  @ApiModelProperty(required = true, value = "Include the value that applies the best.")
 
   public BusinessTypeEnum getBusinessType() {
     return businessType;
@@ -538,11 +515,11 @@ public class IdentityEntityForm {
   }
 
    /**
-   * Assigned discover_Mid value.
+   * Assigned Discover Mid value.
    * @return discoverMid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Assigned discover_Mid value.")
+  @ApiModelProperty(value = "Assigned Discover Mid value.")
 
   public String getDiscoverMid() {
     return discoverMid;
@@ -564,8 +541,8 @@ public class IdentityEntityForm {
    * Get dob
    * @return dob
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public IdentityEntityFormDob getDob() {
     return dob;
@@ -584,11 +561,11 @@ public class IdentityEntityForm {
   }
 
    /**
-   * Alternate name of the business. If no other name is used use the same value used in &#x60;business_name&#x60; (max 60 characters)
+   * Alternate name of the business. If no other name is used use the same value used in &#x60;business_name&#x60; (max 60 characters).
    * @return doingBusinessAs
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Alternate name of the business. If no other name is used use the same value used in `business_name` (max 60 characters)")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Alternate name of the business. If no other name is used use the same value used in `business_name` (max 60 characters).")
 
   public String getDoingBusinessAs() {
     return doingBusinessAs;
@@ -610,8 +587,8 @@ public class IdentityEntityForm {
    * Control person&#39;s email address where they can be reached (max 100 characters).
    * @return email
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Control person's email address where they can be reached (max 100 characters).")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Control person's email address where they can be reached (max 100 characters).")
 
   public String getEmail() {
     return email;
@@ -633,8 +610,8 @@ public class IdentityEntityForm {
    * Full legal first name of the merchant&#39;s principal representative (max 20 characters).
    * @return firstName
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Full legal first name of the merchant's principal representative (max 20 characters).")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Full legal first name of the merchant's principal representative (max 20 characters).")
 
   public String getFirstName() {
     return firstName;
@@ -702,8 +679,8 @@ public class IdentityEntityForm {
    * Full legal last name of the merchant&#39;s principal representative (max 20 characters).
    * @return lastName
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Full legal last name of the merchant's principal representative (max 20 characters).")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Full legal last name of the merchant's principal representative (max 20 characters).")
 
   public String getLastName() {
     return lastName;
@@ -795,7 +772,7 @@ public class IdentityEntityForm {
    * @return personalAddress
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
 
   public Address getPersonalAddress() {
     return personalAddress;
@@ -817,8 +794,8 @@ public class IdentityEntityForm {
    * Principal&#39;s phone number (max 10 characters).
    * @return phone
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Principal's phone number (max 10 characters).")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Principal's phone number (max 10 characters).")
 
   public String getPhone() {
     return phone;
@@ -911,8 +888,8 @@ public class IdentityEntityForm {
    * Used to verify &#x60;tax_id&#x60; was provided.
    * @return taxId
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Used to verify `tax_id` was provided.")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Used to verify `tax_id` was provided.")
 
   public String getTaxId() {
     return taxId;
@@ -921,6 +898,29 @@ public class IdentityEntityForm {
 
   public void setTaxId(String taxId) {
     this.taxId = taxId;
+  }
+
+
+  public IdentityEntityForm title(String title) {
+    
+    this.title = title;
+    return this;
+  }
+
+   /**
+   * Control person&#39;s corporate title or role (i.e. Chief Executive Officer, CFO, etc.; max 60 characters).
+   * @return title
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Control person's corporate title or role (i.e. Chief Executive Officer, CFO, etc.; max 60 characters).")
+
+  public String getTitle() {
+    return title;
+  }
+
+
+  public void setTitle(String title) {
+    this.title = title;
   }
 
 
@@ -957,8 +957,7 @@ public class IdentityEntityForm {
       return false;
     }
     IdentityEntityForm identityEntityForm = (IdentityEntityForm) o;
-    return Objects.equals(this.title, identityEntityForm.title) &&
-        Objects.equals(this.amexMid, identityEntityForm.amexMid) &&
+    return Objects.equals(this.amexMid, identityEntityForm.amexMid) &&
         Objects.equals(this.annualCardVolume, identityEntityForm.annualCardVolume) &&
         Objects.equals(this.businessAddress, identityEntityForm.businessAddress) &&
         Objects.equals(this.businessName, identityEntityForm.businessName) &&
@@ -983,6 +982,7 @@ public class IdentityEntityForm {
         Objects.equals(this.shortBusinessName, identityEntityForm.shortBusinessName) &&
         Objects.equals(this.taxAuthority, identityEntityForm.taxAuthority) &&
         Objects.equals(this.taxId, identityEntityForm.taxId) &&
+        Objects.equals(this.title, identityEntityForm.title) &&
         Objects.equals(this.url, identityEntityForm.url);
   }
 
@@ -992,7 +992,7 @@ public class IdentityEntityForm {
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, amexMid, annualCardVolume, businessAddress, businessName, businessPhone, businessTaxId, businessType, defaultStatementDescriptor, discoverMid, dob, doingBusinessAs, email, firstName, hasAcceptedCreditCardsPreviously, incorporationDate, lastName, maxTransactionAmount, mcc, ownershipType, personalAddress, phone, principalPercentageOwnership, shortBusinessName, taxAuthority, taxId, url);
+    return Objects.hash(amexMid, annualCardVolume, businessAddress, businessName, businessPhone, businessTaxId, businessType, defaultStatementDescriptor, discoverMid, dob, doingBusinessAs, email, firstName, hasAcceptedCreditCardsPreviously, incorporationDate, lastName, maxTransactionAmount, mcc, ownershipType, personalAddress, phone, principalPercentageOwnership, shortBusinessName, taxAuthority, taxId, title, url);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1006,7 +1006,6 @@ public class IdentityEntityForm {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IdentityEntityForm {\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    amexMid: ").append(toIndentedString(amexMid)).append("\n");
     sb.append("    annualCardVolume: ").append(toIndentedString(annualCardVolume)).append("\n");
     sb.append("    businessAddress: ").append(toIndentedString(businessAddress)).append("\n");
@@ -1032,6 +1031,7 @@ public class IdentityEntityForm {
     sb.append("    shortBusinessName: ").append(toIndentedString(shortBusinessName)).append("\n");
     sb.append("    taxAuthority: ").append(toIndentedString(taxAuthority)).append("\n");
     sb.append("    taxId: ").append(toIndentedString(taxId)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1055,7 +1055,6 @@ public class IdentityEntityForm {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("title");
     openapiFields.add("amex_mid");
     openapiFields.add("annual_card_volume");
     openapiFields.add("business_address");
@@ -1081,10 +1080,24 @@ public class IdentityEntityForm {
     openapiFields.add("short_business_name");
     openapiFields.add("tax_authority");
     openapiFields.add("tax_id");
+    openapiFields.add("title");
     openapiFields.add("url");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("business_address");
+    openapiRequiredFields.add("business_name");
+    openapiRequiredFields.add("business_phone");
+    openapiRequiredFields.add("business_tax_id");
+    openapiRequiredFields.add("business_type");
+    openapiRequiredFields.add("dob");
+    openapiRequiredFields.add("doing_business_as");
+    openapiRequiredFields.add("email");
+    openapiRequiredFields.add("first_name");
+    openapiRequiredFields.add("last_name");
+    openapiRequiredFields.add("personal_address");
+    openapiRequiredFields.add("phone");
+    openapiRequiredFields.add("tax_id");
   }
 
  /**
@@ -1111,13 +1124,18 @@ public class IdentityEntityForm {
         }
       }
       */
+
       /**
       * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
+      * Commented to ByPass required properties/fields are present in the JSON string
       */
-      if (jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()  && !jsonObj.get("title").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
-      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      /*for (String requiredField : IdentityEntityForm.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }*/
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
@@ -1272,6 +1290,13 @@ public class IdentityEntityForm {
       */
       if (jsonObj.get("tax_id") != null && !jsonObj.get("tax_id").isJsonNull()  && !jsonObj.get("tax_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tax_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tax_id").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()  && !jsonObj.get("title").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
       /**
       * EDITED

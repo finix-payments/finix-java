@@ -120,11 +120,11 @@ public class ListBalanceTransfersQueryParams {
   }
 
    /**
-   * The numbers of items to return
+   * The numbers of items to return.
    * @return limit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The numbers of items to return")
+  @ApiModelProperty(value = "The numbers of items to return.")
 
   public Long getLimit() {
     return limit;
@@ -143,11 +143,11 @@ public class ListBalanceTransfersQueryParams {
   }
 
    /**
-   * The number of items to skip before starting to collect the result set
+   * The number of items to skip before starting to collect the result set.
    * @return offset
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of items to skip before starting to collect the result set")
+  @ApiModelProperty(value = "The number of items to skip before starting to collect the result set.")
 
   public Long getOffset() {
     return offset;
@@ -166,11 +166,11 @@ public class ListBalanceTransfersQueryParams {
   }
 
    /**
-   * The page number to list
+   * The page number to list.
    * @return pageNumber
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The page number to list")
+  @ApiModelProperty(value = "The page number to list.")
 
   public Long getPageNumber() {
     return pageNumber;
@@ -189,11 +189,11 @@ public class ListBalanceTransfersQueryParams {
   }
 
    /**
-   * The size of the page
+   * The size of the page.
    * @return pageSize
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The size of the page")
+  @ApiModelProperty(value = "The size of the page.")
 
   public Long getPageSize() {
     return pageSize;
@@ -212,11 +212,11 @@ public class ListBalanceTransfersQueryParams {
   }
 
    /**
-   * Filter where created_at is after the given date.
+   * Filter where &#x60;created_at&#x60; is after the given date.
    * @return createdAtGte
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter where created_at is after the given date.")
+  @ApiModelProperty(value = "Filter where `created_at` is after the given date.")
 
   public String getCreatedAtGte() {
     return createdAtGte;
@@ -235,11 +235,11 @@ public class ListBalanceTransfersQueryParams {
   }
 
    /**
-   * Filter where created_at is before the given date.
+   * Filter where &#x60;created_at&#x60; is before the given date.
    * @return createdAtLte
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter where created_at is before the given date.")
+  @ApiModelProperty(value = "Filter where `created_at` is before the given date.")
 
   public String getCreatedAtLte() {
     return createdAtLte;
@@ -258,11 +258,11 @@ public class ListBalanceTransfersQueryParams {
   }
 
    /**
-   * Filter where updated_at is after the given date
+   * Filter where &#x60;updated_at&#x60; is after the given date.
    * @return updatedAtGte
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter where updated_at is after the given date")
+  @ApiModelProperty(value = "Filter where `updated_at` is after the given date.")
 
   public String getUpdatedAtGte() {
     return updatedAtGte;
@@ -281,11 +281,11 @@ public class ListBalanceTransfersQueryParams {
   }
 
    /**
-   * Filter where updated_at is before the given date
+   * Filter where &#x60;updated_at&#x60; is before the given date.
    * @return updatedAtLte
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter where updated_at is before the given date")
+  @ApiModelProperty(value = "Filter where `updated_at` is before the given date.")
 
   public String getUpdatedAtLte() {
     return updatedAtLte;
@@ -304,11 +304,11 @@ public class ListBalanceTransfersQueryParams {
   }
 
    /**
-   * Filter by idempotency_id
+   * Filter by &#x60;idempotency_id&#x60;.
    * @return idempotencyId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by idempotency_id")
+  @ApiModelProperty(value = "Filter by `idempotency_id`.")
 
   public String getIdempotencyId() {
     return idempotencyId;
@@ -327,11 +327,11 @@ public class ListBalanceTransfersQueryParams {
   }
 
    /**
-   * Filter by an amount equal to the given value
+   * Filter by an amount equal to the given value.
    * @return amount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by an amount equal to the given value")
+  @ApiModelProperty(value = "Filter by an amount equal to the given value.")
 
   public Long getAmount() {
     return amount;
@@ -350,11 +350,11 @@ public class ListBalanceTransfersQueryParams {
   }
 
    /**
-   * Filter by the &#x60;description&#x60; value 
+   * Filter by the &#x60;Description&#x60; value .
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by the `description` value ")
+  @ApiModelProperty(value = "Filter by the `Description` value .")
 
   public String getDescription() {
     return description;
@@ -373,11 +373,11 @@ public class ListBalanceTransfersQueryParams {
   }
 
    /**
-   * Filter by the &#x60;Payment Instrument&#x60; saved in &#x60;destination&#x60;
+   * Filter by the &#x60;Payment Instrument&#x60; saved in &#x60;Destination&#x60;.
    * @return destination
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by the `Payment Instrument` saved in `destination`")
+  @ApiModelProperty(value = "Filter by the `Payment Instrument` saved in `Destination`.")
 
   public String getDestination() {
     return destination;
@@ -396,11 +396,11 @@ public class ListBalanceTransfersQueryParams {
   }
 
    /**
-   * Filter by the value saved in &#x60;external_reference_id&#x60;
+   * Filter by the value saved in &#x60;external_reference_id&#x60;.
    * @return externalReferenceId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by the value saved in `external_reference_id`")
+  @ApiModelProperty(value = "Filter by the value saved in `external_reference_id`.")
 
   public String getExternalReferenceId() {
     return externalReferenceId;
@@ -419,11 +419,11 @@ public class ListBalanceTransfersQueryParams {
   }
 
    /**
-   * Filter by the value saved in &#x60;reference_id&#x60;
+   * Filter by the value saved in &#x60;reference_id&#x60;.
    * @return referenceId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by the value saved in `reference_id`")
+  @ApiModelProperty(value = "Filter by the value saved in `reference_id`.")
 
   public String getReferenceId() {
     return referenceId;
@@ -442,11 +442,11 @@ public class ListBalanceTransfersQueryParams {
   }
 
    /**
-   * Filter by the &#x60;Payment Instrument&#x60; saved in &#x60;source&#x60;
+   * Filter by the &#x60;Payment Instrument&#x60; saved in &#x60;source&#x60;.
    * @return source
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by the `Payment Instrument` saved in `source`")
+  @ApiModelProperty(value = "Filter by the `Payment Instrument` saved in `source`.")
 
   public String getSource() {
     return source;

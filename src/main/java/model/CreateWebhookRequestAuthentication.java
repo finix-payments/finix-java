@@ -53,8 +53,16 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateWebhookRequestAuthentication {
+  public static final String SERIALIZED_NAME_BASIC = "basic";
+  @SerializedName(SERIALIZED_NAME_BASIC)
+  private CreateWebhookRequestAuthenticationBasic basic;
+
+  public static final String SERIALIZED_NAME_BEARER = "bearer";
+  @SerializedName(SERIALIZED_NAME_BEARER)
+  private CreateWebhookRequestAuthenticationBearer bearer;
+
   /**
-   * The type of authentication the webhook will use: - NONE: No authentication will be used. - BASIC: Basic authentication. - BEARER: Oauth2&#39;s Bearer Token.
+   * The type of authentication the webhook will use: - **NONE**: No authentication will be used. - **BASIC**: Basic authentication. - **BEARER**: Oauth2&#39;s Bearer Token.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -127,39 +135,8 @@ public class CreateWebhookRequestAuthentication {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
 
-  public static final String SERIALIZED_NAME_BASIC = "basic";
-  @SerializedName(SERIALIZED_NAME_BASIC)
-  private CreateWebhookRequestAuthenticationBasic basic;
-
-  public static final String SERIALIZED_NAME_BEARER = "bearer";
-  @SerializedName(SERIALIZED_NAME_BEARER)
-  private CreateWebhookRequestAuthenticationBearer bearer;
-
   public CreateWebhookRequestAuthentication() { 
   }
-
-  public CreateWebhookRequestAuthentication type(TypeEnum type) {
-    
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * The type of authentication the webhook will use: - NONE: No authentication will be used. - BASIC: Basic authentication. - BEARER: Oauth2&#39;s Bearer Token.
-   * @return type
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The type of authentication the webhook will use: - NONE: No authentication will be used. - BASIC: Basic authentication. - BEARER: Oauth2's Bearer Token.")
-
-  public TypeEnum getType() {
-    return type;
-  }
-
-
-  public void setType(TypeEnum type) {
-    this.type = type;
-  }
-
 
   public CreateWebhookRequestAuthentication basic(CreateWebhookRequestAuthenticationBasic basic) {
     
@@ -207,6 +184,29 @@ public class CreateWebhookRequestAuthentication {
   }
 
 
+  public CreateWebhookRequestAuthentication type(TypeEnum type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * The type of authentication the webhook will use: - **NONE**: No authentication will be used. - **BASIC**: Basic authentication. - **BEARER**: Oauth2&#39;s Bearer Token.
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The type of authentication the webhook will use: - **NONE**: No authentication will be used. - **BASIC**: Basic authentication. - **BEARER**: Oauth2's Bearer Token.")
+
+  public TypeEnum getType() {
+    return type;
+  }
+
+
+  public void setType(TypeEnum type) {
+    this.type = type;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -217,23 +217,23 @@ public class CreateWebhookRequestAuthentication {
       return false;
     }
     CreateWebhookRequestAuthentication createWebhookRequestAuthentication = (CreateWebhookRequestAuthentication) o;
-    return Objects.equals(this.type, createWebhookRequestAuthentication.type) &&
-        Objects.equals(this.basic, createWebhookRequestAuthentication.basic) &&
-        Objects.equals(this.bearer, createWebhookRequestAuthentication.bearer);
+    return Objects.equals(this.basic, createWebhookRequestAuthentication.basic) &&
+        Objects.equals(this.bearer, createWebhookRequestAuthentication.bearer) &&
+        Objects.equals(this.type, createWebhookRequestAuthentication.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, basic, bearer);
+    return Objects.hash(basic, bearer, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateWebhookRequestAuthentication {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    basic: ").append(toIndentedString(basic)).append("\n");
     sb.append("    bearer: ").append(toIndentedString(bearer)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -256,9 +256,9 @@ public class CreateWebhookRequestAuthentication {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("type");
     openapiFields.add("basic");
     openapiFields.add("bearer");
+    openapiFields.add("type");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -290,13 +290,6 @@ public class CreateWebhookRequestAuthentication {
       */
       /**
       * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()  && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      /**
-      * EDITED
       * ADDED  statement to for inconsistent null behaviour
       */
       // validate the optional field `basic`
@@ -313,6 +306,13 @@ public class CreateWebhookRequestAuthentication {
        //CreateWebhookRequestAuthenticationBearer.validateJsonObject(jsonObj.getAsJsonObject("bearer"));
      // }
 
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()  && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
   }
 
 

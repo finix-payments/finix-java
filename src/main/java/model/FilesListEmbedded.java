@@ -48,9 +48,9 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * The number of items to skip before starting to collect the result set.
+ * List of &#x60;File&#x60; objects.
  */
-@ApiModel(description = "The number of items to skip before starting to collect the result set.")
+@ApiModel(description = "List of `File` objects.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FilesListEmbedded {
@@ -76,11 +76,11 @@ public class FilesListEmbedded {
   }
 
    /**
-   * Get files
+   * &#x60;File&#x60; objects.
    * @return files
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "`File` objects.")
 
   public List<ModelFile> getFiles() {
     return files;

@@ -165,11 +165,11 @@ public class ConfigurationDetails {
   }
 
    /**
-   * Sets whether or not the device will be used to capture transactions. This field must be set to true (defaults to false).
+   * Sets whether the device will be used to capture &#x60;Authorizations&#x60;. The device is required to be connected if &#x60;bypass_device_on_capture&#x60; is set to false. (defaults to true).
    * @return bypassDeviceOnCapture
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Sets whether or not the device will be used to capture transactions. This field must be set to true (defaults to false).")
+  @ApiModelProperty(value = "Sets whether the device will be used to capture `Authorizations`. The device is required to be connected if `bypass_device_on_capture` is set to false. (defaults to true).")
 
   public Boolean getBypassDeviceOnCapture() {
     return bypassDeviceOnCapture;

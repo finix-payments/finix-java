@@ -163,7 +163,7 @@ public class InstrumentUpdatesApi {
 
             /**
             * Create Instrument Updates
-            * To update the card details of your customers, create an &#x60;instrument_updates&#x60; resource. Include the &#x60;Payment Instrument&#x60; IDs you want to update in a CSV. For more info, the following guide on using our [Account Updater](/docs/guides/payments/account-updater/).
+            * To update the card details of your customers, create an &#x60;instrument_updates&#x60; resource. Include the &#x60;Payment Instrument&#x60; IDs you want to update in a CSV.
                 * @param createInstrumentUpdateRequest  (optional)
                 * @return InstrumentUpdate
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -187,7 +187,7 @@ public class InstrumentUpdatesApi {
 
     /**
         * Create Instrument Updates
-        * To update the card details of your customers, create an &#x60;instrument_updates&#x60; resource. Include the &#x60;Payment Instrument&#x60; IDs you want to update in a CSV. For more info, the following guide on using our [Account Updater](/docs/guides/payments/account-updater/).
+        * To update the card details of your customers, create an &#x60;instrument_updates&#x60; resource. Include the &#x60;Payment Instrument&#x60; IDs you want to update in a CSV.
             * @param createInstrumentUpdateRequest  (optional)
         * @return ApiResponse&lt;InstrumentUpdate&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -209,7 +209,7 @@ public class InstrumentUpdatesApi {
 
     /**
         * Create Instrument Updates (asynchronously)
-        * To update the card details of your customers, create an &#x60;instrument_updates&#x60; resource. Include the &#x60;Payment Instrument&#x60; IDs you want to update in a CSV. For more info, the following guide on using our [Account Updater](/docs/guides/payments/account-updater/).
+        * To update the card details of your customers, create an &#x60;instrument_updates&#x60; resource. Include the &#x60;Payment Instrument&#x60; IDs you want to update in a CSV.
             * @param createInstrumentUpdateRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
@@ -429,7 +429,7 @@ public class InstrumentUpdatesApi {
     }
     /**
     * Build call for getInstrumentUpdate
-        * @param instrumentUpdatesId The Id of the instrument update. (required)
+        * @param instrumentUpdatesId The ID of the &#x60;instrument_update&#x60;. (required)
     * @param _callback Callback for upload/download progress
     * @return Call to execute
     * @throws ApiException If fail to serialize the request body object
@@ -508,7 +508,7 @@ public class InstrumentUpdatesApi {
             /**
             * Fetch an Instrument Update
             * Fetch a specific &#x60;instrument_update&#x60; from an &#x60;instrument_updates&#x60; resource. For more information, see the guide on using our [Account Updater](/guides/payments/account-updater).
-                * @param instrumentUpdatesId The Id of the instrument update. (required)
+                * @param instrumentUpdatesId The ID of the &#x60;instrument_update&#x60;. (required)
                 * @return InstrumentUpdate
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
@@ -532,7 +532,7 @@ public class InstrumentUpdatesApi {
     /**
         * Fetch an Instrument Update
         * Fetch a specific &#x60;instrument_update&#x60; from an &#x60;instrument_updates&#x60; resource. For more information, see the guide on using our [Account Updater](/guides/payments/account-updater).
-            * @param instrumentUpdatesId The Id of the instrument update. (required)
+            * @param instrumentUpdatesId The ID of the &#x60;instrument_update&#x60;. (required)
         * @return ApiResponse&lt;InstrumentUpdate&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
             * @http.response.details
@@ -554,7 +554,7 @@ public class InstrumentUpdatesApi {
     /**
         * Fetch an Instrument Update (asynchronously)
         * Fetch a specific &#x60;instrument_update&#x60; from an &#x60;instrument_updates&#x60; resource. For more information, see the guide on using our [Account Updater](/guides/payments/account-updater).
-            * @param instrumentUpdatesId The Id of the instrument update. (required)
+            * @param instrumentUpdatesId The ID of the &#x60;instrument_update&#x60;. (required)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
         * @throws ApiException If fail to process the API call, e.g. serializing the request body object

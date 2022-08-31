@@ -43,6 +43,7 @@ import model.Verification;
 import model.VerificationsList;
 
 import model.ListMerchantVerificationsQueryParams;
+import model.ListPaymentInstrumentVerificationsQueryParams;
 import model.ListVerificationsQueryParams;
 
 import java.lang.reflect.Type;
@@ -163,8 +164,8 @@ public class VerificationsApi {
     }
 
             /**
-            * Perform a Verification
-            * Create a &#x60;verification&#x60; to verify an &#x60;Identity&#x60; or &#x60;Payment Instrument&#x60;.  Verifications can also be created directly on the resources you want to verify: - &#x60;POST /merchants/{id}/verifications&#x60; - &#x60;POST /payment_instruments/{id}/verifications&#x60;
+            * Create a Merchant Verification
+            * Create a &#x60;Verification&#x60; to verify a merchant&#39;s &#x60;Identity&#x60;.  Verifications can also be created directly on the resources you want to verify: - &#x60;POST /merchants/{merchant_id}/verifications&#x60;  Verify &#x60;Payment Instruments&#x60; directly on the resource:  - &#x60;POST /payment_instruments/{payment_instrument_id}/verifications&#x60;
                 * @param createVerificationRequest  (optional)
                 * @return Verification
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -188,8 +189,8 @@ public class VerificationsApi {
 
 
     /**
-        * Perform a Verification
-        * Create a &#x60;verification&#x60; to verify an &#x60;Identity&#x60; or &#x60;Payment Instrument&#x60;.  Verifications can also be created directly on the resources you want to verify: - &#x60;POST /merchants/{id}/verifications&#x60; - &#x60;POST /payment_instruments/{id}/verifications&#x60;
+        * Create a Merchant Verification
+        * Create a &#x60;Verification&#x60; to verify a merchant&#39;s &#x60;Identity&#x60;.  Verifications can also be created directly on the resources you want to verify: - &#x60;POST /merchants/{merchant_id}/verifications&#x60;  Verify &#x60;Payment Instruments&#x60; directly on the resource:  - &#x60;POST /payment_instruments/{payment_instrument_id}/verifications&#x60;
             * @param createVerificationRequest  (optional)
         * @return ApiResponse&lt;Verification&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -211,8 +212,8 @@ public class VerificationsApi {
     }
 
     /**
-        * Perform a Verification (asynchronously)
-        * Create a &#x60;verification&#x60; to verify an &#x60;Identity&#x60; or &#x60;Payment Instrument&#x60;.  Verifications can also be created directly on the resources you want to verify: - &#x60;POST /merchants/{id}/verifications&#x60; - &#x60;POST /payment_instruments/{id}/verifications&#x60;
+        * Create a Merchant Verification (asynchronously)
+        * Create a &#x60;Verification&#x60; to verify a merchant&#39;s &#x60;Identity&#x60;.  Verifications can also be created directly on the resources you want to verify: - &#x60;POST /merchants/{merchant_id}/verifications&#x60;  Verify &#x60;Payment Instruments&#x60; directly on the resource:  - &#x60;POST /payment_instruments/{payment_instrument_id}/verifications&#x60;
             * @param createVerificationRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
@@ -314,7 +315,7 @@ public class VerificationsApi {
     }
 
             /**
-            * Get a Verification
+            * Fetch a Verification
             * Retrieve the details of a &#x60;Verification&#x60;.
                 * @param verificationId ID of &#x60;Verification&#x60; object. (required)
                 * @return Verification
@@ -338,7 +339,7 @@ public class VerificationsApi {
 
 
     /**
-        * Get a Verification
+        * Fetch a Verification
         * Retrieve the details of a &#x60;Verification&#x60;.
             * @param verificationId ID of &#x60;Verification&#x60; object. (required)
         * @return ApiResponse&lt;Verification&gt;
@@ -360,7 +361,7 @@ public class VerificationsApi {
     }
 
     /**
-        * Get a Verification (asynchronously)
+        * Fetch a Verification (asynchronously)
         * Retrieve the details of a &#x60;Verification&#x60;.
             * @param verificationId ID of &#x60;Verification&#x60; object. (required)
         * @param _callback The callback to be executed when the API call finishes
@@ -590,7 +591,7 @@ public class VerificationsApi {
 
     /**
     * List Merchant Verifications
-    * Get a list of all the &#x60;Verifications&#x60; in the &#x60;Merchant&#x60; object.
+    * Get a list of all the &#x60;Verifications&#x60; for a &#x60;Merchant&#x60; resource.
         * @param merchantId ID of &#x60;Merchant&#x60; object. (required)
     * @return APIlistMerchantVerificationsRequest
         * @http.response.details
@@ -623,6 +624,286 @@ public class VerificationsApi {
             throw new ArrayIndexOutOfBoundsException();
             }
             return this.listByMerchantId(merchantId,  queryParams);
+        };
+        FinixList currList = new FinixList(nextFetch, !reachedEnd);
+        if (response.getEmbedded() != null){
+            String fieldName = getFieldName(response.getEmbedded());
+            String fieldGet = "get" + fieldName;
+            try{
+                Method getList = response.getEmbedded().getClass().getMethod(fieldGet);
+                Collection<Object> embeddedList = (Collection<Object>) getList.invoke(response.getEmbedded());
+
+                if (embeddedList.size() < response.getPage().getLimit()){
+                    currList = new FinixList<>(nextFetch, false);
+                }
+                for(Object item : embeddedList)
+                {
+                    currList.add(item);
+                }
+            } catch (Exception e){
+                throw new ApiException(e.getMessage());
+            }
+        }
+        currList.setPage(response.getPage());
+        currList.setLinks(response.getLinks());
+        return currList;
+    }
+    private okhttp3.Call listPaymentInstrumentVerificationsCall(String paymentInstrumentId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+    // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+    // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+    // create path and map variables
+        String localVarPath = "/payment_instruments/{payment_instrument_id}/verifications"
+            .replaceAll("\\{" + "payment_instrument_id" + "\\}", localVarFinixClient.escapeString(paymentInstrumentId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("offset", offset));
+        }
+
+        if (pageNumber != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageNumber", pageNumber));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("pageSize", pageSize));
+        }
+
+        final String[] localVarAccepts = {
+            "application/hal+json"
+        };
+
+        final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        localVarHeaderParams.put("Finix-Version", "2022-02-01");
+        String[] localVarAuthNames = new String[] { "BasicAuth" };
+        return localVarFinixClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+        @SuppressWarnings("rawtypes")
+    private okhttp3.Call listPaymentInstrumentVerificationsValidateBeforeCall(String paymentInstrumentId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback _callback) throws ApiException {
+    
+            // verify the required parameter 'paymentInstrumentId' is set
+        if (paymentInstrumentId == null) {
+            throw new ApiException("Missing the required parameter 'paymentInstrumentId' when calling listPaymentInstrumentVerifications(Async)");
+        }
+    
+
+        okhttp3.Call localVarCall = listPaymentInstrumentVerificationsCall(paymentInstrumentId, limit, offset, pageNumber, pageSize, _callback);
+        return localVarCall;
+
+    }
+
+
+    private ApiResponse<VerificationsList> listPaymentInstrumentVerificationsWithHttpInfo(String paymentInstrumentId, Long limit, Long offset, Long pageNumber, Long pageSize) throws ApiException {
+        okhttp3.Call localVarCall = listPaymentInstrumentVerificationsValidateBeforeCall(paymentInstrumentId, limit, offset, pageNumber, pageSize, null);
+        Type localVarReturnType = new TypeToken<VerificationsList>(){}.getType();
+        return localVarFinixClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listPaymentInstrumentVerificationsAsync(String paymentInstrumentId, Long limit, Long offset, Long pageNumber, Long pageSize, final ApiCallback<VerificationsList> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listPaymentInstrumentVerificationsValidateBeforeCall(paymentInstrumentId, limit, offset, pageNumber, pageSize, _callback);
+        Type localVarReturnType = new TypeToken<VerificationsList>(){}.getType();
+        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistPaymentInstrumentVerificationsRequest {
+        private final String paymentInstrumentId;
+        private Long limit;
+        private Long offset;
+        private Long pageNumber;
+        private Long pageSize;
+
+        private APIlistPaymentInstrumentVerificationsRequest(String paymentInstrumentId) {
+            this.paymentInstrumentId = paymentInstrumentId;
+        }
+
+        /**
+        * Set limit
+        * @param limit The number of entries to return. (optional)
+        * @return APIlistPaymentInstrumentVerificationsRequest
+        */
+        public APIlistPaymentInstrumentVerificationsRequest limit(Long limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+        * Set offset
+        * @param offset The number of items to skip before starting to collect the result set. (optional)
+        * @return APIlistPaymentInstrumentVerificationsRequest
+        */
+        public APIlistPaymentInstrumentVerificationsRequest offset(Long offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+        * Set pageNumber
+        * @param pageNumber The page number to list. (optional)
+        * @return APIlistPaymentInstrumentVerificationsRequest
+        */
+        public APIlistPaymentInstrumentVerificationsRequest pageNumber(Long pageNumber) {
+            this.pageNumber = pageNumber;
+            return this;
+        }
+
+        /**
+        * Set pageSize
+        * @param pageSize The size of the page. (optional)
+        * @return APIlistPaymentInstrumentVerificationsRequest
+        */
+        public APIlistPaymentInstrumentVerificationsRequest pageSize(Long pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+        /**
+        * Build call for listPaymentInstrumentVerifications
+        * @param _callback ApiCallback API callback
+        * @return Call to execute
+        * @throws ApiException If fail to serialize the request body object
+            * @http.response.details
+            <table summary="Response Details" border="1">
+                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                    <tr><td> 200 </td><td> List of Verification objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+            </table>
+        */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listPaymentInstrumentVerificationsCall(paymentInstrumentId, limit, offset, pageNumber, pageSize, _callback);
+        }
+
+        /**
+        * Execute listPaymentInstrumentVerifications request
+            * @return VerificationsList
+        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+            * @http.response.details
+            <table summary="Response Details" border="1">
+                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                    <tr><td> 200 </td><td> List of Verification objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+            </table>
+        */
+        public VerificationsList execute() throws ApiException {
+            ApiResponse<VerificationsList> localVarResp = listPaymentInstrumentVerificationsWithHttpInfo(paymentInstrumentId, limit, offset, pageNumber, pageSize);
+            return localVarResp.getData();
+        }
+
+        /**
+        * Execute listPaymentInstrumentVerifications request with HTTP info returned
+        * @return ApiResponse&lt;VerificationsList&gt;
+        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+            * @http.response.details
+            <table summary="Response Details" border="1">
+                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                    <tr><td> 200 </td><td> List of Verification objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+            </table>
+        */
+        public ApiResponse<VerificationsList> executeWithHttpInfo() throws ApiException {
+            return listPaymentInstrumentVerificationsWithHttpInfo(paymentInstrumentId, limit, offset, pageNumber, pageSize);
+        }
+
+        /**
+        * Execute listPaymentInstrumentVerifications request (asynchronously)
+        * @param _callback The callback to be executed when the API call finishes
+        * @return The request call
+        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+            * @http.response.details
+            <table summary="Response Details" border="1">
+                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                    <tr><td> 200 </td><td> List of Verification objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+            </table>
+        */
+        public okhttp3.Call executeAsync(final ApiCallback<VerificationsList> _callback) throws ApiException {
+            return listPaymentInstrumentVerificationsAsync(paymentInstrumentId, limit, offset, pageNumber, pageSize, _callback);
+        }
+    }
+
+    /**
+    * List Payment Instrument Verifications
+    * List all the &#x60;Verifications&#x60; created for a &#x60;Payment Instrument&#x60;.
+        * @param paymentInstrumentId ID of &#x60;Payment Instrument &#x60;object. (required)
+    * @return APIlistPaymentInstrumentVerificationsRequest
+        * @http.response.details
+        <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+                <tr><td> 200 </td><td> List of Verification objects </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 404 </td><td> Object does not exist </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+        </table>
+    */
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public FinixList listByPaymentInstrumentId(String paymentInstrumentId,  ListPaymentInstrumentVerificationsQueryParams listPaymentInstrumentVerificationsQueryParams)
+        throws ApiException{
+
+        APIlistPaymentInstrumentVerificationsRequest request = new APIlistPaymentInstrumentVerificationsRequest(paymentInstrumentId);
+        request.limit(listPaymentInstrumentVerificationsQueryParams.getLimit());
+        request.offset(listPaymentInstrumentVerificationsQueryParams.getOffset());
+        request.pageNumber(listPaymentInstrumentVerificationsQueryParams.getPageNumber());
+        request.pageSize(listPaymentInstrumentVerificationsQueryParams.getPageSize());
+        VerificationsList response = request.execute();
+        Boolean hasNextCursor = (response.getPage().getClass().getName() == "model.PageCursor");
+        ListPaymentInstrumentVerificationsQueryParams queryParams = (ListPaymentInstrumentVerificationsQueryParams) getQueryParam(response.getPage(),
+            listPaymentInstrumentVerificationsQueryParams,
+            hasNextCursor);
+        Boolean reachedEnd = reachedEnd(response.getPage(), hasNextCursor);
+        NextFetchFunction nextFetch = (a) -> {
+            queryParams.setLimit(a);
+            if (reachedEnd) {
+            throw new ArrayIndexOutOfBoundsException();
+            }
+            return this.listByPaymentInstrumentId(paymentInstrumentId,  queryParams);
         };
         FinixList currList = new FinixList(nextFetch, !reachedEnd);
         if (response.getEmbedded() != null){
@@ -740,7 +1021,7 @@ public class VerificationsApi {
 
         /**
         * Set limit
-        * @param limit The numbers of items to return (optional)
+        * @param limit The numbers of items to return. (optional)
         * @return APIlistVerificationsRequest
         */
         public APIlistVerificationsRequest limit(Long limit) {

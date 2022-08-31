@@ -53,6 +53,42 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateIdentityRequestAdditionalUnderwritingData {
+  public static final String SERIALIZED_NAME_ANNUAL_ACH_VOLUME = "annual_ach_volume";
+  @SerializedName(SERIALIZED_NAME_ANNUAL_ACH_VOLUME)
+  private Long annualAchVolume;
+
+  public static final String SERIALIZED_NAME_AVERAGE_ACH_TRANSFER_AMOUNT = "average_ach_transfer_amount";
+  @SerializedName(SERIALIZED_NAME_AVERAGE_ACH_TRANSFER_AMOUNT)
+  private Long averageAchTransferAmount;
+
+  public static final String SERIALIZED_NAME_AVERAGE_CARD_TRANSFER_AMOUNT = "average_card_transfer_amount";
+  @SerializedName(SERIALIZED_NAME_AVERAGE_CARD_TRANSFER_AMOUNT)
+  private Long averageCardTransferAmount;
+
+  public static final String SERIALIZED_NAME_BUSINESS_DESCRIPTION = "business_description";
+  @SerializedName(SERIALIZED_NAME_BUSINESS_DESCRIPTION)
+  private String businessDescription;
+
+  public static final String SERIALIZED_NAME_CREDIT_CHECK_ALLOWED = "credit_check_allowed";
+  @SerializedName(SERIALIZED_NAME_CREDIT_CHECK_ALLOWED)
+  private Boolean creditCheckAllowed;
+
+  public static final String SERIALIZED_NAME_CREDIT_CHECK_IP_ADDRESS = "credit_check_ip_address";
+  @SerializedName(SERIALIZED_NAME_CREDIT_CHECK_IP_ADDRESS)
+  private String creditCheckIpAddress;
+
+  public static final String SERIALIZED_NAME_CREDIT_CHECK_TIMESTAMP = "credit_check_timestamp";
+  @SerializedName(SERIALIZED_NAME_CREDIT_CHECK_TIMESTAMP)
+  private String creditCheckTimestamp;
+
+  public static final String SERIALIZED_NAME_CREDIT_CHECK_USER_AGENT = "credit_check_user_agent";
+  @SerializedName(SERIALIZED_NAME_CREDIT_CHECK_USER_AGENT)
+  private String creditCheckUserAgent;
+
+  public static final String SERIALIZED_NAME_CARD_VOLUME_DISTRIBUTION = "card_volume_distribution";
+  @SerializedName(SERIALIZED_NAME_CARD_VOLUME_DISTRIBUTION)
+  private UpdateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution cardVolumeDistribution;
+
   public static final String SERIALIZED_NAME_MERCHANT_AGREEMENT_ACCEPTED = "merchant_agreement_accepted";
   @SerializedName(SERIALIZED_NAME_MERCHANT_AGREEMENT_ACCEPTED)
   private Boolean merchantAgreementAccepted;
@@ -61,21 +97,13 @@ public class UpdateIdentityRequestAdditionalUnderwritingData {
   @SerializedName(SERIALIZED_NAME_MERCHANT_AGREEMENT_IP_ADDRESS)
   private String merchantAgreementIpAddress;
 
-  public static final String SERIALIZED_NAME_VOLUME_DISTRIBUTION_BY_BUSINESS_TYPE = "volume_distribution_by_business_type";
-  @SerializedName(SERIALIZED_NAME_VOLUME_DISTRIBUTION_BY_BUSINESS_TYPE)
-  private UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType volumeDistributionByBusinessType;
+  public static final String SERIALIZED_NAME_MERCHANT_AGREEMENT_TIMESTAMP = "merchant_agreement_timestamp";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_AGREEMENT_TIMESTAMP)
+  private String merchantAgreementTimestamp;
 
-  public static final String SERIALIZED_NAME_AVERAGE_ACH_TRANSFER_AMOUNT = "average_ach_transfer_amount";
-  @SerializedName(SERIALIZED_NAME_AVERAGE_ACH_TRANSFER_AMOUNT)
-  private Long averageAchTransferAmount;
-
-  public static final String SERIALIZED_NAME_ANNUAL_ACH_VOLUME = "annual_ach_volume";
-  @SerializedName(SERIALIZED_NAME_ANNUAL_ACH_VOLUME)
-  private Long annualAchVolume;
-
-  public static final String SERIALIZED_NAME_CREDIT_CHECK_USER_AGENT = "credit_check_user_agent";
-  @SerializedName(SERIALIZED_NAME_CREDIT_CHECK_USER_AGENT)
-  private String creditCheckUserAgent;
+  public static final String SERIALIZED_NAME_MERCHANT_AGREEMENT_USER_AGENT = "merchant_agreement_user_agent";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_AGREEMENT_USER_AGENT)
+  private String merchantAgreementUserAgent;
 
   /**
    * Include the value that best applies to the merchant&#39;s refund policy.
@@ -151,40 +179,219 @@ public class UpdateIdentityRequestAdditionalUnderwritingData {
   @SerializedName(SERIALIZED_NAME_REFUND_POLICY)
   private RefundPolicyEnum refundPolicy;
 
-  public static final String SERIALIZED_NAME_CREDIT_CHECK_TIMESTAMP = "credit_check_timestamp";
-  @SerializedName(SERIALIZED_NAME_CREDIT_CHECK_TIMESTAMP)
-  private String creditCheckTimestamp;
-
-  public static final String SERIALIZED_NAME_CREDIT_CHECK_ALLOWED = "credit_check_allowed";
-  @SerializedName(SERIALIZED_NAME_CREDIT_CHECK_ALLOWED)
-  private Boolean creditCheckAllowed;
-
-  public static final String SERIALIZED_NAME_MERCHANT_AGREEMENT_TIMESTAMP = "merchant_agreement_timestamp";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_AGREEMENT_TIMESTAMP)
-  private String merchantAgreementTimestamp;
-
-  public static final String SERIALIZED_NAME_BUSINESS_DESCRIPTION = "business_description";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_DESCRIPTION)
-  private String businessDescription;
-
-  public static final String SERIALIZED_NAME_AVERAGE_CARD_TRANSFER_AMOUNT = "average_card_transfer_amount";
-  @SerializedName(SERIALIZED_NAME_AVERAGE_CARD_TRANSFER_AMOUNT)
-  private Long averageCardTransferAmount;
-
-  public static final String SERIALIZED_NAME_CREDIT_CHECK_IP_ADDRESS = "credit_check_ip_address";
-  @SerializedName(SERIALIZED_NAME_CREDIT_CHECK_IP_ADDRESS)
-  private String creditCheckIpAddress;
-
-  public static final String SERIALIZED_NAME_MERCHANT_AGREEMENT_USER_AGENT = "merchant_agreement_user_agent";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_AGREEMENT_USER_AGENT)
-  private String merchantAgreementUserAgent;
-
-  public static final String SERIALIZED_NAME_CARD_VOLUME_DISTRIBUTION = "card_volume_distribution";
-  @SerializedName(SERIALIZED_NAME_CARD_VOLUME_DISTRIBUTION)
-  private UpdateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution cardVolumeDistribution;
+  public static final String SERIALIZED_NAME_VOLUME_DISTRIBUTION_BY_BUSINESS_TYPE = "volume_distribution_by_business_type";
+  @SerializedName(SERIALIZED_NAME_VOLUME_DISTRIBUTION_BY_BUSINESS_TYPE)
+  private UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType volumeDistributionByBusinessType;
 
   public UpdateIdentityRequestAdditionalUnderwritingData() { 
   }
+
+  public UpdateIdentityRequestAdditionalUnderwritingData annualAchVolume(Long annualAchVolume) {
+    
+    this.annualAchVolume = annualAchVolume;
+    return this;
+  }
+
+   /**
+   * The approximate annual ACH sales expected to be processed (in cents) by this merchant (max 10 characters).
+   * @return annualAchVolume
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The approximate annual ACH sales expected to be processed (in cents) by this merchant (max 10 characters).")
+
+  public Long getAnnualAchVolume() {
+    return annualAchVolume;
+  }
+
+
+  public void setAnnualAchVolume(Long annualAchVolume) {
+    this.annualAchVolume = annualAchVolume;
+  }
+
+
+  public UpdateIdentityRequestAdditionalUnderwritingData averageAchTransferAmount(Long averageAchTransferAmount) {
+    
+    this.averageAchTransferAmount = averageAchTransferAmount;
+    return this;
+  }
+
+   /**
+   * The approximate average ACH sale amount (in cents) for this merchant.
+   * @return averageAchTransferAmount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The approximate average ACH sale amount (in cents) for this merchant.")
+
+  public Long getAverageAchTransferAmount() {
+    return averageAchTransferAmount;
+  }
+
+
+  public void setAverageAchTransferAmount(Long averageAchTransferAmount) {
+    this.averageAchTransferAmount = averageAchTransferAmount;
+  }
+
+
+  public UpdateIdentityRequestAdditionalUnderwritingData averageCardTransferAmount(Long averageCardTransferAmount) {
+    
+    this.averageCardTransferAmount = averageCardTransferAmount;
+    return this;
+  }
+
+   /**
+   * The average credit card sale amount (in cents) for this merchant.
+   * @return averageCardTransferAmount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The average credit card sale amount (in cents) for this merchant.")
+
+  public Long getAverageCardTransferAmount() {
+    return averageCardTransferAmount;
+  }
+
+
+  public void setAverageCardTransferAmount(Long averageCardTransferAmount) {
+    this.averageCardTransferAmount = averageCardTransferAmount;
+  }
+
+
+  public UpdateIdentityRequestAdditionalUnderwritingData businessDescription(String businessDescription) {
+    
+    this.businessDescription = businessDescription;
+    return this;
+  }
+
+   /**
+   * Description of this merchant&#39;s business (max 200 characters).
+   * @return businessDescription
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of this merchant's business (max 200 characters).")
+
+  public String getBusinessDescription() {
+    return businessDescription;
+  }
+
+
+  public void setBusinessDescription(String businessDescription) {
+    this.businessDescription = businessDescription;
+  }
+
+
+  public UpdateIdentityRequestAdditionalUnderwritingData creditCheckAllowed(Boolean creditCheckAllowed) {
+    
+    this.creditCheckAllowed = creditCheckAllowed;
+    return this;
+  }
+
+   /**
+   * Sets if this merchant has consented and accepted to a credit check.
+   * @return creditCheckAllowed
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Sets if this merchant has consented and accepted to a credit check.")
+
+  public Boolean getCreditCheckAllowed() {
+    return creditCheckAllowed;
+  }
+
+
+  public void setCreditCheckAllowed(Boolean creditCheckAllowed) {
+    this.creditCheckAllowed = creditCheckAllowed;
+  }
+
+
+  public UpdateIdentityRequestAdditionalUnderwritingData creditCheckIpAddress(String creditCheckIpAddress) {
+    
+    this.creditCheckIpAddress = creditCheckIpAddress;
+    return this;
+  }
+
+   /**
+   * The IP address of the merchant when they consented to a credit check (e.g., 42.1.1.113 ).
+   * @return creditCheckIpAddress
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The IP address of the merchant when they consented to a credit check (e.g., 42.1.1.113 ).")
+
+  public String getCreditCheckIpAddress() {
+    return creditCheckIpAddress;
+  }
+
+
+  public void setCreditCheckIpAddress(String creditCheckIpAddress) {
+    this.creditCheckIpAddress = creditCheckIpAddress;
+  }
+
+
+  public UpdateIdentityRequestAdditionalUnderwritingData creditCheckTimestamp(String creditCheckTimestamp) {
+    
+    this.creditCheckTimestamp = creditCheckTimestamp;
+    return this;
+  }
+
+   /**
+   * A timestamp of when this merchant consented to a credit check (e.g., 2021-04-28T16:42:55Z).
+   * @return creditCheckTimestamp
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A timestamp of when this merchant consented to a credit check (e.g., 2021-04-28T16:42:55Z).")
+
+  public String getCreditCheckTimestamp() {
+    return creditCheckTimestamp;
+  }
+
+
+  public void setCreditCheckTimestamp(String creditCheckTimestamp) {
+    this.creditCheckTimestamp = creditCheckTimestamp;
+  }
+
+
+  public UpdateIdentityRequestAdditionalUnderwritingData creditCheckUserAgent(String creditCheckUserAgent) {
+    
+    this.creditCheckUserAgent = creditCheckUserAgent;
+    return this;
+  }
+
+   /**
+   * The details of the browser that was used when this merchant consented to a credit check (e.g., Mozilla 5.0 (Macintosh; Intel Mac OS X 10 _14_6)).
+   * @return creditCheckUserAgent
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The details of the browser that was used when this merchant consented to a credit check (e.g., Mozilla 5.0 (Macintosh; Intel Mac OS X 10 _14_6)).")
+
+  public String getCreditCheckUserAgent() {
+    return creditCheckUserAgent;
+  }
+
+
+  public void setCreditCheckUserAgent(String creditCheckUserAgent) {
+    this.creditCheckUserAgent = creditCheckUserAgent;
+  }
+
+
+  public UpdateIdentityRequestAdditionalUnderwritingData cardVolumeDistribution(UpdateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution cardVolumeDistribution) {
+    
+    this.cardVolumeDistribution = cardVolumeDistribution;
+    return this;
+  }
+
+   /**
+   * Get cardVolumeDistribution
+   * @return cardVolumeDistribution
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public UpdateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution getCardVolumeDistribution() {
+    return cardVolumeDistribution;
+  }
+
+
+  public void setCardVolumeDistribution(UpdateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution cardVolumeDistribution) {
+    this.cardVolumeDistribution = cardVolumeDistribution;
+  }
+
 
   public UpdateIdentityRequestAdditionalUnderwritingData merchantAgreementAccepted(Boolean merchantAgreementAccepted) {
     
@@ -232,167 +439,6 @@ public class UpdateIdentityRequestAdditionalUnderwritingData {
   }
 
 
-  public UpdateIdentityRequestAdditionalUnderwritingData volumeDistributionByBusinessType(UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType volumeDistributionByBusinessType) {
-    
-    this.volumeDistributionByBusinessType = volumeDistributionByBusinessType;
-    return this;
-  }
-
-   /**
-   * Get volumeDistributionByBusinessType
-   * @return volumeDistributionByBusinessType
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType getVolumeDistributionByBusinessType() {
-    return volumeDistributionByBusinessType;
-  }
-
-
-  public void setVolumeDistributionByBusinessType(UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType volumeDistributionByBusinessType) {
-    this.volumeDistributionByBusinessType = volumeDistributionByBusinessType;
-  }
-
-
-  public UpdateIdentityRequestAdditionalUnderwritingData averageAchTransferAmount(Long averageAchTransferAmount) {
-    
-    this.averageAchTransferAmount = averageAchTransferAmount;
-    return this;
-  }
-
-   /**
-   * The approximate average ACH sale amount (in cents) for this merchant.
-   * @return averageAchTransferAmount
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The approximate average ACH sale amount (in cents) for this merchant.")
-
-  public Long getAverageAchTransferAmount() {
-    return averageAchTransferAmount;
-  }
-
-
-  public void setAverageAchTransferAmount(Long averageAchTransferAmount) {
-    this.averageAchTransferAmount = averageAchTransferAmount;
-  }
-
-
-  public UpdateIdentityRequestAdditionalUnderwritingData annualAchVolume(Long annualAchVolume) {
-    
-    this.annualAchVolume = annualAchVolume;
-    return this;
-  }
-
-   /**
-   * The approximate annual ACH sales expected to be processed (in cents) by this merchant (max 10 characters).
-   * @return annualAchVolume
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The approximate annual ACH sales expected to be processed (in cents) by this merchant (max 10 characters).")
-
-  public Long getAnnualAchVolume() {
-    return annualAchVolume;
-  }
-
-
-  public void setAnnualAchVolume(Long annualAchVolume) {
-    this.annualAchVolume = annualAchVolume;
-  }
-
-
-  public UpdateIdentityRequestAdditionalUnderwritingData creditCheckUserAgent(String creditCheckUserAgent) {
-    
-    this.creditCheckUserAgent = creditCheckUserAgent;
-    return this;
-  }
-
-   /**
-   * The details of the browser that was used when this merchant consented to a credit check (e.g., Mozilla 5.0 (Macintosh; Intel Mac OS X 10 _14_6)).
-   * @return creditCheckUserAgent
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The details of the browser that was used when this merchant consented to a credit check (e.g., Mozilla 5.0 (Macintosh; Intel Mac OS X 10 _14_6)).")
-
-  public String getCreditCheckUserAgent() {
-    return creditCheckUserAgent;
-  }
-
-
-  public void setCreditCheckUserAgent(String creditCheckUserAgent) {
-    this.creditCheckUserAgent = creditCheckUserAgent;
-  }
-
-
-  public UpdateIdentityRequestAdditionalUnderwritingData refundPolicy(RefundPolicyEnum refundPolicy) {
-    
-    this.refundPolicy = refundPolicy;
-    return this;
-  }
-
-   /**
-   * Include the value that best applies to the merchant&#39;s refund policy.
-   * @return refundPolicy
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Include the value that best applies to the merchant's refund policy.")
-
-  public RefundPolicyEnum getRefundPolicy() {
-    return refundPolicy;
-  }
-
-
-  public void setRefundPolicy(RefundPolicyEnum refundPolicy) {
-    this.refundPolicy = refundPolicy;
-  }
-
-
-  public UpdateIdentityRequestAdditionalUnderwritingData creditCheckTimestamp(String creditCheckTimestamp) {
-    
-    this.creditCheckTimestamp = creditCheckTimestamp;
-    return this;
-  }
-
-   /**
-   * A timestamp of when this merchant consented to a credit check (e.g., 2021-04-28T16:42:55Z).
-   * @return creditCheckTimestamp
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "A timestamp of when this merchant consented to a credit check (e.g., 2021-04-28T16:42:55Z).")
-
-  public String getCreditCheckTimestamp() {
-    return creditCheckTimestamp;
-  }
-
-
-  public void setCreditCheckTimestamp(String creditCheckTimestamp) {
-    this.creditCheckTimestamp = creditCheckTimestamp;
-  }
-
-
-  public UpdateIdentityRequestAdditionalUnderwritingData creditCheckAllowed(Boolean creditCheckAllowed) {
-    
-    this.creditCheckAllowed = creditCheckAllowed;
-    return this;
-  }
-
-   /**
-   * Sets if this merchant has consented and accepted to a credit check.
-   * @return creditCheckAllowed
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Sets if this merchant has consented and accepted to a credit check.")
-
-  public Boolean getCreditCheckAllowed() {
-    return creditCheckAllowed;
-  }
-
-
-  public void setCreditCheckAllowed(Boolean creditCheckAllowed) {
-    this.creditCheckAllowed = creditCheckAllowed;
-  }
-
-
   public UpdateIdentityRequestAdditionalUnderwritingData merchantAgreementTimestamp(String merchantAgreementTimestamp) {
     
     this.merchantAgreementTimestamp = merchantAgreementTimestamp;
@@ -413,75 +459,6 @@ public class UpdateIdentityRequestAdditionalUnderwritingData {
 
   public void setMerchantAgreementTimestamp(String merchantAgreementTimestamp) {
     this.merchantAgreementTimestamp = merchantAgreementTimestamp;
-  }
-
-
-  public UpdateIdentityRequestAdditionalUnderwritingData businessDescription(String businessDescription) {
-    
-    this.businessDescription = businessDescription;
-    return this;
-  }
-
-   /**
-   * Description of this merchant&#39;s business (max 200 characters).
-   * @return businessDescription
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Description of this merchant's business (max 200 characters).")
-
-  public String getBusinessDescription() {
-    return businessDescription;
-  }
-
-
-  public void setBusinessDescription(String businessDescription) {
-    this.businessDescription = businessDescription;
-  }
-
-
-  public UpdateIdentityRequestAdditionalUnderwritingData averageCardTransferAmount(Long averageCardTransferAmount) {
-    
-    this.averageCardTransferAmount = averageCardTransferAmount;
-    return this;
-  }
-
-   /**
-   * The average credit card sale amount (in cents) for this merchant.
-   * @return averageCardTransferAmount
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The average credit card sale amount (in cents) for this merchant.")
-
-  public Long getAverageCardTransferAmount() {
-    return averageCardTransferAmount;
-  }
-
-
-  public void setAverageCardTransferAmount(Long averageCardTransferAmount) {
-    this.averageCardTransferAmount = averageCardTransferAmount;
-  }
-
-
-  public UpdateIdentityRequestAdditionalUnderwritingData creditCheckIpAddress(String creditCheckIpAddress) {
-    
-    this.creditCheckIpAddress = creditCheckIpAddress;
-    return this;
-  }
-
-   /**
-   * The IP address of the merchant when they consented to a credit check (e.g., 42.1.1.113 ).
-   * @return creditCheckIpAddress
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The IP address of the merchant when they consented to a credit check (e.g., 42.1.1.113 ).")
-
-  public String getCreditCheckIpAddress() {
-    return creditCheckIpAddress;
-  }
-
-
-  public void setCreditCheckIpAddress(String creditCheckIpAddress) {
-    this.creditCheckIpAddress = creditCheckIpAddress;
   }
 
 
@@ -508,26 +485,49 @@ public class UpdateIdentityRequestAdditionalUnderwritingData {
   }
 
 
-  public UpdateIdentityRequestAdditionalUnderwritingData cardVolumeDistribution(UpdateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution cardVolumeDistribution) {
+  public UpdateIdentityRequestAdditionalUnderwritingData refundPolicy(RefundPolicyEnum refundPolicy) {
     
-    this.cardVolumeDistribution = cardVolumeDistribution;
+    this.refundPolicy = refundPolicy;
     return this;
   }
 
    /**
-   * Get cardVolumeDistribution
-   * @return cardVolumeDistribution
+   * Include the value that best applies to the merchant&#39;s refund policy.
+   * @return refundPolicy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Include the value that best applies to the merchant's refund policy.")
+
+  public RefundPolicyEnum getRefundPolicy() {
+    return refundPolicy;
+  }
+
+
+  public void setRefundPolicy(RefundPolicyEnum refundPolicy) {
+    this.refundPolicy = refundPolicy;
+  }
+
+
+  public UpdateIdentityRequestAdditionalUnderwritingData volumeDistributionByBusinessType(UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType volumeDistributionByBusinessType) {
+    
+    this.volumeDistributionByBusinessType = volumeDistributionByBusinessType;
+    return this;
+  }
+
+   /**
+   * Get volumeDistributionByBusinessType
+   * @return volumeDistributionByBusinessType
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public UpdateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution getCardVolumeDistribution() {
-    return cardVolumeDistribution;
+  public UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType getVolumeDistributionByBusinessType() {
+    return volumeDistributionByBusinessType;
   }
 
 
-  public void setCardVolumeDistribution(UpdateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution cardVolumeDistribution) {
-    this.cardVolumeDistribution = cardVolumeDistribution;
+  public void setVolumeDistributionByBusinessType(UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType volumeDistributionByBusinessType) {
+    this.volumeDistributionByBusinessType = volumeDistributionByBusinessType;
   }
 
 
@@ -541,47 +541,47 @@ public class UpdateIdentityRequestAdditionalUnderwritingData {
       return false;
     }
     UpdateIdentityRequestAdditionalUnderwritingData updateIdentityRequestAdditionalUnderwritingData = (UpdateIdentityRequestAdditionalUnderwritingData) o;
-    return Objects.equals(this.merchantAgreementAccepted, updateIdentityRequestAdditionalUnderwritingData.merchantAgreementAccepted) &&
-        Objects.equals(this.merchantAgreementIpAddress, updateIdentityRequestAdditionalUnderwritingData.merchantAgreementIpAddress) &&
-        Objects.equals(this.volumeDistributionByBusinessType, updateIdentityRequestAdditionalUnderwritingData.volumeDistributionByBusinessType) &&
+    return Objects.equals(this.annualAchVolume, updateIdentityRequestAdditionalUnderwritingData.annualAchVolume) &&
         Objects.equals(this.averageAchTransferAmount, updateIdentityRequestAdditionalUnderwritingData.averageAchTransferAmount) &&
-        Objects.equals(this.annualAchVolume, updateIdentityRequestAdditionalUnderwritingData.annualAchVolume) &&
-        Objects.equals(this.creditCheckUserAgent, updateIdentityRequestAdditionalUnderwritingData.creditCheckUserAgent) &&
-        Objects.equals(this.refundPolicy, updateIdentityRequestAdditionalUnderwritingData.refundPolicy) &&
-        Objects.equals(this.creditCheckTimestamp, updateIdentityRequestAdditionalUnderwritingData.creditCheckTimestamp) &&
-        Objects.equals(this.creditCheckAllowed, updateIdentityRequestAdditionalUnderwritingData.creditCheckAllowed) &&
-        Objects.equals(this.merchantAgreementTimestamp, updateIdentityRequestAdditionalUnderwritingData.merchantAgreementTimestamp) &&
-        Objects.equals(this.businessDescription, updateIdentityRequestAdditionalUnderwritingData.businessDescription) &&
         Objects.equals(this.averageCardTransferAmount, updateIdentityRequestAdditionalUnderwritingData.averageCardTransferAmount) &&
+        Objects.equals(this.businessDescription, updateIdentityRequestAdditionalUnderwritingData.businessDescription) &&
+        Objects.equals(this.creditCheckAllowed, updateIdentityRequestAdditionalUnderwritingData.creditCheckAllowed) &&
         Objects.equals(this.creditCheckIpAddress, updateIdentityRequestAdditionalUnderwritingData.creditCheckIpAddress) &&
+        Objects.equals(this.creditCheckTimestamp, updateIdentityRequestAdditionalUnderwritingData.creditCheckTimestamp) &&
+        Objects.equals(this.creditCheckUserAgent, updateIdentityRequestAdditionalUnderwritingData.creditCheckUserAgent) &&
+        Objects.equals(this.cardVolumeDistribution, updateIdentityRequestAdditionalUnderwritingData.cardVolumeDistribution) &&
+        Objects.equals(this.merchantAgreementAccepted, updateIdentityRequestAdditionalUnderwritingData.merchantAgreementAccepted) &&
+        Objects.equals(this.merchantAgreementIpAddress, updateIdentityRequestAdditionalUnderwritingData.merchantAgreementIpAddress) &&
+        Objects.equals(this.merchantAgreementTimestamp, updateIdentityRequestAdditionalUnderwritingData.merchantAgreementTimestamp) &&
         Objects.equals(this.merchantAgreementUserAgent, updateIdentityRequestAdditionalUnderwritingData.merchantAgreementUserAgent) &&
-        Objects.equals(this.cardVolumeDistribution, updateIdentityRequestAdditionalUnderwritingData.cardVolumeDistribution);
+        Objects.equals(this.refundPolicy, updateIdentityRequestAdditionalUnderwritingData.refundPolicy) &&
+        Objects.equals(this.volumeDistributionByBusinessType, updateIdentityRequestAdditionalUnderwritingData.volumeDistributionByBusinessType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantAgreementAccepted, merchantAgreementIpAddress, volumeDistributionByBusinessType, averageAchTransferAmount, annualAchVolume, creditCheckUserAgent, refundPolicy, creditCheckTimestamp, creditCheckAllowed, merchantAgreementTimestamp, businessDescription, averageCardTransferAmount, creditCheckIpAddress, merchantAgreementUserAgent, cardVolumeDistribution);
+    return Objects.hash(annualAchVolume, averageAchTransferAmount, averageCardTransferAmount, businessDescription, creditCheckAllowed, creditCheckIpAddress, creditCheckTimestamp, creditCheckUserAgent, cardVolumeDistribution, merchantAgreementAccepted, merchantAgreementIpAddress, merchantAgreementTimestamp, merchantAgreementUserAgent, refundPolicy, volumeDistributionByBusinessType);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateIdentityRequestAdditionalUnderwritingData {\n");
+    sb.append("    annualAchVolume: ").append(toIndentedString(annualAchVolume)).append("\n");
+    sb.append("    averageAchTransferAmount: ").append(toIndentedString(averageAchTransferAmount)).append("\n");
+    sb.append("    averageCardTransferAmount: ").append(toIndentedString(averageCardTransferAmount)).append("\n");
+    sb.append("    businessDescription: ").append(toIndentedString(businessDescription)).append("\n");
+    sb.append("    creditCheckAllowed: ").append(toIndentedString(creditCheckAllowed)).append("\n");
+    sb.append("    creditCheckIpAddress: ").append(toIndentedString(creditCheckIpAddress)).append("\n");
+    sb.append("    creditCheckTimestamp: ").append(toIndentedString(creditCheckTimestamp)).append("\n");
+    sb.append("    creditCheckUserAgent: ").append(toIndentedString(creditCheckUserAgent)).append("\n");
+    sb.append("    cardVolumeDistribution: ").append(toIndentedString(cardVolumeDistribution)).append("\n");
     sb.append("    merchantAgreementAccepted: ").append(toIndentedString(merchantAgreementAccepted)).append("\n");
     sb.append("    merchantAgreementIpAddress: ").append(toIndentedString(merchantAgreementIpAddress)).append("\n");
-    sb.append("    volumeDistributionByBusinessType: ").append(toIndentedString(volumeDistributionByBusinessType)).append("\n");
-    sb.append("    averageAchTransferAmount: ").append(toIndentedString(averageAchTransferAmount)).append("\n");
-    sb.append("    annualAchVolume: ").append(toIndentedString(annualAchVolume)).append("\n");
-    sb.append("    creditCheckUserAgent: ").append(toIndentedString(creditCheckUserAgent)).append("\n");
-    sb.append("    refundPolicy: ").append(toIndentedString(refundPolicy)).append("\n");
-    sb.append("    creditCheckTimestamp: ").append(toIndentedString(creditCheckTimestamp)).append("\n");
-    sb.append("    creditCheckAllowed: ").append(toIndentedString(creditCheckAllowed)).append("\n");
     sb.append("    merchantAgreementTimestamp: ").append(toIndentedString(merchantAgreementTimestamp)).append("\n");
-    sb.append("    businessDescription: ").append(toIndentedString(businessDescription)).append("\n");
-    sb.append("    averageCardTransferAmount: ").append(toIndentedString(averageCardTransferAmount)).append("\n");
-    sb.append("    creditCheckIpAddress: ").append(toIndentedString(creditCheckIpAddress)).append("\n");
     sb.append("    merchantAgreementUserAgent: ").append(toIndentedString(merchantAgreementUserAgent)).append("\n");
-    sb.append("    cardVolumeDistribution: ").append(toIndentedString(cardVolumeDistribution)).append("\n");
+    sb.append("    refundPolicy: ").append(toIndentedString(refundPolicy)).append("\n");
+    sb.append("    volumeDistributionByBusinessType: ").append(toIndentedString(volumeDistributionByBusinessType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -604,21 +604,21 @@ public class UpdateIdentityRequestAdditionalUnderwritingData {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("annual_ach_volume");
+    openapiFields.add("average_ach_transfer_amount");
+    openapiFields.add("average_card_transfer_amount");
+    openapiFields.add("business_description");
+    openapiFields.add("credit_check_allowed");
+    openapiFields.add("credit_check_ip_address");
+    openapiFields.add("credit_check_timestamp");
+    openapiFields.add("credit_check_user_agent");
+    openapiFields.add("card_volume_distribution");
     openapiFields.add("merchant_agreement_accepted");
     openapiFields.add("merchant_agreement_ip_address");
-    openapiFields.add("volume_distribution_by_business_type");
-    openapiFields.add("average_ach_transfer_amount");
-    openapiFields.add("annual_ach_volume");
-    openapiFields.add("credit_check_user_agent");
-    openapiFields.add("refund_policy");
-    openapiFields.add("credit_check_timestamp");
-    openapiFields.add("credit_check_allowed");
     openapiFields.add("merchant_agreement_timestamp");
-    openapiFields.add("business_description");
-    openapiFields.add("average_card_transfer_amount");
-    openapiFields.add("credit_check_ip_address");
     openapiFields.add("merchant_agreement_user_agent");
-    openapiFields.add("card_volume_distribution");
+    openapiFields.add("refund_policy");
+    openapiFields.add("volume_distribution_by_business_type");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -652,50 +652,6 @@ public class UpdateIdentityRequestAdditionalUnderwritingData {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("merchant_agreement_ip_address") != null && !jsonObj.get("merchant_agreement_ip_address").isJsonNull()  && !jsonObj.get("merchant_agreement_ip_address").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `merchant_agreement_ip_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_agreement_ip_address").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED  statement to for inconsistent null behaviour
-      */
-      // validate the optional field `volume_distribution_by_business_type`
-     // if (jsonObj.getAsJsonObject("volume_distribution_by_business_type") != null) {
-       //UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType.validateJsonObject(jsonObj.getAsJsonObject("volume_distribution_by_business_type"));
-     // }
-
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("credit_check_user_agent") != null && !jsonObj.get("credit_check_user_agent").isJsonNull()  && !jsonObj.get("credit_check_user_agent").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `credit_check_user_agent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("credit_check_user_agent").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("refund_policy") != null && !jsonObj.get("refund_policy").isJsonNull()  && !jsonObj.get("refund_policy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `refund_policy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refund_policy").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("credit_check_timestamp") != null && !jsonObj.get("credit_check_timestamp").isJsonNull()  && !jsonObj.get("credit_check_timestamp").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `credit_check_timestamp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("credit_check_timestamp").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("merchant_agreement_timestamp") != null && !jsonObj.get("merchant_agreement_timestamp").isJsonNull()  && !jsonObj.get("merchant_agreement_timestamp").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `merchant_agreement_timestamp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_agreement_timestamp").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
       if (jsonObj.get("business_description") != null && !jsonObj.get("business_description").isJsonNull()  && !jsonObj.get("business_description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `business_description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("business_description").toString()));
       }
@@ -710,8 +666,15 @@ public class UpdateIdentityRequestAdditionalUnderwritingData {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("merchant_agreement_user_agent") != null && !jsonObj.get("merchant_agreement_user_agent").isJsonNull()  && !jsonObj.get("merchant_agreement_user_agent").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `merchant_agreement_user_agent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_agreement_user_agent").toString()));
+      if (jsonObj.get("credit_check_timestamp") != null && !jsonObj.get("credit_check_timestamp").isJsonNull()  && !jsonObj.get("credit_check_timestamp").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `credit_check_timestamp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("credit_check_timestamp").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("credit_check_user_agent") != null && !jsonObj.get("credit_check_user_agent").isJsonNull()  && !jsonObj.get("credit_check_user_agent").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `credit_check_user_agent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("credit_check_user_agent").toString()));
       }
       /**
       * EDITED
@@ -720,6 +683,43 @@ public class UpdateIdentityRequestAdditionalUnderwritingData {
       // validate the optional field `card_volume_distribution`
      // if (jsonObj.getAsJsonObject("card_volume_distribution") != null) {
        //UpdateIdentityRequestAdditionalUnderwritingDataCardVolumeDistribution.validateJsonObject(jsonObj.getAsJsonObject("card_volume_distribution"));
+     // }
+
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("merchant_agreement_ip_address") != null && !jsonObj.get("merchant_agreement_ip_address").isJsonNull()  && !jsonObj.get("merchant_agreement_ip_address").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_agreement_ip_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_agreement_ip_address").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("merchant_agreement_timestamp") != null && !jsonObj.get("merchant_agreement_timestamp").isJsonNull()  && !jsonObj.get("merchant_agreement_timestamp").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_agreement_timestamp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_agreement_timestamp").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("merchant_agreement_user_agent") != null && !jsonObj.get("merchant_agreement_user_agent").isJsonNull()  && !jsonObj.get("merchant_agreement_user_agent").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_agreement_user_agent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_agreement_user_agent").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("refund_policy") != null && !jsonObj.get("refund_policy").isJsonNull()  && !jsonObj.get("refund_policy").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `refund_policy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refund_policy").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED  statement to for inconsistent null behaviour
+      */
+      // validate the optional field `volume_distribution_by_business_type`
+     // if (jsonObj.getAsJsonObject("volume_distribution_by_business_type") != null) {
+       //UpdateIdentityRequestAdditionalUnderwritingDataVolumeDistributionByBusinessType.validateJsonObject(jsonObj.getAsJsonObject("volume_distribution_by_business_type"));
      // }
 
   }

@@ -55,24 +55,16 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateDevice {
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
+  public static final String SERIALIZED_NAME_CONFIGURATION = "configuration";
+  @SerializedName(SERIALIZED_NAME_CONFIGURATION)
+  private ConfigurationDetails _configuration;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
-  public static final String SERIALIZED_NAME_CONFIGURATION = "configuration";
-  @SerializedName(SERIALIZED_NAME_CONFIGURATION)
-  private ConfigurationDetails _configuration;
-
-  public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
-  private String merchantId;
-
   /**
-   * Include one of the following values to let Finix know the type of device that&#39;s being used.
+   * The model type of the device.
    */
   @JsonAdapter(ModelEnum.Adapter.class)
   public enum ModelEnum {
@@ -95,6 +87,8 @@ public class CreateDevice {
     ANDROID("ANDROID"),
     
     LANE_3000("LANE_3000"),
+    
+    LINK_2500("LINK_2500"),
     
     UNKNOWN_DEFAULT("unknown_default_open_api");
 
@@ -163,8 +157,104 @@ public class CreateDevice {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
+
   public CreateDevice() { 
   }
+
+  public CreateDevice _configuration(ConfigurationDetails _configuration) {
+    
+    this._configuration = _configuration;
+    return this;
+  }
+
+   /**
+   * Get _configuration
+   * @return _configuration
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ConfigurationDetails getConfiguration() {
+    return _configuration;
+  }
+
+
+  public void setConfiguration(ConfigurationDetails _configuration) {
+    this._configuration = _configuration;
+  }
+
+
+  public CreateDevice description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Additional information about device (e.g. self serving terminal).
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Additional information about device (e.g. self serving terminal).")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
+  public CreateDevice model(ModelEnum model) {
+    
+    this.model = model;
+    return this;
+  }
+
+   /**
+   * The model type of the device.
+   * @return model
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "The model type of the device.")
+
+  public ModelEnum getModel() {
+    return model;
+  }
+
+
+  public void setModel(ModelEnum model) {
+    this.model = model;
+  }
+
+
+  public CreateDevice name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Name of the &#x60;Device&#x60;.
+   * @return name
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Name of the `Device`.")
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
 
   public CreateDevice tags(Map<String, String> tags) {
     
@@ -197,121 +287,6 @@ public class CreateDevice {
   }
 
 
-  public CreateDevice description(String description) {
-    
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * Additional information about device (e.g. self serving terminal).
-   * @return description
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Additional information about device (e.g. self serving terminal).")
-
-  public String getDescription() {
-    return description;
-  }
-
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-
-  public CreateDevice _configuration(ConfigurationDetails _configuration) {
-    
-    this._configuration = _configuration;
-    return this;
-  }
-
-   /**
-   * Get _configuration
-   * @return _configuration
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public ConfigurationDetails getConfiguration() {
-    return _configuration;
-  }
-
-
-  public void setConfiguration(ConfigurationDetails _configuration) {
-    this._configuration = _configuration;
-  }
-
-
-  public CreateDevice merchantId(String merchantId) {
-    
-    this.merchantId = merchantId;
-    return this;
-  }
-
-   /**
-   * ID of the &#x60;Merchant&#x60; the &#x60;Device&#x60; is associated with.
-   * @return merchantId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the `Merchant` the `Device` is associated with.")
-
-  public String getMerchantId() {
-    return merchantId;
-  }
-
-
-  public void setMerchantId(String merchantId) {
-    this.merchantId = merchantId;
-  }
-
-
-  public CreateDevice model(ModelEnum model) {
-    
-    this.model = model;
-    return this;
-  }
-
-   /**
-   * Include one of the following values to let Finix know the type of device that&#39;s being used.
-   * @return model
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Include one of the following values to let Finix know the type of device that's being used.")
-
-  public ModelEnum getModel() {
-    return model;
-  }
-
-
-  public void setModel(ModelEnum model) {
-    this.model = model;
-  }
-
-
-  public CreateDevice name(String name) {
-    
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Name of the &#x60;Device&#x60;.
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the `Device`.")
-
-  public String getName() {
-    return name;
-  }
-
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -322,29 +297,27 @@ public class CreateDevice {
       return false;
     }
     CreateDevice createDevice = (CreateDevice) o;
-    return Objects.equals(this.tags, createDevice.tags) &&
+    return Objects.equals(this._configuration, createDevice._configuration) &&
         Objects.equals(this.description, createDevice.description) &&
-        Objects.equals(this._configuration, createDevice._configuration) &&
-        Objects.equals(this.merchantId, createDevice.merchantId) &&
         Objects.equals(this.model, createDevice.model) &&
-        Objects.equals(this.name, createDevice.name);
+        Objects.equals(this.name, createDevice.name) &&
+        Objects.equals(this.tags, createDevice.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, description, _configuration, merchantId, model, name);
+    return Objects.hash(_configuration, description, model, name, tags);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDevice {\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
-    sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    model: ").append(toIndentedString(model)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -367,15 +340,16 @@ public class CreateDevice {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("tags");
-    openapiFields.add("description");
     openapiFields.add("configuration");
-    openapiFields.add("merchant_id");
+    openapiFields.add("description");
     openapiFields.add("model");
     openapiFields.add("name");
+    openapiFields.add("tags");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("model");
+    openapiRequiredFields.add("name");
   }
 
  /**
@@ -402,13 +376,18 @@ public class CreateDevice {
         }
       }
       */
+
       /**
       * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
+      * Commented to ByPass required properties/fields are present in the JSON string
       */
-      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()  && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      /*for (String requiredField : CreateDevice.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }*/
       /**
       * EDITED
       * ADDED  statement to for inconsistent null behaviour
@@ -422,8 +401,8 @@ public class CreateDevice {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonNull()  && !jsonObj.get("merchant_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
+      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()  && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       /**
       * EDITED

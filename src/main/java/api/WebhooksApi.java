@@ -314,7 +314,7 @@ public class WebhooksApi {
     }
 
             /**
-            * Get a Webhook
+            * Fetch a Webhook
             * Retrieve the details of a &#x60;Webhook&#x60;.
                 * @param webhookId ID of &#x60;Webhook&#x60; object. (required)
                 * @return Webhook
@@ -338,7 +338,7 @@ public class WebhooksApi {
 
 
     /**
-        * Get a Webhook
+        * Fetch a Webhook
         * Retrieve the details of a &#x60;Webhook&#x60;.
             * @param webhookId ID of &#x60;Webhook&#x60; object. (required)
         * @return ApiResponse&lt;Webhook&gt;
@@ -360,7 +360,7 @@ public class WebhooksApi {
     }
 
     /**
-        * Get a Webhook (asynchronously)
+        * Fetch a Webhook (asynchronously)
         * Retrieve the details of a &#x60;Webhook&#x60;.
             * @param webhookId ID of &#x60;Webhook&#x60; object. (required)
         * @param _callback The callback to be executed when the API call finishes
@@ -476,7 +476,7 @@ public class WebhooksApi {
 
         /**
         * Set limit
-        * @param limit The numbers of items to return (optional)
+        * @param limit The numbers of items to return. (optional)
         * @return APIlistWebhooksRequest
         */
         public APIlistWebhooksRequest limit(Long limit) {

@@ -49,8 +49,9 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * UsersListEmbedded
+ * List of &#x60;User&#x60; objects.
  */
+@ApiModel(description = "List of `User` objects.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsersListEmbedded {
@@ -76,11 +77,11 @@ public class UsersListEmbedded {
   }
 
    /**
-   * &#x60;User&#x60; object.
+   * &#x60;User&#x60; objects.
    * @return users
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "`User` object.")
+  @ApiModelProperty(value = "`User` objects.")
 
   public Set<User> getUsers() {
     return users;

@@ -122,7 +122,7 @@ public class PaymentInstrumentsApiTest {
         PaymentInstrument response = finixClient.PaymentInstruments.create(createPaymentInstrumentRequest);
         paymentInstrumentId = response.getId();
         assertEquals("APgPDQrLD52TYvqazjHJJchM",response.getApplication(),()->" Should return " + "APgPDQrLD52TYvqazjHJJchM" + " but returns " + response.getApplication());
-        assertEquals(createPaymentInstrumentRequest.getTags().get("card_game"), response.getTags().get("card_game"));
+        assertEquals(createPaymentInstrumentRequest.getTags().get("card_name"), response.getTags().get("card_name"));
         assertEquals(createPaymentInstrumentRequest.getExpirationMonth(), response.getExpirationMonth());
     }
     /**
@@ -171,7 +171,6 @@ public class PaymentInstrumentsApiTest {
         CreateVerificationRequest verificationForm = CreateVerificationRequest.builder()
                .processor("DUMMY_V1")
                .merchant("MUgWbPVvtKbzjKNNGKqdQYV7")
-               .instrument("PI3tfx1Uw3SzHfqwPFGX9o1Y")
                .identity("ID2CGJmjqyYaQAu6qyuvGeWK")
                .tags(localMap)
                .build();
@@ -237,7 +236,7 @@ public class PaymentInstrumentsApiTest {
         String paymentInstrumentId = "PI4gTM3twQ5XyXfM4rTuFvpo";
         PaymentInstrument response = finixClient.PaymentInstruments.get(paymentInstrumentId);
         assertEquals(paymentInstrumentId, response.getId());
-        assertEquals(response.getType(), PaymentInstrument.TypeEnum.UNKNOWN_DEFAULT,()->" Should return UNKOWN_DEFAULT but returns " + response.getType());
+        assertEquals(response.getType(), PaymentInstrument.TypeEnum.APPLE_PAY,()->" Should return UNKOWN_DEFAULT but returns " + response.getType());
     }
 
 

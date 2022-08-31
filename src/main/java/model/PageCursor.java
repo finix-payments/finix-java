@@ -46,9 +46,9 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * 
+ * Details the page that&#39;s returned.
  */
-@ApiModel(description = "")
+@ApiModel(description = "Details the page that's returned.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PageCursor {

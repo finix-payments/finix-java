@@ -45,8 +45,9 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * CreateProcessorRequestConfig
+ * Configure the details of how a &#x60;Processor&#x60; handles transactions.
  */
+@ApiModel(description = "Configure the details of how a `Processor` handles transactions.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateProcessorRequestConfig {
@@ -67,8 +68,8 @@ public class CreateProcessorRequestConfig {
    * Details if a &#x60;Processor&#x60; can debit bank accounts.
    * @return canDebitBankAccount
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Details if a `Processor` can debit bank accounts.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Details if a `Processor` can debit bank accounts.")
 
   public Boolean getCanDebitBankAccount() {
     return canDebitBankAccount;
@@ -129,7 +130,6 @@ public class CreateProcessorRequestConfig {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("canDebitBankAccount");
   }
 
  /**
@@ -156,18 +156,6 @@ public class CreateProcessorRequestConfig {
         }
       }
       */
-
-      /**
-      * EDITED
-      * Commented to ByPass required properties/fields are present in the JSON string
-      */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : CreateProcessorRequestConfig.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
   }
 
 

@@ -43,7 +43,6 @@ import model.RemoveSettlementTransfer;
 import model.Settlement;
 import model.SettlementsList;
 import model.TransfersList;
-import model.UpdateSettlementRequest;
 
 import model.ListSettlementFundingTransfersQueryParams;
 import model.ListSettlementTransfersQueryParams;
@@ -95,7 +94,7 @@ public class SettlementsApi {
 
     /**
     * Build call for createIdentitySettlement
-        * @param identityId ID of identity to fetch (required)
+        * @param identityId ID of the &#x60;Identity&#x60; for the merchant you want to settle.  (required)
         * @param createSettlementRequest  (optional)
     * @param _callback Callback for upload/download progress
     * @return Call to execute
@@ -175,9 +174,9 @@ public class SettlementsApi {
     }
 
             /**
-            * Create a Batch Settlement
-            * Create a batch &#x60;Settlement&#x60;. A &#x60;Settlement&#x60; is a collection of **SUCCEEDED** Transfers that are ready to get paid out to a &#x60;Merchant&#x60;.
-                * @param identityId ID of identity to fetch (required)
+            * Close Current Active Settlement
+            * Close the currently accruing &#x60;settlement&#x60;.   Finix, by default, creates accruing &#x60;settlements&#x60; then closes them based on your payout configurations. Use this endpoint to manually close the currently accruing settlement.  The closed &#x60;Settlement&#x60; will not accrue any further transactions and gets immediately submitted for approval. - Any refunded &#x60;Transfers&#x60; get included in &#x60;Settlements&#x60; as a deduction. - **PENDING** &#x60;Transfers&#x60; don&#39;t get included in &#x60;Settlements&#x60;.  - The &#x60;total_amount&#x60; minus the &#x60;total_fee&#x60; equals the &#x60;net_amount&#x60;. The &#x60;net_amount&#x60; is the amount in cents that gets deposited into the merchant&#39;s bank account.  Related Guides: [Accruing Settlements](/guides/payouts/~accruing-settlements/#closing-an-accruing-settlement)
+                * @param identityId ID of the &#x60;Identity&#x60; for the merchant you want to settle.  (required)
                 * @param createSettlementRequest  (optional)
                 * @return Settlement
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -202,9 +201,9 @@ public class SettlementsApi {
 
 
     /**
-        * Create a Batch Settlement
-        * Create a batch &#x60;Settlement&#x60;. A &#x60;Settlement&#x60; is a collection of **SUCCEEDED** Transfers that are ready to get paid out to a &#x60;Merchant&#x60;.
-            * @param identityId ID of identity to fetch (required)
+        * Close Current Active Settlement
+        * Close the currently accruing &#x60;settlement&#x60;.   Finix, by default, creates accruing &#x60;settlements&#x60; then closes them based on your payout configurations. Use this endpoint to manually close the currently accruing settlement.  The closed &#x60;Settlement&#x60; will not accrue any further transactions and gets immediately submitted for approval. - Any refunded &#x60;Transfers&#x60; get included in &#x60;Settlements&#x60; as a deduction. - **PENDING** &#x60;Transfers&#x60; don&#39;t get included in &#x60;Settlements&#x60;.  - The &#x60;total_amount&#x60; minus the &#x60;total_fee&#x60; equals the &#x60;net_amount&#x60;. The &#x60;net_amount&#x60; is the amount in cents that gets deposited into the merchant&#39;s bank account.  Related Guides: [Accruing Settlements](/guides/payouts/~accruing-settlements/#closing-an-accruing-settlement)
+            * @param identityId ID of the &#x60;Identity&#x60; for the merchant you want to settle.  (required)
             * @param createSettlementRequest  (optional)
         * @return ApiResponse&lt;Settlement&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -227,9 +226,9 @@ public class SettlementsApi {
     }
 
     /**
-        * Create a Batch Settlement (asynchronously)
-        * Create a batch &#x60;Settlement&#x60;. A &#x60;Settlement&#x60; is a collection of **SUCCEEDED** Transfers that are ready to get paid out to a &#x60;Merchant&#x60;.
-            * @param identityId ID of identity to fetch (required)
+        * Close Current Active Settlement (asynchronously)
+        * Close the currently accruing &#x60;settlement&#x60;.   Finix, by default, creates accruing &#x60;settlements&#x60; then closes them based on your payout configurations. Use this endpoint to manually close the currently accruing settlement.  The closed &#x60;Settlement&#x60; will not accrue any further transactions and gets immediately submitted for approval. - Any refunded &#x60;Transfers&#x60; get included in &#x60;Settlements&#x60; as a deduction. - **PENDING** &#x60;Transfers&#x60; don&#39;t get included in &#x60;Settlements&#x60;.  - The &#x60;total_amount&#x60; minus the &#x60;total_fee&#x60; equals the &#x60;net_amount&#x60;. The &#x60;net_amount&#x60; is the amount in cents that gets deposited into the merchant&#39;s bank account.  Related Guides: [Accruing Settlements](/guides/payouts/~accruing-settlements/#closing-an-accruing-settlement)
+            * @param identityId ID of the &#x60;Identity&#x60; for the merchant you want to settle.  (required)
             * @param createSettlementRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
@@ -332,7 +331,7 @@ public class SettlementsApi {
     }
 
             /**
-            * Get a Settlement
+            * Fetch a Settlement
             * Retreive the details of a &#x60;Settlement&#x60;.
                 * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
                 * @return Settlement
@@ -356,7 +355,7 @@ public class SettlementsApi {
 
 
     /**
-        * Get a Settlement
+        * Fetch a Settlement
         * Retreive the details of a &#x60;Settlement&#x60;.
             * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
         * @return ApiResponse&lt;Settlement&gt;
@@ -378,7 +377,7 @@ public class SettlementsApi {
     }
 
     /**
-        * Get a Settlement (asynchronously)
+        * Fetch a Settlement (asynchronously)
         * Retreive the details of a &#x60;Settlement&#x60;.
             * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
         * @param _callback The callback to be executed when the API call finishes
@@ -502,7 +501,7 @@ public class SettlementsApi {
 
         /**
         * Set limit
-        * @param limit The numbers of items to return (optional)
+        * @param limit The numbers of items to return. (optional)
         * @return APIlistSettlementFundingTransfersRequest
         */
         public APIlistSettlementFundingTransfersRequest limit(Long limit) {
@@ -608,7 +607,7 @@ public class SettlementsApi {
 
     /**
     * List Settlement Funding Transfers
-    * Retrieve the &#x60;Transfers&#x60; in a &#x60;Settlement&#x60; that have &#x60;type&#x60; **CREDIT**.
+    * List the funding &#x60;Transfers&#x60; that were created when a &#x60;Settlement&#x60; was approved that have &#x60;type&#x60; **CREDIT** or **DEBIT**.
         * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
     * @return APIlistSettlementFundingTransfersRequest
         * @http.response.details
@@ -766,7 +765,7 @@ public class SettlementsApi {
 
         /**
         * Set limit
-        * @param limit The numbers of items to return (optional)
+        * @param limit The numbers of items to return. (optional)
         * @return APIlistSettlementTransfersRequest
         */
         public APIlistSettlementTransfersRequest limit(Long limit) {
@@ -872,7 +871,7 @@ public class SettlementsApi {
 
     /**
     * List Settlement Transfers
-    * Retrieve the &#x60;Transfers&#x60; in a &#x60;Settlement&#x60; that have &#x60;type&#x60; **DEBIT** or **REFUND**.
+    * Retrieve a list of every &#x60;Transfer&#x60; in a &#x60;Settlement&#x60; that has &#x60;type&#x60; **DEBIT** or **REFUND**.
         * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
     * @return APIlistSettlementTransfersRequest
         * @http.response.details
@@ -1047,7 +1046,7 @@ public class SettlementsApi {
 
         /**
         * Set createdAtGte
-        * @param createdAtGte Filter where created_at is after the given date. (optional)
+        * @param createdAtGte Filter where &#x60;created_at&#x60; is after the given date. (optional)
         * @return APIlistSettlementsRequest
         */
         public APIlistSettlementsRequest createdAtGte(String createdAtGte) {
@@ -1057,7 +1056,7 @@ public class SettlementsApi {
 
         /**
         * Set createdAtLte
-        * @param createdAtLte Filter where created_at is before the given date. (optional)
+        * @param createdAtLte Filter where &#x60;created_at&#x60; is before the given date. (optional)
         * @return APIlistSettlementsRequest
         */
         public APIlistSettlementsRequest createdAtLte(String createdAtLte) {
@@ -1067,7 +1066,7 @@ public class SettlementsApi {
 
         /**
         * Set updatedAtGte
-        * @param updatedAtGte Filter where updated_at is after the given date (optional)
+        * @param updatedAtGte Filter where &#x60;updated_at&#x60; is after the given date. (optional)
         * @return APIlistSettlementsRequest
         */
         public APIlistSettlementsRequest updatedAtGte(String updatedAtGte) {
@@ -1077,7 +1076,7 @@ public class SettlementsApi {
 
         /**
         * Set updatedAtLte
-        * @param updatedAtLte Filter where updated_at is before the given date (optional)
+        * @param updatedAtLte Filter where &#x60;updated_at&#x60; is before the given date. (optional)
         * @return APIlistSettlementsRequest
         */
         public APIlistSettlementsRequest updatedAtLte(String updatedAtLte) {
@@ -1087,7 +1086,7 @@ public class SettlementsApi {
 
         /**
         * Set id
-        * @param id Filter by id (optional)
+        * @param id Filter by &#x60;id&#x60;. (optional)
         * @return APIlistSettlementsRequest
         */
         public APIlistSettlementsRequest id(String id) {
@@ -1097,7 +1096,7 @@ public class SettlementsApi {
 
         /**
         * Set limit
-        * @param limit The numbers of items to return (optional)
+        * @param limit The numbers of items to return. (optional)
         * @return APIlistSettlementsRequest
         */
         public APIlistSettlementsRequest limit(Long limit) {
@@ -1198,8 +1197,8 @@ public class SettlementsApi {
     }
 
     /**
-    * List Settlements
-    * Retrieve a list of &#x60;Settlements&#x60;.
+    * List All Settlements
+    * Retrieve a list of &#x60;Settlements&#x60;. 
     * @return APIlistSettlementsRequest
         * @http.response.details
         <table summary="Response Details" border="1">
@@ -1341,7 +1340,7 @@ public class SettlementsApi {
 
             /**
             * Delete Settlement Transfers
-            * Remove a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.  As long as the &#x60;Settlement&#x60; hasn&#39;t been funded, you can remove the &#x60;Transfer&#x60; or an array of &#x60;Transfers&#x60;, along with its corresponding &#x60;fee&#x60; from a batch &#x60;Settlement&#x60;.   &gt; Per the JSON API for deleting a resource, our API doesn&#39;t have a response body when removing a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.
+            * Remove a &#x60;Transfer&#x60; that makes up a &#x60;Settlement&#x60;.  As long as the &#x60;Settlement&#x60; hasn&#39;t been funded, you can remove the &#x60;Transfer&#x60; or an array of &#x60;Transfers&#x60;, along with its corresponding &#x60;fee&#x60; from the encompassing &#x60;Settlement&#x60;. - Funding &#x60;transfers&#x60; can&#39;t be deleted.   &gt; Per the JSON API for deleting a resource, our API doesn&#39;t have a response body when removing a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.
                 * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
                 * @param removeSettlementTransfer  (optional)
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1365,7 +1364,7 @@ public class SettlementsApi {
 
     /**
         * Delete Settlement Transfers
-        * Remove a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.  As long as the &#x60;Settlement&#x60; hasn&#39;t been funded, you can remove the &#x60;Transfer&#x60; or an array of &#x60;Transfers&#x60;, along with its corresponding &#x60;fee&#x60; from a batch &#x60;Settlement&#x60;.   &gt; Per the JSON API for deleting a resource, our API doesn&#39;t have a response body when removing a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.
+        * Remove a &#x60;Transfer&#x60; that makes up a &#x60;Settlement&#x60;.  As long as the &#x60;Settlement&#x60; hasn&#39;t been funded, you can remove the &#x60;Transfer&#x60; or an array of &#x60;Transfers&#x60;, along with its corresponding &#x60;fee&#x60; from the encompassing &#x60;Settlement&#x60;. - Funding &#x60;transfers&#x60; can&#39;t be deleted.   &gt; Per the JSON API for deleting a resource, our API doesn&#39;t have a response body when removing a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.
             * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
             * @param removeSettlementTransfer  (optional)
         * @return ApiResponse&lt;Void&gt;
@@ -1388,7 +1387,7 @@ public class SettlementsApi {
 
     /**
         * Delete Settlement Transfers (asynchronously)
-        * Remove a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.  As long as the &#x60;Settlement&#x60; hasn&#39;t been funded, you can remove the &#x60;Transfer&#x60; or an array of &#x60;Transfers&#x60;, along with its corresponding &#x60;fee&#x60; from a batch &#x60;Settlement&#x60;.   &gt; Per the JSON API for deleting a resource, our API doesn&#39;t have a response body when removing a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.
+        * Remove a &#x60;Transfer&#x60; that makes up a &#x60;Settlement&#x60;.  As long as the &#x60;Settlement&#x60; hasn&#39;t been funded, you can remove the &#x60;Transfer&#x60; or an array of &#x60;Transfers&#x60;, along with its corresponding &#x60;fee&#x60; from the encompassing &#x60;Settlement&#x60;. - Funding &#x60;transfers&#x60; can&#39;t be deleted.   &gt; Per the JSON API for deleting a resource, our API doesn&#39;t have a response body when removing a &#x60;Transfer&#x60; from a &#x60;Settlement&#x60;.
             * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
             * @param removeSettlementTransfer  (optional)
         * @param _callback The callback to be executed when the API call finishes
@@ -1409,154 +1408,6 @@ public class SettlementsApi {
 
         okhttp3.Call localVarCall = removeSettlementTransfersValidateBeforeCall(settlementId, removeSettlementTransfer, _callback);
         localVarFinixClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-    /**
-    * Build call for updateSettlement
-        * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
-        * @param updateSettlementRequest  (optional)
-    * @param _callback Callback for upload/download progress
-    * @return Call to execute
-    * @throws ApiException If fail to serialize the request body object
-        * @http.response.details
-        <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                <tr><td> 200 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-        </table>
-    */
-    public okhttp3.Call updateSettlementCall(String settlementId, UpdateSettlementRequest updateSettlementRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-    // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-    // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = updateSettlementRequest;
-
-    // create path and map variables
-        String localVarPath = "/settlements/{settlement_id}"
-            .replaceAll("\\{" + "settlement_id" + "\\}", localVarFinixClient.escapeString(settlementId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/hal+json"
-        };
-
-        final String localVarAccept = localVarFinixClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/hal+json"
-        };
-        final String localVarContentType = localVarFinixClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        localVarHeaderParams.put("Finix-Version", "2022-02-01");
-        String[] localVarAuthNames = new String[] { "BasicAuth" };
-        return localVarFinixClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-        @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateSettlementValidateBeforeCall(String settlementId, UpdateSettlementRequest updateSettlementRequest, final ApiCallback _callback) throws ApiException {
-    
-            // verify the required parameter 'settlementId' is set
-        if (settlementId == null) {
-            throw new ApiException("Missing the required parameter 'settlementId' when calling updateSettlement(Async)");
-        }
-    
-
-        okhttp3.Call localVarCall = updateSettlementCall(settlementId, updateSettlementRequest, _callback);
-        return localVarCall;
-
-    }
-
-            /**
-            * Update a Settlement
-            * Update a &#x60;Settlement&#x60;.
-                * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
-                * @param updateSettlementRequest  (optional)
-                * @return Settlement
-            * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-                * @http.response.details
-                <table summary="Response Details" border="1">
-                    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                        <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                </table>
-            */
-
-
-    public Settlement update(String settlementId, UpdateSettlementRequest updateSettlementRequest) throws ApiException {
-        ApiResponse<Settlement> localVarResp = updateSettlementWithHttpInfo(settlementId, updateSettlementRequest);
-        return localVarResp.getData();
-    }
-
-
-    /**
-        * Update a Settlement
-        * Update a &#x60;Settlement&#x60;.
-            * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
-            * @param updateSettlementRequest  (optional)
-        * @return ApiResponse&lt;Settlement&gt;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-    public ApiResponse<Settlement> updateSettlementWithHttpInfo(String settlementId, UpdateSettlementRequest updateSettlementRequest) throws ApiException {
-        okhttp3.Call localVarCall = updateSettlementValidateBeforeCall(settlementId, updateSettlementRequest, null);
-        Type localVarReturnType = new TypeToken<Settlement>(){}.getType();
-        return localVarFinixClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-        * Update a Settlement (asynchronously)
-        * Update a &#x60;Settlement&#x60;.
-            * @param settlementId ID of &#x60;Settlement&#x60; object. (required)
-            * @param updateSettlementRequest  (optional)
-        * @param _callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-            * @http.response.details
-            <table summary="Response Details" border="1">
-                <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> &#x60;Settlement&#x60; object. </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-                    <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
-            </table>
-        */
-    public okhttp3.Call updateSettlementAsync(String settlementId, UpdateSettlementRequest updateSettlementRequest, final ApiCallback<Settlement> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = updateSettlementValidateBeforeCall(settlementId, updateSettlementRequest, _callback);
-        Type localVarReturnType = new TypeToken<Settlement>(){}.getType();
-        localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     private String getFieldName(Object response){

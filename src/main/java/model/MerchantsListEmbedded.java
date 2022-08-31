@@ -77,11 +77,11 @@ public class MerchantsListEmbedded {
   }
 
    /**
-   * Get merchants
+   * &#x60;Merchant&#x60; objects.
    * @return merchants
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "`Merchant` objects.")
 
   public Set<Merchant> getMerchants() {
     return merchants;

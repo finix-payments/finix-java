@@ -49,8 +49,9 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * FeesListEmbedded
+ * List of &#x60;fee&#x60; objects.
  */
+@ApiModel(description = "List of `fee` objects.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FeesListEmbedded {
@@ -76,11 +77,11 @@ public class FeesListEmbedded {
   }
 
    /**
-   * &#x60;fee&#x60; object.
+   * &#x60;fee&#x60; objects.
    * @return fees
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "`fee` object.")
+  @ApiModelProperty(value = "`fee` objects.")
 
   public Set<Fee> getFees() {
     return fees;

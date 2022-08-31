@@ -55,10 +55,6 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateProcessorRequest {
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
-
   public static final String SERIALIZED_NAME_CONFIG = "config";
   @SerializedName(SERIALIZED_NAME_CONFIG)
   private CreateProcessorRequestConfig config;
@@ -67,31 +63,12 @@ public class CreateProcessorRequest {
   @SerializedName(SERIALIZED_NAME_TAGS)
   private Map<String, String> tags = null;
 
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private String type;
+
   public CreateProcessorRequest() { 
   }
-
-  public CreateProcessorRequest type(String type) {
-    
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
-  public String getType() {
-    return type;
-  }
-
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
 
   public CreateProcessorRequest config(CreateProcessorRequestConfig config) {
     
@@ -103,8 +80,8 @@ public class CreateProcessorRequest {
    * Get config
    * @return config
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public CreateProcessorRequestConfig getConfig() {
     return config;
@@ -147,6 +124,29 @@ public class CreateProcessorRequest {
   }
 
 
+  public CreateProcessorRequest type(String type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * The type of processor. Use **DUMMY_V1** for sandbox.
+   * @return type
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "The type of processor. Use **DUMMY_V1** for sandbox.")
+
+  public String getType() {
+    return type;
+  }
+
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -157,23 +157,23 @@ public class CreateProcessorRequest {
       return false;
     }
     CreateProcessorRequest createProcessorRequest = (CreateProcessorRequest) o;
-    return Objects.equals(this.type, createProcessorRequest.type) &&
-        Objects.equals(this.config, createProcessorRequest.config) &&
-        Objects.equals(this.tags, createProcessorRequest.tags);
+    return Objects.equals(this.config, createProcessorRequest.config) &&
+        Objects.equals(this.tags, createProcessorRequest.tags) &&
+        Objects.equals(this.type, createProcessorRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, config, tags);
+    return Objects.hash(config, tags, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateProcessorRequest {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -196,14 +196,13 @@ public class CreateProcessorRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("type");
     openapiFields.add("config");
     openapiFields.add("tags");
+    openapiFields.add("type");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("type");
-    openapiRequiredFields.add("config");
   }
 
  /**
@@ -244,13 +243,6 @@ public class CreateProcessorRequest {
       }*/
       /**
       * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()  && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      /**
-      * EDITED
       * ADDED  statement to for inconsistent null behaviour
       */
       // validate the optional field `config`
@@ -258,6 +250,13 @@ public class CreateProcessorRequest {
        //CreateProcessorRequestConfig.validateJsonObject(jsonObj.getAsJsonObject("config"));
      // }
 
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()  && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
   }
 
 

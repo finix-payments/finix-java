@@ -76,10 +76,6 @@ public class Processor {
   @SerializedName(SERIALIZED_NAME_APPLICATION_CONFIG)
   private ProcessorApplicationConfig applicationConfig;
 
-  public static final String SERIALIZED_NAME_CONFIG = "config";
-  @SerializedName(SERIALIZED_NAME_CONFIG)
-  private Object config;
-
   public static final String SERIALIZED_NAME_DEFAULT_MERCHANT_PROFILE = "default_merchant_profile";
   @SerializedName(SERIALIZED_NAME_DEFAULT_MERCHANT_PROFILE)
   private String defaultMerchantProfile;
@@ -218,29 +214,6 @@ public class Processor {
   }
 
 
-  public Processor config(Object config) {
-    
-    this.config = config;
-    return this;
-  }
-
-   /**
-   * Get config
-   * @return config
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Object getConfig() {
-    return config;
-  }
-
-
-  public void setConfig(Object config) {
-    this.config = config;
-  }
-
-
   public Processor defaultMerchantProfile(String defaultMerchantProfile) {
     
     this.defaultMerchantProfile = defaultMerchantProfile;
@@ -371,7 +344,6 @@ public class Processor {
         Objects.equals(this.updatedAt, processor.updatedAt) &&
         Objects.equals(this.application, processor.application) &&
         Objects.equals(this.applicationConfig, processor.applicationConfig) &&
-        Objects.equals(this.config, processor.config) &&
         Objects.equals(this.defaultMerchantProfile, processor.defaultMerchantProfile) &&
         Objects.equals(this.enabled, processor.enabled) &&
         Objects.equals(this.processor, processor.processor) &&
@@ -385,7 +357,7 @@ public class Processor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdAt, updatedAt, application, applicationConfig, config, defaultMerchantProfile, enabled, processor, systemConfig, links);
+    return Objects.hash(id, createdAt, updatedAt, application, applicationConfig, defaultMerchantProfile, enabled, processor, systemConfig, links);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -404,7 +376,6 @@ public class Processor {
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    application: ").append(toIndentedString(application)).append("\n");
     sb.append("    applicationConfig: ").append(toIndentedString(applicationConfig)).append("\n");
-    sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    defaultMerchantProfile: ").append(toIndentedString(defaultMerchantProfile)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    processor: ").append(toIndentedString(processor)).append("\n");
@@ -437,7 +408,6 @@ public class Processor {
     openapiFields.add("updated_at");
     openapiFields.add("application");
     openapiFields.add("application_config");
-    openapiFields.add("config");
     openapiFields.add("default_merchant_profile");
     openapiFields.add("enabled");
     openapiFields.add("processor");

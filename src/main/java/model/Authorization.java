@@ -29,11 +29,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import model.AdditionalBuyerCharges;
-import model.AuthorizationExternalResponsesInner;
 import model.AuthorizationLinks;
 import model.CardPresentDetails;
 import model.Currency;
-import model.SubTypeTransfer;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -63,10 +61,6 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Authorization {
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
-
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -82,6 +76,10 @@ public class Authorization {
   public static final String SERIALIZED_NAME_3DS_REDIRECT_URL = "3ds_redirect_url";
   @SerializedName(SERIALIZED_NAME_3DS_REDIRECT_URL)
   private String _3dsRedirectUrl;
+
+  public static final String SERIALIZED_NAME_ADDITIONAL_BUYER_CHARGES = "additional_buyer_charges";
+  @SerializedName(SERIALIZED_NAME_ADDITIONAL_BUYER_CHARGES)
+  private AdditionalBuyerCharges additionalBuyerCharges;
 
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
@@ -111,18 +109,6 @@ public class Authorization {
   @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
   private OffsetDateTime expiresAt;
 
-  public static final String SERIALIZED_NAME_EXTERNAL_RESPONSES = "external_responses";
-  @SerializedName(SERIALIZED_NAME_EXTERNAL_RESPONSES)
-  private List<AuthorizationExternalResponsesInner> externalResponses = null;
-
-  public static final String SERIALIZED_NAME_IDEMPOTENCY_ID = "idempotency_id";
-  @SerializedName(SERIALIZED_NAME_IDEMPOTENCY_ID)
-  private String idempotencyId;
-
-  public static final String SERIALIZED_NAME_ADDITIONAL_BUYER_CHARGES = "additional_buyer_charges";
-  @SerializedName(SERIALIZED_NAME_ADDITIONAL_BUYER_CHARGES)
-  private AdditionalBuyerCharges additionalBuyerCharges;
-
   public static final String SERIALIZED_NAME_FAILURE_CODE = "failure_code";
   @SerializedName(SERIALIZED_NAME_FAILURE_CODE)
   private String failureCode;
@@ -131,6 +117,10 @@ public class Authorization {
   @SerializedName(SERIALIZED_NAME_FAILURE_MESSAGE)
   private String failureMessage;
 
+  public static final String SERIALIZED_NAME_IDEMPOTENCY_ID = "idempotency_id";
+  @SerializedName(SERIALIZED_NAME_IDEMPOTENCY_ID)
+  private String idempotencyId;
+
   public static final String SERIALIZED_NAME_IS_VOID = "is_void";
   @SerializedName(SERIALIZED_NAME_IS_VOID)
   private Boolean isVoid;
@@ -138,10 +128,6 @@ public class Authorization {
   public static final String SERIALIZED_NAME_MERCHANT_IDENTITY = "merchant_identity";
   @SerializedName(SERIALIZED_NAME_MERCHANT_IDENTITY)
   private String merchantIdentity;
-
-  public static final String SERIALIZED_NAME_MERCHANT = "merchant";
-  @SerializedName(SERIALIZED_NAME_MERCHANT)
-  private String merchant;
 
   public static final String SERIALIZED_NAME_MESSAGES = "messages";
   @SerializedName(SERIALIZED_NAME_MESSAGES)
@@ -156,7 +142,7 @@ public class Authorization {
   private String source;
 
   /**
-   * The state of the &#x60;Transfer&#x60;.
+   * The state of the &#x60;Authorization&#x60;.
    */
   @JsonAdapter(StateEnum.Adapter.class)
   public enum StateEnum {
@@ -233,6 +219,10 @@ public class Authorization {
   @SerializedName(SERIALIZED_NAME_STATE)
   private StateEnum state;
 
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
+
   public static final String SERIALIZED_NAME_TRACE_ID = "trace_id";
   @SerializedName(SERIALIZED_NAME_TRACE_ID)
   private String traceId;
@@ -245,47 +235,12 @@ public class Authorization {
   @SerializedName(SERIALIZED_NAME_VOID_STATE)
   private String voidState;
 
-  public static final String SERIALIZED_NAME_SUB_TYPE = "sub_type";
-  @SerializedName(SERIALIZED_NAME_SUB_TYPE)
-  private SubTypeTransfer subType;
-
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
   private AuthorizationLinks links;
 
   public Authorization() { 
   }
-
-  public Authorization tags(Map<String, String> tags) {
-    
-    this.tags = tags;
-    return this;
-  }
-
-  public Authorization putTagsItem(String key, String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new HashMap<>();
-    }
-    this.tags.put(key, tagsItem);
-    return this;
-  }
-
-   /**
-   * Key value pair for annotating custom meta data (e.g. order numbers).
-   * @return tags
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
-
-  public Map<String, String> getTags() {
-    return tags;
-  }
-
-
-  public void setTags(Map<String, String> tags) {
-    this.tags = tags;
-  }
-
 
   public Authorization id(String id) {
     
@@ -376,6 +331,29 @@ public class Authorization {
 
   public void set3dsRedirectUrl(String _3dsRedirectUrl) {
     this._3dsRedirectUrl = _3dsRedirectUrl;
+  }
+
+
+  public Authorization additionalBuyerCharges(AdditionalBuyerCharges additionalBuyerCharges) {
+    
+    this.additionalBuyerCharges = additionalBuyerCharges;
+    return this;
+  }
+
+   /**
+   * Get additionalBuyerCharges
+   * @return additionalBuyerCharges
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public AdditionalBuyerCharges getAdditionalBuyerCharges() {
+    return additionalBuyerCharges;
+  }
+
+
+  public void setAdditionalBuyerCharges(AdditionalBuyerCharges additionalBuyerCharges) {
+    this.additionalBuyerCharges = additionalBuyerCharges;
   }
 
 
@@ -525,11 +503,11 @@ public class Authorization {
   }
 
    /**
-   * Authorization expiration time.
+   * &#x60;Authorization&#x60; expiration time.
    * @return expiresAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Authorization expiration time.")
+  @ApiModelProperty(value = "`Authorization` expiration time.")
 
   public OffsetDateTime getExpiresAt() {
     return expiresAt;
@@ -538,83 +516,6 @@ public class Authorization {
 
   public void setExpiresAt(OffsetDateTime expiresAt) {
     this.expiresAt = expiresAt;
-  }
-
-
-  public Authorization externalResponses(List<AuthorizationExternalResponsesInner> externalResponses) {
-    
-    this.externalResponses = externalResponses;
-    return this;
-  }
-
-  public Authorization addExternalResponsesItem(AuthorizationExternalResponsesInner externalResponsesItem) {
-    if (this.externalResponses == null) {
-      this.externalResponses = new ArrayList<>();
-    }
-    this.externalResponses.add(externalResponsesItem);
-    return this;
-  }
-
-   /**
-   * Get externalResponses
-   * @return externalResponses
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public List<AuthorizationExternalResponsesInner> getExternalResponses() {
-    return externalResponses;
-  }
-
-
-  public void setExternalResponses(List<AuthorizationExternalResponsesInner> externalResponses) {
-    this.externalResponses = externalResponses;
-  }
-
-
-  public Authorization idempotencyId(String idempotencyId) {
-    
-    this.idempotencyId = idempotencyId;
-    return this;
-  }
-
-   /**
-   * A randomly generated value that&#39;ll be associated with the request.
-   * @return idempotencyId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "A randomly generated value that'll be associated with the request.")
-
-  public String getIdempotencyId() {
-    return idempotencyId;
-  }
-
-
-  public void setIdempotencyId(String idempotencyId) {
-    this.idempotencyId = idempotencyId;
-  }
-
-
-  public Authorization additionalBuyerCharges(AdditionalBuyerCharges additionalBuyerCharges) {
-    
-    this.additionalBuyerCharges = additionalBuyerCharges;
-    return this;
-  }
-
-   /**
-   * Get additionalBuyerCharges
-   * @return additionalBuyerCharges
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public AdditionalBuyerCharges getAdditionalBuyerCharges() {
-    return additionalBuyerCharges;
-  }
-
-
-  public void setAdditionalBuyerCharges(AdditionalBuyerCharges additionalBuyerCharges) {
-    this.additionalBuyerCharges = additionalBuyerCharges;
   }
 
 
@@ -664,6 +565,29 @@ public class Authorization {
   }
 
 
+  public Authorization idempotencyId(String idempotencyId) {
+    
+    this.idempotencyId = idempotencyId;
+    return this;
+  }
+
+   /**
+   * A randomly generated value that&#39;ll be associated with the request.
+   * @return idempotencyId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A randomly generated value that'll be associated with the request.")
+
+  public String getIdempotencyId() {
+    return idempotencyId;
+  }
+
+
+  public void setIdempotencyId(String idempotencyId) {
+    this.idempotencyId = idempotencyId;
+  }
+
+
   public Authorization isVoid(Boolean isVoid) {
     
     this.isVoid = isVoid;
@@ -710,29 +634,6 @@ public class Authorization {
   }
 
 
-  public Authorization merchant(String merchant) {
-    
-    this.merchant = merchant;
-    return this;
-  }
-
-   /**
-   * The ID of the resource.
-   * @return merchant
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the resource.")
-
-  public String getMerchant() {
-    return merchant;
-  }
-
-
-  public void setMerchant(String merchant) {
-    this.merchant = merchant;
-  }
-
-
   public Authorization messages(List<String> messages) {
     
     this.messages = messages;
@@ -771,11 +672,11 @@ public class Authorization {
   }
 
    /**
-   * Raw response from the processor
+   * Raw response from the processor.
    * @return raw
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Raw response from the processor")
+  @ApiModelProperty(value = "Raw response from the processor.")
 
   public Object getRaw() {
     return raw;
@@ -817,11 +718,11 @@ public class Authorization {
   }
 
    /**
-   * The state of the &#x60;Transfer&#x60;.
+   * The state of the &#x60;Authorization&#x60;.
    * @return state
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The state of the `Transfer`.")
+  @ApiModelProperty(value = "The state of the `Authorization`.")
 
   public StateEnum getState() {
     return state;
@@ -830,6 +731,37 @@ public class Authorization {
 
   public void setState(StateEnum state) {
     this.state = state;
+  }
+
+
+  public Authorization tags(Map<String, String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public Authorization putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
+    return this;
+  }
+
+   /**
+   * Key value pair for annotating custom meta data (e.g. order numbers).
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
+
+  public Map<String, String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(Map<String, String> tags) {
+    this.tags = tags;
   }
 
 
@@ -902,29 +834,6 @@ public class Authorization {
   }
 
 
-  public Authorization subType(SubTypeTransfer subType) {
-    
-    this.subType = subType;
-    return this;
-  }
-
-   /**
-   * Get subType
-   * @return subType
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public SubTypeTransfer getSubType() {
-    return subType;
-  }
-
-
-  public void setSubType(SubTypeTransfer subType) {
-    this.subType = subType;
-  }
-
-
   public Authorization links(AuthorizationLinks links) {
     
     this.links = links;
@@ -958,11 +867,11 @@ public class Authorization {
       return false;
     }
     Authorization authorization = (Authorization) o;
-    return Objects.equals(this.tags, authorization.tags) &&
-        Objects.equals(this.id, authorization.id) &&
+    return Objects.equals(this.id, authorization.id) &&
         Objects.equals(this.createdAt, authorization.createdAt) &&
         Objects.equals(this.updatedAt, authorization.updatedAt) &&
         Objects.equals(this._3dsRedirectUrl, authorization._3dsRedirectUrl) &&
+        Objects.equals(this.additionalBuyerCharges, authorization.additionalBuyerCharges) &&
         Objects.equals(this.amount, authorization.amount) &&
         Objects.equals(this.application, authorization.application) &&
         Objects.equals(this.cardPresentDetails, authorization.cardPresentDetails) &&
@@ -970,22 +879,19 @@ public class Authorization {
         Objects.equals(this.currency, authorization.currency) &&
         Objects.equals(this.device, authorization.device) &&
         Objects.equals(this.expiresAt, authorization.expiresAt) &&
-        Objects.equals(this.externalResponses, authorization.externalResponses) &&
-        Objects.equals(this.idempotencyId, authorization.idempotencyId) &&
-        Objects.equals(this.additionalBuyerCharges, authorization.additionalBuyerCharges) &&
         Objects.equals(this.failureCode, authorization.failureCode) &&
         Objects.equals(this.failureMessage, authorization.failureMessage) &&
+        Objects.equals(this.idempotencyId, authorization.idempotencyId) &&
         Objects.equals(this.isVoid, authorization.isVoid) &&
         Objects.equals(this.merchantIdentity, authorization.merchantIdentity) &&
-        Objects.equals(this.merchant, authorization.merchant) &&
         Objects.equals(this.messages, authorization.messages) &&
         Objects.equals(this.raw, authorization.raw) &&
         Objects.equals(this.source, authorization.source) &&
         Objects.equals(this.state, authorization.state) &&
+        Objects.equals(this.tags, authorization.tags) &&
         Objects.equals(this.traceId, authorization.traceId) &&
         Objects.equals(this.transfer, authorization.transfer) &&
         Objects.equals(this.voidState, authorization.voidState) &&
-        Objects.equals(this.subType, authorization.subType) &&
         Objects.equals(this.links, authorization.links);
   }
 
@@ -995,7 +901,7 @@ public class Authorization {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, id, createdAt, updatedAt, _3dsRedirectUrl, amount, application, cardPresentDetails, captureAmount, currency, device, expiresAt, externalResponses, idempotencyId, additionalBuyerCharges, failureCode, failureMessage, isVoid, merchantIdentity, merchant, messages, raw, source, state, traceId, transfer, voidState, subType, links);
+    return Objects.hash(id, createdAt, updatedAt, _3dsRedirectUrl, additionalBuyerCharges, amount, application, cardPresentDetails, captureAmount, currency, device, expiresAt, failureCode, failureMessage, idempotencyId, isVoid, merchantIdentity, messages, raw, source, state, tags, traceId, transfer, voidState, links);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1009,11 +915,11 @@ public class Authorization {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Authorization {\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    _3dsRedirectUrl: ").append(toIndentedString(_3dsRedirectUrl)).append("\n");
+    sb.append("    additionalBuyerCharges: ").append(toIndentedString(additionalBuyerCharges)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    application: ").append(toIndentedString(application)).append("\n");
     sb.append("    cardPresentDetails: ").append(toIndentedString(cardPresentDetails)).append("\n");
@@ -1021,22 +927,19 @@ public class Authorization {
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    device: ").append(toIndentedString(device)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
-    sb.append("    externalResponses: ").append(toIndentedString(externalResponses)).append("\n");
-    sb.append("    idempotencyId: ").append(toIndentedString(idempotencyId)).append("\n");
-    sb.append("    additionalBuyerCharges: ").append(toIndentedString(additionalBuyerCharges)).append("\n");
     sb.append("    failureCode: ").append(toIndentedString(failureCode)).append("\n");
     sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
+    sb.append("    idempotencyId: ").append(toIndentedString(idempotencyId)).append("\n");
     sb.append("    isVoid: ").append(toIndentedString(isVoid)).append("\n");
     sb.append("    merchantIdentity: ").append(toIndentedString(merchantIdentity)).append("\n");
-    sb.append("    merchant: ").append(toIndentedString(merchant)).append("\n");
     sb.append("    messages: ").append(toIndentedString(messages)).append("\n");
     sb.append("    raw: ").append(toIndentedString(raw)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
     sb.append("    transfer: ").append(toIndentedString(transfer)).append("\n");
     sb.append("    voidState: ").append(toIndentedString(voidState)).append("\n");
-    sb.append("    subType: ").append(toIndentedString(subType)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1060,11 +963,11 @@ public class Authorization {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("tags");
     openapiFields.add("id");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
     openapiFields.add("3ds_redirect_url");
+    openapiFields.add("additional_buyer_charges");
     openapiFields.add("amount");
     openapiFields.add("application");
     openapiFields.add("card_present_details");
@@ -1072,22 +975,19 @@ public class Authorization {
     openapiFields.add("currency");
     openapiFields.add("device");
     openapiFields.add("expires_at");
-    openapiFields.add("external_responses");
-    openapiFields.add("idempotency_id");
-    openapiFields.add("additional_buyer_charges");
     openapiFields.add("failure_code");
     openapiFields.add("failure_message");
+    openapiFields.add("idempotency_id");
     openapiFields.add("is_void");
     openapiFields.add("merchant_identity");
-    openapiFields.add("merchant");
     openapiFields.add("messages");
     openapiFields.add("raw");
     openapiFields.add("source");
     openapiFields.add("state");
+    openapiFields.add("tags");
     openapiFields.add("trace_id");
     openapiFields.add("transfer");
     openapiFields.add("void_state");
-    openapiFields.add("sub_type");
     openapiFields.add("_links");
 
     // a set of required properties/fields (JSON key names)
@@ -1134,6 +1034,15 @@ public class Authorization {
       }
       /**
       * EDITED
+      * ADDED  statement to for inconsistent null behaviour
+      */
+      // validate the optional field `additional_buyer_charges`
+     // if (jsonObj.getAsJsonObject("additional_buyer_charges") != null) {
+       //AdditionalBuyerCharges.validateJsonObject(jsonObj.getAsJsonObject("additional_buyer_charges"));
+     // }
+
+      /**
+      * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
       if (jsonObj.get("application") != null && !jsonObj.get("application").isJsonNull()  && !jsonObj.get("application").isJsonPrimitive()) {
@@ -1155,35 +1064,6 @@ public class Authorization {
       if (jsonObj.get("device") != null && !jsonObj.get("device").isJsonNull()  && !jsonObj.get("device").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `device` to be a primitive type in the JSON string but got `%s`", jsonObj.get("device").toString()));
       }
-      JsonArray jsonArrayexternalResponses = jsonObj.getAsJsonArray("external_responses");
-      if (jsonArrayexternalResponses != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("external_responses").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `external_responses` to be an array in the JSON string but got `%s`", jsonObj.get("external_responses").toString()));
-        }
-
-        // validate the optional field `external_responses` (array)
-        for (int i = 0; i < jsonArrayexternalResponses.size(); i++) {
-          AuthorizationExternalResponsesInner.validateJsonObject(jsonArrayexternalResponses.get(i).getAsJsonObject());
-        }
-          ;
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("idempotency_id") != null && !jsonObj.get("idempotency_id").isJsonNull()  && !jsonObj.get("idempotency_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `idempotency_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("idempotency_id").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED  statement to for inconsistent null behaviour
-      */
-      // validate the optional field `additional_buyer_charges`
-     // if (jsonObj.getAsJsonObject("additional_buyer_charges") != null) {
-       //AdditionalBuyerCharges.validateJsonObject(jsonObj.getAsJsonObject("additional_buyer_charges"));
-     // }
-
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
@@ -1202,15 +1082,15 @@ public class Authorization {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("merchant_identity") != null && !jsonObj.get("merchant_identity").isJsonNull()  && !jsonObj.get("merchant_identity").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `merchant_identity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_identity").toString()));
+      if (jsonObj.get("idempotency_id") != null && !jsonObj.get("idempotency_id").isJsonNull()  && !jsonObj.get("idempotency_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `idempotency_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("idempotency_id").toString()));
       }
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("merchant") != null && !jsonObj.get("merchant").isJsonNull()  && !jsonObj.get("merchant").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `merchant` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant").toString()));
+      if (jsonObj.get("merchant_identity") != null && !jsonObj.get("merchant_identity").isJsonNull()  && !jsonObj.get("merchant_identity").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_identity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_identity").toString()));
       }
       /**
       * EDITED

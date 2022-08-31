@@ -49,14 +49,15 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * PaymentInstrumentUpdatesListEmbedded
+ * List of &#x60;updates&#x60; for a &#x60;Payment Instrument&#x60;.
  */
+@ApiModel(description = "List of `updates` for a `Payment Instrument`.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PaymentInstrumentUpdatesListEmbedded {
   public static final String SERIALIZED_NAME_UPDATES = "updates";
   @SerializedName(SERIALIZED_NAME_UPDATES)
-  private Set<InstrumentUpdate> updates = new LinkedHashSet<>();
+  private Set<InstrumentUpdate> updates = null;
 
   public PaymentInstrumentUpdatesListEmbedded() { 
   }
@@ -68,16 +69,19 @@ public class PaymentInstrumentUpdatesListEmbedded {
   }
 
   public PaymentInstrumentUpdatesListEmbedded addUpdatesItem(InstrumentUpdate updatesItem) {
+    if (this.updates == null) {
+      this.updates = new LinkedHashSet<>();
+    }
     this.updates.add(updatesItem);
     return this;
   }
 
    /**
-   * Get updates
+   * &#x60;Update&#x60; objects.
    * @return updates
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "`Update` objects.")
 
   public Set<InstrumentUpdate> getUpdates() {
     return updates;
@@ -138,7 +142,6 @@ public class PaymentInstrumentUpdatesListEmbedded {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("updates");
   }
 
  /**
@@ -165,18 +168,6 @@ public class PaymentInstrumentUpdatesListEmbedded {
         }
       }
       */
-
-      /**
-      * EDITED
-      * Commented to ByPass required properties/fields are present in the JSON string
-      */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : PaymentInstrumentUpdatesListEmbedded.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       JsonArray jsonArrayupdates = jsonObj.getAsJsonArray("updates");
       if (jsonArrayupdates != null) {
         // ensure the json data is an array

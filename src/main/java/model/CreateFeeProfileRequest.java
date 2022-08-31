@@ -54,10 +54,6 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateFeeProfileRequest {
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
-
   public static final String SERIALIZED_NAME_ACH_BASIS_POINTS = "ach_basis_points";
   @SerializedName(SERIALIZED_NAME_ACH_BASIS_POINTS)
   private Long achBasisPoints;
@@ -114,14 +110,6 @@ public class CreateFeeProfileRequest {
   @SerializedName(SERIALIZED_NAME_BASIS_POINTS)
   private Long basisPoints;
 
-  public static final String SERIALIZED_NAME_EXTERNALLY_FUNDED_BASIS_POINTS = "externally_funded_basis_points";
-  @SerializedName(SERIALIZED_NAME_EXTERNALLY_FUNDED_BASIS_POINTS)
-  private Long externallyFundedBasisPoints;
-
-  public static final String SERIALIZED_NAME_EXTERNALLY_FUNDED_FIXED_FEE = "externally_funded_fixed_fee";
-  @SerializedName(SERIALIZED_NAME_EXTERNALLY_FUNDED_FIXED_FEE)
-  private Long externallyFundedFixedFee;
-
   public static final String SERIALIZED_NAME_CHARGE_INTERCHANGE = "charge_interchange";
   @SerializedName(SERIALIZED_NAME_CHARGE_INTERCHANGE)
   private Boolean chargeInterchange;
@@ -177,6 +165,14 @@ public class CreateFeeProfileRequest {
   public static final String SERIALIZED_NAME_DISPUTE_INQUIRY_FIXED_FEE = "dispute_inquiry_fixed_fee";
   @SerializedName(SERIALIZED_NAME_DISPUTE_INQUIRY_FIXED_FEE)
   private Long disputeInquiryFixedFee;
+
+  public static final String SERIALIZED_NAME_EXTERNALLY_FUNDED_BASIS_POINTS = "externally_funded_basis_points";
+  @SerializedName(SERIALIZED_NAME_EXTERNALLY_FUNDED_BASIS_POINTS)
+  private Long externallyFundedBasisPoints;
+
+  public static final String SERIALIZED_NAME_EXTERNALLY_FUNDED_FIXED_FEE = "externally_funded_fixed_fee";
+  @SerializedName(SERIALIZED_NAME_EXTERNALLY_FUNDED_FIXED_FEE)
+  private Long externallyFundedFixedFee;
 
   public static final String SERIALIZED_NAME_FIXED_FEE = "fixed_fee";
   @SerializedName(SERIALIZED_NAME_FIXED_FEE)
@@ -294,6 +290,10 @@ public class CreateFeeProfileRequest {
   @SerializedName(SERIALIZED_NAME_ROUNDING_MODE)
   private RoundingModeEnum roundingMode;
 
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
+
   public static final String SERIALIZED_NAME_VISA_ACQUIRER_PROCESSING_FIXED_FEE = "visa_acquirer_processing_fixed_fee";
   @SerializedName(SERIALIZED_NAME_VISA_ACQUIRER_PROCESSING_FIXED_FEE)
   private Long visaAcquirerProcessingFixedFee;
@@ -332,37 +332,6 @@ public class CreateFeeProfileRequest {
 
   public CreateFeeProfileRequest() { 
   }
-
-  public CreateFeeProfileRequest tags(Map<String, String> tags) {
-    
-    this.tags = tags;
-    return this;
-  }
-
-  public CreateFeeProfileRequest putTagsItem(String key, String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new HashMap<>();
-    }
-    this.tags.put(key, tagsItem);
-    return this;
-  }
-
-   /**
-   * Key value pair for annotating custom meta data (e.g. order numbers).
-   * @return tags
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
-
-  public Map<String, String> getTags() {
-    return tags;
-  }
-
-
-  public void setTags(Map<String, String> tags) {
-    this.tags = tags;
-  }
-
 
   public CreateFeeProfileRequest achBasisPoints(Long achBasisPoints) {
     
@@ -650,8 +619,8 @@ public class CreateFeeProfileRequest {
    * The ID of the resource.
    * @return application
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the resource.")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "The ID of the resource.")
 
   public String getApplication() {
     return application;
@@ -683,52 +652,6 @@ public class CreateFeeProfileRequest {
 
   public void setBasisPoints(Long basisPoints) {
     this.basisPoints = basisPoints;
-  }
-
-
-  public CreateFeeProfileRequest externallyFundedBasisPoints(Long externallyFundedBasisPoints) {
-    
-    this.externallyFundedBasisPoints = externallyFundedBasisPoints;
-    return this;
-  }
-
-   /**
-   * Percentage-based fee incurred against the full amount of each &#x60;Transfer&#x60; that&#39;s card-based and externally funded. Calculated as one hundredth of one percent (1 basis point &#x3D; .0001 or .01%).
-   * @return externallyFundedBasisPoints
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Percentage-based fee incurred against the full amount of each `Transfer` that's card-based and externally funded. Calculated as one hundredth of one percent (1 basis point = .0001 or .01%).")
-
-  public Long getExternallyFundedBasisPoints() {
-    return externallyFundedBasisPoints;
-  }
-
-
-  public void setExternallyFundedBasisPoints(Long externallyFundedBasisPoints) {
-    this.externallyFundedBasisPoints = externallyFundedBasisPoints;
-  }
-
-
-  public CreateFeeProfileRequest externallyFundedFixedFee(Long externallyFundedFixedFee) {
-    
-    this.externallyFundedFixedFee = externallyFundedFixedFee;
-    return this;
-  }
-
-   /**
-   * Fee in cents incurred for each individual &#x60;Transfer&#x60; that&#39;s card-based and externally funded.
-   * @return externallyFundedFixedFee
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Fee in cents incurred for each individual `Transfer` that's card-based and externally funded.")
-
-  public Long getExternallyFundedFixedFee() {
-    return externallyFundedFixedFee;
-  }
-
-
-  public void setExternallyFundedFixedFee(Long externallyFundedFixedFee) {
-    this.externallyFundedFixedFee = externallyFundedFixedFee;
   }
 
 
@@ -1054,6 +977,52 @@ public class CreateFeeProfileRequest {
   }
 
 
+  public CreateFeeProfileRequest externallyFundedBasisPoints(Long externallyFundedBasisPoints) {
+    
+    this.externallyFundedBasisPoints = externallyFundedBasisPoints;
+    return this;
+  }
+
+   /**
+   * Percentage-based fee incurred against the full amount of each &#x60;Transfer&#x60; that&#39;s card-based and externally funded. Calculated as one hundredth of one percent (1 basis point &#x3D; .0001 or .01%).
+   * @return externallyFundedBasisPoints
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Percentage-based fee incurred against the full amount of each `Transfer` that's card-based and externally funded. Calculated as one hundredth of one percent (1 basis point = .0001 or .01%).")
+
+  public Long getExternallyFundedBasisPoints() {
+    return externallyFundedBasisPoints;
+  }
+
+
+  public void setExternallyFundedBasisPoints(Long externallyFundedBasisPoints) {
+    this.externallyFundedBasisPoints = externallyFundedBasisPoints;
+  }
+
+
+  public CreateFeeProfileRequest externallyFundedFixedFee(Long externallyFundedFixedFee) {
+    
+    this.externallyFundedFixedFee = externallyFundedFixedFee;
+    return this;
+  }
+
+   /**
+   * Fee in cents incurred for each individual &#x60;Transfer&#x60; that&#39;s card-based and externally funded.
+   * @return externallyFundedFixedFee
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Fee in cents incurred for each individual `Transfer` that's card-based and externally funded.")
+
+  public Long getExternallyFundedFixedFee() {
+    return externallyFundedFixedFee;
+  }
+
+
+  public void setExternallyFundedFixedFee(Long externallyFundedFixedFee) {
+    this.externallyFundedFixedFee = externallyFundedFixedFee;
+  }
+
+
   public CreateFeeProfileRequest fixedFee(Long fixedFee) {
     
     this.fixedFee = fixedFee;
@@ -1064,8 +1033,8 @@ public class CreateFeeProfileRequest {
    * Fee in cents incurred for each individual card-based &#x60;Transfer&#x60;.
    * @return fixedFee
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Fee in cents incurred for each individual card-based `Transfer`.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Fee in cents incurred for each individual card-based `Transfer`.")
 
   public Long getFixedFee() {
     return fixedFee;
@@ -1291,11 +1260,11 @@ public class CreateFeeProfileRequest {
   }
 
    /**
-   * Get qualifiedTiers
+   * The top of the qualified tier tree.
    * @return qualifiedTiers
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The top of the qualified tier tree.")
 
   public Object getQualifiedTiers() {
     return qualifiedTiers;
@@ -1327,6 +1296,37 @@ public class CreateFeeProfileRequest {
 
   public void setRoundingMode(RoundingModeEnum roundingMode) {
     this.roundingMode = roundingMode;
+  }
+
+
+  public CreateFeeProfileRequest tags(Map<String, String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateFeeProfileRequest putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
+    return this;
+  }
+
+   /**
+   * Key value pair for annotating custom meta data (e.g. order numbers).
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
+
+  public Map<String, String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(Map<String, String> tags) {
+    this.tags = tags;
   }
 
 
@@ -1547,8 +1547,7 @@ public class CreateFeeProfileRequest {
       return false;
     }
     CreateFeeProfileRequest createFeeProfileRequest = (CreateFeeProfileRequest) o;
-    return Objects.equals(this.tags, createFeeProfileRequest.tags) &&
-        Objects.equals(this.achBasisPoints, createFeeProfileRequest.achBasisPoints) &&
+    return Objects.equals(this.achBasisPoints, createFeeProfileRequest.achBasisPoints) &&
         Objects.equals(this.achCreditReturnFixedFee, createFeeProfileRequest.achCreditReturnFixedFee) &&
         Objects.equals(this.achDebitReturnFixedFee, createFeeProfileRequest.achDebitReturnFixedFee) &&
         Objects.equals(this.achFixedFee, createFeeProfileRequest.achFixedFee) &&
@@ -1562,8 +1561,6 @@ public class CreateFeeProfileRequest {
         Objects.equals(this.ancillaryFixedFeeSecondary, createFeeProfileRequest.ancillaryFixedFeeSecondary) &&
         Objects.equals(this.application, createFeeProfileRequest.application) &&
         Objects.equals(this.basisPoints, createFeeProfileRequest.basisPoints) &&
-        Objects.equals(this.externallyFundedBasisPoints, createFeeProfileRequest.externallyFundedBasisPoints) &&
-        Objects.equals(this.externallyFundedFixedFee, createFeeProfileRequest.externallyFundedFixedFee) &&
         Objects.equals(this.chargeInterchange, createFeeProfileRequest.chargeInterchange) &&
         Objects.equals(this.dinersClubBasisPoints, createFeeProfileRequest.dinersClubBasisPoints) &&
         Objects.equals(this.dinersClubChargeInterchange, createFeeProfileRequest.dinersClubChargeInterchange) &&
@@ -1578,6 +1575,8 @@ public class CreateFeeProfileRequest {
         Objects.equals(this.discoverNetworkAuthorizationFixedFee, createFeeProfileRequest.discoverNetworkAuthorizationFixedFee) &&
         Objects.equals(this.disputeFixedFee, createFeeProfileRequest.disputeFixedFee) &&
         Objects.equals(this.disputeInquiryFixedFee, createFeeProfileRequest.disputeInquiryFixedFee) &&
+        Objects.equals(this.externallyFundedBasisPoints, createFeeProfileRequest.externallyFundedBasisPoints) &&
+        Objects.equals(this.externallyFundedFixedFee, createFeeProfileRequest.externallyFundedFixedFee) &&
         Objects.equals(this.fixedFee, createFeeProfileRequest.fixedFee) &&
         Objects.equals(this.jcbBasisPoints, createFeeProfileRequest.jcbBasisPoints) &&
         Objects.equals(this.jcbChargeInterchange, createFeeProfileRequest.jcbChargeInterchange) &&
@@ -1590,6 +1589,7 @@ public class CreateFeeProfileRequest {
         Objects.equals(this.mastercardFixedFee, createFeeProfileRequest.mastercardFixedFee) &&
         Objects.equals(this.qualifiedTiers, createFeeProfileRequest.qualifiedTiers) &&
         Objects.equals(this.roundingMode, createFeeProfileRequest.roundingMode) &&
+        Objects.equals(this.tags, createFeeProfileRequest.tags) &&
         Objects.equals(this.visaAcquirerProcessingFixedFee, createFeeProfileRequest.visaAcquirerProcessingFixedFee) &&
         Objects.equals(this.visaAssessmentsBasisPoints, createFeeProfileRequest.visaAssessmentsBasisPoints) &&
         Objects.equals(this.visaBaseIICreditVoucherFixedFee, createFeeProfileRequest.visaBaseIICreditVoucherFixedFee) &&
@@ -1607,7 +1607,7 @@ public class CreateFeeProfileRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, achBasisPoints, achCreditReturnFixedFee, achDebitReturnFixedFee, achFixedFee, americanExpressAssessmentBasisPoints, americanExpressBasisPoints, americanExpressChargeInterchange, americanExpressFixedFee, americanExpressExternallyFundedBasisPoints, americanExpressExternallyFundedFixedFee, ancillaryFixedFeePrimary, ancillaryFixedFeeSecondary, application, basisPoints, externallyFundedBasisPoints, externallyFundedFixedFee, chargeInterchange, dinersClubBasisPoints, dinersClubChargeInterchange, dinersClubFixedFee, discoverAssessmentsBasisPoints, discoverBasisPoints, discoverChargeInterchange, discoverDataUsageFixedFee, discoverFixedFee, discoverExternallyFundedBasisPoints, discoverExternallyFundedFixedFee, discoverNetworkAuthorizationFixedFee, disputeFixedFee, disputeInquiryFixedFee, fixedFee, jcbBasisPoints, jcbChargeInterchange, jcbFixedFee, mastercardAcquirerFeesBasisPoints, mastercardAssessmentsOver1kBasisPoints, mastercardAssessmentsUnder1kBasisPoints, mastercardBasisPoints, mastercardChargeInterchange, mastercardFixedFee, qualifiedTiers, roundingMode, visaAcquirerProcessingFixedFee, visaAssessmentsBasisPoints, visaBaseIICreditVoucherFixedFee, visaBaseIISystemFileTransmissionFixedFee, visaBasisPoints, visaChargeInterchange, visaCreditVoucherFixedFee, visaFixedFee, visaKilobyteAccessFixedFee);
+    return Objects.hash(achBasisPoints, achCreditReturnFixedFee, achDebitReturnFixedFee, achFixedFee, americanExpressAssessmentBasisPoints, americanExpressBasisPoints, americanExpressChargeInterchange, americanExpressFixedFee, americanExpressExternallyFundedBasisPoints, americanExpressExternallyFundedFixedFee, ancillaryFixedFeePrimary, ancillaryFixedFeeSecondary, application, basisPoints, chargeInterchange, dinersClubBasisPoints, dinersClubChargeInterchange, dinersClubFixedFee, discoverAssessmentsBasisPoints, discoverBasisPoints, discoverChargeInterchange, discoverDataUsageFixedFee, discoverFixedFee, discoverExternallyFundedBasisPoints, discoverExternallyFundedFixedFee, discoverNetworkAuthorizationFixedFee, disputeFixedFee, disputeInquiryFixedFee, externallyFundedBasisPoints, externallyFundedFixedFee, fixedFee, jcbBasisPoints, jcbChargeInterchange, jcbFixedFee, mastercardAcquirerFeesBasisPoints, mastercardAssessmentsOver1kBasisPoints, mastercardAssessmentsUnder1kBasisPoints, mastercardBasisPoints, mastercardChargeInterchange, mastercardFixedFee, qualifiedTiers, roundingMode, tags, visaAcquirerProcessingFixedFee, visaAssessmentsBasisPoints, visaBaseIICreditVoucherFixedFee, visaBaseIISystemFileTransmissionFixedFee, visaBasisPoints, visaChargeInterchange, visaCreditVoucherFixedFee, visaFixedFee, visaKilobyteAccessFixedFee);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1621,7 +1621,6 @@ public class CreateFeeProfileRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateFeeProfileRequest {\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    achBasisPoints: ").append(toIndentedString(achBasisPoints)).append("\n");
     sb.append("    achCreditReturnFixedFee: ").append(toIndentedString(achCreditReturnFixedFee)).append("\n");
     sb.append("    achDebitReturnFixedFee: ").append(toIndentedString(achDebitReturnFixedFee)).append("\n");
@@ -1636,8 +1635,6 @@ public class CreateFeeProfileRequest {
     sb.append("    ancillaryFixedFeeSecondary: ").append(toIndentedString(ancillaryFixedFeeSecondary)).append("\n");
     sb.append("    application: ").append(toIndentedString(application)).append("\n");
     sb.append("    basisPoints: ").append(toIndentedString(basisPoints)).append("\n");
-    sb.append("    externallyFundedBasisPoints: ").append(toIndentedString(externallyFundedBasisPoints)).append("\n");
-    sb.append("    externallyFundedFixedFee: ").append(toIndentedString(externallyFundedFixedFee)).append("\n");
     sb.append("    chargeInterchange: ").append(toIndentedString(chargeInterchange)).append("\n");
     sb.append("    dinersClubBasisPoints: ").append(toIndentedString(dinersClubBasisPoints)).append("\n");
     sb.append("    dinersClubChargeInterchange: ").append(toIndentedString(dinersClubChargeInterchange)).append("\n");
@@ -1652,6 +1649,8 @@ public class CreateFeeProfileRequest {
     sb.append("    discoverNetworkAuthorizationFixedFee: ").append(toIndentedString(discoverNetworkAuthorizationFixedFee)).append("\n");
     sb.append("    disputeFixedFee: ").append(toIndentedString(disputeFixedFee)).append("\n");
     sb.append("    disputeInquiryFixedFee: ").append(toIndentedString(disputeInquiryFixedFee)).append("\n");
+    sb.append("    externallyFundedBasisPoints: ").append(toIndentedString(externallyFundedBasisPoints)).append("\n");
+    sb.append("    externallyFundedFixedFee: ").append(toIndentedString(externallyFundedFixedFee)).append("\n");
     sb.append("    fixedFee: ").append(toIndentedString(fixedFee)).append("\n");
     sb.append("    jcbBasisPoints: ").append(toIndentedString(jcbBasisPoints)).append("\n");
     sb.append("    jcbChargeInterchange: ").append(toIndentedString(jcbChargeInterchange)).append("\n");
@@ -1664,6 +1663,7 @@ public class CreateFeeProfileRequest {
     sb.append("    mastercardFixedFee: ").append(toIndentedString(mastercardFixedFee)).append("\n");
     sb.append("    qualifiedTiers: ").append(toIndentedString(qualifiedTiers)).append("\n");
     sb.append("    roundingMode: ").append(toIndentedString(roundingMode)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    visaAcquirerProcessingFixedFee: ").append(toIndentedString(visaAcquirerProcessingFixedFee)).append("\n");
     sb.append("    visaAssessmentsBasisPoints: ").append(toIndentedString(visaAssessmentsBasisPoints)).append("\n");
     sb.append("    visaBaseIICreditVoucherFixedFee: ").append(toIndentedString(visaBaseIICreditVoucherFixedFee)).append("\n");
@@ -1695,7 +1695,6 @@ public class CreateFeeProfileRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("tags");
     openapiFields.add("ach_basis_points");
     openapiFields.add("ach_credit_return_fixed_fee");
     openapiFields.add("ach_debit_return_fixed_fee");
@@ -1710,8 +1709,6 @@ public class CreateFeeProfileRequest {
     openapiFields.add("ancillary_fixed_fee_secondary");
     openapiFields.add("application");
     openapiFields.add("basis_points");
-    openapiFields.add("externally_funded_basis_points");
-    openapiFields.add("externally_funded_fixed_fee");
     openapiFields.add("charge_interchange");
     openapiFields.add("diners_club_basis_points");
     openapiFields.add("diners_club_charge_interchange");
@@ -1726,6 +1723,8 @@ public class CreateFeeProfileRequest {
     openapiFields.add("discover_network_authorization_fixed_fee");
     openapiFields.add("dispute_fixed_fee");
     openapiFields.add("dispute_inquiry_fixed_fee");
+    openapiFields.add("externally_funded_basis_points");
+    openapiFields.add("externally_funded_fixed_fee");
     openapiFields.add("fixed_fee");
     openapiFields.add("jcb_basis_points");
     openapiFields.add("jcb_charge_interchange");
@@ -1738,6 +1737,7 @@ public class CreateFeeProfileRequest {
     openapiFields.add("mastercard_fixed_fee");
     openapiFields.add("qualified_tiers");
     openapiFields.add("rounding_mode");
+    openapiFields.add("tags");
     openapiFields.add("visa_acquirer_processing_fixed_fee");
     openapiFields.add("visa_assessments_basis_points");
     openapiFields.add("visa_base_II_credit_voucher_fixed_fee");
@@ -1750,7 +1750,7 @@ public class CreateFeeProfileRequest {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("fixed_fee");
+    openapiRequiredFields.add("application");
   }
 
  /**

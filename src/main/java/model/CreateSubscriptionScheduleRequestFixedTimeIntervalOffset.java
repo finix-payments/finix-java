@@ -72,8 +72,8 @@ public class CreateSubscriptionScheduleRequestFixedTimeIntervalOffset {
    * Hourly increments between recurring charges
    * @return hourlyInterval
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Hourly increments between recurring charges")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Hourly increments between recurring charges")
 
   public Long getHourlyInterval() {
     return hourlyInterval;
@@ -95,8 +95,8 @@ public class CreateSubscriptionScheduleRequestFixedTimeIntervalOffset {
    * Number of recurring charges
    * @return intervalCount
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of recurring charges")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Number of recurring charges")
 
   public Long getIntervalCount() {
     return intervalCount;
@@ -160,6 +160,8 @@ public class CreateSubscriptionScheduleRequestFixedTimeIntervalOffset {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("hourly_interval");
+    openapiRequiredFields.add("interval_count");
   }
 
  /**
@@ -186,6 +188,18 @@ public class CreateSubscriptionScheduleRequestFixedTimeIntervalOffset {
         }
       }
       */
+
+      /**
+      * EDITED
+      * Commented to ByPass required properties/fields are present in the JSON string
+      */
+
+      // check to make sure all required properties/fields are present in the JSON string
+      /*for (String requiredField : CreateSubscriptionScheduleRequestFixedTimeIntervalOffset.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }*/
   }
 
 

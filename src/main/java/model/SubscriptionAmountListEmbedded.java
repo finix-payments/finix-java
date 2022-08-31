@@ -49,8 +49,9 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * SubscriptionAmountListEmbedded
+ * List of &#x60;subscription_amount&#x60; objects.
  */
+@ApiModel(description = "List of `subscription_amount` objects.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubscriptionAmountListEmbedded {
@@ -76,11 +77,11 @@ public class SubscriptionAmountListEmbedded {
   }
 
    /**
-   * Get subscriptionAmounts
+   * &#x60;subscription_amount&#x60; objects.
    * @return subscriptionAmounts
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "`subscription_amount` objects.")
 
   public Set<SubscriptionAmount> getSubscriptionAmounts() {
     return subscriptionAmounts;

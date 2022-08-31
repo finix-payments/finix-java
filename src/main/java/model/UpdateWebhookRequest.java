@@ -50,39 +50,16 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateWebhookRequest {
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
-  private String url;
-
   public static final String SERIALIZED_NAME_ENABLED = "enabled";
   @SerializedName(SERIALIZED_NAME_ENABLED)
   private Boolean enabled;
 
+  public static final String SERIALIZED_NAME_URL = "url";
+  @SerializedName(SERIALIZED_NAME_URL)
+  private String url;
+
   public UpdateWebhookRequest() { 
   }
-
-  public UpdateWebhookRequest url(String url) {
-    
-    this.url = url;
-    return this;
-  }
-
-   /**
-   * The HTTP or HTTPS url where the callbacks will be sent via POST request (max 120 characters).
-   * @return url
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The HTTP or HTTPS url where the callbacks will be sent via POST request (max 120 characters).")
-
-  public String getUrl() {
-    return url;
-  }
-
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
 
   public UpdateWebhookRequest enabled(Boolean enabled) {
     
@@ -107,6 +84,29 @@ public class UpdateWebhookRequest {
   }
 
 
+  public UpdateWebhookRequest url(String url) {
+    
+    this.url = url;
+    return this;
+  }
+
+   /**
+   * The HTTP or HTTPS url where the callbacks will be sent via POST request (max 120 characters).
+   * @return url
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The HTTP or HTTPS url where the callbacks will be sent via POST request (max 120 characters).")
+
+  public String getUrl() {
+    return url;
+  }
+
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -117,21 +117,21 @@ public class UpdateWebhookRequest {
       return false;
     }
     UpdateWebhookRequest updateWebhookRequest = (UpdateWebhookRequest) o;
-    return Objects.equals(this.url, updateWebhookRequest.url) &&
-        Objects.equals(this.enabled, updateWebhookRequest.enabled);
+    return Objects.equals(this.enabled, updateWebhookRequest.enabled) &&
+        Objects.equals(this.url, updateWebhookRequest.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(url, enabled);
+    return Objects.hash(enabled, url);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateWebhookRequest {\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -154,8 +154,8 @@ public class UpdateWebhookRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("url");
     openapiFields.add("enabled");
+    openapiFields.add("url");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

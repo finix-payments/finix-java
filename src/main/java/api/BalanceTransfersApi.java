@@ -308,7 +308,7 @@ public class BalanceTransfersApi {
     }
 
             /**
-            * Get a Balance Transfer
+            * Fetch a Balance Transfer
             * Retrieve the details of a &#x60;balance_transfer&#x60;.
                 * @param balanceTransfersId ID of the &#x60;balance_transfer&#x60; resource. (required)
                 * @return BalanceTransfer
@@ -332,7 +332,7 @@ public class BalanceTransfersApi {
 
 
     /**
-        * Get a Balance Transfer
+        * Fetch a Balance Transfer
         * Retrieve the details of a &#x60;balance_transfer&#x60;.
             * @param balanceTransfersId ID of the &#x60;balance_transfer&#x60; resource. (required)
         * @return ApiResponse&lt;BalanceTransfer&gt;
@@ -354,7 +354,7 @@ public class BalanceTransfersApi {
     }
 
     /**
-        * Get a Balance Transfer (asynchronously)
+        * Fetch a Balance Transfer (asynchronously)
         * Retrieve the details of a &#x60;balance_transfer&#x60;.
             * @param balanceTransfersId ID of the &#x60;balance_transfer&#x60; resource. (required)
         * @param _callback The callback to be executed when the API call finishes
@@ -530,7 +530,7 @@ public class BalanceTransfersApi {
 
         /**
         * Set limit
-        * @param limit The numbers of items to return (optional)
+        * @param limit The numbers of items to return. (optional)
         * @return APIlistBalanceTransfersRequest
         */
         public APIlistBalanceTransfersRequest limit(Long limit) {
@@ -540,7 +540,7 @@ public class BalanceTransfersApi {
 
         /**
         * Set offset
-        * @param offset The number of items to skip before starting to collect the result set (optional)
+        * @param offset The number of items to skip before starting to collect the result set. (optional)
         * @return APIlistBalanceTransfersRequest
         */
         public APIlistBalanceTransfersRequest offset(Long offset) {
@@ -550,7 +550,7 @@ public class BalanceTransfersApi {
 
         /**
         * Set pageNumber
-        * @param pageNumber The page number to list (optional)
+        * @param pageNumber The page number to list. (optional)
         * @return APIlistBalanceTransfersRequest
         */
         public APIlistBalanceTransfersRequest pageNumber(Long pageNumber) {
@@ -560,7 +560,7 @@ public class BalanceTransfersApi {
 
         /**
         * Set pageSize
-        * @param pageSize The size of the page (optional)
+        * @param pageSize The size of the page. (optional)
         * @return APIlistBalanceTransfersRequest
         */
         public APIlistBalanceTransfersRequest pageSize(Long pageSize) {
@@ -570,7 +570,7 @@ public class BalanceTransfersApi {
 
         /**
         * Set createdAtGte
-        * @param createdAtGte Filter where created_at is after the given date. (optional)
+        * @param createdAtGte Filter where &#x60;created_at&#x60; is after the given date. (optional)
         * @return APIlistBalanceTransfersRequest
         */
         public APIlistBalanceTransfersRequest createdAtGte(String createdAtGte) {
@@ -580,7 +580,7 @@ public class BalanceTransfersApi {
 
         /**
         * Set createdAtLte
-        * @param createdAtLte Filter where created_at is before the given date. (optional)
+        * @param createdAtLte Filter where &#x60;created_at&#x60; is before the given date. (optional)
         * @return APIlistBalanceTransfersRequest
         */
         public APIlistBalanceTransfersRequest createdAtLte(String createdAtLte) {
@@ -590,7 +590,7 @@ public class BalanceTransfersApi {
 
         /**
         * Set updatedAtGte
-        * @param updatedAtGte Filter where updated_at is after the given date (optional)
+        * @param updatedAtGte Filter where &#x60;updated_at&#x60; is after the given date. (optional)
         * @return APIlistBalanceTransfersRequest
         */
         public APIlistBalanceTransfersRequest updatedAtGte(String updatedAtGte) {
@@ -600,7 +600,7 @@ public class BalanceTransfersApi {
 
         /**
         * Set updatedAtLte
-        * @param updatedAtLte Filter where updated_at is before the given date (optional)
+        * @param updatedAtLte Filter where &#x60;updated_at&#x60; is before the given date. (optional)
         * @return APIlistBalanceTransfersRequest
         */
         public APIlistBalanceTransfersRequest updatedAtLte(String updatedAtLte) {
@@ -610,7 +610,7 @@ public class BalanceTransfersApi {
 
         /**
         * Set idempotencyId
-        * @param idempotencyId Filter by idempotency_id (optional)
+        * @param idempotencyId Filter by &#x60;idempotency_id&#x60;. (optional)
         * @return APIlistBalanceTransfersRequest
         */
         public APIlistBalanceTransfersRequest idempotencyId(String idempotencyId) {
@@ -620,7 +620,7 @@ public class BalanceTransfersApi {
 
         /**
         * Set amount
-        * @param amount Filter by an amount equal to the given value (optional)
+        * @param amount Filter by an amount equal to the given value. (optional)
         * @return APIlistBalanceTransfersRequest
         */
         public APIlistBalanceTransfersRequest amount(Long amount) {
@@ -630,7 +630,7 @@ public class BalanceTransfersApi {
 
         /**
         * Set description
-        * @param description Filter by the &#x60;description&#x60; value  (optional)
+        * @param description Filter by the &#x60;Description&#x60; value . (optional)
         * @return APIlistBalanceTransfersRequest
         */
         public APIlistBalanceTransfersRequest description(String description) {
@@ -640,7 +640,7 @@ public class BalanceTransfersApi {
 
         /**
         * Set destination
-        * @param destination Filter by the &#x60;Payment Instrument&#x60; saved in &#x60;destination&#x60; (optional)
+        * @param destination Filter by the &#x60;Payment Instrument&#x60; saved in &#x60;Destination&#x60;. (optional)
         * @return APIlistBalanceTransfersRequest
         */
         public APIlistBalanceTransfersRequest destination(String destination) {
@@ -650,7 +650,7 @@ public class BalanceTransfersApi {
 
         /**
         * Set externalReferenceId
-        * @param externalReferenceId Filter by the value saved in &#x60;external_reference_id&#x60; (optional)
+        * @param externalReferenceId Filter by the value saved in &#x60;external_reference_id&#x60;. (optional)
         * @return APIlistBalanceTransfersRequest
         */
         public APIlistBalanceTransfersRequest externalReferenceId(String externalReferenceId) {
@@ -660,7 +660,7 @@ public class BalanceTransfersApi {
 
         /**
         * Set referenceId
-        * @param referenceId Filter by the value saved in &#x60;reference_id&#x60; (optional)
+        * @param referenceId Filter by the value saved in &#x60;reference_id&#x60;. (optional)
         * @return APIlistBalanceTransfersRequest
         */
         public APIlistBalanceTransfersRequest referenceId(String referenceId) {
@@ -670,7 +670,7 @@ public class BalanceTransfersApi {
 
         /**
         * Set source
-        * @param source Filter by the &#x60;Payment Instrument&#x60; saved in &#x60;source&#x60; (optional)
+        * @param source Filter by the &#x60;Payment Instrument&#x60; saved in &#x60;source&#x60;. (optional)
         * @return APIlistBalanceTransfersRequest
         */
         public APIlistBalanceTransfersRequest source(String source) {

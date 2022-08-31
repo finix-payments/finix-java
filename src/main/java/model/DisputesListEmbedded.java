@@ -49,8 +49,9 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * DisputesListEmbedded
+ * List of &#x60;Dispute&#x60; objects.
  */
+@ApiModel(description = "List of `Dispute` objects.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DisputesListEmbedded {
@@ -76,11 +77,11 @@ public class DisputesListEmbedded {
   }
 
    /**
-   * &#x60;Dispute&#x60; object.
+   * &#x60;Dispute&#x60; objects.
    * @return disputes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "`Dispute` object.")
+  @ApiModelProperty(value = "`Dispute` objects.")
 
   public Set<Dispute> getDisputes() {
     return disputes;

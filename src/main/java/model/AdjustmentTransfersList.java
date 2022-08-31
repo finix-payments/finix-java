@@ -53,6 +53,10 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AdjustmentTransfersList {
+  public static final String SERIALIZED_NAME_PAGE = "page";
+  @SerializedName(SERIALIZED_NAME_PAGE)
+  private PageCursor page;
+
   public static final String SERIALIZED_NAME_EMBEDDED = "_embedded";
   @SerializedName(SERIALIZED_NAME_EMBEDDED)
   private AdjustmentTransfersListEmbedded embedded;
@@ -61,12 +65,31 @@ public class AdjustmentTransfersList {
   @SerializedName(SERIALIZED_NAME_LINKS)
   private DisputeEvidenceLinks links;
 
-  public static final String SERIALIZED_NAME_PAGE = "page";
-  @SerializedName(SERIALIZED_NAME_PAGE)
-  private PageCursor page;
-
   public AdjustmentTransfersList() { 
   }
+
+  public AdjustmentTransfersList page(PageCursor page) {
+    
+    this.page = page;
+    return this;
+  }
+
+   /**
+   * Get page
+   * @return page
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public PageCursor getPage() {
+    return page;
+  }
+
+
+  public void setPage(PageCursor page) {
+    this.page = page;
+  }
+
 
   public AdjustmentTransfersList embedded(AdjustmentTransfersListEmbedded embedded) {
     
@@ -114,29 +137,6 @@ public class AdjustmentTransfersList {
   }
 
 
-  public AdjustmentTransfersList page(PageCursor page) {
-    
-    this.page = page;
-    return this;
-  }
-
-   /**
-   * Get page
-   * @return page
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public PageCursor getPage() {
-    return page;
-  }
-
-
-  public void setPage(PageCursor page) {
-    this.page = page;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -147,23 +147,23 @@ public class AdjustmentTransfersList {
       return false;
     }
     AdjustmentTransfersList adjustmentTransfersList = (AdjustmentTransfersList) o;
-    return Objects.equals(this.embedded, adjustmentTransfersList.embedded) &&
-        Objects.equals(this.links, adjustmentTransfersList.links) &&
-        Objects.equals(this.page, adjustmentTransfersList.page);
+    return Objects.equals(this.page, adjustmentTransfersList.page) &&
+        Objects.equals(this.embedded, adjustmentTransfersList.embedded) &&
+        Objects.equals(this.links, adjustmentTransfersList.links);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(embedded, links, page);
+    return Objects.hash(page, embedded, links);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AdjustmentTransfersList {\n");
+    sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    embedded: ").append(toIndentedString(embedded)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
-    sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -186,9 +186,9 @@ public class AdjustmentTransfersList {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("page");
     openapiFields.add("_embedded");
     openapiFields.add("_links");
-    openapiFields.add("page");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -222,6 +222,15 @@ public class AdjustmentTransfersList {
       * EDITED
       * ADDED  statement to for inconsistent null behaviour
       */
+      // validate the optional field `page`
+     // if (jsonObj.getAsJsonObject("page") != null) {
+       //PageCursor.validateJsonObject(jsonObj.getAsJsonObject("page"));
+     // }
+
+      /**
+      * EDITED
+      * ADDED  statement to for inconsistent null behaviour
+      */
       // validate the optional field `_embedded`
      // if (jsonObj.getAsJsonObject("_embedded") != null) {
        //AdjustmentTransfersListEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
@@ -234,15 +243,6 @@ public class AdjustmentTransfersList {
       // validate the optional field `_links`
      // if (jsonObj.getAsJsonObject("_links") != null) {
        //DisputeEvidenceLinks.validateJsonObject(jsonObj.getAsJsonObject("_links"));
-     // }
-
-      /**
-      * EDITED
-      * ADDED  statement to for inconsistent null behaviour
-      */
-      // validate the optional field `page`
-     // if (jsonObj.getAsJsonObject("page") != null) {
-       //PageCursor.validateJsonObject(jsonObj.getAsJsonObject("page"));
      // }
 
   }

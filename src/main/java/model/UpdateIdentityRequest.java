@@ -59,13 +59,13 @@ public class UpdateIdentityRequest {
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_UNDERWRITING_DATA)
   private UpdateIdentityRequestAdditionalUnderwritingData additionalUnderwritingData;
 
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
-
   public static final String SERIALIZED_NAME_ENTITY = "entity";
   @SerializedName(SERIALIZED_NAME_ENTITY)
   private UpdateIdentityRequestEntity entity;
+
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
 
   public UpdateIdentityRequest() { 
   }
@@ -90,6 +90,29 @@ public class UpdateIdentityRequest {
 
   public void setAdditionalUnderwritingData(UpdateIdentityRequestAdditionalUnderwritingData additionalUnderwritingData) {
     this.additionalUnderwritingData = additionalUnderwritingData;
+  }
+
+
+  public UpdateIdentityRequest entity(UpdateIdentityRequestEntity entity) {
+    
+    this.entity = entity;
+    return this;
+  }
+
+   /**
+   * Get entity
+   * @return entity
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public UpdateIdentityRequestEntity getEntity() {
+    return entity;
+  }
+
+
+  public void setEntity(UpdateIdentityRequestEntity entity) {
+    this.entity = entity;
   }
 
 
@@ -124,29 +147,6 @@ public class UpdateIdentityRequest {
   }
 
 
-  public UpdateIdentityRequest entity(UpdateIdentityRequestEntity entity) {
-    
-    this.entity = entity;
-    return this;
-  }
-
-   /**
-   * Get entity
-   * @return entity
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public UpdateIdentityRequestEntity getEntity() {
-    return entity;
-  }
-
-
-  public void setEntity(UpdateIdentityRequestEntity entity) {
-    this.entity = entity;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -158,13 +158,13 @@ public class UpdateIdentityRequest {
     }
     UpdateIdentityRequest updateIdentityRequest = (UpdateIdentityRequest) o;
     return Objects.equals(this.additionalUnderwritingData, updateIdentityRequest.additionalUnderwritingData) &&
-        Objects.equals(this.tags, updateIdentityRequest.tags) &&
-        Objects.equals(this.entity, updateIdentityRequest.entity);
+        Objects.equals(this.entity, updateIdentityRequest.entity) &&
+        Objects.equals(this.tags, updateIdentityRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalUnderwritingData, tags, entity);
+    return Objects.hash(additionalUnderwritingData, entity, tags);
   }
 
   @Override
@@ -172,8 +172,8 @@ public class UpdateIdentityRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateIdentityRequest {\n");
     sb.append("    additionalUnderwritingData: ").append(toIndentedString(additionalUnderwritingData)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    entity: ").append(toIndentedString(entity)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -197,8 +197,8 @@ public class UpdateIdentityRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("additional_underwriting_data");
-    openapiFields.add("tags");
     openapiFields.add("entity");
+    openapiFields.add("tags");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

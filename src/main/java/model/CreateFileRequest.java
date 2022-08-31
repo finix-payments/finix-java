@@ -61,6 +61,10 @@ public class CreateFileRequest {
   @SerializedName(SERIALIZED_NAME_LINKED_TO)
   private String linkedTo;
 
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
+
   /**
    * The type of document. | Available values include: &lt;br&gt;Identity Verification&lt;ul&gt;&lt;li&gt; **DRIVERS\\_LICENSE\\_FRONT**&lt;li&gt;**DRIVERS\\_LICENSE\\_BACK**&lt;li&gt;**IDENTIFICATION\\_CARD\\_FRONT**&lt;li&gt;**IDENTIFICATION\\_CARD\\_BACK**&lt;/ul&gt;Bank account validation&lt;ul&gt;&lt;li&gt;**BANK\\_STATEMENT**&lt;/ul&gt;Business Verification&lt;ul&gt;&lt;li&gt;**TAX\\_DOCUMENT**&lt;li&gt;**BUSINESS\\_REGISTRATION**&lt;li&gt;**BUSINESS\\_ADDRESS\\_VERIFICATION**&lt;/ul&gt;Additional&lt;ul&gt;&lt;li&gt;**OTHER**&lt;li&gt;**PCI\\_DOCUMENT**&lt;li&gt;**PASSPORT**&lt;ul&gt;
    */
@@ -151,10 +155,6 @@ public class CreateFileRequest {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
 
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
-
   public CreateFileRequest() { 
   }
 
@@ -204,29 +204,6 @@ public class CreateFileRequest {
   }
 
 
-  public CreateFileRequest type(TypeEnum type) {
-    
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * The type of document. | Available values include: &lt;br&gt;Identity Verification&lt;ul&gt;&lt;li&gt; **DRIVERS\\_LICENSE\\_FRONT**&lt;li&gt;**DRIVERS\\_LICENSE\\_BACK**&lt;li&gt;**IDENTIFICATION\\_CARD\\_FRONT**&lt;li&gt;**IDENTIFICATION\\_CARD\\_BACK**&lt;/ul&gt;Bank account validation&lt;ul&gt;&lt;li&gt;**BANK\\_STATEMENT**&lt;/ul&gt;Business Verification&lt;ul&gt;&lt;li&gt;**TAX\\_DOCUMENT**&lt;li&gt;**BUSINESS\\_REGISTRATION**&lt;li&gt;**BUSINESS\\_ADDRESS\\_VERIFICATION**&lt;/ul&gt;Additional&lt;ul&gt;&lt;li&gt;**OTHER**&lt;li&gt;**PCI\\_DOCUMENT**&lt;li&gt;**PASSPORT**&lt;ul&gt;
-   * @return type
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The type of document. | Available values include: <br>Identity Verification<ul><li> **DRIVERS\\_LICENSE\\_FRONT**<li>**DRIVERS\\_LICENSE\\_BACK**<li>**IDENTIFICATION\\_CARD\\_FRONT**<li>**IDENTIFICATION\\_CARD\\_BACK**</ul>Bank account validation<ul><li>**BANK\\_STATEMENT**</ul>Business Verification<ul><li>**TAX\\_DOCUMENT**<li>**BUSINESS\\_REGISTRATION**<li>**BUSINESS\\_ADDRESS\\_VERIFICATION**</ul>Additional<ul><li>**OTHER**<li>**PCI\\_DOCUMENT**<li>**PASSPORT**<ul>")
-
-  public TypeEnum getType() {
-    return type;
-  }
-
-
-  public void setType(TypeEnum type) {
-    this.type = type;
-  }
-
-
   public CreateFileRequest tags(Map<String, String> tags) {
     
     this.tags = tags;
@@ -258,6 +235,29 @@ public class CreateFileRequest {
   }
 
 
+  public CreateFileRequest type(TypeEnum type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * The type of document. | Available values include: &lt;br&gt;Identity Verification&lt;ul&gt;&lt;li&gt; **DRIVERS\\_LICENSE\\_FRONT**&lt;li&gt;**DRIVERS\\_LICENSE\\_BACK**&lt;li&gt;**IDENTIFICATION\\_CARD\\_FRONT**&lt;li&gt;**IDENTIFICATION\\_CARD\\_BACK**&lt;/ul&gt;Bank account validation&lt;ul&gt;&lt;li&gt;**BANK\\_STATEMENT**&lt;/ul&gt;Business Verification&lt;ul&gt;&lt;li&gt;**TAX\\_DOCUMENT**&lt;li&gt;**BUSINESS\\_REGISTRATION**&lt;li&gt;**BUSINESS\\_ADDRESS\\_VERIFICATION**&lt;/ul&gt;Additional&lt;ul&gt;&lt;li&gt;**OTHER**&lt;li&gt;**PCI\\_DOCUMENT**&lt;li&gt;**PASSPORT**&lt;ul&gt;
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The type of document. | Available values include: <br>Identity Verification<ul><li> **DRIVERS\\_LICENSE\\_FRONT**<li>**DRIVERS\\_LICENSE\\_BACK**<li>**IDENTIFICATION\\_CARD\\_FRONT**<li>**IDENTIFICATION\\_CARD\\_BACK**</ul>Bank account validation<ul><li>**BANK\\_STATEMENT**</ul>Business Verification<ul><li>**TAX\\_DOCUMENT**<li>**BUSINESS\\_REGISTRATION**<li>**BUSINESS\\_ADDRESS\\_VERIFICATION**</ul>Additional<ul><li>**OTHER**<li>**PCI\\_DOCUMENT**<li>**PASSPORT**<ul>")
+
+  public TypeEnum getType() {
+    return type;
+  }
+
+
+  public void setType(TypeEnum type) {
+    this.type = type;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -270,13 +270,13 @@ public class CreateFileRequest {
     CreateFileRequest createFileRequest = (CreateFileRequest) o;
     return Objects.equals(this.displayName, createFileRequest.displayName) &&
         Objects.equals(this.linkedTo, createFileRequest.linkedTo) &&
-        Objects.equals(this.type, createFileRequest.type) &&
-        Objects.equals(this.tags, createFileRequest.tags);
+        Objects.equals(this.tags, createFileRequest.tags) &&
+        Objects.equals(this.type, createFileRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, linkedTo, type, tags);
+    return Objects.hash(displayName, linkedTo, tags, type);
   }
 
   @Override
@@ -285,8 +285,8 @@ public class CreateFileRequest {
     sb.append("class CreateFileRequest {\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    linkedTo: ").append(toIndentedString(linkedTo)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -311,8 +311,8 @@ public class CreateFileRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("display_name");
     openapiFields.add("linked_to");
-    openapiFields.add("type");
     openapiFields.add("tags");
+    openapiFields.add("type");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

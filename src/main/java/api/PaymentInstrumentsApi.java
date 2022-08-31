@@ -309,7 +309,7 @@ public class PaymentInstrumentsApi {
 
             /**
             * Create a Payment Instrument
-            * Create a &#x60;Payment Instrument&#x60; resource using a card or bank account.  To accept payment details, review our guide on how to [tokenize cards using hosted fields](/guides/payments/tokenization-with-hosted-fields).  &gt; The creation of &#x60;Payment Instruments&#x60; using cards directly via Finix&#39;s API should only be done for testing purposes. You must use the Hosted Tokenization fields or javascript client to remain out of PCI scope.
+            * Create a &#x60;Payment Instrument&#x60; resource using a card or bank account.  To accept payment details, review our guide on how to [tokenize cards using hosted fields](/guides/payments/tokenization-with-hosted-fields).  - The creation of &#x60;Payment Instruments&#x60; directly via Finix&#39;s API should only be done for testing purposes. You must use the Hosted Tokenization fields or the javascript client to remain out of PCI scope.
                 * @param createPaymentInstrumentRequest  (optional)
                 * @return PaymentInstrument
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -333,7 +333,7 @@ public class PaymentInstrumentsApi {
 
     /**
         * Create a Payment Instrument
-        * Create a &#x60;Payment Instrument&#x60; resource using a card or bank account.  To accept payment details, review our guide on how to [tokenize cards using hosted fields](/guides/payments/tokenization-with-hosted-fields).  &gt; The creation of &#x60;Payment Instruments&#x60; using cards directly via Finix&#39;s API should only be done for testing purposes. You must use the Hosted Tokenization fields or javascript client to remain out of PCI scope.
+        * Create a &#x60;Payment Instrument&#x60; resource using a card or bank account.  To accept payment details, review our guide on how to [tokenize cards using hosted fields](/guides/payments/tokenization-with-hosted-fields).  - The creation of &#x60;Payment Instruments&#x60; directly via Finix&#39;s API should only be done for testing purposes. You must use the Hosted Tokenization fields or the javascript client to remain out of PCI scope.
             * @param createPaymentInstrumentRequest  (optional)
         * @return ApiResponse&lt;PaymentInstrument&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -355,7 +355,7 @@ public class PaymentInstrumentsApi {
 
     /**
         * Create a Payment Instrument (asynchronously)
-        * Create a &#x60;Payment Instrument&#x60; resource using a card or bank account.  To accept payment details, review our guide on how to [tokenize cards using hosted fields](/guides/payments/tokenization-with-hosted-fields).  &gt; The creation of &#x60;Payment Instruments&#x60; using cards directly via Finix&#39;s API should only be done for testing purposes. You must use the Hosted Tokenization fields or javascript client to remain out of PCI scope.
+        * Create a &#x60;Payment Instrument&#x60; resource using a card or bank account.  To accept payment details, review our guide on how to [tokenize cards using hosted fields](/guides/payments/tokenization-with-hosted-fields).  - The creation of &#x60;Payment Instruments&#x60; directly via Finix&#39;s API should only be done for testing purposes. You must use the Hosted Tokenization fields or the javascript client to remain out of PCI scope.
             * @param createPaymentInstrumentRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
@@ -457,7 +457,7 @@ public class PaymentInstrumentsApi {
     }
 
             /**
-            * Get a Payment Instrument
+            * Fetch a Payment Instrument
             * Retrieve the details of a &#x60;Payment Instrument&#x60;.
                 * @param paymentInstrumentId ID of object (required)
                 * @return PaymentInstrument
@@ -482,7 +482,7 @@ public class PaymentInstrumentsApi {
 
 
     /**
-        * Get a Payment Instrument
+        * Fetch a Payment Instrument
         * Retrieve the details of a &#x60;Payment Instrument&#x60;.
             * @param paymentInstrumentId ID of object (required)
         * @return ApiResponse&lt;PaymentInstrument&gt;
@@ -505,7 +505,7 @@ public class PaymentInstrumentsApi {
     }
 
     /**
-        * Get a Payment Instrument (asynchronously)
+        * Fetch a Payment Instrument (asynchronously)
         * Retrieve the details of a &#x60;Payment Instrument&#x60;.
             * @param paymentInstrumentId ID of object (required)
         * @param _callback The callback to be executed when the API call finishes
@@ -737,7 +737,7 @@ public class PaymentInstrumentsApi {
     /**
     * List Payment Instrument Updates
     * List the updates on a &#x60;Payment Instrument&#x60;.  When using the [account updater](/guides/payments/account-updater), &#x60;Payment Instrument&#x60; details that are updated are represented by an &#x60;Update&#x60;.
-        * @param paymentInstrumentId ID of object (required)
+        * @param paymentInstrumentId ID of &#x60;Payment Instrument&#x60; object. (required)
     * @return APIlistPaymentInstrumentUpdatesRequest
         * @http.response.details
         <table summary="Response Details" border="1">
@@ -793,7 +793,7 @@ public class PaymentInstrumentsApi {
         currList.setLinks(response.getLinks());
         return currList;
     }
-    private okhttp3.Call listPaymentInstrumentsCall(Long limit, String afterCursor, String accountLast4, String accountRoutingNumber, String application, String bin, String createdAtGte, String createdAtLte, String expirationMonth, String expirationYear, String lastFour, String name, String ownerIdentityId, String type, String beforeCursor, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listPaymentInstrumentsCall(String accountLast4, String accountRoutingNumber, String afterCursor, String application, String beforeCursor, String bin, String createdAtGte, String createdAtLte, String expirationMonth, String expirationYear, String lastFour, Long limit, String name, String ownerIdentityId, String type, final ApiCallback _callback) throws ApiException {
         String basePath = null;
     // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -818,14 +818,6 @@ public class PaymentInstrumentsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (limit != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("limit", limit));
-        }
-
-        if (afterCursor != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("after_cursor", afterCursor));
-        }
-
         if (accountLast4 != null) {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("account_last4", accountLast4));
         }
@@ -834,8 +826,16 @@ public class PaymentInstrumentsApi {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("account_routing_number", accountRoutingNumber));
         }
 
+        if (afterCursor != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("after_cursor", afterCursor));
+        }
+
         if (application != null) {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("application", application));
+        }
+
+        if (beforeCursor != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("before_cursor", beforeCursor));
         }
 
         if (bin != null) {
@@ -862,6 +862,10 @@ public class PaymentInstrumentsApi {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("last_four", lastFour));
         }
 
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("limit", limit));
+        }
+
         if (name != null) {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("name", name));
         }
@@ -872,10 +876,6 @@ public class PaymentInstrumentsApi {
 
         if (type != null) {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("type", type));
-        }
-
-        if (beforeCursor != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("before_cursor", beforeCursor));
         }
 
         final String[] localVarAccepts = {
@@ -901,67 +901,47 @@ public class PaymentInstrumentsApi {
     }
 
         @SuppressWarnings("rawtypes")
-    private okhttp3.Call listPaymentInstrumentsValidateBeforeCall(Long limit, String afterCursor, String accountLast4, String accountRoutingNumber, String application, String bin, String createdAtGte, String createdAtLte, String expirationMonth, String expirationYear, String lastFour, String name, String ownerIdentityId, String type, String beforeCursor, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listPaymentInstrumentsValidateBeforeCall(String accountLast4, String accountRoutingNumber, String afterCursor, String application, String beforeCursor, String bin, String createdAtGte, String createdAtLte, String expirationMonth, String expirationYear, String lastFour, Long limit, String name, String ownerIdentityId, String type, final ApiCallback _callback) throws ApiException {
     
 
-        okhttp3.Call localVarCall = listPaymentInstrumentsCall(limit, afterCursor, accountLast4, accountRoutingNumber, application, bin, createdAtGte, createdAtLte, expirationMonth, expirationYear, lastFour, name, ownerIdentityId, type, beforeCursor, _callback);
+        okhttp3.Call localVarCall = listPaymentInstrumentsCall(accountLast4, accountRoutingNumber, afterCursor, application, beforeCursor, bin, createdAtGte, createdAtLte, expirationMonth, expirationYear, lastFour, limit, name, ownerIdentityId, type, _callback);
         return localVarCall;
 
     }
 
 
-    private ApiResponse<PaymentInstrumentsList> listPaymentInstrumentsWithHttpInfo(Long limit, String afterCursor, String accountLast4, String accountRoutingNumber, String application, String bin, String createdAtGte, String createdAtLte, String expirationMonth, String expirationYear, String lastFour, String name, String ownerIdentityId, String type, String beforeCursor) throws ApiException {
-        okhttp3.Call localVarCall = listPaymentInstrumentsValidateBeforeCall(limit, afterCursor, accountLast4, accountRoutingNumber, application, bin, createdAtGte, createdAtLte, expirationMonth, expirationYear, lastFour, name, ownerIdentityId, type, beforeCursor, null);
+    private ApiResponse<PaymentInstrumentsList> listPaymentInstrumentsWithHttpInfo(String accountLast4, String accountRoutingNumber, String afterCursor, String application, String beforeCursor, String bin, String createdAtGte, String createdAtLte, String expirationMonth, String expirationYear, String lastFour, Long limit, String name, String ownerIdentityId, String type) throws ApiException {
+        okhttp3.Call localVarCall = listPaymentInstrumentsValidateBeforeCall(accountLast4, accountRoutingNumber, afterCursor, application, beforeCursor, bin, createdAtGte, createdAtLte, expirationMonth, expirationYear, lastFour, limit, name, ownerIdentityId, type, null);
         Type localVarReturnType = new TypeToken<PaymentInstrumentsList>(){}.getType();
         return localVarFinixClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listPaymentInstrumentsAsync(Long limit, String afterCursor, String accountLast4, String accountRoutingNumber, String application, String bin, String createdAtGte, String createdAtLte, String expirationMonth, String expirationYear, String lastFour, String name, String ownerIdentityId, String type, String beforeCursor, final ApiCallback<PaymentInstrumentsList> _callback) throws ApiException {
+    private okhttp3.Call listPaymentInstrumentsAsync(String accountLast4, String accountRoutingNumber, String afterCursor, String application, String beforeCursor, String bin, String createdAtGte, String createdAtLte, String expirationMonth, String expirationYear, String lastFour, Long limit, String name, String ownerIdentityId, String type, final ApiCallback<PaymentInstrumentsList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listPaymentInstrumentsValidateBeforeCall(limit, afterCursor, accountLast4, accountRoutingNumber, application, bin, createdAtGte, createdAtLte, expirationMonth, expirationYear, lastFour, name, ownerIdentityId, type, beforeCursor, _callback);
+        okhttp3.Call localVarCall = listPaymentInstrumentsValidateBeforeCall(accountLast4, accountRoutingNumber, afterCursor, application, beforeCursor, bin, createdAtGte, createdAtLte, expirationMonth, expirationYear, lastFour, limit, name, ownerIdentityId, type, _callback);
         Type localVarReturnType = new TypeToken<PaymentInstrumentsList>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIlistPaymentInstrumentsRequest {
-        private Long limit;
-        private String afterCursor;
         private String accountLast4;
         private String accountRoutingNumber;
+        private String afterCursor;
         private String application;
+        private String beforeCursor;
         private String bin;
         private String createdAtGte;
         private String createdAtLte;
         private String expirationMonth;
         private String expirationYear;
         private String lastFour;
+        private Long limit;
         private String name;
         private String ownerIdentityId;
         private String type;
-        private String beforeCursor;
 
         private APIlistPaymentInstrumentsRequest() {
-        }
-
-        /**
-        * Set limit
-        * @param limit The numbers of items to return (optional)
-        * @return APIlistPaymentInstrumentsRequest
-        */
-        public APIlistPaymentInstrumentsRequest limit(Long limit) {
-            this.limit = limit;
-            return this;
-        }
-
-        /**
-        * Set afterCursor
-        * @param afterCursor Return every resource created after the cursor value. (optional)
-        * @return APIlistPaymentInstrumentsRequest
-        */
-        public APIlistPaymentInstrumentsRequest afterCursor(String afterCursor) {
-            this.afterCursor = afterCursor;
-            return this;
         }
 
         /**
@@ -985,8 +965,18 @@ public class PaymentInstrumentsApi {
         }
 
         /**
+        * Set afterCursor
+        * @param afterCursor Return every resource created after the cursor value. (optional)
+        * @return APIlistPaymentInstrumentsRequest
+        */
+        public APIlistPaymentInstrumentsRequest afterCursor(String afterCursor) {
+            this.afterCursor = afterCursor;
+            return this;
+        }
+
+        /**
         * Set application
-        * @param application Filter by application id (optional)
+        * @param application Filter by &#x60;Application&#x60; ID. (optional)
         * @return APIlistPaymentInstrumentsRequest
         */
         public APIlistPaymentInstrumentsRequest application(String application) {
@@ -995,8 +985,18 @@ public class PaymentInstrumentsApi {
         }
 
         /**
+        * Set beforeCursor
+        * @param beforeCursor Return every resource created before the cursor value. (optional)
+        * @return APIlistPaymentInstrumentsRequest
+        */
+        public APIlistPaymentInstrumentsRequest beforeCursor(String beforeCursor) {
+            this.beforeCursor = beforeCursor;
+            return this;
+        }
+
+        /**
         * Set bin
-        * @param bin Filter by Bank Identification Number (BIN). The BIN is the first 6 digits of the masked number (optional)
+        * @param bin Filter by Bank Identification Number (BIN). The BIN is the first 6 digits of the masked number. (optional)
         * @return APIlistPaymentInstrumentsRequest
         */
         public APIlistPaymentInstrumentsRequest bin(String bin) {
@@ -1006,7 +1006,7 @@ public class PaymentInstrumentsApi {
 
         /**
         * Set createdAtGte
-        * @param createdAtGte Filter where created_at is after the given date. (optional)
+        * @param createdAtGte Filter where &#x60;created_at&#x60; is after the given date. (optional)
         * @return APIlistPaymentInstrumentsRequest
         */
         public APIlistPaymentInstrumentsRequest createdAtGte(String createdAtGte) {
@@ -1016,7 +1016,7 @@ public class PaymentInstrumentsApi {
 
         /**
         * Set createdAtLte
-        * @param createdAtLte Filter where created_at is before the given date. (optional)
+        * @param createdAtLte Filter where &#x60;created_at&#x60; is before the given date. (optional)
         * @return APIlistPaymentInstrumentsRequest
         */
         public APIlistPaymentInstrumentsRequest createdAtLte(String createdAtLte) {
@@ -1036,7 +1036,7 @@ public class PaymentInstrumentsApi {
 
         /**
         * Set expirationYear
-        * @param expirationYear Filter by the 4 digit expiration year associated with the Payment Instrument if applicable. This filter only applies to payment cards (optional)
+        * @param expirationYear Filter by the 4 digit expiration year associated with the Payment Instrument if applicable. This filter only applies to payment cards. (optional)
         * @return APIlistPaymentInstrumentsRequest
         */
         public APIlistPaymentInstrumentsRequest expirationYear(String expirationYear) {
@@ -1046,11 +1046,21 @@ public class PaymentInstrumentsApi {
 
         /**
         * Set lastFour
-        * @param lastFour Filter by the last 4 digits of the Payment Instrument card. This filter only applies to payment cards. (optional)
+        * @param lastFour Filter by the last 4 digits of the &#x60;Payment Instrument&#x60; card. This filter only applies to payment cards. (optional)
         * @return APIlistPaymentInstrumentsRequest
         */
         public APIlistPaymentInstrumentsRequest lastFour(String lastFour) {
             this.lastFour = lastFour;
+            return this;
+        }
+
+        /**
+        * Set limit
+        * @param limit The numbers of items to return. (optional)
+        * @return APIlistPaymentInstrumentsRequest
+        */
+        public APIlistPaymentInstrumentsRequest limit(Long limit) {
+            this.limit = limit;
             return this;
         }
 
@@ -1066,7 +1076,7 @@ public class PaymentInstrumentsApi {
 
         /**
         * Set ownerIdentityId
-        * @param ownerIdentityId Filter by the owner id of the associated identity. (optional)
+        * @param ownerIdentityId Filter by the owner id of the associated &#x60;Identity&#x60;. (optional)
         * @return APIlistPaymentInstrumentsRequest
         */
         public APIlistPaymentInstrumentsRequest ownerIdentityId(String ownerIdentityId) {
@@ -1076,21 +1086,11 @@ public class PaymentInstrumentsApi {
 
         /**
         * Set type
-        * @param type Filter by the payment instrument type. (optional)
+        * @param type Filter by the &#x60;Payment Instrument&#x60; type. (optional)
         * @return APIlistPaymentInstrumentsRequest
         */
         public APIlistPaymentInstrumentsRequest type(String type) {
             this.type = type;
-            return this;
-        }
-
-        /**
-        * Set beforeCursor
-        * @param beforeCursor Return every resource created before the cursor value. (optional)
-        * @return APIlistPaymentInstrumentsRequest
-        */
-        public APIlistPaymentInstrumentsRequest beforeCursor(String beforeCursor) {
-            this.beforeCursor = beforeCursor;
             return this;
         }
 
@@ -1109,7 +1109,7 @@ public class PaymentInstrumentsApi {
             </table>
         */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listPaymentInstrumentsCall(limit, afterCursor, accountLast4, accountRoutingNumber, application, bin, createdAtGte, createdAtLte, expirationMonth, expirationYear, lastFour, name, ownerIdentityId, type, beforeCursor, _callback);
+            return listPaymentInstrumentsCall(accountLast4, accountRoutingNumber, afterCursor, application, beforeCursor, bin, createdAtGte, createdAtLte, expirationMonth, expirationYear, lastFour, limit, name, ownerIdentityId, type, _callback);
         }
 
         /**
@@ -1126,7 +1126,7 @@ public class PaymentInstrumentsApi {
             </table>
         */
         public PaymentInstrumentsList execute() throws ApiException {
-            ApiResponse<PaymentInstrumentsList> localVarResp = listPaymentInstrumentsWithHttpInfo(limit, afterCursor, accountLast4, accountRoutingNumber, application, bin, createdAtGte, createdAtLte, expirationMonth, expirationYear, lastFour, name, ownerIdentityId, type, beforeCursor);
+            ApiResponse<PaymentInstrumentsList> localVarResp = listPaymentInstrumentsWithHttpInfo(accountLast4, accountRoutingNumber, afterCursor, application, beforeCursor, bin, createdAtGte, createdAtLte, expirationMonth, expirationYear, lastFour, limit, name, ownerIdentityId, type);
             return localVarResp.getData();
         }
 
@@ -1144,7 +1144,7 @@ public class PaymentInstrumentsApi {
             </table>
         */
         public ApiResponse<PaymentInstrumentsList> executeWithHttpInfo() throws ApiException {
-            return listPaymentInstrumentsWithHttpInfo(limit, afterCursor, accountLast4, accountRoutingNumber, application, bin, createdAtGte, createdAtLte, expirationMonth, expirationYear, lastFour, name, ownerIdentityId, type, beforeCursor);
+            return listPaymentInstrumentsWithHttpInfo(accountLast4, accountRoutingNumber, afterCursor, application, beforeCursor, bin, createdAtGte, createdAtLte, expirationMonth, expirationYear, lastFour, limit, name, ownerIdentityId, type);
         }
 
         /**
@@ -1162,7 +1162,7 @@ public class PaymentInstrumentsApi {
             </table>
         */
         public okhttp3.Call executeAsync(final ApiCallback<PaymentInstrumentsList> _callback) throws ApiException {
-            return listPaymentInstrumentsAsync(limit, afterCursor, accountLast4, accountRoutingNumber, application, bin, createdAtGte, createdAtLte, expirationMonth, expirationYear, lastFour, name, ownerIdentityId, type, beforeCursor, _callback);
+            return listPaymentInstrumentsAsync(accountLast4, accountRoutingNumber, afterCursor, application, beforeCursor, bin, createdAtGte, createdAtLte, expirationMonth, expirationYear, lastFour, limit, name, ownerIdentityId, type, _callback);
         }
     }
 
@@ -1184,21 +1184,21 @@ public class PaymentInstrumentsApi {
         throws ApiException{
 
         APIlistPaymentInstrumentsRequest request = new APIlistPaymentInstrumentsRequest();
-        request.limit(listPaymentInstrumentsQueryParams.getLimit());
-        request.afterCursor(listPaymentInstrumentsQueryParams.getAfterCursor());
         request.accountLast4(listPaymentInstrumentsQueryParams.getAccountLast4());
         request.accountRoutingNumber(listPaymentInstrumentsQueryParams.getAccountRoutingNumber());
+        request.afterCursor(listPaymentInstrumentsQueryParams.getAfterCursor());
         request.application(listPaymentInstrumentsQueryParams.getApplication());
+        request.beforeCursor(listPaymentInstrumentsQueryParams.getBeforeCursor());
         request.bin(listPaymentInstrumentsQueryParams.getBin());
         request.createdAtGte(listPaymentInstrumentsQueryParams.getCreatedAtGte());
         request.createdAtLte(listPaymentInstrumentsQueryParams.getCreatedAtLte());
         request.expirationMonth(listPaymentInstrumentsQueryParams.getExpirationMonth());
         request.expirationYear(listPaymentInstrumentsQueryParams.getExpirationYear());
         request.lastFour(listPaymentInstrumentsQueryParams.getLastFour());
+        request.limit(listPaymentInstrumentsQueryParams.getLimit());
         request.name(listPaymentInstrumentsQueryParams.getName());
         request.ownerIdentityId(listPaymentInstrumentsQueryParams.getOwnerIdentityId());
         request.type(listPaymentInstrumentsQueryParams.getType());
-        request.beforeCursor(listPaymentInstrumentsQueryParams.getBeforeCursor());
         PaymentInstrumentsList response = request.execute();
         Boolean hasNextCursor = (response.getPage().getClass().getName() == "model.PageCursor");
         ListPaymentInstrumentsQueryParams queryParams = (ListPaymentInstrumentsQueryParams) getQueryParam(response.getPage(),

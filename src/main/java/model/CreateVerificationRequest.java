@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,17 +54,9 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateVerificationRequest {
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
-
   public static final String SERIALIZED_NAME_IDENTITY = "identity";
   @SerializedName(SERIALIZED_NAME_IDENTITY)
   private String identity;
-
-  public static final String SERIALIZED_NAME_INSTRUMENT = "instrument";
-  @SerializedName(SERIALIZED_NAME_INSTRUMENT)
-  private String instrument;
 
   public static final String SERIALIZED_NAME_MERCHANT = "merchant";
   @SerializedName(SERIALIZED_NAME_MERCHANT)
@@ -73,39 +66,12 @@ public class CreateVerificationRequest {
   @SerializedName(SERIALIZED_NAME_PROCESSOR)
   private String processor;
 
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
+
   public CreateVerificationRequest() { 
   }
-
-  public CreateVerificationRequest tags(Map<String, String> tags) {
-    
-    this.tags = tags;
-    return this;
-  }
-
-  public CreateVerificationRequest putTagsItem(String key, String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new HashMap<>();
-    }
-    this.tags.put(key, tagsItem);
-    return this;
-  }
-
-   /**
-   * Key value pair for annotating custom meta data (e.g. order numbers).
-   * @return tags
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
-
-  public Map<String, String> getTags() {
-    return tags;
-  }
-
-
-  public void setTags(Map<String, String> tags) {
-    this.tags = tags;
-  }
-
 
   public CreateVerificationRequest identity(String identity) {
     
@@ -127,29 +93,6 @@ public class CreateVerificationRequest {
 
   public void setIdentity(String identity) {
     this.identity = identity;
-  }
-
-
-  public CreateVerificationRequest instrument(String instrument) {
-    
-    this.instrument = instrument;
-    return this;
-  }
-
-   /**
-   * The &#x60;Payment Instrument&#x60; that&#39;ll be used to settle the &#x60;Merchant&#39;s&#x60; funds.
-   * @return instrument
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The `Payment Instrument` that'll be used to settle the `Merchant's` funds.")
-
-  public String getInstrument() {
-    return instrument;
-  }
-
-
-  public void setInstrument(String instrument) {
-    this.instrument = instrument;
   }
 
 
@@ -183,11 +126,11 @@ public class CreateVerificationRequest {
   }
 
    /**
-   * Name of the &#x60;Verification&#x60; processor.
+   * Set the acquiring processor. Avalible values include: &lt;ul&gt;&lt;li&gt;&lt;strong&gt;DUMMY_V1&lt;/strong&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;LITLE_V1&lt;/strong&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;MASTERCARD_V1&lt;/strong&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;VISA_V1&lt;/strong&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;NMI_V1&lt;/strong&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;VANTIV_V1&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;Use &lt;strong&gt;DUMMY_V1&lt;/strong&gt; or  &lt;strong&gt;null&lt;/strong&gt; to use your sandbox. For more details on which processor to use, reach out to your Finix point of contact or email &lt;a href&#x3D;\&quot;/guides/getting-started/support-at-finix/\&quot;&gt;Finix Support&lt;/a&gt;.
    * @return processor
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the `Verification` processor.")
+  @ApiModelProperty(value = "Set the acquiring processor. Avalible values include: <ul><li><strong>DUMMY_V1</strong></li><li><strong>LITLE_V1</strong></li><li><strong>MASTERCARD_V1</strong></li><li><strong>VISA_V1</strong></li><li><strong>NMI_V1</strong></li><li><strong>VANTIV_V1</strong></li></ul>Use <strong>DUMMY_V1</strong> or  <strong>null</strong> to use your sandbox. For more details on which processor to use, reach out to your Finix point of contact or email <a href=\"/guides/getting-started/support-at-finix/\">Finix Support</a>.")
 
   public String getProcessor() {
     return processor;
@@ -196,6 +139,37 @@ public class CreateVerificationRequest {
 
   public void setProcessor(String processor) {
     this.processor = processor;
+  }
+
+
+  public CreateVerificationRequest tags(Map<String, String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateVerificationRequest putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
+    return this;
+  }
+
+   /**
+   * Key value pair for annotating custom meta data (e.g. order numbers).
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
+
+  public Map<String, String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(Map<String, String> tags) {
+    this.tags = tags;
   }
 
 
@@ -209,27 +183,36 @@ public class CreateVerificationRequest {
       return false;
     }
     CreateVerificationRequest createVerificationRequest = (CreateVerificationRequest) o;
-    return Objects.equals(this.tags, createVerificationRequest.tags) &&
-        Objects.equals(this.identity, createVerificationRequest.identity) &&
-        Objects.equals(this.instrument, createVerificationRequest.instrument) &&
+    return Objects.equals(this.identity, createVerificationRequest.identity) &&
         Objects.equals(this.merchant, createVerificationRequest.merchant) &&
-        Objects.equals(this.processor, createVerificationRequest.processor);
+        Objects.equals(this.processor, createVerificationRequest.processor) &&
+        Objects.equals(this.tags, createVerificationRequest.tags);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, identity, instrument, merchant, processor);
+    return Objects.hash(identity, merchant, processor, tags);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateVerificationRequest {\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    identity: ").append(toIndentedString(identity)).append("\n");
-    sb.append("    instrument: ").append(toIndentedString(instrument)).append("\n");
     sb.append("    merchant: ").append(toIndentedString(merchant)).append("\n");
     sb.append("    processor: ").append(toIndentedString(processor)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -252,11 +235,10 @@ public class CreateVerificationRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("tags");
     openapiFields.add("identity");
-    openapiFields.add("instrument");
     openapiFields.add("merchant");
     openapiFields.add("processor");
+    openapiFields.add("tags");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -292,13 +274,6 @@ public class CreateVerificationRequest {
       */
       if (jsonObj.get("identity") != null && !jsonObj.get("identity").isJsonNull()  && !jsonObj.get("identity").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `identity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("identity").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("instrument") != null && !jsonObj.get("instrument").isJsonNull()  && !jsonObj.get("instrument").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `instrument` to be a primitive type in the JSON string but got `%s`", jsonObj.get("instrument").toString()));
       }
       /**
       * EDITED

@@ -65,8 +65,6 @@ public enum SubTypeTransfer {
   
   SPLIT_PAYOUT_ADJUSTMENT("SPLIT_PAYOUT_ADJUSTMENT"),
   
-  SYSTEM("SYSTEM"),
-  
   UNKNOWN_DEFAULT("unknown_default_open_api");
 
   private String value;

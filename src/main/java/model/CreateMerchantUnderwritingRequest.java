@@ -53,18 +53,16 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateMerchantUnderwritingRequest {
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
-
   /**
-   * Name of the gateway that processes the &#x60;Merchant&#39;s&#x60; transaction.
+   * Name of the gateway that processes the &#x60;Merchant&#39;s&#x60; card present transactions. Use &#x60;gateway&#x60; only to enable a merchantto accept card present transactions.
    */
   @JsonAdapter(GatewayEnum.Adapter.class)
   public enum GatewayEnum {
-    CLOUD_V1("TRIPOS_CLOUD_V1"),
+    TRIPOS_CLOUD_V1("TRIPOS_CLOUD_V1"),
     
-    MOBILE_V1("TRIPOS_MOBILE_V1"),
+    TRIPOS_MOBILE_V1("TRIPOS_MOBILE_V1"),
+    
+    EXPRESS_V1("EXPRESS_V1"),
     
     UNKNOWN_DEFAULT("unknown_default_open_api");
 
@@ -133,12 +131,58 @@ public class CreateMerchantUnderwritingRequest {
   @SerializedName(SERIALIZED_NAME_PROCESSOR)
   private String processor;
 
-  public static final String SERIALIZED_NAME_PROCESSOR_SPECIFIC_PARAMETERS = "processor_specific_parameters";
-  @SerializedName(SERIALIZED_NAME_PROCESSOR_SPECIFIC_PARAMETERS)
-  private Object processorSpecificParameters;
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
 
   public CreateMerchantUnderwritingRequest() { 
   }
+
+  public CreateMerchantUnderwritingRequest gateway(GatewayEnum gateway) {
+    
+    this.gateway = gateway;
+    return this;
+  }
+
+   /**
+   * Name of the gateway that processes the &#x60;Merchant&#39;s&#x60; card present transactions. Use &#x60;gateway&#x60; only to enable a merchantto accept card present transactions.
+   * @return gateway
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the gateway that processes the `Merchant's` card present transactions. Use `gateway` only to enable a merchantto accept card present transactions.")
+
+  public GatewayEnum getGateway() {
+    return gateway;
+  }
+
+
+  public void setGateway(GatewayEnum gateway) {
+    this.gateway = gateway;
+  }
+
+
+  public CreateMerchantUnderwritingRequest processor(String processor) {
+    
+    this.processor = processor;
+    return this;
+  }
+
+   /**
+   * Set the acquiring processor. Avalible values include: &lt;ul&gt;&lt;li&gt;&lt;strong&gt;DUMMY_V1&lt;/strong&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;LITLE_V1&lt;/strong&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;MASTERCARD_V1&lt;/strong&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;VISA_V1&lt;/strong&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;NMI_V1&lt;/strong&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;VANTIV_V1&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;Use &lt;strong&gt;DUMMY_V1&lt;/strong&gt; or  &lt;strong&gt;null&lt;/strong&gt; to use your sandbox. For more details on which processor to use, reach out to your Finix point of contact or email &lt;a href&#x3D;\&quot;/guides/getting-started/support-at-finix/\&quot;&gt;Finix Support&lt;/a&gt;.
+   * @return processor
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(required = true, value = "Set the acquiring processor. Avalible values include: <ul><li><strong>DUMMY_V1</strong></li><li><strong>LITLE_V1</strong></li><li><strong>MASTERCARD_V1</strong></li><li><strong>VISA_V1</strong></li><li><strong>NMI_V1</strong></li><li><strong>VANTIV_V1</strong></li></ul>Use <strong>DUMMY_V1</strong> or  <strong>null</strong> to use your sandbox. For more details on which processor to use, reach out to your Finix point of contact or email <a href=\"/guides/getting-started/support-at-finix/\">Finix Support</a>.")
+
+  public String getProcessor() {
+    return processor;
+  }
+
+
+  public void setProcessor(String processor) {
+    this.processor = processor;
+  }
+
 
   public CreateMerchantUnderwritingRequest tags(Map<String, String> tags) {
     
@@ -171,75 +215,6 @@ public class CreateMerchantUnderwritingRequest {
   }
 
 
-  public CreateMerchantUnderwritingRequest gateway(GatewayEnum gateway) {
-    
-    this.gateway = gateway;
-    return this;
-  }
-
-   /**
-   * Name of the gateway that processes the &#x60;Merchant&#39;s&#x60; transaction.
-   * @return gateway
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the gateway that processes the `Merchant's` transaction.")
-
-  public GatewayEnum getGateway() {
-    return gateway;
-  }
-
-
-  public void setGateway(GatewayEnum gateway) {
-    this.gateway = gateway;
-  }
-
-
-  public CreateMerchantUnderwritingRequest processor(String processor) {
-    
-    this.processor = processor;
-    return this;
-  }
-
-   /**
-   * Name of acquiring processor that settles the &#x60;Merchant&#39;s&#x60; transactions.
-   * @return processor
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of acquiring processor that settles the `Merchant's` transactions.")
-
-  public String getProcessor() {
-    return processor;
-  }
-
-
-  public void setProcessor(String processor) {
-    this.processor = processor;
-  }
-
-
-  public CreateMerchantUnderwritingRequest processorSpecificParameters(Object processorSpecificParameters) {
-    
-    this.processorSpecificParameters = processorSpecificParameters;
-    return this;
-  }
-
-   /**
-   * Additional information required by the processor being used.
-   * @return processorSpecificParameters
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Additional information required by the processor being used.")
-
-  public Object getProcessorSpecificParameters() {
-    return processorSpecificParameters;
-  }
-
-
-  public void setProcessorSpecificParameters(Object processorSpecificParameters) {
-    this.processorSpecificParameters = processorSpecificParameters;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -250,25 +225,23 @@ public class CreateMerchantUnderwritingRequest {
       return false;
     }
     CreateMerchantUnderwritingRequest createMerchantUnderwritingRequest = (CreateMerchantUnderwritingRequest) o;
-    return Objects.equals(this.tags, createMerchantUnderwritingRequest.tags) &&
-        Objects.equals(this.gateway, createMerchantUnderwritingRequest.gateway) &&
+    return Objects.equals(this.gateway, createMerchantUnderwritingRequest.gateway) &&
         Objects.equals(this.processor, createMerchantUnderwritingRequest.processor) &&
-        Objects.equals(this.processorSpecificParameters, createMerchantUnderwritingRequest.processorSpecificParameters);
+        Objects.equals(this.tags, createMerchantUnderwritingRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, gateway, processor, processorSpecificParameters);
+    return Objects.hash(gateway, processor, tags);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateMerchantUnderwritingRequest {\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    gateway: ").append(toIndentedString(gateway)).append("\n");
     sb.append("    processor: ").append(toIndentedString(processor)).append("\n");
-    sb.append("    processorSpecificParameters: ").append(toIndentedString(processorSpecificParameters)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -291,13 +264,13 @@ public class CreateMerchantUnderwritingRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("tags");
     openapiFields.add("gateway");
     openapiFields.add("processor");
-    openapiFields.add("processor_specific_parameters");
+    openapiFields.add("tags");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("processor");
   }
 
  /**
@@ -324,6 +297,18 @@ public class CreateMerchantUnderwritingRequest {
         }
       }
       */
+
+      /**
+      * EDITED
+      * Commented to ByPass required properties/fields are present in the JSON string
+      */
+
+      // check to make sure all required properties/fields are present in the JSON string
+      /*for (String requiredField : CreateMerchantUnderwritingRequest.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }*/
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour

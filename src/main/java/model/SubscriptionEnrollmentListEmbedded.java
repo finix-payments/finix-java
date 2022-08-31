@@ -49,8 +49,9 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * SubscriptionEnrollmentListEmbedded
+ * List of &#x60;Subscription Enrollment&#x60; resources.
  */
+@ApiModel(description = "List of `Subscription Enrollment` resources.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubscriptionEnrollmentListEmbedded {
@@ -76,11 +77,11 @@ public class SubscriptionEnrollmentListEmbedded {
   }
 
    /**
-   * &#x60;Subscription Enrollments&#x60; resource.
+   * &#x60;Subscription Enrollment&#x60; resources.
    * @return subscriptionEnrollments
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "`Subscription Enrollments` resource.")
+  @ApiModelProperty(value = "`Subscription Enrollment` resources.")
 
   public Set<SubscriptionEnrollment> getSubscriptionEnrollments() {
     return subscriptionEnrollments;

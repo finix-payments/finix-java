@@ -49,8 +49,9 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * SettlementsListEmbedded
+ * List of &#x60;Settlement&#x60; objects.
  */
+@ApiModel(description = "List of `Settlement` objects.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SettlementsListEmbedded {

@@ -76,11 +76,11 @@ public class ApplePaySessionRequest {
   }
 
    /**
-   * This will be the merchant name shown to users when making a purchase via Apple Pay.1
+   * This will be the merchant name shown to users when making a purchase via Apple Pay.
    * @return displayName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "This will be the merchant name shown to users when making a purchase via Apple Pay.1")
+  @ApiModelProperty(value = "This will be the merchant name shown to users when making a purchase via Apple Pay.")
 
   public String getDisplayName() {
     return displayName;
@@ -99,11 +99,11 @@ public class ApplePaySessionRequest {
   }
 
    /**
-   * The domain where the buyer is initiating the payment.
+   * The domain (or website) where the buyer is initiating the payment.
    * @return domain
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The domain where the buyer is initiating the payment.")
+  @ApiModelProperty(value = "The domain (or website) where the buyer is initiating the payment.")
 
   public String getDomain() {
     return domain;

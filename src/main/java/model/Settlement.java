@@ -58,9 +58,145 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Settlement {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
+
+  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private OffsetDateTime createdAt;
+
+  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
+  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  private OffsetDateTime updatedAt;
+
+  public static final String SERIALIZED_NAME_APPLICATION = "application";
+  @SerializedName(SERIALIZED_NAME_APPLICATION)
+  private String application;
+
+  public static final String SERIALIZED_NAME_CURRENCY = "currency";
+  @SerializedName(SERIALIZED_NAME_CURRENCY)
+  private Currency currency;
+
+  public static final String SERIALIZED_NAME_DESTINATION = "destination";
+  @SerializedName(SERIALIZED_NAME_DESTINATION)
+  private String destination;
+
+  public static final String SERIALIZED_NAME_FUNDS_FLOW = "funds_flow";
+  @SerializedName(SERIALIZED_NAME_FUNDS_FLOW)
+  private String fundsFlow;
+
+  public static final String SERIALIZED_NAME_IDENTITY = "identity";
+  @SerializedName(SERIALIZED_NAME_IDENTITY)
+  private String identity;
+
+  public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
+  private String merchantId;
+
+  public static final String SERIALIZED_NAME_NET_AMOUNT = "net_amount";
+  @SerializedName(SERIALIZED_NAME_NET_AMOUNT)
+  private Long netAmount;
+
+  public static final String SERIALIZED_NAME_PAYMENT_TYPE = "payment_type";
+  @SerializedName(SERIALIZED_NAME_PAYMENT_TYPE)
+  private String paymentType;
+
+  public static final String SERIALIZED_NAME_PROCESSOR = "processor";
+  @SerializedName(SERIALIZED_NAME_PROCESSOR)
+  private String processor;
+
+  /**
+   * The status of the &#x60;Settlement&#x60;. Available values include:&lt;ul&gt;&lt;li&gt;**PENDING**&lt;li&gt;**AWAITING_APPROVAL**&lt;li&gt;**APPROVED**.&lt;/ul&gt; Merchants only receive payouts when &#x60;Settlements&#x60; are **APPROVED** and receive the resulting funding &#x60;Transfer&#x60; . For more information, see [Payouts](/guides/payouts/payouts/).
+   */
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    APPROVED("APPROVED"),
+    
+    AWAITING_APPROVAL("AWAITING_APPROVAL"),
+    
+    CANCELLED("CANCELLED"),
+    
+    PENDING("PENDING"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
+    public static StatusEnum fromValue(String value) {
+        for (StatusEnum b : StatusEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
+        }
+
+        StatusEnum unknownDefault = StatusEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
+    }
+
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return StatusEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  private StatusEnum status;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private Map<String, String> tags = null;
+
+  public static final String SERIALIZED_NAME_TOTAL_AMOUNT = "total_amount";
+  @SerializedName(SERIALIZED_NAME_TOTAL_AMOUNT)
+  private Long totalAmount;
+
+  public static final String SERIALIZED_NAME_TOTAL_FEE = "total_fee";
+  @SerializedName(SERIALIZED_NAME_TOTAL_FEE)
+  private Long totalFee;
+
+  public static final String SERIALIZED_NAME_TOTAL_FEES = "total_fees";
+  @SerializedName(SERIALIZED_NAME_TOTAL_FEES)
+  private Long totalFees;
 
   /**
    * Type of &#x60;Settlement&#x60;.
@@ -144,204 +280,12 @@ public class Settlement {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
-
-  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private OffsetDateTime createdAt;
-
-  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
-  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-  private OffsetDateTime updatedAt;
-
-  public static final String SERIALIZED_NAME_APPLICATION = "application";
-  @SerializedName(SERIALIZED_NAME_APPLICATION)
-  private String application;
-
-  public static final String SERIALIZED_NAME_CURRENCY = "currency";
-  @SerializedName(SERIALIZED_NAME_CURRENCY)
-  private Currency currency;
-
-  public static final String SERIALIZED_NAME_DESTINATION = "destination";
-  @SerializedName(SERIALIZED_NAME_DESTINATION)
-  private String destination;
-
-  public static final String SERIALIZED_NAME_FUNDS_FLOW = "funds_flow";
-  @SerializedName(SERIALIZED_NAME_FUNDS_FLOW)
-  private String fundsFlow;
-
-  public static final String SERIALIZED_NAME_IDENTITY = "identity";
-  @SerializedName(SERIALIZED_NAME_IDENTITY)
-  private String identity;
-
-  public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
-  private String merchantId;
-
-  public static final String SERIALIZED_NAME_NET_AMOUNT = "net_amount";
-  @SerializedName(SERIALIZED_NAME_NET_AMOUNT)
-  private Long netAmount;
-
-  public static final String SERIALIZED_NAME_PAYMENT_TYPE = "payment_type";
-  @SerializedName(SERIALIZED_NAME_PAYMENT_TYPE)
-  private String paymentType;
-
-  public static final String SERIALIZED_NAME_PROCESSOR = "processor";
-  @SerializedName(SERIALIZED_NAME_PROCESSOR)
-  private String processor;
-
-  /**
-   * The status of the &#x60;Settlement&#x60;. Available values include:&lt;ul&gt;&lt;li&gt;**PENDING**&lt;li&gt;**STAGED**&lt;li&gt;**AWAITING_APPROVAL**&lt;li&gt;**APPROVED**.&lt;/ul&gt; Merchants only receive payouts when &#x60;Settlements&#x60; are **APPROVED**. For more information, see [Payouts](/guides/payouts/payouts/).
-   */
-  @JsonAdapter(StatusEnum.Adapter.class)
-  public enum StatusEnum {
-    APPROVED("APPROVED"),
-    
-    AWAITING_APPROVAL("AWAITING_APPROVAL"),
-    
-    CANCELLED("CANCELLED"),
-    
-    PENDING("PENDING"),
-    
-    STAGED("STAGED"),
-    
-    UNKNOWN_DEFAULT("unknown_default_open_api");
-
-    private String value;
-
-    StatusEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    /*
-    * EDITED
-    * Add ability get the raw underlying value of a enum the library is not aware about.
-    */
-    private String rawValue;
-
-    public void setRawValue(String s){
-    this.rawValue = s;
-    }
-
-    public String getRawValue() {
-    return rawValue;
-    }
-
-    public static StatusEnum fromValue(String value) {
-        for (StatusEnum b : StatusEnum.values()) {
-          if (b.value.equals(value)) {
-            return b;
-          }
-        }
-
-        StatusEnum unknownDefault = StatusEnum.UNKNOWN_DEFAULT;
-        unknownDefault.setRawValue(value);
-
-        return unknownDefault;
-        
-    }
-
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return StatusEnum.fromValue(value);
-      }
-    }
-  }
-
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  private StatusEnum status;
-
-  public static final String SERIALIZED_NAME_TOTAL_AMOUNT = "total_amount";
-  @SerializedName(SERIALIZED_NAME_TOTAL_AMOUNT)
-  private Long totalAmount;
-
-  public static final String SERIALIZED_NAME_TOTAL_FEE = "total_fee";
-  @SerializedName(SERIALIZED_NAME_TOTAL_FEE)
-  private Long totalFee;
-
-  public static final String SERIALIZED_NAME_TOTAL_FEES = "total_fees";
-  @SerializedName(SERIALIZED_NAME_TOTAL_FEES)
-  private Long totalFees;
-
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
   private SettlementLinks links;
 
   public Settlement() { 
   }
-
-  public Settlement tags(Map<String, String> tags) {
-    
-    this.tags = tags;
-    return this;
-  }
-
-  public Settlement putTagsItem(String key, String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new HashMap<>();
-    }
-    this.tags.put(key, tagsItem);
-    return this;
-  }
-
-   /**
-   * Key value pair for annotating custom meta data (e.g. order numbers).
-   * @return tags
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
-
-  public Map<String, String> getTags() {
-    return tags;
-  }
-
-
-  public void setTags(Map<String, String> tags) {
-    this.tags = tags;
-  }
-
-
-  public Settlement type(TypeEnum type) {
-    
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Type of &#x60;Settlement&#x60;.
-   * @return type
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Type of `Settlement`.")
-
-  public TypeEnum getType() {
-    return type;
-  }
-
-
-  public void setType(TypeEnum type) {
-    this.type = type;
-  }
-
 
   public Settlement id(String id) {
     
@@ -626,11 +570,11 @@ public class Settlement {
   }
 
    /**
-   * The status of the &#x60;Settlement&#x60;. Available values include:&lt;ul&gt;&lt;li&gt;**PENDING**&lt;li&gt;**STAGED**&lt;li&gt;**AWAITING_APPROVAL**&lt;li&gt;**APPROVED**.&lt;/ul&gt; Merchants only receive payouts when &#x60;Settlements&#x60; are **APPROVED**. For more information, see [Payouts](/guides/payouts/payouts/).
+   * The status of the &#x60;Settlement&#x60;. Available values include:&lt;ul&gt;&lt;li&gt;**PENDING**&lt;li&gt;**AWAITING_APPROVAL**&lt;li&gt;**APPROVED**.&lt;/ul&gt; Merchants only receive payouts when &#x60;Settlements&#x60; are **APPROVED** and receive the resulting funding &#x60;Transfer&#x60; . For more information, see [Payouts](/guides/payouts/payouts/).
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The status of the `Settlement`. Available values include:<ul><li>**PENDING**<li>**STAGED**<li>**AWAITING_APPROVAL**<li>**APPROVED**.</ul> Merchants only receive payouts when `Settlements` are **APPROVED**. For more information, see [Payouts](/guides/payouts/payouts/).")
+  @ApiModelProperty(value = "The status of the `Settlement`. Available values include:<ul><li>**PENDING**<li>**AWAITING_APPROVAL**<li>**APPROVED**.</ul> Merchants only receive payouts when `Settlements` are **APPROVED** and receive the resulting funding `Transfer` . For more information, see [Payouts](/guides/payouts/payouts/).")
 
   public StatusEnum getStatus() {
     return status;
@@ -639,6 +583,37 @@ public class Settlement {
 
   public void setStatus(StatusEnum status) {
     this.status = status;
+  }
+
+
+  public Settlement tags(Map<String, String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public Settlement putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
+    return this;
+  }
+
+   /**
+   * Key value pair for annotating custom meta data (e.g. order numbers).
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
+
+  public Map<String, String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(Map<String, String> tags) {
+    this.tags = tags;
   }
 
 
@@ -695,11 +670,11 @@ public class Settlement {
   }
 
    /**
-   * Sum of the fees in the &#x60;Settlement&#x60;.
+   * Sum of the fees  (including Subcription Billing) in the &#x60;Settlement&#x60;.
    * @return totalFees
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Sum of the fees in the `Settlement`.")
+  @ApiModelProperty(value = "Sum of the fees  (including Subcription Billing) in the `Settlement`.")
 
   public Long getTotalFees() {
     return totalFees;
@@ -708,6 +683,29 @@ public class Settlement {
 
   public void setTotalFees(Long totalFees) {
     this.totalFees = totalFees;
+  }
+
+
+  public Settlement type(TypeEnum type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Type of &#x60;Settlement&#x60;.
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Type of `Settlement`.")
+
+  public TypeEnum getType() {
+    return type;
+  }
+
+
+  public void setType(TypeEnum type) {
+    this.type = type;
   }
 
 
@@ -744,9 +742,7 @@ public class Settlement {
       return false;
     }
     Settlement settlement = (Settlement) o;
-    return Objects.equals(this.tags, settlement.tags) &&
-        Objects.equals(this.type, settlement.type) &&
-        Objects.equals(this.id, settlement.id) &&
+    return Objects.equals(this.id, settlement.id) &&
         Objects.equals(this.createdAt, settlement.createdAt) &&
         Objects.equals(this.updatedAt, settlement.updatedAt) &&
         Objects.equals(this.application, settlement.application) &&
@@ -759,9 +755,11 @@ public class Settlement {
         Objects.equals(this.paymentType, settlement.paymentType) &&
         Objects.equals(this.processor, settlement.processor) &&
         Objects.equals(this.status, settlement.status) &&
+        Objects.equals(this.tags, settlement.tags) &&
         Objects.equals(this.totalAmount, settlement.totalAmount) &&
         Objects.equals(this.totalFee, settlement.totalFee) &&
         Objects.equals(this.totalFees, settlement.totalFees) &&
+        Objects.equals(this.type, settlement.type) &&
         Objects.equals(this.links, settlement.links);
   }
 
@@ -771,7 +769,7 @@ public class Settlement {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, type, id, createdAt, updatedAt, application, currency, destination, fundsFlow, identity, merchantId, netAmount, paymentType, processor, status, totalAmount, totalFee, totalFees, links);
+    return Objects.hash(id, createdAt, updatedAt, application, currency, destination, fundsFlow, identity, merchantId, netAmount, paymentType, processor, status, tags, totalAmount, totalFee, totalFees, type, links);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -785,8 +783,6 @@ public class Settlement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Settlement {\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
@@ -800,9 +796,11 @@ public class Settlement {
     sb.append("    paymentType: ").append(toIndentedString(paymentType)).append("\n");
     sb.append("    processor: ").append(toIndentedString(processor)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    totalAmount: ").append(toIndentedString(totalAmount)).append("\n");
     sb.append("    totalFee: ").append(toIndentedString(totalFee)).append("\n");
     sb.append("    totalFees: ").append(toIndentedString(totalFees)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -826,8 +824,6 @@ public class Settlement {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("tags");
-    openapiFields.add("type");
     openapiFields.add("id");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
@@ -841,9 +837,11 @@ public class Settlement {
     openapiFields.add("payment_type");
     openapiFields.add("processor");
     openapiFields.add("status");
+    openapiFields.add("tags");
     openapiFields.add("total_amount");
     openapiFields.add("total_fee");
     openapiFields.add("total_fees");
+    openapiFields.add("type");
     openapiFields.add("_links");
 
     // a set of required properties/fields (JSON key names)
@@ -874,13 +872,6 @@ public class Settlement {
         }
       }
       */
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()  && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
@@ -943,6 +934,13 @@ public class Settlement {
       */
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()  && !jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()  && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
       /**
       * EDITED

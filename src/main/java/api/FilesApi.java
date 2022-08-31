@@ -466,7 +466,7 @@ public class FilesApi {
 
             /**
             * Download a file
-            * Download a file uploaded to a &#x60;File&#x60; resource. For more info, see [Uploading files to Finix](/guides/onboarding/uploading-files-to-finix).
+            * Download a file that was uploaded to a &#x60;File&#x60; resource. For more info, see [Uploading files to Finix](/guides/onboarding/uploading-files-to-finix).
                 * @param fileId The ID of the &#x60;File&#x60; that was created to upload the file. (required)
                 * @return File
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -490,7 +490,7 @@ public class FilesApi {
 
     /**
         * Download a file
-        * Download a file uploaded to a &#x60;File&#x60; resource. For more info, see [Uploading files to Finix](/guides/onboarding/uploading-files-to-finix).
+        * Download a file that was uploaded to a &#x60;File&#x60; resource. For more info, see [Uploading files to Finix](/guides/onboarding/uploading-files-to-finix).
             * @param fileId The ID of the &#x60;File&#x60; that was created to upload the file. (required)
         * @return ApiResponse&lt;File&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -512,7 +512,7 @@ public class FilesApi {
 
     /**
         * Download a file (asynchronously)
-        * Download a file uploaded to a &#x60;File&#x60; resource. For more info, see [Uploading files to Finix](/guides/onboarding/uploading-files-to-finix).
+        * Download a file that was uploaded to a &#x60;File&#x60; resource. For more info, see [Uploading files to Finix](/guides/onboarding/uploading-files-to-finix).
             * @param fileId The ID of the &#x60;File&#x60; that was created to upload the file. (required)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
@@ -971,7 +971,7 @@ public class FilesApi {
 
         /**
         * Set sort
-        * @param sort Specify key to be used for sorting the collection (optional)
+        * @param sort Specify key to be used for sorting the collection. (optional)
         * @return APIlistExternalLinksRequest
         */
         public APIlistExternalLinksRequest sort(String sort) {
@@ -991,7 +991,7 @@ public class FilesApi {
 
         /**
         * Set limit
-        * @param limit The numbers of items to return (optional)
+        * @param limit The numbers of items to return. (optional)
         * @return APIlistExternalLinksRequest
         */
         public APIlistExternalLinksRequest limit(Long limit) {
@@ -1001,7 +1001,7 @@ public class FilesApi {
 
         /**
         * Set id
-        * @param id Filter by id (optional)
+        * @param id Filter by &#x60;id&#x60;. (optional)
         * @return APIlistExternalLinksRequest
         */
         public APIlistExternalLinksRequest id(String id) {
@@ -1011,7 +1011,7 @@ public class FilesApi {
 
         /**
         * Set createdAtGte
-        * @param createdAtGte Filter where created_at is after the given date. (optional)
+        * @param createdAtGte Filter where &#x60;created_at&#x60; is after the given date. (optional)
         * @return APIlistExternalLinksRequest
         */
         public APIlistExternalLinksRequest createdAtGte(String createdAtGte) {
@@ -1021,7 +1021,7 @@ public class FilesApi {
 
         /**
         * Set createdAtLte
-        * @param createdAtLte Filter where created_at is before the given date. (optional)
+        * @param createdAtLte Filter where &#x60;created_at&#x60; is before the given date. (optional)
         * @return APIlistExternalLinksRequest
         */
         public APIlistExternalLinksRequest createdAtLte(String createdAtLte) {
@@ -1031,7 +1031,7 @@ public class FilesApi {
 
         /**
         * Set updatedAtGte
-        * @param updatedAtGte Filter where updated_at is after the given date (optional)
+        * @param updatedAtGte Filter where &#x60;updated_at&#x60; is after the given date. (optional)
         * @return APIlistExternalLinksRequest
         */
         public APIlistExternalLinksRequest updatedAtGte(String updatedAtGte) {
@@ -1041,7 +1041,7 @@ public class FilesApi {
 
         /**
         * Set updatedAtLte
-        * @param updatedAtLte Filter where updated_at is before the given date (optional)
+        * @param updatedAtLte Filter where &#x60;updated_at&#x60; is before the given date. (optional)
         * @return APIlistExternalLinksRequest
         */
         public APIlistExternalLinksRequest updatedAtLte(String updatedAtLte) {
@@ -1137,7 +1137,7 @@ public class FilesApi {
 
     /**
     * List All External Links
-    * List the previously &#x60;external_links&#x60; for a &#x60;File&#x60;. For more info, see [Uploading files to Finix](/guides/onboarding/uploading-files-to-finix/#create-an-external-link).
+    * List the previously created &#x60;external_links&#x60; for a &#x60;File&#x60;. For more info, see [Uploading files to Finix](/guides/onboarding/uploading-files-to-finix/#create-an-external-link).
         * @param fileId Your &#x60;File&#x60; ID. (required)
     * @return APIlistExternalLinksRequest
         * @http.response.details
@@ -1323,7 +1323,7 @@ public class FilesApi {
 
         /**
         * Set sort
-        * @param sort Specify key to be used for sorting the collection (optional)
+        * @param sort Specify key to be used for sorting the collection. (optional)
         * @return APIlistFilesRequest
         */
         public APIlistFilesRequest sort(String sort) {
@@ -1343,7 +1343,7 @@ public class FilesApi {
 
         /**
         * Set limit
-        * @param limit The numbers of items to return (optional)
+        * @param limit The numbers of items to return. (optional)
         * @return APIlistFilesRequest
         */
         public APIlistFilesRequest limit(Long limit) {
@@ -1353,7 +1353,7 @@ public class FilesApi {
 
         /**
         * Set id
-        * @param id Filter by id (optional)
+        * @param id Filter by &#x60;id&#x60;. (optional)
         * @return APIlistFilesRequest
         */
         public APIlistFilesRequest id(String id) {
@@ -1363,7 +1363,7 @@ public class FilesApi {
 
         /**
         * Set createdAtGte
-        * @param createdAtGte Filter where created_at is after the given date. (optional)
+        * @param createdAtGte Filter where &#x60;created_at&#x60; is after the given date. (optional)
         * @return APIlistFilesRequest
         */
         public APIlistFilesRequest createdAtGte(String createdAtGte) {
@@ -1373,7 +1373,7 @@ public class FilesApi {
 
         /**
         * Set createdAtLte
-        * @param createdAtLte Filter where created_at is before the given date. (optional)
+        * @param createdAtLte Filter where &#x60;created_at&#x60; is before the given date. (optional)
         * @return APIlistFilesRequest
         */
         public APIlistFilesRequest createdAtLte(String createdAtLte) {
@@ -1383,7 +1383,7 @@ public class FilesApi {
 
         /**
         * Set updatedAtGte
-        * @param updatedAtGte Filter where updated_at is after the given date (optional)
+        * @param updatedAtGte Filter where &#x60;updated_at&#x60; is after the given date. (optional)
         * @return APIlistFilesRequest
         */
         public APIlistFilesRequest updatedAtGte(String updatedAtGte) {
@@ -1393,7 +1393,7 @@ public class FilesApi {
 
         /**
         * Set updatedAtLte
-        * @param updatedAtLte Filter where updated_at is before the given date (optional)
+        * @param updatedAtLte Filter where &#x60;updated_at&#x60; is before the given date. (optional)
         * @return APIlistFilesRequest
         */
         public APIlistFilesRequest updatedAtLte(String updatedAtLte) {

@@ -61,82 +61,6 @@ public class Merchant {
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
-  public static final String SERIALIZED_NAME_APPLICATION = "application";
-  @SerializedName(SERIALIZED_NAME_APPLICATION)
-  private String application;
-
-  public static final String SERIALIZED_NAME_IDENTITY = "identity";
-  @SerializedName(SERIALIZED_NAME_IDENTITY)
-  private String identity;
-
-  public static final String SERIALIZED_NAME_VERIFICATION = "verification";
-  @SerializedName(SERIALIZED_NAME_VERIFICATION)
-  private String verification;
-
-  public static final String SERIALIZED_NAME_MERCHANT_PROFILE = "merchant_profile";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_PROFILE)
-  private String merchantProfile;
-
-  public static final String SERIALIZED_NAME_PROCESSOR = "processor";
-  @SerializedName(SERIALIZED_NAME_PROCESSOR)
-  private String processor;
-
-  public static final String SERIALIZED_NAME_PROCESSING_ENABLED = "processing_enabled";
-  @SerializedName(SERIALIZED_NAME_PROCESSING_ENABLED)
-  private Boolean processingEnabled;
-
-  public static final String SERIALIZED_NAME_SETTLEMENT_ENABLED = "settlement_enabled";
-  @SerializedName(SERIALIZED_NAME_SETTLEMENT_ENABLED)
-  private Boolean settlementEnabled;
-
-  public static final String SERIALIZED_NAME_GROSS_SETTLEMENT_ENABLED = "gross_settlement_enabled";
-  @SerializedName(SERIALIZED_NAME_GROSS_SETTLEMENT_ENABLED)
-  private Boolean grossSettlementEnabled;
-
-  public static final String SERIALIZED_NAME_CREATING_TRANSFER_FROM_REPORT_ENABLED = "creating_transfer_from_report_enabled";
-  @SerializedName(SERIALIZED_NAME_CREATING_TRANSFER_FROM_REPORT_ENABLED)
-  private Boolean creatingTransferFromReportEnabled;
-
-  public static final String SERIALIZED_NAME_CARD_EXPIRATION_DATE_REQUIRED = "card_expiration_date_required";
-  @SerializedName(SERIALIZED_NAME_CARD_EXPIRATION_DATE_REQUIRED)
-  private Boolean cardExpirationDateRequired;
-
-  public static final String SERIALIZED_NAME_CARD_CVV_REQUIRED = "card_cvv_required";
-  @SerializedName(SERIALIZED_NAME_CARD_CVV_REQUIRED)
-  private Boolean cardCvvRequired;
-
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
-
-  public static final String SERIALIZED_NAME_MCC = "mcc";
-  @SerializedName(SERIALIZED_NAME_MCC)
-  private String mcc;
-
-  public static final String SERIALIZED_NAME_MID = "mid";
-  @SerializedName(SERIALIZED_NAME_MID)
-  private String mid;
-
-  public static final String SERIALIZED_NAME_MERCHANT_NAME = "merchant_name";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_NAME)
-  private String merchantName;
-
-  public static final String SERIALIZED_NAME_SETTLEMENT_FUNDING_IDENTIFIER = "settlement_funding_identifier";
-  @SerializedName(SERIALIZED_NAME_SETTLEMENT_FUNDING_IDENTIFIER)
-  private String settlementFundingIdentifier;
-
-  public static final String SERIALIZED_NAME_READY_TO_SETTLE_UPON = "ready_to_settle_upon";
-  @SerializedName(SERIALIZED_NAME_READY_TO_SETTLE_UPON)
-  private String readyToSettleUpon;
-
-  public static final String SERIALIZED_NAME_FEE_READY_TO_SETTLE_UPON = "fee_ready_to_settle_upon";
-  @SerializedName(SERIALIZED_NAME_FEE_READY_TO_SETTLE_UPON)
-  private String feeReadyToSettleUpon;
-
-  public static final String SERIALIZED_NAME_LEVEL_TWO_LEVEL_THREE_DATA_ENABLED = "level_two_level_three_data_enabled";
-  @SerializedName(SERIALIZED_NAME_LEVEL_TWO_LEVEL_THREE_DATA_ENABLED)
-  private Boolean levelTwoLevelThreeDataEnabled;
-
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
@@ -144,6 +68,58 @@ public class Merchant {
   public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private OffsetDateTime updatedAt;
+
+  public static final String SERIALIZED_NAME_APPLICATION = "application";
+  @SerializedName(SERIALIZED_NAME_APPLICATION)
+  private String application;
+
+  public static final String SERIALIZED_NAME_CARD_CVV_REQUIRED = "card_cvv_required";
+  @SerializedName(SERIALIZED_NAME_CARD_CVV_REQUIRED)
+  private Boolean cardCvvRequired;
+
+  public static final String SERIALIZED_NAME_CARD_EXPIRATION_DATE_REQUIRED = "card_expiration_date_required";
+  @SerializedName(SERIALIZED_NAME_CARD_EXPIRATION_DATE_REQUIRED)
+  private Boolean cardExpirationDateRequired;
+
+  public static final String SERIALIZED_NAME_CREATING_TRANSFER_FROM_REPORT_ENABLED = "creating_transfer_from_report_enabled";
+  @SerializedName(SERIALIZED_NAME_CREATING_TRANSFER_FROM_REPORT_ENABLED)
+  private Boolean creatingTransferFromReportEnabled;
+
+  public static final String SERIALIZED_NAME_CONVENIENCE_CHARGES_ENABLED = "convenience_charges_enabled";
+  @SerializedName(SERIALIZED_NAME_CONVENIENCE_CHARGES_ENABLED)
+  private Boolean convenienceChargesEnabled;
+
+  public static final String SERIALIZED_NAME_FEE_READY_TO_SETTLE_UPON = "fee_ready_to_settle_upon";
+  @SerializedName(SERIALIZED_NAME_FEE_READY_TO_SETTLE_UPON)
+  private String feeReadyToSettleUpon;
+
+  public static final String SERIALIZED_NAME_GROSS_SETTLEMENT_ENABLED = "gross_settlement_enabled";
+  @SerializedName(SERIALIZED_NAME_GROSS_SETTLEMENT_ENABLED)
+  private Boolean grossSettlementEnabled;
+
+  public static final String SERIALIZED_NAME_IDENTITY = "identity";
+  @SerializedName(SERIALIZED_NAME_IDENTITY)
+  private String identity;
+
+  public static final String SERIALIZED_NAME_LEVEL_TWO_LEVEL_THREE_DATA_ENABLED = "level_two_level_three_data_enabled";
+  @SerializedName(SERIALIZED_NAME_LEVEL_TWO_LEVEL_THREE_DATA_ENABLED)
+  private Boolean levelTwoLevelThreeDataEnabled;
+
+  public static final String SERIALIZED_NAME_MCC = "mcc";
+  @SerializedName(SERIALIZED_NAME_MCC)
+  private String mcc;
+
+  public static final String SERIALIZED_NAME_MERCHANT_NAME = "merchant_name";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_NAME)
+  private String merchantName;
+
+  public static final String SERIALIZED_NAME_MERCHANT_PROFILE = "merchant_profile";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_PROFILE)
+  private String merchantProfile;
+
+  public static final String SERIALIZED_NAME_MID = "mid";
+  @SerializedName(SERIALIZED_NAME_MID)
+  private String mid;
 
   /**
    * Details the state of the &#x60;Merchant&#39;s&#x60; onboarding.
@@ -219,17 +195,41 @@ public class Merchant {
   @SerializedName(SERIALIZED_NAME_ONBOARDING_STATE)
   private OnboardingStateEnum onboardingState;
 
+  public static final String SERIALIZED_NAME_PROCESSOR = "processor";
+  @SerializedName(SERIALIZED_NAME_PROCESSOR)
+  private String processor;
+
   public static final String SERIALIZED_NAME_PROCESSOR_DETAILS = "processor_details";
   @SerializedName(SERIALIZED_NAME_PROCESSOR_DETAILS)
   private MerchantProcessorDetails processorDetails;
 
-  public static final String SERIALIZED_NAME_CONVENIENCE_CHARGES_ENABLED = "convenience_charges_enabled";
-  @SerializedName(SERIALIZED_NAME_CONVENIENCE_CHARGES_ENABLED)
-  private Boolean convenienceChargesEnabled;
+  public static final String SERIALIZED_NAME_PROCESSING_ENABLED = "processing_enabled";
+  @SerializedName(SERIALIZED_NAME_PROCESSING_ENABLED)
+  private Boolean processingEnabled;
+
+  public static final String SERIALIZED_NAME_READY_TO_SETTLE_UPON = "ready_to_settle_upon";
+  @SerializedName(SERIALIZED_NAME_READY_TO_SETTLE_UPON)
+  private String readyToSettleUpon;
 
   public static final String SERIALIZED_NAME_RENT_SURCHARGES_ENABLED = "rent_surcharges_enabled";
   @SerializedName(SERIALIZED_NAME_RENT_SURCHARGES_ENABLED)
   private Boolean rentSurchargesEnabled;
+
+  public static final String SERIALIZED_NAME_SETTLEMENT_ENABLED = "settlement_enabled";
+  @SerializedName(SERIALIZED_NAME_SETTLEMENT_ENABLED)
+  private Boolean settlementEnabled;
+
+  public static final String SERIALIZED_NAME_SETTLEMENT_FUNDING_IDENTIFIER = "settlement_funding_identifier";
+  @SerializedName(SERIALIZED_NAME_SETTLEMENT_FUNDING_IDENTIFIER)
+  private String settlementFundingIdentifier;
+
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
+
+  public static final String SERIALIZED_NAME_VERIFICATION = "verification";
+  @SerializedName(SERIALIZED_NAME_VERIFICATION)
+  private String verification;
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
@@ -258,451 +258,6 @@ public class Merchant {
 
   public void setId(String id) {
     this.id = id;
-  }
-
-
-  public Merchant application(String application) {
-    
-    this.application = application;
-    return this;
-  }
-
-   /**
-   * ID of the &#x60;Application&#x60; the &#x60;Merchant&#x60; was created under.
-   * @return application
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the `Application` the `Merchant` was created under.")
-
-  public String getApplication() {
-    return application;
-  }
-
-
-  public void setApplication(String application) {
-    this.application = application;
-  }
-
-
-  public Merchant identity(String identity) {
-    
-    this.identity = identity;
-    return this;
-  }
-
-   /**
-   * The ID of the &#x60;Identity&#x60; resource associated with the &#x60;Merchant&#x60;.
-   * @return identity
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the `Identity` resource associated with the `Merchant`.")
-
-  public String getIdentity() {
-    return identity;
-  }
-
-
-  public void setIdentity(String identity) {
-    this.identity = identity;
-  }
-
-
-  public Merchant verification(String verification) {
-    
-    this.verification = verification;
-    return this;
-  }
-
-   /**
-   * ID of the &#x60;Verification&#x60; that was submitted to verify the &#x60;Merchant&#x60;.
-   * @return verification
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the `Verification` that was submitted to verify the `Merchant`.")
-
-  public String getVerification() {
-    return verification;
-  }
-
-
-  public void setVerification(String verification) {
-    this.verification = verification;
-  }
-
-
-  public Merchant merchantProfile(String merchantProfile) {
-    
-    this.merchantProfile = merchantProfile;
-    return this;
-  }
-
-   /**
-   * Details if a merchant&#39;s info was submitted to third-party processors for provisioning.
-   * @return merchantProfile
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Details if a merchant's info was submitted to third-party processors for provisioning.")
-
-  public String getMerchantProfile() {
-    return merchantProfile;
-  }
-
-
-  public void setMerchantProfile(String merchantProfile) {
-    this.merchantProfile = merchantProfile;
-  }
-
-
-  public Merchant processor(String processor) {
-    
-    this.processor = processor;
-    return this;
-  }
-
-   /**
-   * Name of the transaction processor.
-   * @return processor
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the transaction processor.")
-
-  public String getProcessor() {
-    return processor;
-  }
-
-
-  public void setProcessor(String processor) {
-    this.processor = processor;
-  }
-
-
-  public Merchant processingEnabled(Boolean processingEnabled) {
-    
-    this.processingEnabled = processingEnabled;
-    return this;
-  }
-
-   /**
-   * Details if transaction processing is enabled for the &#x60;Merchant&#x60;.
-   * @return processingEnabled
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Details if transaction processing is enabled for the `Merchant`.")
-
-  public Boolean getProcessingEnabled() {
-    return processingEnabled;
-  }
-
-
-  public void setProcessingEnabled(Boolean processingEnabled) {
-    this.processingEnabled = processingEnabled;
-  }
-
-
-  public Merchant settlementEnabled(Boolean settlementEnabled) {
-    
-    this.settlementEnabled = settlementEnabled;
-    return this;
-  }
-
-   /**
-   * Details if settlement processing is enabled for the &#x60;Merchant&#x60;.
-   * @return settlementEnabled
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Details if settlement processing is enabled for the `Merchant`.")
-
-  public Boolean getSettlementEnabled() {
-    return settlementEnabled;
-  }
-
-
-  public void setSettlementEnabled(Boolean settlementEnabled) {
-    this.settlementEnabled = settlementEnabled;
-  }
-
-
-  public Merchant grossSettlementEnabled(Boolean grossSettlementEnabled) {
-    
-    this.grossSettlementEnabled = grossSettlementEnabled;
-    return this;
-  }
-
-   /**
-   * Set to **true** to enable gross settlements.
-   * @return grossSettlementEnabled
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Set to **true** to enable gross settlements.")
-
-  public Boolean getGrossSettlementEnabled() {
-    return grossSettlementEnabled;
-  }
-
-
-  public void setGrossSettlementEnabled(Boolean grossSettlementEnabled) {
-    this.grossSettlementEnabled = grossSettlementEnabled;
-  }
-
-
-  public Merchant creatingTransferFromReportEnabled(Boolean creatingTransferFromReportEnabled) {
-    
-    this.creatingTransferFromReportEnabled = creatingTransferFromReportEnabled;
-    return this;
-  }
-
-   /**
-   * Set to **true** to automatically create &#x60;Transfers&#x60; once settlement reports get generated.
-   * @return creatingTransferFromReportEnabled
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Set to **true** to automatically create `Transfers` once settlement reports get generated.")
-
-  public Boolean getCreatingTransferFromReportEnabled() {
-    return creatingTransferFromReportEnabled;
-  }
-
-
-  public void setCreatingTransferFromReportEnabled(Boolean creatingTransferFromReportEnabled) {
-    this.creatingTransferFromReportEnabled = creatingTransferFromReportEnabled;
-  }
-
-
-  public Merchant cardExpirationDateRequired(Boolean cardExpirationDateRequired) {
-    
-    this.cardExpirationDateRequired = cardExpirationDateRequired;
-    return this;
-  }
-
-   /**
-   * Set to **true** to require the card&#39;s expiration date.
-   * @return cardExpirationDateRequired
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Set to **true** to require the card's expiration date.")
-
-  public Boolean getCardExpirationDateRequired() {
-    return cardExpirationDateRequired;
-  }
-
-
-  public void setCardExpirationDateRequired(Boolean cardExpirationDateRequired) {
-    this.cardExpirationDateRequired = cardExpirationDateRequired;
-  }
-
-
-  public Merchant cardCvvRequired(Boolean cardCvvRequired) {
-    
-    this.cardCvvRequired = cardCvvRequired;
-    return this;
-  }
-
-   /**
-   * Set to **true** to require the card&#39;s CVV code.
-   * @return cardCvvRequired
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Set to **true** to require the card's CVV code.")
-
-  public Boolean getCardCvvRequired() {
-    return cardCvvRequired;
-  }
-
-
-  public void setCardCvvRequired(Boolean cardCvvRequired) {
-    this.cardCvvRequired = cardCvvRequired;
-  }
-
-
-  public Merchant tags(Map<String, String> tags) {
-    
-    this.tags = tags;
-    return this;
-  }
-
-  public Merchant putTagsItem(String key, String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new HashMap<>();
-    }
-    this.tags.put(key, tagsItem);
-    return this;
-  }
-
-   /**
-   * Key value pair for annotating custom meta data (e.g. order numbers).
-   * @return tags
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
-
-  public Map<String, String> getTags() {
-    return tags;
-  }
-
-
-  public void setTags(Map<String, String> tags) {
-    this.tags = tags;
-  }
-
-
-  public Merchant mcc(String mcc) {
-    
-    this.mcc = mcc;
-    return this;
-  }
-
-   /**
-   * The Merchant Category Code ([MCC](http://www.dm.usda.gov/procurement/card/card_x/mcc.pdf)) that this merchant will be classified under.
-   * @return mcc
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The Merchant Category Code ([MCC](http://www.dm.usda.gov/procurement/card/card_x/mcc.pdf)) that this merchant will be classified under.")
-
-  public String getMcc() {
-    return mcc;
-  }
-
-
-  public void setMcc(String mcc) {
-    this.mcc = mcc;
-  }
-
-
-  public Merchant mid(String mid) {
-    
-    this.mid = mid;
-    return this;
-  }
-
-   /**
-   * MID of the &#x60;Merchant&#x60;.
-   * @return mid
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "MID of the `Merchant`.")
-
-  public String getMid() {
-    return mid;
-  }
-
-
-  public void setMid(String mid) {
-    this.mid = mid;
-  }
-
-
-  public Merchant merchantName(String merchantName) {
-    
-    this.merchantName = merchantName;
-    return this;
-  }
-
-   /**
-   * The legal name saved in the &#x60;Merchant&#x60; resource.
-   * @return merchantName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The legal name saved in the `Merchant` resource.")
-
-  public String getMerchantName() {
-    return merchantName;
-  }
-
-
-  public void setMerchantName(String merchantName) {
-    this.merchantName = merchantName;
-  }
-
-
-  public Merchant settlementFundingIdentifier(String settlementFundingIdentifier) {
-    
-    this.settlementFundingIdentifier = settlementFundingIdentifier;
-    return this;
-  }
-
-   /**
-   * Include addtional information (like the MID) when submitting funding &#x60;Tranfers&#x60; to processors.
-   * @return settlementFundingIdentifier
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Include addtional information (like the MID) when submitting funding `Tranfers` to processors.")
-
-  public String getSettlementFundingIdentifier() {
-    return settlementFundingIdentifier;
-  }
-
-
-  public void setSettlementFundingIdentifier(String settlementFundingIdentifier) {
-    this.settlementFundingIdentifier = settlementFundingIdentifier;
-  }
-
-
-  public Merchant readyToSettleUpon(String readyToSettleUpon) {
-    
-    this.readyToSettleUpon = readyToSettleUpon;
-    return this;
-  }
-
-   /**
-   * Details how &#x60;Authorizations&#x60; captured by the &#x60;Merchant&#x60; are settled.
-   * @return readyToSettleUpon
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Details how `Authorizations` captured by the `Merchant` are settled.")
-
-  public String getReadyToSettleUpon() {
-    return readyToSettleUpon;
-  }
-
-
-  public void setReadyToSettleUpon(String readyToSettleUpon) {
-    this.readyToSettleUpon = readyToSettleUpon;
-  }
-
-
-  public Merchant feeReadyToSettleUpon(String feeReadyToSettleUpon) {
-    
-    this.feeReadyToSettleUpon = feeReadyToSettleUpon;
-    return this;
-  }
-
-   /**
-   * Details how the &#x60;Merchant&#x60; settles fees.
-   * @return feeReadyToSettleUpon
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Details how the `Merchant` settles fees.")
-
-  public String getFeeReadyToSettleUpon() {
-    return feeReadyToSettleUpon;
-  }
-
-
-  public void setFeeReadyToSettleUpon(String feeReadyToSettleUpon) {
-    this.feeReadyToSettleUpon = feeReadyToSettleUpon;
-  }
-
-
-  public Merchant levelTwoLevelThreeDataEnabled(Boolean levelTwoLevelThreeDataEnabled) {
-    
-    this.levelTwoLevelThreeDataEnabled = levelTwoLevelThreeDataEnabled;
-    return this;
-  }
-
-   /**
-   * Set to **true** to enable the &#x60;Merchant&#x60; for Level 2 and Level 3 processing. Default value is **false**.
-   * @return levelTwoLevelThreeDataEnabled
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Set to **true** to enable the `Merchant` for Level 2 and Level 3 processing. Default value is **false**.")
-
-  public Boolean getLevelTwoLevelThreeDataEnabled() {
-    return levelTwoLevelThreeDataEnabled;
-  }
-
-
-  public void setLevelTwoLevelThreeDataEnabled(Boolean levelTwoLevelThreeDataEnabled) {
-    this.levelTwoLevelThreeDataEnabled = levelTwoLevelThreeDataEnabled;
   }
 
 
@@ -752,49 +307,95 @@ public class Merchant {
   }
 
 
-  public Merchant onboardingState(OnboardingStateEnum onboardingState) {
+  public Merchant application(String application) {
     
-    this.onboardingState = onboardingState;
+    this.application = application;
     return this;
   }
 
    /**
-   * Details the state of the &#x60;Merchant&#39;s&#x60; onboarding.
-   * @return onboardingState
+   * ID of the &#x60;Application&#x60; the &#x60;Merchant&#x60; was created under.
+   * @return application
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Details the state of the `Merchant's` onboarding.")
+  @ApiModelProperty(value = "ID of the `Application` the `Merchant` was created under.")
 
-  public OnboardingStateEnum getOnboardingState() {
-    return onboardingState;
+  public String getApplication() {
+    return application;
   }
 
 
-  public void setOnboardingState(OnboardingStateEnum onboardingState) {
-    this.onboardingState = onboardingState;
+  public void setApplication(String application) {
+    this.application = application;
   }
 
 
-  public Merchant processorDetails(MerchantProcessorDetails processorDetails) {
+  public Merchant cardCvvRequired(Boolean cardCvvRequired) {
     
-    this.processorDetails = processorDetails;
+    this.cardCvvRequired = cardCvvRequired;
     return this;
   }
 
    /**
-   * Get processorDetails
-   * @return processorDetails
+   * Set to **true** to require the card&#39;s CVV code.
+   * @return cardCvvRequired
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Set to **true** to require the card's CVV code.")
 
-  public MerchantProcessorDetails getProcessorDetails() {
-    return processorDetails;
+  public Boolean getCardCvvRequired() {
+    return cardCvvRequired;
   }
 
 
-  public void setProcessorDetails(MerchantProcessorDetails processorDetails) {
-    this.processorDetails = processorDetails;
+  public void setCardCvvRequired(Boolean cardCvvRequired) {
+    this.cardCvvRequired = cardCvvRequired;
+  }
+
+
+  public Merchant cardExpirationDateRequired(Boolean cardExpirationDateRequired) {
+    
+    this.cardExpirationDateRequired = cardExpirationDateRequired;
+    return this;
+  }
+
+   /**
+   * Set to **true** to require the card&#39;s expiration date.
+   * @return cardExpirationDateRequired
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set to **true** to require the card's expiration date.")
+
+  public Boolean getCardExpirationDateRequired() {
+    return cardExpirationDateRequired;
+  }
+
+
+  public void setCardExpirationDateRequired(Boolean cardExpirationDateRequired) {
+    this.cardExpirationDateRequired = cardExpirationDateRequired;
+  }
+
+
+  public Merchant creatingTransferFromReportEnabled(Boolean creatingTransferFromReportEnabled) {
+    
+    this.creatingTransferFromReportEnabled = creatingTransferFromReportEnabled;
+    return this;
+  }
+
+   /**
+   * Set to **true** to automatically create &#x60;Transfers&#x60; once settlement reports get generated.
+   * @return creatingTransferFromReportEnabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set to **true** to automatically create `Transfers` once settlement reports get generated.")
+
+  public Boolean getCreatingTransferFromReportEnabled() {
+    return creatingTransferFromReportEnabled;
+  }
+
+
+  public void setCreatingTransferFromReportEnabled(Boolean creatingTransferFromReportEnabled) {
+    this.creatingTransferFromReportEnabled = creatingTransferFromReportEnabled;
   }
 
 
@@ -821,6 +422,305 @@ public class Merchant {
   }
 
 
+  public Merchant feeReadyToSettleUpon(String feeReadyToSettleUpon) {
+    
+    this.feeReadyToSettleUpon = feeReadyToSettleUpon;
+    return this;
+  }
+
+   /**
+   * Details how the &#x60;Merchant&#x60; settles fees.
+   * @return feeReadyToSettleUpon
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Details how the `Merchant` settles fees.")
+
+  public String getFeeReadyToSettleUpon() {
+    return feeReadyToSettleUpon;
+  }
+
+
+  public void setFeeReadyToSettleUpon(String feeReadyToSettleUpon) {
+    this.feeReadyToSettleUpon = feeReadyToSettleUpon;
+  }
+
+
+  public Merchant grossSettlementEnabled(Boolean grossSettlementEnabled) {
+    
+    this.grossSettlementEnabled = grossSettlementEnabled;
+    return this;
+  }
+
+   /**
+   * Set to **true** to enable gross settlements.
+   * @return grossSettlementEnabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set to **true** to enable gross settlements.")
+
+  public Boolean getGrossSettlementEnabled() {
+    return grossSettlementEnabled;
+  }
+
+
+  public void setGrossSettlementEnabled(Boolean grossSettlementEnabled) {
+    this.grossSettlementEnabled = grossSettlementEnabled;
+  }
+
+
+  public Merchant identity(String identity) {
+    
+    this.identity = identity;
+    return this;
+  }
+
+   /**
+   * The ID of the &#x60;Identity&#x60; resource associated with the &#x60;Merchant&#x60;.
+   * @return identity
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ID of the `Identity` resource associated with the `Merchant`.")
+
+  public String getIdentity() {
+    return identity;
+  }
+
+
+  public void setIdentity(String identity) {
+    this.identity = identity;
+  }
+
+
+  public Merchant levelTwoLevelThreeDataEnabled(Boolean levelTwoLevelThreeDataEnabled) {
+    
+    this.levelTwoLevelThreeDataEnabled = levelTwoLevelThreeDataEnabled;
+    return this;
+  }
+
+   /**
+   * Set to **true** to enable the &#x60;Merchant&#x60; for Level 2 and Level 3 processing. Default value is **false**.
+   * @return levelTwoLevelThreeDataEnabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set to **true** to enable the `Merchant` for Level 2 and Level 3 processing. Default value is **false**.")
+
+  public Boolean getLevelTwoLevelThreeDataEnabled() {
+    return levelTwoLevelThreeDataEnabled;
+  }
+
+
+  public void setLevelTwoLevelThreeDataEnabled(Boolean levelTwoLevelThreeDataEnabled) {
+    this.levelTwoLevelThreeDataEnabled = levelTwoLevelThreeDataEnabled;
+  }
+
+
+  public Merchant mcc(String mcc) {
+    
+    this.mcc = mcc;
+    return this;
+  }
+
+   /**
+   * The Merchant Category Code ([MCC](http://www.dm.usda.gov/procurement/card/card_x/mcc.pdf)) that this merchant will be classified under.
+   * @return mcc
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The Merchant Category Code ([MCC](http://www.dm.usda.gov/procurement/card/card_x/mcc.pdf)) that this merchant will be classified under.")
+
+  public String getMcc() {
+    return mcc;
+  }
+
+
+  public void setMcc(String mcc) {
+    this.mcc = mcc;
+  }
+
+
+  public Merchant merchantName(String merchantName) {
+    
+    this.merchantName = merchantName;
+    return this;
+  }
+
+   /**
+   * The legal name saved in the &#x60;Merchant&#x60; resource.
+   * @return merchantName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The legal name saved in the `Merchant` resource.")
+
+  public String getMerchantName() {
+    return merchantName;
+  }
+
+
+  public void setMerchantName(String merchantName) {
+    this.merchantName = merchantName;
+  }
+
+
+  public Merchant merchantProfile(String merchantProfile) {
+    
+    this.merchantProfile = merchantProfile;
+    return this;
+  }
+
+   /**
+   * Details if a merchant&#39;s info was submitted to third-party processors for provisioning.
+   * @return merchantProfile
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Details if a merchant's info was submitted to third-party processors for provisioning.")
+
+  public String getMerchantProfile() {
+    return merchantProfile;
+  }
+
+
+  public void setMerchantProfile(String merchantProfile) {
+    this.merchantProfile = merchantProfile;
+  }
+
+
+  public Merchant mid(String mid) {
+    
+    this.mid = mid;
+    return this;
+  }
+
+   /**
+   * MID of the &#x60;Merchant&#x60;.
+   * @return mid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MID of the `Merchant`.")
+
+  public String getMid() {
+    return mid;
+  }
+
+
+  public void setMid(String mid) {
+    this.mid = mid;
+  }
+
+
+  public Merchant onboardingState(OnboardingStateEnum onboardingState) {
+    
+    this.onboardingState = onboardingState;
+    return this;
+  }
+
+   /**
+   * Details the state of the &#x60;Merchant&#39;s&#x60; onboarding.
+   * @return onboardingState
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Details the state of the `Merchant's` onboarding.")
+
+  public OnboardingStateEnum getOnboardingState() {
+    return onboardingState;
+  }
+
+
+  public void setOnboardingState(OnboardingStateEnum onboardingState) {
+    this.onboardingState = onboardingState;
+  }
+
+
+  public Merchant processor(String processor) {
+    
+    this.processor = processor;
+    return this;
+  }
+
+   /**
+   * Name of the transaction processor.
+   * @return processor
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the transaction processor.")
+
+  public String getProcessor() {
+    return processor;
+  }
+
+
+  public void setProcessor(String processor) {
+    this.processor = processor;
+  }
+
+
+  public Merchant processorDetails(MerchantProcessorDetails processorDetails) {
+    
+    this.processorDetails = processorDetails;
+    return this;
+  }
+
+   /**
+   * Get processorDetails
+   * @return processorDetails
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public MerchantProcessorDetails getProcessorDetails() {
+    return processorDetails;
+  }
+
+
+  public void setProcessorDetails(MerchantProcessorDetails processorDetails) {
+    this.processorDetails = processorDetails;
+  }
+
+
+  public Merchant processingEnabled(Boolean processingEnabled) {
+    
+    this.processingEnabled = processingEnabled;
+    return this;
+  }
+
+   /**
+   * Details if transaction processing is enabled for the &#x60;Merchant&#x60;.
+   * @return processingEnabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Details if transaction processing is enabled for the `Merchant`.")
+
+  public Boolean getProcessingEnabled() {
+    return processingEnabled;
+  }
+
+
+  public void setProcessingEnabled(Boolean processingEnabled) {
+    this.processingEnabled = processingEnabled;
+  }
+
+
+  public Merchant readyToSettleUpon(String readyToSettleUpon) {
+    
+    this.readyToSettleUpon = readyToSettleUpon;
+    return this;
+  }
+
+   /**
+   * Details how &#x60;Authorizations&#x60; captured by the &#x60;Merchant&#x60; are settled.
+   * @return readyToSettleUpon
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Details how `Authorizations` captured by the `Merchant` are settled.")
+
+  public String getReadyToSettleUpon() {
+    return readyToSettleUpon;
+  }
+
+
+  public void setReadyToSettleUpon(String readyToSettleUpon) {
+    this.readyToSettleUpon = readyToSettleUpon;
+  }
+
+
   public Merchant rentSurchargesEnabled(Boolean rentSurchargesEnabled) {
     
     this.rentSurchargesEnabled = rentSurchargesEnabled;
@@ -841,6 +741,106 @@ public class Merchant {
 
   public void setRentSurchargesEnabled(Boolean rentSurchargesEnabled) {
     this.rentSurchargesEnabled = rentSurchargesEnabled;
+  }
+
+
+  public Merchant settlementEnabled(Boolean settlementEnabled) {
+    
+    this.settlementEnabled = settlementEnabled;
+    return this;
+  }
+
+   /**
+   * Details if settlement processing is enabled for the &#x60;Merchant&#x60;.
+   * @return settlementEnabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Details if settlement processing is enabled for the `Merchant`.")
+
+  public Boolean getSettlementEnabled() {
+    return settlementEnabled;
+  }
+
+
+  public void setSettlementEnabled(Boolean settlementEnabled) {
+    this.settlementEnabled = settlementEnabled;
+  }
+
+
+  public Merchant settlementFundingIdentifier(String settlementFundingIdentifier) {
+    
+    this.settlementFundingIdentifier = settlementFundingIdentifier;
+    return this;
+  }
+
+   /**
+   * Include addtional information (like the MID) when submitting funding &#x60;Tranfers&#x60; to processors.
+   * @return settlementFundingIdentifier
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Include addtional information (like the MID) when submitting funding `Tranfers` to processors.")
+
+  public String getSettlementFundingIdentifier() {
+    return settlementFundingIdentifier;
+  }
+
+
+  public void setSettlementFundingIdentifier(String settlementFundingIdentifier) {
+    this.settlementFundingIdentifier = settlementFundingIdentifier;
+  }
+
+
+  public Merchant tags(Map<String, String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public Merchant putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
+    return this;
+  }
+
+   /**
+   * Key value pair for annotating custom meta data (e.g. order numbers).
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
+
+  public Map<String, String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(Map<String, String> tags) {
+    this.tags = tags;
+  }
+
+
+  public Merchant verification(String verification) {
+    
+    this.verification = verification;
+    return this;
+  }
+
+   /**
+   * ID of the &#x60;Verification&#x60; that was submitted to verify the &#x60;Merchant&#x60;.
+   * @return verification
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ID of the `Verification` that was submitted to verify the `Merchant`.")
+
+  public String getVerification() {
+    return verification;
+  }
+
+
+  public void setVerification(String verification) {
+    this.verification = verification;
   }
 
 
@@ -878,31 +878,31 @@ public class Merchant {
     }
     Merchant merchant = (Merchant) o;
     return Objects.equals(this.id, merchant.id) &&
-        Objects.equals(this.application, merchant.application) &&
-        Objects.equals(this.identity, merchant.identity) &&
-        Objects.equals(this.verification, merchant.verification) &&
-        Objects.equals(this.merchantProfile, merchant.merchantProfile) &&
-        Objects.equals(this.processor, merchant.processor) &&
-        Objects.equals(this.processingEnabled, merchant.processingEnabled) &&
-        Objects.equals(this.settlementEnabled, merchant.settlementEnabled) &&
-        Objects.equals(this.grossSettlementEnabled, merchant.grossSettlementEnabled) &&
-        Objects.equals(this.creatingTransferFromReportEnabled, merchant.creatingTransferFromReportEnabled) &&
-        Objects.equals(this.cardExpirationDateRequired, merchant.cardExpirationDateRequired) &&
-        Objects.equals(this.cardCvvRequired, merchant.cardCvvRequired) &&
-        Objects.equals(this.tags, merchant.tags) &&
-        Objects.equals(this.mcc, merchant.mcc) &&
-        Objects.equals(this.mid, merchant.mid) &&
-        Objects.equals(this.merchantName, merchant.merchantName) &&
-        Objects.equals(this.settlementFundingIdentifier, merchant.settlementFundingIdentifier) &&
-        Objects.equals(this.readyToSettleUpon, merchant.readyToSettleUpon) &&
-        Objects.equals(this.feeReadyToSettleUpon, merchant.feeReadyToSettleUpon) &&
-        Objects.equals(this.levelTwoLevelThreeDataEnabled, merchant.levelTwoLevelThreeDataEnabled) &&
         Objects.equals(this.createdAt, merchant.createdAt) &&
         Objects.equals(this.updatedAt, merchant.updatedAt) &&
-        Objects.equals(this.onboardingState, merchant.onboardingState) &&
-        Objects.equals(this.processorDetails, merchant.processorDetails) &&
+        Objects.equals(this.application, merchant.application) &&
+        Objects.equals(this.cardCvvRequired, merchant.cardCvvRequired) &&
+        Objects.equals(this.cardExpirationDateRequired, merchant.cardExpirationDateRequired) &&
+        Objects.equals(this.creatingTransferFromReportEnabled, merchant.creatingTransferFromReportEnabled) &&
         Objects.equals(this.convenienceChargesEnabled, merchant.convenienceChargesEnabled) &&
+        Objects.equals(this.feeReadyToSettleUpon, merchant.feeReadyToSettleUpon) &&
+        Objects.equals(this.grossSettlementEnabled, merchant.grossSettlementEnabled) &&
+        Objects.equals(this.identity, merchant.identity) &&
+        Objects.equals(this.levelTwoLevelThreeDataEnabled, merchant.levelTwoLevelThreeDataEnabled) &&
+        Objects.equals(this.mcc, merchant.mcc) &&
+        Objects.equals(this.merchantName, merchant.merchantName) &&
+        Objects.equals(this.merchantProfile, merchant.merchantProfile) &&
+        Objects.equals(this.mid, merchant.mid) &&
+        Objects.equals(this.onboardingState, merchant.onboardingState) &&
+        Objects.equals(this.processor, merchant.processor) &&
+        Objects.equals(this.processorDetails, merchant.processorDetails) &&
+        Objects.equals(this.processingEnabled, merchant.processingEnabled) &&
+        Objects.equals(this.readyToSettleUpon, merchant.readyToSettleUpon) &&
         Objects.equals(this.rentSurchargesEnabled, merchant.rentSurchargesEnabled) &&
+        Objects.equals(this.settlementEnabled, merchant.settlementEnabled) &&
+        Objects.equals(this.settlementFundingIdentifier, merchant.settlementFundingIdentifier) &&
+        Objects.equals(this.tags, merchant.tags) &&
+        Objects.equals(this.verification, merchant.verification) &&
         Objects.equals(this.links, merchant.links);
   }
 
@@ -912,7 +912,7 @@ public class Merchant {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, application, identity, verification, merchantProfile, processor, processingEnabled, settlementEnabled, grossSettlementEnabled, creatingTransferFromReportEnabled, cardExpirationDateRequired, cardCvvRequired, tags, mcc, mid, merchantName, settlementFundingIdentifier, readyToSettleUpon, feeReadyToSettleUpon, levelTwoLevelThreeDataEnabled, createdAt, updatedAt, onboardingState, processorDetails, convenienceChargesEnabled, rentSurchargesEnabled, links);
+    return Objects.hash(id, createdAt, updatedAt, application, cardCvvRequired, cardExpirationDateRequired, creatingTransferFromReportEnabled, convenienceChargesEnabled, feeReadyToSettleUpon, grossSettlementEnabled, identity, levelTwoLevelThreeDataEnabled, mcc, merchantName, merchantProfile, mid, onboardingState, processor, processorDetails, processingEnabled, readyToSettleUpon, rentSurchargesEnabled, settlementEnabled, settlementFundingIdentifier, tags, verification, links);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -927,31 +927,31 @@ public class Merchant {
     StringBuilder sb = new StringBuilder();
     sb.append("class Merchant {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    application: ").append(toIndentedString(application)).append("\n");
-    sb.append("    identity: ").append(toIndentedString(identity)).append("\n");
-    sb.append("    verification: ").append(toIndentedString(verification)).append("\n");
-    sb.append("    merchantProfile: ").append(toIndentedString(merchantProfile)).append("\n");
-    sb.append("    processor: ").append(toIndentedString(processor)).append("\n");
-    sb.append("    processingEnabled: ").append(toIndentedString(processingEnabled)).append("\n");
-    sb.append("    settlementEnabled: ").append(toIndentedString(settlementEnabled)).append("\n");
-    sb.append("    grossSettlementEnabled: ").append(toIndentedString(grossSettlementEnabled)).append("\n");
-    sb.append("    creatingTransferFromReportEnabled: ").append(toIndentedString(creatingTransferFromReportEnabled)).append("\n");
-    sb.append("    cardExpirationDateRequired: ").append(toIndentedString(cardExpirationDateRequired)).append("\n");
-    sb.append("    cardCvvRequired: ").append(toIndentedString(cardCvvRequired)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
-    sb.append("    mid: ").append(toIndentedString(mid)).append("\n");
-    sb.append("    merchantName: ").append(toIndentedString(merchantName)).append("\n");
-    sb.append("    settlementFundingIdentifier: ").append(toIndentedString(settlementFundingIdentifier)).append("\n");
-    sb.append("    readyToSettleUpon: ").append(toIndentedString(readyToSettleUpon)).append("\n");
-    sb.append("    feeReadyToSettleUpon: ").append(toIndentedString(feeReadyToSettleUpon)).append("\n");
-    sb.append("    levelTwoLevelThreeDataEnabled: ").append(toIndentedString(levelTwoLevelThreeDataEnabled)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
-    sb.append("    onboardingState: ").append(toIndentedString(onboardingState)).append("\n");
-    sb.append("    processorDetails: ").append(toIndentedString(processorDetails)).append("\n");
+    sb.append("    application: ").append(toIndentedString(application)).append("\n");
+    sb.append("    cardCvvRequired: ").append(toIndentedString(cardCvvRequired)).append("\n");
+    sb.append("    cardExpirationDateRequired: ").append(toIndentedString(cardExpirationDateRequired)).append("\n");
+    sb.append("    creatingTransferFromReportEnabled: ").append(toIndentedString(creatingTransferFromReportEnabled)).append("\n");
     sb.append("    convenienceChargesEnabled: ").append(toIndentedString(convenienceChargesEnabled)).append("\n");
+    sb.append("    feeReadyToSettleUpon: ").append(toIndentedString(feeReadyToSettleUpon)).append("\n");
+    sb.append("    grossSettlementEnabled: ").append(toIndentedString(grossSettlementEnabled)).append("\n");
+    sb.append("    identity: ").append(toIndentedString(identity)).append("\n");
+    sb.append("    levelTwoLevelThreeDataEnabled: ").append(toIndentedString(levelTwoLevelThreeDataEnabled)).append("\n");
+    sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
+    sb.append("    merchantName: ").append(toIndentedString(merchantName)).append("\n");
+    sb.append("    merchantProfile: ").append(toIndentedString(merchantProfile)).append("\n");
+    sb.append("    mid: ").append(toIndentedString(mid)).append("\n");
+    sb.append("    onboardingState: ").append(toIndentedString(onboardingState)).append("\n");
+    sb.append("    processor: ").append(toIndentedString(processor)).append("\n");
+    sb.append("    processorDetails: ").append(toIndentedString(processorDetails)).append("\n");
+    sb.append("    processingEnabled: ").append(toIndentedString(processingEnabled)).append("\n");
+    sb.append("    readyToSettleUpon: ").append(toIndentedString(readyToSettleUpon)).append("\n");
     sb.append("    rentSurchargesEnabled: ").append(toIndentedString(rentSurchargesEnabled)).append("\n");
+    sb.append("    settlementEnabled: ").append(toIndentedString(settlementEnabled)).append("\n");
+    sb.append("    settlementFundingIdentifier: ").append(toIndentedString(settlementFundingIdentifier)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    verification: ").append(toIndentedString(verification)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -976,31 +976,31 @@ public class Merchant {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
-    openapiFields.add("application");
-    openapiFields.add("identity");
-    openapiFields.add("verification");
-    openapiFields.add("merchant_profile");
-    openapiFields.add("processor");
-    openapiFields.add("processing_enabled");
-    openapiFields.add("settlement_enabled");
-    openapiFields.add("gross_settlement_enabled");
-    openapiFields.add("creating_transfer_from_report_enabled");
-    openapiFields.add("card_expiration_date_required");
-    openapiFields.add("card_cvv_required");
-    openapiFields.add("tags");
-    openapiFields.add("mcc");
-    openapiFields.add("mid");
-    openapiFields.add("merchant_name");
-    openapiFields.add("settlement_funding_identifier");
-    openapiFields.add("ready_to_settle_upon");
-    openapiFields.add("fee_ready_to_settle_upon");
-    openapiFields.add("level_two_level_three_data_enabled");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
-    openapiFields.add("onboarding_state");
-    openapiFields.add("processor_details");
+    openapiFields.add("application");
+    openapiFields.add("card_cvv_required");
+    openapiFields.add("card_expiration_date_required");
+    openapiFields.add("creating_transfer_from_report_enabled");
     openapiFields.add("convenience_charges_enabled");
+    openapiFields.add("fee_ready_to_settle_upon");
+    openapiFields.add("gross_settlement_enabled");
+    openapiFields.add("identity");
+    openapiFields.add("level_two_level_three_data_enabled");
+    openapiFields.add("mcc");
+    openapiFields.add("merchant_name");
+    openapiFields.add("merchant_profile");
+    openapiFields.add("mid");
+    openapiFields.add("onboarding_state");
+    openapiFields.add("processor");
+    openapiFields.add("processor_details");
+    openapiFields.add("processing_enabled");
+    openapiFields.add("ready_to_settle_upon");
     openapiFields.add("rent_surcharges_enabled");
+    openapiFields.add("settlement_enabled");
+    openapiFields.add("settlement_funding_identifier");
+    openapiFields.add("tags");
+    openapiFields.add("verification");
     openapiFields.add("_links");
 
     // a set of required properties/fields (JSON key names)
@@ -1049,29 +1049,15 @@ public class Merchant {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
+      if (jsonObj.get("fee_ready_to_settle_upon") != null && !jsonObj.get("fee_ready_to_settle_upon").isJsonNull()  && !jsonObj.get("fee_ready_to_settle_upon").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fee_ready_to_settle_upon` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_ready_to_settle_upon").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
       if (jsonObj.get("identity") != null && !jsonObj.get("identity").isJsonNull()  && !jsonObj.get("identity").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `identity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("identity").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("verification") != null && !jsonObj.get("verification").isJsonNull()  && !jsonObj.get("verification").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `verification` to be a primitive type in the JSON string but got `%s`", jsonObj.get("verification").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("merchant_profile") != null && !jsonObj.get("merchant_profile").isJsonNull()  && !jsonObj.get("merchant_profile").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `merchant_profile` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_profile").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("processor") != null && !jsonObj.get("processor").isJsonNull()  && !jsonObj.get("processor").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `processor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("processor").toString()));
       }
       /**
       * EDITED
@@ -1084,6 +1070,20 @@ public class Merchant {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
+      if (jsonObj.get("merchant_name") != null && !jsonObj.get("merchant_name").isJsonNull()  && !jsonObj.get("merchant_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_name").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("merchant_profile") != null && !jsonObj.get("merchant_profile").isJsonNull()  && !jsonObj.get("merchant_profile").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_profile` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_profile").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
       if (jsonObj.get("mid") != null && !jsonObj.get("mid").isJsonNull()  && !jsonObj.get("mid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mid").toString()));
       }
@@ -1091,8 +1091,31 @@ public class Merchant {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("merchant_name") != null && !jsonObj.get("merchant_name").isJsonNull()  && !jsonObj.get("merchant_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `merchant_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_name").toString()));
+      if (jsonObj.get("onboarding_state") != null && !jsonObj.get("onboarding_state").isJsonNull()  && !jsonObj.get("onboarding_state").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `onboarding_state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("onboarding_state").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("processor") != null && !jsonObj.get("processor").isJsonNull()  && !jsonObj.get("processor").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `processor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("processor").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED  statement to for inconsistent null behaviour
+      */
+      // validate the optional field `processor_details`
+     // if (jsonObj.getAsJsonObject("processor_details") != null) {
+       //MerchantProcessorDetails.validateJsonObject(jsonObj.getAsJsonObject("processor_details"));
+     // }
+
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("ready_to_settle_upon") != null && !jsonObj.get("ready_to_settle_upon").isJsonNull()  && !jsonObj.get("ready_to_settle_upon").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ready_to_settle_upon` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ready_to_settle_upon").toString()));
       }
       /**
       * EDITED
@@ -1105,32 +1128,9 @@ public class Merchant {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("ready_to_settle_upon") != null && !jsonObj.get("ready_to_settle_upon").isJsonNull()  && !jsonObj.get("ready_to_settle_upon").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ready_to_settle_upon` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ready_to_settle_upon").toString()));
+      if (jsonObj.get("verification") != null && !jsonObj.get("verification").isJsonNull()  && !jsonObj.get("verification").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `verification` to be a primitive type in the JSON string but got `%s`", jsonObj.get("verification").toString()));
       }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("fee_ready_to_settle_upon") != null && !jsonObj.get("fee_ready_to_settle_upon").isJsonNull()  && !jsonObj.get("fee_ready_to_settle_upon").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fee_ready_to_settle_upon` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_ready_to_settle_upon").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("onboarding_state") != null && !jsonObj.get("onboarding_state").isJsonNull()  && !jsonObj.get("onboarding_state").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `onboarding_state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("onboarding_state").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED  statement to for inconsistent null behaviour
-      */
-      // validate the optional field `processor_details`
-     // if (jsonObj.getAsJsonObject("processor_details") != null) {
-       //MerchantProcessorDetails.validateJsonObject(jsonObj.getAsJsonObject("processor_details"));
-     // }
-
       /**
       * EDITED
       * ADDED  statement to for inconsistent null behaviour

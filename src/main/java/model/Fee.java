@@ -58,10 +58,6 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Fee {
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
-
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -331,7 +327,7 @@ public class Fee {
   private String linkedId;
 
   /**
-   * The type of entity the &#x60;fee&#x60; is linked (**null** by default).
+   * The type of entity the &#x60;fee&#x60; is linked to (**null** by default).
    */
   @JsonAdapter(LinkedTypeEnum.Adapter.class)
   public enum LinkedTypeEnum {
@@ -410,43 +406,16 @@ public class Fee {
   @SerializedName(SERIALIZED_NAME_MERCHANT)
   private String merchant;
 
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
+
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
   private FeeLinks links;
 
   public Fee() { 
   }
-
-  public Fee tags(Map<String, String> tags) {
-    
-    this.tags = tags;
-    return this;
-  }
-
-  public Fee putTagsItem(String key, String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new HashMap<>();
-    }
-    this.tags.put(key, tagsItem);
-    return this;
-  }
-
-   /**
-   * Key value pair for annotating custom meta data (e.g. order numbers).
-   * @return tags
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
-
-  public Map<String, String> getTags() {
-    return tags;
-  }
-
-
-  public void setTags(Map<String, String> tags) {
-    this.tags = tags;
-  }
-
 
   public Fee id(String id) {
     
@@ -685,11 +654,11 @@ public class Fee {
   }
 
    /**
-   * The type of entity the &#x60;fee&#x60; is linked (**null** by default).
+   * The type of entity the &#x60;fee&#x60; is linked to (**null** by default).
    * @return linkedType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The type of entity the `fee` is linked (**null** by default).")
+  @ApiModelProperty(value = "The type of entity the `fee` is linked to (**null** by default).")
 
   public LinkedTypeEnum getLinkedType() {
     return linkedType;
@@ -721,6 +690,37 @@ public class Fee {
 
   public void setMerchant(String merchant) {
     this.merchant = merchant;
+  }
+
+
+  public Fee tags(Map<String, String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public Fee putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
+    return this;
+  }
+
+   /**
+   * Key value pair for annotating custom meta data (e.g. order numbers).
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
+
+  public Map<String, String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(Map<String, String> tags) {
+    this.tags = tags;
   }
 
 
@@ -757,8 +757,7 @@ public class Fee {
       return false;
     }
     Fee fee = (Fee) o;
-    return Objects.equals(this.tags, fee.tags) &&
-        Objects.equals(this.id, fee.id) &&
+    return Objects.equals(this.id, fee.id) &&
         Objects.equals(this.createdAt, fee.createdAt) &&
         Objects.equals(this.updatedAt, fee.updatedAt) &&
         Objects.equals(this.amount, fee.amount) &&
@@ -770,6 +769,7 @@ public class Fee {
         Objects.equals(this.linkedId, fee.linkedId) &&
         Objects.equals(this.linkedType, fee.linkedType) &&
         Objects.equals(this.merchant, fee.merchant) &&
+        Objects.equals(this.tags, fee.tags) &&
         Objects.equals(this.links, fee.links);
   }
 
@@ -779,7 +779,7 @@ public class Fee {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, id, createdAt, updatedAt, amount, currency, displayName, feeSubtype, feeType, label, linkedId, linkedType, merchant, links);
+    return Objects.hash(id, createdAt, updatedAt, amount, currency, displayName, feeSubtype, feeType, label, linkedId, linkedType, merchant, tags, links);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -793,7 +793,6 @@ public class Fee {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Fee {\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
@@ -806,6 +805,7 @@ public class Fee {
     sb.append("    linkedId: ").append(toIndentedString(linkedId)).append("\n");
     sb.append("    linkedType: ").append(toIndentedString(linkedType)).append("\n");
     sb.append("    merchant: ").append(toIndentedString(merchant)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -829,7 +829,6 @@ public class Fee {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("tags");
     openapiFields.add("id");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
@@ -842,6 +841,7 @@ public class Fee {
     openapiFields.add("linked_id");
     openapiFields.add("linked_type");
     openapiFields.add("merchant");
+    openapiFields.add("tags");
     openapiFields.add("_links");
 
     // a set of required properties/fields (JSON key names)

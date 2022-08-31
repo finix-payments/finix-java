@@ -53,6 +53,14 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateExternalLinkRequest {
+  public static final String SERIALIZED_NAME_DURATION = "duration";
+  @SerializedName(SERIALIZED_NAME_DURATION)
+  private Long duration;
+
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
+
   /**
    * &lt;ul&gt;&lt;li&gt;Set to &lt;strong&gt;UPLOAD&lt;/strong&gt; to create a link that can be used to upload files to Finix.&lt;li&gt;Set to &lt;strong&gt;DOWNLOAD&lt;/strong&gt; to create a link where the uploaded file can be downloaded from.&lt;li&gt;Set to &lt;strong&gt;VIEW&lt;/strong&gt; to create a link that displays the file in browser.
    */
@@ -127,39 +135,8 @@ public class CreateExternalLinkRequest {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
 
-  public static final String SERIALIZED_NAME_DURATION = "duration";
-  @SerializedName(SERIALIZED_NAME_DURATION)
-  private Long duration;
-
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
-
   public CreateExternalLinkRequest() { 
   }
-
-  public CreateExternalLinkRequest type(TypeEnum type) {
-    
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * &lt;ul&gt;&lt;li&gt;Set to &lt;strong&gt;UPLOAD&lt;/strong&gt; to create a link that can be used to upload files to Finix.&lt;li&gt;Set to &lt;strong&gt;DOWNLOAD&lt;/strong&gt; to create a link where the uploaded file can be downloaded from.&lt;li&gt;Set to &lt;strong&gt;VIEW&lt;/strong&gt; to create a link that displays the file in browser.
-   * @return type
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "<ul><li>Set to <strong>UPLOAD</strong> to create a link that can be used to upload files to Finix.<li>Set to <strong>DOWNLOAD</strong> to create a link where the uploaded file can be downloaded from.<li>Set to <strong>VIEW</strong> to create a link that displays the file in browser.")
-
-  public TypeEnum getType() {
-    return type;
-  }
-
-
-  public void setType(TypeEnum type) {
-    this.type = type;
-  }
-
 
   public CreateExternalLinkRequest duration(Long duration) {
     
@@ -215,6 +192,29 @@ public class CreateExternalLinkRequest {
   }
 
 
+  public CreateExternalLinkRequest type(TypeEnum type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * &lt;ul&gt;&lt;li&gt;Set to &lt;strong&gt;UPLOAD&lt;/strong&gt; to create a link that can be used to upload files to Finix.&lt;li&gt;Set to &lt;strong&gt;DOWNLOAD&lt;/strong&gt; to create a link where the uploaded file can be downloaded from.&lt;li&gt;Set to &lt;strong&gt;VIEW&lt;/strong&gt; to create a link that displays the file in browser.
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "<ul><li>Set to <strong>UPLOAD</strong> to create a link that can be used to upload files to Finix.<li>Set to <strong>DOWNLOAD</strong> to create a link where the uploaded file can be downloaded from.<li>Set to <strong>VIEW</strong> to create a link that displays the file in browser.")
+
+  public TypeEnum getType() {
+    return type;
+  }
+
+
+  public void setType(TypeEnum type) {
+    this.type = type;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -225,23 +225,23 @@ public class CreateExternalLinkRequest {
       return false;
     }
     CreateExternalLinkRequest createExternalLinkRequest = (CreateExternalLinkRequest) o;
-    return Objects.equals(this.type, createExternalLinkRequest.type) &&
-        Objects.equals(this.duration, createExternalLinkRequest.duration) &&
-        Objects.equals(this.tags, createExternalLinkRequest.tags);
+    return Objects.equals(this.duration, createExternalLinkRequest.duration) &&
+        Objects.equals(this.tags, createExternalLinkRequest.tags) &&
+        Objects.equals(this.type, createExternalLinkRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, duration, tags);
+    return Objects.hash(duration, tags, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateExternalLinkRequest {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -264,9 +264,9 @@ public class CreateExternalLinkRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("type");
     openapiFields.add("duration");
     openapiFields.add("tags");
+    openapiFields.add("type");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

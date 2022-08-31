@@ -66,11 +66,11 @@ public class UpdateFeeRequest {
   }
 
    /**
-   * Get tags
+   * Key value pair for annotating custom meta data (e.g. order numbers).
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
 
   public Object getTags() {
     return tags;

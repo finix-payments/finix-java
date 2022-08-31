@@ -55,10 +55,6 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateApplicationRequest {
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
-
   public static final String SERIALIZED_NAME_ENTITY = "entity";
   @SerializedName(SERIALIZED_NAME_ENTITY)
   private IdentityEntityForm entity;
@@ -71,43 +67,16 @@ public class CreateApplicationRequest {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
+
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
   private String user;
 
   public CreateApplicationRequest() { 
   }
-
-  public CreateApplicationRequest tags(Map<String, String> tags) {
-    
-    this.tags = tags;
-    return this;
-  }
-
-  public CreateApplicationRequest putTagsItem(String key, String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new HashMap<>();
-    }
-    this.tags.put(key, tagsItem);
-    return this;
-  }
-
-   /**
-   * Key value pair for annotating custom meta data (e.g. order numbers).
-   * @return tags
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
-
-  public Map<String, String> getTags() {
-    return tags;
-  }
-
-
-  public void setTags(Map<String, String> tags) {
-    this.tags = tags;
-  }
-
 
   public CreateApplicationRequest entity(IdentityEntityForm entity) {
     
@@ -119,8 +88,8 @@ public class CreateApplicationRequest {
    * Get entity
    * @return entity
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public IdentityEntityForm getEntity() {
     return entity;
@@ -162,11 +131,11 @@ public class CreateApplicationRequest {
   }
 
    /**
-   * Merchant&#39;s full legal business name (If INDIVIDUAL_SOLE_PROPRIETORSHIP, please input first name, Full legal last name and middle initial; max 120 characters).
+   * Merchant&#39;s full legal business name (If **INDIVIDUAL_SOLE_PROPRIETORSHIP**, enter first name, Full legal last name and middle initial; max 120 characters).
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Merchant's full legal business name (If INDIVIDUAL_SOLE_PROPRIETORSHIP, please input first name, Full legal last name and middle initial; max 120 characters).")
+  @ApiModelProperty(value = "Merchant's full legal business name (If **INDIVIDUAL_SOLE_PROPRIETORSHIP**, enter first name, Full legal last name and middle initial; max 120 characters).")
 
   public String getName() {
     return name;
@@ -175,6 +144,37 @@ public class CreateApplicationRequest {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public CreateApplicationRequest tags(Map<String, String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateApplicationRequest putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
+    return this;
+  }
+
+   /**
+   * Key value pair for annotating custom meta data (e.g. order numbers).
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
+
+  public Map<String, String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(Map<String, String> tags) {
+    this.tags = tags;
   }
 
 
@@ -211,10 +211,10 @@ public class CreateApplicationRequest {
       return false;
     }
     CreateApplicationRequest createApplicationRequest = (CreateApplicationRequest) o;
-    return Objects.equals(this.tags, createApplicationRequest.tags) &&
-        Objects.equals(this.entity, createApplicationRequest.entity) &&
+    return Objects.equals(this.entity, createApplicationRequest.entity) &&
         Objects.equals(this.maxTransactionAmount, createApplicationRequest.maxTransactionAmount) &&
         Objects.equals(this.name, createApplicationRequest.name) &&
+        Objects.equals(this.tags, createApplicationRequest.tags) &&
         Objects.equals(this.user, createApplicationRequest.user);
   }
 
@@ -224,7 +224,7 @@ public class CreateApplicationRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, entity, maxTransactionAmount, name, user);
+    return Objects.hash(entity, maxTransactionAmount, name, tags, user);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -238,10 +238,10 @@ public class CreateApplicationRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateApplicationRequest {\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    entity: ").append(toIndentedString(entity)).append("\n");
     sb.append("    maxTransactionAmount: ").append(toIndentedString(maxTransactionAmount)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -265,15 +265,14 @@ public class CreateApplicationRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("tags");
     openapiFields.add("entity");
     openapiFields.add("max_transaction_amount");
     openapiFields.add("name");
+    openapiFields.add("tags");
     openapiFields.add("user");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("entity");
     openapiRequiredFields.add("user");
   }
 

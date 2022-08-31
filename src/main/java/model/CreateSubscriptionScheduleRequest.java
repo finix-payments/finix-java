@@ -57,6 +57,10 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateSubscriptionScheduleRequest {
+  public static final String SERIALIZED_NAME_FIXED_TIME_INTERVAL_OFFSET = "fixed_time_interval_offset";
+  @SerializedName(SERIALIZED_NAME_FIXED_TIME_INTERVAL_OFFSET)
+  private CreateSubscriptionScheduleRequestFixedTimeIntervalOffset fixedTimeIntervalOffset;
+
   /**
    * Subscription Schedule type. For subscriptions, the type is **FEE**.
    */
@@ -130,10 +134,6 @@ public class CreateSubscriptionScheduleRequest {
   public static final String SERIALIZED_NAME_NICKNAME = "nickname";
   @SerializedName(SERIALIZED_NAME_NICKNAME)
   private String nickname;
-
-  public static final String SERIALIZED_NAME_FIXED_TIME_INTERVAL_OFFSET = "fixed_time_interval_offset";
-  @SerializedName(SERIALIZED_NAME_FIXED_TIME_INTERVAL_OFFSET)
-  private CreateSubscriptionScheduleRequestFixedTimeIntervalOffset fixedTimeIntervalOffset;
 
   public static final String SERIALIZED_NAME_PERIOD_OFFSET = "period_offset";
   @SerializedName(SERIALIZED_NAME_PERIOD_OFFSET)
@@ -220,6 +220,29 @@ public class CreateSubscriptionScheduleRequest {
   public CreateSubscriptionScheduleRequest() { 
   }
 
+  public CreateSubscriptionScheduleRequest fixedTimeIntervalOffset(CreateSubscriptionScheduleRequestFixedTimeIntervalOffset fixedTimeIntervalOffset) {
+    
+    this.fixedTimeIntervalOffset = fixedTimeIntervalOffset;
+    return this;
+  }
+
+   /**
+   * Get fixedTimeIntervalOffset
+   * @return fixedTimeIntervalOffset
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public CreateSubscriptionScheduleRequestFixedTimeIntervalOffset getFixedTimeIntervalOffset() {
+    return fixedTimeIntervalOffset;
+  }
+
+
+  public void setFixedTimeIntervalOffset(CreateSubscriptionScheduleRequestFixedTimeIntervalOffset fixedTimeIntervalOffset) {
+    this.fixedTimeIntervalOffset = fixedTimeIntervalOffset;
+  }
+
+
   public CreateSubscriptionScheduleRequest lineItemType(LineItemTypeEnum lineItemType) {
     
     this.lineItemType = lineItemType;
@@ -263,29 +286,6 @@ public class CreateSubscriptionScheduleRequest {
 
   public void setNickname(String nickname) {
     this.nickname = nickname;
-  }
-
-
-  public CreateSubscriptionScheduleRequest fixedTimeIntervalOffset(CreateSubscriptionScheduleRequestFixedTimeIntervalOffset fixedTimeIntervalOffset) {
-    
-    this.fixedTimeIntervalOffset = fixedTimeIntervalOffset;
-    return this;
-  }
-
-   /**
-   * Get fixedTimeIntervalOffset
-   * @return fixedTimeIntervalOffset
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public CreateSubscriptionScheduleRequestFixedTimeIntervalOffset getFixedTimeIntervalOffset() {
-    return fixedTimeIntervalOffset;
-  }
-
-
-  public void setFixedTimeIntervalOffset(CreateSubscriptionScheduleRequestFixedTimeIntervalOffset fixedTimeIntervalOffset) {
-    this.fixedTimeIntervalOffset = fixedTimeIntervalOffset;
   }
 
 
@@ -376,9 +376,9 @@ public class CreateSubscriptionScheduleRequest {
       return false;
     }
     CreateSubscriptionScheduleRequest createSubscriptionScheduleRequest = (CreateSubscriptionScheduleRequest) o;
-    return Objects.equals(this.lineItemType, createSubscriptionScheduleRequest.lineItemType) &&
+    return Objects.equals(this.fixedTimeIntervalOffset, createSubscriptionScheduleRequest.fixedTimeIntervalOffset) &&
+        Objects.equals(this.lineItemType, createSubscriptionScheduleRequest.lineItemType) &&
         Objects.equals(this.nickname, createSubscriptionScheduleRequest.nickname) &&
-        Objects.equals(this.fixedTimeIntervalOffset, createSubscriptionScheduleRequest.fixedTimeIntervalOffset) &&
         Objects.equals(this.periodOffset, createSubscriptionScheduleRequest.periodOffset) &&
         Objects.equals(this.subscriptionType, createSubscriptionScheduleRequest.subscriptionType) &&
         Objects.equals(this.tags, createSubscriptionScheduleRequest.tags);
@@ -390,7 +390,7 @@ public class CreateSubscriptionScheduleRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(lineItemType, nickname, fixedTimeIntervalOffset, periodOffset, subscriptionType, tags);
+    return Objects.hash(fixedTimeIntervalOffset, lineItemType, nickname, periodOffset, subscriptionType, tags);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -404,9 +404,9 @@ public class CreateSubscriptionScheduleRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateSubscriptionScheduleRequest {\n");
+    sb.append("    fixedTimeIntervalOffset: ").append(toIndentedString(fixedTimeIntervalOffset)).append("\n");
     sb.append("    lineItemType: ").append(toIndentedString(lineItemType)).append("\n");
     sb.append("    nickname: ").append(toIndentedString(nickname)).append("\n");
-    sb.append("    fixedTimeIntervalOffset: ").append(toIndentedString(fixedTimeIntervalOffset)).append("\n");
     sb.append("    periodOffset: ").append(toIndentedString(periodOffset)).append("\n");
     sb.append("    subscriptionType: ").append(toIndentedString(subscriptionType)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
@@ -432,9 +432,9 @@ public class CreateSubscriptionScheduleRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("fixed_time_interval_offset");
     openapiFields.add("line_item_type");
     openapiFields.add("nickname");
-    openapiFields.add("fixed_time_interval_offset");
     openapiFields.add("period_offset");
     openapiFields.add("subscription_type");
     openapiFields.add("tags");
@@ -484,6 +484,15 @@ public class CreateSubscriptionScheduleRequest {
       }*/
       /**
       * EDITED
+      * ADDED  statement to for inconsistent null behaviour
+      */
+      // validate the optional field `fixed_time_interval_offset`
+     // if (jsonObj.getAsJsonObject("fixed_time_interval_offset") != null) {
+       //CreateSubscriptionScheduleRequestFixedTimeIntervalOffset.validateJsonObject(jsonObj.getAsJsonObject("fixed_time_interval_offset"));
+     // }
+
+      /**
+      * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
       if (jsonObj.get("line_item_type") != null && !jsonObj.get("line_item_type").isJsonNull()  && !jsonObj.get("line_item_type").isJsonPrimitive()) {
@@ -496,15 +505,6 @@ public class CreateSubscriptionScheduleRequest {
       if (jsonObj.get("nickname") != null && !jsonObj.get("nickname").isJsonNull()  && !jsonObj.get("nickname").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `nickname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nickname").toString()));
       }
-      /**
-      * EDITED
-      * ADDED  statement to for inconsistent null behaviour
-      */
-      // validate the optional field `fixed_time_interval_offset`
-     // if (jsonObj.getAsJsonObject("fixed_time_interval_offset") != null) {
-       //CreateSubscriptionScheduleRequestFixedTimeIntervalOffset.validateJsonObject(jsonObj.getAsJsonObject("fixed_time_interval_offset"));
-     // }
-
       /**
       * EDITED
       * ADDED  statement to for inconsistent null behaviour

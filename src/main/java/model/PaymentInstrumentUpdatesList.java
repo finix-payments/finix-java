@@ -23,9 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import model.ListLinks;
 import model.PageOffset;
 import model.PaymentInstrumentUpdatesListEmbedded;
 
@@ -66,7 +64,7 @@ public class PaymentInstrumentUpdatesList {
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private Map<String, Object> links = null;
+  private ListLinks links;
 
   public PaymentInstrumentUpdatesList() { 
   }
@@ -81,8 +79,8 @@ public class PaymentInstrumentUpdatesList {
    * Get page
    * @return page
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public PageOffset getPage() {
     return page;
@@ -117,17 +115,9 @@ public class PaymentInstrumentUpdatesList {
   }
 
 
-  public PaymentInstrumentUpdatesList links(Map<String, Object> links) {
+  public PaymentInstrumentUpdatesList links(ListLinks links) {
     
     this.links = links;
-    return this;
-  }
-
-  public PaymentInstrumentUpdatesList putLinksItem(String key, Object linksItem) {
-    if (this.links == null) {
-      this.links = new HashMap<>();
-    }
-    this.links.put(key, linksItem);
     return this;
   }
 
@@ -138,12 +128,12 @@ public class PaymentInstrumentUpdatesList {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Map<String, Object> getLinks() {
+  public ListLinks getLinks() {
     return links;
   }
 
 
-  public void setLinks(Map<String, Object> links) {
+  public void setLinks(ListLinks links) {
     this.links = links;
   }
 
@@ -203,7 +193,6 @@ public class PaymentInstrumentUpdatesList {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("page");
   }
 
  /**
@@ -230,18 +219,6 @@ public class PaymentInstrumentUpdatesList {
         }
       }
       */
-
-      /**
-      * EDITED
-      * Commented to ByPass required properties/fields are present in the JSON string
-      */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : PaymentInstrumentUpdatesList.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       /**
       * EDITED
       * ADDED  statement to for inconsistent null behaviour

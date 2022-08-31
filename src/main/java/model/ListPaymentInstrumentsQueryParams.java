@@ -50,14 +50,6 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListPaymentInstrumentsQueryParams {
-  public static final String SERIALIZED_NAME_LIMIT = "limit";
-  @SerializedName(SERIALIZED_NAME_LIMIT)
-  private Long limit;
-
-  public static final String SERIALIZED_NAME_AFTER_CURSOR = "after_cursor";
-  @SerializedName(SERIALIZED_NAME_AFTER_CURSOR)
-  private String afterCursor;
-
   public static final String SERIALIZED_NAME_ACCOUNT_LAST4 = "account_last4";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_LAST4)
   private String accountLast4;
@@ -66,9 +58,17 @@ public class ListPaymentInstrumentsQueryParams {
   @SerializedName(SERIALIZED_NAME_ACCOUNT_ROUTING_NUMBER)
   private String accountRoutingNumber;
 
+  public static final String SERIALIZED_NAME_AFTER_CURSOR = "after_cursor";
+  @SerializedName(SERIALIZED_NAME_AFTER_CURSOR)
+  private String afterCursor;
+
   public static final String SERIALIZED_NAME_APPLICATION = "application";
   @SerializedName(SERIALIZED_NAME_APPLICATION)
   private String application;
+
+  public static final String SERIALIZED_NAME_BEFORE_CURSOR = "before_cursor";
+  @SerializedName(SERIALIZED_NAME_BEFORE_CURSOR)
+  private String beforeCursor;
 
   public static final String SERIALIZED_NAME_BIN = "bin";
   @SerializedName(SERIALIZED_NAME_BIN)
@@ -94,6 +94,10 @@ public class ListPaymentInstrumentsQueryParams {
   @SerializedName(SERIALIZED_NAME_LAST_FOUR)
   private String lastFour;
 
+  public static final String SERIALIZED_NAME_LIMIT = "limit";
+  @SerializedName(SERIALIZED_NAME_LIMIT)
+  private Long limit;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -106,58 +110,8 @@ public class ListPaymentInstrumentsQueryParams {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
-  public static final String SERIALIZED_NAME_BEFORE_CURSOR = "before_cursor";
-  @SerializedName(SERIALIZED_NAME_BEFORE_CURSOR)
-  private String beforeCursor;
-
   public ListPaymentInstrumentsQueryParams() { 
   }
-
-  public ListPaymentInstrumentsQueryParams limit(Long limit) {
-    
-    this.limit = limit;
-    return this;
-  }
-
-   /**
-   * The numbers of items to return
-   * @return limit
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The numbers of items to return")
-
-  public Long getLimit() {
-    return limit;
-  }
-
-
-  public void setLimit(Long limit) {
-    this.limit = limit;
-  }
-
-
-  public ListPaymentInstrumentsQueryParams afterCursor(String afterCursor) {
-    
-    this.afterCursor = afterCursor;
-    return this;
-  }
-
-   /**
-   * Return every resource created after the cursor value.
-   * @return afterCursor
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Return every resource created after the cursor value.")
-
-  public String getAfterCursor() {
-    return afterCursor;
-  }
-
-
-  public void setAfterCursor(String afterCursor) {
-    this.afterCursor = afterCursor;
-  }
-
 
   public ListPaymentInstrumentsQueryParams accountLast4(String accountLast4) {
     
@@ -205,6 +159,29 @@ public class ListPaymentInstrumentsQueryParams {
   }
 
 
+  public ListPaymentInstrumentsQueryParams afterCursor(String afterCursor) {
+    
+    this.afterCursor = afterCursor;
+    return this;
+  }
+
+   /**
+   * Return every resource created after the cursor value.
+   * @return afterCursor
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Return every resource created after the cursor value.")
+
+  public String getAfterCursor() {
+    return afterCursor;
+  }
+
+
+  public void setAfterCursor(String afterCursor) {
+    this.afterCursor = afterCursor;
+  }
+
+
   public ListPaymentInstrumentsQueryParams application(String application) {
     
     this.application = application;
@@ -212,11 +189,11 @@ public class ListPaymentInstrumentsQueryParams {
   }
 
    /**
-   * Filter by application id
+   * Filter by &#x60;Application&#x60; ID.
    * @return application
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by application id")
+  @ApiModelProperty(value = "Filter by `Application` ID.")
 
   public String getApplication() {
     return application;
@@ -228,6 +205,29 @@ public class ListPaymentInstrumentsQueryParams {
   }
 
 
+  public ListPaymentInstrumentsQueryParams beforeCursor(String beforeCursor) {
+    
+    this.beforeCursor = beforeCursor;
+    return this;
+  }
+
+   /**
+   * Return every resource created before the cursor value.
+   * @return beforeCursor
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Return every resource created before the cursor value.")
+
+  public String getBeforeCursor() {
+    return beforeCursor;
+  }
+
+
+  public void setBeforeCursor(String beforeCursor) {
+    this.beforeCursor = beforeCursor;
+  }
+
+
   public ListPaymentInstrumentsQueryParams bin(String bin) {
     
     this.bin = bin;
@@ -235,11 +235,11 @@ public class ListPaymentInstrumentsQueryParams {
   }
 
    /**
-   * Filter by Bank Identification Number (BIN). The BIN is the first 6 digits of the masked number
+   * Filter by Bank Identification Number (BIN). The BIN is the first 6 digits of the masked number.
    * @return bin
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by Bank Identification Number (BIN). The BIN is the first 6 digits of the masked number")
+  @ApiModelProperty(value = "Filter by Bank Identification Number (BIN). The BIN is the first 6 digits of the masked number.")
 
   public String getBin() {
     return bin;
@@ -258,11 +258,11 @@ public class ListPaymentInstrumentsQueryParams {
   }
 
    /**
-   * Filter where created_at is after the given date.
+   * Filter where &#x60;created_at&#x60; is after the given date.
    * @return createdAtGte
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter where created_at is after the given date.")
+  @ApiModelProperty(value = "Filter where `created_at` is after the given date.")
 
   public String getCreatedAtGte() {
     return createdAtGte;
@@ -281,11 +281,11 @@ public class ListPaymentInstrumentsQueryParams {
   }
 
    /**
-   * Filter where created_at is before the given date.
+   * Filter where &#x60;created_at&#x60; is before the given date.
    * @return createdAtLte
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter where created_at is before the given date.")
+  @ApiModelProperty(value = "Filter where `created_at` is before the given date.")
 
   public String getCreatedAtLte() {
     return createdAtLte;
@@ -327,11 +327,11 @@ public class ListPaymentInstrumentsQueryParams {
   }
 
    /**
-   * Filter by the 4 digit expiration year associated with the Payment Instrument if applicable. This filter only applies to payment cards
+   * Filter by the 4 digit expiration year associated with the Payment Instrument if applicable. This filter only applies to payment cards.
    * @return expirationYear
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by the 4 digit expiration year associated with the Payment Instrument if applicable. This filter only applies to payment cards")
+  @ApiModelProperty(value = "Filter by the 4 digit expiration year associated with the Payment Instrument if applicable. This filter only applies to payment cards.")
 
   public String getExpirationYear() {
     return expirationYear;
@@ -350,11 +350,11 @@ public class ListPaymentInstrumentsQueryParams {
   }
 
    /**
-   * Filter by the last 4 digits of the Payment Instrument card. This filter only applies to payment cards.
+   * Filter by the last 4 digits of the &#x60;Payment Instrument&#x60; card. This filter only applies to payment cards.
    * @return lastFour
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by the last 4 digits of the Payment Instrument card. This filter only applies to payment cards.")
+  @ApiModelProperty(value = "Filter by the last 4 digits of the `Payment Instrument` card. This filter only applies to payment cards.")
 
   public String getLastFour() {
     return lastFour;
@@ -363,6 +363,29 @@ public class ListPaymentInstrumentsQueryParams {
 
   public void setLastFour(String lastFour) {
     this.lastFour = lastFour;
+  }
+
+
+  public ListPaymentInstrumentsQueryParams limit(Long limit) {
+    
+    this.limit = limit;
+    return this;
+  }
+
+   /**
+   * The numbers of items to return.
+   * @return limit
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numbers of items to return.")
+
+  public Long getLimit() {
+    return limit;
+  }
+
+
+  public void setLimit(Long limit) {
+    this.limit = limit;
   }
 
 
@@ -396,11 +419,11 @@ public class ListPaymentInstrumentsQueryParams {
   }
 
    /**
-   * Filter by the owner id of the associated identity.
+   * Filter by the owner id of the associated &#x60;Identity&#x60;.
    * @return ownerIdentityId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by the owner id of the associated identity.")
+  @ApiModelProperty(value = "Filter by the owner id of the associated `Identity`.")
 
   public String getOwnerIdentityId() {
     return ownerIdentityId;
@@ -419,11 +442,11 @@ public class ListPaymentInstrumentsQueryParams {
   }
 
    /**
-   * Filter by the payment instrument type.
+   * Filter by the &#x60;Payment Instrument&#x60; type.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by the payment instrument type.")
+  @ApiModelProperty(value = "Filter by the `Payment Instrument` type.")
 
   public String getType() {
     return type;
@@ -432,29 +455,6 @@ public class ListPaymentInstrumentsQueryParams {
 
   public void setType(String type) {
     this.type = type;
-  }
-
-
-  public ListPaymentInstrumentsQueryParams beforeCursor(String beforeCursor) {
-    
-    this.beforeCursor = beforeCursor;
-    return this;
-  }
-
-   /**
-   * Return every resource created before the cursor value.
-   * @return beforeCursor
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Return every resource created before the cursor value.")
-
-  public String getBeforeCursor() {
-    return beforeCursor;
-  }
-
-
-  public void setBeforeCursor(String beforeCursor) {
-    this.beforeCursor = beforeCursor;
   }
 
 
@@ -468,47 +468,47 @@ public class ListPaymentInstrumentsQueryParams {
       return false;
     }
     ListPaymentInstrumentsQueryParams listPaymentInstrumentsQueryParams = (ListPaymentInstrumentsQueryParams) o;
-    return Objects.equals(this.limit, listPaymentInstrumentsQueryParams.limit) &&
-        Objects.equals(this.afterCursor, listPaymentInstrumentsQueryParams.afterCursor) &&
-        Objects.equals(this.accountLast4, listPaymentInstrumentsQueryParams.accountLast4) &&
+    return Objects.equals(this.accountLast4, listPaymentInstrumentsQueryParams.accountLast4) &&
         Objects.equals(this.accountRoutingNumber, listPaymentInstrumentsQueryParams.accountRoutingNumber) &&
+        Objects.equals(this.afterCursor, listPaymentInstrumentsQueryParams.afterCursor) &&
         Objects.equals(this.application, listPaymentInstrumentsQueryParams.application) &&
+        Objects.equals(this.beforeCursor, listPaymentInstrumentsQueryParams.beforeCursor) &&
         Objects.equals(this.bin, listPaymentInstrumentsQueryParams.bin) &&
         Objects.equals(this.createdAtGte, listPaymentInstrumentsQueryParams.createdAtGte) &&
         Objects.equals(this.createdAtLte, listPaymentInstrumentsQueryParams.createdAtLte) &&
         Objects.equals(this.expirationMonth, listPaymentInstrumentsQueryParams.expirationMonth) &&
         Objects.equals(this.expirationYear, listPaymentInstrumentsQueryParams.expirationYear) &&
         Objects.equals(this.lastFour, listPaymentInstrumentsQueryParams.lastFour) &&
+        Objects.equals(this.limit, listPaymentInstrumentsQueryParams.limit) &&
         Objects.equals(this.name, listPaymentInstrumentsQueryParams.name) &&
         Objects.equals(this.ownerIdentityId, listPaymentInstrumentsQueryParams.ownerIdentityId) &&
-        Objects.equals(this.type, listPaymentInstrumentsQueryParams.type) &&
-        Objects.equals(this.beforeCursor, listPaymentInstrumentsQueryParams.beforeCursor);
+        Objects.equals(this.type, listPaymentInstrumentsQueryParams.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, afterCursor, accountLast4, accountRoutingNumber, application, bin, createdAtGte, createdAtLte, expirationMonth, expirationYear, lastFour, name, ownerIdentityId, type, beforeCursor);
+    return Objects.hash(accountLast4, accountRoutingNumber, afterCursor, application, beforeCursor, bin, createdAtGte, createdAtLte, expirationMonth, expirationYear, lastFour, limit, name, ownerIdentityId, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListPaymentInstrumentsQueryParams {\n");
-    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
-    sb.append("    afterCursor: ").append(toIndentedString(afterCursor)).append("\n");
     sb.append("    accountLast4: ").append(toIndentedString(accountLast4)).append("\n");
     sb.append("    accountRoutingNumber: ").append(toIndentedString(accountRoutingNumber)).append("\n");
+    sb.append("    afterCursor: ").append(toIndentedString(afterCursor)).append("\n");
     sb.append("    application: ").append(toIndentedString(application)).append("\n");
+    sb.append("    beforeCursor: ").append(toIndentedString(beforeCursor)).append("\n");
     sb.append("    bin: ").append(toIndentedString(bin)).append("\n");
     sb.append("    createdAtGte: ").append(toIndentedString(createdAtGte)).append("\n");
     sb.append("    createdAtLte: ").append(toIndentedString(createdAtLte)).append("\n");
     sb.append("    expirationMonth: ").append(toIndentedString(expirationMonth)).append("\n");
     sb.append("    expirationYear: ").append(toIndentedString(expirationYear)).append("\n");
     sb.append("    lastFour: ").append(toIndentedString(lastFour)).append("\n");
+    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    ownerIdentityId: ").append(toIndentedString(ownerIdentityId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    beforeCursor: ").append(toIndentedString(beforeCursor)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -531,21 +531,21 @@ public class ListPaymentInstrumentsQueryParams {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("limit");
-    openapiFields.add("after_cursor");
     openapiFields.add("account_last4");
     openapiFields.add("account_routing_number");
+    openapiFields.add("after_cursor");
     openapiFields.add("application");
+    openapiFields.add("before_cursor");
     openapiFields.add("bin");
     openapiFields.add("created_at.gte");
     openapiFields.add("created_at.lte");
     openapiFields.add("expiration_month");
     openapiFields.add("expiration_year");
     openapiFields.add("last_four");
+    openapiFields.add("limit");
     openapiFields.add("name");
     openapiFields.add("owner_identity_id");
     openapiFields.add("type");
-    openapiFields.add("before_cursor");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -579,13 +579,6 @@ public class ListPaymentInstrumentsQueryParams {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("after_cursor") != null && !jsonObj.get("after_cursor").isJsonNull()  && !jsonObj.get("after_cursor").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `after_cursor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("after_cursor").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
       if (jsonObj.get("account_last4") != null && !jsonObj.get("account_last4").isJsonNull()  && !jsonObj.get("account_last4").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `account_last4` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_last4").toString()));
       }
@@ -600,8 +593,22 @@ public class ListPaymentInstrumentsQueryParams {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
+      if (jsonObj.get("after_cursor") != null && !jsonObj.get("after_cursor").isJsonNull()  && !jsonObj.get("after_cursor").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `after_cursor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("after_cursor").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
       if (jsonObj.get("application") != null && !jsonObj.get("application").isJsonNull()  && !jsonObj.get("application").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `application` to be a primitive type in the JSON string but got `%s`", jsonObj.get("application").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("before_cursor") != null && !jsonObj.get("before_cursor").isJsonNull()  && !jsonObj.get("before_cursor").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `before_cursor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("before_cursor").toString()));
       }
       /**
       * EDITED
@@ -665,13 +672,6 @@ public class ListPaymentInstrumentsQueryParams {
       */
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()  && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("before_cursor") != null && !jsonObj.get("before_cursor").isJsonNull()  && !jsonObj.get("before_cursor").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `before_cursor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("before_cursor").toString()));
       }
   }
 

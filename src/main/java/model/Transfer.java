@@ -62,96 +62,6 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Transfer {
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
-
-  /**
-   * Type of &#x60;Transfer&#x60;.
-   */
-  @JsonAdapter(TypeEnum.Adapter.class)
-  public enum TypeEnum {
-    DEBIT("DEBIT"),
-    
-    CREDIT("CREDIT"),
-    
-    REVERSAL("REVERSAL"),
-    
-    FEE("FEE"),
-    
-    ADJUSTMENT("ADJUSTMENT"),
-    
-    DISPUTE("DISPUTE"),
-    
-    RESERVE("RESERVE"),
-    
-    SETTLEMENT("SETTLEMENT"),
-    
-    UNKNOWN("UNKNOWN"),
-    
-    UNKNOWN_DEFAULT("unknown_default_open_api");
-
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    /*
-    * EDITED
-    * Add ability get the raw underlying value of a enum the library is not aware about.
-    */
-    private String rawValue;
-
-    public void setRawValue(String s){
-    this.rawValue = s;
-    }
-
-    public String getRawValue() {
-    return rawValue;
-    }
-
-    public static TypeEnum fromValue(String value) {
-        for (TypeEnum b : TypeEnum.values()) {
-          if (b.value.equals(value)) {
-            return b;
-          }
-        }
-
-        TypeEnum unknownDefault = TypeEnum.UNKNOWN_DEFAULT;
-        unknownDefault.setRawValue(value);
-
-        return unknownDefault;
-        
-    }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
-  }
-
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private TypeEnum type;
-
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -163,6 +73,10 @@ public class Transfer {
   public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private OffsetDateTime updatedAt;
+
+  public static final String SERIALIZED_NAME_ADDITIONAL_BUYER_CHARGES = "additional_buyer_charges";
+  @SerializedName(SERIALIZED_NAME_ADDITIONAL_BUYER_CHARGES)
+  private AdditionalBuyerCharges additionalBuyerCharges;
 
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
@@ -188,6 +102,18 @@ public class Transfer {
   @SerializedName(SERIALIZED_NAME_DEVICE)
   private String device;
 
+  public static final String SERIALIZED_NAME_EXTERNALLY_FUNDED = "externally_funded";
+  @SerializedName(SERIALIZED_NAME_EXTERNALLY_FUNDED)
+  private String externallyFunded;
+
+  public static final String SERIALIZED_NAME_FAILURE_CODE = "failure_code";
+  @SerializedName(SERIALIZED_NAME_FAILURE_CODE)
+  private String failureCode;
+
+  public static final String SERIALIZED_NAME_FAILURE_MESSAGE = "failure_message";
+  @SerializedName(SERIALIZED_NAME_FAILURE_MESSAGE)
+  private String failureMessage;
+
   public static final String SERIALIZED_NAME_FEE = "fee";
   @SerializedName(SERIALIZED_NAME_FEE)
   private Long fee;
@@ -199,10 +125,6 @@ public class Transfer {
   public static final String SERIALIZED_NAME_IDEMPOTENCY_ID = "idempotency_id";
   @SerializedName(SERIALIZED_NAME_IDEMPOTENCY_ID)
   private String idempotencyId;
-
-  public static final String SERIALIZED_NAME_IDENTITY = "identity";
-  @SerializedName(SERIALIZED_NAME_IDENTITY)
-  private String identity;
 
   public static final String SERIALIZED_NAME_MERCHANT_IDENTITY = "merchant_identity";
   @SerializedName(SERIALIZED_NAME_MERCHANT_IDENTITY)
@@ -412,25 +334,99 @@ public class Transfer {
   @SerializedName(SERIALIZED_NAME_SUBTYPE)
   private SubtypeEnum subtype;
 
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
+
   public static final String SERIALIZED_NAME_TRACE_ID = "trace_id";
   @SerializedName(SERIALIZED_NAME_TRACE_ID)
   private String traceId;
 
-  public static final String SERIALIZED_NAME_EXTERNALLY_FUNDED = "externally_funded";
-  @SerializedName(SERIALIZED_NAME_EXTERNALLY_FUNDED)
-  private String externallyFunded;
+  /**
+   * Type of &#x60;Transfer&#x60;.
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    DEBIT("DEBIT"),
+    
+    CREDIT("CREDIT"),
+    
+    REVERSAL("REVERSAL"),
+    
+    FEE("FEE"),
+    
+    ADJUSTMENT("ADJUSTMENT"),
+    
+    DISPUTE("DISPUTE"),
+    
+    RESERVE("RESERVE"),
+    
+    SETTLEMENT("SETTLEMENT"),
+    
+    UNKNOWN("UNKNOWN"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
 
-  public static final String SERIALIZED_NAME_FAILURE_CODE = "failure_code";
-  @SerializedName(SERIALIZED_NAME_FAILURE_CODE)
-  private String failureCode;
+    private String value;
 
-  public static final String SERIALIZED_NAME_FAILURE_MESSAGE = "failure_message";
-  @SerializedName(SERIALIZED_NAME_FAILURE_MESSAGE)
-  private String failureMessage;
+    TypeEnum(String value) {
+      this.value = value;
+    }
 
-  public static final String SERIALIZED_NAME_ADDITIONAL_BUYER_CHARGES = "additional_buyer_charges";
-  @SerializedName(SERIALIZED_NAME_ADDITIONAL_BUYER_CHARGES)
-  private AdditionalBuyerCharges additionalBuyerCharges;
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
+    public static TypeEnum fromValue(String value) {
+        for (TypeEnum b : TypeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
+        }
+
+        TypeEnum unknownDefault = TypeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TypeEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private TypeEnum type;
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
@@ -438,60 +434,6 @@ public class Transfer {
 
   public Transfer() { 
   }
-
-  public Transfer tags(Map<String, String> tags) {
-    
-    this.tags = tags;
-    return this;
-  }
-
-  public Transfer putTagsItem(String key, String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new HashMap<>();
-    }
-    this.tags.put(key, tagsItem);
-    return this;
-  }
-
-   /**
-   * Key value pair for annotating custom meta data (e.g. order numbers).
-   * @return tags
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
-
-  public Map<String, String> getTags() {
-    return tags;
-  }
-
-
-  public void setTags(Map<String, String> tags) {
-    this.tags = tags;
-  }
-
-
-  public Transfer type(TypeEnum type) {
-    
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Type of &#x60;Transfer&#x60;.
-   * @return type
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Type of `Transfer`.")
-
-  public TypeEnum getType() {
-    return type;
-  }
-
-
-  public void setType(TypeEnum type) {
-    this.type = type;
-  }
-
 
   public Transfer id(String id) {
     
@@ -559,6 +501,29 @@ public class Transfer {
 
   public void setUpdatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
+  }
+
+
+  public Transfer additionalBuyerCharges(AdditionalBuyerCharges additionalBuyerCharges) {
+    
+    this.additionalBuyerCharges = additionalBuyerCharges;
+    return this;
+  }
+
+   /**
+   * Get additionalBuyerCharges
+   * @return additionalBuyerCharges
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public AdditionalBuyerCharges getAdditionalBuyerCharges() {
+    return additionalBuyerCharges;
+  }
+
+
+  public void setAdditionalBuyerCharges(AdditionalBuyerCharges additionalBuyerCharges) {
+    this.additionalBuyerCharges = additionalBuyerCharges;
   }
 
 
@@ -700,6 +665,75 @@ public class Transfer {
   }
 
 
+  public Transfer externallyFunded(String externallyFunded) {
+    
+    this.externallyFunded = externallyFunded;
+    return this;
+  }
+
+   /**
+   * Details if the &#x60;Transfer&#x60; will be settled externally by card processors.
+   * @return externallyFunded
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Details if the `Transfer` will be settled externally by card processors.")
+
+  public String getExternallyFunded() {
+    return externallyFunded;
+  }
+
+
+  public void setExternallyFunded(String externallyFunded) {
+    this.externallyFunded = externallyFunded;
+  }
+
+
+  public Transfer failureCode(String failureCode) {
+    
+    this.failureCode = failureCode;
+    return this;
+  }
+
+   /**
+   * The code of the failure so the decline can be handled programmatically. For more info on how to handle the failure, see [Failure Codes](/docs/guides/developers/errors/#failure-codes).
+   * @return failureCode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The code of the failure so the decline can be handled programmatically. For more info on how to handle the failure, see [Failure Codes](/docs/guides/developers/errors/#failure-codes).")
+
+  public String getFailureCode() {
+    return failureCode;
+  }
+
+
+  public void setFailureCode(String failureCode) {
+    this.failureCode = failureCode;
+  }
+
+
+  public Transfer failureMessage(String failureMessage) {
+    
+    this.failureMessage = failureMessage;
+    return this;
+  }
+
+   /**
+   * A human-readable description of why the transaction was declined. This will also include a suggestion on how to complete the payment.
+   * @return failureMessage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A human-readable description of why the transaction was declined. This will also include a suggestion on how to complete the payment.")
+
+  public String getFailureMessage() {
+    return failureMessage;
+  }
+
+
+  public void setFailureMessage(String failureMessage) {
+    this.failureMessage = failureMessage;
+  }
+
+
   public Transfer fee(Long fee) {
     
     this.fee = fee;
@@ -769,29 +803,6 @@ public class Transfer {
   }
 
 
-  public Transfer identity(String identity) {
-    
-    this.identity = identity;
-    return this;
-  }
-
-   /**
-   * The ID of the identity.
-   * @return identity
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the identity.")
-
-  public String getIdentity() {
-    return identity;
-  }
-
-
-  public void setIdentity(String identity) {
-    this.identity = identity;
-  }
-
-
   public Transfer merchantIdentity(String merchantIdentity) {
     
     this.merchantIdentity = merchantIdentity;
@@ -830,11 +841,11 @@ public class Transfer {
   }
 
    /**
-   * Get messages
+   * Message field that provides additional details. This field is typically **null**.
    * @return messages
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Message field that provides additional details. This field is typically **null**.")
 
   public List<String> getMessages() {
     return messages;
@@ -853,11 +864,11 @@ public class Transfer {
   }
 
    /**
-   * Raw response from the processor
+   * Raw response from the processor.
    * @return raw
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Raw response from the processor")
+  @ApiModelProperty(value = "Raw response from the processor.")
 
   public Object getRaw() {
     return raw;
@@ -984,6 +995,37 @@ public class Transfer {
   }
 
 
+  public Transfer tags(Map<String, String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public Transfer putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
+    return this;
+  }
+
+   /**
+   * Key value pair for annotating custom meta data (e.g. order numbers).
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
+
+  public Map<String, String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(Map<String, String> tags) {
+    this.tags = tags;
+  }
+
+
   public Transfer traceId(String traceId) {
     
     this.traceId = traceId;
@@ -991,11 +1033,11 @@ public class Transfer {
   }
 
    /**
-   * Trace ID of the &#x60;Transfer&#x60;. The processor sends back the &#x60;trace_id&#x60; so you can track the &#x60;transfer&#x60; end-to-end.
+   * Trace ID of the &#x60;Transfer&#x60;. The processor sends back the &#x60;trace_id&#x60; so you can track the &#x60;Transfer&#x60; end-to-end.
    * @return traceId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Trace ID of the `Transfer`. The processor sends back the `trace_id` so you can track the `transfer` end-to-end.")
+  @ApiModelProperty(value = "Trace ID of the `Transfer`. The processor sends back the `trace_id` so you can track the `Transfer` end-to-end.")
 
   public String getTraceId() {
     return traceId;
@@ -1007,95 +1049,26 @@ public class Transfer {
   }
 
 
-  public Transfer externallyFunded(String externallyFunded) {
+  public Transfer type(TypeEnum type) {
     
-    this.externallyFunded = externallyFunded;
+    this.type = type;
     return this;
   }
 
    /**
-   * Details if the Transfer will be settled externally by card processors.
-   * @return externallyFunded
+   * Type of &#x60;Transfer&#x60;.
+   * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Details if the Transfer will be settled externally by card processors.")
+  @ApiModelProperty(value = "Type of `Transfer`.")
 
-  public String getExternallyFunded() {
-    return externallyFunded;
+  public TypeEnum getType() {
+    return type;
   }
 
 
-  public void setExternallyFunded(String externallyFunded) {
-    this.externallyFunded = externallyFunded;
-  }
-
-
-  public Transfer failureCode(String failureCode) {
-    
-    this.failureCode = failureCode;
-    return this;
-  }
-
-   /**
-   * The code of the failure so the decline can be handled programmatically. For more info on how to handle the failure, see [Failure Codes](/docs/guides/developers/errors/#failure-codes).
-   * @return failureCode
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The code of the failure so the decline can be handled programmatically. For more info on how to handle the failure, see [Failure Codes](/docs/guides/developers/errors/#failure-codes).")
-
-  public String getFailureCode() {
-    return failureCode;
-  }
-
-
-  public void setFailureCode(String failureCode) {
-    this.failureCode = failureCode;
-  }
-
-
-  public Transfer failureMessage(String failureMessage) {
-    
-    this.failureMessage = failureMessage;
-    return this;
-  }
-
-   /**
-   * A human-readable description of why the transaction was declined. This will also include a suggestion on how to complete the payment.
-   * @return failureMessage
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "A human-readable description of why the transaction was declined. This will also include a suggestion on how to complete the payment.")
-
-  public String getFailureMessage() {
-    return failureMessage;
-  }
-
-
-  public void setFailureMessage(String failureMessage) {
-    this.failureMessage = failureMessage;
-  }
-
-
-  public Transfer additionalBuyerCharges(AdditionalBuyerCharges additionalBuyerCharges) {
-    
-    this.additionalBuyerCharges = additionalBuyerCharges;
-    return this;
-  }
-
-   /**
-   * Get additionalBuyerCharges
-   * @return additionalBuyerCharges
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public AdditionalBuyerCharges getAdditionalBuyerCharges() {
-    return additionalBuyerCharges;
-  }
-
-
-  public void setAdditionalBuyerCharges(AdditionalBuyerCharges additionalBuyerCharges) {
-    this.additionalBuyerCharges = additionalBuyerCharges;
+  public void setType(TypeEnum type) {
+    this.type = type;
   }
 
 
@@ -1132,21 +1105,22 @@ public class Transfer {
       return false;
     }
     Transfer transfer = (Transfer) o;
-    return Objects.equals(this.tags, transfer.tags) &&
-        Objects.equals(this.type, transfer.type) &&
-        Objects.equals(this.id, transfer.id) &&
+    return Objects.equals(this.id, transfer.id) &&
         Objects.equals(this.createdAt, transfer.createdAt) &&
         Objects.equals(this.updatedAt, transfer.updatedAt) &&
+        Objects.equals(this.additionalBuyerCharges, transfer.additionalBuyerCharges) &&
         Objects.equals(this.amount, transfer.amount) &&
         Objects.equals(this.application, transfer.application) &&
         Objects.equals(this.cardPresentDetails, transfer.cardPresentDetails) &&
         Objects.equals(this.currency, transfer.currency) &&
         Objects.equals(this.destination, transfer.destination) &&
         Objects.equals(this.device, transfer.device) &&
+        Objects.equals(this.externallyFunded, transfer.externallyFunded) &&
+        Objects.equals(this.failureCode, transfer.failureCode) &&
+        Objects.equals(this.failureMessage, transfer.failureMessage) &&
         Objects.equals(this.fee, transfer.fee) &&
         Objects.equals(this.feeType, transfer.feeType) &&
         Objects.equals(this.idempotencyId, transfer.idempotencyId) &&
-        Objects.equals(this.identity, transfer.identity) &&
         Objects.equals(this.merchantIdentity, transfer.merchantIdentity) &&
         Objects.equals(this.messages, transfer.messages) &&
         Objects.equals(this.raw, transfer.raw) &&
@@ -1155,11 +1129,9 @@ public class Transfer {
         Objects.equals(this.state, transfer.state) &&
         Objects.equals(this.statementDescriptor, transfer.statementDescriptor) &&
         Objects.equals(this.subtype, transfer.subtype) &&
+        Objects.equals(this.tags, transfer.tags) &&
         Objects.equals(this.traceId, transfer.traceId) &&
-        Objects.equals(this.externallyFunded, transfer.externallyFunded) &&
-        Objects.equals(this.failureCode, transfer.failureCode) &&
-        Objects.equals(this.failureMessage, transfer.failureMessage) &&
-        Objects.equals(this.additionalBuyerCharges, transfer.additionalBuyerCharges) &&
+        Objects.equals(this.type, transfer.type) &&
         Objects.equals(this.links, transfer.links);
   }
 
@@ -1169,7 +1141,7 @@ public class Transfer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, type, id, createdAt, updatedAt, amount, application, cardPresentDetails, currency, destination, device, fee, feeType, idempotencyId, identity, merchantIdentity, messages, raw, readyToSettleAt, source, state, statementDescriptor, subtype, traceId, externallyFunded, failureCode, failureMessage, additionalBuyerCharges, links);
+    return Objects.hash(id, createdAt, updatedAt, additionalBuyerCharges, amount, application, cardPresentDetails, currency, destination, device, externallyFunded, failureCode, failureMessage, fee, feeType, idempotencyId, merchantIdentity, messages, raw, readyToSettleAt, source, state, statementDescriptor, subtype, tags, traceId, type, links);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1183,21 +1155,22 @@ public class Transfer {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Transfer {\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    additionalBuyerCharges: ").append(toIndentedString(additionalBuyerCharges)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    application: ").append(toIndentedString(application)).append("\n");
     sb.append("    cardPresentDetails: ").append(toIndentedString(cardPresentDetails)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    device: ").append(toIndentedString(device)).append("\n");
+    sb.append("    externallyFunded: ").append(toIndentedString(externallyFunded)).append("\n");
+    sb.append("    failureCode: ").append(toIndentedString(failureCode)).append("\n");
+    sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
     sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
     sb.append("    feeType: ").append(toIndentedString(feeType)).append("\n");
     sb.append("    idempotencyId: ").append(toIndentedString(idempotencyId)).append("\n");
-    sb.append("    identity: ").append(toIndentedString(identity)).append("\n");
     sb.append("    merchantIdentity: ").append(toIndentedString(merchantIdentity)).append("\n");
     sb.append("    messages: ").append(toIndentedString(messages)).append("\n");
     sb.append("    raw: ").append(toIndentedString(raw)).append("\n");
@@ -1206,11 +1179,9 @@ public class Transfer {
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    statementDescriptor: ").append(toIndentedString(statementDescriptor)).append("\n");
     sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
-    sb.append("    externallyFunded: ").append(toIndentedString(externallyFunded)).append("\n");
-    sb.append("    failureCode: ").append(toIndentedString(failureCode)).append("\n");
-    sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
-    sb.append("    additionalBuyerCharges: ").append(toIndentedString(additionalBuyerCharges)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1234,21 +1205,22 @@ public class Transfer {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("tags");
-    openapiFields.add("type");
     openapiFields.add("id");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
+    openapiFields.add("additional_buyer_charges");
     openapiFields.add("amount");
     openapiFields.add("application");
     openapiFields.add("card_present_details");
     openapiFields.add("currency");
     openapiFields.add("destination");
     openapiFields.add("device");
+    openapiFields.add("externally_funded");
+    openapiFields.add("failure_code");
+    openapiFields.add("failure_message");
     openapiFields.add("fee");
     openapiFields.add("fee_type");
     openapiFields.add("idempotency_id");
-    openapiFields.add("identity");
     openapiFields.add("merchant_identity");
     openapiFields.add("messages");
     openapiFields.add("raw");
@@ -1257,11 +1229,9 @@ public class Transfer {
     openapiFields.add("state");
     openapiFields.add("statement_descriptor");
     openapiFields.add("subtype");
+    openapiFields.add("tags");
     openapiFields.add("trace_id");
-    openapiFields.add("externally_funded");
-    openapiFields.add("failure_code");
-    openapiFields.add("failure_message");
-    openapiFields.add("additional_buyer_charges");
+    openapiFields.add("type");
     openapiFields.add("_links");
 
     // a set of required properties/fields (JSON key names)
@@ -1296,16 +1266,18 @@ public class Transfer {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()  && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()  && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
+      /**
+      * EDITED
+      * ADDED  statement to for inconsistent null behaviour
+      */
+      // validate the optional field `additional_buyer_charges`
+     // if (jsonObj.getAsJsonObject("additional_buyer_charges") != null) {
+       //AdditionalBuyerCharges.validateJsonObject(jsonObj.getAsJsonObject("additional_buyer_charges"));
+     // }
+
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
@@ -1340,15 +1312,29 @@ public class Transfer {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("idempotency_id") != null && !jsonObj.get("idempotency_id").isJsonNull()  && !jsonObj.get("idempotency_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `idempotency_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("idempotency_id").toString()));
+      if (jsonObj.get("externally_funded") != null && !jsonObj.get("externally_funded").isJsonNull()  && !jsonObj.get("externally_funded").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `externally_funded` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externally_funded").toString()));
       }
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("identity") != null && !jsonObj.get("identity").isJsonNull()  && !jsonObj.get("identity").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `identity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("identity").toString()));
+      if (jsonObj.get("failure_code") != null && !jsonObj.get("failure_code").isJsonNull()  && !jsonObj.get("failure_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `failure_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failure_code").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("failure_message") != null && !jsonObj.get("failure_message").isJsonNull()  && !jsonObj.get("failure_message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `failure_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failure_message").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("idempotency_id") != null && !jsonObj.get("idempotency_id").isJsonNull()  && !jsonObj.get("idempotency_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `idempotency_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("idempotency_id").toString()));
       }
       /**
       * EDITED
@@ -1404,32 +1390,9 @@ public class Transfer {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("externally_funded") != null && !jsonObj.get("externally_funded").isJsonNull()  && !jsonObj.get("externally_funded").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `externally_funded` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externally_funded").toString()));
+      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()  && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("failure_code") != null && !jsonObj.get("failure_code").isJsonNull()  && !jsonObj.get("failure_code").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `failure_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failure_code").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("failure_message") != null && !jsonObj.get("failure_message").isJsonNull()  && !jsonObj.get("failure_message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `failure_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failure_message").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED  statement to for inconsistent null behaviour
-      */
-      // validate the optional field `additional_buyer_charges`
-     // if (jsonObj.getAsJsonObject("additional_buyer_charges") != null) {
-       //AdditionalBuyerCharges.validateJsonObject(jsonObj.getAsJsonObject("additional_buyer_charges"));
-     // }
-
   }
 
 

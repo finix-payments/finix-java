@@ -116,11 +116,11 @@ public class ListIdentitiesQueryParams {
   }
 
    /**
-   * Specify key to be used for sorting the collection
+   * Specify key to be used for sorting the collection.
    * @return sort
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specify key to be used for sorting the collection")
+  @ApiModelProperty(value = "Specify key to be used for sorting the collection.")
 
   public String getSort() {
     return sort;
@@ -162,11 +162,11 @@ public class ListIdentitiesQueryParams {
   }
 
    /**
-   * The numbers of items to return
+   * The numbers of items to return.
    * @return limit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The numbers of items to return")
+  @ApiModelProperty(value = "The numbers of items to return.")
 
   public Long getLimit() {
     return limit;
@@ -185,11 +185,11 @@ public class ListIdentitiesQueryParams {
   }
 
    /**
-   * Filter by id
+   * Filter by &#x60;id&#x60;.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by id")
+  @ApiModelProperty(value = "Filter by `id`.")
 
   public String getId() {
     return id;
@@ -208,11 +208,11 @@ public class ListIdentitiesQueryParams {
   }
 
    /**
-   * Filter where created_at is after the given date.
+   * Filter where &#x60;created_at&#x60; is after the given date.
    * @return createdAtGte
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter where created_at is after the given date.")
+  @ApiModelProperty(value = "Filter where `created_at` is after the given date.")
 
   public String getCreatedAtGte() {
     return createdAtGte;
@@ -231,11 +231,11 @@ public class ListIdentitiesQueryParams {
   }
 
    /**
-   * Filter where created_at is before the given date.
+   * Filter where &#x60;created_at&#x60; is before the given date.
    * @return createdAtLte
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter where created_at is before the given date.")
+  @ApiModelProperty(value = "Filter where `created_at` is before the given date.")
 
   public String getCreatedAtLte() {
     return createdAtLte;
@@ -254,11 +254,11 @@ public class ListIdentitiesQueryParams {
   }
 
    /**
-   * Filter by the default_statement_descriptor
+   * Filter by the &#x60;default_statement_descriptor&#x60;.
    * @return defaultStatementDescriptor
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by the default_statement_descriptor")
+  @ApiModelProperty(value = "Filter by the `default_statement_descriptor`.")
 
   public String getDefaultStatementDescriptor() {
     return defaultStatementDescriptor;
@@ -300,11 +300,11 @@ public class ListIdentitiesQueryParams {
   }
 
    /**
-   * Filter by the business type. Partial business types are not supported
+   * Filter by the business type. Partial business types are not supported.
    * @return businessType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by the business type. Partial business types are not supported")
+  @ApiModelProperty(value = "Filter by the business type. Partial business types are not supported.")
 
   public String getBusinessType() {
     return businessType;
@@ -346,11 +346,11 @@ public class ListIdentitiesQueryParams {
   }
 
    /**
-   * Filter by the first name of the person associated to the Identity.
+   * Filter by the first name of the person associated to the &#x60;Identity&#x60;.
    * @return firstName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by the first name of the person associated to the Identity.")
+  @ApiModelProperty(value = "Filter by the first name of the person associated to the `Identity`.")
 
   public String getFirstName() {
     return firstName;
@@ -369,11 +369,11 @@ public class ListIdentitiesQueryParams {
   }
 
    /**
-   * Filter by the last name of the person associated to the identity.
+   * Filter by the last name of the person associated to the &#x60;Identity&#x60;.
    * @return lastName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by the last name of the person associated to the identity.")
+  @ApiModelProperty(value = "Filter by the last name of the person associated to the `Identity`.")
 
   public String getLastName() {
     return lastName;

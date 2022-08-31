@@ -88,7 +88,7 @@ public class MerchantProfilesApi {
 
     /**
     * Build call for getMerchantProfile
-        * @param merchantProfileId ID of merchant profile (required)
+        * @param merchantProfileId ID of &#x60;merchant_profile&#x60;. (required)
     * @param _callback Callback for upload/download progress
     * @return Call to execute
     * @throws ApiException If fail to serialize the request body object
@@ -165,9 +165,9 @@ public class MerchantProfilesApi {
     }
 
             /**
-            * Show Merchant Profile
-            * Get the merchant profile object
-                * @param merchantProfileId ID of merchant profile (required)
+            * Fetch a Merchant Profile
+            * Retrieve the details of a previosuly created &#x60;merchant_profile&#x60;.
+                * @param merchantProfileId ID of &#x60;merchant_profile&#x60;. (required)
                 * @return MerchantProfile
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
@@ -189,9 +189,9 @@ public class MerchantProfilesApi {
 
 
     /**
-        * Show Merchant Profile
-        * Get the merchant profile object
-            * @param merchantProfileId ID of merchant profile (required)
+        * Fetch a Merchant Profile
+        * Retrieve the details of a previosuly created &#x60;merchant_profile&#x60;.
+            * @param merchantProfileId ID of &#x60;merchant_profile&#x60;. (required)
         * @return ApiResponse&lt;MerchantProfile&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
             * @http.response.details
@@ -211,9 +211,9 @@ public class MerchantProfilesApi {
     }
 
     /**
-        * Show Merchant Profile (asynchronously)
-        * Get the merchant profile object
-            * @param merchantProfileId ID of merchant profile (required)
+        * Fetch a Merchant Profile (asynchronously)
+        * Retrieve the details of a previosuly created &#x60;merchant_profile&#x60;.
+            * @param merchantProfileId ID of &#x60;merchant_profile&#x60;. (required)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -234,7 +234,7 @@ public class MerchantProfilesApi {
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-    private okhttp3.Call listMerchantProfilesCall(String id, String beforeCursor, String afterCursor, Long limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listMerchantProfilesCall(String id, String beforeCursor, Long limit, String afterCursor, final ApiCallback _callback) throws ApiException {
         String basePath = null;
     // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -267,12 +267,12 @@ public class MerchantProfilesApi {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("before_cursor", beforeCursor));
         }
 
-        if (afterCursor != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("after_cursor", afterCursor));
-        }
-
         if (limit != null) {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("limit", limit));
+        }
+
+        if (afterCursor != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("after_cursor", afterCursor));
         }
 
         final String[] localVarAccepts = {
@@ -298,24 +298,24 @@ public class MerchantProfilesApi {
     }
 
         @SuppressWarnings("rawtypes")
-    private okhttp3.Call listMerchantProfilesValidateBeforeCall(String id, String beforeCursor, String afterCursor, Long limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listMerchantProfilesValidateBeforeCall(String id, String beforeCursor, Long limit, String afterCursor, final ApiCallback _callback) throws ApiException {
     
 
-        okhttp3.Call localVarCall = listMerchantProfilesCall(id, beforeCursor, afterCursor, limit, _callback);
+        okhttp3.Call localVarCall = listMerchantProfilesCall(id, beforeCursor, limit, afterCursor, _callback);
         return localVarCall;
 
     }
 
 
-    private ApiResponse<MerchantProfilesList> listMerchantProfilesWithHttpInfo(String id, String beforeCursor, String afterCursor, Long limit) throws ApiException {
-        okhttp3.Call localVarCall = listMerchantProfilesValidateBeforeCall(id, beforeCursor, afterCursor, limit, null);
+    private ApiResponse<MerchantProfilesList> listMerchantProfilesWithHttpInfo(String id, String beforeCursor, Long limit, String afterCursor) throws ApiException {
+        okhttp3.Call localVarCall = listMerchantProfilesValidateBeforeCall(id, beforeCursor, limit, afterCursor, null);
         Type localVarReturnType = new TypeToken<MerchantProfilesList>(){}.getType();
         return localVarFinixClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listMerchantProfilesAsync(String id, String beforeCursor, String afterCursor, Long limit, final ApiCallback<MerchantProfilesList> _callback) throws ApiException {
+    private okhttp3.Call listMerchantProfilesAsync(String id, String beforeCursor, Long limit, String afterCursor, final ApiCallback<MerchantProfilesList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listMerchantProfilesValidateBeforeCall(id, beforeCursor, afterCursor, limit, _callback);
+        okhttp3.Call localVarCall = listMerchantProfilesValidateBeforeCall(id, beforeCursor, limit, afterCursor, _callback);
         Type localVarReturnType = new TypeToken<MerchantProfilesList>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -324,15 +324,15 @@ public class MerchantProfilesApi {
     public class APIlistMerchantProfilesRequest {
         private String id;
         private String beforeCursor;
-        private String afterCursor;
         private Long limit;
+        private String afterCursor;
 
         private APIlistMerchantProfilesRequest() {
         }
 
         /**
         * Set id
-        * @param id Filter by id (optional)
+        * @param id Filter by &#x60;id&#x60;. (optional)
         * @return APIlistMerchantProfilesRequest
         */
         public APIlistMerchantProfilesRequest id(String id) {
@@ -351,22 +351,22 @@ public class MerchantProfilesApi {
         }
 
         /**
+        * Set limit
+        * @param limit The numbers of items to return. (optional)
+        * @return APIlistMerchantProfilesRequest
+        */
+        public APIlistMerchantProfilesRequest limit(Long limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
         * Set afterCursor
         * @param afterCursor Return every resource created after the cursor value. (optional)
         * @return APIlistMerchantProfilesRequest
         */
         public APIlistMerchantProfilesRequest afterCursor(String afterCursor) {
             this.afterCursor = afterCursor;
-            return this;
-        }
-
-        /**
-        * Set limit
-        * @param limit The numbers of items to return (optional)
-        * @return APIlistMerchantProfilesRequest
-        */
-        public APIlistMerchantProfilesRequest limit(Long limit) {
-            this.limit = limit;
             return this;
         }
 
@@ -385,7 +385,7 @@ public class MerchantProfilesApi {
             </table>
         */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listMerchantProfilesCall(id, beforeCursor, afterCursor, limit, _callback);
+            return listMerchantProfilesCall(id, beforeCursor, limit, afterCursor, _callback);
         }
 
         /**
@@ -402,7 +402,7 @@ public class MerchantProfilesApi {
             </table>
         */
         public MerchantProfilesList execute() throws ApiException {
-            ApiResponse<MerchantProfilesList> localVarResp = listMerchantProfilesWithHttpInfo(id, beforeCursor, afterCursor, limit);
+            ApiResponse<MerchantProfilesList> localVarResp = listMerchantProfilesWithHttpInfo(id, beforeCursor, limit, afterCursor);
             return localVarResp.getData();
         }
 
@@ -420,7 +420,7 @@ public class MerchantProfilesApi {
             </table>
         */
         public ApiResponse<MerchantProfilesList> executeWithHttpInfo() throws ApiException {
-            return listMerchantProfilesWithHttpInfo(id, beforeCursor, afterCursor, limit);
+            return listMerchantProfilesWithHttpInfo(id, beforeCursor, limit, afterCursor);
         }
 
         /**
@@ -438,13 +438,13 @@ public class MerchantProfilesApi {
             </table>
         */
         public okhttp3.Call executeAsync(final ApiCallback<MerchantProfilesList> _callback) throws ApiException {
-            return listMerchantProfilesAsync(id, beforeCursor, afterCursor, limit, _callback);
+            return listMerchantProfilesAsync(id, beforeCursor, limit, afterCursor, _callback);
         }
     }
 
     /**
     * List Merchant Profiles
-    * Get list of all the merchant_profiles objects
+    * Retireve a list of all &#x60;merchant_profiles&#x60;.
     * @return APIlistMerchantProfilesRequest
         * @http.response.details
         <table summary="Response Details" border="1">
@@ -462,8 +462,8 @@ public class MerchantProfilesApi {
         APIlistMerchantProfilesRequest request = new APIlistMerchantProfilesRequest();
         request.id(listMerchantProfilesQueryParams.getId());
         request.beforeCursor(listMerchantProfilesQueryParams.getBeforeCursor());
-        request.afterCursor(listMerchantProfilesQueryParams.getAfterCursor());
         request.limit(listMerchantProfilesQueryParams.getLimit());
+        request.afterCursor(listMerchantProfilesQueryParams.getAfterCursor());
         MerchantProfilesList response = request.execute();
         Boolean hasNextCursor = (response.getPage().getClass().getName() == "model.PageCursor");
         ListMerchantProfilesQueryParams queryParams = (ListMerchantProfilesQueryParams) getQueryParam(response.getPage(),
@@ -502,7 +502,7 @@ public class MerchantProfilesApi {
     }
     /**
     * Build call for updateMerchantProfile
-        * @param merchantProfileId ID of merchant profile (required)
+        * @param merchantProfileId ID of &#x60;merchant_profile&#x60;. (required)
         * @param updateMerchantProfileRequest  (optional)
     * @param _callback Callback for upload/download progress
     * @return Call to execute
@@ -580,8 +580,8 @@ public class MerchantProfilesApi {
 
             /**
             * Update a Merchant Profile
-            * Update a merchant profile
-                * @param merchantProfileId ID of merchant profile (required)
+            * Update a &#x60;merchant_profile&#x60;.
+                * @param merchantProfileId ID of &#x60;merchant_profile&#x60;. (required)
                 * @param updateMerchantProfileRequest  (optional)
                 * @return MerchantProfile
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -604,8 +604,8 @@ public class MerchantProfilesApi {
 
     /**
         * Update a Merchant Profile
-        * Update a merchant profile
-            * @param merchantProfileId ID of merchant profile (required)
+        * Update a &#x60;merchant_profile&#x60;.
+            * @param merchantProfileId ID of &#x60;merchant_profile&#x60;. (required)
             * @param updateMerchantProfileRequest  (optional)
         * @return ApiResponse&lt;MerchantProfile&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -626,8 +626,8 @@ public class MerchantProfilesApi {
 
     /**
         * Update a Merchant Profile (asynchronously)
-        * Update a merchant profile
-            * @param merchantProfileId ID of merchant profile (required)
+        * Update a &#x60;merchant_profile&#x60;.
+            * @param merchantProfileId ID of &#x60;merchant_profile&#x60;. (required)
             * @param updateMerchantProfileRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call

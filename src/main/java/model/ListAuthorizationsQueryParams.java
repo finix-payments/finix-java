@@ -50,25 +50,29 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListAuthorizationsQueryParams {
-  public static final String SERIALIZED_NAME_SORT = "sort";
-  @SerializedName(SERIALIZED_NAME_SORT)
-  private String sort;
+  public static final String SERIALIZED_NAME_AMOUNT = "amount";
+  @SerializedName(SERIALIZED_NAME_AMOUNT)
+  private Long amount;
+
+  public static final String SERIALIZED_NAME_AMOUNT_GT = "amount.gt";
+  @SerializedName(SERIALIZED_NAME_AMOUNT_GT)
+  private Long amountGt;
+
+  public static final String SERIALIZED_NAME_AMOUNT_GTE = "amount.gte";
+  @SerializedName(SERIALIZED_NAME_AMOUNT_GTE)
+  private Long amountGte;
+
+  public static final String SERIALIZED_NAME_AMOUNT_LT = "amount.lt";
+  @SerializedName(SERIALIZED_NAME_AMOUNT_LT)
+  private Long amountLt;
+
+  public static final String SERIALIZED_NAME_AMOUNT_LTE = "amount.lte";
+  @SerializedName(SERIALIZED_NAME_AMOUNT_LTE)
+  private Long amountLte;
 
   public static final String SERIALIZED_NAME_BEFORE_CURSOR = "before_cursor";
   @SerializedName(SERIALIZED_NAME_BEFORE_CURSOR)
   private String beforeCursor;
-
-  public static final String SERIALIZED_NAME_LIMIT = "limit";
-  @SerializedName(SERIALIZED_NAME_LIMIT)
-  private Long limit;
-
-  public static final String SERIALIZED_NAME_IDEMPOTENCY_ID = "idempotency_id";
-  @SerializedName(SERIALIZED_NAME_IDEMPOTENCY_ID)
-  private String idempotencyId;
-
-  public static final String SERIALIZED_NAME_STATE = "state";
-  @SerializedName(SERIALIZED_NAME_STATE)
-  private String state;
 
   public static final String SERIALIZED_NAME_CREATED_AT_GTE = "created_at.gte";
   @SerializedName(SERIALIZED_NAME_CREATED_AT_GTE)
@@ -78,6 +82,22 @@ public class ListAuthorizationsQueryParams {
   @SerializedName(SERIALIZED_NAME_CREATED_AT_LTE)
   private String createdAtLte;
 
+  public static final String SERIALIZED_NAME_IDEMPOTENCY_ID = "idempotency_id";
+  @SerializedName(SERIALIZED_NAME_IDEMPOTENCY_ID)
+  private String idempotencyId;
+
+  public static final String SERIALIZED_NAME_LIMIT = "limit";
+  @SerializedName(SERIALIZED_NAME_LIMIT)
+  private Long limit;
+
+  public static final String SERIALIZED_NAME_SORT = "sort";
+  @SerializedName(SERIALIZED_NAME_SORT)
+  private String sort;
+
+  public static final String SERIALIZED_NAME_STATE = "state";
+  @SerializedName(SERIALIZED_NAME_STATE)
+  private String state;
+
   public static final String SERIALIZED_NAME_UPDATED_AT_GTE = "updated_at.gte";
   @SerializedName(SERIALIZED_NAME_UPDATED_AT_GTE)
   private String updatedAtGte;
@@ -86,33 +106,13 @@ public class ListAuthorizationsQueryParams {
   @SerializedName(SERIALIZED_NAME_UPDATED_AT_LTE)
   private String updatedAtLte;
 
-  public static final String SERIALIZED_NAME_IS_VOID = "is_void";
-  @SerializedName(SERIALIZED_NAME_IS_VOID)
-  private String isVoid;
-
-  public static final String SERIALIZED_NAME_AMOUNT = "amount";
-  @SerializedName(SERIALIZED_NAME_AMOUNT)
-  private Long amount;
-
-  public static final String SERIALIZED_NAME_AMOUNT_LT = "amount.lt";
-  @SerializedName(SERIALIZED_NAME_AMOUNT_LT)
-  private Long amountLt;
-
-  public static final String SERIALIZED_NAME_AMOUNT_GT = "amount.gt";
-  @SerializedName(SERIALIZED_NAME_AMOUNT_GT)
-  private Long amountGt;
-
-  public static final String SERIALIZED_NAME_AMOUNT_LTE = "amount.lte";
-  @SerializedName(SERIALIZED_NAME_AMOUNT_LTE)
-  private Long amountLte;
-
-  public static final String SERIALIZED_NAME_AMOUNT_GTE = "amount.gte";
-  @SerializedName(SERIALIZED_NAME_AMOUNT_GTE)
-  private Long amountGte;
-
   public static final String SERIALIZED_NAME_TRACE_ID = "trace_id";
   @SerializedName(SERIALIZED_NAME_TRACE_ID)
   private String traceId;
+
+  public static final String SERIALIZED_NAME_IS_VOID = "is_void";
+  @SerializedName(SERIALIZED_NAME_IS_VOID)
+  private String isVoid;
 
   public static final String SERIALIZED_NAME_INSTRUMENT_BIN = "instrument_bin";
   @SerializedName(SERIALIZED_NAME_INSTRUMENT_BIN)
@@ -169,26 +169,118 @@ public class ListAuthorizationsQueryParams {
   public ListAuthorizationsQueryParams() { 
   }
 
-  public ListAuthorizationsQueryParams sort(String sort) {
+  public ListAuthorizationsQueryParams amount(Long amount) {
     
-    this.sort = sort;
+    this.amount = amount;
     return this;
   }
 
    /**
-   * Specify key to be used for sorting the collection
-   * @return sort
+   * Filter by an amount equal to the given value.
+   * @return amount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specify key to be used for sorting the collection")
+  @ApiModelProperty(value = "Filter by an amount equal to the given value.")
 
-  public String getSort() {
-    return sort;
+  public Long getAmount() {
+    return amount;
   }
 
 
-  public void setSort(String sort) {
-    this.sort = sort;
+  public void setAmount(Long amount) {
+    this.amount = amount;
+  }
+
+
+  public ListAuthorizationsQueryParams amountGt(Long amountGt) {
+    
+    this.amountGt = amountGt;
+    return this;
+  }
+
+   /**
+   * Filter by an amount greater than.
+   * @return amountGt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Filter by an amount greater than.")
+
+  public Long getAmountGt() {
+    return amountGt;
+  }
+
+
+  public void setAmountGt(Long amountGt) {
+    this.amountGt = amountGt;
+  }
+
+
+  public ListAuthorizationsQueryParams amountGte(Long amountGte) {
+    
+    this.amountGte = amountGte;
+    return this;
+  }
+
+   /**
+   * Filter by an amount greater than or equal.
+   * @return amountGte
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Filter by an amount greater than or equal.")
+
+  public Long getAmountGte() {
+    return amountGte;
+  }
+
+
+  public void setAmountGte(Long amountGte) {
+    this.amountGte = amountGte;
+  }
+
+
+  public ListAuthorizationsQueryParams amountLt(Long amountLt) {
+    
+    this.amountLt = amountLt;
+    return this;
+  }
+
+   /**
+   * Filter by an amount less than.
+   * @return amountLt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Filter by an amount less than.")
+
+  public Long getAmountLt() {
+    return amountLt;
+  }
+
+
+  public void setAmountLt(Long amountLt) {
+    this.amountLt = amountLt;
+  }
+
+
+  public ListAuthorizationsQueryParams amountLte(Long amountLte) {
+    
+    this.amountLte = amountLte;
+    return this;
+  }
+
+   /**
+   * Filter by an amount less than or equal.
+   * @return amountLte
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Filter by an amount less than or equal.")
+
+  public Long getAmountLte() {
+    return amountLte;
+  }
+
+
+  public void setAmountLte(Long amountLte) {
+    this.amountLte = amountLte;
   }
 
 
@@ -215,6 +307,75 @@ public class ListAuthorizationsQueryParams {
   }
 
 
+  public ListAuthorizationsQueryParams createdAtGte(String createdAtGte) {
+    
+    this.createdAtGte = createdAtGte;
+    return this;
+  }
+
+   /**
+   * Filter where &#x60;created_at&#x60; is after the given date.
+   * @return createdAtGte
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Filter where `created_at` is after the given date.")
+
+  public String getCreatedAtGte() {
+    return createdAtGte;
+  }
+
+
+  public void setCreatedAtGte(String createdAtGte) {
+    this.createdAtGte = createdAtGte;
+  }
+
+
+  public ListAuthorizationsQueryParams createdAtLte(String createdAtLte) {
+    
+    this.createdAtLte = createdAtLte;
+    return this;
+  }
+
+   /**
+   * Filter where &#x60;created_at&#x60; is before the given date.
+   * @return createdAtLte
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Filter where `created_at` is before the given date.")
+
+  public String getCreatedAtLte() {
+    return createdAtLte;
+  }
+
+
+  public void setCreatedAtLte(String createdAtLte) {
+    this.createdAtLte = createdAtLte;
+  }
+
+
+  public ListAuthorizationsQueryParams idempotencyId(String idempotencyId) {
+    
+    this.idempotencyId = idempotencyId;
+    return this;
+  }
+
+   /**
+   * Filter by &#x60;idempotency_id&#x60;.
+   * @return idempotencyId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Filter by `idempotency_id`.")
+
+  public String getIdempotencyId() {
+    return idempotencyId;
+  }
+
+
+  public void setIdempotencyId(String idempotencyId) {
+    this.idempotencyId = idempotencyId;
+  }
+
+
   public ListAuthorizationsQueryParams limit(Long limit) {
     
     this.limit = limit;
@@ -222,11 +383,11 @@ public class ListAuthorizationsQueryParams {
   }
 
    /**
-   * The numbers of items to return
+   * The numbers of items to return.
    * @return limit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The numbers of items to return")
+  @ApiModelProperty(value = "The numbers of items to return.")
 
   public Long getLimit() {
     return limit;
@@ -238,26 +399,26 @@ public class ListAuthorizationsQueryParams {
   }
 
 
-  public ListAuthorizationsQueryParams idempotencyId(String idempotencyId) {
+  public ListAuthorizationsQueryParams sort(String sort) {
     
-    this.idempotencyId = idempotencyId;
+    this.sort = sort;
     return this;
   }
 
    /**
-   * Filter by idempotency_id
-   * @return idempotencyId
+   * Specify key to be used for sorting the collection.
+   * @return sort
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by idempotency_id")
+  @ApiModelProperty(value = "Specify key to be used for sorting the collection.")
 
-  public String getIdempotencyId() {
-    return idempotencyId;
+  public String getSort() {
+    return sort;
   }
 
 
-  public void setIdempotencyId(String idempotencyId) {
-    this.idempotencyId = idempotencyId;
+  public void setSort(String sort) {
+    this.sort = sort;
   }
 
 
@@ -284,52 +445,6 @@ public class ListAuthorizationsQueryParams {
   }
 
 
-  public ListAuthorizationsQueryParams createdAtGte(String createdAtGte) {
-    
-    this.createdAtGte = createdAtGte;
-    return this;
-  }
-
-   /**
-   * Filter where created_at is after the given date.
-   * @return createdAtGte
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter where created_at is after the given date.")
-
-  public String getCreatedAtGte() {
-    return createdAtGte;
-  }
-
-
-  public void setCreatedAtGte(String createdAtGte) {
-    this.createdAtGte = createdAtGte;
-  }
-
-
-  public ListAuthorizationsQueryParams createdAtLte(String createdAtLte) {
-    
-    this.createdAtLte = createdAtLte;
-    return this;
-  }
-
-   /**
-   * Filter where created_at is before the given date.
-   * @return createdAtLte
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter where created_at is before the given date.")
-
-  public String getCreatedAtLte() {
-    return createdAtLte;
-  }
-
-
-  public void setCreatedAtLte(String createdAtLte) {
-    this.createdAtLte = createdAtLte;
-  }
-
-
   public ListAuthorizationsQueryParams updatedAtGte(String updatedAtGte) {
     
     this.updatedAtGte = updatedAtGte;
@@ -337,11 +452,11 @@ public class ListAuthorizationsQueryParams {
   }
 
    /**
-   * Filter where updated_at is after the given date
+   * Filter where &#x60;updated_at&#x60; is after the given date.
    * @return updatedAtGte
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter where updated_at is after the given date")
+  @ApiModelProperty(value = "Filter where `updated_at` is after the given date.")
 
   public String getUpdatedAtGte() {
     return updatedAtGte;
@@ -360,11 +475,11 @@ public class ListAuthorizationsQueryParams {
   }
 
    /**
-   * Filter where updated_at is before the given date
+   * Filter where &#x60;updated_at&#x60; is before the given date.
    * @return updatedAtLte
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter where updated_at is before the given date")
+  @ApiModelProperty(value = "Filter where `updated_at` is before the given date.")
 
   public String getUpdatedAtLte() {
     return updatedAtLte;
@@ -376,144 +491,6 @@ public class ListAuthorizationsQueryParams {
   }
 
 
-  public ListAuthorizationsQueryParams isVoid(String isVoid) {
-    
-    this.isVoid = isVoid;
-    return this;
-  }
-
-   /**
-   * Filter by idempotency_id
-   * @return isVoid
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by idempotency_id")
-
-  public String getIsVoid() {
-    return isVoid;
-  }
-
-
-  public void setIsVoid(String isVoid) {
-    this.isVoid = isVoid;
-  }
-
-
-  public ListAuthorizationsQueryParams amount(Long amount) {
-    
-    this.amount = amount;
-    return this;
-  }
-
-   /**
-   * Filter by an amount equal to the given value
-   * @return amount
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by an amount equal to the given value")
-
-  public Long getAmount() {
-    return amount;
-  }
-
-
-  public void setAmount(Long amount) {
-    this.amount = amount;
-  }
-
-
-  public ListAuthorizationsQueryParams amountLt(Long amountLt) {
-    
-    this.amountLt = amountLt;
-    return this;
-  }
-
-   /**
-   * Filter by an amount less than
-   * @return amountLt
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by an amount less than")
-
-  public Long getAmountLt() {
-    return amountLt;
-  }
-
-
-  public void setAmountLt(Long amountLt) {
-    this.amountLt = amountLt;
-  }
-
-
-  public ListAuthorizationsQueryParams amountGt(Long amountGt) {
-    
-    this.amountGt = amountGt;
-    return this;
-  }
-
-   /**
-   * Filter by an amount greater than
-   * @return amountGt
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by an amount greater than")
-
-  public Long getAmountGt() {
-    return amountGt;
-  }
-
-
-  public void setAmountGt(Long amountGt) {
-    this.amountGt = amountGt;
-  }
-
-
-  public ListAuthorizationsQueryParams amountLte(Long amountLte) {
-    
-    this.amountLte = amountLte;
-    return this;
-  }
-
-   /**
-   * Filter by an amount less than or equal
-   * @return amountLte
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by an amount less than or equal")
-
-  public Long getAmountLte() {
-    return amountLte;
-  }
-
-
-  public void setAmountLte(Long amountLte) {
-    this.amountLte = amountLte;
-  }
-
-
-  public ListAuthorizationsQueryParams amountGte(Long amountGte) {
-    
-    this.amountGte = amountGte;
-    return this;
-  }
-
-   /**
-   * Filter by an amount greater than or equal
-   * @return amountGte
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by an amount greater than or equal")
-
-  public Long getAmountGte() {
-    return amountGte;
-  }
-
-
-  public void setAmountGte(Long amountGte) {
-    this.amountGte = amountGte;
-  }
-
-
   public ListAuthorizationsQueryParams traceId(String traceId) {
     
     this.traceId = traceId;
@@ -521,11 +498,11 @@ public class ListAuthorizationsQueryParams {
   }
 
    /**
-   * Filter by trace_id
+   * Filter by &#x60;trace_id&#x60;.
    * @return traceId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by trace_id")
+  @ApiModelProperty(value = "Filter by `trace_id`.")
 
   public String getTraceId() {
     return traceId;
@@ -537,6 +514,29 @@ public class ListAuthorizationsQueryParams {
   }
 
 
+  public ListAuthorizationsQueryParams isVoid(String isVoid) {
+    
+    this.isVoid = isVoid;
+    return this;
+  }
+
+   /**
+   * Filter by &#x60;idempotency_id&#x60;.
+   * @return isVoid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Filter by `idempotency_id`.")
+
+  public String getIsVoid() {
+    return isVoid;
+  }
+
+
+  public void setIsVoid(String isVoid) {
+    this.isVoid = isVoid;
+  }
+
+
   public ListAuthorizationsQueryParams instrumentBin(String instrumentBin) {
     
     this.instrumentBin = instrumentBin;
@@ -544,11 +544,11 @@ public class ListAuthorizationsQueryParams {
   }
 
    /**
-   * Filter by Bank Identification Number (BIN). The BIN is the first 6 digits of the masked number
+   * Filter by Bank Identification Number (BIN). The BIN is the first 6 digits of the masked number.
    * @return instrumentBin
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by Bank Identification Number (BIN). The BIN is the first 6 digits of the masked number")
+  @ApiModelProperty(value = "Filter by Bank Identification Number (BIN). The BIN is the first 6 digits of the masked number.")
 
   public String getInstrumentBin() {
     return instrumentBin;
@@ -567,11 +567,11 @@ public class ListAuthorizationsQueryParams {
   }
 
    /**
-   * Filter Transactions by the last 4 digits of the bank account. The bank account last 4 are the last 4 digits of the masked number instrument_account_last4&#x3D;9444 BIN 
+   * Filter Transactions by the last 4 digits of the bank account. The bank account last 4 are the last 4 digits of the masked number instrument_account_last4&#x3D;9444 BIN.
    * @return instrumentAccountLast4
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter Transactions by the last 4 digits of the bank account. The bank account last 4 are the last 4 digits of the masked number instrument_account_last4=9444 BIN ")
+  @ApiModelProperty(value = "Filter Transactions by the last 4 digits of the bank account. The bank account last 4 are the last 4 digits of the masked number instrument_account_last4=9444 BIN.")
 
   public String getInstrumentAccountLast4() {
     return instrumentAccountLast4;
@@ -590,11 +590,11 @@ public class ListAuthorizationsQueryParams {
   }
 
    /**
-   * Filter by card brand. Available card brand types can be found in the drop-down
+   * Filter by card brand. Available card brand types can be found in the drop-down.
    * @return instrumentBrandType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by card brand. Available card brand types can be found in the drop-down")
+  @ApiModelProperty(value = "Filter by card brand. Available card brand types can be found in the drop-down.")
 
   public String getInstrumentBrandType() {
     return instrumentBrandType;
@@ -613,11 +613,11 @@ public class ListAuthorizationsQueryParams {
   }
 
    /**
-   * Filter by Identity ID
+   * Filter by &#x60;Identity&#x60; ID.
    * @return merchantIdentityId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by Identity ID")
+  @ApiModelProperty(value = "Filter by `Identity` ID.")
 
   public String getMerchantIdentityId() {
     return merchantIdentityId;
@@ -636,11 +636,11 @@ public class ListAuthorizationsQueryParams {
   }
 
    /**
-   * Filter Transactions by Identity name. The name is not case-sensitive
+   * Filter Transactions by &#x60;Identity&#x60; name. The name is not case-sensitive.
    * @return merchantIdentityName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter Transactions by Identity name. The name is not case-sensitive")
+  @ApiModelProperty(value = "Filter Transactions by `Identity` name. The name is not case-sensitive.")
 
   public String getMerchantIdentityName() {
     return merchantIdentityName;
@@ -659,11 +659,11 @@ public class ListAuthorizationsQueryParams {
   }
 
    /**
-   * Filter Transactions by payment instrument name
+   * Filter Transactions by &#x60;Payment Instrument&#x60; name.
    * @return instrumentName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter Transactions by payment instrument name")
+  @ApiModelProperty(value = "Filter Transactions by `Payment Instrument` name.")
 
   public String getInstrumentName() {
     return instrumentName;
@@ -682,11 +682,11 @@ public class ListAuthorizationsQueryParams {
   }
 
    /**
-   * Filter Transactions by payment instrument type. Available instrument types include: Bank Account or Payment Card
+   * Filter Transactions by &#x60;Payment Instrument&#x60; type. Available instrument types include: Bank Account or Payment Card.
    * @return instrumentType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter Transactions by payment instrument type. Available instrument types include: Bank Account or Payment Card")
+  @ApiModelProperty(value = "Filter Transactions by `Payment Instrument` type. Available instrument types include: Bank Account or Payment Card.")
 
   public String getInstrumentType() {
     return instrumentType;
@@ -705,11 +705,11 @@ public class ListAuthorizationsQueryParams {
   }
 
    /**
-   * Filter by Merchant ID
+   * Filter by &#x60;Merchant&#x60; ID.
    * @return merchantId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by Merchant ID")
+  @ApiModelProperty(value = "Filter by `Merchant` ID.")
 
   public String getMerchantId() {
     return merchantId;
@@ -728,11 +728,11 @@ public class ListAuthorizationsQueryParams {
   }
 
    /**
-   * Filter by Merchant Identification Number (MID)
+   * Filter by Merchant Identification Number (MID).
    * @return merchantMid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by Merchant Identification Number (MID)")
+  @ApiModelProperty(value = "Filter by Merchant Identification Number (MID).")
 
   public String getMerchantMid() {
     return merchantMid;
@@ -751,11 +751,11 @@ public class ListAuthorizationsQueryParams {
   }
 
    /**
-   * Filter by the payment card last 4 digits
+   * Filter by the payment card last 4 digits.
    * @return instrumentCardLast4
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by the payment card last 4 digits")
+  @ApiModelProperty(value = "Filter by the payment card last 4 digits.")
 
   public String getInstrumentCardLast4() {
     return instrumentCardLast4;
@@ -774,11 +774,11 @@ public class ListAuthorizationsQueryParams {
   }
 
    /**
-   * Filter by Processor ID
+   * Filter by &#x60;Processor&#x60; ID.
    * @return merchantProcessorId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by Processor ID")
+  @ApiModelProperty(value = "Filter by `Processor` ID.")
 
   public String getMerchantProcessorId() {
     return merchantProcessorId;
@@ -797,11 +797,11 @@ public class ListAuthorizationsQueryParams {
   }
 
    /**
-   * Type of the authorization.
+   * Type of the &#x60;Authorization&#x60;.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Type of the authorization.")
+  @ApiModelProperty(value = "Type of the `Authorization`.")
 
   public String getType() {
     return type;
@@ -846,22 +846,22 @@ public class ListAuthorizationsQueryParams {
       return false;
     }
     ListAuthorizationsQueryParams listAuthorizationsQueryParams = (ListAuthorizationsQueryParams) o;
-    return Objects.equals(this.sort, listAuthorizationsQueryParams.sort) &&
+    return Objects.equals(this.amount, listAuthorizationsQueryParams.amount) &&
+        Objects.equals(this.amountGt, listAuthorizationsQueryParams.amountGt) &&
+        Objects.equals(this.amountGte, listAuthorizationsQueryParams.amountGte) &&
+        Objects.equals(this.amountLt, listAuthorizationsQueryParams.amountLt) &&
+        Objects.equals(this.amountLte, listAuthorizationsQueryParams.amountLte) &&
         Objects.equals(this.beforeCursor, listAuthorizationsQueryParams.beforeCursor) &&
-        Objects.equals(this.limit, listAuthorizationsQueryParams.limit) &&
-        Objects.equals(this.idempotencyId, listAuthorizationsQueryParams.idempotencyId) &&
-        Objects.equals(this.state, listAuthorizationsQueryParams.state) &&
         Objects.equals(this.createdAtGte, listAuthorizationsQueryParams.createdAtGte) &&
         Objects.equals(this.createdAtLte, listAuthorizationsQueryParams.createdAtLte) &&
+        Objects.equals(this.idempotencyId, listAuthorizationsQueryParams.idempotencyId) &&
+        Objects.equals(this.limit, listAuthorizationsQueryParams.limit) &&
+        Objects.equals(this.sort, listAuthorizationsQueryParams.sort) &&
+        Objects.equals(this.state, listAuthorizationsQueryParams.state) &&
         Objects.equals(this.updatedAtGte, listAuthorizationsQueryParams.updatedAtGte) &&
         Objects.equals(this.updatedAtLte, listAuthorizationsQueryParams.updatedAtLte) &&
-        Objects.equals(this.isVoid, listAuthorizationsQueryParams.isVoid) &&
-        Objects.equals(this.amount, listAuthorizationsQueryParams.amount) &&
-        Objects.equals(this.amountLt, listAuthorizationsQueryParams.amountLt) &&
-        Objects.equals(this.amountGt, listAuthorizationsQueryParams.amountGt) &&
-        Objects.equals(this.amountLte, listAuthorizationsQueryParams.amountLte) &&
-        Objects.equals(this.amountGte, listAuthorizationsQueryParams.amountGte) &&
         Objects.equals(this.traceId, listAuthorizationsQueryParams.traceId) &&
+        Objects.equals(this.isVoid, listAuthorizationsQueryParams.isVoid) &&
         Objects.equals(this.instrumentBin, listAuthorizationsQueryParams.instrumentBin) &&
         Objects.equals(this.instrumentAccountLast4, listAuthorizationsQueryParams.instrumentAccountLast4) &&
         Objects.equals(this.instrumentBrandType, listAuthorizationsQueryParams.instrumentBrandType) &&
@@ -879,29 +879,29 @@ public class ListAuthorizationsQueryParams {
 
   @Override
   public int hashCode() {
-    return Objects.hash(sort, beforeCursor, limit, idempotencyId, state, createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, isVoid, amount, amountLt, amountGt, amountLte, amountGte, traceId, instrumentBin, instrumentAccountLast4, instrumentBrandType, merchantIdentityId, merchantIdentityName, instrumentName, instrumentType, merchantId, merchantMid, instrumentCardLast4, merchantProcessorId, type, afterCursor);
+    return Objects.hash(amount, amountGt, amountGte, amountLt, amountLte, beforeCursor, createdAtGte, createdAtLte, idempotencyId, limit, sort, state, updatedAtGte, updatedAtLte, traceId, isVoid, instrumentBin, instrumentAccountLast4, instrumentBrandType, merchantIdentityId, merchantIdentityName, instrumentName, instrumentType, merchantId, merchantMid, instrumentCardLast4, merchantProcessorId, type, afterCursor);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListAuthorizationsQueryParams {\n");
-    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
+    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    amountGt: ").append(toIndentedString(amountGt)).append("\n");
+    sb.append("    amountGte: ").append(toIndentedString(amountGte)).append("\n");
+    sb.append("    amountLt: ").append(toIndentedString(amountLt)).append("\n");
+    sb.append("    amountLte: ").append(toIndentedString(amountLte)).append("\n");
     sb.append("    beforeCursor: ").append(toIndentedString(beforeCursor)).append("\n");
-    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
-    sb.append("    idempotencyId: ").append(toIndentedString(idempotencyId)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    createdAtGte: ").append(toIndentedString(createdAtGte)).append("\n");
     sb.append("    createdAtLte: ").append(toIndentedString(createdAtLte)).append("\n");
+    sb.append("    idempotencyId: ").append(toIndentedString(idempotencyId)).append("\n");
+    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    updatedAtGte: ").append(toIndentedString(updatedAtGte)).append("\n");
     sb.append("    updatedAtLte: ").append(toIndentedString(updatedAtLte)).append("\n");
-    sb.append("    isVoid: ").append(toIndentedString(isVoid)).append("\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    amountLt: ").append(toIndentedString(amountLt)).append("\n");
-    sb.append("    amountGt: ").append(toIndentedString(amountGt)).append("\n");
-    sb.append("    amountLte: ").append(toIndentedString(amountLte)).append("\n");
-    sb.append("    amountGte: ").append(toIndentedString(amountGte)).append("\n");
     sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
+    sb.append("    isVoid: ").append(toIndentedString(isVoid)).append("\n");
     sb.append("    instrumentBin: ").append(toIndentedString(instrumentBin)).append("\n");
     sb.append("    instrumentAccountLast4: ").append(toIndentedString(instrumentAccountLast4)).append("\n");
     sb.append("    instrumentBrandType: ").append(toIndentedString(instrumentBrandType)).append("\n");
@@ -937,22 +937,22 @@ public class ListAuthorizationsQueryParams {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("sort");
+    openapiFields.add("amount");
+    openapiFields.add("amount.gt");
+    openapiFields.add("amount.gte");
+    openapiFields.add("amount.lt");
+    openapiFields.add("amount.lte");
     openapiFields.add("before_cursor");
-    openapiFields.add("limit");
-    openapiFields.add("idempotency_id");
-    openapiFields.add("state");
     openapiFields.add("created_at.gte");
     openapiFields.add("created_at.lte");
+    openapiFields.add("idempotency_id");
+    openapiFields.add("limit");
+    openapiFields.add("sort");
+    openapiFields.add("state");
     openapiFields.add("updated_at.gte");
     openapiFields.add("updated_at.lte");
-    openapiFields.add("is_void");
-    openapiFields.add("amount");
-    openapiFields.add("amount.lt");
-    openapiFields.add("amount.gt");
-    openapiFields.add("amount.lte");
-    openapiFields.add("amount.gte");
     openapiFields.add("trace_id");
+    openapiFields.add("is_void");
     openapiFields.add("instrument_bin");
     openapiFields.add("instrument_account_last4");
     openapiFields.add("instrument_brand_type");
@@ -999,29 +999,8 @@ public class ListAuthorizationsQueryParams {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("sort") != null && !jsonObj.get("sort").isJsonNull()  && !jsonObj.get("sort").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sort` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sort").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
       if (jsonObj.get("before_cursor") != null && !jsonObj.get("before_cursor").isJsonNull()  && !jsonObj.get("before_cursor").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `before_cursor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("before_cursor").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("idempotency_id") != null && !jsonObj.get("idempotency_id").isJsonNull()  && !jsonObj.get("idempotency_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `idempotency_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("idempotency_id").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()  && !jsonObj.get("state").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
       }
       /**
       * EDITED
@@ -1041,6 +1020,27 @@ public class ListAuthorizationsQueryParams {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
+      if (jsonObj.get("idempotency_id") != null && !jsonObj.get("idempotency_id").isJsonNull()  && !jsonObj.get("idempotency_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `idempotency_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("idempotency_id").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("sort") != null && !jsonObj.get("sort").isJsonNull()  && !jsonObj.get("sort").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sort` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sort").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()  && !jsonObj.get("state").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
       if (jsonObj.get("updated_at.gte") != null && !jsonObj.get("updated_at.gte").isJsonNull()  && !jsonObj.get("updated_at.gte").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `updated_at.gte` to be a primitive type in the JSON string but got `%s`", jsonObj.get("updated_at.gte").toString()));
       }
@@ -1055,15 +1055,15 @@ public class ListAuthorizationsQueryParams {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("is_void") != null && !jsonObj.get("is_void").isJsonNull()  && !jsonObj.get("is_void").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `is_void` to be a primitive type in the JSON string but got `%s`", jsonObj.get("is_void").toString()));
+      if (jsonObj.get("trace_id") != null && !jsonObj.get("trace_id").isJsonNull()  && !jsonObj.get("trace_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `trace_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("trace_id").toString()));
       }
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("trace_id") != null && !jsonObj.get("trace_id").isJsonNull()  && !jsonObj.get("trace_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `trace_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("trace_id").toString()));
+      if (jsonObj.get("is_void") != null && !jsonObj.get("is_void").isJsonNull()  && !jsonObj.get("is_void").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `is_void` to be a primitive type in the JSON string but got `%s`", jsonObj.get("is_void").toString()));
       }
       /**
       * EDITED

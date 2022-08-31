@@ -69,7 +69,7 @@ public class CreateSubscriptionAmountRequest {
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = new HashMap<>();
+  private Map<String, String> tags = null;
 
   public CreateSubscriptionAmountRequest() { 
   }
@@ -130,8 +130,8 @@ public class CreateSubscriptionAmountRequest {
    * Human readable name.
    * @return nickname
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "super important thing", required = true, value = "Human readable name.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "super important thing", value = "Human readable name.")
 
   public String getNickname() {
     return nickname;
@@ -150,6 +150,9 @@ public class CreateSubscriptionAmountRequest {
   }
 
   public CreateSubscriptionAmountRequest putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
     this.tags.put(key, tagsItem);
     return this;
   }
@@ -158,8 +161,8 @@ public class CreateSubscriptionAmountRequest {
    * Key value pair for annotating custom meta data (e.g. order numbers).
    * @return tags
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Key value pair for annotating custom meta data (e.g. order numbers).")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
 
   public Map<String, String> getTags() {
     return tags;
@@ -231,8 +234,6 @@ public class CreateSubscriptionAmountRequest {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("amount_type");
     openapiRequiredFields.add("fee_amount_data");
-    openapiRequiredFields.add("nickname");
-    openapiRequiredFields.add("tags");
   }
 
  /**

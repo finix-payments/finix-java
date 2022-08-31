@@ -48,8 +48,9 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * AdjustmentTransfersListEmbedded
+ * List of adjustment &#x60;Transfers&#x60; created for a &#x60;Dispute&#x60;.
  */
+@ApiModel(description = "List of adjustment `Transfers` created for a `Dispute`.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AdjustmentTransfersListEmbedded {
@@ -75,11 +76,11 @@ public class AdjustmentTransfersListEmbedded {
   }
 
    /**
-   * Get transfers
+   * &#x60;Transfer&#x60; objects.
    * @return transfers
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "`Transfer` objects.")
 
   public List<Transfer> getTransfers() {
     return transfers;

@@ -58,13 +58,13 @@ public class CreateSettlementRequest {
   @SerializedName(SERIALIZED_NAME_CURRENCY)
   private Currency currency;
 
-  public static final String SERIALIZED_NAME_PROCESSOR = "processor";
-  @SerializedName(SERIALIZED_NAME_PROCESSOR)
-  private String processor;
-
   public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
   private String merchantId;
+
+  public static final String SERIALIZED_NAME_PROCESSOR = "processor";
+  @SerializedName(SERIALIZED_NAME_PROCESSOR)
+  private String processor;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -96,29 +96,6 @@ public class CreateSettlementRequest {
   }
 
 
-  public CreateSettlementRequest processor(String processor) {
-    
-    this.processor = processor;
-    return this;
-  }
-
-   /**
-   * If the &#x60;Application&#x60; has more than one associated &#x60;processor&#x60;, it&#39;s required when creating &#x60;settlements&#x60; to include the &#x60;processor&#x60; (e.g. DUMMY_V1).
-   * @return processor
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "If the `Application` has more than one associated `processor`, it's required when creating `settlements` to include the `processor` (e.g. DUMMY_V1).")
-
-  public String getProcessor() {
-    return processor;
-  }
-
-
-  public void setProcessor(String processor) {
-    this.processor = processor;
-  }
-
-
   public CreateSettlementRequest merchantId(String merchantId) {
     
     this.merchantId = merchantId;
@@ -129,8 +106,8 @@ public class CreateSettlementRequest {
    * If the &#x60;Application&#x60; has more than one associated &#x60;processor&#x60;, this field is required.
    * @return merchantId
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "If the `Application` has more than one associated `processor`, this field is required.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If the `Application` has more than one associated `processor`, this field is required.")
 
   public String getMerchantId() {
     return merchantId;
@@ -139,6 +116,29 @@ public class CreateSettlementRequest {
 
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
+  }
+
+
+  public CreateSettlementRequest processor(String processor) {
+    
+    this.processor = processor;
+    return this;
+  }
+
+   /**
+   * If the &#x60;Application&#x60; has more than one associated &#x60;processor&#x60;, it&#39;s required when creating &#x60;settlements&#x60; to include the &#x60;processor&#x60; (e.g. **DUMMY_V1**).
+   * @return processor
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If the `Application` has more than one associated `processor`, it's required when creating `settlements` to include the `processor` (e.g. **DUMMY_V1**).")
+
+  public String getProcessor() {
+    return processor;
+  }
+
+
+  public void setProcessor(String processor) {
+    this.processor = processor;
   }
 
 
@@ -184,14 +184,14 @@ public class CreateSettlementRequest {
     }
     CreateSettlementRequest createSettlementRequest = (CreateSettlementRequest) o;
     return Objects.equals(this.currency, createSettlementRequest.currency) &&
-        Objects.equals(this.processor, createSettlementRequest.processor) &&
         Objects.equals(this.merchantId, createSettlementRequest.merchantId) &&
+        Objects.equals(this.processor, createSettlementRequest.processor) &&
         Objects.equals(this.tags, createSettlementRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currency, processor, merchantId, tags);
+    return Objects.hash(currency, merchantId, processor, tags);
   }
 
   @Override
@@ -199,8 +199,8 @@ public class CreateSettlementRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateSettlementRequest {\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-    sb.append("    processor: ").append(toIndentedString(processor)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
+    sb.append("    processor: ").append(toIndentedString(processor)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -225,14 +225,12 @@ public class CreateSettlementRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("currency");
-    openapiFields.add("processor");
     openapiFields.add("merchant_id");
+    openapiFields.add("processor");
     openapiFields.add("tags");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("processor");
-    openapiRequiredFields.add("merchant_id");
   }
 
  /**
@@ -259,31 +257,19 @@ public class CreateSettlementRequest {
         }
       }
       */
-
-      /**
-      * EDITED
-      * Commented to ByPass required properties/fields are present in the JSON string
-      */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : CreateSettlementRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("processor") != null && !jsonObj.get("processor").isJsonNull()  && !jsonObj.get("processor").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `processor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("processor").toString()));
-      }
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
       if (jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonNull()  && !jsonObj.get("merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("processor") != null && !jsonObj.get("processor").isJsonNull()  && !jsonObj.get("processor").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `processor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("processor").toString()));
       }
   }
 

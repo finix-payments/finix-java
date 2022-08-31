@@ -49,9 +49,9 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * The additional information about the purchase. Used for Level 2 and Level 3 Processing.
+ * Additional information about the purchase. Used for Level 2 and Level 3 Processing.
  */
-@ApiModel(description = "The additional information about the purchase. Used for Level 2 and Level 3 Processing.")
+@ApiModel(description = "Additional information about the purchase. Used for Level 2 and Level 3 Processing.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AdditionalPurchaseData {
@@ -116,8 +116,8 @@ public class AdditionalPurchaseData {
    * The customer reference for the purchase (max 17 characters).
    * @return customerReferenceNumber
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The customer reference for the purchase (max 17 characters).")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The customer reference for the purchase (max 17 characters).")
 
   public String getCustomerReferenceNumber() {
     return customerReferenceNumber;
@@ -259,11 +259,11 @@ public class AdditionalPurchaseData {
   }
 
    /**
-   * Get itemData
+   * Additional information about the transaction. Used for Level 2 and Level 3 Processing.
    * @return itemData
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Additional information about the transaction. Used for Level 2 and Level 3 Processing.")
 
   public List<AdditionalPurchaseDataItemDataInner> getItemData() {
     return itemData;
@@ -472,7 +472,6 @@ public class AdditionalPurchaseData {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("customer_reference_number");
   }
 
  /**
@@ -499,18 +498,6 @@ public class AdditionalPurchaseData {
         }
       }
       */
-
-      /**
-      * EDITED
-      * Commented to ByPass required properties/fields are present in the JSON string
-      */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : AdditionalPurchaseData.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour

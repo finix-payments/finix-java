@@ -27,7 +27,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import model.Currency;
-import model.FeeType;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -56,10 +55,6 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateFeeRequest {
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
-
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private Long amount;
@@ -67,10 +62,6 @@ public class CreateFeeRequest {
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
   @SerializedName(SERIALIZED_NAME_CURRENCY)
   private Currency currency;
-
-  public static final String SERIALIZED_NAME_LABEL = "label";
-  @SerializedName(SERIALIZED_NAME_LABEL)
-  private String label;
 
   /**
    * Subtype of the fee. Set to **CUSTOM**.
@@ -142,9 +133,79 @@ public class CreateFeeRequest {
   @SerializedName(SERIALIZED_NAME_FEE_SUBTYPE)
   private FeeSubtypeEnum feeSubtype;
 
+  /**
+   * The type of the fee. Must be set to **CUSTOM**.
+   */
+  @JsonAdapter(FeeTypeEnum.Adapter.class)
+  public enum FeeTypeEnum {
+    CUSTOM("CUSTOM"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
+
+    private String value;
+
+    FeeTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
+    public static FeeTypeEnum fromValue(String value) {
+        for (FeeTypeEnum b : FeeTypeEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
+        }
+
+        FeeTypeEnum unknownDefault = FeeTypeEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
+    }
+
+    public static class Adapter extends TypeAdapter<FeeTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final FeeTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public FeeTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return FeeTypeEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_FEE_TYPE = "fee_type";
   @SerializedName(SERIALIZED_NAME_FEE_TYPE)
-  private FeeType feeType;
+  private FeeTypeEnum feeType;
+
+  public static final String SERIALIZED_NAME_LABEL = "label";
+  @SerializedName(SERIALIZED_NAME_LABEL)
+  private String label;
 
   public static final String SERIALIZED_NAME_LINKED_ID = "linked_id";
   @SerializedName(SERIALIZED_NAME_LINKED_ID)
@@ -234,39 +295,12 @@ public class CreateFeeRequest {
   @SerializedName(SERIALIZED_NAME_SETTLEMENT_DELAY_DAYS)
   private Long settlementDelayDays;
 
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
+
   public CreateFeeRequest() { 
   }
-
-  public CreateFeeRequest tags(Map<String, String> tags) {
-    
-    this.tags = tags;
-    return this;
-  }
-
-  public CreateFeeRequest putTagsItem(String key, String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new HashMap<>();
-    }
-    this.tags.put(key, tagsItem);
-    return this;
-  }
-
-   /**
-   * Key value pair for annotating custom meta data (e.g. order numbers).
-   * @return tags
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
-
-  public Map<String, String> getTags() {
-    return tags;
-  }
-
-
-  public void setTags(Map<String, String> tags) {
-    this.tags = tags;
-  }
-
 
   public CreateFeeRequest amount(Long amount) {
     
@@ -314,29 +348,6 @@ public class CreateFeeRequest {
   }
 
 
-  public CreateFeeRequest label(String label) {
-    
-    this.label = label;
-    return this;
-  }
-
-   /**
-   * The display name of the &#x60;Fee&#x60; that can be used for filtering purposes.
-   * @return label
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The display name of the `Fee` that can be used for filtering purposes.")
-
-  public String getLabel() {
-    return label;
-  }
-
-
-  public void setLabel(String label) {
-    this.label = label;
-  }
-
-
   public CreateFeeRequest feeSubtype(FeeSubtypeEnum feeSubtype) {
     
     this.feeSubtype = feeSubtype;
@@ -360,26 +371,49 @@ public class CreateFeeRequest {
   }
 
 
-  public CreateFeeRequest feeType(FeeType feeType) {
+  public CreateFeeRequest feeType(FeeTypeEnum feeType) {
     
     this.feeType = feeType;
     return this;
   }
 
    /**
-   * Get feeType
+   * The type of the fee. Must be set to **CUSTOM**.
    * @return feeType
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The type of the fee. Must be set to **CUSTOM**.")
 
-  public FeeType getFeeType() {
+  public FeeTypeEnum getFeeType() {
     return feeType;
   }
 
 
-  public void setFeeType(FeeType feeType) {
+  public void setFeeType(FeeTypeEnum feeType) {
     this.feeType = feeType;
+  }
+
+
+  public CreateFeeRequest label(String label) {
+    
+    this.label = label;
+    return this;
+  }
+
+   /**
+   * The display name of the &#x60;Fee&#x60; that can be used for filtering purposes.
+   * @return label
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The display name of the `Fee` that can be used for filtering purposes.")
+
+  public String getLabel() {
+    return label;
+  }
+
+
+  public void setLabel(String label) {
+    this.label = label;
   }
 
 
@@ -440,7 +474,7 @@ public class CreateFeeRequest {
    * @return merchantId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the resource.")
+  @ApiModelProperty(required = true, value = "The ID of the resource.")
 
   public String getMerchantId() {
     return merchantId;
@@ -475,6 +509,37 @@ public class CreateFeeRequest {
   }
 
 
+  public CreateFeeRequest tags(Map<String, String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateFeeRequest putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
+    return this;
+  }
+
+   /**
+   * Key value pair for annotating custom meta data (e.g. order numbers).
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
+
+  public Map<String, String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(Map<String, String> tags) {
+    this.tags = tags;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -485,16 +550,16 @@ public class CreateFeeRequest {
       return false;
     }
     CreateFeeRequest createFeeRequest = (CreateFeeRequest) o;
-    return Objects.equals(this.tags, createFeeRequest.tags) &&
-        Objects.equals(this.amount, createFeeRequest.amount) &&
+    return Objects.equals(this.amount, createFeeRequest.amount) &&
         Objects.equals(this.currency, createFeeRequest.currency) &&
-        Objects.equals(this.label, createFeeRequest.label) &&
         Objects.equals(this.feeSubtype, createFeeRequest.feeSubtype) &&
         Objects.equals(this.feeType, createFeeRequest.feeType) &&
+        Objects.equals(this.label, createFeeRequest.label) &&
         Objects.equals(this.linkedId, createFeeRequest.linkedId) &&
         Objects.equals(this.linkedType, createFeeRequest.linkedType) &&
         Objects.equals(this.merchantId, createFeeRequest.merchantId) &&
-        Objects.equals(this.settlementDelayDays, createFeeRequest.settlementDelayDays);
+        Objects.equals(this.settlementDelayDays, createFeeRequest.settlementDelayDays) &&
+        Objects.equals(this.tags, createFeeRequest.tags);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -503,7 +568,7 @@ public class CreateFeeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, amount, currency, label, feeSubtype, feeType, linkedId, linkedType, merchantId, settlementDelayDays);
+    return Objects.hash(amount, currency, feeSubtype, feeType, label, linkedId, linkedType, merchantId, settlementDelayDays, tags);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -517,16 +582,16 @@ public class CreateFeeRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateFeeRequest {\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-    sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    feeSubtype: ").append(toIndentedString(feeSubtype)).append("\n");
     sb.append("    feeType: ").append(toIndentedString(feeType)).append("\n");
+    sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    linkedId: ").append(toIndentedString(linkedId)).append("\n");
     sb.append("    linkedType: ").append(toIndentedString(linkedType)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    settlementDelayDays: ").append(toIndentedString(settlementDelayDays)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -549,16 +614,16 @@ public class CreateFeeRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("tags");
     openapiFields.add("amount");
     openapiFields.add("currency");
-    openapiFields.add("label");
     openapiFields.add("fee_subtype");
     openapiFields.add("fee_type");
+    openapiFields.add("label");
     openapiFields.add("linked_id");
     openapiFields.add("linked_type");
     openapiFields.add("merchant_id");
     openapiFields.add("settlement_delay_days");
+    openapiFields.add("tags");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -566,6 +631,7 @@ public class CreateFeeRequest {
     openapiRequiredFields.add("currency");
     openapiRequiredFields.add("fee_subtype");
     openapiRequiredFields.add("fee_type");
+    openapiRequiredFields.add("merchant_id");
   }
 
  /**
@@ -608,15 +674,22 @@ public class CreateFeeRequest {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("label") != null && !jsonObj.get("label").isJsonNull()  && !jsonObj.get("label").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `label` to be a primitive type in the JSON string but got `%s`", jsonObj.get("label").toString()));
+      if (jsonObj.get("fee_subtype") != null && !jsonObj.get("fee_subtype").isJsonNull()  && !jsonObj.get("fee_subtype").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fee_subtype` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_subtype").toString()));
       }
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("fee_subtype") != null && !jsonObj.get("fee_subtype").isJsonNull()  && !jsonObj.get("fee_subtype").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fee_subtype` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_subtype").toString()));
+      if (jsonObj.get("fee_type") != null && !jsonObj.get("fee_type").isJsonNull()  && !jsonObj.get("fee_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fee_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_type").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("label") != null && !jsonObj.get("label").isJsonNull()  && !jsonObj.get("label").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `label` to be a primitive type in the JSON string but got `%s`", jsonObj.get("label").toString()));
       }
       /**
       * EDITED

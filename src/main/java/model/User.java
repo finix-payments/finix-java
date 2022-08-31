@@ -56,10 +56,6 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class User {
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
-
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -160,43 +156,16 @@ public class User {
   @SerializedName(SERIALIZED_NAME_ROLE)
   private RoleEnum role;
 
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
+
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
   private UserLinks links;
 
   public User() { 
   }
-
-  public User tags(Map<String, String> tags) {
-    
-    this.tags = tags;
-    return this;
-  }
-
-  public User putTagsItem(String key, String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new HashMap<>();
-    }
-    this.tags.put(key, tagsItem);
-    return this;
-  }
-
-   /**
-   * Key value pair for annotating custom meta data (e.g. order numbers).
-   * @return tags
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
-
-  public Map<String, String> getTags() {
-    return tags;
-  }
-
-
-  public void setTags(Map<String, String> tags) {
-    this.tags = tags;
-  }
-
 
   public User id(String id) {
     
@@ -205,11 +174,11 @@ public class User {
   }
 
    /**
-   * The ID of the &#x60;User&#x60; resource.
+   * The ID of the &#x60;User&#x60; object.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the `User` resource.")
+  @ApiModelProperty(value = "The ID of the `User` object.")
 
   public String getId() {
     return id;
@@ -297,11 +266,11 @@ public class User {
   }
 
    /**
-   * ID of the &#x60;Identity&#x60; that the &#x60;User&#x60; resource was created under.
+   * ID of the &#x60;Identity&#x60; that the &#x60;User&#x60; object was created under.
    * @return identity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "IDxxxxxxxxxxxxxxxxxx", value = "ID of the `Identity` that the `User` resource was created under.")
+  @ApiModelProperty(example = "IDxxxxxxxxxxxxxxxxxx", value = "ID of the `Identity` that the `User` object was created under.")
 
   public String getIdentity() {
     return identity;
@@ -359,6 +328,37 @@ public class User {
   }
 
 
+  public User tags(Map<String, String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public User putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
+    return this;
+  }
+
+   /**
+   * Key value pair for annotating custom meta data (e.g. order numbers).
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
+
+  public Map<String, String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(Map<String, String> tags) {
+    this.tags = tags;
+  }
+
+
   public User links(UserLinks links) {
     
     this.links = links;
@@ -392,14 +392,14 @@ public class User {
       return false;
     }
     User user = (User) o;
-    return Objects.equals(this.tags, user.tags) &&
-        Objects.equals(this.id, user.id) &&
+    return Objects.equals(this.id, user.id) &&
         Objects.equals(this.createdAt, user.createdAt) &&
         Objects.equals(this.updatedAt, user.updatedAt) &&
         Objects.equals(this.enabled, user.enabled) &&
         Objects.equals(this.identity, user.identity) &&
         Objects.equals(this.password, user.password) &&
         Objects.equals(this.role, user.role) &&
+        Objects.equals(this.tags, user.tags) &&
         Objects.equals(this.links, user.links);
   }
 
@@ -409,7 +409,7 @@ public class User {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, id, createdAt, updatedAt, enabled, identity, password, role, links);
+    return Objects.hash(id, createdAt, updatedAt, enabled, identity, password, role, tags, links);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -423,7 +423,6 @@ public class User {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class User {\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
@@ -431,6 +430,7 @@ public class User {
     sb.append("    identity: ").append(toIndentedString(identity)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -454,7 +454,6 @@ public class User {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("tags");
     openapiFields.add("id");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
@@ -462,6 +461,7 @@ public class User {
     openapiFields.add("identity");
     openapiFields.add("password");
     openapiFields.add("role");
+    openapiFields.add("tags");
     openapiFields.add("_links");
 
     // a set of required properties/fields (JSON key names)

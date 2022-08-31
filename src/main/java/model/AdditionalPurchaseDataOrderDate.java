@@ -75,8 +75,8 @@ public class AdditionalPurchaseDataOrderDate {
    * Day of purchase (between 1 and 31)
    * @return day
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Day of purchase (between 1 and 31)")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Day of purchase (between 1 and 31)")
 
   public Long getDay() {
     return day;
@@ -98,8 +98,8 @@ public class AdditionalPurchaseDataOrderDate {
    * Month of purchase (between 1 and 12)
    * @return month
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Month of purchase (between 1 and 12)")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Month of purchase (between 1 and 12)")
 
   public Long getMonth() {
     return month;
@@ -121,8 +121,8 @@ public class AdditionalPurchaseDataOrderDate {
    * Year of purchase (4-digit)
    * @return year
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Year of purchase (4-digit)")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Year of purchase (4-digit)")
 
   public Long getYear() {
     return year;
@@ -189,9 +189,6 @@ public class AdditionalPurchaseDataOrderDate {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("day");
-    openapiRequiredFields.add("month");
-    openapiRequiredFields.add("year");
   }
 
  /**
@@ -218,18 +215,6 @@ public class AdditionalPurchaseDataOrderDate {
         }
       }
       */
-
-      /**
-      * EDITED
-      * Commented to ByPass required properties/fields are present in the JSON string
-      */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : AdditionalPurchaseDataOrderDate.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
   }
 
 

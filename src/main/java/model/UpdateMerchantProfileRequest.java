@@ -53,10 +53,6 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateMerchantProfileRequest {
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
-
   public static final String SERIALIZED_NAME_FEE_PROFILE = "fee_profile";
   @SerializedName(SERIALIZED_NAME_FEE_PROFILE)
   private String feeProfile;
@@ -65,8 +61,58 @@ public class UpdateMerchantProfileRequest {
   @SerializedName(SERIALIZED_NAME_RISK_PROFILE)
   private String riskProfile;
 
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
+
   public UpdateMerchantProfileRequest() { 
   }
+
+  public UpdateMerchantProfileRequest feeProfile(String feeProfile) {
+    
+    this.feeProfile = feeProfile;
+    return this;
+  }
+
+   /**
+   * ID of the &#x60;fee_profile&#x60;.
+   * @return feeProfile
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ID of the `fee_profile`.")
+
+  public String getFeeProfile() {
+    return feeProfile;
+  }
+
+
+  public void setFeeProfile(String feeProfile) {
+    this.feeProfile = feeProfile;
+  }
+
+
+  public UpdateMerchantProfileRequest riskProfile(String riskProfile) {
+    
+    this.riskProfile = riskProfile;
+    return this;
+  }
+
+   /**
+   * ID of the &#x60;risk_profile&#x60;.
+   * @return riskProfile
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ID of the `risk_profile`.")
+
+  public String getRiskProfile() {
+    return riskProfile;
+  }
+
+
+  public void setRiskProfile(String riskProfile) {
+    this.riskProfile = riskProfile;
+  }
+
 
   public UpdateMerchantProfileRequest tags(Map<String, String> tags) {
     
@@ -99,52 +145,6 @@ public class UpdateMerchantProfileRequest {
   }
 
 
-  public UpdateMerchantProfileRequest feeProfile(String feeProfile) {
-    
-    this.feeProfile = feeProfile;
-    return this;
-  }
-
-   /**
-   * Id of the fee_profile.
-   * @return feeProfile
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Id of the fee_profile.")
-
-  public String getFeeProfile() {
-    return feeProfile;
-  }
-
-
-  public void setFeeProfile(String feeProfile) {
-    this.feeProfile = feeProfile;
-  }
-
-
-  public UpdateMerchantProfileRequest riskProfile(String riskProfile) {
-    
-    this.riskProfile = riskProfile;
-    return this;
-  }
-
-   /**
-   * Id of the risk_profile.
-   * @return riskProfile
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Id of the risk_profile.")
-
-  public String getRiskProfile() {
-    return riskProfile;
-  }
-
-
-  public void setRiskProfile(String riskProfile) {
-    this.riskProfile = riskProfile;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -155,23 +155,23 @@ public class UpdateMerchantProfileRequest {
       return false;
     }
     UpdateMerchantProfileRequest updateMerchantProfileRequest = (UpdateMerchantProfileRequest) o;
-    return Objects.equals(this.tags, updateMerchantProfileRequest.tags) &&
-        Objects.equals(this.feeProfile, updateMerchantProfileRequest.feeProfile) &&
-        Objects.equals(this.riskProfile, updateMerchantProfileRequest.riskProfile);
+    return Objects.equals(this.feeProfile, updateMerchantProfileRequest.feeProfile) &&
+        Objects.equals(this.riskProfile, updateMerchantProfileRequest.riskProfile) &&
+        Objects.equals(this.tags, updateMerchantProfileRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, feeProfile, riskProfile);
+    return Objects.hash(feeProfile, riskProfile, tags);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateMerchantProfileRequest {\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    feeProfile: ").append(toIndentedString(feeProfile)).append("\n");
     sb.append("    riskProfile: ").append(toIndentedString(riskProfile)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -194,9 +194,9 @@ public class UpdateMerchantProfileRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("tags");
     openapiFields.add("fee_profile");
     openapiFields.add("risk_profile");
+    openapiFields.add("tags");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

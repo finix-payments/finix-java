@@ -57,10 +57,6 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Application {
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
-
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -89,6 +85,81 @@ public class Application {
   @SerializedName(SERIALIZED_NAME_ENABLED)
   private Boolean enabled;
 
+  /**
+   * Details when the &#x60;fees&#x60; of &#x60;Authroizations&#x60; submitted under the &#x60;Application&#x60; will be ready to settle.
+   */
+  @JsonAdapter(FeeReadyToSettleUponEnum.Adapter.class)
+  public enum FeeReadyToSettleUponEnum {
+    RECONCILIATION("RECONCILIATION"),
+    
+    SUCCESSFUL_CAPTURE("SUCCESSFUL_CAPTURE"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
+
+    private String value;
+
+    FeeReadyToSettleUponEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
+    public static FeeReadyToSettleUponEnum fromValue(String value) {
+        for (FeeReadyToSettleUponEnum b : FeeReadyToSettleUponEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
+        }
+
+        if (value.equals(null) && value.length() == 0) {
+            return null;
+        }
+        FeeReadyToSettleUponEnum unknownDefault = FeeReadyToSettleUponEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
+    }
+
+    public static class Adapter extends TypeAdapter<FeeReadyToSettleUponEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final FeeReadyToSettleUponEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public FeeReadyToSettleUponEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return FeeReadyToSettleUponEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_FEE_READY_TO_SETTLE_UPON = "fee_ready_to_settle_upon";
+  @SerializedName(SERIALIZED_NAME_FEE_READY_TO_SETTLE_UPON)
+  private FeeReadyToSettleUponEnum feeReadyToSettleUpon;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -100,6 +171,81 @@ public class Application {
   public static final String SERIALIZED_NAME_PROCESSING_ENABLED = "processing_enabled";
   @SerializedName(SERIALIZED_NAME_PROCESSING_ENABLED)
   private Boolean processingEnabled;
+
+  /**
+   * Details when &#x60;Authroizations&#x60; submitted under the &#x60;Application&#x60; will be ready to settle.
+   */
+  @JsonAdapter(ReadyToSettleUponEnum.Adapter.class)
+  public enum ReadyToSettleUponEnum {
+    RECONCILIATION("RECONCILIATION"),
+    
+    SUCCESSFUL_CAPTURE("SUCCESSFUL_CAPTURE"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
+
+    private String value;
+
+    ReadyToSettleUponEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
+    public static ReadyToSettleUponEnum fromValue(String value) {
+        for (ReadyToSettleUponEnum b : ReadyToSettleUponEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
+        }
+
+        if (value.equals(null) && value.length() == 0) {
+            return null;
+        }
+        ReadyToSettleUponEnum unknownDefault = ReadyToSettleUponEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
+    }
+
+    public static class Adapter extends TypeAdapter<ReadyToSettleUponEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ReadyToSettleUponEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ReadyToSettleUponEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return ReadyToSettleUponEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_READY_TO_SETTLE_UPON = "ready_to_settle_upon";
+  @SerializedName(SERIALIZED_NAME_READY_TO_SETTLE_UPON)
+  private ReadyToSettleUponEnum readyToSettleUpon;
 
   public static final String SERIALIZED_NAME_SETTLEMENT_ENABLED = "settlement_enabled";
   @SerializedName(SERIALIZED_NAME_SETTLEMENT_ENABLED)
@@ -178,155 +324,9 @@ public class Application {
   @SerializedName(SERIALIZED_NAME_SETTLEMENT_FUNDING_IDENTIFIER)
   private SettlementFundingIdentifierEnum settlementFundingIdentifier;
 
-  /**
-   * Details when &#x60;Authroizations&#x60; submitted under the &#x60;Application&#x60; will be ready to settle.
-   */
-  @JsonAdapter(ReadyToSettleUponEnum.Adapter.class)
-  public enum ReadyToSettleUponEnum {
-    RECONCILIATION("RECONCILIATION"),
-    
-    SUCCESSFUL_CAPTURE("SUCCESSFUL_CAPTURE"),
-    
-    UNKNOWN_DEFAULT("unknown_default_open_api");
-
-    private String value;
-
-    ReadyToSettleUponEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    /*
-    * EDITED
-    * Add ability get the raw underlying value of a enum the library is not aware about.
-    */
-    private String rawValue;
-
-    public void setRawValue(String s){
-    this.rawValue = s;
-    }
-
-    public String getRawValue() {
-    return rawValue;
-    }
-
-    public static ReadyToSettleUponEnum fromValue(String value) {
-        for (ReadyToSettleUponEnum b : ReadyToSettleUponEnum.values()) {
-          if (b.value.equals(value)) {
-            return b;
-          }
-        }
-
-        if (value.equals(null) && value.length() == 0) {
-            return null;
-        }
-        ReadyToSettleUponEnum unknownDefault = ReadyToSettleUponEnum.UNKNOWN_DEFAULT;
-        unknownDefault.setRawValue(value);
-
-        return unknownDefault;
-        
-    }
-
-    public static class Adapter extends TypeAdapter<ReadyToSettleUponEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ReadyToSettleUponEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public ReadyToSettleUponEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return ReadyToSettleUponEnum.fromValue(value);
-      }
-    }
-  }
-
-  public static final String SERIALIZED_NAME_READY_TO_SETTLE_UPON = "ready_to_settle_upon";
-  @SerializedName(SERIALIZED_NAME_READY_TO_SETTLE_UPON)
-  private ReadyToSettleUponEnum readyToSettleUpon;
-
-  /**
-   * Details when the &#x60;fees&#x60; of &#x60;Authroizations&#x60; submitted under the &#x60;Application&#x60; will be ready to settle.
-   */
-  @JsonAdapter(FeeReadyToSettleUponEnum.Adapter.class)
-  public enum FeeReadyToSettleUponEnum {
-    RECONCILIATION("RECONCILIATION"),
-    
-    SUCCESSFUL_CAPTURE("SUCCESSFUL_CAPTURE"),
-    
-    UNKNOWN_DEFAULT("unknown_default_open_api");
-
-    private String value;
-
-    FeeReadyToSettleUponEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    /*
-    * EDITED
-    * Add ability get the raw underlying value of a enum the library is not aware about.
-    */
-    private String rawValue;
-
-    public void setRawValue(String s){
-    this.rawValue = s;
-    }
-
-    public String getRawValue() {
-    return rawValue;
-    }
-
-    public static FeeReadyToSettleUponEnum fromValue(String value) {
-        for (FeeReadyToSettleUponEnum b : FeeReadyToSettleUponEnum.values()) {
-          if (b.value.equals(value)) {
-            return b;
-          }
-        }
-
-        if (value.equals(null) && value.length() == 0) {
-            return null;
-        }
-        FeeReadyToSettleUponEnum unknownDefault = FeeReadyToSettleUponEnum.UNKNOWN_DEFAULT;
-        unknownDefault.setRawValue(value);
-
-        return unknownDefault;
-        
-    }
-
-    public static class Adapter extends TypeAdapter<FeeReadyToSettleUponEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final FeeReadyToSettleUponEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public FeeReadyToSettleUponEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return FeeReadyToSettleUponEnum.fromValue(value);
-      }
-    }
-  }
-
-  public static final String SERIALIZED_NAME_FEE_READY_TO_SETTLE_UPON = "fee_ready_to_settle_upon";
-  @SerializedName(SERIALIZED_NAME_FEE_READY_TO_SETTLE_UPON)
-  private FeeReadyToSettleUponEnum feeReadyToSettleUpon;
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
@@ -334,37 +334,6 @@ public class Application {
 
   public Application() { 
   }
-
-  public Application tags(Map<String, String> tags) {
-    
-    this.tags = tags;
-    return this;
-  }
-
-  public Application putTagsItem(String key, String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new HashMap<>();
-    }
-    this.tags.put(key, tagsItem);
-    return this;
-  }
-
-   /**
-   * Key value pair for annotating custom meta data (e.g. order numbers).
-   * @return tags
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
-
-  public Map<String, String> getTags() {
-    return tags;
-  }
-
-
-  public void setTags(Map<String, String> tags) {
-    this.tags = tags;
-  }
-
 
   public Application id(String id) {
     
@@ -527,6 +496,29 @@ public class Application {
   }
 
 
+  public Application feeReadyToSettleUpon(FeeReadyToSettleUponEnum feeReadyToSettleUpon) {
+    
+    this.feeReadyToSettleUpon = feeReadyToSettleUpon;
+    return this;
+  }
+
+   /**
+   * Details when the &#x60;fees&#x60; of &#x60;Authroizations&#x60; submitted under the &#x60;Application&#x60; will be ready to settle.
+   * @return feeReadyToSettleUpon
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Details when the `fees` of `Authroizations` submitted under the `Application` will be ready to settle.")
+
+  public FeeReadyToSettleUponEnum getFeeReadyToSettleUpon() {
+    return feeReadyToSettleUpon;
+  }
+
+
+  public void setFeeReadyToSettleUpon(FeeReadyToSettleUponEnum feeReadyToSettleUpon) {
+    this.feeReadyToSettleUpon = feeReadyToSettleUpon;
+  }
+
+
   public Application name(String name) {
     
     this.name = name;
@@ -596,6 +588,29 @@ public class Application {
   }
 
 
+  public Application readyToSettleUpon(ReadyToSettleUponEnum readyToSettleUpon) {
+    
+    this.readyToSettleUpon = readyToSettleUpon;
+    return this;
+  }
+
+   /**
+   * Details when &#x60;Authroizations&#x60; submitted under the &#x60;Application&#x60; will be ready to settle.
+   * @return readyToSettleUpon
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Details when `Authroizations` submitted under the `Application` will be ready to settle.")
+
+  public ReadyToSettleUponEnum getReadyToSettleUpon() {
+    return readyToSettleUpon;
+  }
+
+
+  public void setReadyToSettleUpon(ReadyToSettleUponEnum readyToSettleUpon) {
+    this.readyToSettleUpon = readyToSettleUpon;
+  }
+
+
   public Application settlementEnabled(Boolean settlementEnabled) {
     
     this.settlementEnabled = settlementEnabled;
@@ -642,49 +657,34 @@ public class Application {
   }
 
 
-  public Application readyToSettleUpon(ReadyToSettleUponEnum readyToSettleUpon) {
+  public Application tags(Map<String, String> tags) {
     
-    this.readyToSettleUpon = readyToSettleUpon;
+    this.tags = tags;
+    return this;
+  }
+
+  public Application putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
     return this;
   }
 
    /**
-   * Details when &#x60;Authroizations&#x60; submitted under the &#x60;Application&#x60; will be ready to settle.
-   * @return readyToSettleUpon
+   * Key value pair for annotating custom meta data (e.g. order numbers).
+   * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Details when `Authroizations` submitted under the `Application` will be ready to settle.")
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
 
-  public ReadyToSettleUponEnum getReadyToSettleUpon() {
-    return readyToSettleUpon;
+  public Map<String, String> getTags() {
+    return tags;
   }
 
 
-  public void setReadyToSettleUpon(ReadyToSettleUponEnum readyToSettleUpon) {
-    this.readyToSettleUpon = readyToSettleUpon;
-  }
-
-
-  public Application feeReadyToSettleUpon(FeeReadyToSettleUponEnum feeReadyToSettleUpon) {
-    
-    this.feeReadyToSettleUpon = feeReadyToSettleUpon;
-    return this;
-  }
-
-   /**
-   * Details when the &#x60;fees&#x60; of &#x60;Authroizations&#x60; submitted under the &#x60;Application&#x60; will be ready to settle.
-   * @return feeReadyToSettleUpon
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Details when the `fees` of `Authroizations` submitted under the `Application` will be ready to settle.")
-
-  public FeeReadyToSettleUponEnum getFeeReadyToSettleUpon() {
-    return feeReadyToSettleUpon;
-  }
-
-
-  public void setFeeReadyToSettleUpon(FeeReadyToSettleUponEnum feeReadyToSettleUpon) {
-    this.feeReadyToSettleUpon = feeReadyToSettleUpon;
+  public void setTags(Map<String, String> tags) {
+    this.tags = tags;
   }
 
 
@@ -721,21 +721,21 @@ public class Application {
       return false;
     }
     Application application = (Application) o;
-    return Objects.equals(this.tags, application.tags) &&
-        Objects.equals(this.id, application.id) &&
+    return Objects.equals(this.id, application.id) &&
         Objects.equals(this.createdAt, application.createdAt) &&
         Objects.equals(this.updatedAt, application.updatedAt) &&
         Objects.equals(this.cardCvvRequired, application.cardCvvRequired) &&
         Objects.equals(this.cardExpirationDateRequired, application.cardExpirationDateRequired) &&
         Objects.equals(this.creatingTransferFromReportEnabled, application.creatingTransferFromReportEnabled) &&
         Objects.equals(this.enabled, application.enabled) &&
+        Objects.equals(this.feeReadyToSettleUpon, application.feeReadyToSettleUpon) &&
         Objects.equals(this.name, application.name) &&
         Objects.equals(this.owner, application.owner) &&
         Objects.equals(this.processingEnabled, application.processingEnabled) &&
+        Objects.equals(this.readyToSettleUpon, application.readyToSettleUpon) &&
         Objects.equals(this.settlementEnabled, application.settlementEnabled) &&
         Objects.equals(this.settlementFundingIdentifier, application.settlementFundingIdentifier) &&
-        Objects.equals(this.readyToSettleUpon, application.readyToSettleUpon) &&
-        Objects.equals(this.feeReadyToSettleUpon, application.feeReadyToSettleUpon) &&
+        Objects.equals(this.tags, application.tags) &&
         Objects.equals(this.links, application.links);
   }
 
@@ -745,7 +745,7 @@ public class Application {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, id, createdAt, updatedAt, cardCvvRequired, cardExpirationDateRequired, creatingTransferFromReportEnabled, enabled, name, owner, processingEnabled, settlementEnabled, settlementFundingIdentifier, readyToSettleUpon, feeReadyToSettleUpon, links);
+    return Objects.hash(id, createdAt, updatedAt, cardCvvRequired, cardExpirationDateRequired, creatingTransferFromReportEnabled, enabled, feeReadyToSettleUpon, name, owner, processingEnabled, readyToSettleUpon, settlementEnabled, settlementFundingIdentifier, tags, links);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -759,7 +759,6 @@ public class Application {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Application {\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
@@ -767,13 +766,14 @@ public class Application {
     sb.append("    cardExpirationDateRequired: ").append(toIndentedString(cardExpirationDateRequired)).append("\n");
     sb.append("    creatingTransferFromReportEnabled: ").append(toIndentedString(creatingTransferFromReportEnabled)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    feeReadyToSettleUpon: ").append(toIndentedString(feeReadyToSettleUpon)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    processingEnabled: ").append(toIndentedString(processingEnabled)).append("\n");
+    sb.append("    readyToSettleUpon: ").append(toIndentedString(readyToSettleUpon)).append("\n");
     sb.append("    settlementEnabled: ").append(toIndentedString(settlementEnabled)).append("\n");
     sb.append("    settlementFundingIdentifier: ").append(toIndentedString(settlementFundingIdentifier)).append("\n");
-    sb.append("    readyToSettleUpon: ").append(toIndentedString(readyToSettleUpon)).append("\n");
-    sb.append("    feeReadyToSettleUpon: ").append(toIndentedString(feeReadyToSettleUpon)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -797,7 +797,6 @@ public class Application {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("tags");
     openapiFields.add("id");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
@@ -805,13 +804,14 @@ public class Application {
     openapiFields.add("card_expiration_date_required");
     openapiFields.add("creating_transfer_from_report_enabled");
     openapiFields.add("enabled");
+    openapiFields.add("fee_ready_to_settle_upon");
     openapiFields.add("name");
     openapiFields.add("owner");
     openapiFields.add("processing_enabled");
+    openapiFields.add("ready_to_settle_upon");
     openapiFields.add("settlement_enabled");
     openapiFields.add("settlement_funding_identifier");
-    openapiFields.add("ready_to_settle_upon");
-    openapiFields.add("fee_ready_to_settle_upon");
+    openapiFields.add("tags");
     openapiFields.add("_links");
 
     // a set of required properties/fields (JSON key names)
@@ -853,6 +853,13 @@ public class Application {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
+      if (jsonObj.get("fee_ready_to_settle_upon") != null && !jsonObj.get("fee_ready_to_settle_upon").isJsonNull()  && !jsonObj.get("fee_ready_to_settle_upon").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fee_ready_to_settle_upon` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_ready_to_settle_upon").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()  && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
@@ -867,13 +874,6 @@ public class Application {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("settlement_funding_identifier") != null && !jsonObj.get("settlement_funding_identifier").isJsonNull()  && !jsonObj.get("settlement_funding_identifier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `settlement_funding_identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("settlement_funding_identifier").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
       if (jsonObj.get("ready_to_settle_upon") != null && !jsonObj.get("ready_to_settle_upon").isJsonNull()  && !jsonObj.get("ready_to_settle_upon").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ready_to_settle_upon` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ready_to_settle_upon").toString()));
       }
@@ -881,8 +881,8 @@ public class Application {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("fee_ready_to_settle_upon") != null && !jsonObj.get("fee_ready_to_settle_upon").isJsonNull()  && !jsonObj.get("fee_ready_to_settle_upon").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fee_ready_to_settle_upon` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_ready_to_settle_upon").toString()));
+      if (jsonObj.get("settlement_funding_identifier") != null && !jsonObj.get("settlement_funding_identifier").isJsonNull()  && !jsonObj.get("settlement_funding_identifier").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `settlement_funding_identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("settlement_funding_identifier").toString()));
       }
       /**
       * EDITED

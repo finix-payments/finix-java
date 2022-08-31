@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import model.ListLinks;
 import model.SubscriptionAmountListEmbedded;
 import model.UsersListPage;
 
@@ -59,6 +60,10 @@ public class SubscriptionAmountList {
   public static final String SERIALIZED_NAME_EMBEDDED = "_embedded";
   @SerializedName(SERIALIZED_NAME_EMBEDDED)
   private SubscriptionAmountListEmbedded embedded;
+
+  public static final String SERIALIZED_NAME_LINKS = "_links";
+  @SerializedName(SERIALIZED_NAME_LINKS)
+  private ListLinks links;
 
   public SubscriptionAmountList() { 
   }
@@ -109,6 +114,29 @@ public class SubscriptionAmountList {
   }
 
 
+  public SubscriptionAmountList links(ListLinks links) {
+    
+    this.links = links;
+    return this;
+  }
+
+   /**
+   * Get links
+   * @return links
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ListLinks getLinks() {
+    return links;
+  }
+
+
+  public void setLinks(ListLinks links) {
+    this.links = links;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -120,12 +148,13 @@ public class SubscriptionAmountList {
     }
     SubscriptionAmountList subscriptionAmountList = (SubscriptionAmountList) o;
     return Objects.equals(this.page, subscriptionAmountList.page) &&
-        Objects.equals(this.embedded, subscriptionAmountList.embedded);
+        Objects.equals(this.embedded, subscriptionAmountList.embedded) &&
+        Objects.equals(this.links, subscriptionAmountList.links);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(page, embedded);
+    return Objects.hash(page, embedded, links);
   }
 
   @Override
@@ -134,6 +163,7 @@ public class SubscriptionAmountList {
     sb.append("class SubscriptionAmountList {\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    embedded: ").append(toIndentedString(embedded)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -158,6 +188,7 @@ public class SubscriptionAmountList {
     openapiFields = new HashSet<String>();
     openapiFields.add("page");
     openapiFields.add("_embedded");
+    openapiFields.add("_links");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

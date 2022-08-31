@@ -52,13 +52,13 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateSubscriptionAmountRequestFeeAmountData {
-  public static final String SERIALIZED_NAME_CURRENCY = "currency";
-  @SerializedName(SERIALIZED_NAME_CURRENCY)
-  private Currency currency;
-
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private Long amount;
+
+  public static final String SERIALIZED_NAME_CURRENCY = "currency";
+  @SerializedName(SERIALIZED_NAME_CURRENCY)
+  private Currency currency;
 
   public static final String SERIALIZED_NAME_LABEL = "label";
   @SerializedName(SERIALIZED_NAME_LABEL)
@@ -66,29 +66,6 @@ public class CreateSubscriptionAmountRequestFeeAmountData {
 
   public CreateSubscriptionAmountRequestFeeAmountData() { 
   }
-
-  public CreateSubscriptionAmountRequestFeeAmountData currency(Currency currency) {
-    
-    this.currency = currency;
-    return this;
-  }
-
-   /**
-   * Get currency
-   * @return currency
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
-  public Currency getCurrency() {
-    return currency;
-  }
-
-
-  public void setCurrency(Currency currency) {
-    this.currency = currency;
-  }
-
 
   public CreateSubscriptionAmountRequestFeeAmountData amount(Long amount) {
     
@@ -113,6 +90,29 @@ public class CreateSubscriptionAmountRequestFeeAmountData {
   }
 
 
+  public CreateSubscriptionAmountRequestFeeAmountData currency(Currency currency) {
+    
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * Get currency
+   * @return currency
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+
+  public Currency getCurrency() {
+    return currency;
+  }
+
+
+  public void setCurrency(Currency currency) {
+    this.currency = currency;
+  }
+
+
   public CreateSubscriptionAmountRequestFeeAmountData label(String label) {
     
     this.label = label;
@@ -123,8 +123,8 @@ public class CreateSubscriptionAmountRequestFeeAmountData {
    * The display name of the &#x60;Subscirption Amount&#x60; that can be used for filtering purposes.
    * @return label
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The display name of the `Subscirption Amount` that can be used for filtering purposes.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The display name of the `Subscirption Amount` that can be used for filtering purposes.")
 
   public String getLabel() {
     return label;
@@ -146,22 +146,22 @@ public class CreateSubscriptionAmountRequestFeeAmountData {
       return false;
     }
     CreateSubscriptionAmountRequestFeeAmountData createSubscriptionAmountRequestFeeAmountData = (CreateSubscriptionAmountRequestFeeAmountData) o;
-    return Objects.equals(this.currency, createSubscriptionAmountRequestFeeAmountData.currency) &&
-        Objects.equals(this.amount, createSubscriptionAmountRequestFeeAmountData.amount) &&
+    return Objects.equals(this.amount, createSubscriptionAmountRequestFeeAmountData.amount) &&
+        Objects.equals(this.currency, createSubscriptionAmountRequestFeeAmountData.currency) &&
         Objects.equals(this.label, createSubscriptionAmountRequestFeeAmountData.label);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currency, amount, label);
+    return Objects.hash(amount, currency, label);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateSubscriptionAmountRequestFeeAmountData {\n");
-    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -185,15 +185,14 @@ public class CreateSubscriptionAmountRequestFeeAmountData {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("currency");
     openapiFields.add("amount");
+    openapiFields.add("currency");
     openapiFields.add("label");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("currency");
     openapiRequiredFields.add("amount");
-    openapiRequiredFields.add("label");
+    openapiRequiredFields.add("currency");
   }
 
  /**

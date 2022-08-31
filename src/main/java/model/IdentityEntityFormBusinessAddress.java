@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -723,7 +724,7 @@ public class IdentityEntityFormBusinessAddress {
    * @return line2
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "Second line of the address (max 35 characters).")
+  @ApiModelProperty(value = "Second line of the address (max 35 characters).")
 
   public String getLine2() {
     return line2;
@@ -799,9 +800,20 @@ public class IdentityEntityFormBusinessAddress {
         Objects.equals(this.region, identityEntityFormBusinessAddress.region);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(city, country, line1, line2, postalCode, region);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -848,7 +860,6 @@ public class IdentityEntityFormBusinessAddress {
     openapiRequiredFields.add("city");
     openapiRequiredFields.add("country");
     openapiRequiredFields.add("line1");
-    openapiRequiredFields.add("line2");
     openapiRequiredFields.add("postal_code");
     openapiRequiredFields.add("region");
   }

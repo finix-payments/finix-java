@@ -172,8 +172,8 @@ public class DisputesApi {
     }
 
             /**
-            * Create Dispute Evidence
-            * Upload dispute evidence for a &#x60;Dispute&#x60;.  There are four values available for &#x60;state&#x60; that details the status of the evidence upload:  * **PENDING**: The evidence file has not yet been submitted to the &#x60;Processor&#x60;. No user action is required. * **SUCCEEDED**: The evidence file has been successfully sent to the &#x60;Processor&#x60;. No further user action is required. * **CANCELED**: The evidence file upload was not completed due to user action. * **FAILED**: An issue occurred. User action is required. Any of the following issues could have occurred:     * There was an error in the system and the user should retry uploading their evidence file.     * There is an issue with the file and the user should retry uploading a different file.     * There is an issue and the user should contact Support. 
+            * Upload Dispute Evidence
+            * Upload dispute evidence for a &#x60;Dispute&#x60;.  - You can upload up to 8 files; the total size of the uploaded files combined cannot exceed 10 MB. - The allowed file formats include JPG, PNG, PDF, or TIFF. - Individual PNG and JPEG files can&#39;t exceed 50 KB; PDF and TIFF files can&#39;t exceed 1 MB.
                 * @param disputeId ID of &#x60;Dispute&#x60; to mange evidence for. (required)
                 * @param createDisputeEvidenceRequest  (optional)
                 * @return DisputeEvidence
@@ -197,8 +197,8 @@ public class DisputesApi {
 
 
     /**
-        * Create Dispute Evidence
-        * Upload dispute evidence for a &#x60;Dispute&#x60;.  There are four values available for &#x60;state&#x60; that details the status of the evidence upload:  * **PENDING**: The evidence file has not yet been submitted to the &#x60;Processor&#x60;. No user action is required. * **SUCCEEDED**: The evidence file has been successfully sent to the &#x60;Processor&#x60;. No further user action is required. * **CANCELED**: The evidence file upload was not completed due to user action. * **FAILED**: An issue occurred. User action is required. Any of the following issues could have occurred:     * There was an error in the system and the user should retry uploading their evidence file.     * There is an issue with the file and the user should retry uploading a different file.     * There is an issue and the user should contact Support. 
+        * Upload Dispute Evidence
+        * Upload dispute evidence for a &#x60;Dispute&#x60;.  - You can upload up to 8 files; the total size of the uploaded files combined cannot exceed 10 MB. - The allowed file formats include JPG, PNG, PDF, or TIFF. - Individual PNG and JPEG files can&#39;t exceed 50 KB; PDF and TIFF files can&#39;t exceed 1 MB.
             * @param disputeId ID of &#x60;Dispute&#x60; to mange evidence for. (required)
             * @param createDisputeEvidenceRequest  (optional)
         * @return ApiResponse&lt;DisputeEvidence&gt;
@@ -220,8 +220,8 @@ public class DisputesApi {
     }
 
     /**
-        * Create Dispute Evidence (asynchronously)
-        * Upload dispute evidence for a &#x60;Dispute&#x60;.  There are four values available for &#x60;state&#x60; that details the status of the evidence upload:  * **PENDING**: The evidence file has not yet been submitted to the &#x60;Processor&#x60;. No user action is required. * **SUCCEEDED**: The evidence file has been successfully sent to the &#x60;Processor&#x60;. No further user action is required. * **CANCELED**: The evidence file upload was not completed due to user action. * **FAILED**: An issue occurred. User action is required. Any of the following issues could have occurred:     * There was an error in the system and the user should retry uploading their evidence file.     * There is an issue with the file and the user should retry uploading a different file.     * There is an issue and the user should contact Support. 
+        * Upload Dispute Evidence (asynchronously)
+        * Upload dispute evidence for a &#x60;Dispute&#x60;.  - You can upload up to 8 files; the total size of the uploaded files combined cannot exceed 10 MB. - The allowed file formats include JPG, PNG, PDF, or TIFF. - Individual PNG and JPEG files can&#39;t exceed 50 KB; PDF and TIFF files can&#39;t exceed 1 MB.
             * @param disputeId ID of &#x60;Dispute&#x60; to mange evidence for. (required)
             * @param createDisputeEvidenceRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
@@ -323,7 +323,7 @@ public class DisputesApi {
     }
 
             /**
-            * Get Dispute
+            * Fetch a Dispute
             * Retrieve the details of a previously created &#x60;Dispute&#x60;.
                 * @param disputeId ID of &#x60;Dispute&#x60; to fetch. (required)
                 * @return Dispute
@@ -347,7 +347,7 @@ public class DisputesApi {
 
 
     /**
-        * Get Dispute
+        * Fetch a Dispute
         * Retrieve the details of a previously created &#x60;Dispute&#x60;.
             * @param disputeId ID of &#x60;Dispute&#x60; to fetch. (required)
         * @return ApiResponse&lt;Dispute&gt;
@@ -369,7 +369,7 @@ public class DisputesApi {
     }
 
     /**
-        * Get Dispute (asynchronously)
+        * Fetch a Dispute (asynchronously)
         * Retrieve the details of a previously created &#x60;Dispute&#x60;.
             * @param disputeId ID of &#x60;Dispute&#x60; to fetch. (required)
         * @param _callback The callback to be executed when the API call finishes
@@ -651,7 +651,7 @@ public class DisputesApi {
 
         /**
         * Set limit
-        * @param limit The numbers of items to return (optional)
+        * @param limit The numbers of items to return. (optional)
         * @return APIlistDisputeEvidenceRequest
         */
         public APIlistDisputeEvidenceRequest limit(Long limit) {
@@ -927,7 +927,7 @@ public class DisputesApi {
 
         /**
         * Set sort
-        * @param sort Specify key to be used for sorting the collection (optional)
+        * @param sort Specify key to be used for sorting the collection. (optional)
         * @return APIlistDisputesRequest
         */
         public APIlistDisputesRequest sort(String sort) {
@@ -937,7 +937,7 @@ public class DisputesApi {
 
         /**
         * Set offset
-        * @param offset The number of items to skip before starting to collect the result set (optional)
+        * @param offset The number of items to skip before starting to collect the result set. (optional)
         * @return APIlistDisputesRequest
         */
         public APIlistDisputesRequest offset(Long offset) {
@@ -947,7 +947,7 @@ public class DisputesApi {
 
         /**
         * Set limit
-        * @param limit The numbers of items to return (optional)
+        * @param limit The numbers of items to return. (optional)
         * @return APIlistDisputesRequest
         */
         public APIlistDisputesRequest limit(Long limit) {
@@ -957,7 +957,7 @@ public class DisputesApi {
 
         /**
         * Set createdAtGte
-        * @param createdAtGte Filter where created_at is after the given date. (optional)
+        * @param createdAtGte Filter where &#x60;created_at&#x60; is after the given date. (optional)
         * @return APIlistDisputesRequest
         */
         public APIlistDisputesRequest createdAtGte(String createdAtGte) {
@@ -967,7 +967,7 @@ public class DisputesApi {
 
         /**
         * Set createdAtLte
-        * @param createdAtLte Filter where created_at is before the given date. (optional)
+        * @param createdAtLte Filter where &#x60;created_at&#x60; is before the given date. (optional)
         * @return APIlistDisputesRequest
         */
         public APIlistDisputesRequest createdAtLte(String createdAtLte) {
@@ -977,7 +977,7 @@ public class DisputesApi {
 
         /**
         * Set updatedAtGte
-        * @param updatedAtGte Filter where updated_at is after the given date (optional)
+        * @param updatedAtGte Filter where &#x60;updated_at&#x60; is after the given date. (optional)
         * @return APIlistDisputesRequest
         */
         public APIlistDisputesRequest updatedAtGte(String updatedAtGte) {
@@ -987,7 +987,7 @@ public class DisputesApi {
 
         /**
         * Set updatedAtLte
-        * @param updatedAtLte Filter where updated_at is before the given date (optional)
+        * @param updatedAtLte Filter where &#x60;updated_at&#x60; is before the given date. (optional)
         * @return APIlistDisputesRequest
         */
         public APIlistDisputesRequest updatedAtLte(String updatedAtLte) {
@@ -1229,7 +1229,7 @@ public class DisputesApi {
 
         /**
         * Set limit
-        * @param limit The numbers of items to return (optional)
+        * @param limit The numbers of items to return. (optional)
         * @return APIlistDisputesAdjustmentsRequest
         */
         public APIlistDisputesAdjustmentsRequest limit(Long limit) {

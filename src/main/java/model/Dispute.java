@@ -58,10 +58,6 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Dispute {
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
-
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -107,7 +103,7 @@ public class Dispute {
   private OffsetDateTime occurredAt;
 
   /**
-   * The system-defined reason for the &#x60;Dispute&#x60;. Available values include:&lt;ul&gt;&lt;li&gt;**INQUIRY**&lt;li&gt;**QUALITY**&lt;li&gt;**CLERICAL**&lt;li&gt;**FRAUD**&lt;li&gt;**TECHNICAL**&lt;/ul&gt;
+   * The system-defined reason for the &#x60;Dispute&#x60;. Available values include:&lt;ul&gt;&lt;li&gt;**INQUIRY**&lt;li&gt;**QUALITY**&lt;li&gt;**FRAUD**
    */
   @JsonAdapter(ReasonEnum.Adapter.class)
   public enum ReasonEnum {
@@ -266,6 +262,10 @@ public class Dispute {
   @SerializedName(SERIALIZED_NAME_STATE)
   private StateEnum state;
 
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
+
   public static final String SERIALIZED_NAME_TRANSFER = "transfer";
   @SerializedName(SERIALIZED_NAME_TRANSFER)
   private String transfer;
@@ -276,37 +276,6 @@ public class Dispute {
 
   public Dispute() { 
   }
-
-  public Dispute tags(Map<String, String> tags) {
-    
-    this.tags = tags;
-    return this;
-  }
-
-  public Dispute putTagsItem(String key, String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new HashMap<>();
-    }
-    this.tags.put(key, tagsItem);
-    return this;
-  }
-
-   /**
-   * Key value pair for annotating custom meta data (e.g. order numbers).
-   * @return tags
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
-
-  public Map<String, String> getTags() {
-    return tags;
-  }
-
-
-  public void setTags(Map<String, String> tags) {
-    this.tags = tags;
-  }
-
 
   public Dispute id(String id) {
     
@@ -484,11 +453,11 @@ public class Dispute {
   }
 
    /**
-   * Details about the &#x60;Dispute&#x60; recieved by the &#x60;Processor&#x60;.
+   * Details about the &#x60;Dispute&#x60; recieved by the &#x60;Processor&#x60;. May be any type of data.
    * @return disputeDetails
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Details about the `Dispute` recieved by the `Processor`.")
+  @ApiModelProperty(value = "Details about the `Dispute` recieved by the `Processor`. May be any type of data.")
 
   public Map<String, Object> getDisputeDetails() {
     return disputeDetails;
@@ -530,11 +499,11 @@ public class Dispute {
   }
 
    /**
-   * Message field that provides additional details. This field is typically null.
+   * Message field that provides additional details. This field is typically **null**.
    * @return message
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Message field that provides additional details. This field is typically null.")
+  @ApiModelProperty(value = "Message field that provides additional details. This field is typically **null**.")
 
   public String getMessage() {
     return message;
@@ -576,11 +545,11 @@ public class Dispute {
   }
 
    /**
-   * The system-defined reason for the &#x60;Dispute&#x60;. Available values include:&lt;ul&gt;&lt;li&gt;**INQUIRY**&lt;li&gt;**QUALITY**&lt;li&gt;**CLERICAL**&lt;li&gt;**FRAUD**&lt;li&gt;**TECHNICAL**&lt;/ul&gt;
+   * The system-defined reason for the &#x60;Dispute&#x60;. Available values include:&lt;ul&gt;&lt;li&gt;**INQUIRY**&lt;li&gt;**QUALITY**&lt;li&gt;**FRAUD**
    * @return reason
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The system-defined reason for the `Dispute`. Available values include:<ul><li>**INQUIRY**<li>**QUALITY**<li>**CLERICAL**<li>**FRAUD**<li>**TECHNICAL**</ul>")
+  @ApiModelProperty(value = "The system-defined reason for the `Dispute`. Available values include:<ul><li>**INQUIRY**<li>**QUALITY**<li>**FRAUD**")
 
   public ReasonEnum getReason() {
     return reason;
@@ -635,6 +604,37 @@ public class Dispute {
 
   public void setState(StateEnum state) {
     this.state = state;
+  }
+
+
+  public Dispute tags(Map<String, String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public Dispute putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
+    return this;
+  }
+
+   /**
+   * Key value pair for annotating custom meta data (e.g. order numbers).
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
+
+  public Map<String, String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(Map<String, String> tags) {
+    this.tags = tags;
   }
 
 
@@ -694,8 +694,7 @@ public class Dispute {
       return false;
     }
     Dispute dispute = (Dispute) o;
-    return Objects.equals(this.tags, dispute.tags) &&
-        Objects.equals(this.id, dispute.id) &&
+    return Objects.equals(this.id, dispute.id) &&
         Objects.equals(this.createdAt, dispute.createdAt) &&
         Objects.equals(this.updatedAt, dispute.updatedAt) &&
         Objects.equals(this.action, dispute.action) &&
@@ -709,6 +708,7 @@ public class Dispute {
         Objects.equals(this.reason, dispute.reason) &&
         Objects.equals(this.respondBy, dispute.respondBy) &&
         Objects.equals(this.state, dispute.state) &&
+        Objects.equals(this.tags, dispute.tags) &&
         Objects.equals(this.transfer, dispute.transfer) &&
         Objects.equals(this.links, dispute.links);
   }
@@ -719,7 +719,7 @@ public class Dispute {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, id, createdAt, updatedAt, action, amount, application, currency, disputeDetails, identity, message, occurredAt, reason, respondBy, state, transfer, links);
+    return Objects.hash(id, createdAt, updatedAt, action, amount, application, currency, disputeDetails, identity, message, occurredAt, reason, respondBy, state, tags, transfer, links);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -733,7 +733,6 @@ public class Dispute {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Dispute {\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
@@ -748,6 +747,7 @@ public class Dispute {
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    respondBy: ").append(toIndentedString(respondBy)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    transfer: ").append(toIndentedString(transfer)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
@@ -772,7 +772,6 @@ public class Dispute {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("tags");
     openapiFields.add("id");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
@@ -787,6 +786,7 @@ public class Dispute {
     openapiFields.add("reason");
     openapiFields.add("respond_by");
     openapiFields.add("state");
+    openapiFields.add("tags");
     openapiFields.add("transfer");
     openapiFields.add("_links");
 

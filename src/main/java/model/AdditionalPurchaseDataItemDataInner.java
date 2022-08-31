@@ -99,8 +99,8 @@ public class AdditionalPurchaseDataItemDataInner {
    * Total cost in cents of the line item excluding tax.
    * @return amountExcludingSalesTax
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Total cost in cents of the line item excluding tax.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Total cost in cents of the line item excluding tax.")
 
   public Long getAmountExcludingSalesTax() {
     return amountExcludingSalesTax;
@@ -122,8 +122,8 @@ public class AdditionalPurchaseDataItemDataInner {
    * Total cost in cents of the line item including tax.
    * @return amountIncludingSalesTax
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Total cost in cents of the line item including tax.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Total cost in cents of the line item including tax.")
 
   public Long getAmountIncludingSalesTax() {
     return amountIncludingSalesTax;
@@ -145,8 +145,8 @@ public class AdditionalPurchaseDataItemDataInner {
    * A commodity code is a numeric code representing a particular product or service as defined by the National Institute of Governmental Purchasing. The code can be 3, 5, 7, or 11 digits in length. The longer the code the more granular the description of the product/service. (max 12 characters).
    * @return commodityCode
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A commodity code is a numeric code representing a particular product or service as defined by the National Institute of Governmental Purchasing. The code can be 3, 5, 7, or 11 digits in length. The longer the code the more granular the description of the product/service. (max 12 characters).")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A commodity code is a numeric code representing a particular product or service as defined by the National Institute of Governmental Purchasing. The code can be 3, 5, 7, or 11 digits in length. The longer the code the more granular the description of the product/service. (max 12 characters).")
 
   public String getCommodityCode() {
     return commodityCode;
@@ -168,8 +168,8 @@ public class AdditionalPurchaseDataItemDataInner {
    * The price in cents of one unit of the item purchased
    * @return costPerUnit
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The price in cents of one unit of the item purchased")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The price in cents of one unit of the item purchased")
 
   public Long getCostPerUnit() {
     return costPerUnit;
@@ -191,8 +191,8 @@ public class AdditionalPurchaseDataItemDataInner {
    * Required when &#x60;item_data&#x60; is supplied (max 25 characters)
    * @return itemDescription
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Required when `item_data` is supplied (max 25 characters)")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Required when `item_data` is supplied (max 25 characters)")
 
   public String getItemDescription() {
     return itemDescription;
@@ -214,8 +214,8 @@ public class AdditionalPurchaseDataItemDataInner {
    * Item discount amount in cents 
    * @return itemDiscountAmount
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Item discount amount in cents ")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Item discount amount in cents ")
 
   public Long getItemDiscountAmount() {
     return itemDiscountAmount;
@@ -237,8 +237,8 @@ public class AdditionalPurchaseDataItemDataInner {
    * Merchant defined product code (max 12 characters).
    * @return merchantProductCode
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Merchant defined product code (max 12 characters).")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Merchant defined product code (max 12 characters).")
 
   public String getMerchantProductCode() {
     return merchantProductCode;
@@ -260,8 +260,8 @@ public class AdditionalPurchaseDataItemDataInner {
    * The number of items purchased. Must be greater than 0.
    * @return quantity
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The number of items purchased. Must be greater than 0.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The number of items purchased. Must be greater than 0.")
 
   public Long getQuantity() {
     return quantity;
@@ -283,8 +283,8 @@ public class AdditionalPurchaseDataItemDataInner {
    * The unit of measure of the purchased item (max 3 characters).
    * @return unitOfMeasure
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The unit of measure of the purchased item (max 3 characters).")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The unit of measure of the purchased item (max 3 characters).")
 
   public String getUnitOfMeasure() {
     return unitOfMeasure;
@@ -369,15 +369,6 @@ public class AdditionalPurchaseDataItemDataInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("amount_excluding_sales_tax");
-    openapiRequiredFields.add("amount_including_sales_tax");
-    openapiRequiredFields.add("commodity_code");
-    openapiRequiredFields.add("cost_per_unit");
-    openapiRequiredFields.add("item_description");
-    openapiRequiredFields.add("item_discount_amount");
-    openapiRequiredFields.add("merchant_product_code");
-    openapiRequiredFields.add("quantity");
-    openapiRequiredFields.add("unit_of_measure");
   }
 
  /**
@@ -404,18 +395,6 @@ public class AdditionalPurchaseDataItemDataInner {
         }
       }
       */
-
-      /**
-      * EDITED
-      * Commented to ByPass required properties/fields are present in the JSON string
-      */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : AdditionalPurchaseDataItemDataInner.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour

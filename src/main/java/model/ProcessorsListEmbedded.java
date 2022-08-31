@@ -49,8 +49,9 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * ProcessorsListEmbedded
+ * List of &#x60;Processors&#x60; objects.
  */
+@ApiModel(description = "List of `Processors` objects.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ProcessorsListEmbedded {
@@ -76,11 +77,11 @@ public class ProcessorsListEmbedded {
   }
 
    /**
-   * &#x60;Processors&#x60; object.
+   * &#x60;Processors&#x60; objects.
    * @return processors
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "`Processors` object.")
+  @ApiModelProperty(value = "`Processors` objects.")
 
   public Set<Processor> getProcessors() {
     return processors;

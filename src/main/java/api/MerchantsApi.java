@@ -173,7 +173,7 @@ public class MerchantsApi {
 
             /**
             * Create a Merchant
-            * Create a &#x60;Merchant&#x60; to start the underwriting process for your merchant. &#x60;Merchants&#x60; must be created under an [&#x60;Identity&#x60;](#tag/Identities).  &gt; A bank account must be associated with the previously created &#x60;Identity&#x60; before a &#x60;Merchant&#x60; can be succefully onboarded and verified.  &#x60;Merchant&#x60; resources can have three possible &#x60;onboarding_states&#x60;:  1. **PROVISIONING**: The request is pending (the state may change after two minutes).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**  1. **APPROVED**: The &#x60;Merchant&#x60; has been approved and can begin processing payments.     * &#x60;processing_enabled&#x60;: **True**    * &#x60;settlement_enabled&#x60;: **True**  1. **REJECTED**: The &#x60;Merchant&#x60; was rejected by the processor because of invalid information or it failed a regulatory and/or compliance check (e.g. KYC, OFAC, or MATCH). Make any changes that are needed, and [try verifying the &#x60;Merchant&#x60; again](#operation/createMerchantVerification).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**   &gt; Provisioning a &#x60;Merchant&#x60; account is an asynchronous request. We recommend creating a [&#x60;Webhook&#x60;](#tag/Webhooks) to listen for the state change.
+            * Create a &#x60;Merchant&#x60; to start the underwriting (also called provisioning) process for your merchant. &#x60;Merchants&#x60; must be created under an [&#x60;Identity&#x60;](#tag/Identities).  &gt; A bank account must be associated with the previously created &#x60;Identity&#x60; before a &#x60;Merchant&#x60; can be succefully onboarded and verified.  &#x60;Merchant&#x60; resources can have three possible &#x60;onboarding_states&#x60;:  1. **PROVISIONING**: The request is pending (the state can change after two minutes).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**  1. **APPROVED**: The &#x60;Merchant&#x60; has been approved and can begin processing payments.     * &#x60;processing_enabled&#x60;: **True**    * &#x60;settlement_enabled&#x60;: **True**  1. **REJECTED**: The &#x60;Merchant&#x60; was rejected by the processor because of invalid information or it failed a regulatory and/or compliance check (e.g. KYC, OFAC, or MATCH). Make any changes that are needed, and [try verifying the &#x60;Merchant&#x60; again](#operation/createMerchantVerification).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**   &gt; Provisioning a &#x60;Merchant&#x60; account is an asynchronous request. We recommend creating a [&#x60;Webhook&#x60;](#tag/Webhooks) to listen for the state change.
                 * @param identityId ID of &#x60;Identity&#x60; to fetch. (required)
                 * @param createMerchantUnderwritingRequest  (optional)
                 * @return Merchant
@@ -200,7 +200,7 @@ public class MerchantsApi {
 
     /**
         * Create a Merchant
-        * Create a &#x60;Merchant&#x60; to start the underwriting process for your merchant. &#x60;Merchants&#x60; must be created under an [&#x60;Identity&#x60;](#tag/Identities).  &gt; A bank account must be associated with the previously created &#x60;Identity&#x60; before a &#x60;Merchant&#x60; can be succefully onboarded and verified.  &#x60;Merchant&#x60; resources can have three possible &#x60;onboarding_states&#x60;:  1. **PROVISIONING**: The request is pending (the state may change after two minutes).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**  1. **APPROVED**: The &#x60;Merchant&#x60; has been approved and can begin processing payments.     * &#x60;processing_enabled&#x60;: **True**    * &#x60;settlement_enabled&#x60;: **True**  1. **REJECTED**: The &#x60;Merchant&#x60; was rejected by the processor because of invalid information or it failed a regulatory and/or compliance check (e.g. KYC, OFAC, or MATCH). Make any changes that are needed, and [try verifying the &#x60;Merchant&#x60; again](#operation/createMerchantVerification).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**   &gt; Provisioning a &#x60;Merchant&#x60; account is an asynchronous request. We recommend creating a [&#x60;Webhook&#x60;](#tag/Webhooks) to listen for the state change.
+        * Create a &#x60;Merchant&#x60; to start the underwriting (also called provisioning) process for your merchant. &#x60;Merchants&#x60; must be created under an [&#x60;Identity&#x60;](#tag/Identities).  &gt; A bank account must be associated with the previously created &#x60;Identity&#x60; before a &#x60;Merchant&#x60; can be succefully onboarded and verified.  &#x60;Merchant&#x60; resources can have three possible &#x60;onboarding_states&#x60;:  1. **PROVISIONING**: The request is pending (the state can change after two minutes).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**  1. **APPROVED**: The &#x60;Merchant&#x60; has been approved and can begin processing payments.     * &#x60;processing_enabled&#x60;: **True**    * &#x60;settlement_enabled&#x60;: **True**  1. **REJECTED**: The &#x60;Merchant&#x60; was rejected by the processor because of invalid information or it failed a regulatory and/or compliance check (e.g. KYC, OFAC, or MATCH). Make any changes that are needed, and [try verifying the &#x60;Merchant&#x60; again](#operation/createMerchantVerification).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**   &gt; Provisioning a &#x60;Merchant&#x60; account is an asynchronous request. We recommend creating a [&#x60;Webhook&#x60;](#tag/Webhooks) to listen for the state change.
             * @param identityId ID of &#x60;Identity&#x60; to fetch. (required)
             * @param createMerchantUnderwritingRequest  (optional)
         * @return ApiResponse&lt;Merchant&gt;
@@ -225,7 +225,7 @@ public class MerchantsApi {
 
     /**
         * Create a Merchant (asynchronously)
-        * Create a &#x60;Merchant&#x60; to start the underwriting process for your merchant. &#x60;Merchants&#x60; must be created under an [&#x60;Identity&#x60;](#tag/Identities).  &gt; A bank account must be associated with the previously created &#x60;Identity&#x60; before a &#x60;Merchant&#x60; can be succefully onboarded and verified.  &#x60;Merchant&#x60; resources can have three possible &#x60;onboarding_states&#x60;:  1. **PROVISIONING**: The request is pending (the state may change after two minutes).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**  1. **APPROVED**: The &#x60;Merchant&#x60; has been approved and can begin processing payments.     * &#x60;processing_enabled&#x60;: **True**    * &#x60;settlement_enabled&#x60;: **True**  1. **REJECTED**: The &#x60;Merchant&#x60; was rejected by the processor because of invalid information or it failed a regulatory and/or compliance check (e.g. KYC, OFAC, or MATCH). Make any changes that are needed, and [try verifying the &#x60;Merchant&#x60; again](#operation/createMerchantVerification).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**   &gt; Provisioning a &#x60;Merchant&#x60; account is an asynchronous request. We recommend creating a [&#x60;Webhook&#x60;](#tag/Webhooks) to listen for the state change.
+        * Create a &#x60;Merchant&#x60; to start the underwriting (also called provisioning) process for your merchant. &#x60;Merchants&#x60; must be created under an [&#x60;Identity&#x60;](#tag/Identities).  &gt; A bank account must be associated with the previously created &#x60;Identity&#x60; before a &#x60;Merchant&#x60; can be succefully onboarded and verified.  &#x60;Merchant&#x60; resources can have three possible &#x60;onboarding_states&#x60;:  1. **PROVISIONING**: The request is pending (the state can change after two minutes).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**  1. **APPROVED**: The &#x60;Merchant&#x60; has been approved and can begin processing payments.     * &#x60;processing_enabled&#x60;: **True**    * &#x60;settlement_enabled&#x60;: **True**  1. **REJECTED**: The &#x60;Merchant&#x60; was rejected by the processor because of invalid information or it failed a regulatory and/or compliance check (e.g. KYC, OFAC, or MATCH). Make any changes that are needed, and [try verifying the &#x60;Merchant&#x60; again](#operation/createMerchantVerification).     * &#x60;processing_enabled&#x60;: **False**     * &#x60;settlement_enabled&#x60;: **False**   &gt; Provisioning a &#x60;Merchant&#x60; account is an asynchronous request. We recommend creating a [&#x60;Webhook&#x60;](#tag/Webhooks) to listen for the state change.
             * @param identityId ID of &#x60;Identity&#x60; to fetch. (required)
             * @param createMerchantUnderwritingRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
@@ -332,7 +332,7 @@ public class MerchantsApi {
 
             /**
             * Verify a Merchant
-            * Verify a merchant either to reattempt provisioning, or when the merchant&#39;s &#x60;Identity&#x60; was updated.
+            * If the &#x60;onboarding_state&#x60; for a &#x60;Merchant&#x60; returns **FAILED**, correct the &#x60;Identity&#x60; information saved for the &#x60;Merchant&#x60;. Once corrected, try verifying (also called provisioning) the &#x60;Merchant&#x60; again with another request.
                 * @param merchantId ID of &#x60;Merchant&#x60; object. (required)
                 * @param createVerificationRequest  (optional)
                 * @return Verification
@@ -358,7 +358,7 @@ public class MerchantsApi {
 
     /**
         * Verify a Merchant
-        * Verify a merchant either to reattempt provisioning, or when the merchant&#39;s &#x60;Identity&#x60; was updated.
+        * If the &#x60;onboarding_state&#x60; for a &#x60;Merchant&#x60; returns **FAILED**, correct the &#x60;Identity&#x60; information saved for the &#x60;Merchant&#x60;. Once corrected, try verifying (also called provisioning) the &#x60;Merchant&#x60; again with another request.
             * @param merchantId ID of &#x60;Merchant&#x60; object. (required)
             * @param createVerificationRequest  (optional)
         * @return ApiResponse&lt;Verification&gt;
@@ -382,7 +382,7 @@ public class MerchantsApi {
 
     /**
         * Verify a Merchant (asynchronously)
-        * Verify a merchant either to reattempt provisioning, or when the merchant&#39;s &#x60;Identity&#x60; was updated.
+        * If the &#x60;onboarding_state&#x60; for a &#x60;Merchant&#x60; returns **FAILED**, correct the &#x60;Identity&#x60; information saved for the &#x60;Merchant&#x60;. Once corrected, try verifying (also called provisioning) the &#x60;Merchant&#x60; again with another request.
             * @param merchantId ID of &#x60;Merchant&#x60; object. (required)
             * @param createVerificationRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
@@ -485,7 +485,7 @@ public class MerchantsApi {
     }
 
             /**
-            * Get a Merchant
+            * Fetch a Merchant
             * Retrieve the details of a &#x60;Merchant&#x60;.
                 * @param merchantId ID of &#x60;Merchant&#x60;. (required)
                 * @return Merchant
@@ -509,7 +509,7 @@ public class MerchantsApi {
 
 
     /**
-        * Get a Merchant
+        * Fetch a Merchant
         * Retrieve the details of a &#x60;Merchant&#x60;.
             * @param merchantId ID of &#x60;Merchant&#x60;. (required)
         * @return ApiResponse&lt;Merchant&gt;
@@ -531,7 +531,7 @@ public class MerchantsApi {
     }
 
     /**
-        * Get a Merchant (asynchronously)
+        * Fetch a Merchant (asynchronously)
         * Retrieve the details of a &#x60;Merchant&#x60;.
             * @param merchantId ID of &#x60;Merchant&#x60;. (required)
         * @param _callback The callback to be executed when the API call finishes
@@ -554,7 +554,7 @@ public class MerchantsApi {
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-    private okhttp3.Call listMerchantsCall(String id, String createdAtGte, String createdAtLte, String sort, String afterCursor, Long limit, String beforeCursor, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listMerchantsCall(String id, String createdAtGte, String createdAtLte, String afterCursor, String beforeCursor, Long limit, String sort, final ApiCallback _callback) throws ApiException {
         String basePath = null;
     // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -591,20 +591,20 @@ public class MerchantsApi {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("created_at.lte", createdAtLte));
         }
 
-        if (sort != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("sort", sort));
-        }
-
         if (afterCursor != null) {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("after_cursor", afterCursor));
+        }
+
+        if (beforeCursor != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("before_cursor", beforeCursor));
         }
 
         if (limit != null) {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("limit", limit));
         }
 
-        if (beforeCursor != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("before_cursor", beforeCursor));
+        if (sort != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("sort", sort));
         }
 
         final String[] localVarAccepts = {
@@ -630,24 +630,24 @@ public class MerchantsApi {
     }
 
         @SuppressWarnings("rawtypes")
-    private okhttp3.Call listMerchantsValidateBeforeCall(String id, String createdAtGte, String createdAtLte, String sort, String afterCursor, Long limit, String beforeCursor, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listMerchantsValidateBeforeCall(String id, String createdAtGte, String createdAtLte, String afterCursor, String beforeCursor, Long limit, String sort, final ApiCallback _callback) throws ApiException {
     
 
-        okhttp3.Call localVarCall = listMerchantsCall(id, createdAtGte, createdAtLte, sort, afterCursor, limit, beforeCursor, _callback);
+        okhttp3.Call localVarCall = listMerchantsCall(id, createdAtGte, createdAtLte, afterCursor, beforeCursor, limit, sort, _callback);
         return localVarCall;
 
     }
 
 
-    private ApiResponse<MerchantsList> listMerchantsWithHttpInfo(String id, String createdAtGte, String createdAtLte, String sort, String afterCursor, Long limit, String beforeCursor) throws ApiException {
-        okhttp3.Call localVarCall = listMerchantsValidateBeforeCall(id, createdAtGte, createdAtLte, sort, afterCursor, limit, beforeCursor, null);
+    private ApiResponse<MerchantsList> listMerchantsWithHttpInfo(String id, String createdAtGte, String createdAtLte, String afterCursor, String beforeCursor, Long limit, String sort) throws ApiException {
+        okhttp3.Call localVarCall = listMerchantsValidateBeforeCall(id, createdAtGte, createdAtLte, afterCursor, beforeCursor, limit, sort, null);
         Type localVarReturnType = new TypeToken<MerchantsList>(){}.getType();
         return localVarFinixClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listMerchantsAsync(String id, String createdAtGte, String createdAtLte, String sort, String afterCursor, Long limit, String beforeCursor, final ApiCallback<MerchantsList> _callback) throws ApiException {
+    private okhttp3.Call listMerchantsAsync(String id, String createdAtGte, String createdAtLte, String afterCursor, String beforeCursor, Long limit, String sort, final ApiCallback<MerchantsList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listMerchantsValidateBeforeCall(id, createdAtGte, createdAtLte, sort, afterCursor, limit, beforeCursor, _callback);
+        okhttp3.Call localVarCall = listMerchantsValidateBeforeCall(id, createdAtGte, createdAtLte, afterCursor, beforeCursor, limit, sort, _callback);
         Type localVarReturnType = new TypeToken<MerchantsList>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -657,17 +657,17 @@ public class MerchantsApi {
         private String id;
         private String createdAtGte;
         private String createdAtLte;
-        private String sort;
         private String afterCursor;
-        private Long limit;
         private String beforeCursor;
+        private Long limit;
+        private String sort;
 
         private APIlistMerchantsRequest() {
         }
 
         /**
         * Set id
-        * @param id Filter by id (optional)
+        * @param id Filter by &#x60;id&#x60;. (optional)
         * @return APIlistMerchantsRequest
         */
         public APIlistMerchantsRequest id(String id) {
@@ -677,7 +677,7 @@ public class MerchantsApi {
 
         /**
         * Set createdAtGte
-        * @param createdAtGte Filter where created_at is after the given date. (optional)
+        * @param createdAtGte Filter where &#x60;created_at&#x60; is after the given date. (optional)
         * @return APIlistMerchantsRequest
         */
         public APIlistMerchantsRequest createdAtGte(String createdAtGte) {
@@ -687,21 +687,11 @@ public class MerchantsApi {
 
         /**
         * Set createdAtLte
-        * @param createdAtLte Filter where created_at is before the given date. (optional)
+        * @param createdAtLte Filter where &#x60;created_at&#x60; is before the given date. (optional)
         * @return APIlistMerchantsRequest
         */
         public APIlistMerchantsRequest createdAtLte(String createdAtLte) {
             this.createdAtLte = createdAtLte;
-            return this;
-        }
-
-        /**
-        * Set sort
-        * @param sort Specify key to be used for sorting the collection (optional)
-        * @return APIlistMerchantsRequest
-        */
-        public APIlistMerchantsRequest sort(String sort) {
-            this.sort = sort;
             return this;
         }
 
@@ -716,8 +706,18 @@ public class MerchantsApi {
         }
 
         /**
+        * Set beforeCursor
+        * @param beforeCursor Return every resource created before the cursor value. (optional)
+        * @return APIlistMerchantsRequest
+        */
+        public APIlistMerchantsRequest beforeCursor(String beforeCursor) {
+            this.beforeCursor = beforeCursor;
+            return this;
+        }
+
+        /**
         * Set limit
-        * @param limit The numbers of items to return (optional)
+        * @param limit The numbers of items to return. (optional)
         * @return APIlistMerchantsRequest
         */
         public APIlistMerchantsRequest limit(Long limit) {
@@ -726,12 +726,12 @@ public class MerchantsApi {
         }
 
         /**
-        * Set beforeCursor
-        * @param beforeCursor Return every resource created before the cursor value. (optional)
+        * Set sort
+        * @param sort Specify key to be used for sorting the collection. (optional)
         * @return APIlistMerchantsRequest
         */
-        public APIlistMerchantsRequest beforeCursor(String beforeCursor) {
-            this.beforeCursor = beforeCursor;
+        public APIlistMerchantsRequest sort(String sort) {
+            this.sort = sort;
             return this;
         }
 
@@ -752,7 +752,7 @@ public class MerchantsApi {
             </table>
         */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listMerchantsCall(id, createdAtGte, createdAtLte, sort, afterCursor, limit, beforeCursor, _callback);
+            return listMerchantsCall(id, createdAtGte, createdAtLte, afterCursor, beforeCursor, limit, sort, _callback);
         }
 
         /**
@@ -771,7 +771,7 @@ public class MerchantsApi {
             </table>
         */
         public MerchantsList execute() throws ApiException {
-            ApiResponse<MerchantsList> localVarResp = listMerchantsWithHttpInfo(id, createdAtGte, createdAtLte, sort, afterCursor, limit, beforeCursor);
+            ApiResponse<MerchantsList> localVarResp = listMerchantsWithHttpInfo(id, createdAtGte, createdAtLte, afterCursor, beforeCursor, limit, sort);
             return localVarResp.getData();
         }
 
@@ -791,7 +791,7 @@ public class MerchantsApi {
             </table>
         */
         public ApiResponse<MerchantsList> executeWithHttpInfo() throws ApiException {
-            return listMerchantsWithHttpInfo(id, createdAtGte, createdAtLte, sort, afterCursor, limit, beforeCursor);
+            return listMerchantsWithHttpInfo(id, createdAtGte, createdAtLte, afterCursor, beforeCursor, limit, sort);
         }
 
         /**
@@ -811,7 +811,7 @@ public class MerchantsApi {
             </table>
         */
         public okhttp3.Call executeAsync(final ApiCallback<MerchantsList> _callback) throws ApiException {
-            return listMerchantsAsync(id, createdAtGte, createdAtLte, sort, afterCursor, limit, beforeCursor, _callback);
+            return listMerchantsAsync(id, createdAtGte, createdAtLte, afterCursor, beforeCursor, limit, sort, _callback);
         }
     }
 
@@ -838,10 +838,10 @@ public class MerchantsApi {
         request.id(listMerchantsQueryParams.getId());
         request.createdAtGte(listMerchantsQueryParams.getCreatedAtGte());
         request.createdAtLte(listMerchantsQueryParams.getCreatedAtLte());
-        request.sort(listMerchantsQueryParams.getSort());
         request.afterCursor(listMerchantsQueryParams.getAfterCursor());
-        request.limit(listMerchantsQueryParams.getLimit());
         request.beforeCursor(listMerchantsQueryParams.getBeforeCursor());
+        request.limit(listMerchantsQueryParams.getLimit());
+        request.sort(listMerchantsQueryParams.getSort());
         MerchantsList response = request.execute();
         Boolean hasNextCursor = (response.getPage().getClass().getName() == "model.PageCursor");
         ListMerchantsQueryParams queryParams = (ListMerchantsQueryParams) getQueryParam(response.getPage(),

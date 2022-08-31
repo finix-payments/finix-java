@@ -65,11 +65,11 @@ public class UploadFileRequest {
   }
 
    /**
-   * Path to the file you want to upload (e.g. **_/Users/Desktop/finix_file.png**).
+   * Path to the file you want to upload&lt;br&gt;(e.g. **_/Users/Desktop/finix_file.png**).
    * @return _file
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Path to the file you want to upload (e.g. **_/Users/Desktop/finix_file.png**).")
+  @ApiModelProperty(value = "Path to the file you want to upload<br>(e.g. **_/Users/Desktop/finix_file.png**).")
 
   public File getFile() {
     return _file;

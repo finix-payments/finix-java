@@ -51,15 +51,12 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * MerchantProfile
+ * 
  */
+@ApiModel(description = "")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MerchantProfile {
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
-
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -80,13 +77,13 @@ public class MerchantProfile {
   @SerializedName(SERIALIZED_NAME_FEE_PROFILE)
   private String feeProfile;
 
-  public static final String SERIALIZED_NAME_RESERVE_PROFILE = "reserve_profile";
-  @SerializedName(SERIALIZED_NAME_RESERVE_PROFILE)
-  private String reserveProfile;
-
   public static final String SERIALIZED_NAME_RISK_PROFILE = "risk_profile";
   @SerializedName(SERIALIZED_NAME_RISK_PROFILE)
   private String riskProfile;
+
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
@@ -94,37 +91,6 @@ public class MerchantProfile {
 
   public MerchantProfile() { 
   }
-
-  public MerchantProfile tags(Map<String, String> tags) {
-    
-    this.tags = tags;
-    return this;
-  }
-
-  public MerchantProfile putTagsItem(String key, String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new HashMap<>();
-    }
-    this.tags.put(key, tagsItem);
-    return this;
-  }
-
-   /**
-   * Key value pair for annotating custom meta data (e.g. order numbers).
-   * @return tags
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
-
-  public Map<String, String> getTags() {
-    return tags;
-  }
-
-
-  public void setTags(Map<String, String> tags) {
-    this.tags = tags;
-  }
-
 
   public MerchantProfile id(String id) {
     
@@ -241,29 +207,6 @@ public class MerchantProfile {
   }
 
 
-  public MerchantProfile reserveProfile(String reserveProfile) {
-    
-    this.reserveProfile = reserveProfile;
-    return this;
-  }
-
-   /**
-   * Get reserveProfile
-   * @return reserveProfile
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "SPxxxxxxxxxxxxxxxxxx", value = "")
-
-  public String getReserveProfile() {
-    return reserveProfile;
-  }
-
-
-  public void setReserveProfile(String reserveProfile) {
-    this.reserveProfile = reserveProfile;
-  }
-
-
   public MerchantProfile riskProfile(String riskProfile) {
     
     this.riskProfile = riskProfile;
@@ -284,6 +227,37 @@ public class MerchantProfile {
 
   public void setRiskProfile(String riskProfile) {
     this.riskProfile = riskProfile;
+  }
+
+
+  public MerchantProfile tags(Map<String, String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public MerchantProfile putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
+    return this;
+  }
+
+   /**
+   * Key value pair for annotating custom meta data (e.g. order numbers).
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
+
+  public Map<String, String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(Map<String, String> tags) {
+    this.tags = tags;
   }
 
 
@@ -320,14 +294,13 @@ public class MerchantProfile {
       return false;
     }
     MerchantProfile merchantProfile = (MerchantProfile) o;
-    return Objects.equals(this.tags, merchantProfile.tags) &&
-        Objects.equals(this.id, merchantProfile.id) &&
+    return Objects.equals(this.id, merchantProfile.id) &&
         Objects.equals(this.createdAt, merchantProfile.createdAt) &&
         Objects.equals(this.updatedAt, merchantProfile.updatedAt) &&
         Objects.equals(this.application, merchantProfile.application) &&
         Objects.equals(this.feeProfile, merchantProfile.feeProfile) &&
-        Objects.equals(this.reserveProfile, merchantProfile.reserveProfile) &&
         Objects.equals(this.riskProfile, merchantProfile.riskProfile) &&
+        Objects.equals(this.tags, merchantProfile.tags) &&
         Objects.equals(this.links, merchantProfile.links);
   }
 
@@ -337,7 +310,7 @@ public class MerchantProfile {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, id, createdAt, updatedAt, application, feeProfile, reserveProfile, riskProfile, links);
+    return Objects.hash(id, createdAt, updatedAt, application, feeProfile, riskProfile, tags, links);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -351,14 +324,13 @@ public class MerchantProfile {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MerchantProfile {\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    application: ").append(toIndentedString(application)).append("\n");
     sb.append("    feeProfile: ").append(toIndentedString(feeProfile)).append("\n");
-    sb.append("    reserveProfile: ").append(toIndentedString(reserveProfile)).append("\n");
     sb.append("    riskProfile: ").append(toIndentedString(riskProfile)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -382,14 +354,13 @@ public class MerchantProfile {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("tags");
     openapiFields.add("id");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
     openapiFields.add("application");
     openapiFields.add("fee_profile");
-    openapiFields.add("reserve_profile");
     openapiFields.add("risk_profile");
+    openapiFields.add("tags");
     openapiFields.add("_links");
 
     // a set of required properties/fields (JSON key names)
@@ -440,13 +411,6 @@ public class MerchantProfile {
       */
       if (jsonObj.get("fee_profile") != null && !jsonObj.get("fee_profile").isJsonNull()  && !jsonObj.get("fee_profile").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fee_profile` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_profile").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("reserve_profile") != null && !jsonObj.get("reserve_profile").isJsonNull()  && !jsonObj.get("reserve_profile").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `reserve_profile` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reserve_profile").toString()));
       }
       /**
       * EDITED

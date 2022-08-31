@@ -53,15 +53,11 @@ public class ErrorResponseTest {
             FinixList<FeeProfile> feeProfilesList = invalidClient.FeeProfiles.list(ListFeeProfilesQueryParams.builder()
                     .limit(limit)
                     .build());
-        } catch (Exception genericError) {
-            if (genericError instanceof ApiException){
-                ApiException e = (ApiException) genericError;
+        } catch (ApiException e) {
                 assertEquals(401, e.getCode());
                 ArrayList<HashMap<String, String>> errorBodyList = e.getBody();
                 assertEquals(1, errorBodyList.size());
                 assertEquals("Unauthorized", errorBodyList.get(0).get("message"));
-            }
-
         }
     }
 
@@ -76,14 +72,11 @@ public class ErrorResponseTest {
             FinixList<FeeProfile> feeProfilesList = invalidClient.FeeProfiles.list(ListFeeProfilesQueryParams.builder()
                     .limit(limit)
                     .build());
-        } catch (Exception genericError) {
-            if (genericError instanceof ApiException){
-                ApiException e = (ApiException) genericError;
-                assertEquals(401, e.getCode());
-                ArrayList<HashMap<String, String>> errorBodyList = e.getBody();
-                assertEquals(1, errorBodyList.size());
-                assertEquals("Unauthorized", errorBodyList.get(0).get("message"));
-            }
+        } catch (ApiException e) {
+            assertEquals(401, e.getCode());
+            ArrayList<HashMap<String, String>> errorBodyList = e.getBody();
+            assertEquals(1, errorBodyList.size());
+            assertEquals("Unauthorized", errorBodyList.get(0).get("message"));
         }
     }
 
@@ -96,14 +89,11 @@ public class ErrorResponseTest {
                     .afterCursor(nextCursor)
                     .build());
 
-        } catch (Exception genericError) {
-            if (genericError instanceof ApiException){
-                ApiException e = (ApiException) genericError;
-                assertEquals(404, e.getCode());
-                ArrayList<HashMap<String, String>> errorBodyList = e.getBody();
-                assertEquals(1, errorBodyList.size());
-                assertEquals("NOT_FOUND", errorBodyList.get(0).get("code"));
-            }
+        } catch (ApiException e) {
+            assertEquals(404, e.getCode());
+            ArrayList<HashMap<String, String>> errorBodyList = e.getBody();
+            assertEquals(1, errorBodyList.size());
+            assertEquals("NOT_FOUND", errorBodyList.get(0).get("code"));
         }
     }
 

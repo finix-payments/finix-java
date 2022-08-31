@@ -67,13 +67,13 @@ public class CreateReversalRequest {
   @SerializedName(SERIALIZED_NAME_DEVICE)
   private String device;
 
-  public static final String SERIALIZED_NAME_CURRENCY = "currency";
-  @SerializedName(SERIALIZED_NAME_CURRENCY)
-  private Currency currency;
-
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private Long amount;
+
+  public static final String SERIALIZED_NAME_CURRENCY = "currency";
+  @SerializedName(SERIALIZED_NAME_CURRENCY)
+  private Currency currency;
 
   public static final String SERIALIZED_NAME_OPERATION_KEY = "operation_key";
   @SerializedName(SERIALIZED_NAME_OPERATION_KEY)
@@ -159,29 +159,6 @@ public class CreateReversalRequest {
   }
 
 
-  public CreateReversalRequest currency(Currency currency) {
-    
-    this.currency = currency;
-    return this;
-  }
-
-   /**
-   * Get currency
-   * @return currency
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Currency getCurrency() {
-    return currency;
-  }
-
-
-  public void setCurrency(Currency currency) {
-    this.currency = currency;
-  }
-
-
   public CreateReversalRequest amount(Long amount) {
     
     this.amount = amount;
@@ -202,6 +179,29 @@ public class CreateReversalRequest {
 
   public void setAmount(Long amount) {
     this.amount = amount;
+  }
+
+
+  public CreateReversalRequest currency(Currency currency) {
+    
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * Get currency
+   * @return currency
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Currency getCurrency() {
+    return currency;
+  }
+
+
+  public void setCurrency(Currency currency) {
+    this.currency = currency;
   }
 
 
@@ -241,8 +241,8 @@ public class CreateReversalRequest {
     return Objects.equals(this.refundAmount, createReversalRequest.refundAmount) &&
         Objects.equals(this.tags, createReversalRequest.tags) &&
         Objects.equals(this.device, createReversalRequest.device) &&
-        Objects.equals(this.currency, createReversalRequest.currency) &&
         Objects.equals(this.amount, createReversalRequest.amount) &&
+        Objects.equals(this.currency, createReversalRequest.currency) &&
         Objects.equals(this.operationKey, createReversalRequest.operationKey);
   }
 
@@ -252,7 +252,7 @@ public class CreateReversalRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(refundAmount, tags, device, currency, amount, operationKey);
+    return Objects.hash(refundAmount, tags, device, amount, currency, operationKey);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -269,8 +269,8 @@ public class CreateReversalRequest {
     sb.append("    refundAmount: ").append(toIndentedString(refundAmount)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    device: ").append(toIndentedString(device)).append("\n");
-    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    operationKey: ").append(toIndentedString(operationKey)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -297,8 +297,8 @@ public class CreateReversalRequest {
     openapiFields.add("refund_amount");
     openapiFields.add("tags");
     openapiFields.add("device");
-    openapiFields.add("currency");
     openapiFields.add("amount");
+    openapiFields.add("currency");
     openapiFields.add("operation_key");
 
     // a set of required properties/fields (JSON key names)

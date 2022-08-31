@@ -54,21 +54,21 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateAuthorizationRequest {
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
-
-  public static final String SERIALIZED_NAME_FEE = "fee";
-  @SerializedName(SERIALIZED_NAME_FEE)
-  private Long fee;
+  public static final String SERIALIZED_NAME_ADDITIONAL_PURCHASE_DATA = "additional_purchase_data";
+  @SerializedName(SERIALIZED_NAME_ADDITIONAL_PURCHASE_DATA)
+  private AdditionalPurchaseData additionalPurchaseData;
 
   public static final String SERIALIZED_NAME_CAPTURE_AMOUNT = "capture_amount";
   @SerializedName(SERIALIZED_NAME_CAPTURE_AMOUNT)
   private Long captureAmount;
 
-  public static final String SERIALIZED_NAME_ADDITIONAL_PURCHASE_DATA = "additional_purchase_data";
-  @SerializedName(SERIALIZED_NAME_ADDITIONAL_PURCHASE_DATA)
-  private AdditionalPurchaseData additionalPurchaseData;
+  public static final String SERIALIZED_NAME_FEE = "fee";
+  @SerializedName(SERIALIZED_NAME_FEE)
+  private Long fee;
+
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
 
   public static final String SERIALIZED_NAME_VOID_ME = "void_me";
   @SerializedName(SERIALIZED_NAME_VOID_ME)
@@ -76,6 +76,75 @@ public class UpdateAuthorizationRequest {
 
   public UpdateAuthorizationRequest() { 
   }
+
+  public UpdateAuthorizationRequest additionalPurchaseData(AdditionalPurchaseData additionalPurchaseData) {
+    
+    this.additionalPurchaseData = additionalPurchaseData;
+    return this;
+  }
+
+   /**
+   * Get additionalPurchaseData
+   * @return additionalPurchaseData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public AdditionalPurchaseData getAdditionalPurchaseData() {
+    return additionalPurchaseData;
+  }
+
+
+  public void setAdditionalPurchaseData(AdditionalPurchaseData additionalPurchaseData) {
+    this.additionalPurchaseData = additionalPurchaseData;
+  }
+
+
+  public UpdateAuthorizationRequest captureAmount(Long captureAmount) {
+    
+    this.captureAmount = captureAmount;
+    return this;
+  }
+
+   /**
+   * The amount of the  &#x60;Authorization&#x60;  you would like to capture in cents. Must be less than or equal to the &#x60;amount&#x60; of the &#x60;Authorization&#x60;.
+   * @return captureAmount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The amount of the  `Authorization`  you would like to capture in cents. Must be less than or equal to the `amount` of the `Authorization`.")
+
+  public Long getCaptureAmount() {
+    return captureAmount;
+  }
+
+
+  public void setCaptureAmount(Long captureAmount) {
+    this.captureAmount = captureAmount;
+  }
+
+
+  public UpdateAuthorizationRequest fee(Long fee) {
+    
+    this.fee = fee;
+    return this;
+  }
+
+   /**
+   * The amount of the &#x60;Authorization&#x60; you&#39;d like to collect as your fee in cents. Defaults to zero (must be less than or equal to the &#x60;amount&#x60;).
+   * @return fee
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The amount of the `Authorization` you'd like to collect as your fee in cents. Defaults to zero (must be less than or equal to the `amount`).")
+
+  public Long getFee() {
+    return fee;
+  }
+
+
+  public void setFee(Long fee) {
+    this.fee = fee;
+  }
+
 
   public UpdateAuthorizationRequest tags(Map<String, String> tags) {
     
@@ -108,75 +177,6 @@ public class UpdateAuthorizationRequest {
   }
 
 
-  public UpdateAuthorizationRequest fee(Long fee) {
-    
-    this.fee = fee;
-    return this;
-  }
-
-   /**
-   * The amount of the &#x60;Authorization&#x60; you&#39;d like to collect as your fee in cents. Defaults to zero (must be less than or equal to the &#x60;amount&#x60;).
-   * @return fee
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The amount of the `Authorization` you'd like to collect as your fee in cents. Defaults to zero (must be less than or equal to the `amount`).")
-
-  public Long getFee() {
-    return fee;
-  }
-
-
-  public void setFee(Long fee) {
-    this.fee = fee;
-  }
-
-
-  public UpdateAuthorizationRequest captureAmount(Long captureAmount) {
-    
-    this.captureAmount = captureAmount;
-    return this;
-  }
-
-   /**
-   * The amount of the  &#x60;Authorization&#x60;  you would like to capture in cents. Must be less than or equal to the &#x60;amount&#x60; of the &#x60;Authorization&#x60;.
-   * @return captureAmount
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The amount of the  `Authorization`  you would like to capture in cents. Must be less than or equal to the `amount` of the `Authorization`.")
-
-  public Long getCaptureAmount() {
-    return captureAmount;
-  }
-
-
-  public void setCaptureAmount(Long captureAmount) {
-    this.captureAmount = captureAmount;
-  }
-
-
-  public UpdateAuthorizationRequest additionalPurchaseData(AdditionalPurchaseData additionalPurchaseData) {
-    
-    this.additionalPurchaseData = additionalPurchaseData;
-    return this;
-  }
-
-   /**
-   * Get additionalPurchaseData
-   * @return additionalPurchaseData
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public AdditionalPurchaseData getAdditionalPurchaseData() {
-    return additionalPurchaseData;
-  }
-
-
-  public void setAdditionalPurchaseData(AdditionalPurchaseData additionalPurchaseData) {
-    this.additionalPurchaseData = additionalPurchaseData;
-  }
-
-
   public UpdateAuthorizationRequest voidMe(Boolean voidMe) {
     
     this.voidMe = voidMe;
@@ -184,11 +184,11 @@ public class UpdateAuthorizationRequest {
   }
 
    /**
-   * Set to True to void the Authorization
+   * Set to **True** to void the &#x60;Authorization&#x60;.
    * @return voidMe
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Set to True to void the Authorization")
+  @ApiModelProperty(value = "Set to **True** to void the `Authorization`.")
 
   public Boolean getVoidMe() {
     return voidMe;
@@ -210,26 +210,26 @@ public class UpdateAuthorizationRequest {
       return false;
     }
     UpdateAuthorizationRequest updateAuthorizationRequest = (UpdateAuthorizationRequest) o;
-    return Objects.equals(this.tags, updateAuthorizationRequest.tags) &&
-        Objects.equals(this.fee, updateAuthorizationRequest.fee) &&
+    return Objects.equals(this.additionalPurchaseData, updateAuthorizationRequest.additionalPurchaseData) &&
         Objects.equals(this.captureAmount, updateAuthorizationRequest.captureAmount) &&
-        Objects.equals(this.additionalPurchaseData, updateAuthorizationRequest.additionalPurchaseData) &&
+        Objects.equals(this.fee, updateAuthorizationRequest.fee) &&
+        Objects.equals(this.tags, updateAuthorizationRequest.tags) &&
         Objects.equals(this.voidMe, updateAuthorizationRequest.voidMe);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, fee, captureAmount, additionalPurchaseData, voidMe);
+    return Objects.hash(additionalPurchaseData, captureAmount, fee, tags, voidMe);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateAuthorizationRequest {\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
-    sb.append("    captureAmount: ").append(toIndentedString(captureAmount)).append("\n");
     sb.append("    additionalPurchaseData: ").append(toIndentedString(additionalPurchaseData)).append("\n");
+    sb.append("    captureAmount: ").append(toIndentedString(captureAmount)).append("\n");
+    sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    voidMe: ").append(toIndentedString(voidMe)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -253,10 +253,10 @@ public class UpdateAuthorizationRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("tags");
-    openapiFields.add("fee");
-    openapiFields.add("capture_amount");
     openapiFields.add("additional_purchase_data");
+    openapiFields.add("capture_amount");
+    openapiFields.add("fee");
+    openapiFields.add("tags");
     openapiFields.add("void_me");
 
     // a set of required properties/fields (JSON key names)

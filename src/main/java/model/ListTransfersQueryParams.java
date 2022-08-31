@@ -188,11 +188,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Specify key to be used for sorting the collection
+   * Specify key to be used for sorting the collection.
    * @return sort
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specify key to be used for sorting the collection")
+  @ApiModelProperty(value = "Specify key to be used for sorting the collection.")
 
   public String getSort() {
     return sort;
@@ -234,11 +234,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * The numbers of items to return
+   * The numbers of items to return.
    * @return limit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The numbers of items to return")
+  @ApiModelProperty(value = "The numbers of items to return.")
 
   public Long getLimit() {
     return limit;
@@ -257,11 +257,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter by an amount equal to the given value
+   * Filter by an amount equal to the given value.
    * @return amount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by an amount equal to the given value")
+  @ApiModelProperty(value = "Filter by an amount equal to the given value.")
 
   public Long getAmount() {
     return amount;
@@ -280,11 +280,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter by an amount greater than or equal
+   * Filter by an amount greater than or equal.
    * @return amountGte
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by an amount greater than or equal")
+  @ApiModelProperty(value = "Filter by an amount greater than or equal.")
 
   public Long getAmountGte() {
     return amountGte;
@@ -303,11 +303,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter by an amount greater than
+   * Filter by an amount greater than.
    * @return amountGt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by an amount greater than")
+  @ApiModelProperty(value = "Filter by an amount greater than.")
 
   public Long getAmountGt() {
     return amountGt;
@@ -326,11 +326,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter by an amount less than or equal
+   * Filter by an amount less than or equal.
    * @return amountLte
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by an amount less than or equal")
+  @ApiModelProperty(value = "Filter by an amount less than or equal.")
 
   public Long getAmountLte() {
     return amountLte;
@@ -349,11 +349,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter by an amount less than
+   * Filter by an amount less than.
    * @return amountLt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by an amount less than")
+  @ApiModelProperty(value = "Filter by an amount less than.")
 
   public Long getAmountLt() {
     return amountLt;
@@ -372,11 +372,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter where created_at is after the given date.
+   * Filter where &#x60;created_at&#x60; is after the given date.
    * @return createdAtGte
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter where created_at is after the given date.")
+  @ApiModelProperty(value = "Filter where `created_at` is after the given date.")
 
   public String getCreatedAtGte() {
     return createdAtGte;
@@ -395,11 +395,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter where created_at is before the given date.
+   * Filter where &#x60;created_at&#x60; is before the given date.
    * @return createdAtLte
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter where created_at is before the given date.")
+  @ApiModelProperty(value = "Filter where `created_at` is before the given date.")
 
   public String getCreatedAtLte() {
     return createdAtLte;
@@ -418,11 +418,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter by idempotency_id
+   * Filter by &#x60;idempotency_id&#x60;.
    * @return idempotencyId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by idempotency_id")
+  @ApiModelProperty(value = "Filter by `idempotency_id`.")
 
   public String getIdempotencyId() {
     return idempotencyId;
@@ -441,11 +441,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter by id
+   * Filter by &#x60;id&#x60;.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by id")
+  @ApiModelProperty(value = "Filter by `id`.")
 
   public String getId() {
     return id;
@@ -487,11 +487,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter by ready_to_settle_at
+   * Filter by &#x60;ready_to_settle_at&#x60;.
    * @return readyToSettleAtGte
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by ready_to_settle_at")
+  @ApiModelProperty(value = "Filter by `ready_to_settle_at`.")
 
   public String getReadyToSettleAtGte() {
     return readyToSettleAtGte;
@@ -510,11 +510,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter by ready_to_settle_at
+   * Filter by &#x60;ready_to_settle_at&#x60;.
    * @return readyToSettleAtLte
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by ready_to_settle_at")
+  @ApiModelProperty(value = "Filter by `ready_to_settle_at`.")
 
   public String getReadyToSettleAtLte() {
     return readyToSettleAtLte;
@@ -533,11 +533,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter by statement_descriptor
+   * Filter by &#x60;statement_descriptor&#x60;.
    * @return statementDescriptor
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by statement_descriptor")
+  @ApiModelProperty(value = "Filter by `statement_descriptor`.")
 
   public Long getStatementDescriptor() {
     return statementDescriptor;
@@ -556,11 +556,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter by trace_id
+   * Filter by &#x60;trace_id&#x60;.
    * @return traceId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by trace_id")
+  @ApiModelProperty(value = "Filter by `trace_id`.")
 
   public String getTraceId() {
     return traceId;
@@ -579,11 +579,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter where updated_at is after the given date
+   * Filter where &#x60;updated_at&#x60; is after the given date.
    * @return updatedAtGte
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter where updated_at is after the given date")
+  @ApiModelProperty(value = "Filter where `updated_at` is after the given date.")
 
   public String getUpdatedAtGte() {
     return updatedAtGte;
@@ -602,11 +602,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter where updated_at is before the given date
+   * Filter where &#x60;updated_at&#x60; is before the given date.
    * @return updatedAtLte
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter where updated_at is before the given date")
+  @ApiModelProperty(value = "Filter where `updated_at` is before the given date.")
 
   public String getUpdatedAtLte() {
     return updatedAtLte;
@@ -625,11 +625,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter by Bank Identification Number (BIN). The BIN is the first 6 digits of the masked number
+   * Filter by Bank Identification Number (BIN). The BIN is the first 6 digits of the masked number.
    * @return instrumentBin
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by Bank Identification Number (BIN). The BIN is the first 6 digits of the masked number")
+  @ApiModelProperty(value = "Filter by Bank Identification Number (BIN). The BIN is the first 6 digits of the masked number.")
 
   public String getInstrumentBin() {
     return instrumentBin;
@@ -648,11 +648,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter Transactions by the last 4 digits of the bank account. The bank account last 4 are the last 4 digits of the masked number instrument_account_last4&#x3D;9444 BIN 
+   * Filter Transactions by the last 4 digits of the bank account. The bank account last 4 are the last 4 digits of the masked number instrument_account_last4&#x3D;9444 BIN.
    * @return instrumentAccountLast4
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter Transactions by the last 4 digits of the bank account. The bank account last 4 are the last 4 digits of the masked number instrument_account_last4=9444 BIN ")
+  @ApiModelProperty(value = "Filter Transactions by the last 4 digits of the bank account. The bank account last 4 are the last 4 digits of the masked number instrument_account_last4=9444 BIN.")
 
   public String getInstrumentAccountLast4() {
     return instrumentAccountLast4;
@@ -671,11 +671,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter by card brand. Available card brand types can be found in the drop-down
+   * Filter by card brand. Available card brand types can be found in the drop-down.
    * @return instrumentBrandType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by card brand. Available card brand types can be found in the drop-down")
+  @ApiModelProperty(value = "Filter by card brand. Available card brand types can be found in the drop-down.")
 
   public String getInstrumentBrandType() {
     return instrumentBrandType;
@@ -694,11 +694,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter by Identity ID
+   * Filter by &#x60;Identity&#x60; ID.
    * @return merchantIdentityId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by Identity ID")
+  @ApiModelProperty(value = "Filter by `Identity` ID.")
 
   public String getMerchantIdentityId() {
     return merchantIdentityId;
@@ -717,11 +717,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter Transactions by Identity name. The name is not case-sensitive
+   * Filter Transactions by &#x60;Identity&#x60; name. The name is not case-sensitive.
    * @return merchantIdentityName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter Transactions by Identity name. The name is not case-sensitive")
+  @ApiModelProperty(value = "Filter Transactions by `Identity` name. The name is not case-sensitive.")
 
   public String getMerchantIdentityName() {
     return merchantIdentityName;
@@ -740,11 +740,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter Transactions by payment instrument name
+   * Filter Transactions by &#x60;Payment Instrument&#x60; name.
    * @return instrumentName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter Transactions by payment instrument name")
+  @ApiModelProperty(value = "Filter Transactions by `Payment Instrument` name.")
 
   public String getInstrumentName() {
     return instrumentName;
@@ -763,11 +763,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter Transactions by payment instrument type. Available instrument types include: Bank Account or Payment Card
+   * Filter Transactions by &#x60;Payment Instrument&#x60; type. Available instrument types include: Bank Account or Payment Card
    * @return instrumentType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter Transactions by payment instrument type. Available instrument types include: Bank Account or Payment Card")
+  @ApiModelProperty(value = "Filter Transactions by `Payment Instrument` type. Available instrument types include: Bank Account or Payment Card")
 
   public String getInstrumentType() {
     return instrumentType;
@@ -786,11 +786,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter by Merchant ID
+   * Filter by &#x60;Merchant&#x60; ID.
    * @return merchantId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by Merchant ID")
+  @ApiModelProperty(value = "Filter by `Merchant` ID.")
 
   public String getMerchantId() {
     return merchantId;
@@ -809,11 +809,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter by Merchant Identification Number (MID)
+   * Filter by Merchant Identification Number (MID).
    * @return merchantMid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by Merchant Identification Number (MID)")
+  @ApiModelProperty(value = "Filter by Merchant Identification Number (MID).")
 
   public String getMerchantMid() {
     return merchantMid;
@@ -832,11 +832,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter by the payment card last 4 digits
+   * Filter by the payment card last 4 digits.
    * @return instrumentCardLast4
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by the payment card last 4 digits")
+  @ApiModelProperty(value = "Filter by the payment card last 4 digits.")
 
   public String getInstrumentCardLast4() {
     return instrumentCardLast4;
@@ -855,11 +855,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter by Processor ID
+   * Filter by &#x60;Processor&#x60; ID.
    * @return merchantProcessorId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by Processor ID")
+  @ApiModelProperty(value = "Filter by `Processor` ID.")
 
   public String getMerchantProcessorId() {
     return merchantProcessorId;
@@ -878,11 +878,11 @@ public class ListTransfersQueryParams {
   }
 
    /**
-   * Filter by Transfer type. Available type filters include: All, Debits, Refunds, or Credits.
+   * Filter by &#x60;Transfer&#x60; type. Available type filters include: All, Debits, Refunds, or Credits.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by Transfer type. Available type filters include: All, Debits, Refunds, or Credits.")
+  @ApiModelProperty(value = "Filter by `Transfer` type. Available type filters include: All, Debits, Refunds, or Credits.")
 
   public String getType() {
     return type;

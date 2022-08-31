@@ -38,3 +38,6 @@ rm git_push.sh
 #rm -r .idea
 #rm -r gen
 
+rm -rf .openapi-generator
+
+

@@ -62,21 +62,21 @@ public class ListMerchantsQueryParams {
   @SerializedName(SERIALIZED_NAME_CREATED_AT_LTE)
   private String createdAtLte;
 
-  public static final String SERIALIZED_NAME_SORT = "sort";
-  @SerializedName(SERIALIZED_NAME_SORT)
-  private String sort;
-
   public static final String SERIALIZED_NAME_AFTER_CURSOR = "after_cursor";
   @SerializedName(SERIALIZED_NAME_AFTER_CURSOR)
   private String afterCursor;
+
+  public static final String SERIALIZED_NAME_BEFORE_CURSOR = "before_cursor";
+  @SerializedName(SERIALIZED_NAME_BEFORE_CURSOR)
+  private String beforeCursor;
 
   public static final String SERIALIZED_NAME_LIMIT = "limit";
   @SerializedName(SERIALIZED_NAME_LIMIT)
   private Long limit;
 
-  public static final String SERIALIZED_NAME_BEFORE_CURSOR = "before_cursor";
-  @SerializedName(SERIALIZED_NAME_BEFORE_CURSOR)
-  private String beforeCursor;
+  public static final String SERIALIZED_NAME_SORT = "sort";
+  @SerializedName(SERIALIZED_NAME_SORT)
+  private String sort;
 
   public ListMerchantsQueryParams() { 
   }
@@ -88,11 +88,11 @@ public class ListMerchantsQueryParams {
   }
 
    /**
-   * Filter by id
+   * Filter by &#x60;id&#x60;.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by id")
+  @ApiModelProperty(value = "Filter by `id`.")
 
   public String getId() {
     return id;
@@ -111,11 +111,11 @@ public class ListMerchantsQueryParams {
   }
 
    /**
-   * Filter where created_at is after the given date.
+   * Filter where &#x60;created_at&#x60; is after the given date.
    * @return createdAtGte
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter where created_at is after the given date.")
+  @ApiModelProperty(value = "Filter where `created_at` is after the given date.")
 
   public String getCreatedAtGte() {
     return createdAtGte;
@@ -134,11 +134,11 @@ public class ListMerchantsQueryParams {
   }
 
    /**
-   * Filter where created_at is before the given date.
+   * Filter where &#x60;created_at&#x60; is before the given date.
    * @return createdAtLte
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter where created_at is before the given date.")
+  @ApiModelProperty(value = "Filter where `created_at` is before the given date.")
 
   public String getCreatedAtLte() {
     return createdAtLte;
@@ -147,29 +147,6 @@ public class ListMerchantsQueryParams {
 
   public void setCreatedAtLte(String createdAtLte) {
     this.createdAtLte = createdAtLte;
-  }
-
-
-  public ListMerchantsQueryParams sort(String sort) {
-    
-    this.sort = sort;
-    return this;
-  }
-
-   /**
-   * Specify key to be used for sorting the collection
-   * @return sort
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specify key to be used for sorting the collection")
-
-  public String getSort() {
-    return sort;
-  }
-
-
-  public void setSort(String sort) {
-    this.sort = sort;
   }
 
 
@@ -196,29 +173,6 @@ public class ListMerchantsQueryParams {
   }
 
 
-  public ListMerchantsQueryParams limit(Long limit) {
-    
-    this.limit = limit;
-    return this;
-  }
-
-   /**
-   * The numbers of items to return
-   * @return limit
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The numbers of items to return")
-
-  public Long getLimit() {
-    return limit;
-  }
-
-
-  public void setLimit(Long limit) {
-    this.limit = limit;
-  }
-
-
   public ListMerchantsQueryParams beforeCursor(String beforeCursor) {
     
     this.beforeCursor = beforeCursor;
@@ -242,6 +196,52 @@ public class ListMerchantsQueryParams {
   }
 
 
+  public ListMerchantsQueryParams limit(Long limit) {
+    
+    this.limit = limit;
+    return this;
+  }
+
+   /**
+   * The numbers of items to return.
+   * @return limit
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numbers of items to return.")
+
+  public Long getLimit() {
+    return limit;
+  }
+
+
+  public void setLimit(Long limit) {
+    this.limit = limit;
+  }
+
+
+  public ListMerchantsQueryParams sort(String sort) {
+    
+    this.sort = sort;
+    return this;
+  }
+
+   /**
+   * Specify key to be used for sorting the collection.
+   * @return sort
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specify key to be used for sorting the collection.")
+
+  public String getSort() {
+    return sort;
+  }
+
+
+  public void setSort(String sort) {
+    this.sort = sort;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -255,15 +255,15 @@ public class ListMerchantsQueryParams {
     return Objects.equals(this.id, listMerchantsQueryParams.id) &&
         Objects.equals(this.createdAtGte, listMerchantsQueryParams.createdAtGte) &&
         Objects.equals(this.createdAtLte, listMerchantsQueryParams.createdAtLte) &&
-        Objects.equals(this.sort, listMerchantsQueryParams.sort) &&
         Objects.equals(this.afterCursor, listMerchantsQueryParams.afterCursor) &&
+        Objects.equals(this.beforeCursor, listMerchantsQueryParams.beforeCursor) &&
         Objects.equals(this.limit, listMerchantsQueryParams.limit) &&
-        Objects.equals(this.beforeCursor, listMerchantsQueryParams.beforeCursor);
+        Objects.equals(this.sort, listMerchantsQueryParams.sort);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdAtGte, createdAtLte, sort, afterCursor, limit, beforeCursor);
+    return Objects.hash(id, createdAtGte, createdAtLte, afterCursor, beforeCursor, limit, sort);
   }
 
   @Override
@@ -273,10 +273,10 @@ public class ListMerchantsQueryParams {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdAtGte: ").append(toIndentedString(createdAtGte)).append("\n");
     sb.append("    createdAtLte: ").append(toIndentedString(createdAtLte)).append("\n");
-    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    afterCursor: ").append(toIndentedString(afterCursor)).append("\n");
-    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    beforeCursor: ").append(toIndentedString(beforeCursor)).append("\n");
+    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -302,10 +302,10 @@ public class ListMerchantsQueryParams {
     openapiFields.add("id");
     openapiFields.add("created_at.gte");
     openapiFields.add("created_at.lte");
-    openapiFields.add("sort");
     openapiFields.add("after_cursor");
-    openapiFields.add("limit");
     openapiFields.add("before_cursor");
+    openapiFields.add("limit");
+    openapiFields.add("sort");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -360,13 +360,6 @@ public class ListMerchantsQueryParams {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("sort") != null && !jsonObj.get("sort").isJsonNull()  && !jsonObj.get("sort").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sort` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sort").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
       if (jsonObj.get("after_cursor") != null && !jsonObj.get("after_cursor").isJsonNull()  && !jsonObj.get("after_cursor").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `after_cursor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("after_cursor").toString()));
       }
@@ -376,6 +369,13 @@ public class ListMerchantsQueryParams {
       */
       if (jsonObj.get("before_cursor") != null && !jsonObj.get("before_cursor").isJsonNull()  && !jsonObj.get("before_cursor").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `before_cursor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("before_cursor").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("sort") != null && !jsonObj.get("sort").isJsonNull()  && !jsonObj.get("sort").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sort` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sort").toString()));
       }
   }
 

@@ -92,11 +92,11 @@ public class CreateInstrumentUpdateRequest {
   }
 
    /**
-   * A JSON string of your request. The JSON object needs to contain the following two fields: - &#x60;merchant&#x60;: ID of the &#x60;Merchant&#x60; object that you want to associate with the Account Updater batch for your own accounting purposes. You can only associate one &#x60;Merchant&#x60; to each - &#x60;idemopotency_id&#x60;: A randomly generated value that will be associated with this &#x60;instrument_update&#x60; resource.
+   * A JSON string of your request. The JSON object needs to contain the following two fields: - &#x60;merchant&#x60;: ID of the &#x60;Merchant&#x60; object that you want to associate with the Account Updater batch for your own accounting purposes. You can only associate one &#x60;Merchant&#x60; to each. - &#x60;idemopotency_id&#x60;: A randomly generated value that will be associated with this &#x60;instrument_update&#x60; resource.
    * @return request
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "{\"merchant\":\"MUucec6fHeaWo3VHYoSkUySM\",  \"idempotency_id\":\"123xyz\" }", value = "A JSON string of your request. The JSON object needs to contain the following two fields: - `merchant`: ID of the `Merchant` object that you want to associate with the Account Updater batch for your own accounting purposes. You can only associate one `Merchant` to each - `idemopotency_id`: A randomly generated value that will be associated with this `instrument_update` resource.")
+  @ApiModelProperty(example = "{\"merchant\":\"MUucec6fHeaWo3VHYoSkUySM\",  \"idempotency_id\":\"123xyz\" }", value = "A JSON string of your request. The JSON object needs to contain the following two fields: - `merchant`: ID of the `Merchant` object that you want to associate with the Account Updater batch for your own accounting purposes. You can only associate one `Merchant` to each. - `idemopotency_id`: A randomly generated value that will be associated with this `instrument_update` resource.")
 
   public String getRequest() {
     return request;

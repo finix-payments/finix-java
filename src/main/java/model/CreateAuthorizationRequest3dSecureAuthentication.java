@@ -45,9 +45,9 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * The 3D secure information for an authorization.
+ * The information required to create a 3D secure &#x60;Authorization&#x60;.
  */
-@ApiModel(description = "The 3D secure information for an authorization.")
+@ApiModel(description = "The information required to create a 3D secure `Authorization`.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateAuthorizationRequest3dSecureAuthentication {
@@ -80,8 +80,8 @@ public class CreateAuthorizationRequest3dSecureAuthentication {
    * Provides evidence that the cardholder authentication occurred or that the merchant attempted authentication. This is unique for each authentication transaction.
    * @return cardholderAuthentication
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Provides evidence that the cardholder authentication occurred or that the merchant attempted authentication. This is unique for each authentication transaction.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Provides evidence that the cardholder authentication occurred or that the merchant attempted authentication. This is unique for each authentication transaction.")
 
   public String getCardholderAuthentication() {
     return cardholderAuthentication;
@@ -126,8 +126,8 @@ public class CreateAuthorizationRequest3dSecureAuthentication {
    * AUTHENTICATED: Approved by 3D Secure Vendor; ATTEMPTED: Issuer or cardholder does not support 3D Secure
    * @return electronicCommerceIndicator
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "AUTHENTICATED: Approved by 3D Secure Vendor; ATTEMPTED: Issuer or cardholder does not support 3D Secure")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "AUTHENTICATED: Approved by 3D Secure Vendor; ATTEMPTED: Issuer or cardholder does not support 3D Secure")
 
   public String getElectronicCommerceIndicator() {
     return electronicCommerceIndicator;
@@ -220,8 +220,6 @@ public class CreateAuthorizationRequest3dSecureAuthentication {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("cardholder_authentication");
-    openapiRequiredFields.add("electronic_commerce_indicator");
   }
 
  /**
@@ -248,18 +246,6 @@ public class CreateAuthorizationRequest3dSecureAuthentication {
         }
       }
       */
-
-      /**
-      * EDITED
-      * Commented to ByPass required properties/fields are present in the JSON string
-      */
-
-      // check to make sure all required properties/fields are present in the JSON string
-      /*for (String requiredField : CreateAuthorizationRequest3dSecureAuthentication.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }*/
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour

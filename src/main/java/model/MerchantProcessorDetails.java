@@ -51,39 +51,16 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MerchantProcessorDetails {
-  public static final String SERIALIZED_NAME_MID = "mid";
-  @SerializedName(SERIALIZED_NAME_MID)
-  private String mid;
-
   public static final String SERIALIZED_NAME_API_KEY = "api_key";
   @SerializedName(SERIALIZED_NAME_API_KEY)
   private String apiKey;
 
+  public static final String SERIALIZED_NAME_MID = "mid";
+  @SerializedName(SERIALIZED_NAME_MID)
+  private String mid;
+
   public MerchantProcessorDetails() { 
   }
-
-  public MerchantProcessorDetails mid(String mid) {
-    
-    this.mid = mid;
-    return this;
-  }
-
-   /**
-   * Get mid
-   * @return mid
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getMid() {
-    return mid;
-  }
-
-
-  public void setMid(String mid) {
-    this.mid = mid;
-  }
-
 
   public MerchantProcessorDetails apiKey(String apiKey) {
     
@@ -108,6 +85,29 @@ public class MerchantProcessorDetails {
   }
 
 
+  public MerchantProcessorDetails mid(String mid) {
+    
+    this.mid = mid;
+    return this;
+  }
+
+   /**
+   * Get mid
+   * @return mid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getMid() {
+    return mid;
+  }
+
+
+  public void setMid(String mid) {
+    this.mid = mid;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -118,21 +118,21 @@ public class MerchantProcessorDetails {
       return false;
     }
     MerchantProcessorDetails merchantProcessorDetails = (MerchantProcessorDetails) o;
-    return Objects.equals(this.mid, merchantProcessorDetails.mid) &&
-        Objects.equals(this.apiKey, merchantProcessorDetails.apiKey);
+    return Objects.equals(this.apiKey, merchantProcessorDetails.apiKey) &&
+        Objects.equals(this.mid, merchantProcessorDetails.mid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(mid, apiKey);
+    return Objects.hash(apiKey, mid);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MerchantProcessorDetails {\n");
-    sb.append("    mid: ").append(toIndentedString(mid)).append("\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
+    sb.append("    mid: ").append(toIndentedString(mid)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -155,8 +155,8 @@ public class MerchantProcessorDetails {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("mid");
     openapiFields.add("api_key");
+    openapiFields.add("mid");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -190,15 +190,15 @@ public class MerchantProcessorDetails {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("mid") != null && !jsonObj.get("mid").isJsonNull()  && !jsonObj.get("mid").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mid").toString()));
+      if (jsonObj.get("api_key") != null && !jsonObj.get("api_key").isJsonNull()  && !jsonObj.get("api_key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `api_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_key").toString()));
       }
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("api_key") != null && !jsonObj.get("api_key").isJsonNull()  && !jsonObj.get("api_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `api_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_key").toString()));
+      if (jsonObj.get("mid") != null && !jsonObj.get("mid").isJsonNull()  && !jsonObj.get("mid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `mid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mid").toString()));
       }
   }
 

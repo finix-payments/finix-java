@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Country;
 import model.Currency;
-import model.ProcessorSystemConfigConfigurationTemplates;
+import model.ProcessorSystemConfigConfig;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -57,76 +57,6 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ProcessorSystemConfig {
-  /**
-   * Field used by processor to communicate with Finix.
-   */
-  @JsonAdapter(CLASSKEYIDENTIFIEREnum.Adapter.class)
-  public enum CLASSKEYIDENTIFIEREnum {
-    IO_FINIX_VISA_DIRECT_CLIENT_VISASYSTEMCONFIG("io.finix.visa.direct.client.VisaSystemConfig"),
-    
-    UNKNOWN_DEFAULT("unknown_default_open_api");
-
-    private String value;
-
-    CLASSKEYIDENTIFIEREnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    /*
-    * EDITED
-    * Add ability get the raw underlying value of a enum the library is not aware about.
-    */
-    private String rawValue;
-
-    public void setRawValue(String s){
-    this.rawValue = s;
-    }
-
-    public String getRawValue() {
-    return rawValue;
-    }
-
-    public static CLASSKEYIDENTIFIEREnum fromValue(String value) {
-        for (CLASSKEYIDENTIFIEREnum b : CLASSKEYIDENTIFIEREnum.values()) {
-          if (b.value.equals(value)) {
-            return b;
-          }
-        }
-
-        CLASSKEYIDENTIFIEREnum unknownDefault = CLASSKEYIDENTIFIEREnum.UNKNOWN_DEFAULT;
-        unknownDefault.setRawValue(value);
-
-        return unknownDefault;
-        
-    }
-
-    public static class Adapter extends TypeAdapter<CLASSKEYIDENTIFIEREnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final CLASSKEYIDENTIFIEREnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public CLASSKEYIDENTIFIEREnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return CLASSKEYIDENTIFIEREnum.fromValue(value);
-      }
-    }
-  }
-
-  public static final String SERIALIZED_NAME_C_L_A_S_S_K_E_Y_I_D_E_N_T_I_F_I_E_R = "CLASS_KEY_IDENTIFIER";
-  @SerializedName(SERIALIZED_NAME_C_L_A_S_S_K_E_Y_I_D_E_N_T_I_F_I_E_R)
-  private CLASSKEYIDENTIFIEREnum CLASS_KEY_IDENTIFIER;
-
   /**
    * The 3 letter ISO 4217 country code for the country transactions are originating from.
    */
@@ -709,9 +639,79 @@ public class ProcessorSystemConfig {
   @SerializedName(SERIALIZED_NAME_BUSINESS_APPLICATION_ID)
   private String businessApplicationId;
 
-  public static final String SERIALIZED_NAME_CONFIGURATION_TEMPLATES = "configuration_templates";
-  @SerializedName(SERIALIZED_NAME_CONFIGURATION_TEMPLATES)
-  private ProcessorSystemConfigConfigurationTemplates configurationTemplates;
+  /**
+   * Field used by processor to communicate with Finix.
+   */
+  @JsonAdapter(ClassKeyIdentifierEnum.Adapter.class)
+  public enum ClassKeyIdentifierEnum {
+    IO_FINIX_VISA_DIRECT_CLIENT_VISASYSTEMCONFIG("io.finix.visa.direct.client.VisaSystemConfig"),
+    
+    UNKNOWN_DEFAULT("unknown_default_open_api");
+
+    private String value;
+
+    ClassKeyIdentifierEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    /*
+    * EDITED
+    * Add ability get the raw underlying value of a enum the library is not aware about.
+    */
+    private String rawValue;
+
+    public void setRawValue(String s){
+    this.rawValue = s;
+    }
+
+    public String getRawValue() {
+    return rawValue;
+    }
+
+    public static ClassKeyIdentifierEnum fromValue(String value) {
+        for (ClassKeyIdentifierEnum b : ClassKeyIdentifierEnum.values()) {
+          if (b.value.equals(value)) {
+            return b;
+          }
+        }
+
+        ClassKeyIdentifierEnum unknownDefault = ClassKeyIdentifierEnum.UNKNOWN_DEFAULT;
+        unknownDefault.setRawValue(value);
+
+        return unknownDefault;
+        
+    }
+
+    public static class Adapter extends TypeAdapter<ClassKeyIdentifierEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ClassKeyIdentifierEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ClassKeyIdentifierEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return ClassKeyIdentifierEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_CLASS_KEY_IDENTIFIER = "class_key_identifier";
+  @SerializedName(SERIALIZED_NAME_CLASS_KEY_IDENTIFIER)
+  private ClassKeyIdentifierEnum classKeyIdentifier;
+
+  public static final String SERIALIZED_NAME_CONFIG = "config";
+  @SerializedName(SERIALIZED_NAME_CONFIG)
+  private ProcessorSystemConfigConfig config;
 
   public static final String SERIALIZED_NAME_DEFAULT_CURRENCIES = "default_currencies";
   @SerializedName(SERIALIZED_NAME_DEFAULT_CURRENCIES)
@@ -888,29 +888,6 @@ public class ProcessorSystemConfig {
   public ProcessorSystemConfig() { 
   }
 
-  public ProcessorSystemConfig CLASS_KEY_IDENTIFIER(CLASSKEYIDENTIFIEREnum CLASS_KEY_IDENTIFIER) {
-    
-    this.CLASS_KEY_IDENTIFIER = CLASS_KEY_IDENTIFIER;
-    return this;
-  }
-
-   /**
-   * Field used by processor to communicate with Finix.
-   * @return CLASS_KEY_IDENTIFIER
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Field used by processor to communicate with Finix.")
-
-  public CLASSKEYIDENTIFIEREnum getCLASSKEYIDENTIFIER() {
-    return CLASS_KEY_IDENTIFIER;
-  }
-
-
-  public void setCLASSKEYIDENTIFIER(CLASSKEYIDENTIFIEREnum CLASS_KEY_IDENTIFIER) {
-    this.CLASS_KEY_IDENTIFIER = CLASS_KEY_IDENTIFIER;
-  }
-
-
   public ProcessorSystemConfig acquirerCountryCode(AcquirerCountryCodeEnum acquirerCountryCode) {
     
     this.acquirerCountryCode = acquirerCountryCode;
@@ -1034,26 +1011,49 @@ public class ProcessorSystemConfig {
   }
 
 
-  public ProcessorSystemConfig configurationTemplates(ProcessorSystemConfigConfigurationTemplates configurationTemplates) {
+  public ProcessorSystemConfig classKeyIdentifier(ClassKeyIdentifierEnum classKeyIdentifier) {
     
-    this.configurationTemplates = configurationTemplates;
+    this.classKeyIdentifier = classKeyIdentifier;
     return this;
   }
 
    /**
-   * Get configurationTemplates
-   * @return configurationTemplates
+   * Field used by processor to communicate with Finix.
+   * @return classKeyIdentifier
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Field used by processor to communicate with Finix.")
+
+  public ClassKeyIdentifierEnum getClassKeyIdentifier() {
+    return classKeyIdentifier;
+  }
+
+
+  public void setClassKeyIdentifier(ClassKeyIdentifierEnum classKeyIdentifier) {
+    this.classKeyIdentifier = classKeyIdentifier;
+  }
+
+
+  public ProcessorSystemConfig config(ProcessorSystemConfigConfig config) {
+    
+    this.config = config;
+    return this;
+  }
+
+   /**
+   * Get config
+   * @return config
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ProcessorSystemConfigConfigurationTemplates getConfigurationTemplates() {
-    return configurationTemplates;
+  public ProcessorSystemConfigConfig getConfig() {
+    return config;
   }
 
 
-  public void setConfigurationTemplates(ProcessorSystemConfigConfigurationTemplates configurationTemplates) {
-    this.configurationTemplates = configurationTemplates;
+  public void setConfig(ProcessorSystemConfigConfig config) {
+    this.config = config;
   }
 
 
@@ -1627,13 +1627,13 @@ public class ProcessorSystemConfig {
       return false;
     }
     ProcessorSystemConfig processorSystemConfig = (ProcessorSystemConfig) o;
-    return Objects.equals(this.CLASS_KEY_IDENTIFIER, processorSystemConfig.CLASS_KEY_IDENTIFIER) &&
-        Objects.equals(this.acquirerCountryCode, processorSystemConfig.acquirerCountryCode) &&
+    return Objects.equals(this.acquirerCountryCode, processorSystemConfig.acquirerCountryCode) &&
         Objects.equals(this.acquiringBin, processorSystemConfig.acquiringBin) &&
         Objects.equals(this.allowCreditForPartner, processorSystemConfig.allowCreditForPartner) &&
         Objects.equals(this.availableCountries, processorSystemConfig.availableCountries) &&
         Objects.equals(this.businessApplicationId, processorSystemConfig.businessApplicationId) &&
-        Objects.equals(this.configurationTemplates, processorSystemConfig.configurationTemplates) &&
+        Objects.equals(this.classKeyIdentifier, processorSystemConfig.classKeyIdentifier) &&
+        Objects.equals(this.config, processorSystemConfig.config) &&
         Objects.equals(this.defaultCurrencies, processorSystemConfig.defaultCurrencies) &&
         Objects.equals(this.disablePpgs, processorSystemConfig.disablePpgs) &&
         Objects.equals(this.feeProgramIndicator, processorSystemConfig.feeProgramIndicator) &&
@@ -1666,7 +1666,7 @@ public class ProcessorSystemConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(CLASS_KEY_IDENTIFIER, acquirerCountryCode, acquiringBin, allowCreditForPartner, availableCountries, businessApplicationId, configurationTemplates, defaultCurrencies, disablePpgs, feeProgramIndicator, gatewayProxyCertificate, gatewayProxyHost, gatewayProxyPassword, gatewayProxyPort, gatewayProxyUsername, keyStorePassword, keyStorePath, merchantPseudoAbaNumber, onlineCreditProcessing, onlineDebitProcessing, password, privateKeyPassword, processorSequenceLimit, pseudoBatchPush, sourceOfFunds, userId, visaAcceptanceCloudKeyStorePath, visaAcceptanceCloudPassword, visaAcceptanceCloudUrl, visaAcceptanceCloudUserId, visaUrl);
+    return Objects.hash(acquirerCountryCode, acquiringBin, allowCreditForPartner, availableCountries, businessApplicationId, classKeyIdentifier, config, defaultCurrencies, disablePpgs, feeProgramIndicator, gatewayProxyCertificate, gatewayProxyHost, gatewayProxyPassword, gatewayProxyPort, gatewayProxyUsername, keyStorePassword, keyStorePath, merchantPseudoAbaNumber, onlineCreditProcessing, onlineDebitProcessing, password, privateKeyPassword, processorSequenceLimit, pseudoBatchPush, sourceOfFunds, userId, visaAcceptanceCloudKeyStorePath, visaAcceptanceCloudPassword, visaAcceptanceCloudUrl, visaAcceptanceCloudUserId, visaUrl);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1680,13 +1680,13 @@ public class ProcessorSystemConfig {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProcessorSystemConfig {\n");
-    sb.append("    CLASS_KEY_IDENTIFIER: ").append(toIndentedString(CLASS_KEY_IDENTIFIER)).append("\n");
     sb.append("    acquirerCountryCode: ").append(toIndentedString(acquirerCountryCode)).append("\n");
     sb.append("    acquiringBin: ").append(toIndentedString(acquiringBin)).append("\n");
     sb.append("    allowCreditForPartner: ").append(toIndentedString(allowCreditForPartner)).append("\n");
     sb.append("    availableCountries: ").append(toIndentedString(availableCountries)).append("\n");
     sb.append("    businessApplicationId: ").append(toIndentedString(businessApplicationId)).append("\n");
-    sb.append("    configurationTemplates: ").append(toIndentedString(configurationTemplates)).append("\n");
+    sb.append("    classKeyIdentifier: ").append(toIndentedString(classKeyIdentifier)).append("\n");
+    sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    defaultCurrencies: ").append(toIndentedString(defaultCurrencies)).append("\n");
     sb.append("    disablePpgs: ").append(toIndentedString(disablePpgs)).append("\n");
     sb.append("    feeProgramIndicator: ").append(toIndentedString(feeProgramIndicator)).append("\n");
@@ -1733,13 +1733,13 @@ public class ProcessorSystemConfig {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("CLASS_KEY_IDENTIFIER");
     openapiFields.add("acquirer_country_code");
     openapiFields.add("acquiring_bin");
     openapiFields.add("allow_credit_for_partner");
     openapiFields.add("available_countries");
     openapiFields.add("business_application_id");
-    openapiFields.add("configuration_templates");
+    openapiFields.add("class_key_identifier");
+    openapiFields.add("config");
     openapiFields.add("default_currencies");
     openapiFields.add("disable_ppgs");
     openapiFields.add("fee_program_indicator");
@@ -1797,13 +1797,6 @@ public class ProcessorSystemConfig {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("CLASS_KEY_IDENTIFIER") != null && !jsonObj.get("CLASS_KEY_IDENTIFIER").isJsonNull()  && !jsonObj.get("CLASS_KEY_IDENTIFIER").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `CLASS_KEY_IDENTIFIER` to be a primitive type in the JSON string but got `%s`", jsonObj.get("CLASS_KEY_IDENTIFIER").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
       if (jsonObj.get("acquirer_country_code") != null && !jsonObj.get("acquirer_country_code").isJsonNull()  && !jsonObj.get("acquirer_country_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `acquirer_country_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acquirer_country_code").toString()));
       }
@@ -1831,11 +1824,18 @@ public class ProcessorSystemConfig {
       }
       /**
       * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("class_key_identifier") != null && !jsonObj.get("class_key_identifier").isJsonNull()  && !jsonObj.get("class_key_identifier").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `class_key_identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("class_key_identifier").toString()));
+      }
+      /**
+      * EDITED
       * ADDED  statement to for inconsistent null behaviour
       */
-      // validate the optional field `configuration_templates`
-     // if (jsonObj.getAsJsonObject("configuration_templates") != null) {
-       //ProcessorSystemConfigConfigurationTemplates.validateJsonObject(jsonObj.getAsJsonObject("configuration_templates"));
+      // validate the optional field `config`
+     // if (jsonObj.getAsJsonObject("config") != null) {
+       //ProcessorSystemConfigConfig.validateJsonObject(jsonObj.getAsJsonObject("config"));
      // }
 
       /**

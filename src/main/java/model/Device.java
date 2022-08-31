@@ -29,7 +29,6 @@ import java.util.List;
 import java.util.Map;
 import model.DeviceConfigDetails;
 import model.DeviceLinks;
-import model.InputDetails;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -59,14 +58,6 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Device {
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
-
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private String description;
-
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -87,6 +78,10 @@ public class Device {
   @SerializedName(SERIALIZED_NAME_CONNECTION)
   private String connection;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_ENABLED = "enabled";
   @SerializedName(SERIALIZED_NAME_ENABLED)
   private Boolean enabled;
@@ -94,10 +89,6 @@ public class Device {
   public static final String SERIALIZED_NAME_IDLE_MESSAGE = "idle_message";
   @SerializedName(SERIALIZED_NAME_IDLE_MESSAGE)
   private String idleMessage;
-
-  public static final String SERIALIZED_NAME_INPUT_DETAILS = "input_details";
-  @SerializedName(SERIALIZED_NAME_INPUT_DETAILS)
-  private InputDetails inputDetails;
 
   public static final String SERIALIZED_NAME_MERCHANT = "merchant";
   @SerializedName(SERIALIZED_NAME_MERCHANT)
@@ -115,66 +106,16 @@ public class Device {
   @SerializedName(SERIALIZED_NAME_SERIAL_NUMBER)
   private String serialNumber;
 
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
+
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
   private DeviceLinks links;
 
   public Device() { 
   }
-
-  public Device tags(Map<String, String> tags) {
-    
-    this.tags = tags;
-    return this;
-  }
-
-  public Device putTagsItem(String key, String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new HashMap<>();
-    }
-    this.tags.put(key, tagsItem);
-    return this;
-  }
-
-   /**
-   * Key value pair for annotating custom meta data (e.g. order numbers).
-   * @return tags
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
-
-  public Map<String, String> getTags() {
-    return tags;
-  }
-
-
-  public void setTags(Map<String, String> tags) {
-    this.tags = tags;
-  }
-
-
-  public Device description(String description) {
-    
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * Additional information about device (e.g. self serving terminal).
-   * @return description
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Additional information about device (e.g. self serving terminal).")
-
-  public String getDescription() {
-    return description;
-  }
-
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
 
   public Device id(String id) {
     
@@ -275,11 +216,11 @@ public class Device {
   }
 
    /**
-   * Details if the &#x60;Device&#x60; is connected and online. Only returned when include_connection parameter provided.
+   * Details if the &#x60;Device&#x60; is connected and online. Only returned when &#x60;include_connection parameter&#x60; provided.
    * @return connection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Details if the `Device` is connected and online. Only returned when include_connection parameter provided.")
+  @ApiModelProperty(value = "Details if the `Device` is connected and online. Only returned when `include_connection parameter` provided.")
 
   public String getConnection() {
     return connection;
@@ -288,6 +229,29 @@ public class Device {
 
   public void setConnection(String connection) {
     this.connection = connection;
+  }
+
+
+  public Device description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Additional information about device (e.g. self serving terminal).
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Additional information about device (e.g. self serving terminal).")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -321,11 +285,11 @@ public class Device {
   }
 
    /**
-   * ID of &#x60;Device&#x60;.
+   * The message that diplays on the device after a period of inactivity.
    * @return idleMessage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of `Device`.")
+  @ApiModelProperty(value = "The message that diplays on the device after a period of inactivity.")
 
   public String getIdleMessage() {
     return idleMessage;
@@ -334,29 +298,6 @@ public class Device {
 
   public void setIdleMessage(String idleMessage) {
     this.idleMessage = idleMessage;
-  }
-
-
-  public Device inputDetails(InputDetails inputDetails) {
-    
-    this.inputDetails = inputDetails;
-    return this;
-  }
-
-   /**
-   * Get inputDetails
-   * @return inputDetails
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public InputDetails getInputDetails() {
-    return inputDetails;
-  }
-
-
-  public void setInputDetails(InputDetails inputDetails) {
-    this.inputDetails = inputDetails;
   }
 
 
@@ -452,6 +393,37 @@ public class Device {
   }
 
 
+  public Device tags(Map<String, String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public Device putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
+    return this;
+  }
+
+   /**
+   * Key value pair for annotating custom meta data (e.g. order numbers).
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
+
+  public Map<String, String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(Map<String, String> tags) {
+    this.tags = tags;
+  }
+
+
   public Device links(DeviceLinks links) {
     
     this.links = links;
@@ -485,20 +457,19 @@ public class Device {
       return false;
     }
     Device device = (Device) o;
-    return Objects.equals(this.tags, device.tags) &&
-        Objects.equals(this.description, device.description) &&
-        Objects.equals(this.id, device.id) &&
+    return Objects.equals(this.id, device.id) &&
         Objects.equals(this.createdAt, device.createdAt) &&
         Objects.equals(this.updatedAt, device.updatedAt) &&
         Objects.equals(this.configurationDetails, device.configurationDetails) &&
         Objects.equals(this.connection, device.connection) &&
+        Objects.equals(this.description, device.description) &&
         Objects.equals(this.enabled, device.enabled) &&
         Objects.equals(this.idleMessage, device.idleMessage) &&
-        Objects.equals(this.inputDetails, device.inputDetails) &&
         Objects.equals(this.merchant, device.merchant) &&
         Objects.equals(this.model, device.model) &&
         Objects.equals(this.name, device.name) &&
         Objects.equals(this.serialNumber, device.serialNumber) &&
+        Objects.equals(this.tags, device.tags) &&
         Objects.equals(this.links, device.links);
   }
 
@@ -508,7 +479,7 @@ public class Device {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, description, id, createdAt, updatedAt, configurationDetails, connection, enabled, idleMessage, inputDetails, merchant, model, name, serialNumber, links);
+    return Objects.hash(id, createdAt, updatedAt, configurationDetails, connection, description, enabled, idleMessage, merchant, model, name, serialNumber, tags, links);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -522,20 +493,19 @@ public class Device {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Device {\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    configurationDetails: ").append(toIndentedString(configurationDetails)).append("\n");
     sb.append("    connection: ").append(toIndentedString(connection)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    idleMessage: ").append(toIndentedString(idleMessage)).append("\n");
-    sb.append("    inputDetails: ").append(toIndentedString(inputDetails)).append("\n");
     sb.append("    merchant: ").append(toIndentedString(merchant)).append("\n");
     sb.append("    model: ").append(toIndentedString(model)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    serialNumber: ").append(toIndentedString(serialNumber)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -559,20 +529,19 @@ public class Device {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("tags");
-    openapiFields.add("description");
     openapiFields.add("id");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
     openapiFields.add("configuration_details");
     openapiFields.add("connection");
+    openapiFields.add("description");
     openapiFields.add("enabled");
     openapiFields.add("idle_message");
-    openapiFields.add("input_details");
     openapiFields.add("merchant");
     openapiFields.add("model");
     openapiFields.add("name");
     openapiFields.add("serial_number");
+    openapiFields.add("tags");
     openapiFields.add("_links");
 
     // a set of required properties/fields (JSON key names)
@@ -607,13 +576,6 @@ public class Device {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()  && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()  && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -637,18 +599,16 @@ public class Device {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("idle_message") != null && !jsonObj.get("idle_message").isJsonNull()  && !jsonObj.get("idle_message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `idle_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("idle_message").toString()));
+      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()  && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       /**
       * EDITED
-      * ADDED  statement to for inconsistent null behaviour
+      * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      // validate the optional field `input_details`
-     // if (jsonObj.getAsJsonObject("input_details") != null) {
-       //InputDetails.validateJsonObject(jsonObj.getAsJsonObject("input_details"));
-     // }
-
+      if (jsonObj.get("idle_message") != null && !jsonObj.get("idle_message").isJsonNull()  && !jsonObj.get("idle_message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `idle_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("idle_message").toString()));
+      }
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour

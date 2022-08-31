@@ -57,13 +57,13 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateIdentityRequest {
-  public static final String SERIALIZED_NAME_ENTITY = "entity";
-  @SerializedName(SERIALIZED_NAME_ENTITY)
-  private CreateIdentityRequestEntity entity;
-
   public static final String SERIALIZED_NAME_ADDITIONAL_UNDERWRITING_DATA = "additional_underwriting_data";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_UNDERWRITING_DATA)
   private CreateIdentityRequestAdditionalUnderwritingData additionalUnderwritingData;
+
+  public static final String SERIALIZED_NAME_ENTITY = "entity";
+  @SerializedName(SERIALIZED_NAME_ENTITY)
+  private CreateIdentityRequestEntity entity;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -71,29 +71,6 @@ public class CreateIdentityRequest {
 
   public CreateIdentityRequest() { 
   }
-
-  public CreateIdentityRequest entity(CreateIdentityRequestEntity entity) {
-    
-    this.entity = entity;
-    return this;
-  }
-
-   /**
-   * Get entity
-   * @return entity
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public CreateIdentityRequestEntity getEntity() {
-    return entity;
-  }
-
-
-  public void setEntity(CreateIdentityRequestEntity entity) {
-    this.entity = entity;
-  }
-
 
   public CreateIdentityRequest additionalUnderwritingData(CreateIdentityRequestAdditionalUnderwritingData additionalUnderwritingData) {
     
@@ -115,6 +92,29 @@ public class CreateIdentityRequest {
 
   public void setAdditionalUnderwritingData(CreateIdentityRequestAdditionalUnderwritingData additionalUnderwritingData) {
     this.additionalUnderwritingData = additionalUnderwritingData;
+  }
+
+
+  public CreateIdentityRequest entity(CreateIdentityRequestEntity entity) {
+    
+    this.entity = entity;
+    return this;
+  }
+
+   /**
+   * Get entity
+   * @return entity
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public CreateIdentityRequestEntity getEntity() {
+    return entity;
+  }
+
+
+  public void setEntity(CreateIdentityRequestEntity entity) {
+    this.entity = entity;
   }
 
 
@@ -159,8 +159,8 @@ public class CreateIdentityRequest {
       return false;
     }
     CreateIdentityRequest createIdentityRequest = (CreateIdentityRequest) o;
-    return Objects.equals(this.entity, createIdentityRequest.entity) &&
-        Objects.equals(this.additionalUnderwritingData, createIdentityRequest.additionalUnderwritingData) &&
+    return Objects.equals(this.additionalUnderwritingData, createIdentityRequest.additionalUnderwritingData) &&
+        Objects.equals(this.entity, createIdentityRequest.entity) &&
         Objects.equals(this.tags, createIdentityRequest.tags);
   }
 
@@ -170,7 +170,7 @@ public class CreateIdentityRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(entity, additionalUnderwritingData, tags);
+    return Objects.hash(additionalUnderwritingData, entity, tags);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -184,8 +184,8 @@ public class CreateIdentityRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateIdentityRequest {\n");
-    sb.append("    entity: ").append(toIndentedString(entity)).append("\n");
     sb.append("    additionalUnderwritingData: ").append(toIndentedString(additionalUnderwritingData)).append("\n");
+    sb.append("    entity: ").append(toIndentedString(entity)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -209,8 +209,8 @@ public class CreateIdentityRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("entity");
     openapiFields.add("additional_underwriting_data");
+    openapiFields.add("entity");
     openapiFields.add("tags");
 
     // a set of required properties/fields (JSON key names)
@@ -245,18 +245,18 @@ public class CreateIdentityRequest {
       * EDITED
       * ADDED  statement to for inconsistent null behaviour
       */
-      // validate the optional field `entity`
-     // if (jsonObj.getAsJsonObject("entity") != null) {
-       //CreateIdentityRequestEntity.validateJsonObject(jsonObj.getAsJsonObject("entity"));
+      // validate the optional field `additional_underwriting_data`
+     // if (jsonObj.getAsJsonObject("additional_underwriting_data") != null) {
+       //CreateIdentityRequestAdditionalUnderwritingData.validateJsonObject(jsonObj.getAsJsonObject("additional_underwriting_data"));
      // }
 
       /**
       * EDITED
       * ADDED  statement to for inconsistent null behaviour
       */
-      // validate the optional field `additional_underwriting_data`
-     // if (jsonObj.getAsJsonObject("additional_underwriting_data") != null) {
-       //CreateIdentityRequestAdditionalUnderwritingData.validateJsonObject(jsonObj.getAsJsonObject("additional_underwriting_data"));
+      // validate the optional field `entity`
+     // if (jsonObj.getAsJsonObject("entity") != null) {
+       //CreateIdentityRequestEntity.validateJsonObject(jsonObj.getAsJsonObject("entity"));
      // }
 
   }

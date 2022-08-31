@@ -49,8 +49,9 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * PaymentInstrumentsListEmbedded
+ * List of &#x60;Payment Instrument&#x60; objects.
  */
+@ApiModel(description = "List of `Payment Instrument` objects.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PaymentInstrumentsListEmbedded {
@@ -76,11 +77,11 @@ public class PaymentInstrumentsListEmbedded {
   }
 
    /**
-   * List of &#x60;Payment Instruments&#x60;.
+   * &#x60;Payment Instrument&#x60; objects.
    * @return paymentInstruments
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of `Payment Instruments`.")
+  @ApiModelProperty(value = "`Payment Instrument` objects.")
 
   public Set<PaymentInstrument> getPaymentInstruments() {
     return paymentInstruments;

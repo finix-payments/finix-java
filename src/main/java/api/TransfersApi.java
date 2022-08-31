@@ -248,7 +248,7 @@ public class TransfersApi {
     }
     /**
     * Build call for createTransferReversal
-        * @param transferId ID of &#x60;transfer&#x60; object (required)
+        * @param transferId ID of &#x60;Transfer&#x60; object. (required)
         * @param createReversalRequest  (optional)
     * @param _callback Callback for upload/download progress
     * @return Call to execute
@@ -329,8 +329,8 @@ public class TransfersApi {
 
             /**
             * Refund or Reverse a Transfer
-            * Reverse a transfer with a &#x60;type&#x60; of **DEBIT**. This reversal creates a new &#x60;Transfer&#x60; resource with a &#x60;type&#x60; of **REVERSAL**.   The refund can get delivered in most cases without the physical card. The card only needs to be swiped (to receive the refund) when:  - The payment type is **DEBIT**, and the transaction is no longer in the batch. - The payment type is **CREDIT**, and the transaction is no longer in the batch and is older than 45 days.
-                * @param transferId ID of &#x60;transfer&#x60; object (required)
+            * Reverse a transfer with a &#x60;type&#x60; of **DEBIT**. This reversal creates a new &#x60;Transfer&#x60; resource with a &#x60;type&#x60; of **REVERSAL**.   The refund can get delivered in most cases without the physical card. The card only needs to be swiped (to receive the refund) when:  - The payment type is **DEBIT**, and the transaction is no longer in the Settlement batch. - The payment type is **CREDIT**, and the transaction is no longer in the batch and is older than 45 days.
+                * @param transferId ID of &#x60;Transfer&#x60; object. (required)
                 * @param createReversalRequest  (optional)
                 * @return Transfer
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -356,8 +356,8 @@ public class TransfersApi {
 
     /**
         * Refund or Reverse a Transfer
-        * Reverse a transfer with a &#x60;type&#x60; of **DEBIT**. This reversal creates a new &#x60;Transfer&#x60; resource with a &#x60;type&#x60; of **REVERSAL**.   The refund can get delivered in most cases without the physical card. The card only needs to be swiped (to receive the refund) when:  - The payment type is **DEBIT**, and the transaction is no longer in the batch. - The payment type is **CREDIT**, and the transaction is no longer in the batch and is older than 45 days.
-            * @param transferId ID of &#x60;transfer&#x60; object (required)
+        * Reverse a transfer with a &#x60;type&#x60; of **DEBIT**. This reversal creates a new &#x60;Transfer&#x60; resource with a &#x60;type&#x60; of **REVERSAL**.   The refund can get delivered in most cases without the physical card. The card only needs to be swiped (to receive the refund) when:  - The payment type is **DEBIT**, and the transaction is no longer in the Settlement batch. - The payment type is **CREDIT**, and the transaction is no longer in the batch and is older than 45 days.
+            * @param transferId ID of &#x60;Transfer&#x60; object. (required)
             * @param createReversalRequest  (optional)
         * @return ApiResponse&lt;Transfer&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -381,8 +381,8 @@ public class TransfersApi {
 
     /**
         * Refund or Reverse a Transfer (asynchronously)
-        * Reverse a transfer with a &#x60;type&#x60; of **DEBIT**. This reversal creates a new &#x60;Transfer&#x60; resource with a &#x60;type&#x60; of **REVERSAL**.   The refund can get delivered in most cases without the physical card. The card only needs to be swiped (to receive the refund) when:  - The payment type is **DEBIT**, and the transaction is no longer in the batch. - The payment type is **CREDIT**, and the transaction is no longer in the batch and is older than 45 days.
-            * @param transferId ID of &#x60;transfer&#x60; object (required)
+        * Reverse a transfer with a &#x60;type&#x60; of **DEBIT**. This reversal creates a new &#x60;Transfer&#x60; resource with a &#x60;type&#x60; of **REVERSAL**.   The refund can get delivered in most cases without the physical card. The card only needs to be swiped (to receive the refund) when:  - The payment type is **DEBIT**, and the transaction is no longer in the Settlement batch. - The payment type is **CREDIT**, and the transaction is no longer in the batch and is older than 45 days.
+            * @param transferId ID of &#x60;Transfer&#x60; object. (required)
             * @param createReversalRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
@@ -408,7 +408,7 @@ public class TransfersApi {
     }
     /**
     * Build call for getTransfer
-        * @param transferId ID of &#x60;transfer&#x60; object. (required)
+        * @param transferId ID of &#x60;Transfer&#x60; resource. (required)
     * @param _callback Callback for upload/download progress
     * @return Call to execute
     * @throws ApiException If fail to serialize the request body object
@@ -485,9 +485,9 @@ public class TransfersApi {
     }
 
             /**
-            * Get a Transfer
-            * Retrieve a &#x60;transfer&#x60;.
-                * @param transferId ID of &#x60;transfer&#x60; object. (required)
+            * Fetch a Transfer
+            * Retrieve a &#x60;Transfer&#x60;.
+                * @param transferId ID of &#x60;Transfer&#x60; resource. (required)
                 * @return Transfer
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
@@ -509,9 +509,9 @@ public class TransfersApi {
 
 
     /**
-        * Get a Transfer
-        * Retrieve a &#x60;transfer&#x60;.
-            * @param transferId ID of &#x60;transfer&#x60; object. (required)
+        * Fetch a Transfer
+        * Retrieve a &#x60;Transfer&#x60;.
+            * @param transferId ID of &#x60;Transfer&#x60; resource. (required)
         * @return ApiResponse&lt;Transfer&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
             * @http.response.details
@@ -531,9 +531,9 @@ public class TransfersApi {
     }
 
     /**
-        * Get a Transfer (asynchronously)
-        * Retrieve a &#x60;transfer&#x60;.
-            * @param transferId ID of &#x60;transfer&#x60; object. (required)
+        * Fetch a Transfer (asynchronously)
+        * Retrieve a &#x60;Transfer&#x60;.
+            * @param transferId ID of &#x60;Transfer&#x60; resource. (required)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -762,7 +762,7 @@ public class TransfersApi {
     /**
     * List Reversals on a Transfer
     * Retrieve a list of reversals for a &#x60;Transfer&#x60;.
-        * @param transferId ID of &#x60;transfer&#x60; object (required)
+        * @param transferId ID of &#x60;Transfer&#x60; object. (required)
     * @return APIlistTransferReversalsRequest
         * @http.response.details
         <table summary="Response Details" border="1">
@@ -1056,7 +1056,7 @@ public class TransfersApi {
 
         /**
         * Set sort
-        * @param sort Specify key to be used for sorting the collection (optional)
+        * @param sort Specify key to be used for sorting the collection. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest sort(String sort) {
@@ -1076,7 +1076,7 @@ public class TransfersApi {
 
         /**
         * Set limit
-        * @param limit The numbers of items to return (optional)
+        * @param limit The numbers of items to return. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest limit(Long limit) {
@@ -1086,7 +1086,7 @@ public class TransfersApi {
 
         /**
         * Set amount
-        * @param amount Filter by an amount equal to the given value (optional)
+        * @param amount Filter by an amount equal to the given value. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest amount(Long amount) {
@@ -1096,7 +1096,7 @@ public class TransfersApi {
 
         /**
         * Set amountGte
-        * @param amountGte Filter by an amount greater than or equal (optional)
+        * @param amountGte Filter by an amount greater than or equal. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest amountGte(Long amountGte) {
@@ -1106,7 +1106,7 @@ public class TransfersApi {
 
         /**
         * Set amountGt
-        * @param amountGt Filter by an amount greater than (optional)
+        * @param amountGt Filter by an amount greater than. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest amountGt(Long amountGt) {
@@ -1116,7 +1116,7 @@ public class TransfersApi {
 
         /**
         * Set amountLte
-        * @param amountLte Filter by an amount less than or equal (optional)
+        * @param amountLte Filter by an amount less than or equal. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest amountLte(Long amountLte) {
@@ -1126,7 +1126,7 @@ public class TransfersApi {
 
         /**
         * Set amountLt
-        * @param amountLt Filter by an amount less than (optional)
+        * @param amountLt Filter by an amount less than. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest amountLt(Long amountLt) {
@@ -1136,7 +1136,7 @@ public class TransfersApi {
 
         /**
         * Set createdAtGte
-        * @param createdAtGte Filter where created_at is after the given date. (optional)
+        * @param createdAtGte Filter where &#x60;created_at&#x60; is after the given date. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest createdAtGte(String createdAtGte) {
@@ -1146,7 +1146,7 @@ public class TransfersApi {
 
         /**
         * Set createdAtLte
-        * @param createdAtLte Filter where created_at is before the given date. (optional)
+        * @param createdAtLte Filter where &#x60;created_at&#x60; is before the given date. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest createdAtLte(String createdAtLte) {
@@ -1156,7 +1156,7 @@ public class TransfersApi {
 
         /**
         * Set idempotencyId
-        * @param idempotencyId Filter by idempotency_id (optional)
+        * @param idempotencyId Filter by &#x60;idempotency_id&#x60;. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest idempotencyId(String idempotencyId) {
@@ -1166,7 +1166,7 @@ public class TransfersApi {
 
         /**
         * Set id
-        * @param id Filter by id (optional)
+        * @param id Filter by &#x60;id&#x60;. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest id(String id) {
@@ -1186,7 +1186,7 @@ public class TransfersApi {
 
         /**
         * Set readyToSettleAtGte
-        * @param readyToSettleAtGte Filter by ready_to_settle_at (optional)
+        * @param readyToSettleAtGte Filter by &#x60;ready_to_settle_at&#x60;. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest readyToSettleAtGte(String readyToSettleAtGte) {
@@ -1196,7 +1196,7 @@ public class TransfersApi {
 
         /**
         * Set readyToSettleAtLte
-        * @param readyToSettleAtLte Filter by ready_to_settle_at (optional)
+        * @param readyToSettleAtLte Filter by &#x60;ready_to_settle_at&#x60;. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest readyToSettleAtLte(String readyToSettleAtLte) {
@@ -1206,7 +1206,7 @@ public class TransfersApi {
 
         /**
         * Set statementDescriptor
-        * @param statementDescriptor Filter by statement_descriptor (optional)
+        * @param statementDescriptor Filter by &#x60;statement_descriptor&#x60;. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest statementDescriptor(Long statementDescriptor) {
@@ -1216,7 +1216,7 @@ public class TransfersApi {
 
         /**
         * Set traceId
-        * @param traceId Filter by trace_id (optional)
+        * @param traceId Filter by &#x60;trace_id&#x60;. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest traceId(String traceId) {
@@ -1226,7 +1226,7 @@ public class TransfersApi {
 
         /**
         * Set updatedAtGte
-        * @param updatedAtGte Filter where updated_at is after the given date (optional)
+        * @param updatedAtGte Filter where &#x60;updated_at&#x60; is after the given date. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest updatedAtGte(String updatedAtGte) {
@@ -1236,7 +1236,7 @@ public class TransfersApi {
 
         /**
         * Set updatedAtLte
-        * @param updatedAtLte Filter where updated_at is before the given date (optional)
+        * @param updatedAtLte Filter where &#x60;updated_at&#x60; is before the given date. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest updatedAtLte(String updatedAtLte) {
@@ -1246,7 +1246,7 @@ public class TransfersApi {
 
         /**
         * Set instrumentBin
-        * @param instrumentBin Filter by Bank Identification Number (BIN). The BIN is the first 6 digits of the masked number (optional)
+        * @param instrumentBin Filter by Bank Identification Number (BIN). The BIN is the first 6 digits of the masked number. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest instrumentBin(String instrumentBin) {
@@ -1256,7 +1256,7 @@ public class TransfersApi {
 
         /**
         * Set instrumentAccountLast4
-        * @param instrumentAccountLast4 Filter Transactions by the last 4 digits of the bank account. The bank account last 4 are the last 4 digits of the masked number instrument_account_last4&#x3D;9444 BIN  (optional)
+        * @param instrumentAccountLast4 Filter Transactions by the last 4 digits of the bank account. The bank account last 4 are the last 4 digits of the masked number instrument_account_last4&#x3D;9444 BIN. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest instrumentAccountLast4(String instrumentAccountLast4) {
@@ -1266,7 +1266,7 @@ public class TransfersApi {
 
         /**
         * Set instrumentBrandType
-        * @param instrumentBrandType Filter by card brand. Available card brand types can be found in the drop-down (optional)
+        * @param instrumentBrandType Filter by card brand. Available card brand types can be found in the drop-down. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest instrumentBrandType(String instrumentBrandType) {
@@ -1276,7 +1276,7 @@ public class TransfersApi {
 
         /**
         * Set merchantIdentityId
-        * @param merchantIdentityId Filter by Identity ID (optional)
+        * @param merchantIdentityId Filter by &#x60;Identity&#x60; ID. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest merchantIdentityId(String merchantIdentityId) {
@@ -1286,7 +1286,7 @@ public class TransfersApi {
 
         /**
         * Set merchantIdentityName
-        * @param merchantIdentityName Filter Transactions by Identity name. The name is not case-sensitive (optional)
+        * @param merchantIdentityName Filter Transactions by &#x60;Identity&#x60; name. The name is not case-sensitive. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest merchantIdentityName(String merchantIdentityName) {
@@ -1296,7 +1296,7 @@ public class TransfersApi {
 
         /**
         * Set instrumentName
-        * @param instrumentName Filter Transactions by payment instrument name (optional)
+        * @param instrumentName Filter Transactions by &#x60;Payment Instrument&#x60; name. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest instrumentName(String instrumentName) {
@@ -1306,7 +1306,7 @@ public class TransfersApi {
 
         /**
         * Set instrumentType
-        * @param instrumentType Filter Transactions by payment instrument type. Available instrument types include: Bank Account or Payment Card (optional)
+        * @param instrumentType Filter Transactions by &#x60;Payment Instrument&#x60; type. Available instrument types include: Bank Account or Payment Card (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest instrumentType(String instrumentType) {
@@ -1316,7 +1316,7 @@ public class TransfersApi {
 
         /**
         * Set merchantId
-        * @param merchantId Filter by Merchant ID (optional)
+        * @param merchantId Filter by &#x60;Merchant&#x60; ID. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest merchantId(String merchantId) {
@@ -1326,7 +1326,7 @@ public class TransfersApi {
 
         /**
         * Set merchantMid
-        * @param merchantMid Filter by Merchant Identification Number (MID) (optional)
+        * @param merchantMid Filter by Merchant Identification Number (MID). (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest merchantMid(String merchantMid) {
@@ -1336,7 +1336,7 @@ public class TransfersApi {
 
         /**
         * Set instrumentCardLast4
-        * @param instrumentCardLast4 Filter by the payment card last 4 digits (optional)
+        * @param instrumentCardLast4 Filter by the payment card last 4 digits. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest instrumentCardLast4(String instrumentCardLast4) {
@@ -1346,7 +1346,7 @@ public class TransfersApi {
 
         /**
         * Set merchantProcessorId
-        * @param merchantProcessorId Filter by Processor ID (optional)
+        * @param merchantProcessorId Filter by &#x60;Processor&#x60; ID. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest merchantProcessorId(String merchantProcessorId) {
@@ -1356,7 +1356,7 @@ public class TransfersApi {
 
         /**
         * Set type
-        * @param type Filter by Transfer type. Available type filters include: All, Debits, Refunds, or Credits. (optional)
+        * @param type Filter by &#x60;Transfer&#x60; type. Available type filters include: All, Debits, Refunds, or Credits. (optional)
         * @return APIlistTransfersRequest
         */
         public APIlistTransfersRequest type(String type) {
@@ -1539,7 +1539,7 @@ public class TransfersApi {
     }
     /**
     * Build call for updateTransfer
-        * @param transferId ID of &#x60;transfer&#x60; object. (required)
+        * @param transferId ID of &#x60;Transfer&#x60; resource. (required)
         * @param updateTransferRequest  (optional)
     * @param _callback Callback for upload/download progress
     * @return Call to execute
@@ -1619,7 +1619,7 @@ public class TransfersApi {
             /**
             * Update a Transfer
             * Update a &#x60;Transfer&#x60;.
-                * @param transferId ID of &#x60;transfer&#x60; object. (required)
+                * @param transferId ID of &#x60;Transfer&#x60; resource. (required)
                 * @param updateTransferRequest  (optional)
                 * @return Transfer
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1644,7 +1644,7 @@ public class TransfersApi {
     /**
         * Update a Transfer
         * Update a &#x60;Transfer&#x60;.
-            * @param transferId ID of &#x60;transfer&#x60; object. (required)
+            * @param transferId ID of &#x60;Transfer&#x60; resource. (required)
             * @param updateTransferRequest  (optional)
         * @return ApiResponse&lt;Transfer&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1667,7 +1667,7 @@ public class TransfersApi {
     /**
         * Update a Transfer (asynchronously)
         * Update a &#x60;Transfer&#x60;.
-            * @param transferId ID of &#x60;transfer&#x60; object. (required)
+            * @param transferId ID of &#x60;Transfer&#x60; resource. (required)
             * @param updateTransferRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call

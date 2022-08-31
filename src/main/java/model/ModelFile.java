@@ -59,10 +59,6 @@ public class ModelFile {
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  private String status;
-
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
@@ -71,41 +67,45 @@ public class ModelFile {
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private OffsetDateTime updatedAt;
 
-  public static final String SERIALIZED_NAME_LINKED_TYPE = "linked_type";
-  @SerializedName(SERIALIZED_NAME_LINKED_TYPE)
-  private String linkedType;
-
-  public static final String SERIALIZED_NAME_LINKED_TO = "linked_to";
-  @SerializedName(SERIALIZED_NAME_LINKED_TO)
-  private String linkedTo;
-
-  public static final String SERIALIZED_NAME_EXTENSION = "extension";
-  @SerializedName(SERIALIZED_NAME_EXTENSION)
-  private String extension;
+  public static final String SERIALIZED_NAME_APPLICATION_ID = "application_id";
+  @SerializedName(SERIALIZED_NAME_APPLICATION_ID)
+  private String applicationId;
 
   public static final String SERIALIZED_NAME_DISPLAY_NAME = "display_name";
   @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
   private String displayName;
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  public static final String SERIALIZED_NAME_EXTENSION = "extension";
+  @SerializedName(SERIALIZED_NAME_EXTENSION)
+  private String extension;
+
+  public static final String SERIALIZED_NAME_IDENTITY_ID = "identity_id";
+  @SerializedName(SERIALIZED_NAME_IDENTITY_ID)
+  private String identityId;
+
+  public static final String SERIALIZED_NAME_LINKED_TO = "linked_to";
+  @SerializedName(SERIALIZED_NAME_LINKED_TO)
+  private String linkedTo;
+
+  public static final String SERIALIZED_NAME_LINKED_TYPE = "linked_type";
+  @SerializedName(SERIALIZED_NAME_LINKED_TYPE)
+  private String linkedType;
 
   public static final String SERIALIZED_NAME_PLATFORM_ID = "platform_id";
   @SerializedName(SERIALIZED_NAME_PLATFORM_ID)
   private String platformId;
 
-  public static final String SERIALIZED_NAME_APPLICATION_ID = "application_id";
-  @SerializedName(SERIALIZED_NAME_APPLICATION_ID)
-  private String applicationId;
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  private String status;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private Map<String, String> tags = null;
 
-  public static final String SERIALIZED_NAME_IDENTITY_ID = "identity_id";
-  @SerializedName(SERIALIZED_NAME_IDENTITY_ID)
-  private String identityId;
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private String type;
 
   public ModelFile() { 
   }
@@ -130,29 +130,6 @@ public class ModelFile {
 
   public void setId(String id) {
     this.id = id;
-  }
-
-
-  public ModelFile status(String status) {
-    
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * The status of the file&#39;s review. The statuses available includes:&lt;br&gt;&lt;li&gt;&lt;strong&gt;REQUIRES_UPLOAD&lt;/strong&gt;: A file still needs to be uploaded to the file object.&lt;br&gt;&lt;li&gt;&lt;strong&gt;PENDING&lt;/strong&gt;: Finix&#39;s underwriting team is still reviewing the uploaded files.&lt;br&gt;&lt;li&gt;&lt;strong&gt;INVALID&lt;/strong&gt;: The file couldn&#39;t be read.&lt;br&gt;&lt;li&gt;&lt;strong&gt;UPLOADED&lt;/strong&gt;: The file has been uploaded to the resource.
-   * @return status
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The status of the file's review. The statuses available includes:<br><li><strong>REQUIRES_UPLOAD</strong>: A file still needs to be uploaded to the file object.<br><li><strong>PENDING</strong>: Finix's underwriting team is still reviewing the uploaded files.<br><li><strong>INVALID</strong>: The file couldn't be read.<br><li><strong>UPLOADED</strong>: The file has been uploaded to the resource.")
-
-  public String getStatus() {
-    return status;
-  }
-
-
-  public void setStatus(String status) {
-    this.status = status;
   }
 
 
@@ -202,72 +179,26 @@ public class ModelFile {
   }
 
 
-  public ModelFile linkedType(String linkedType) {
+  public ModelFile applicationId(String applicationId) {
     
-    this.linkedType = linkedType;
+    this.applicationId = applicationId;
     return this;
   }
 
    /**
-   * Autofills to **Merchant**.
-   * @return linkedType
+   * The ID of the &#x60;Application&#x60; that the &#x60;File&#x60; was created under.
+   * @return applicationId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Autofills to **Merchant**.")
+  @ApiModelProperty(value = "The ID of the `Application` that the `File` was created under.")
 
-  public String getLinkedType() {
-    return linkedType;
+  public String getApplicationId() {
+    return applicationId;
   }
 
 
-  public void setLinkedType(String linkedType) {
-    this.linkedType = linkedType;
-  }
-
-
-  public ModelFile linkedTo(String linkedTo) {
-    
-    this.linkedTo = linkedTo;
-    return this;
-  }
-
-   /**
-   * The resource ID the &#x60;File&#x60; is linked to.
-   * @return linkedTo
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The resource ID the `File` is linked to.")
-
-  public String getLinkedTo() {
-    return linkedTo;
-  }
-
-
-  public void setLinkedTo(String linkedTo) {
-    this.linkedTo = linkedTo;
-  }
-
-
-  public ModelFile extension(String extension) {
-    
-    this.extension = extension;
-    return this;
-  }
-
-   /**
-   * The extension of the file.
-   * @return extension
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The extension of the file.")
-
-  public String getExtension() {
-    return extension;
-  }
-
-
-  public void setExtension(String extension) {
-    this.extension = extension;
+  public void setApplicationId(String applicationId) {
+    this.applicationId = applicationId;
   }
 
 
@@ -294,26 +225,95 @@ public class ModelFile {
   }
 
 
-  public ModelFile type(String type) {
+  public ModelFile extension(String extension) {
     
-    this.type = type;
+    this.extension = extension;
     return this;
   }
 
    /**
-   * The type of document.
-   * @return type
+   * The extension of the file.
+   * @return extension
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The type of document.")
+  @ApiModelProperty(value = "The extension of the file.")
 
-  public String getType() {
-    return type;
+  public String getExtension() {
+    return extension;
   }
 
 
-  public void setType(String type) {
-    this.type = type;
+  public void setExtension(String extension) {
+    this.extension = extension;
+  }
+
+
+  public ModelFile identityId(String identityId) {
+    
+    this.identityId = identityId;
+    return this;
+  }
+
+   /**
+   * ID of the &#x60;Identity&#x60; that created the &#x60;File&#x60;.
+   * @return identityId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ID of the `Identity` that created the `File`.")
+
+  public String getIdentityId() {
+    return identityId;
+  }
+
+
+  public void setIdentityId(String identityId) {
+    this.identityId = identityId;
+  }
+
+
+  public ModelFile linkedTo(String linkedTo) {
+    
+    this.linkedTo = linkedTo;
+    return this;
+  }
+
+   /**
+   * The resource ID the &#x60;File&#x60; is linked to.
+   * @return linkedTo
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The resource ID the `File` is linked to.")
+
+  public String getLinkedTo() {
+    return linkedTo;
+  }
+
+
+  public void setLinkedTo(String linkedTo) {
+    this.linkedTo = linkedTo;
+  }
+
+
+  public ModelFile linkedType(String linkedType) {
+    
+    this.linkedType = linkedType;
+    return this;
+  }
+
+   /**
+   * Autofills to **Merchant**.
+   * @return linkedType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Autofills to **Merchant**.")
+
+  public String getLinkedType() {
+    return linkedType;
+  }
+
+
+  public void setLinkedType(String linkedType) {
+    this.linkedType = linkedType;
   }
 
 
@@ -340,26 +340,26 @@ public class ModelFile {
   }
 
 
-  public ModelFile applicationId(String applicationId) {
+  public ModelFile status(String status) {
     
-    this.applicationId = applicationId;
+    this.status = status;
     return this;
   }
 
    /**
-   * The ID of the &#x60;Application&#x60; that the &#x60;File&#x60; was created under.
-   * @return applicationId
+   * The status of the file&#39;s review. The statuses available includes:&lt;br&gt;&lt;li&gt;&lt;strong&gt;REQUIRES_UPLOAD&lt;/strong&gt;: A file still needs to be uploaded to the file object.&lt;br&gt;&lt;li&gt;&lt;strong&gt;PENDING&lt;/strong&gt;: Finix&#39;s underwriting team is still reviewing the uploaded files.&lt;br&gt;&lt;li&gt;&lt;strong&gt;INVALID&lt;/strong&gt;: The file couldn&#39;t be read.&lt;br&gt;&lt;li&gt;&lt;strong&gt;UPLOADED&lt;/strong&gt;: The file has been uploaded to the resource.
+   * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the `Application` that the `File` was created under.")
+  @ApiModelProperty(value = "The status of the file's review. The statuses available includes:<br><li><strong>REQUIRES_UPLOAD</strong>: A file still needs to be uploaded to the file object.<br><li><strong>PENDING</strong>: Finix's underwriting team is still reviewing the uploaded files.<br><li><strong>INVALID</strong>: The file couldn't be read.<br><li><strong>UPLOADED</strong>: The file has been uploaded to the resource.")
 
-  public String getApplicationId() {
-    return applicationId;
+  public String getStatus() {
+    return status;
   }
 
 
-  public void setApplicationId(String applicationId) {
-    this.applicationId = applicationId;
+  public void setStatus(String status) {
+    this.status = status;
   }
 
 
@@ -394,26 +394,26 @@ public class ModelFile {
   }
 
 
-  public ModelFile identityId(String identityId) {
+  public ModelFile type(String type) {
     
-    this.identityId = identityId;
+    this.type = type;
     return this;
   }
 
    /**
-   * ID of the &#x60;Identity&#x60; that created the &#x60;File&#x60;.
-   * @return identityId
+   * The type of document.
+   * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the `Identity` that created the `File`.")
+  @ApiModelProperty(value = "The type of document.")
 
-  public String getIdentityId() {
-    return identityId;
+  public String getType() {
+    return type;
   }
 
 
-  public void setIdentityId(String identityId) {
-    this.identityId = identityId;
+  public void setType(String type) {
+    this.type = type;
   }
 
 
@@ -428,18 +428,18 @@ public class ModelFile {
     }
     ModelFile _file = (ModelFile) o;
     return Objects.equals(this.id, _file.id) &&
-        Objects.equals(this.status, _file.status) &&
         Objects.equals(this.createdAt, _file.createdAt) &&
         Objects.equals(this.updatedAt, _file.updatedAt) &&
-        Objects.equals(this.linkedType, _file.linkedType) &&
-        Objects.equals(this.linkedTo, _file.linkedTo) &&
-        Objects.equals(this.extension, _file.extension) &&
-        Objects.equals(this.displayName, _file.displayName) &&
-        Objects.equals(this.type, _file.type) &&
-        Objects.equals(this.platformId, _file.platformId) &&
         Objects.equals(this.applicationId, _file.applicationId) &&
+        Objects.equals(this.displayName, _file.displayName) &&
+        Objects.equals(this.extension, _file.extension) &&
+        Objects.equals(this.identityId, _file.identityId) &&
+        Objects.equals(this.linkedTo, _file.linkedTo) &&
+        Objects.equals(this.linkedType, _file.linkedType) &&
+        Objects.equals(this.platformId, _file.platformId) &&
+        Objects.equals(this.status, _file.status) &&
         Objects.equals(this.tags, _file.tags) &&
-        Objects.equals(this.identityId, _file.identityId);
+        Objects.equals(this.type, _file.type);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -448,7 +448,7 @@ public class ModelFile {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, status, createdAt, updatedAt, linkedType, linkedTo, extension, displayName, type, platformId, applicationId, tags, identityId);
+    return Objects.hash(id, createdAt, updatedAt, applicationId, displayName, extension, identityId, linkedTo, linkedType, platformId, status, tags, type);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -463,18 +463,18 @@ public class ModelFile {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModelFile {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
-    sb.append("    linkedType: ").append(toIndentedString(linkedType)).append("\n");
-    sb.append("    linkedTo: ").append(toIndentedString(linkedTo)).append("\n");
-    sb.append("    extension: ").append(toIndentedString(extension)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    platformId: ").append(toIndentedString(platformId)).append("\n");
     sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    extension: ").append(toIndentedString(extension)).append("\n");
     sb.append("    identityId: ").append(toIndentedString(identityId)).append("\n");
+    sb.append("    linkedTo: ").append(toIndentedString(linkedTo)).append("\n");
+    sb.append("    linkedType: ").append(toIndentedString(linkedType)).append("\n");
+    sb.append("    platformId: ").append(toIndentedString(platformId)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -498,18 +498,18 @@ public class ModelFile {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
-    openapiFields.add("status");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
-    openapiFields.add("linked_type");
-    openapiFields.add("linked_to");
-    openapiFields.add("extension");
-    openapiFields.add("display_name");
-    openapiFields.add("type");
-    openapiFields.add("platform_id");
     openapiFields.add("application_id");
-    openapiFields.add("tags");
+    openapiFields.add("display_name");
+    openapiFields.add("extension");
     openapiFields.add("identity_id");
+    openapiFields.add("linked_to");
+    openapiFields.add("linked_type");
+    openapiFields.add("platform_id");
+    openapiFields.add("status");
+    openapiFields.add("tags");
+    openapiFields.add("type");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -550,29 +550,8 @@ public class ModelFile {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()  && !jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("linked_type") != null && !jsonObj.get("linked_type").isJsonNull()  && !jsonObj.get("linked_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `linked_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("linked_type").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("linked_to") != null && !jsonObj.get("linked_to").isJsonNull()  && !jsonObj.get("linked_to").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `linked_to` to be a primitive type in the JSON string but got `%s`", jsonObj.get("linked_to").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("extension") != null && !jsonObj.get("extension").isJsonNull()  && !jsonObj.get("extension").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `extension` to be a primitive type in the JSON string but got `%s`", jsonObj.get("extension").toString()));
+      if (jsonObj.get("application_id") != null && !jsonObj.get("application_id").isJsonNull()  && !jsonObj.get("application_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `application_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("application_id").toString()));
       }
       /**
       * EDITED
@@ -585,8 +564,29 @@ public class ModelFile {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()  && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      if (jsonObj.get("extension") != null && !jsonObj.get("extension").isJsonNull()  && !jsonObj.get("extension").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `extension` to be a primitive type in the JSON string but got `%s`", jsonObj.get("extension").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("identity_id") != null && !jsonObj.get("identity_id").isJsonNull()  && !jsonObj.get("identity_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `identity_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("identity_id").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("linked_to") != null && !jsonObj.get("linked_to").isJsonNull()  && !jsonObj.get("linked_to").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `linked_to` to be a primitive type in the JSON string but got `%s`", jsonObj.get("linked_to").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("linked_type") != null && !jsonObj.get("linked_type").isJsonNull()  && !jsonObj.get("linked_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `linked_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("linked_type").toString()));
       }
       /**
       * EDITED
@@ -599,15 +599,15 @@ public class ModelFile {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("application_id") != null && !jsonObj.get("application_id").isJsonNull()  && !jsonObj.get("application_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `application_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("application_id").toString()));
+      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()  && !jsonObj.get("status").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("identity_id") != null && !jsonObj.get("identity_id").isJsonNull()  && !jsonObj.get("identity_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `identity_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("identity_id").toString()));
+      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()  && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
   }
 

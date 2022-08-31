@@ -53,6 +53,10 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DisputesList {
+  public static final String SERIALIZED_NAME_PAGE = "page";
+  @SerializedName(SERIALIZED_NAME_PAGE)
+  private PageOffset page;
+
   public static final String SERIALIZED_NAME_EMBEDDED = "_embedded";
   @SerializedName(SERIALIZED_NAME_EMBEDDED)
   private DisputesListEmbedded embedded;
@@ -61,12 +65,31 @@ public class DisputesList {
   @SerializedName(SERIALIZED_NAME_LINKS)
   private ListLinks links;
 
-  public static final String SERIALIZED_NAME_PAGE = "page";
-  @SerializedName(SERIALIZED_NAME_PAGE)
-  private PageOffset page;
-
   public DisputesList() { 
   }
+
+  public DisputesList page(PageOffset page) {
+    
+    this.page = page;
+    return this;
+  }
+
+   /**
+   * Get page
+   * @return page
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public PageOffset getPage() {
+    return page;
+  }
+
+
+  public void setPage(PageOffset page) {
+    this.page = page;
+  }
+
 
   public DisputesList embedded(DisputesListEmbedded embedded) {
     
@@ -114,29 +137,6 @@ public class DisputesList {
   }
 
 
-  public DisputesList page(PageOffset page) {
-    
-    this.page = page;
-    return this;
-  }
-
-   /**
-   * Get page
-   * @return page
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public PageOffset getPage() {
-    return page;
-  }
-
-
-  public void setPage(PageOffset page) {
-    this.page = page;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -147,23 +147,23 @@ public class DisputesList {
       return false;
     }
     DisputesList disputesList = (DisputesList) o;
-    return Objects.equals(this.embedded, disputesList.embedded) &&
-        Objects.equals(this.links, disputesList.links) &&
-        Objects.equals(this.page, disputesList.page);
+    return Objects.equals(this.page, disputesList.page) &&
+        Objects.equals(this.embedded, disputesList.embedded) &&
+        Objects.equals(this.links, disputesList.links);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(embedded, links, page);
+    return Objects.hash(page, embedded, links);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DisputesList {\n");
+    sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    embedded: ").append(toIndentedString(embedded)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
-    sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -186,9 +186,9 @@ public class DisputesList {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("page");
     openapiFields.add("_embedded");
     openapiFields.add("_links");
-    openapiFields.add("page");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -222,18 +222,18 @@ public class DisputesList {
       * EDITED
       * ADDED  statement to for inconsistent null behaviour
       */
-      // validate the optional field `_embedded`
-     // if (jsonObj.getAsJsonObject("_embedded") != null) {
-       //DisputesListEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
+      // validate the optional field `page`
+     // if (jsonObj.getAsJsonObject("page") != null) {
+       //PageOffset.validateJsonObject(jsonObj.getAsJsonObject("page"));
      // }
 
       /**
       * EDITED
       * ADDED  statement to for inconsistent null behaviour
       */
-      // validate the optional field `page`
-     // if (jsonObj.getAsJsonObject("page") != null) {
-       //PageOffset.validateJsonObject(jsonObj.getAsJsonObject("page"));
+      // validate the optional field `_embedded`
+     // if (jsonObj.getAsJsonObject("_embedded") != null) {
+       //DisputesListEmbedded.validateJsonObject(jsonObj.getAsJsonObject("_embedded"));
      // }
 
   }

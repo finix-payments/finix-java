@@ -48,9 +48,9 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * &#x60;external_links&#x60; resources.
+ * List of &#x60;external_link&#x60; resources.
  */
-@ApiModel(description = "`external_links` resources.")
+@ApiModel(description = "List of `external_link` resources.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ExternalLinksListEmbedded {
@@ -76,11 +76,11 @@ public class ExternalLinksListEmbedded {
   }
 
    /**
-   * Get externalLinks
+   * &#x60;external_link&#x60; resources.
    * @return externalLinks
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "`external_link` resources.")
 
   public List<ExternalLink> getExternalLinks() {
     return externalLinks;

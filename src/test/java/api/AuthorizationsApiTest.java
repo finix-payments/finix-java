@@ -75,7 +75,6 @@ public class AuthorizationsApiTest {
                 .tags(localMap)
                 .currency(Currency.USD)
                 .amount(100L)
-                .processor(CreateAuthorizationRequest.ProcessorEnum.DUMMY_V1)
                 .build();
         Authorization response = finixClient.Authorizations.create(createAuthorizationRequest);
         AuthorizationId = response.getId();
@@ -129,7 +128,6 @@ public class AuthorizationsApiTest {
                 .tags(localMap)
                 .currency(Currency.USD)
                 .amount(1000L)
-                .processor(CreateAuthorizationRequest.ProcessorEnum.DUMMY_V1)
                 .build();
         Authorization response = finixClient.Authorizations.create(createAuthorizationRequest);
         assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getSource());
@@ -180,7 +178,6 @@ public class AuthorizationsApiTest {
                 .tags(localMap)
                 .currency(Currency.USD)
                 .amount(1000L)
-                .processor(CreateAuthorizationRequest.ProcessorEnum.DUMMY_V1)
                 .build();
         Authorization response = finixClient.Authorizations.create(createAuthorizationRequest);
         assertEquals("PIe2YvpcjvoVJ6PzoRPBK137",response.getSource(),()->"Should return " + "PIe2YvpcjvoVJ6PzoRPBK137" + " but returns " + response.getSource());

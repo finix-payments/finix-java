@@ -55,10 +55,6 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DisputeEvidence {
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
-
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -76,7 +72,7 @@ public class DisputeEvidence {
   private String dispute;
 
   /**
-   * Result of the evidence uploaded. - PENDING: The evidence file has not yet been submitted to the Processor. No user action is required. - SUCCEEDED: The evidence file has been successfully sent to the Processor. No further user action is required. - CANCELED: The evidence file upload was not completed due to user action. - FAILED: An issue occurred. User action is required. Any of the following issues could have occurred:   - There was an error in the system and the user should retry uploading their evidence file.   - There is an issue with the file and the user should retry uploading a different file.   - There is an issue and the user should contact Support.
+   * Result of the evidence uploaded. - **PENDING**: The evidence file has not yet been submitted to the Processor. No user action is required. - **SUCCEEDED**: The evidence file has been successfully sent to the Processor. No further user action is required. - **CANCELED**: The evidence file upload was not completed due to user action. - **FAILED**: An issue occurred. User action is required**. Any of the following issues could have occurred:   - There was an error in the system and the user should retry uploading their evidence file.   - There is an issue with the file and the user should retry uploading a different file.   - There is an issue and the user should contact Support.
    */
   @JsonAdapter(StateEnum.Adapter.class)
   public enum StateEnum {
@@ -151,43 +147,16 @@ public class DisputeEvidence {
   @SerializedName(SERIALIZED_NAME_STATE)
   private StateEnum state;
 
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
+
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
   private DisputeEvidenceLinks links;
 
   public DisputeEvidence() { 
   }
-
-  public DisputeEvidence tags(Map<String, String> tags) {
-    
-    this.tags = tags;
-    return this;
-  }
-
-  public DisputeEvidence putTagsItem(String key, String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new HashMap<>();
-    }
-    this.tags.put(key, tagsItem);
-    return this;
-  }
-
-   /**
-   * Key value pair for annotating custom meta data (e.g. order numbers).
-   * @return tags
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
-
-  public Map<String, String> getTags() {
-    return tags;
-  }
-
-
-  public void setTags(Map<String, String> tags) {
-    this.tags = tags;
-  }
-
 
   public DisputeEvidence id(String id) {
     
@@ -288,11 +257,11 @@ public class DisputeEvidence {
   }
 
    /**
-   * Result of the evidence uploaded. - PENDING: The evidence file has not yet been submitted to the Processor. No user action is required. - SUCCEEDED: The evidence file has been successfully sent to the Processor. No further user action is required. - CANCELED: The evidence file upload was not completed due to user action. - FAILED: An issue occurred. User action is required. Any of the following issues could have occurred:   - There was an error in the system and the user should retry uploading their evidence file.   - There is an issue with the file and the user should retry uploading a different file.   - There is an issue and the user should contact Support.
+   * Result of the evidence uploaded. - **PENDING**: The evidence file has not yet been submitted to the Processor. No user action is required. - **SUCCEEDED**: The evidence file has been successfully sent to the Processor. No further user action is required. - **CANCELED**: The evidence file upload was not completed due to user action. - **FAILED**: An issue occurred. User action is required**. Any of the following issues could have occurred:   - There was an error in the system and the user should retry uploading their evidence file.   - There is an issue with the file and the user should retry uploading a different file.   - There is an issue and the user should contact Support.
    * @return state
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Result of the evidence uploaded. - PENDING: The evidence file has not yet been submitted to the Processor. No user action is required. - SUCCEEDED: The evidence file has been successfully sent to the Processor. No further user action is required. - CANCELED: The evidence file upload was not completed due to user action. - FAILED: An issue occurred. User action is required. Any of the following issues could have occurred:   - There was an error in the system and the user should retry uploading their evidence file.   - There is an issue with the file and the user should retry uploading a different file.   - There is an issue and the user should contact Support.")
+  @ApiModelProperty(value = "Result of the evidence uploaded. - **PENDING**: The evidence file has not yet been submitted to the Processor. No user action is required. - **SUCCEEDED**: The evidence file has been successfully sent to the Processor. No further user action is required. - **CANCELED**: The evidence file upload was not completed due to user action. - **FAILED**: An issue occurred. User action is required**. Any of the following issues could have occurred:   - There was an error in the system and the user should retry uploading their evidence file.   - There is an issue with the file and the user should retry uploading a different file.   - There is an issue and the user should contact Support.")
 
   public StateEnum getState() {
     return state;
@@ -301,6 +270,37 @@ public class DisputeEvidence {
 
   public void setState(StateEnum state) {
     this.state = state;
+  }
+
+
+  public DisputeEvidence tags(Map<String, String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public DisputeEvidence putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
+    return this;
+  }
+
+   /**
+   * Key value pair for annotating custom meta data (e.g. order numbers).
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
+
+  public Map<String, String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(Map<String, String> tags) {
+    this.tags = tags;
   }
 
 
@@ -337,30 +337,30 @@ public class DisputeEvidence {
       return false;
     }
     DisputeEvidence disputeEvidence = (DisputeEvidence) o;
-    return Objects.equals(this.tags, disputeEvidence.tags) &&
-        Objects.equals(this.id, disputeEvidence.id) &&
+    return Objects.equals(this.id, disputeEvidence.id) &&
         Objects.equals(this.createdAt, disputeEvidence.createdAt) &&
         Objects.equals(this.updatedAt, disputeEvidence.updatedAt) &&
         Objects.equals(this.dispute, disputeEvidence.dispute) &&
         Objects.equals(this.state, disputeEvidence.state) &&
+        Objects.equals(this.tags, disputeEvidence.tags) &&
         Objects.equals(this.links, disputeEvidence.links);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, id, createdAt, updatedAt, dispute, state, links);
+    return Objects.hash(id, createdAt, updatedAt, dispute, state, tags, links);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DisputeEvidence {\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    dispute: ").append(toIndentedString(dispute)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -384,12 +384,12 @@ public class DisputeEvidence {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("tags");
     openapiFields.add("id");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
     openapiFields.add("dispute");
     openapiFields.add("state");
+    openapiFields.add("tags");
     openapiFields.add("_links");
 
     // a set of required properties/fields (JSON key names)

@@ -161,7 +161,7 @@ public class FeeProfilesApi {
 
             /**
             * Create a Fee Profile
-            * Create fee profiles
+            * Create a &#x60;fee_profile&#x60;.
                 * @param createFeeProfileRequest  (optional)
                 * @return FeeProfile
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -185,7 +185,7 @@ public class FeeProfilesApi {
 
     /**
         * Create a Fee Profile
-        * Create fee profiles
+        * Create a &#x60;fee_profile&#x60;.
             * @param createFeeProfileRequest  (optional)
         * @return ApiResponse&lt;FeeProfile&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -207,7 +207,7 @@ public class FeeProfilesApi {
 
     /**
         * Create a Fee Profile (asynchronously)
-        * Create fee profiles
+        * Create a &#x60;fee_profile&#x60;.
             * @param createFeeProfileRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
@@ -231,7 +231,7 @@ public class FeeProfilesApi {
     }
     /**
     * Build call for getFeeProfile
-        * @param feeProfileId The ID of the fee profile. (required)
+        * @param feeProfileId The ID of the &#x60;fee_profile&#x60;. (required)
     * @param _callback Callback for upload/download progress
     * @return Call to execute
     * @throws ApiException If fail to serialize the request body object
@@ -309,8 +309,8 @@ public class FeeProfilesApi {
 
             /**
             * Fetch a Fee Profile
-            * Get fee profile
-                * @param feeProfileId The ID of the fee profile. (required)
+            * Get a &#x60;fee_profile&#x60;.
+                * @param feeProfileId The ID of the &#x60;fee_profile&#x60;. (required)
                 * @return FeeProfile
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
@@ -333,8 +333,8 @@ public class FeeProfilesApi {
 
     /**
         * Fetch a Fee Profile
-        * Get fee profile
-            * @param feeProfileId The ID of the fee profile. (required)
+        * Get a &#x60;fee_profile&#x60;.
+            * @param feeProfileId The ID of the &#x60;fee_profile&#x60;. (required)
         * @return ApiResponse&lt;FeeProfile&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
             * @http.response.details
@@ -355,8 +355,8 @@ public class FeeProfilesApi {
 
     /**
         * Fetch a Fee Profile (asynchronously)
-        * Get fee profile
-            * @param feeProfileId The ID of the fee profile. (required)
+        * Get a &#x60;fee_profile&#x60;.
+            * @param feeProfileId The ID of the &#x60;fee_profile&#x60;. (required)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -490,7 +490,7 @@ public class FeeProfilesApi {
 
         /**
         * Set limit
-        * @param limit The numbers of items to return (optional)
+        * @param limit The numbers of items to return. (optional)
         * @return APIlistFeeProfilesRequest
         */
         public APIlistFeeProfilesRequest limit(Long limit) {
@@ -572,7 +572,7 @@ public class FeeProfilesApi {
 
     /**
     * List Fee Profiles
-    * Get all fee profiles
+    * List all &#x60;Fee Profiles&#x60;.
     * @return APIlistFeeProfilesRequest
         * @http.response.details
         <table summary="Response Details" border="1">

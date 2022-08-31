@@ -69,8 +69,8 @@ public class IdentitiesApiTest {
     @DisplayName("Create an Associated Identity")
     public void createAssociatedIdentityTest() throws ApiException {
         String identityId = "IDpYDM7J9n57q849o9E9yNrG";
-        CreateIdentityRequest createIdentityRequest = CreateIdentityRequest.builder()
-                .entity(CreateIdentityRequestEntity.builder()
+        CreateAssociatedIdentityRequest createIdentityRequest = CreateAssociatedIdentityRequest.builder()
+                .entity(CreateAssociatedIdentityRequestEntity.builder()
                         .build())
                 .build();
         Identity response = finixClient.Identities.createAssociatedIdentity(identityId, createIdentityRequest);
@@ -327,29 +327,10 @@ public class IdentitiesApiTest {
         UpdateIdentityRequest updateIdentityRequest = UpdateIdentityRequest.builder()
                 .tags(localMap)
                 .entity(UpdateIdentityRequestEntity.builder()
-                        .businessPhone("+1 (408) 756-4497")
                         .firstName("Bernard")
                         .lastName("Joness")
-                        .title("CTO")
-                        .dob(UpdateIdentityRequestEntityDob.builder()
-                                .year(1998l)
-                                .day(2l)
-                                .month(5l)
-                                .build())
-                        .ownershipType("PRIVATE")
-                        .hasAcceptedCreditCardsPreviously(true)
-                        .mcc("0742")
                         .phone("7144177878")
-                        .businessTaxId("123456789")
-                        .maxTransactionAmount(1200000l)
-                        .principalPercentageOwnership(50l)
-                        .doingBusinessAs("Bobs Burgers")
-                        .annualCardVolume(12000000l)
-                        .defaultStatementDescriptor("Bobs Burgers")
-                        .url("www.BobsBurgers.com")
-                        .businessName("Bobs Burgers")                        
                         .email("user@example.org")
-                        .taxId("999999999")
                         .build())
                 .build();
         Identity response = finixClient.Identities.update(identityId, updateIdentityRequest);

@@ -72,11 +72,11 @@ public class ListDisputesAdjustmentsQueryParams {
   }
 
    /**
-   * The numbers of items to return
+   * The numbers of items to return.
    * @return limit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The numbers of items to return")
+  @ApiModelProperty(value = "The numbers of items to return.")
 
   public Long getLimit() {
     return limit;

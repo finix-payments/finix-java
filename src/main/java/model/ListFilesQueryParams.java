@@ -96,11 +96,11 @@ public class ListFilesQueryParams {
   }
 
    /**
-   * Specify key to be used for sorting the collection
+   * Specify key to be used for sorting the collection.
    * @return sort
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specify key to be used for sorting the collection")
+  @ApiModelProperty(value = "Specify key to be used for sorting the collection.")
 
   public String getSort() {
     return sort;
@@ -142,11 +142,11 @@ public class ListFilesQueryParams {
   }
 
    /**
-   * The numbers of items to return
+   * The numbers of items to return.
    * @return limit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The numbers of items to return")
+  @ApiModelProperty(value = "The numbers of items to return.")
 
   public Long getLimit() {
     return limit;
@@ -165,11 +165,11 @@ public class ListFilesQueryParams {
   }
 
    /**
-   * Filter by id
+   * Filter by &#x60;id&#x60;.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by id")
+  @ApiModelProperty(value = "Filter by `id`.")
 
   public String getId() {
     return id;
@@ -188,11 +188,11 @@ public class ListFilesQueryParams {
   }
 
    /**
-   * Filter where created_at is after the given date.
+   * Filter where &#x60;created_at&#x60; is after the given date.
    * @return createdAtGte
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter where created_at is after the given date.")
+  @ApiModelProperty(value = "Filter where `created_at` is after the given date.")
 
   public String getCreatedAtGte() {
     return createdAtGte;
@@ -211,11 +211,11 @@ public class ListFilesQueryParams {
   }
 
    /**
-   * Filter where created_at is before the given date.
+   * Filter where &#x60;created_at&#x60; is before the given date.
    * @return createdAtLte
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter where created_at is before the given date.")
+  @ApiModelProperty(value = "Filter where `created_at` is before the given date.")
 
   public String getCreatedAtLte() {
     return createdAtLte;
@@ -234,11 +234,11 @@ public class ListFilesQueryParams {
   }
 
    /**
-   * Filter where updated_at is after the given date
+   * Filter where &#x60;updated_at&#x60; is after the given date.
    * @return updatedAtGte
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter where updated_at is after the given date")
+  @ApiModelProperty(value = "Filter where `updated_at` is after the given date.")
 
   public String getUpdatedAtGte() {
     return updatedAtGte;
@@ -257,11 +257,11 @@ public class ListFilesQueryParams {
   }
 
    /**
-   * Filter where updated_at is before the given date
+   * Filter where &#x60;updated_at&#x60; is before the given date.
    * @return updatedAtLte
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter where updated_at is before the given date")
+  @ApiModelProperty(value = "Filter where `updated_at` is before the given date.")
 
   public String getUpdatedAtLte() {
     return updatedAtLte;

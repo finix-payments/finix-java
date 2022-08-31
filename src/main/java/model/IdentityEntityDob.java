@@ -73,11 +73,12 @@ public class IdentityEntityDob {
   }
 
    /**
-   * Get day
+   * Day of birth (between 1 and 31).
+   * minimum: 1
    * @return day
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Day of birth (between 1 and 31).")
 
   public Long getDay() {
     return day;
@@ -96,11 +97,12 @@ public class IdentityEntityDob {
   }
 
    /**
-   * Get month
+   * Month of birth (between 1 and 12).
+   * minimum: 1
    * @return month
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Month of birth (between 1 and 12).")
 
   public Long getMonth() {
     return month;
@@ -119,11 +121,12 @@ public class IdentityEntityDob {
   }
 
    /**
-   * Get year
+   * Year of birth (4-digit). Year must be greater than 1900.
+   * minimum: 1900
    * @return year
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Year of birth (4-digit). Year must be greater than 1900.")
 
   public Long getYear() {
     return year;

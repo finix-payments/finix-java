@@ -51,41 +51,41 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateWebhookRequest {
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
-  private String url;
+  public static final String SERIALIZED_NAME_AUTHENTICATION = "authentication";
+  @SerializedName(SERIALIZED_NAME_AUTHENTICATION)
+  private CreateWebhookRequestAuthentication authentication;
 
   public static final String SERIALIZED_NAME_ENABLED = "enabled";
   @SerializedName(SERIALIZED_NAME_ENABLED)
   private Boolean enabled;
 
-  public static final String SERIALIZED_NAME_AUTHENTICATION = "authentication";
-  @SerializedName(SERIALIZED_NAME_AUTHENTICATION)
-  private CreateWebhookRequestAuthentication authentication;
+  public static final String SERIALIZED_NAME_URL = "url";
+  @SerializedName(SERIALIZED_NAME_URL)
+  private String url;
 
   public CreateWebhookRequest() { 
   }
 
-  public CreateWebhookRequest url(String url) {
+  public CreateWebhookRequest authentication(CreateWebhookRequestAuthentication authentication) {
     
-    this.url = url;
+    this.authentication = authentication;
     return this;
   }
 
    /**
-   * The HTTP or HTTPS URL where callbacks (i.e. events) will be sent via POST request (max 120 characters).
-   * @return url
+   * Get authentication
+   * @return authentication
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://example.com/event_handler", value = "The HTTP or HTTPS URL where callbacks (i.e. events) will be sent via POST request (max 120 characters).")
+  @ApiModelProperty(value = "")
 
-  public String getUrl() {
-    return url;
+  public CreateWebhookRequestAuthentication getAuthentication() {
+    return authentication;
   }
 
 
-  public void setUrl(String url) {
-    this.url = url;
+  public void setAuthentication(CreateWebhookRequestAuthentication authentication) {
+    this.authentication = authentication;
   }
 
 
@@ -112,26 +112,26 @@ public class CreateWebhookRequest {
   }
 
 
-  public CreateWebhookRequest authentication(CreateWebhookRequestAuthentication authentication) {
+  public CreateWebhookRequest url(String url) {
     
-    this.authentication = authentication;
+    this.url = url;
     return this;
   }
 
    /**
-   * Get authentication
-   * @return authentication
+   * The HTTP or HTTPS URL where callbacks (i.e. events) will be sent via POST request (max 120 characters).
+   * @return url
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(example = "https://example.com/event_handler", required = true, value = "The HTTP or HTTPS URL where callbacks (i.e. events) will be sent via POST request (max 120 characters).")
 
-  public CreateWebhookRequestAuthentication getAuthentication() {
-    return authentication;
+  public String getUrl() {
+    return url;
   }
 
 
-  public void setAuthentication(CreateWebhookRequestAuthentication authentication) {
-    this.authentication = authentication;
+  public void setUrl(String url) {
+    this.url = url;
   }
 
 
@@ -145,23 +145,23 @@ public class CreateWebhookRequest {
       return false;
     }
     CreateWebhookRequest createWebhookRequest = (CreateWebhookRequest) o;
-    return Objects.equals(this.url, createWebhookRequest.url) &&
+    return Objects.equals(this.authentication, createWebhookRequest.authentication) &&
         Objects.equals(this.enabled, createWebhookRequest.enabled) &&
-        Objects.equals(this.authentication, createWebhookRequest.authentication);
+        Objects.equals(this.url, createWebhookRequest.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(url, enabled, authentication);
+    return Objects.hash(authentication, enabled, url);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateWebhookRequest {\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    authentication: ").append(toIndentedString(authentication)).append("\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -184,12 +184,13 @@ public class CreateWebhookRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("url");
-    openapiFields.add("enabled");
     openapiFields.add("authentication");
+    openapiFields.add("enabled");
+    openapiFields.add("url");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("url");
   }
 
  /**
@@ -216,13 +217,18 @@ public class CreateWebhookRequest {
         }
       }
       */
+
       /**
       * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
+      * Commented to ByPass required properties/fields are present in the JSON string
       */
-      if (jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()  && !jsonObj.get("url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
-      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      /*for (String requiredField : CreateWebhookRequest.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }*/
       /**
       * EDITED
       * ADDED  statement to for inconsistent null behaviour
@@ -232,6 +238,13 @@ public class CreateWebhookRequest {
        //CreateWebhookRequestAuthentication.validateJsonObject(jsonObj.getAsJsonObject("authentication"));
      // }
 
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()  && !jsonObj.get("url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
+      }
   }
 
 

@@ -77,11 +77,11 @@ public class VerificationsListEmbedded {
   }
 
    /**
-   * Get verifications
+   * &#x60;Verification&#x60; resources.
    * @return verifications
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "`Verification` resources.")
 
   public Set<Verification> getVerifications() {
     return verifications;

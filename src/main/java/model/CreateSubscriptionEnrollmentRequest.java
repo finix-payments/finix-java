@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -54,17 +55,21 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateSubscriptionEnrollmentRequest {
+  public static final String SERIALIZED_NAME_ENDED_AT = "ended_at";
+  @SerializedName(SERIALIZED_NAME_ENDED_AT)
+  private String endedAt;
+
   public static final String SERIALIZED_NAME_MERCHANT = "merchant";
   @SerializedName(SERIALIZED_NAME_MERCHANT)
   private String merchant;
 
-  public static final String SERIALIZED_NAME_STARTED_AT = "started_at";
-  @SerializedName(SERIALIZED_NAME_STARTED_AT)
-  private String startedAt;
-
   public static final String SERIALIZED_NAME_NICKNAME = "nickname";
   @SerializedName(SERIALIZED_NAME_NICKNAME)
   private String nickname;
+
+  public static final String SERIALIZED_NAME_STARTED_AT = "started_at";
+  @SerializedName(SERIALIZED_NAME_STARTED_AT)
+  private String startedAt;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -72,6 +77,29 @@ public class CreateSubscriptionEnrollmentRequest {
 
   public CreateSubscriptionEnrollmentRequest() { 
   }
+
+  public CreateSubscriptionEnrollmentRequest endedAt(String endedAt) {
+    
+    this.endedAt = endedAt;
+    return this;
+  }
+
+   /**
+   * When the &#x60;subscription_enrollment&#x60; will end in **DateTime** format. If left **null**, the Fee will continue in perpetuity and won&#39;t end.
+   * @return endedAt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When the `subscription_enrollment` will end in **DateTime** format. If left **null**, the Fee will continue in perpetuity and won't end.")
+
+  public String getEndedAt() {
+    return endedAt;
+  }
+
+
+  public void setEndedAt(String endedAt) {
+    this.endedAt = endedAt;
+  }
+
 
   public CreateSubscriptionEnrollmentRequest merchant(String merchant) {
     
@@ -96,29 +124,6 @@ public class CreateSubscriptionEnrollmentRequest {
   }
 
 
-  public CreateSubscriptionEnrollmentRequest startedAt(String startedAt) {
-    
-    this.startedAt = startedAt;
-    return this;
-  }
-
-   /**
-   * When the &#x60;subscription_enrollment&#x60; will begin in **DateTime** format. The start date must be a future date.
-   * @return startedAt
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When the `subscription_enrollment` will begin in **DateTime** format. The start date must be a future date.")
-
-  public String getStartedAt() {
-    return startedAt;
-  }
-
-
-  public void setStartedAt(String startedAt) {
-    this.startedAt = startedAt;
-  }
-
-
   public CreateSubscriptionEnrollmentRequest nickname(String nickname) {
     
     this.nickname = nickname;
@@ -139,6 +144,29 @@ public class CreateSubscriptionEnrollmentRequest {
 
   public void setNickname(String nickname) {
     this.nickname = nickname;
+  }
+
+
+  public CreateSubscriptionEnrollmentRequest startedAt(String startedAt) {
+    
+    this.startedAt = startedAt;
+    return this;
+  }
+
+   /**
+   * When the &#x60;subscription_enrollment&#x60; will begin in **DateTime** format. The start date must be a future date.
+   * @return startedAt
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "When the `subscription_enrollment` will begin in **DateTime** format. The start date must be a future date.")
+
+  public String getStartedAt() {
+    return startedAt;
+  }
+
+
+  public void setStartedAt(String startedAt) {
+    this.startedAt = startedAt;
   }
 
 
@@ -183,24 +211,37 @@ public class CreateSubscriptionEnrollmentRequest {
       return false;
     }
     CreateSubscriptionEnrollmentRequest createSubscriptionEnrollmentRequest = (CreateSubscriptionEnrollmentRequest) o;
-    return Objects.equals(this.merchant, createSubscriptionEnrollmentRequest.merchant) &&
-        Objects.equals(this.startedAt, createSubscriptionEnrollmentRequest.startedAt) &&
+    return Objects.equals(this.endedAt, createSubscriptionEnrollmentRequest.endedAt) &&
+        Objects.equals(this.merchant, createSubscriptionEnrollmentRequest.merchant) &&
         Objects.equals(this.nickname, createSubscriptionEnrollmentRequest.nickname) &&
+        Objects.equals(this.startedAt, createSubscriptionEnrollmentRequest.startedAt) &&
         Objects.equals(this.tags, createSubscriptionEnrollmentRequest.tags);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchant, startedAt, nickname, tags);
+    return Objects.hash(endedAt, merchant, nickname, startedAt, tags);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateSubscriptionEnrollmentRequest {\n");
+    sb.append("    endedAt: ").append(toIndentedString(endedAt)).append("\n");
     sb.append("    merchant: ").append(toIndentedString(merchant)).append("\n");
-    sb.append("    startedAt: ").append(toIndentedString(startedAt)).append("\n");
     sb.append("    nickname: ").append(toIndentedString(nickname)).append("\n");
+    sb.append("    startedAt: ").append(toIndentedString(startedAt)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -224,16 +265,17 @@ public class CreateSubscriptionEnrollmentRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("ended_at");
     openapiFields.add("merchant");
-    openapiFields.add("started_at");
     openapiFields.add("nickname");
+    openapiFields.add("started_at");
     openapiFields.add("tags");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("merchant");
-    openapiRequiredFields.add("started_at");
     openapiRequiredFields.add("nickname");
+    openapiRequiredFields.add("started_at");
   }
 
  /**
@@ -276,6 +318,13 @@ public class CreateSubscriptionEnrollmentRequest {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
+      if (jsonObj.get("ended_at") != null && !jsonObj.get("ended_at").isJsonNull()  && !jsonObj.get("ended_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ended_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ended_at").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
       if (jsonObj.get("merchant") != null && !jsonObj.get("merchant").isJsonNull()  && !jsonObj.get("merchant").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant").toString()));
       }
@@ -283,15 +332,15 @@ public class CreateSubscriptionEnrollmentRequest {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("started_at") != null && !jsonObj.get("started_at").isJsonNull()  && !jsonObj.get("started_at").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `started_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("started_at").toString()));
+      if (jsonObj.get("nickname") != null && !jsonObj.get("nickname").isJsonNull()  && !jsonObj.get("nickname").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `nickname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nickname").toString()));
       }
       /**
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("nickname") != null && !jsonObj.get("nickname").isJsonNull()  && !jsonObj.get("nickname").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `nickname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nickname").toString()));
+      if (jsonObj.get("started_at") != null && !jsonObj.get("started_at").isJsonNull()  && !jsonObj.get("started_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `started_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("started_at").toString()));
       }
   }
 

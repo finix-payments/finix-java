@@ -55,10 +55,6 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CardPresentDetailsEmvData {
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
-
   public static final String SERIALIZED_NAME_APPLICATION_IDENTIFIER = "application_identifier";
   @SerializedName(SERIALIZED_NAME_APPLICATION_IDENTIFIER)
   private String applicationIdentifier;
@@ -87,39 +83,12 @@ public class CardPresentDetailsEmvData {
   @SerializedName(SERIALIZED_NAME_PIN_VERIFIED)
   private Boolean pinVerified;
 
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
+
   public CardPresentDetailsEmvData() { 
   }
-
-  public CardPresentDetailsEmvData tags(Map<String, String> tags) {
-    
-    this.tags = tags;
-    return this;
-  }
-
-  public CardPresentDetailsEmvData putTagsItem(String key, String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new HashMap<>();
-    }
-    this.tags.put(key, tagsItem);
-    return this;
-  }
-
-   /**
-   * Key value pair for annotating custom meta data (e.g. order numbers).
-   * @return tags
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
-
-  public Map<String, String> getTags() {
-    return tags;
-  }
-
-
-  public void setTags(Map<String, String> tags) {
-    this.tags = tags;
-  }
-
 
   public CardPresentDetailsEmvData applicationIdentifier(String applicationIdentifier) {
     
@@ -282,6 +251,37 @@ public class CardPresentDetailsEmvData {
   }
 
 
+  public CardPresentDetailsEmvData tags(Map<String, String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public CardPresentDetailsEmvData putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
+    return this;
+  }
+
+   /**
+   * Key value pair for annotating custom meta data (e.g. order numbers).
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
+
+  public Map<String, String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(Map<String, String> tags) {
+    this.tags = tags;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -292,14 +292,14 @@ public class CardPresentDetailsEmvData {
       return false;
     }
     CardPresentDetailsEmvData cardPresentDetailsEmvData = (CardPresentDetailsEmvData) o;
-    return Objects.equals(this.tags, cardPresentDetailsEmvData.tags) &&
-        Objects.equals(this.applicationIdentifier, cardPresentDetailsEmvData.applicationIdentifier) &&
+    return Objects.equals(this.applicationIdentifier, cardPresentDetailsEmvData.applicationIdentifier) &&
         Objects.equals(this.applicationLabel, cardPresentDetailsEmvData.applicationLabel) &&
         Objects.equals(this.applicationPreferredName, cardPresentDetailsEmvData.applicationPreferredName) &&
         Objects.equals(this.applicationTransactionCounter, cardPresentDetailsEmvData.applicationTransactionCounter) &&
         Objects.equals(this.cryptogram, cardPresentDetailsEmvData.cryptogram) &&
         Objects.equals(this.issuerCodeTableIndex, cardPresentDetailsEmvData.issuerCodeTableIndex) &&
-        Objects.equals(this.pinVerified, cardPresentDetailsEmvData.pinVerified);
+        Objects.equals(this.pinVerified, cardPresentDetailsEmvData.pinVerified) &&
+        Objects.equals(this.tags, cardPresentDetailsEmvData.tags);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -308,7 +308,7 @@ public class CardPresentDetailsEmvData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, applicationIdentifier, applicationLabel, applicationPreferredName, applicationTransactionCounter, cryptogram, issuerCodeTableIndex, pinVerified);
+    return Objects.hash(applicationIdentifier, applicationLabel, applicationPreferredName, applicationTransactionCounter, cryptogram, issuerCodeTableIndex, pinVerified, tags);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -322,7 +322,6 @@ public class CardPresentDetailsEmvData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CardPresentDetailsEmvData {\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    applicationIdentifier: ").append(toIndentedString(applicationIdentifier)).append("\n");
     sb.append("    applicationLabel: ").append(toIndentedString(applicationLabel)).append("\n");
     sb.append("    applicationPreferredName: ").append(toIndentedString(applicationPreferredName)).append("\n");
@@ -330,6 +329,7 @@ public class CardPresentDetailsEmvData {
     sb.append("    cryptogram: ").append(toIndentedString(cryptogram)).append("\n");
     sb.append("    issuerCodeTableIndex: ").append(toIndentedString(issuerCodeTableIndex)).append("\n");
     sb.append("    pinVerified: ").append(toIndentedString(pinVerified)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -352,7 +352,6 @@ public class CardPresentDetailsEmvData {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("tags");
     openapiFields.add("application_identifier");
     openapiFields.add("application_label");
     openapiFields.add("application_preferred_name");
@@ -360,6 +359,7 @@ public class CardPresentDetailsEmvData {
     openapiFields.add("cryptogram");
     openapiFields.add("issuer_code_table_index");
     openapiFields.add("pin_verified");
+    openapiFields.add("tags");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

@@ -45,9 +45,9 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * The home address of the principal control owner. This field is used for identity verification purposes.
+ * The billing address of the buyer. This field is used for identity verification purposes.
  */
-@ApiModel(description = "The home address of the principal control owner. This field is used for identity verification purposes.")
+@ApiModel(description = "The billing address of the buyer. This field is used for identity verification purposes.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateIdentityRequestEntityPersonalAddress {
@@ -59,17 +59,13 @@ public class UpdateIdentityRequestEntityPersonalAddress {
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private String country;
 
-  public static final String SERIALIZED_NAME_REGION = "region";
-  @SerializedName(SERIALIZED_NAME_REGION)
-  private String region;
+  public static final String SERIALIZED_NAME_LINE1 = "line1";
+  @SerializedName(SERIALIZED_NAME_LINE1)
+  private String line1;
 
   public static final String SERIALIZED_NAME_LINE2 = "line2";
   @SerializedName(SERIALIZED_NAME_LINE2)
   private String line2;
-
-  public static final String SERIALIZED_NAME_LINE1 = "line1";
-  @SerializedName(SERIALIZED_NAME_LINE1)
-  private String line1;
 
   public static final String SERIALIZED_NAME_POSTAL_CODE = "postal_code";
   @SerializedName(SERIALIZED_NAME_POSTAL_CODE)
@@ -124,26 +120,26 @@ public class UpdateIdentityRequestEntityPersonalAddress {
   }
 
 
-  public UpdateIdentityRequestEntityPersonalAddress region(String region) {
+  public UpdateIdentityRequestEntityPersonalAddress line1(String line1) {
     
-    this.region = region;
+    this.line1 = line1;
     return this;
   }
 
    /**
-   * 2-letter State code.
-   * @return region
+   * First line of the address (max 35 characters).
+   * @return line1
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "2-letter State code.")
+  @ApiModelProperty(value = "First line of the address (max 35 characters).")
 
-  public String getRegion() {
-    return region;
+  public String getLine1() {
+    return line1;
   }
 
 
-  public void setRegion(String region) {
-    this.region = region;
+  public void setLine1(String line1) {
+    this.line1 = line1;
   }
 
 
@@ -167,29 +163,6 @@ public class UpdateIdentityRequestEntityPersonalAddress {
 
   public void setLine2(String line2) {
     this.line2 = line2;
-  }
-
-
-  public UpdateIdentityRequestEntityPersonalAddress line1(String line1) {
-    
-    this.line1 = line1;
-    return this;
-  }
-
-   /**
-   * First line of the address (max 35 characters).
-   * @return line1
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "First line of the address (max 35 characters).")
-
-  public String getLine1() {
-    return line1;
-  }
-
-
-  public void setLine1(String line1) {
-    this.line1 = line1;
   }
 
 
@@ -228,15 +201,14 @@ public class UpdateIdentityRequestEntityPersonalAddress {
     UpdateIdentityRequestEntityPersonalAddress updateIdentityRequestEntityPersonalAddress = (UpdateIdentityRequestEntityPersonalAddress) o;
     return Objects.equals(this.city, updateIdentityRequestEntityPersonalAddress.city) &&
         Objects.equals(this.country, updateIdentityRequestEntityPersonalAddress.country) &&
-        Objects.equals(this.region, updateIdentityRequestEntityPersonalAddress.region) &&
-        Objects.equals(this.line2, updateIdentityRequestEntityPersonalAddress.line2) &&
         Objects.equals(this.line1, updateIdentityRequestEntityPersonalAddress.line1) &&
+        Objects.equals(this.line2, updateIdentityRequestEntityPersonalAddress.line2) &&
         Objects.equals(this.postalCode, updateIdentityRequestEntityPersonalAddress.postalCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(city, country, region, line2, line1, postalCode);
+    return Objects.hash(city, country, line1, line2, postalCode);
   }
 
   @Override
@@ -245,9 +217,8 @@ public class UpdateIdentityRequestEntityPersonalAddress {
     sb.append("class UpdateIdentityRequestEntityPersonalAddress {\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
-    sb.append("    region: ").append(toIndentedString(region)).append("\n");
-    sb.append("    line2: ").append(toIndentedString(line2)).append("\n");
     sb.append("    line1: ").append(toIndentedString(line1)).append("\n");
+    sb.append("    line2: ").append(toIndentedString(line2)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -273,9 +244,8 @@ public class UpdateIdentityRequestEntityPersonalAddress {
     openapiFields = new HashSet<String>();
     openapiFields.add("city");
     openapiFields.add("country");
-    openapiFields.add("region");
-    openapiFields.add("line2");
     openapiFields.add("line1");
+    openapiFields.add("line2");
     openapiFields.add("postal_code");
 
     // a set of required properties/fields (JSON key names)
@@ -324,8 +294,8 @@ public class UpdateIdentityRequestEntityPersonalAddress {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("region") != null && !jsonObj.get("region").isJsonNull()  && !jsonObj.get("region").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `region` to be a primitive type in the JSON string but got `%s`", jsonObj.get("region").toString()));
+      if (jsonObj.get("line1") != null && !jsonObj.get("line1").isJsonNull()  && !jsonObj.get("line1").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `line1` to be a primitive type in the JSON string but got `%s`", jsonObj.get("line1").toString()));
       }
       /**
       * EDITED
@@ -333,13 +303,6 @@ public class UpdateIdentityRequestEntityPersonalAddress {
       */
       if (jsonObj.get("line2") != null && !jsonObj.get("line2").isJsonNull()  && !jsonObj.get("line2").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `line2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("line2").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("line1") != null && !jsonObj.get("line1").isJsonNull()  && !jsonObj.get("line1").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `line1` to be a primitive type in the JSON string but got `%s`", jsonObj.get("line1").toString()));
       }
       /**
       * EDITED

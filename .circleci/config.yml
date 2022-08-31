@@ -93,9 +93,12 @@ jobs:
 
 workflows:
 
-  assemble:
+  verify_codegen:
     jobs:
-      - assemble
+      - assemble:
+        filters:
+            branches:
+              only: /^codegen-.*$/
 
   sonarqube:
     jobs:

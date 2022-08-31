@@ -82,6 +82,7 @@ public class FinixClient {
     private KeyManager[] keyManagers;
     public AuthorizationsApi Authorizations;
     public BalanceTransfersApi BalanceTransfers;
+    public ComplianceFormsApi ComplianceForms;
     public DevicesApi Devices;
     public DisputesApi Disputes;
     public FeeProfilesApi FeeProfiles;
@@ -90,6 +91,7 @@ public class FinixClient {
     public InstrumentUpdatesApi InstrumentUpdates;
     public MerchantProfilesApi MerchantProfiles;
     public MerchantsApi Merchants;
+    public OnboardingFormsApi OnboardingForms;
     public PaymentInstrumentsApi PaymentInstruments;
     public SettlementsApi Settlements;
     public TransfersApi Transfers;
@@ -180,6 +182,7 @@ public class FinixClient {
         // Add APIs to client for ease of interaction.
         Authorizations = new AuthorizationsApi(this);
         BalanceTransfers = new BalanceTransfersApi(this);
+        ComplianceForms = new ComplianceFormsApi(this);
         Devices = new DevicesApi(this);
         Disputes = new DisputesApi(this);
         FeeProfiles = new FeeProfilesApi(this);
@@ -188,6 +191,7 @@ public class FinixClient {
         InstrumentUpdates = new InstrumentUpdatesApi(this);
         MerchantProfiles = new MerchantProfilesApi(this);
         Merchants = new MerchantsApi(this);
+        OnboardingForms = new OnboardingFormsApi(this);
         PaymentInstruments = new PaymentInstrumentsApi(this);
         Settlements = new SettlementsApi(this);
         Transfers = new TransfersApi(this);

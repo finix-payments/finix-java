@@ -54,16 +54,39 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateUserRequest {
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
-
   public static final String SERIALIZED_NAME_ENABLED = "enabled";
   @SerializedName(SERIALIZED_NAME_ENABLED)
   private Boolean enabled;
 
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
+
   public CreateUserRequest() { 
   }
+
+  public CreateUserRequest enabled(Boolean enabled) {
+    
+    this.enabled = enabled;
+    return this;
+  }
+
+   /**
+   * Details if the &#x60;user&#x60; is enabled and active. Set to **false** to disable the &#x60;user&#x60;.
+   * @return enabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Details if the `user` is enabled and active. Set to **false** to disable the `user`.")
+
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
+  }
+
 
   public CreateUserRequest tags(Map<String, String> tags) {
     
@@ -96,29 +119,6 @@ public class CreateUserRequest {
   }
 
 
-  public CreateUserRequest enabled(Boolean enabled) {
-    
-    this.enabled = enabled;
-    return this;
-  }
-
-   /**
-   * Details if the &#x60;user&#x60; is enabled and active. Set to **false** to disable the &#x60;user&#x60;.
-   * @return enabled
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Details if the `user` is enabled and active. Set to **false** to disable the `user`.")
-
-  public Boolean getEnabled() {
-    return enabled;
-  }
-
-
-  public void setEnabled(Boolean enabled) {
-    this.enabled = enabled;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -129,21 +129,21 @@ public class CreateUserRequest {
       return false;
     }
     CreateUserRequest createUserRequest = (CreateUserRequest) o;
-    return Objects.equals(this.tags, createUserRequest.tags) &&
-        Objects.equals(this.enabled, createUserRequest.enabled);
+    return Objects.equals(this.enabled, createUserRequest.enabled) &&
+        Objects.equals(this.tags, createUserRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, enabled);
+    return Objects.hash(enabled, tags);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateUserRequest {\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -166,8 +166,8 @@ public class CreateUserRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("tags");
     openapiFields.add("enabled");
+    openapiFields.add("tags");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

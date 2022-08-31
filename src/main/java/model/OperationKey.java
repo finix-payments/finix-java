@@ -25,7 +25,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Details the operation that&#39;ll be performed in the transaction.
+ * Details the operation that&#39;ll be performed in the transaction (Card present transactions only) .
  */
 @JsonAdapter(OperationKey.Adapter.class)
 public enum OperationKey {

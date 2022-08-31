@@ -56,10 +56,6 @@ import invoker.JSON;
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IdentityEntity {
-  public static final String SERIALIZED_NAME_AMEX_MID = "amex_mid";
-  @SerializedName(SERIALIZED_NAME_AMEX_MID)
-  private Long amexMid;
-
   public static final String SERIALIZED_NAME_ANNUAL_CARD_VOLUME = "annual_card_volume";
   @SerializedName(SERIALIZED_NAME_ANNUAL_CARD_VOLUME)
   private Long annualCardVolume;
@@ -237,29 +233,6 @@ public class IdentityEntity {
 
   public IdentityEntity() { 
   }
-
-  public IdentityEntity amexMid(Long amexMid) {
-    
-    this.amexMid = amexMid;
-    return this;
-  }
-
-   /**
-   * Assigned amexMid value. If a value is passed, it must be 10 or 11 digits.
-   * @return amexMid
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Assigned amexMid value. If a value is passed, it must be 10 or 11 digits.")
-
-  public Long getAmexMid() {
-    return amexMid;
-  }
-
-
-  public void setAmexMid(Long amexMid) {
-    this.amexMid = amexMid;
-  }
-
 
   public IdentityEntity annualCardVolume(Long annualCardVolume) {
     
@@ -869,8 +842,7 @@ public class IdentityEntity {
       return false;
     }
     IdentityEntity identityEntity = (IdentityEntity) o;
-    return Objects.equals(this.amexMid, identityEntity.amexMid) &&
-        Objects.equals(this.annualCardVolume, identityEntity.annualCardVolume) &&
+    return Objects.equals(this.annualCardVolume, identityEntity.annualCardVolume) &&
         Objects.equals(this.businessAddress, identityEntity.businessAddress) &&
         Objects.equals(this.businessName, identityEntity.businessName) &&
         Objects.equals(this.businessPhone, identityEntity.businessPhone) &&
@@ -904,7 +876,7 @@ public class IdentityEntity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amexMid, annualCardVolume, businessAddress, businessName, businessPhone, businessTaxIdProvided, businessType, defaultStatementDescriptor, discoverMid, dob, doingBusinessAs, email, firstName, hasAcceptedCreditCardsPreviously, incorporationDate, lastName, maxTransactionAmount, mcc, ownershipType, personalAddress, phone, principalPercentageOwnership, shortBusinessName, taxAuthority, taxIdProvided, title, url);
+    return Objects.hash(annualCardVolume, businessAddress, businessName, businessPhone, businessTaxIdProvided, businessType, defaultStatementDescriptor, discoverMid, dob, doingBusinessAs, email, firstName, hasAcceptedCreditCardsPreviously, incorporationDate, lastName, maxTransactionAmount, mcc, ownershipType, personalAddress, phone, principalPercentageOwnership, shortBusinessName, taxAuthority, taxIdProvided, title, url);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -918,7 +890,6 @@ public class IdentityEntity {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IdentityEntity {\n");
-    sb.append("    amexMid: ").append(toIndentedString(amexMid)).append("\n");
     sb.append("    annualCardVolume: ").append(toIndentedString(annualCardVolume)).append("\n");
     sb.append("    businessAddress: ").append(toIndentedString(businessAddress)).append("\n");
     sb.append("    businessName: ").append(toIndentedString(businessName)).append("\n");
@@ -967,7 +938,6 @@ public class IdentityEntity {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("amex_mid");
     openapiFields.add("annual_card_volume");
     openapiFields.add("business_address");
     openapiFields.add("business_name");

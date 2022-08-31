@@ -61,25 +61,45 @@ public class Verification {
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
+  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private OffsetDateTime createdAt;
+
+  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
+  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  private OffsetDateTime updatedAt;
+
   public static final String SERIALIZED_NAME_APPLICATION = "application";
   @SerializedName(SERIALIZED_NAME_APPLICATION)
   private String application;
 
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Map<String, String> tags = null;
+  public static final String SERIALIZED_NAME_IDENTITY = "identity";
+  @SerializedName(SERIALIZED_NAME_IDENTITY)
+  private String identity;
+
+  public static final String SERIALIZED_NAME_MERCHANT = "merchant";
+  @SerializedName(SERIALIZED_NAME_MERCHANT)
+  private String merchant;
+
+  public static final String SERIALIZED_NAME_MERCHANT_IDENTITY = "merchant_identity";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_IDENTITY)
+  private String merchantIdentity;
 
   public static final String SERIALIZED_NAME_MESSAGES = "messages";
   @SerializedName(SERIALIZED_NAME_MESSAGES)
   private List<Object> messages = null;
 
-  public static final String SERIALIZED_NAME_RAW = "raw";
-  @SerializedName(SERIALIZED_NAME_RAW)
-  private Object raw;
+  public static final String SERIALIZED_NAME_PAYMENT_INSTRUMENT = "payment_instrument";
+  @SerializedName(SERIALIZED_NAME_PAYMENT_INSTRUMENT)
+  private String paymentInstrument;
 
   public static final String SERIALIZED_NAME_PROCESSOR = "processor";
   @SerializedName(SERIALIZED_NAME_PROCESSOR)
   private String processor;
+
+  public static final String SERIALIZED_NAME_RAW = "raw";
+  @SerializedName(SERIALIZED_NAME_RAW)
+  private Object raw;
 
   /**
    * The status of the &#x60;Verification&#x60; request.
@@ -155,33 +175,13 @@ public class Verification {
   @SerializedName(SERIALIZED_NAME_STATE)
   private StateEnum state;
 
-  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private OffsetDateTime createdAt;
-
-  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
-  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-  private OffsetDateTime updatedAt;
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private Map<String, String> tags = null;
 
   public static final String SERIALIZED_NAME_TRACE_ID = "trace_id";
   @SerializedName(SERIALIZED_NAME_TRACE_ID)
   private String traceId;
-
-  public static final String SERIALIZED_NAME_PAYMENT_INSTRUMENT = "payment_instrument";
-  @SerializedName(SERIALIZED_NAME_PAYMENT_INSTRUMENT)
-  private String paymentInstrument;
-
-  public static final String SERIALIZED_NAME_MERCHANT = "merchant";
-  @SerializedName(SERIALIZED_NAME_MERCHANT)
-  private String merchant;
-
-  public static final String SERIALIZED_NAME_IDENTITY = "identity";
-  @SerializedName(SERIALIZED_NAME_IDENTITY)
-  private String identity;
-
-  public static final String SERIALIZED_NAME_MERCHANT_IDENTITY = "merchant_identity";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_IDENTITY)
-  private String merchantIdentity;
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
@@ -210,160 +210,6 @@ public class Verification {
 
   public void setId(String id) {
     this.id = id;
-  }
-
-
-  public Verification application(String application) {
-    
-    this.application = application;
-    return this;
-  }
-
-   /**
-   * ID of the &#x60;Application&#x60; the &#x60;Merchant&#x60; was created under.
-   * @return application
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the `Application` the `Merchant` was created under.")
-
-  public String getApplication() {
-    return application;
-  }
-
-
-  public void setApplication(String application) {
-    this.application = application;
-  }
-
-
-  public Verification tags(Map<String, String> tags) {
-    
-    this.tags = tags;
-    return this;
-  }
-
-  public Verification putTagsItem(String key, String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new HashMap<>();
-    }
-    this.tags.put(key, tagsItem);
-    return this;
-  }
-
-   /**
-   * Key value pair for annotating custom meta data (e.g. order numbers).
-   * @return tags
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
-
-  public Map<String, String> getTags() {
-    return tags;
-  }
-
-
-  public void setTags(Map<String, String> tags) {
-    this.tags = tags;
-  }
-
-
-  public Verification messages(List<Object> messages) {
-    
-    this.messages = messages;
-    return this;
-  }
-
-  public Verification addMessagesItem(Object messagesItem) {
-    if (this.messages == null) {
-      this.messages = new ArrayList<>();
-    }
-    this.messages.add(messagesItem);
-    return this;
-  }
-
-   /**
-   * Provides additional details about the verification (e.g why it failed). This field is usually **null**.
-   * @return messages
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Provides additional details about the verification (e.g why it failed). This field is usually **null**.")
-
-  public List<Object> getMessages() {
-    return messages;
-  }
-
-
-  public void setMessages(List<Object> messages) {
-    this.messages = messages;
-  }
-
-
-  public Verification raw(Object raw) {
-    
-    this.raw = raw;
-    return this;
-  }
-
-   /**
-   * Raw response from the processor
-   * @return raw
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Raw response from the processor")
-
-  public Object getRaw() {
-    return raw;
-  }
-
-
-  public void setRaw(Object raw) {
-    this.raw = raw;
-  }
-
-
-  public Verification processor(String processor) {
-    
-    this.processor = processor;
-    return this;
-  }
-
-   /**
-   * Name of the verification processor.
-   * @return processor
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the verification processor.")
-
-  public String getProcessor() {
-    return processor;
-  }
-
-
-  public void setProcessor(String processor) {
-    this.processor = processor;
-  }
-
-
-  public Verification state(StateEnum state) {
-    
-    this.state = state;
-    return this;
-  }
-
-   /**
-   * The status of the &#x60;Verification&#x60; request.
-   * @return state
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The status of the `Verification` request.")
-
-  public StateEnum getState() {
-    return state;
-  }
-
-
-  public void setState(StateEnum state) {
-    this.state = state;
   }
 
 
@@ -413,72 +259,26 @@ public class Verification {
   }
 
 
-  public Verification traceId(String traceId) {
+  public Verification application(String application) {
     
-    this.traceId = traceId;
+    this.application = application;
     return this;
   }
 
    /**
-   * Trace ID of the &#x60;Verification&#x60;. The processor sends back the &#x60;trace_id&#x60; so you can track the verification end-to-end.
-   * @return traceId
+   * ID of the &#x60;Application&#x60; the &#x60;Merchant&#x60; was created under.
+   * @return application
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Trace ID of the `Verification`. The processor sends back the `trace_id` so you can track the verification end-to-end.")
+  @ApiModelProperty(value = "ID of the `Application` the `Merchant` was created under.")
 
-  public String getTraceId() {
-    return traceId;
+  public String getApplication() {
+    return application;
   }
 
 
-  public void setTraceId(String traceId) {
-    this.traceId = traceId;
-  }
-
-
-  public Verification paymentInstrument(String paymentInstrument) {
-    
-    this.paymentInstrument = paymentInstrument;
-    return this;
-  }
-
-   /**
-   * The &#x60;Payment Instrument&#x60; that&#39;ll be used to settle the &#x60;Merchant&#39;s&#x60; processed funds.
-   * @return paymentInstrument
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The `Payment Instrument` that'll be used to settle the `Merchant's` processed funds.")
-
-  public String getPaymentInstrument() {
-    return paymentInstrument;
-  }
-
-
-  public void setPaymentInstrument(String paymentInstrument) {
-    this.paymentInstrument = paymentInstrument;
-  }
-
-
-  public Verification merchant(String merchant) {
-    
-    this.merchant = merchant;
-    return this;
-  }
-
-   /**
-   * ID of the &#x60;Merchant&#x60; resource.
-   * @return merchant
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the `Merchant` resource.")
-
-  public String getMerchant() {
-    return merchant;
-  }
-
-
-  public void setMerchant(String merchant) {
-    this.merchant = merchant;
+  public void setApplication(String application) {
+    this.application = application;
   }
 
 
@@ -505,6 +305,29 @@ public class Verification {
   }
 
 
+  public Verification merchant(String merchant) {
+    
+    this.merchant = merchant;
+    return this;
+  }
+
+   /**
+   * ID of the &#x60;Merchant&#x60; resource.
+   * @return merchant
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ID of the `Merchant` resource.")
+
+  public String getMerchant() {
+    return merchant;
+  }
+
+
+  public void setMerchant(String merchant) {
+    this.merchant = merchant;
+  }
+
+
   public Verification merchantIdentity(String merchantIdentity) {
     
     this.merchantIdentity = merchantIdentity;
@@ -525,6 +348,183 @@ public class Verification {
 
   public void setMerchantIdentity(String merchantIdentity) {
     this.merchantIdentity = merchantIdentity;
+  }
+
+
+  public Verification messages(List<Object> messages) {
+    
+    this.messages = messages;
+    return this;
+  }
+
+  public Verification addMessagesItem(Object messagesItem) {
+    if (this.messages == null) {
+      this.messages = new ArrayList<>();
+    }
+    this.messages.add(messagesItem);
+    return this;
+  }
+
+   /**
+   * Provides additional details about the verification (e.g why it failed). This field is usually **null**.
+   * @return messages
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Provides additional details about the verification (e.g why it failed). This field is usually **null**.")
+
+  public List<Object> getMessages() {
+    return messages;
+  }
+
+
+  public void setMessages(List<Object> messages) {
+    this.messages = messages;
+  }
+
+
+  public Verification paymentInstrument(String paymentInstrument) {
+    
+    this.paymentInstrument = paymentInstrument;
+    return this;
+  }
+
+   /**
+   * The &#x60;Payment Instrument&#x60; that&#39;ll be used to settle the &#x60;Merchant&#39;s&#x60; processed funds.
+   * @return paymentInstrument
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The `Payment Instrument` that'll be used to settle the `Merchant's` processed funds.")
+
+  public String getPaymentInstrument() {
+    return paymentInstrument;
+  }
+
+
+  public void setPaymentInstrument(String paymentInstrument) {
+    this.paymentInstrument = paymentInstrument;
+  }
+
+
+  public Verification processor(String processor) {
+    
+    this.processor = processor;
+    return this;
+  }
+
+   /**
+   * Name of the verification processor.
+   * @return processor
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the verification processor.")
+
+  public String getProcessor() {
+    return processor;
+  }
+
+
+  public void setProcessor(String processor) {
+    this.processor = processor;
+  }
+
+
+  public Verification raw(Object raw) {
+    
+    this.raw = raw;
+    return this;
+  }
+
+   /**
+   * Raw response from the processor.
+   * @return raw
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Raw response from the processor.")
+
+  public Object getRaw() {
+    return raw;
+  }
+
+
+  public void setRaw(Object raw) {
+    this.raw = raw;
+  }
+
+
+  public Verification state(StateEnum state) {
+    
+    this.state = state;
+    return this;
+  }
+
+   /**
+   * The status of the &#x60;Verification&#x60; request.
+   * @return state
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The status of the `Verification` request.")
+
+  public StateEnum getState() {
+    return state;
+  }
+
+
+  public void setState(StateEnum state) {
+    this.state = state;
+  }
+
+
+  public Verification tags(Map<String, String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public Verification putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
+    return this;
+  }
+
+   /**
+   * Key value pair for annotating custom meta data (e.g. order numbers).
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Key value pair for annotating custom meta data (e.g. order numbers).")
+
+  public Map<String, String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(Map<String, String> tags) {
+    this.tags = tags;
+  }
+
+
+  public Verification traceId(String traceId) {
+    
+    this.traceId = traceId;
+    return this;
+  }
+
+   /**
+   * Trace ID of the &#x60;Verification&#x60;. The processor sends back the &#x60;trace_id&#x60; so you can track the verification end-to-end.
+   * @return traceId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Trace ID of the `Verification`. The processor sends back the `trace_id` so you can track the verification end-to-end.")
+
+  public String getTraceId() {
+    return traceId;
+  }
+
+
+  public void setTraceId(String traceId) {
+    this.traceId = traceId;
   }
 
 
@@ -562,19 +562,19 @@ public class Verification {
     }
     Verification verification = (Verification) o;
     return Objects.equals(this.id, verification.id) &&
-        Objects.equals(this.application, verification.application) &&
-        Objects.equals(this.tags, verification.tags) &&
-        Objects.equals(this.messages, verification.messages) &&
-        Objects.equals(this.raw, verification.raw) &&
-        Objects.equals(this.processor, verification.processor) &&
-        Objects.equals(this.state, verification.state) &&
         Objects.equals(this.createdAt, verification.createdAt) &&
         Objects.equals(this.updatedAt, verification.updatedAt) &&
-        Objects.equals(this.traceId, verification.traceId) &&
-        Objects.equals(this.paymentInstrument, verification.paymentInstrument) &&
-        Objects.equals(this.merchant, verification.merchant) &&
+        Objects.equals(this.application, verification.application) &&
         Objects.equals(this.identity, verification.identity) &&
+        Objects.equals(this.merchant, verification.merchant) &&
         Objects.equals(this.merchantIdentity, verification.merchantIdentity) &&
+        Objects.equals(this.messages, verification.messages) &&
+        Objects.equals(this.paymentInstrument, verification.paymentInstrument) &&
+        Objects.equals(this.processor, verification.processor) &&
+        Objects.equals(this.raw, verification.raw) &&
+        Objects.equals(this.state, verification.state) &&
+        Objects.equals(this.tags, verification.tags) &&
+        Objects.equals(this.traceId, verification.traceId) &&
         Objects.equals(this.links, verification.links);
   }
 
@@ -584,7 +584,7 @@ public class Verification {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, application, tags, messages, raw, processor, state, createdAt, updatedAt, traceId, paymentInstrument, merchant, identity, merchantIdentity, links);
+    return Objects.hash(id, createdAt, updatedAt, application, identity, merchant, merchantIdentity, messages, paymentInstrument, processor, raw, state, tags, traceId, links);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -599,19 +599,19 @@ public class Verification {
     StringBuilder sb = new StringBuilder();
     sb.append("class Verification {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    application: ").append(toIndentedString(application)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    messages: ").append(toIndentedString(messages)).append("\n");
-    sb.append("    raw: ").append(toIndentedString(raw)).append("\n");
-    sb.append("    processor: ").append(toIndentedString(processor)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
-    sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
-    sb.append("    paymentInstrument: ").append(toIndentedString(paymentInstrument)).append("\n");
-    sb.append("    merchant: ").append(toIndentedString(merchant)).append("\n");
+    sb.append("    application: ").append(toIndentedString(application)).append("\n");
     sb.append("    identity: ").append(toIndentedString(identity)).append("\n");
+    sb.append("    merchant: ").append(toIndentedString(merchant)).append("\n");
     sb.append("    merchantIdentity: ").append(toIndentedString(merchantIdentity)).append("\n");
+    sb.append("    messages: ").append(toIndentedString(messages)).append("\n");
+    sb.append("    paymentInstrument: ").append(toIndentedString(paymentInstrument)).append("\n");
+    sb.append("    processor: ").append(toIndentedString(processor)).append("\n");
+    sb.append("    raw: ").append(toIndentedString(raw)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -636,19 +636,19 @@ public class Verification {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
-    openapiFields.add("application");
-    openapiFields.add("tags");
-    openapiFields.add("messages");
-    openapiFields.add("raw");
-    openapiFields.add("processor");
-    openapiFields.add("state");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
-    openapiFields.add("trace_id");
-    openapiFields.add("payment_instrument");
-    openapiFields.add("merchant");
+    openapiFields.add("application");
     openapiFields.add("identity");
+    openapiFields.add("merchant");
     openapiFields.add("merchant_identity");
+    openapiFields.add("messages");
+    openapiFields.add("payment_instrument");
+    openapiFields.add("processor");
+    openapiFields.add("raw");
+    openapiFields.add("state");
+    openapiFields.add("tags");
+    openapiFields.add("trace_id");
     openapiFields.add("_links");
 
     // a set of required properties/fields (JSON key names)
@@ -697,9 +697,37 @@ public class Verification {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
+      if (jsonObj.get("identity") != null && !jsonObj.get("identity").isJsonNull()  && !jsonObj.get("identity").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `identity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("identity").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("merchant") != null && !jsonObj.get("merchant").isJsonNull()  && !jsonObj.get("merchant").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("merchant_identity") != null && !jsonObj.get("merchant_identity").isJsonNull()  && !jsonObj.get("merchant_identity").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_identity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_identity").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
       // ensure the json data is an array
       if (jsonObj.get("messages") != null && !jsonObj.get("messages").isJsonNull() && !jsonObj.get("messages").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `messages` to be an array in the JSON string but got `%s`", jsonObj.get("messages").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("payment_instrument") != null && !jsonObj.get("payment_instrument").isJsonNull()  && !jsonObj.get("payment_instrument").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `payment_instrument` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payment_instrument").toString()));
       }
       /**
       * EDITED
@@ -721,34 +749,6 @@ public class Verification {
       */
       if (jsonObj.get("trace_id") != null && !jsonObj.get("trace_id").isJsonNull()  && !jsonObj.get("trace_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `trace_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("trace_id").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("payment_instrument") != null && !jsonObj.get("payment_instrument").isJsonNull()  && !jsonObj.get("payment_instrument").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `payment_instrument` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payment_instrument").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("merchant") != null && !jsonObj.get("merchant").isJsonNull()  && !jsonObj.get("merchant").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `merchant` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("identity") != null && !jsonObj.get("identity").isJsonNull()  && !jsonObj.get("identity").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `identity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("identity").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("merchant_identity") != null && !jsonObj.get("merchant_identity").isJsonNull()  && !jsonObj.get("merchant_identity").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `merchant_identity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_identity").toString()));
       }
   }
 

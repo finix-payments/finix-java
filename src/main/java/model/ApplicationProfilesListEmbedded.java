@@ -49,8 +49,9 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * ApplicationProfilesListEmbedded
+ * List of &#x60;application_profile&#x60; resources.
  */
+@ApiModel(description = "List of `application_profile` resources.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApplicationProfilesListEmbedded {
@@ -76,11 +77,11 @@ public class ApplicationProfilesListEmbedded {
   }
 
    /**
-   * &#x60;application_profile&#x60; resource.
+   * &#x60;application_profile&#x60; resources.
    * @return applicationProfiles
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "`application_profile` resource.")
+  @ApiModelProperty(value = "`application_profile` resources.")
 
   public Set<ApplicationProfile> getApplicationProfiles() {
     return applicationProfiles;

@@ -76,11 +76,11 @@ public class BalanceTransferListEmbedded {
   }
 
    /**
-   * Get balanceTransfers
+   * &#x60;balance_transfer&#x60; objects.
    * @return balanceTransfers
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "`balance_transfer` objects.")
 
   public List<BalanceTransferList> getBalanceTransfers() {
     return balanceTransfers;

@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -55,6 +56,10 @@ public class DeviceConfigDetails {
   @SerializedName(SERIALIZED_NAME_ALLOW_DEBIT)
   private Boolean allowDebit;
 
+  public static final String SERIALIZED_NAME_BYPASS_DEVICE_ON_CAPTURE = "bypass_device_on_capture";
+  @SerializedName(SERIALIZED_NAME_BYPASS_DEVICE_ON_CAPTURE)
+  private Boolean bypassDeviceOnCapture;
+
   public static final String SERIALIZED_NAME_CHECK_FOR_DUPLICATE_TRANSACTIONS = "check_for_duplicate_transactions";
   @SerializedName(SERIALIZED_NAME_CHECK_FOR_DUPLICATE_TRANSACTIONS)
   private Boolean checkForDuplicateTransactions;
@@ -74,10 +79,6 @@ public class DeviceConfigDetails {
   public static final String SERIALIZED_NAME_SIGNATURE_THRESHOLD_AMOUNT = "signature_threshold_amount";
   @SerializedName(SERIALIZED_NAME_SIGNATURE_THRESHOLD_AMOUNT)
   private Long signatureThresholdAmount;
-
-  public static final String SERIALIZED_NAME_BYPASS_DEVICE_ON_CAPTURE = "bypass_device_on_capture";
-  @SerializedName(SERIALIZED_NAME_BYPASS_DEVICE_ON_CAPTURE)
-  private Boolean bypassDeviceOnCapture;
 
   public DeviceConfigDetails() { 
   }
@@ -102,6 +103,29 @@ public class DeviceConfigDetails {
 
   public void setAllowDebit(Boolean allowDebit) {
     this.allowDebit = allowDebit;
+  }
+
+
+  public DeviceConfigDetails bypassDeviceOnCapture(Boolean bypassDeviceOnCapture) {
+    
+    this.bypassDeviceOnCapture = bypassDeviceOnCapture;
+    return this;
+  }
+
+   /**
+   * Sets whether or not the device will be used to capture transactions. This field must be set to **true** (defaults to **false**).
+   * @return bypassDeviceOnCapture
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Sets whether or not the device will be used to capture transactions. This field must be set to **true** (defaults to **false**).")
+
+  public Boolean getBypassDeviceOnCapture() {
+    return bypassDeviceOnCapture;
+  }
+
+
+  public void setBypassDeviceOnCapture(Boolean bypassDeviceOnCapture) {
+    this.bypassDeviceOnCapture = bypassDeviceOnCapture;
   }
 
 
@@ -220,29 +244,6 @@ public class DeviceConfigDetails {
   }
 
 
-  public DeviceConfigDetails bypassDeviceOnCapture(Boolean bypassDeviceOnCapture) {
-    
-    this.bypassDeviceOnCapture = bypassDeviceOnCapture;
-    return this;
-  }
-
-   /**
-   * Sets whether or not the device will be used to capture transactions. This field must be set to **true** (defaults to **false**).
-   * @return bypassDeviceOnCapture
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Sets whether or not the device will be used to capture transactions. This field must be set to **true** (defaults to **false**).")
-
-  public Boolean getBypassDeviceOnCapture() {
-    return bypassDeviceOnCapture;
-  }
-
-
-  public void setBypassDeviceOnCapture(Boolean bypassDeviceOnCapture) {
-    this.bypassDeviceOnCapture = bypassDeviceOnCapture;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -254,17 +255,28 @@ public class DeviceConfigDetails {
     }
     DeviceConfigDetails deviceConfigDetails = (DeviceConfigDetails) o;
     return Objects.equals(this.allowDebit, deviceConfigDetails.allowDebit) &&
+        Objects.equals(this.bypassDeviceOnCapture, deviceConfigDetails.bypassDeviceOnCapture) &&
         Objects.equals(this.checkForDuplicateTransactions, deviceConfigDetails.checkForDuplicateTransactions) &&
         Objects.equals(this.promptAmountConfirmation, deviceConfigDetails.promptAmountConfirmation) &&
         Objects.equals(this.promptManualEntry, deviceConfigDetails.promptManualEntry) &&
         Objects.equals(this.promptSignature, deviceConfigDetails.promptSignature) &&
-        Objects.equals(this.signatureThresholdAmount, deviceConfigDetails.signatureThresholdAmount) &&
-        Objects.equals(this.bypassDeviceOnCapture, deviceConfigDetails.bypassDeviceOnCapture);
+        Objects.equals(this.signatureThresholdAmount, deviceConfigDetails.signatureThresholdAmount);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowDebit, checkForDuplicateTransactions, promptAmountConfirmation, promptManualEntry, promptSignature, signatureThresholdAmount, bypassDeviceOnCapture);
+    return Objects.hash(allowDebit, bypassDeviceOnCapture, checkForDuplicateTransactions, promptAmountConfirmation, promptManualEntry, promptSignature, signatureThresholdAmount);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -272,12 +284,12 @@ public class DeviceConfigDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeviceConfigDetails {\n");
     sb.append("    allowDebit: ").append(toIndentedString(allowDebit)).append("\n");
+    sb.append("    bypassDeviceOnCapture: ").append(toIndentedString(bypassDeviceOnCapture)).append("\n");
     sb.append("    checkForDuplicateTransactions: ").append(toIndentedString(checkForDuplicateTransactions)).append("\n");
     sb.append("    promptAmountConfirmation: ").append(toIndentedString(promptAmountConfirmation)).append("\n");
     sb.append("    promptManualEntry: ").append(toIndentedString(promptManualEntry)).append("\n");
     sb.append("    promptSignature: ").append(toIndentedString(promptSignature)).append("\n");
     sb.append("    signatureThresholdAmount: ").append(toIndentedString(signatureThresholdAmount)).append("\n");
-    sb.append("    bypassDeviceOnCapture: ").append(toIndentedString(bypassDeviceOnCapture)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -301,12 +313,12 @@ public class DeviceConfigDetails {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("allow_debit");
+    openapiFields.add("bypass_device_on_capture");
     openapiFields.add("check_for_duplicate_transactions");
     openapiFields.add("prompt_amount_confirmation");
     openapiFields.add("prompt_manual_entry");
     openapiFields.add("prompt_signature");
     openapiFields.add("signature_threshold_amount");
-    openapiFields.add("bypass_device_on_capture");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

@@ -63,37 +63,37 @@ public class ExternalLink {
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
 
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
-  private String url;
+  public static final String SERIALIZED_NAME_DURATION = "duration";
+  @SerializedName(SERIALIZED_NAME_DURATION)
+  private String duration;
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  public static final String SERIALIZED_NAME_EXPIRED = "expired";
+  @SerializedName(SERIALIZED_NAME_EXPIRED)
+  private Boolean expired;
 
   public static final String SERIALIZED_NAME_EXPIRES_AT = "expires_at";
   @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
   private String expiresAt;
 
-  public static final String SERIALIZED_NAME_USER_ID = "user_id";
-  @SerializedName(SERIALIZED_NAME_USER_ID)
-  private String userId;
-
   public static final String SERIALIZED_NAME_FILE_ID = "file_id";
   @SerializedName(SERIALIZED_NAME_FILE_ID)
   private String fileId;
-
-  public static final String SERIALIZED_NAME_DURATION = "duration";
-  @SerializedName(SERIALIZED_NAME_DURATION)
-  private String duration;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private Map<String, String> tags = null;
 
-  public static final String SERIALIZED_NAME_EXPIRED = "expired";
-  @SerializedName(SERIALIZED_NAME_EXPIRED)
-  private Boolean expired;
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private String type;
+
+  public static final String SERIALIZED_NAME_URL = "url";
+  @SerializedName(SERIALIZED_NAME_URL)
+  private String url;
+
+  public static final String SERIALIZED_NAME_USER_ID = "user_id";
+  @SerializedName(SERIALIZED_NAME_USER_ID)
+  private String userId;
 
   public ExternalLink() { 
   }
@@ -144,49 +144,49 @@ public class ExternalLink {
   }
 
 
-  public ExternalLink url(String url) {
+  public ExternalLink duration(String duration) {
     
-    this.url = url;
+    this.duration = duration;
     return this;
   }
 
    /**
-   * The URL you can share with merchants to **UPLOAD** or **DOWNLOAD** files depending on the request sent.
-   * @return url
+   * Details how long the &#x60;url&#x60; will be avalible for users to upload files to.
+   * @return duration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The URL you can share with merchants to **UPLOAD** or **DOWNLOAD** files depending on the request sent.")
+  @ApiModelProperty(value = "Details how long the `url` will be avalible for users to upload files to.")
 
-  public String getUrl() {
-    return url;
+  public String getDuration() {
+    return duration;
   }
 
 
-  public void setUrl(String url) {
-    this.url = url;
+  public void setDuration(String duration) {
+    this.duration = duration;
   }
 
 
-  public ExternalLink type(String type) {
+  public ExternalLink expired(Boolean expired) {
     
-    this.type = type;
+    this.expired = expired;
     return this;
   }
 
    /**
-   * Sets if the link is for uploading or downloading files from Finix.
-   * @return type
+   * &lt;ul&gt;&lt;li&gt;If &lt;strong&gt;TRUE&lt;/strong&gt; the link has expired&lt;br&gt;&lt;li&gt;If &lt;strong&gt;FALSE&lt;/strong&gt;, the link is active and files can still be uploaded or downloaded from the link.
+   * @return expired
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Sets if the link is for uploading or downloading files from Finix.")
+  @ApiModelProperty(value = "<ul><li>If <strong>TRUE</strong> the link has expired<br><li>If <strong>FALSE</strong>, the link is active and files can still be uploaded or downloaded from the link.")
 
-  public String getType() {
-    return type;
+  public Boolean getExpired() {
+    return expired;
   }
 
 
-  public void setType(String type) {
-    this.type = type;
+  public void setExpired(Boolean expired) {
+    this.expired = expired;
   }
 
 
@@ -213,29 +213,6 @@ public class ExternalLink {
   }
 
 
-  public ExternalLink userId(String userId) {
-    
-    this.userId = userId;
-    return this;
-  }
-
-   /**
-   * The ID of the &#x60;user&#x60; that requested to create this link.
-   * @return userId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the `user` that requested to create this link.")
-
-  public String getUserId() {
-    return userId;
-  }
-
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-
   public ExternalLink fileId(String fileId) {
     
     this.fileId = fileId;
@@ -256,29 +233,6 @@ public class ExternalLink {
 
   public void setFileId(String fileId) {
     this.fileId = fileId;
-  }
-
-
-  public ExternalLink duration(String duration) {
-    
-    this.duration = duration;
-    return this;
-  }
-
-   /**
-   * Details how long the &#x60;url&#x60; will be avalible for users to upload files to.
-   * @return duration
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Details how long the `url` will be avalible for users to upload files to.")
-
-  public String getDuration() {
-    return duration;
-  }
-
-
-  public void setDuration(String duration) {
-    this.duration = duration;
   }
 
 
@@ -313,26 +267,72 @@ public class ExternalLink {
   }
 
 
-  public ExternalLink expired(Boolean expired) {
+  public ExternalLink type(String type) {
     
-    this.expired = expired;
+    this.type = type;
     return this;
   }
 
    /**
-   * &lt;ul&gt;&lt;li&gt;If &lt;strong&gt;TRUE&lt;/strong&gt; the link has expired&lt;br&gt;&lt;li&gt;If &lt;strong&gt;FALSE&lt;/strong&gt;, the link is active and files can still be uploaded or downloaded from the link.
-   * @return expired
+   * Sets if the link is for uploading or downloading files from Finix.
+   * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "<ul><li>If <strong>TRUE</strong> the link has expired<br><li>If <strong>FALSE</strong>, the link is active and files can still be uploaded or downloaded from the link.")
+  @ApiModelProperty(value = "Sets if the link is for uploading or downloading files from Finix.")
 
-  public Boolean getExpired() {
-    return expired;
+  public String getType() {
+    return type;
   }
 
 
-  public void setExpired(Boolean expired) {
-    this.expired = expired;
+  public void setType(String type) {
+    this.type = type;
+  }
+
+
+  public ExternalLink url(String url) {
+    
+    this.url = url;
+    return this;
+  }
+
+   /**
+   * The URL you can share with merchants to **UPLOAD** or **DOWNLOAD** files depending on the request sent.
+   * @return url
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The URL you can share with merchants to **UPLOAD** or **DOWNLOAD** files depending on the request sent.")
+
+  public String getUrl() {
+    return url;
+  }
+
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+
+  public ExternalLink userId(String userId) {
+    
+    this.userId = userId;
+    return this;
+  }
+
+   /**
+   * The ID of the &#x60;user&#x60; that requested to create this link.
+   * @return userId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ID of the `user` that requested to create this link.")
+
+  public String getUserId() {
+    return userId;
+  }
+
+
+  public void setUserId(String userId) {
+    this.userId = userId;
   }
 
 
@@ -348,14 +348,14 @@ public class ExternalLink {
     ExternalLink externalLink = (ExternalLink) o;
     return Objects.equals(this.id, externalLink.id) &&
         Objects.equals(this.createdAt, externalLink.createdAt) &&
-        Objects.equals(this.url, externalLink.url) &&
-        Objects.equals(this.type, externalLink.type) &&
-        Objects.equals(this.expiresAt, externalLink.expiresAt) &&
-        Objects.equals(this.userId, externalLink.userId) &&
-        Objects.equals(this.fileId, externalLink.fileId) &&
         Objects.equals(this.duration, externalLink.duration) &&
+        Objects.equals(this.expired, externalLink.expired) &&
+        Objects.equals(this.expiresAt, externalLink.expiresAt) &&
+        Objects.equals(this.fileId, externalLink.fileId) &&
         Objects.equals(this.tags, externalLink.tags) &&
-        Objects.equals(this.expired, externalLink.expired);
+        Objects.equals(this.type, externalLink.type) &&
+        Objects.equals(this.url, externalLink.url) &&
+        Objects.equals(this.userId, externalLink.userId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -364,7 +364,7 @@ public class ExternalLink {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdAt, url, type, expiresAt, userId, fileId, duration, tags, expired);
+    return Objects.hash(id, createdAt, duration, expired, expiresAt, fileId, tags, type, url, userId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -380,14 +380,14 @@ public class ExternalLink {
     sb.append("class ExternalLink {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
-    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
-    sb.append("    fileId: ").append(toIndentedString(fileId)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    expired: ").append(toIndentedString(expired)).append("\n");
+    sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
+    sb.append("    fileId: ").append(toIndentedString(fileId)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -412,14 +412,14 @@ public class ExternalLink {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("created_at");
-    openapiFields.add("url");
-    openapiFields.add("type");
-    openapiFields.add("expires_at");
-    openapiFields.add("user_id");
-    openapiFields.add("file_id");
     openapiFields.add("duration");
-    openapiFields.add("tags");
     openapiFields.add("expired");
+    openapiFields.add("expires_at");
+    openapiFields.add("file_id");
+    openapiFields.add("tags");
+    openapiFields.add("type");
+    openapiFields.add("url");
+    openapiFields.add("user_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -460,15 +460,8 @@ public class ExternalLink {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()  && !jsonObj.get("url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()  && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      if (jsonObj.get("duration") != null && !jsonObj.get("duration").isJsonNull()  && !jsonObj.get("duration").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `duration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("duration").toString()));
       }
       /**
       * EDITED
@@ -481,13 +474,6 @@ public class ExternalLink {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("user_id") != null && !jsonObj.get("user_id").isJsonNull()  && !jsonObj.get("user_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `user_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_id").toString()));
-      }
-      /**
-      * EDITED
-      * ADDED isJsonNull statement to for inconsistent null behaviour
-      */
       if (jsonObj.get("file_id") != null && !jsonObj.get("file_id").isJsonNull()  && !jsonObj.get("file_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `file_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("file_id").toString()));
       }
@@ -495,8 +481,22 @@ public class ExternalLink {
       * EDITED
       * ADDED isJsonNull statement to for inconsistent null behaviour
       */
-      if (jsonObj.get("duration") != null && !jsonObj.get("duration").isJsonNull()  && !jsonObj.get("duration").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `duration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("duration").toString()));
+      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()  && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()  && !jsonObj.get("url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
+      }
+      /**
+      * EDITED
+      * ADDED isJsonNull statement to for inconsistent null behaviour
+      */
+      if (jsonObj.get("user_id") != null && !jsonObj.get("user_id").isJsonNull()  && !jsonObj.get("user_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_id").toString()));
       }
   }
 

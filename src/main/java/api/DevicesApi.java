@@ -419,8 +419,8 @@ public class DevicesApi {
     }
 
         /**
-        * Get Device
-        * Retrieve the details of an existing &#x60;Device&#x60;.  To check the connectivity of the device, include &#x60;?include_connection\\&#x3D;true \\&#x60; at the end of the request endpoint.
+        * Fetch a Device
+        * Retrieve the details of an existing &#x60;Device&#x60;.  To check the connectivity of the device, include &#x60;?include_connection\\&#x3D;true\\&#x60; at the end of the request endpoint.
             * @param deviceId ID of the &#x60;Device&#x60;. (required)
         * @return APIgetDeviceRequest
             * @http.response.details
@@ -519,8 +519,8 @@ public class DevicesApi {
     }
 
             /**
-            * Update a Device
-            * Update a &#x60;Device&#x60; to activate or deactivate it.
+            * Initiate Action on Device
+            * Initiate an action on a &#x60;Device&#x60;. These actions include activation, rebooting, setting an idle message, or deactivate it.
                 * @param deviceId ID of the &#x60;Device&#x60;. (required)
                 * @param updateDeviceRequest  (optional)
                 * @return Device
@@ -544,8 +544,8 @@ public class DevicesApi {
 
 
     /**
-        * Update a Device
-        * Update a &#x60;Device&#x60; to activate or deactivate it.
+        * Initiate Action on Device
+        * Initiate an action on a &#x60;Device&#x60;. These actions include activation, rebooting, setting an idle message, or deactivate it.
             * @param deviceId ID of the &#x60;Device&#x60;. (required)
             * @param updateDeviceRequest  (optional)
         * @return ApiResponse&lt;Device&gt;
@@ -567,8 +567,8 @@ public class DevicesApi {
     }
 
     /**
-        * Update a Device (asynchronously)
-        * Update a &#x60;Device&#x60; to activate or deactivate it.
+        * Initiate Action on Device (asynchronously)
+        * Initiate an action on a &#x60;Device&#x60;. These actions include activation, rebooting, setting an idle message, or deactivate it.
             * @param deviceId ID of the &#x60;Device&#x60;. (required)
             * @param updateDeviceRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes

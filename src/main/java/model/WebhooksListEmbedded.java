@@ -49,8 +49,9 @@ import java.util.Set;
 import invoker.JSON;
 
 /**
- * WebhooksListEmbedded
+ * List of &#x60;Webhook&#x60; objects.
  */
+@ApiModel(description = "List of `Webhook` objects.")
 @lombok.Builder@lombok.AllArgsConstructor
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WebhooksListEmbedded {
@@ -76,11 +77,11 @@ public class WebhooksListEmbedded {
   }
 
    /**
-   * Get webhooks
+   * &#x60;Webhook&#x60; objects.
    * @return webhooks
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "`Webhook` objects.")
 
   public Set<Webhook> getWebhooks() {
     return webhooks;

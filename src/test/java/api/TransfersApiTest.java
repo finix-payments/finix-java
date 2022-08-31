@@ -130,7 +130,7 @@ public class TransfersApiTest {
         localMap.put("test", "sale");
         CreateTransferRequest createTransferRequest = CreateTransferRequest.builder()
                 .merchant("MUeDVrf2ahuKc9Eg5TeZugvs")
-                ._3dSecureAuthentication(CreateAuthorizationRequest3dSecureAuthentication.builder()
+                ._3dSecureAuthentication(CreateTransferRequest3dSecureAuthentication.builder()
                         .electronicCommerceIndicator("AUTHENTICATED")
                         .cardholderAuthentication("BwABBJQ1AgAAAAAgJDUCAAAAAAA")
                         .transactionId("EaOMucALHQqLAEGAgk")

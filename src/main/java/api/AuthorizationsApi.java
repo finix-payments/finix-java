@@ -92,7 +92,7 @@ public class AuthorizationsApi {
 
     /**
     * Build call for captureAuthorization
-        * @param authorizationId ID of authorization to fetch (required)
+        * @param authorizationId ID of &#x60;Authorization&#x60; to fetch. (required)
         * @param updateAuthorizationRequest  (optional)
     * @param _callback Callback for upload/download progress
     * @return Call to execute
@@ -100,7 +100,7 @@ public class AuthorizationsApi {
         * @http.response.details
         <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                <tr><td> 200 </td><td> Single captured Authorization object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                <tr><td> 200 </td><td> Single captured Authorization object </td><td>  -  </td></tr>
                 <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                 <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -171,15 +171,15 @@ public class AuthorizationsApi {
 
             /**
             * Capture an Authorization
-            * If successfully captured, the &#x60;transfer&#x60; field of the &#x60;Authorization&#x60; will contain the ID of the &#x60;Transfer&#x60; resource that&#39;ll move funds.   By default, &#x60;Transfers&#x60; are in a **PENDING** state. The **PENDING** state means the system hasn&#39;t submitted the request to capture funds. Capture requests get submitted via a batch request.   Once the &#x60;Authorization&#x60; is updated with a &#x60;capture_amount&#x60; (i.e. *Captured*), the state of the &#x60;Transfer&#x60; will update to **SUCCEEDED**.  &gt; Voided &#x60;Authorizations&#x60; can&#39;t be captured.
-                * @param authorizationId ID of authorization to fetch (required)
+            * If successfully captured, the &#x60;transfer&#x60; field of the &#x60;Authorization&#x60; will contain the ID of the &#x60;Transfer&#x60; resource that&#39;ll move funds.   By default, &#x60;Transfers&#x60; are in a **PENDING** state. The **PENDING** state means the request to capture funds hasn&#39;t been submitted yet. Capture requests get submitted via a batch request.   Once the &#x60;Authorization&#x60; is updated with a &#x60;capture_amount&#x60; (i.e. *Captured*), the state of the &#x60;Transfer&#x60; will update to **SUCCEEDED**.  &gt; Voided &#x60;Authorizations&#x60; can&#39;t be captured.
+                * @param authorizationId ID of &#x60;Authorization&#x60; to fetch. (required)
                 * @param updateAuthorizationRequest  (optional)
                 * @return AuthorizationCaptured
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
                 <table summary="Response Details" border="1">
                     <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                        <tr><td> 200 </td><td> Single captured Authorization object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                        <tr><td> 200 </td><td> Single captured Authorization object </td><td>  -  </td></tr>
                         <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                         <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -196,15 +196,15 @@ public class AuthorizationsApi {
 
     /**
         * Capture an Authorization
-        * If successfully captured, the &#x60;transfer&#x60; field of the &#x60;Authorization&#x60; will contain the ID of the &#x60;Transfer&#x60; resource that&#39;ll move funds.   By default, &#x60;Transfers&#x60; are in a **PENDING** state. The **PENDING** state means the system hasn&#39;t submitted the request to capture funds. Capture requests get submitted via a batch request.   Once the &#x60;Authorization&#x60; is updated with a &#x60;capture_amount&#x60; (i.e. *Captured*), the state of the &#x60;Transfer&#x60; will update to **SUCCEEDED**.  &gt; Voided &#x60;Authorizations&#x60; can&#39;t be captured.
-            * @param authorizationId ID of authorization to fetch (required)
+        * If successfully captured, the &#x60;transfer&#x60; field of the &#x60;Authorization&#x60; will contain the ID of the &#x60;Transfer&#x60; resource that&#39;ll move funds.   By default, &#x60;Transfers&#x60; are in a **PENDING** state. The **PENDING** state means the request to capture funds hasn&#39;t been submitted yet. Capture requests get submitted via a batch request.   Once the &#x60;Authorization&#x60; is updated with a &#x60;capture_amount&#x60; (i.e. *Captured*), the state of the &#x60;Transfer&#x60; will update to **SUCCEEDED**.  &gt; Voided &#x60;Authorizations&#x60; can&#39;t be captured.
+            * @param authorizationId ID of &#x60;Authorization&#x60; to fetch. (required)
             * @param updateAuthorizationRequest  (optional)
         * @return ApiResponse&lt;AuthorizationCaptured&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Single captured Authorization object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> Single captured Authorization object </td><td>  -  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -219,8 +219,8 @@ public class AuthorizationsApi {
 
     /**
         * Capture an Authorization (asynchronously)
-        * If successfully captured, the &#x60;transfer&#x60; field of the &#x60;Authorization&#x60; will contain the ID of the &#x60;Transfer&#x60; resource that&#39;ll move funds.   By default, &#x60;Transfers&#x60; are in a **PENDING** state. The **PENDING** state means the system hasn&#39;t submitted the request to capture funds. Capture requests get submitted via a batch request.   Once the &#x60;Authorization&#x60; is updated with a &#x60;capture_amount&#x60; (i.e. *Captured*), the state of the &#x60;Transfer&#x60; will update to **SUCCEEDED**.  &gt; Voided &#x60;Authorizations&#x60; can&#39;t be captured.
-            * @param authorizationId ID of authorization to fetch (required)
+        * If successfully captured, the &#x60;transfer&#x60; field of the &#x60;Authorization&#x60; will contain the ID of the &#x60;Transfer&#x60; resource that&#39;ll move funds.   By default, &#x60;Transfers&#x60; are in a **PENDING** state. The **PENDING** state means the request to capture funds hasn&#39;t been submitted yet. Capture requests get submitted via a batch request.   Once the &#x60;Authorization&#x60; is updated with a &#x60;capture_amount&#x60; (i.e. *Captured*), the state of the &#x60;Transfer&#x60; will update to **SUCCEEDED**.  &gt; Voided &#x60;Authorizations&#x60; can&#39;t be captured.
+            * @param authorizationId ID of &#x60;Authorization&#x60; to fetch. (required)
             * @param updateAuthorizationRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
@@ -228,7 +228,7 @@ public class AuthorizationsApi {
             * @http.response.details
             <table summary="Response Details" border="1">
                 <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-                    <tr><td> 200 </td><td> Single captured Authorization object </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
+                    <tr><td> 200 </td><td> Single captured Authorization object </td><td>  -  </td></tr>
                     <tr><td> 401 </td><td> Authentication information is missing or invalid </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 403 </td><td> Forbidden </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
                     <tr><td> 406 </td><td> Not Acceptable </td><td>  * finix-apiuser-role -  <br>  * date -  <br>  * x-request-id -  <br>  </td></tr>
@@ -319,7 +319,7 @@ public class AuthorizationsApi {
 
             /**
             * Create an Authorization
-            * Create an &#x60;Authorization&#x60; to process a transaction.  &#x60;Authorizations&#x60; can have two possible &#x60;states&#x60;:  - **SUCCEEDED**  - **FAILED**  If the &#x60;Authorization&#x60; has **SUCCEEDED** , it must be captured before &#x60;expires_at&#x60; passes or the funds will be released.  Learn how to prevent duplicate authorizations by passing an [Idempotency ID](#section/Idempotency-Requests) in the payload.
+            * Create an &#x60;Authorization&#x60; to process a transaction.  &#x60;Authorizations&#x60; can have six possible &#x60;states&#x60;, two of which are expected:  - **SUCCEEDED**  - **FAILED**  If the &#x60;Authorization&#x60; has **SUCCEEDED** , it must be captured before &#x60;expires_at&#x60; passes or the funds will be released. If the &#x60;transfer&#x60; field of an &#x60;Authorization&#x60; is **null**, it hasn&#39;t been captured yet.  Learn how to prevent duplicate authorizations by passing an [Idempotency ID](#section/Idempotency-Requests) in the payload. - &#x60;Authorizations&#x60; on debit cards place a hold on funds in the cardholder&#39;s bank account and can lead to lower than expected balances or issues with insufficient funds.
                 * @param createAuthorizationRequest  (optional)
                 * @return Authorization
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -346,7 +346,7 @@ public class AuthorizationsApi {
 
     /**
         * Create an Authorization
-        * Create an &#x60;Authorization&#x60; to process a transaction.  &#x60;Authorizations&#x60; can have two possible &#x60;states&#x60;:  - **SUCCEEDED**  - **FAILED**  If the &#x60;Authorization&#x60; has **SUCCEEDED** , it must be captured before &#x60;expires_at&#x60; passes or the funds will be released.  Learn how to prevent duplicate authorizations by passing an [Idempotency ID](#section/Idempotency-Requests) in the payload.
+        * Create an &#x60;Authorization&#x60; to process a transaction.  &#x60;Authorizations&#x60; can have six possible &#x60;states&#x60;, two of which are expected:  - **SUCCEEDED**  - **FAILED**  If the &#x60;Authorization&#x60; has **SUCCEEDED** , it must be captured before &#x60;expires_at&#x60; passes or the funds will be released. If the &#x60;transfer&#x60; field of an &#x60;Authorization&#x60; is **null**, it hasn&#39;t been captured yet.  Learn how to prevent duplicate authorizations by passing an [Idempotency ID](#section/Idempotency-Requests) in the payload. - &#x60;Authorizations&#x60; on debit cards place a hold on funds in the cardholder&#39;s bank account and can lead to lower than expected balances or issues with insufficient funds.
             * @param createAuthorizationRequest  (optional)
         * @return ApiResponse&lt;Authorization&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -371,7 +371,7 @@ public class AuthorizationsApi {
 
     /**
         * Create an Authorization (asynchronously)
-        * Create an &#x60;Authorization&#x60; to process a transaction.  &#x60;Authorizations&#x60; can have two possible &#x60;states&#x60;:  - **SUCCEEDED**  - **FAILED**  If the &#x60;Authorization&#x60; has **SUCCEEDED** , it must be captured before &#x60;expires_at&#x60; passes or the funds will be released.  Learn how to prevent duplicate authorizations by passing an [Idempotency ID](#section/Idempotency-Requests) in the payload.
+        * Create an &#x60;Authorization&#x60; to process a transaction.  &#x60;Authorizations&#x60; can have six possible &#x60;states&#x60;, two of which are expected:  - **SUCCEEDED**  - **FAILED**  If the &#x60;Authorization&#x60; has **SUCCEEDED** , it must be captured before &#x60;expires_at&#x60; passes or the funds will be released. If the &#x60;transfer&#x60; field of an &#x60;Authorization&#x60; is **null**, it hasn&#39;t been captured yet.  Learn how to prevent duplicate authorizations by passing an [Idempotency ID](#section/Idempotency-Requests) in the payload. - &#x60;Authorizations&#x60; on debit cards place a hold on funds in the cardholder&#39;s bank account and can lead to lower than expected balances or issues with insufficient funds.
             * @param createAuthorizationRequest  (optional)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
@@ -398,7 +398,7 @@ public class AuthorizationsApi {
     }
     /**
     * Build call for getAuthorization
-        * @param authorizationId ID of authorization to fetch (required)
+        * @param authorizationId ID of &#x60;Authorization&#x60; to fetch. (required)
     * @param _callback Callback for upload/download progress
     * @return Call to execute
     * @throws ApiException If fail to serialize the request body object
@@ -475,9 +475,9 @@ public class AuthorizationsApi {
     }
 
             /**
-            * Get an Authorization
+            * Fetch an Authorization
             * Retrieve the details of a previously created &#x60;Authorization&#x60;.
-                * @param authorizationId ID of authorization to fetch (required)
+                * @param authorizationId ID of &#x60;Authorization&#x60; to fetch. (required)
                 * @return Authorization
             * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
                 * @http.response.details
@@ -499,9 +499,9 @@ public class AuthorizationsApi {
 
 
     /**
-        * Get an Authorization
+        * Fetch an Authorization
         * Retrieve the details of a previously created &#x60;Authorization&#x60;.
-            * @param authorizationId ID of authorization to fetch (required)
+            * @param authorizationId ID of &#x60;Authorization&#x60; to fetch. (required)
         * @return ApiResponse&lt;Authorization&gt;
         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
             * @http.response.details
@@ -521,9 +521,9 @@ public class AuthorizationsApi {
     }
 
     /**
-        * Get an Authorization (asynchronously)
+        * Fetch an Authorization (asynchronously)
         * Retrieve the details of a previously created &#x60;Authorization&#x60;.
-            * @param authorizationId ID of authorization to fetch (required)
+            * @param authorizationId ID of &#x60;Authorization&#x60; to fetch. (required)
         * @param _callback The callback to be executed when the API call finishes
         * @return The request call
         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -544,7 +544,7 @@ public class AuthorizationsApi {
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-    private okhttp3.Call listAuthorizationsCall(String sort, String beforeCursor, Long limit, String idempotencyId, String state, String createdAtGte, String createdAtLte, String updatedAtGte, String updatedAtLte, String isVoid, Long amount, Long amountLt, Long amountGt, Long amountLte, Long amountGte, String traceId, String instrumentBin, String instrumentAccountLast4, String instrumentBrandType, String merchantIdentityId, String merchantIdentityName, String instrumentName, String instrumentType, String merchantId, String merchantMid, String instrumentCardLast4, String merchantProcessorId, String type, String afterCursor, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listAuthorizationsCall(Long amount, Long amountGt, Long amountGte, Long amountLt, Long amountLte, String beforeCursor, String createdAtGte, String createdAtLte, String idempotencyId, Long limit, String sort, String state, String updatedAtGte, String updatedAtLte, String traceId, String isVoid, String instrumentBin, String instrumentAccountLast4, String instrumentBrandType, String merchantIdentityId, String merchantIdentityName, String instrumentName, String instrumentType, String merchantId, String merchantMid, String instrumentCardLast4, String merchantProcessorId, String type, String afterCursor, final ApiCallback _callback) throws ApiException {
         String basePath = null;
     // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -569,24 +569,28 @@ public class AuthorizationsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (sort != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("sort", sort));
+        if (amount != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("amount", amount));
+        }
+
+        if (amountGt != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("amount.gt", amountGt));
+        }
+
+        if (amountGte != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("amount.gte", amountGte));
+        }
+
+        if (amountLt != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("amount.lt", amountLt));
+        }
+
+        if (amountLte != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("amount.lte", amountLte));
         }
 
         if (beforeCursor != null) {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("before_cursor", beforeCursor));
-        }
-
-        if (limit != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("limit", limit));
-        }
-
-        if (idempotencyId != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("idempotency_id", idempotencyId));
-        }
-
-        if (state != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("state", state));
         }
 
         if (createdAtGte != null) {
@@ -597,6 +601,22 @@ public class AuthorizationsApi {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("created_at.lte", createdAtLte));
         }
 
+        if (idempotencyId != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("idempotency_id", idempotencyId));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("limit", limit));
+        }
+
+        if (sort != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("sort", sort));
+        }
+
+        if (state != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("state", state));
+        }
+
         if (updatedAtGte != null) {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("updated_at.gte", updatedAtGte));
         }
@@ -605,32 +625,12 @@ public class AuthorizationsApi {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("updated_at.lte", updatedAtLte));
         }
 
-        if (isVoid != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("is_void", isVoid));
-        }
-
-        if (amount != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("amount", amount));
-        }
-
-        if (amountLt != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("amount.lt", amountLt));
-        }
-
-        if (amountGt != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("amount.gt", amountGt));
-        }
-
-        if (amountLte != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("amount.lte", amountLte));
-        }
-
-        if (amountGte != null) {
-            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("amount.gte", amountGte));
-        }
-
         if (traceId != null) {
             localVarQueryParams.addAll(localVarFinixClient.parameterToPair("trace_id", traceId));
+        }
+
+        if (isVoid != null) {
+            localVarQueryParams.addAll(localVarFinixClient.parameterToPair("is_void", isVoid));
         }
 
         if (instrumentBin != null) {
@@ -708,46 +708,46 @@ public class AuthorizationsApi {
     }
 
         @SuppressWarnings("rawtypes")
-    private okhttp3.Call listAuthorizationsValidateBeforeCall(String sort, String beforeCursor, Long limit, String idempotencyId, String state, String createdAtGte, String createdAtLte, String updatedAtGte, String updatedAtLte, String isVoid, Long amount, Long amountLt, Long amountGt, Long amountLte, Long amountGte, String traceId, String instrumentBin, String instrumentAccountLast4, String instrumentBrandType, String merchantIdentityId, String merchantIdentityName, String instrumentName, String instrumentType, String merchantId, String merchantMid, String instrumentCardLast4, String merchantProcessorId, String type, String afterCursor, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listAuthorizationsValidateBeforeCall(Long amount, Long amountGt, Long amountGte, Long amountLt, Long amountLte, String beforeCursor, String createdAtGte, String createdAtLte, String idempotencyId, Long limit, String sort, String state, String updatedAtGte, String updatedAtLte, String traceId, String isVoid, String instrumentBin, String instrumentAccountLast4, String instrumentBrandType, String merchantIdentityId, String merchantIdentityName, String instrumentName, String instrumentType, String merchantId, String merchantMid, String instrumentCardLast4, String merchantProcessorId, String type, String afterCursor, final ApiCallback _callback) throws ApiException {
     
 
-        okhttp3.Call localVarCall = listAuthorizationsCall(sort, beforeCursor, limit, idempotencyId, state, createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, isVoid, amount, amountLt, amountGt, amountLte, amountGte, traceId, instrumentBin, instrumentAccountLast4, instrumentBrandType, merchantIdentityId, merchantIdentityName, instrumentName, instrumentType, merchantId, merchantMid, instrumentCardLast4, merchantProcessorId, type, afterCursor, _callback);
+        okhttp3.Call localVarCall = listAuthorizationsCall(amount, amountGt, amountGte, amountLt, amountLte, beforeCursor, createdAtGte, createdAtLte, idempotencyId, limit, sort, state, updatedAtGte, updatedAtLte, traceId, isVoid, instrumentBin, instrumentAccountLast4, instrumentBrandType, merchantIdentityId, merchantIdentityName, instrumentName, instrumentType, merchantId, merchantMid, instrumentCardLast4, merchantProcessorId, type, afterCursor, _callback);
         return localVarCall;
 
     }
 
 
-    private ApiResponse<AuthorizationsList> listAuthorizationsWithHttpInfo(String sort, String beforeCursor, Long limit, String idempotencyId, String state, String createdAtGte, String createdAtLte, String updatedAtGte, String updatedAtLte, String isVoid, Long amount, Long amountLt, Long amountGt, Long amountLte, Long amountGte, String traceId, String instrumentBin, String instrumentAccountLast4, String instrumentBrandType, String merchantIdentityId, String merchantIdentityName, String instrumentName, String instrumentType, String merchantId, String merchantMid, String instrumentCardLast4, String merchantProcessorId, String type, String afterCursor) throws ApiException {
-        okhttp3.Call localVarCall = listAuthorizationsValidateBeforeCall(sort, beforeCursor, limit, idempotencyId, state, createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, isVoid, amount, amountLt, amountGt, amountLte, amountGte, traceId, instrumentBin, instrumentAccountLast4, instrumentBrandType, merchantIdentityId, merchantIdentityName, instrumentName, instrumentType, merchantId, merchantMid, instrumentCardLast4, merchantProcessorId, type, afterCursor, null);
+    private ApiResponse<AuthorizationsList> listAuthorizationsWithHttpInfo(Long amount, Long amountGt, Long amountGte, Long amountLt, Long amountLte, String beforeCursor, String createdAtGte, String createdAtLte, String idempotencyId, Long limit, String sort, String state, String updatedAtGte, String updatedAtLte, String traceId, String isVoid, String instrumentBin, String instrumentAccountLast4, String instrumentBrandType, String merchantIdentityId, String merchantIdentityName, String instrumentName, String instrumentType, String merchantId, String merchantMid, String instrumentCardLast4, String merchantProcessorId, String type, String afterCursor) throws ApiException {
+        okhttp3.Call localVarCall = listAuthorizationsValidateBeforeCall(amount, amountGt, amountGte, amountLt, amountLte, beforeCursor, createdAtGte, createdAtLte, idempotencyId, limit, sort, state, updatedAtGte, updatedAtLte, traceId, isVoid, instrumentBin, instrumentAccountLast4, instrumentBrandType, merchantIdentityId, merchantIdentityName, instrumentName, instrumentType, merchantId, merchantMid, instrumentCardLast4, merchantProcessorId, type, afterCursor, null);
         Type localVarReturnType = new TypeToken<AuthorizationsList>(){}.getType();
         return localVarFinixClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listAuthorizationsAsync(String sort, String beforeCursor, Long limit, String idempotencyId, String state, String createdAtGte, String createdAtLte, String updatedAtGte, String updatedAtLte, String isVoid, Long amount, Long amountLt, Long amountGt, Long amountLte, Long amountGte, String traceId, String instrumentBin, String instrumentAccountLast4, String instrumentBrandType, String merchantIdentityId, String merchantIdentityName, String instrumentName, String instrumentType, String merchantId, String merchantMid, String instrumentCardLast4, String merchantProcessorId, String type, String afterCursor, final ApiCallback<AuthorizationsList> _callback) throws ApiException {
+    private okhttp3.Call listAuthorizationsAsync(Long amount, Long amountGt, Long amountGte, Long amountLt, Long amountLte, String beforeCursor, String createdAtGte, String createdAtLte, String idempotencyId, Long limit, String sort, String state, String updatedAtGte, String updatedAtLte, String traceId, String isVoid, String instrumentBin, String instrumentAccountLast4, String instrumentBrandType, String merchantIdentityId, String merchantIdentityName, String instrumentName, String instrumentType, String merchantId, String merchantMid, String instrumentCardLast4, String merchantProcessorId, String type, String afterCursor, final ApiCallback<AuthorizationsList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listAuthorizationsValidateBeforeCall(sort, beforeCursor, limit, idempotencyId, state, createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, isVoid, amount, amountLt, amountGt, amountLte, amountGte, traceId, instrumentBin, instrumentAccountLast4, instrumentBrandType, merchantIdentityId, merchantIdentityName, instrumentName, instrumentType, merchantId, merchantMid, instrumentCardLast4, merchantProcessorId, type, afterCursor, _callback);
+        okhttp3.Call localVarCall = listAuthorizationsValidateBeforeCall(amount, amountGt, amountGte, amountLt, amountLte, beforeCursor, createdAtGte, createdAtLte, idempotencyId, limit, sort, state, updatedAtGte, updatedAtLte, traceId, isVoid, instrumentBin, instrumentAccountLast4, instrumentBrandType, merchantIdentityId, merchantIdentityName, instrumentName, instrumentType, merchantId, merchantMid, instrumentCardLast4, merchantProcessorId, type, afterCursor, _callback);
         Type localVarReturnType = new TypeToken<AuthorizationsList>(){}.getType();
         localVarFinixClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIlistAuthorizationsRequest {
-        private String sort;
+        private Long amount;
+        private Long amountGt;
+        private Long amountGte;
+        private Long amountLt;
+        private Long amountLte;
         private String beforeCursor;
-        private Long limit;
-        private String idempotencyId;
-        private String state;
         private String createdAtGte;
         private String createdAtLte;
+        private String idempotencyId;
+        private Long limit;
+        private String sort;
+        private String state;
         private String updatedAtGte;
         private String updatedAtLte;
-        private String isVoid;
-        private Long amount;
-        private Long amountLt;
-        private Long amountGt;
-        private Long amountLte;
-        private Long amountGte;
         private String traceId;
+        private String isVoid;
         private String instrumentBin;
         private String instrumentAccountLast4;
         private String instrumentBrandType;
@@ -766,12 +766,52 @@ public class AuthorizationsApi {
         }
 
         /**
-        * Set sort
-        * @param sort Specify key to be used for sorting the collection (optional)
+        * Set amount
+        * @param amount Filter by an amount equal to the given value. (optional)
         * @return APIlistAuthorizationsRequest
         */
-        public APIlistAuthorizationsRequest sort(String sort) {
-            this.sort = sort;
+        public APIlistAuthorizationsRequest amount(Long amount) {
+            this.amount = amount;
+            return this;
+        }
+
+        /**
+        * Set amountGt
+        * @param amountGt Filter by an amount greater than. (optional)
+        * @return APIlistAuthorizationsRequest
+        */
+        public APIlistAuthorizationsRequest amountGt(Long amountGt) {
+            this.amountGt = amountGt;
+            return this;
+        }
+
+        /**
+        * Set amountGte
+        * @param amountGte Filter by an amount greater than or equal. (optional)
+        * @return APIlistAuthorizationsRequest
+        */
+        public APIlistAuthorizationsRequest amountGte(Long amountGte) {
+            this.amountGte = amountGte;
+            return this;
+        }
+
+        /**
+        * Set amountLt
+        * @param amountLt Filter by an amount less than. (optional)
+        * @return APIlistAuthorizationsRequest
+        */
+        public APIlistAuthorizationsRequest amountLt(Long amountLt) {
+            this.amountLt = amountLt;
+            return this;
+        }
+
+        /**
+        * Set amountLte
+        * @param amountLte Filter by an amount less than or equal. (optional)
+        * @return APIlistAuthorizationsRequest
+        */
+        public APIlistAuthorizationsRequest amountLte(Long amountLte) {
+            this.amountLte = amountLte;
             return this;
         }
 
@@ -786,8 +826,38 @@ public class AuthorizationsApi {
         }
 
         /**
+        * Set createdAtGte
+        * @param createdAtGte Filter where &#x60;created_at&#x60; is after the given date. (optional)
+        * @return APIlistAuthorizationsRequest
+        */
+        public APIlistAuthorizationsRequest createdAtGte(String createdAtGte) {
+            this.createdAtGte = createdAtGte;
+            return this;
+        }
+
+        /**
+        * Set createdAtLte
+        * @param createdAtLte Filter where &#x60;created_at&#x60; is before the given date. (optional)
+        * @return APIlistAuthorizationsRequest
+        */
+        public APIlistAuthorizationsRequest createdAtLte(String createdAtLte) {
+            this.createdAtLte = createdAtLte;
+            return this;
+        }
+
+        /**
+        * Set idempotencyId
+        * @param idempotencyId Filter by &#x60;idempotency_id&#x60;. (optional)
+        * @return APIlistAuthorizationsRequest
+        */
+        public APIlistAuthorizationsRequest idempotencyId(String idempotencyId) {
+            this.idempotencyId = idempotencyId;
+            return this;
+        }
+
+        /**
         * Set limit
-        * @param limit The numbers of items to return (optional)
+        * @param limit The numbers of items to return. (optional)
         * @return APIlistAuthorizationsRequest
         */
         public APIlistAuthorizationsRequest limit(Long limit) {
@@ -796,12 +866,12 @@ public class AuthorizationsApi {
         }
 
         /**
-        * Set idempotencyId
-        * @param idempotencyId Filter by idempotency_id (optional)
+        * Set sort
+        * @param sort Specify key to be used for sorting the collection. (optional)
         * @return APIlistAuthorizationsRequest
         */
-        public APIlistAuthorizationsRequest idempotencyId(String idempotencyId) {
-            this.idempotencyId = idempotencyId;
+        public APIlistAuthorizationsRequest sort(String sort) {
+            this.sort = sort;
             return this;
         }
 
@@ -816,28 +886,8 @@ public class AuthorizationsApi {
         }
 
         /**
-        * Set createdAtGte
-        * @param createdAtGte Filter where created_at is after the given date. (optional)
-        * @return APIlistAuthorizationsRequest
-        */
-        public APIlistAuthorizationsRequest createdAtGte(String createdAtGte) {
-            this.createdAtGte = createdAtGte;
-            return this;
-        }
-
-        /**
-        * Set createdAtLte
-        * @param createdAtLte Filter where created_at is before the given date. (optional)
-        * @return APIlistAuthorizationsRequest
-        */
-        public APIlistAuthorizationsRequest createdAtLte(String createdAtLte) {
-            this.createdAtLte = createdAtLte;
-            return this;
-        }
-
-        /**
         * Set updatedAtGte
-        * @param updatedAtGte Filter where updated_at is after the given date (optional)
+        * @param updatedAtGte Filter where &#x60;updated_at&#x60; is after the given date. (optional)
         * @return APIlistAuthorizationsRequest
         */
         public APIlistAuthorizationsRequest updatedAtGte(String updatedAtGte) {
@@ -847,7 +897,7 @@ public class AuthorizationsApi {
 
         /**
         * Set updatedAtLte
-        * @param updatedAtLte Filter where updated_at is before the given date (optional)
+        * @param updatedAtLte Filter where &#x60;updated_at&#x60; is before the given date. (optional)
         * @return APIlistAuthorizationsRequest
         */
         public APIlistAuthorizationsRequest updatedAtLte(String updatedAtLte) {
@@ -856,68 +906,8 @@ public class AuthorizationsApi {
         }
 
         /**
-        * Set isVoid
-        * @param isVoid Filter by idempotency_id (optional)
-        * @return APIlistAuthorizationsRequest
-        */
-        public APIlistAuthorizationsRequest isVoid(String isVoid) {
-            this.isVoid = isVoid;
-            return this;
-        }
-
-        /**
-        * Set amount
-        * @param amount Filter by an amount equal to the given value (optional)
-        * @return APIlistAuthorizationsRequest
-        */
-        public APIlistAuthorizationsRequest amount(Long amount) {
-            this.amount = amount;
-            return this;
-        }
-
-        /**
-        * Set amountLt
-        * @param amountLt Filter by an amount less than (optional)
-        * @return APIlistAuthorizationsRequest
-        */
-        public APIlistAuthorizationsRequest amountLt(Long amountLt) {
-            this.amountLt = amountLt;
-            return this;
-        }
-
-        /**
-        * Set amountGt
-        * @param amountGt Filter by an amount greater than (optional)
-        * @return APIlistAuthorizationsRequest
-        */
-        public APIlistAuthorizationsRequest amountGt(Long amountGt) {
-            this.amountGt = amountGt;
-            return this;
-        }
-
-        /**
-        * Set amountLte
-        * @param amountLte Filter by an amount less than or equal (optional)
-        * @return APIlistAuthorizationsRequest
-        */
-        public APIlistAuthorizationsRequest amountLte(Long amountLte) {
-            this.amountLte = amountLte;
-            return this;
-        }
-
-        /**
-        * Set amountGte
-        * @param amountGte Filter by an amount greater than or equal (optional)
-        * @return APIlistAuthorizationsRequest
-        */
-        public APIlistAuthorizationsRequest amountGte(Long amountGte) {
-            this.amountGte = amountGte;
-            return this;
-        }
-
-        /**
         * Set traceId
-        * @param traceId Filter by trace_id (optional)
+        * @param traceId Filter by &#x60;trace_id&#x60;. (optional)
         * @return APIlistAuthorizationsRequest
         */
         public APIlistAuthorizationsRequest traceId(String traceId) {
@@ -926,8 +916,18 @@ public class AuthorizationsApi {
         }
 
         /**
+        * Set isVoid
+        * @param isVoid Filter by &#x60;idempotency_id&#x60;. (optional)
+        * @return APIlistAuthorizationsRequest
+        */
+        public APIlistAuthorizationsRequest isVoid(String isVoid) {
+            this.isVoid = isVoid;
+            return this;
+        }
+
+        /**
         * Set instrumentBin
-        * @param instrumentBin Filter by Bank Identification Number (BIN). The BIN is the first 6 digits of the masked number (optional)
+        * @param instrumentBin Filter by Bank Identification Number (BIN). The BIN is the first 6 digits of the masked number. (optional)
         * @return APIlistAuthorizationsRequest
         */
         public APIlistAuthorizationsRequest instrumentBin(String instrumentBin) {
@@ -937,7 +937,7 @@ public class AuthorizationsApi {
 
         /**
         * Set instrumentAccountLast4
-        * @param instrumentAccountLast4 Filter Transactions by the last 4 digits of the bank account. The bank account last 4 are the last 4 digits of the masked number instrument_account_last4&#x3D;9444 BIN  (optional)
+        * @param instrumentAccountLast4 Filter Transactions by the last 4 digits of the bank account. The bank account last 4 are the last 4 digits of the masked number instrument_account_last4&#x3D;9444 BIN. (optional)
         * @return APIlistAuthorizationsRequest
         */
         public APIlistAuthorizationsRequest instrumentAccountLast4(String instrumentAccountLast4) {
@@ -947,7 +947,7 @@ public class AuthorizationsApi {
 
         /**
         * Set instrumentBrandType
-        * @param instrumentBrandType Filter by card brand. Available card brand types can be found in the drop-down (optional)
+        * @param instrumentBrandType Filter by card brand. Available card brand types can be found in the drop-down. (optional)
         * @return APIlistAuthorizationsRequest
         */
         public APIlistAuthorizationsRequest instrumentBrandType(String instrumentBrandType) {
@@ -957,7 +957,7 @@ public class AuthorizationsApi {
 
         /**
         * Set merchantIdentityId
-        * @param merchantIdentityId Filter by Identity ID (optional)
+        * @param merchantIdentityId Filter by &#x60;Identity&#x60; ID. (optional)
         * @return APIlistAuthorizationsRequest
         */
         public APIlistAuthorizationsRequest merchantIdentityId(String merchantIdentityId) {
@@ -967,7 +967,7 @@ public class AuthorizationsApi {
 
         /**
         * Set merchantIdentityName
-        * @param merchantIdentityName Filter Transactions by Identity name. The name is not case-sensitive (optional)
+        * @param merchantIdentityName Filter Transactions by &#x60;Identity&#x60; name. The name is not case-sensitive. (optional)
         * @return APIlistAuthorizationsRequest
         */
         public APIlistAuthorizationsRequest merchantIdentityName(String merchantIdentityName) {
@@ -977,7 +977,7 @@ public class AuthorizationsApi {
 
         /**
         * Set instrumentName
-        * @param instrumentName Filter Transactions by payment instrument name (optional)
+        * @param instrumentName Filter Transactions by &#x60;Payment Instrument&#x60; name. (optional)
         * @return APIlistAuthorizationsRequest
         */
         public APIlistAuthorizationsRequest instrumentName(String instrumentName) {
@@ -987,7 +987,7 @@ public class AuthorizationsApi {
 
         /**
         * Set instrumentType
-        * @param instrumentType Filter Transactions by payment instrument type. Available instrument types include: Bank Account or Payment Card (optional)
+        * @param instrumentType Filter Transactions by &#x60;Payment Instrument&#x60; type. Available instrument types include: Bank Account or Payment Card. (optional)
         * @return APIlistAuthorizationsRequest
         */
         public APIlistAuthorizationsRequest instrumentType(String instrumentType) {
@@ -997,7 +997,7 @@ public class AuthorizationsApi {
 
         /**
         * Set merchantId
-        * @param merchantId Filter by Merchant ID (optional)
+        * @param merchantId Filter by &#x60;Merchant&#x60; ID. (optional)
         * @return APIlistAuthorizationsRequest
         */
         public APIlistAuthorizationsRequest merchantId(String merchantId) {
@@ -1007,7 +1007,7 @@ public class AuthorizationsApi {
 
         /**
         * Set merchantMid
-        * @param merchantMid Filter by Merchant Identification Number (MID) (optional)
+        * @param merchantMid Filter by Merchant Identification Number (MID). (optional)
         * @return APIlistAuthorizationsRequest
         */
         public APIlistAuthorizationsRequest merchantMid(String merchantMid) {
@@ -1017,7 +1017,7 @@ public class AuthorizationsApi {
 
         /**
         * Set instrumentCardLast4
-        * @param instrumentCardLast4 Filter by the payment card last 4 digits (optional)
+        * @param instrumentCardLast4 Filter by the payment card last 4 digits. (optional)
         * @return APIlistAuthorizationsRequest
         */
         public APIlistAuthorizationsRequest instrumentCardLast4(String instrumentCardLast4) {
@@ -1027,7 +1027,7 @@ public class AuthorizationsApi {
 
         /**
         * Set merchantProcessorId
-        * @param merchantProcessorId Filter by Processor ID (optional)
+        * @param merchantProcessorId Filter by &#x60;Processor&#x60; ID. (optional)
         * @return APIlistAuthorizationsRequest
         */
         public APIlistAuthorizationsRequest merchantProcessorId(String merchantProcessorId) {
@@ -1037,7 +1037,7 @@ public class AuthorizationsApi {
 
         /**
         * Set type
-        * @param type Type of the authorization. (optional)
+        * @param type Type of the &#x60;Authorization&#x60;. (optional)
         * @return APIlistAuthorizationsRequest
         */
         public APIlistAuthorizationsRequest type(String type) {
@@ -1071,7 +1071,7 @@ public class AuthorizationsApi {
             </table>
         */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listAuthorizationsCall(sort, beforeCursor, limit, idempotencyId, state, createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, isVoid, amount, amountLt, amountGt, amountLte, amountGte, traceId, instrumentBin, instrumentAccountLast4, instrumentBrandType, merchantIdentityId, merchantIdentityName, instrumentName, instrumentType, merchantId, merchantMid, instrumentCardLast4, merchantProcessorId, type, afterCursor, _callback);
+            return listAuthorizationsCall(amount, amountGt, amountGte, amountLt, amountLte, beforeCursor, createdAtGte, createdAtLte, idempotencyId, limit, sort, state, updatedAtGte, updatedAtLte, traceId, isVoid, instrumentBin, instrumentAccountLast4, instrumentBrandType, merchantIdentityId, merchantIdentityName, instrumentName, instrumentType, merchantId, merchantMid, instrumentCardLast4, merchantProcessorId, type, afterCursor, _callback);
         }
 
         /**
@@ -1089,7 +1089,7 @@ public class AuthorizationsApi {
             </table>
         */
         public AuthorizationsList execute() throws ApiException {
-            ApiResponse<AuthorizationsList> localVarResp = listAuthorizationsWithHttpInfo(sort, beforeCursor, limit, idempotencyId, state, createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, isVoid, amount, amountLt, amountGt, amountLte, amountGte, traceId, instrumentBin, instrumentAccountLast4, instrumentBrandType, merchantIdentityId, merchantIdentityName, instrumentName, instrumentType, merchantId, merchantMid, instrumentCardLast4, merchantProcessorId, type, afterCursor);
+            ApiResponse<AuthorizationsList> localVarResp = listAuthorizationsWithHttpInfo(amount, amountGt, amountGte, amountLt, amountLte, beforeCursor, createdAtGte, createdAtLte, idempotencyId, limit, sort, state, updatedAtGte, updatedAtLte, traceId, isVoid, instrumentBin, instrumentAccountLast4, instrumentBrandType, merchantIdentityId, merchantIdentityName, instrumentName, instrumentType, merchantId, merchantMid, instrumentCardLast4, merchantProcessorId, type, afterCursor);
             return localVarResp.getData();
         }
 
@@ -1108,7 +1108,7 @@ public class AuthorizationsApi {
             </table>
         */
         public ApiResponse<AuthorizationsList> executeWithHttpInfo() throws ApiException {
-            return listAuthorizationsWithHttpInfo(sort, beforeCursor, limit, idempotencyId, state, createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, isVoid, amount, amountLt, amountGt, amountLte, amountGte, traceId, instrumentBin, instrumentAccountLast4, instrumentBrandType, merchantIdentityId, merchantIdentityName, instrumentName, instrumentType, merchantId, merchantMid, instrumentCardLast4, merchantProcessorId, type, afterCursor);
+            return listAuthorizationsWithHttpInfo(amount, amountGt, amountGte, amountLt, amountLte, beforeCursor, createdAtGte, createdAtLte, idempotencyId, limit, sort, state, updatedAtGte, updatedAtLte, traceId, isVoid, instrumentBin, instrumentAccountLast4, instrumentBrandType, merchantIdentityId, merchantIdentityName, instrumentName, instrumentType, merchantId, merchantMid, instrumentCardLast4, merchantProcessorId, type, afterCursor);
         }
 
         /**
@@ -1127,7 +1127,7 @@ public class AuthorizationsApi {
             </table>
         */
         public okhttp3.Call executeAsync(final ApiCallback<AuthorizationsList> _callback) throws ApiException {
-            return listAuthorizationsAsync(sort, beforeCursor, limit, idempotencyId, state, createdAtGte, createdAtLte, updatedAtGte, updatedAtLte, isVoid, amount, amountLt, amountGt, amountLte, amountGte, traceId, instrumentBin, instrumentAccountLast4, instrumentBrandType, merchantIdentityId, merchantIdentityName, instrumentName, instrumentType, merchantId, merchantMid, instrumentCardLast4, merchantProcessorId, type, afterCursor, _callback);
+            return listAuthorizationsAsync(amount, amountGt, amountGte, amountLt, amountLte, beforeCursor, createdAtGte, createdAtLte, idempotencyId, limit, sort, state, updatedAtGte, updatedAtLte, traceId, isVoid, instrumentBin, instrumentAccountLast4, instrumentBrandType, merchantIdentityId, merchantIdentityName, instrumentName, instrumentType, merchantId, merchantMid, instrumentCardLast4, merchantProcessorId, type, afterCursor, _callback);
         }
     }
 
@@ -1150,22 +1150,22 @@ public class AuthorizationsApi {
         throws ApiException{
 
         APIlistAuthorizationsRequest request = new APIlistAuthorizationsRequest();
-        request.sort(listAuthorizationsQueryParams.getSort());
+        request.amount(listAuthorizationsQueryParams.getAmount());
+        request.amountGt(listAuthorizationsQueryParams.getAmountGt());
+        request.amountGte(listAuthorizationsQueryParams.getAmountGte());
+        request.amountLt(listAuthorizationsQueryParams.getAmountLt());
+        request.amountLte(listAuthorizationsQueryParams.getAmountLte());
         request.beforeCursor(listAuthorizationsQueryParams.getBeforeCursor());
-        request.limit(listAuthorizationsQueryParams.getLimit());
-        request.idempotencyId(listAuthorizationsQueryParams.getIdempotencyId());
-        request.state(listAuthorizationsQueryParams.getState());
         request.createdAtGte(listAuthorizationsQueryParams.getCreatedAtGte());
         request.createdAtLte(listAuthorizationsQueryParams.getCreatedAtLte());
+        request.idempotencyId(listAuthorizationsQueryParams.getIdempotencyId());
+        request.limit(listAuthorizationsQueryParams.getLimit());
+        request.sort(listAuthorizationsQueryParams.getSort());
+        request.state(listAuthorizationsQueryParams.getState());
         request.updatedAtGte(listAuthorizationsQueryParams.getUpdatedAtGte());
         request.updatedAtLte(listAuthorizationsQueryParams.getUpdatedAtLte());
-        request.isVoid(listAuthorizationsQueryParams.getIsVoid());
-        request.amount(listAuthorizationsQueryParams.getAmount());
-        request.amountLt(listAuthorizationsQueryParams.getAmountLt());
-        request.amountGt(listAuthorizationsQueryParams.getAmountGt());
-        request.amountLte(listAuthorizationsQueryParams.getAmountLte());
-        request.amountGte(listAuthorizationsQueryParams.getAmountGte());
         request.traceId(listAuthorizationsQueryParams.getTraceId());
+        request.isVoid(listAuthorizationsQueryParams.getIsVoid());
         request.instrumentBin(listAuthorizationsQueryParams.getInstrumentBin());
         request.instrumentAccountLast4(listAuthorizationsQueryParams.getInstrumentAccountLast4());
         request.instrumentBrandType(listAuthorizationsQueryParams.getInstrumentBrandType());
