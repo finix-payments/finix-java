@@ -85,10 +85,24 @@ public class ComplianceFormsApiTest {
      */
     @Test
     public void updateComplianceFormsTest() throws ApiException {
-        String complianceFormsId = null;
+        String complianceFormsId2 = "cf_pzJCPAqrt9Z5653V3iXRDv";
+        FinixClient client= new FinixClient("US8MrUh4Eb1L9Kn6rgSKdem4","94879501-e840-4263-ae01-b65e10084893", Environment.SANDBOX);
+        UpdateComplianceFormRequest request = UpdateComplianceFormRequest.builder()
+            .pciSaqA(UpdateComplianceFormRequestPciSaqA.builder()
+            .name("test_java")
+            .signedAt("2022-03-18T16:42:55Z")
+            .userAgent("Mozilla 5.0(Macintosh; IntelMac OS X 10 _14_6)")
+            .ipAddress("42.1.1.113")
+            .title("CEO")
+            .build())
+            .build();
+        ComplianceForm response = client.ComplianceForms.update(complianceFormsId2, request);
+        assertEquals(response.getPciSaqA().getName(), request.getPciSaqA().getName());
+        assertEquals(response.getPciSaqA().getIpAddress(), request.getPciSaqA().getIpAddress());
+        assertEquals(response.getPciSaqA().getTitle(), request.getPciSaqA().getTitle());
+        assertEquals(response.getPciSaqA().getUserAgent(), request.getPciSaqA().getUserAgent());
+        assertEquals(response.getPciSaqA().getSignedAt(), request.getPciSaqA().getSignedAt());
 
-        // ComplianceForm response = finixClient.ComplianceForms.update(complianceFormsId);
-        // TODO: test validations
     }
 
 }
