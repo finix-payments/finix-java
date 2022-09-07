@@ -5092,14 +5092,14 @@ paths:
       summary: List Associated Identities
       tags:
       - Identities
-      x-java-method-name: listAssocaiatedIdentities
+      x-java-method-name: listAssociatedIdentities
       x-group-parameters: true
       x-codeSamples:
       - lang: cURL
         label: curl
         source: "curl https://finix.sandbox-payments-api.com/identities/IDf33pdVaTZGXVFNccdKvaPu/associated_identities\
           \ \\\n  -H \"Content-Type: application/vnd.json+api\" \\\n  -u USsRhsHYZGBPnQw8CByJyEQW:8a14c2f9-d94b-4c72-8f5c-a62908e5b30e\n"
-      x-python-method-name: list_assocaiated_identities
+      x-python-method-name: list_associated_identities
       x-returns-list: true
       x-accepts: application/hal+json
     post:
@@ -15948,7 +15948,8 @@ paths:
       summary: Upload files Directly
       tags:
       - Files
-      x-python-method-name: upload_file
+      x-java-method-name: upload
+      x-python-method-name: upload
       x-content-type: multipart/form-data
       x-accepts: "application/hal+json,application/vnd.api+json"
   /files/{file_id}/download:
@@ -16028,12 +16029,13 @@ paths:
       summary: Download a file
       tags:
       - Files
+      x-java-method-name: download
       x-codeSamples:
       - lang: cURL
         label: curl
         source: "curl https://finix.sandbox-payments-api.com/files/FILE_bJecqoRPasStGPVpvKHtgA/download\
           \ \\\n  -H \"Content-Type: application/vnd.json+api\" \\\n  -u USsRhsHYZGBPnQw8CByJyEQW:8a14c2f9-d94b-4c72-8f5c-a62908e5b30e\n"
-      x-python-method-name: download_file
+      x-python-method-name: download
       x-accepts: "application/hal+json,application/octet-stream"
   /files/{file_id}/external_links/{external_link_id}:
     get:
@@ -16236,6 +16238,7 @@ paths:
       summary: Create an Apple Pay Session
       tags:
       - Payment Instruments
+      x-java-method-name: createApplePaySession
       x-python-method-name: create_apple_pay_session
       x-content-type: application/hal+json
       x-accepts: application/hal+json
@@ -16673,7 +16676,8 @@ paths:
       summary: View Compliance Forms
       tags:
       - Compliance Forms
-      x-python-method-name: get_compliance_forms
+      x-java-method-name: list
+      x-python-method-name: list
       x-accepts: application/json
     put:
       description: "As part of onboarding your users, you'll need to build a UI experience\
@@ -16694,6 +16698,8 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/UpdateComplianceForm'
       responses:
         "200":
           content:
@@ -16821,7 +16827,9 @@ paths:
       summary: Complete Compliance Forms
       tags:
       - Compliance Forms
-      x-python-method-name: update_compliance_forms
+      x-java-method-name: update
+      x-python-method-name: update
+      x-content-type: application/json
       x-accepts: application/json
   /onboarding_forms:
     post:
@@ -16927,7 +16935,8 @@ paths:
       summary: Create an Onboarding Form
       tags:
       - Onboarding Forms
-      x-python-method-name: create_onboarding_form
+      x-java-method-name: create
+      x-python-method-name: create
       x-content-type: application/json
       x-accepts: application/json
   /onboarding_forms/{onboarding_form_id}:
@@ -16985,7 +16994,8 @@ paths:
       summary: Fetch an Onboarding Form
       tags:
       - Onboarding Forms
-      x-python-method-name: get_onboarding_form
+      x-java-method-name: get
+      x-python-method-name: get
       x-accepts: application/json
   /onboarding_forms/{onboarding_form_id}/links:
     post:
@@ -17092,7 +17102,8 @@ paths:
       summary: Create an Onboarding Form Link
       tags:
       - Onboarding Forms
-      x-python-method-name: create_onboarding_form_link
+      x-java-method-name: createLink
+      x-python-method-name: create_link
       x-content-type: application/json
       x-accepts: application/json
 components:
@@ -26227,14 +26238,14 @@ components:
         instrument_type:
           description: The type of `Payment Instrument`.
           enum:
-          - APPLE_PAY
-          - TOKEN
-          - PAYMENT_CARD_PRESENT
-          - SWIPED_PAYMENT_CARD
           - BANK_ACCOUNT
+          - TOKEN
+          - APPLE_PAY
           - VIRTUAL
-          - VANTIV_OMNI_TOKEN
+          - PAYMENT_CARD_PRESENT
           - GOOGLE_PAY
+          - VANTIV_OMNI_TOKEN
+          - SWIPED_PAYMENT_CARD
           - PAYMENT_CARD
           type: string
         last_four:
@@ -26273,14 +26284,14 @@ components:
         type:
           description: Type of `Payment Instrument`.
           enum:
-          - APPLE_PAY
-          - TOKEN
-          - PAYMENT_CARD_PRESENT
-          - SWIPED_PAYMENT_CARD
           - BANK_ACCOUNT
+          - TOKEN
+          - APPLE_PAY
           - VIRTUAL
-          - VANTIV_OMNI_TOKEN
+          - PAYMENT_CARD_PRESENT
           - GOOGLE_PAY
+          - VANTIV_OMNI_TOKEN
+          - SWIPED_PAYMENT_CARD
           - PAYMENT_CARD
           type: string
         _links:
@@ -26350,9 +26361,9 @@ components:
         type:
           description: Type of `Payment Instrument`.
           enum:
-          - APPLE_PAY
-          - TOKEN
           - BANK_ACCOUNT
+          - TOKEN
+          - APPLE_PAY
           - GOOGLE_PAY
           - PAYMENT_CARD
           type: string
@@ -29243,6 +29254,13 @@ components:
       type: object
       x-examples: {}
     UpdateComplianceFormRequest:
+      example:
+        pci_saq_a:
+          name: name
+          signed_at: signed_at
+          ip_address: ip_address
+          title: title
+          user_agent: user_agent
       properties:
         pci_saq_a:
           $ref: '#/components/schemas/UpdateComplianceFormRequest_pci_saq_a'
@@ -34673,6 +34691,12 @@ components:
       type: object
     UpdateComplianceFormRequest_pci_saq_a:
       description: Details used to fille out the PCI Self-Assessment Questionnaire.
+      example:
+        name: name
+        signed_at: signed_at
+        ip_address: ip_address
+        title: title
+        user_agent: user_agent
       properties:
         name:
           description: Name of the person completing (aka attesting to) the `compliance_form`.

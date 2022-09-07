@@ -97,8 +97,8 @@ workflows:
     jobs:
       - assemble:
         filters:
-            branches:
-              only: /^codegen-.*$/
+          branches:
+            only: /^codegen-.*$/
 
   sonarqube:
     jobs:

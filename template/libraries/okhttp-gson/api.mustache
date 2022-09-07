@@ -724,8 +724,10 @@ public class {{classname}} {
             } else {
                 Method setOffset = queryParam.getClass().getMethod("setOffset", Long.class);
                 Method getOffset = pageObject.getClass().getMethod("getOffset");
+                Method getLimit = pageObject.getClass().getMethod("getLimit");
+                Long limit = (Long) getLimit.invoke(pageObject);
                 Long offset = (Long) getOffset.invoke(pageObject);
-                setOffset.invoke(queryParam, offset);
+                setOffset.invoke(queryParam, offset + limit);
             }
         } catch (Exception e) {
             throw new ApiException(e.getMessage());

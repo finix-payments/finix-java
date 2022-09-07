@@ -1,3 +1,5 @@
+find ./src/main/java/model ! -name 'FinixList.java' ! -name 'NextFetchFunction.java' -type f -exec rm -f {} +
+
 openapi-generator generate \
   --enable-post-process-file \
   -g java \
