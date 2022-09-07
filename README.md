@@ -133,3 +133,5 @@ try {
 - Verifications
 - Merchant Profiles
 - Fee Profiles
+- Onboarding Forms
+- Compliance Forms
