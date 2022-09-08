@@ -9,13 +9,13 @@ openapi-generator generate \
   -o ${PWD} \
   -p groupId=com.finix \
   --additional-properties=artifactId=finix-java \
-  --additional-properties=artifactVersion=0.0.1 \
-  --additional-properties=url=0.0.1-SNAPSHOT \
+  --additional-properties=artifactVersion=1.0.0 \
+  --additional-properties=url=1.0.0-SNAPSHOT \
   --additional-properties=enumUnknownDefaultCase=true \
   --additional-properties=hideGenerationTimestamp=true \
   --global-property skipFormModel=false \
   \
-  --global-property httpUserAgent=finix-java/0.0.1 \
+  --global-property httpUserAgent=finix-java/1.0.0 \
   --global-property modelTests=false,modelDocs=false \
   --global-property apiDocs=false \
   --skip-validate-spec \
