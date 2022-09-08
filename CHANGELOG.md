@@ -1,6 +1,6 @@
 ## 1.0.0 - 2022-09-08
 * Supported API Version: 2022-02-01
-* Initial release of the Nodejs / Typescript library.
+* Initial GA release of the Nodejs / Typescript library.
 * Added support for the following APIs:
     * Transfers
     * Authorization

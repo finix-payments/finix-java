@@ -15,7 +15,7 @@ Add the following to your project's pom.xml:
 <dependency>
   <groupId>com.finix</groupId>
   <artifactId>finix-java</artifactId>
-  <version>0.0.1</version>
+  <version>1.0.0</version>
 </dependency>
 ```
 
@@ -23,7 +23,7 @@ Add the following to your project's pom.xml:
 
 Add the following to your project's build.gradle
 ```
-implementation 'com.finix:finix-java:0.0.1'
+implementation 'com.finix:finix-java:1.0.0'
 ```
 
 ## Using the Library

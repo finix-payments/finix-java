@@ -166,7 +166,7 @@ public class FinixClient {
         json = new JSON();
         //Edited
         // Set default User-Agent.
-        setUserAgent("finix-java/0.0.1");
+        setUserAgent("finix-java/1.0.0");
 
         authentications = new HashMap<String, Authentication>();
 
