@@ -5,7 +5,7 @@
     <artifactId>finix-java</artifactId>
     <packaging>jar</packaging>
     <name>finix-java</name>
-    <version>0.0.1</version>
+    <version>1.0.0</version>
     <url>https://github.com/finix-payments/finix-java</url>
     <description>Finix Java</description>
     <!--<scm>
