@@ -1,6 +1,6 @@
 # Finix Java Library
 
-This is the official Finix Java library
+At this time, the Finix Java SDK is not receiving regular updates or improvements. We plan on releasing a new version of our Java SDK in the near future. If you have any questions, please reach out to the [Finix Support Team](mailto:support@finixpayments.com).
 
 ## Installation
 
