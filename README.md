@@ -6,7 +6,7 @@ At this time, the Finix Java SDK is not receiving regular updates or improvement
 
 Our team is hard at work revamping our SDKs to bring you exciting new features and optimizations.
 
-While we fine-tune and make changes, we've temporarily paused releasing updates since 09/20/222. If you have any questions, feel free to reach out to the [Finix Support Team](mailto:support@finixpayments.com).
+While we fine-tune and make changes, we've paused releasing updates since 09/20/2022. If you have any questions, feel free to reach out to the [Finix Support Team](mailto:support@finixpayments.com).
 
 ### Prerequisites
 - Java 1.8+
